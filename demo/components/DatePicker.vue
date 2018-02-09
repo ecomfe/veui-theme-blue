@@ -2,13 +2,6 @@
     <article>
         <h1><code>&lt;veui-date-picker&gt;</code></h1>
         <section>
-            <h2>timePicker</h2>
-            <p>
-                <date-time-picker v-model="selectedDate" @timeChange="timeChange"></date-time-picker>
-            </p>
-        </section>
-
-        <section>
             <h2>普通</h2>
             <p>
                 <veui-date-picker v-model="selected1"></veui-date-picker>
@@ -74,13 +67,11 @@
 
 <script>
     import {DatePicker} from 'veui';
-    import DateTimePicker from './DateTimePicker';
 
     export default {
         name: 'date-picker-demo',
         components: {
-            'veui-date-picker': DatePicker,
-            DateTimePicker
+            'veui-date-picker': DatePicker
         },
         data() {
             return {
