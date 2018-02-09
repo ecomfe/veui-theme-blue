@@ -1,0 +1,115 @@
+@import "../lib.less";
+
+.veui-field {
+  vertical-align: top;
+  clear: both;
+
+  &-required > .veui-form-label::after {
+    .veui-field-require();
+  }
+
+  &-no-label::before {
+    content: "";
+    display: inline-block;
+    width: @veui-form-label-width;
+  }
+
+  & > * {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  & > *:not([class*="veui-form-label"]) + * {
+    margin-left: 10px;
+  }
+
+  .veui-form-label {
+    height: @veui-height-normal;
+    width: @veui-form-label-width;
+    line-height: @veui-height-normal;
+  }
+
+  .veui-span {
+    line-height: @veui-height-normal;
+  }
+
+  &-error {
+    position: static;
+    height: @veui-height-normal;
+    line-height: @veui-height-normal;
+    margin: 0 0 0 10px;
+    vertical-align: top;
+    color: @veui-alert-color;
+
+    .veui-icon {
+      margin-right: 7px;
+    }
+  }
+
+  .veui-form-tip {
+    height: @veui-height-normal;
+    line-height: @veui-height-normal;
+    margin-left: 10px;
+    color: @veui-text-color-weak;
+  }
+
+  .veui-form-tip + .veui-field-error {
+    .veui-field-gap-error();
+  }
+
+  .veui-form-label ~ .veui-form-tip + .veui-field-error {
+    margin-left: @veui-form-label-width;
+  }
+
+  .veui-form-label,
+  .veui-field-error,
+  .veui-form-tip,
+  .veui-span {
+    .veui-icon {
+      vertical-align: top;
+      margin-top: ~"calc(@{veui-height-normal} / 2 - .5em)";
+    }
+  }
+
+  &[ui~="small"] {
+    font-size: @veui-font-size-small;
+
+    .veui-form-label,
+    .veui-field-error,
+    .veui-form-tip,
+    .veui-span {
+      line-height: @veui-height-small;
+
+      .veui-icon {
+        margin-top: ~"calc(@{veui-height-small} / 2 - .5em)";
+      }
+    }
+
+    .veui-form-label,
+    .veui-field-error,
+    .veui-form-tip {
+      height: @veui-height-small;
+    }
+  }
+
+  &[ui~="large"] {
+    font-size: @veui-font-size-large;
+
+    .veui-form-label,
+    .veui-field-error,
+    .veui-form-tip,
+    .veui-span {
+      line-height: @veui-height-large;
+
+      .veui-icon {
+        margin-top: ~"calc(@{veui-height-large} / 2 - .5em)";
+      }
+    }
+
+    .veui-form-label,
+    .veui-field-error,
+    .veui-form-tip {
+      height: @veui-height-large;
+    }
+  }
+}
