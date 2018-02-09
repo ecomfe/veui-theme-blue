@@ -1,0 +1,79 @@
+@import "../lib.less";
+.veui-radio {
+    display: inline-block;
+    color: @veui-text-color-normal;
+    font-size: @veui-font-size-small;
+    line-height: @veui-font-size-large ;
+    cursor: pointer;
+
+    input,
+    .veui-icon {
+        display: none;
+    }
+
+    &-label,
+    &-box {
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .veui-field > & {
+        //line-height: @veui-height-normal;
+
+        .veui-radio-box {
+            vertical-align: text-top;
+        }
+    }
+
+    &-box {
+        position: relative;
+        height: @veui-font-size-small;
+        width: @veui-font-size-small;
+        border: 1px solid @veui-middle-gray-color4;
+        background-color: #fff;
+        margin-right: 7px;
+        border-radius: 50%;
+        font-size: @veui-font-size-small;
+    }
+
+    & :checked + &-box {
+        border-color: @veui-theme-color;
+        background-color: #fff;
+
+        &::before {
+            content: "";
+            display: block;
+            .size(@veui-font-size-small);
+            background-color: @veui-theme-color;
+            border-radius: 50%;
+            .absolute(50%, 50%);
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+    }
+
+    &.veui-disabled {
+        cursor: not-allowed;
+
+        .veui-radio-label {
+            color: @veui-text-color-normal;
+        }
+        input:checked + .veui-radio-box {
+            opacity: 0.4;
+            border-color: @veui-theme-color-1;
+            background-color: @veui-light-gray-color1;
+            &::before {
+                background-color: @veui-theme-color-1;
+            }
+        }
+
+    }
+
+    & :disabled + &-box {
+        border-color: @veui-middle-gray-color4;
+        background-color: @veui-light-gray-color4;
+        &::before {
+            background-color: @veui-middle-gray-color4;
+        }
+    }
+
+}

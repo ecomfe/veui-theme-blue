@@ -1,0 +1,84 @@
+@import "../lib.less";
+.veui-checkbox {
+    display: inline-block;
+    color: @veui-dark-gray-color2;
+    font-size: @veui-font-size-small;
+    line-height: @veui-font-size-large;
+    cursor: pointer;
+
+    input,
+    .veui-icon {
+        display: none;
+    }
+
+    &-label,
+    &-box {
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .veui-field > & {
+        //line-height: @veui-height-normal;
+
+        .veui-checkbox-box {
+            vertical-align: text-top;
+        }
+    }
+
+    &-box {
+        position: relative;
+        height: @veui-font-size-small;
+        width: @veui-font-size-small;
+        margin-right: 7px;
+        border: 1px solid @veui-middle-gray-color4;
+        background-color: #fff;
+        font-size: @veui-font-size-small;
+    }
+
+    & :checked + &-box,
+    & :indeterminate + &-box {
+        border-color: @veui-theme-color;
+        background: @veui-theme-color;
+
+        & > .veui-icon {
+            display: block;
+            color: @veui-light-gray-color5;
+            .absolute(50%, 50%);
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &.veui-disabled {
+        cursor: not-allowed;
+
+        .veui-checkbox-label {
+            color: @veui-dark-gray-color2;
+        }
+        input:checked + .veui-checkbox-box {
+            opacity: 0.4;
+            border-color: @veui-theme-color-1;
+            background-color: @veui-light-gray-color1;
+            & > .veui-icon {
+                color: @veui-theme-color-1;
+            }
+        }
+        input:indeterminate + .veui-checkbox-box {
+            opacity: 0.4;
+            border-color: @veui-theme-color-1;
+            background-color: @veui-light-gray-color1;
+            & > .veui-icon {
+                color: @veui-theme-color-1;
+            }
+        }
+
+    }
+
+    &.veui-disabled &-box {
+        border-color: @veui-middle-gray-color4;
+        background: @veui-light-gray-color4;
+        .veui-icon {
+            color: @veui-middle-gray-color3;
+        }
+    }
+}
+

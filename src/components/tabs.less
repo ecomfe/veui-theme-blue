@@ -1,0 +1,244 @@
+@import "../lib.less";
+
+.veui-tabs {
+  position: relative;
+
+  .make-margin(@margin) {
+    margin-left: @margin;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &-menu {
+    overflow: hidden;
+    white-space: nowrap;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: ~"calc(2.5em - 1px)";
+      width: 100%;
+      border-bottom: 1px solid @veui-gray-color-6;
+    }
+  }
+
+  &-list {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-item {
+    display: inline-block;
+    .make-margin(60px);
+
+    & > .veui-icon {
+      visibility: hidden;
+      color: @veui-text-color-weak;
+      cursor: pointer;
+
+      &:hover {
+        color: @veui-text-color-normal;
+      }
+
+      &:active {
+        color: @veui-gray-color-1;
+      }
+    }
+
+    &:hover > .veui-icon {
+      visibility: visible;
+    }
+
+    & > a,
+    & > span {
+      cursor: pointer;
+      padding: 0 10px;
+      line-height: 2.5;
+      display: inline-block;
+      text-decoration: none;
+      outline: none;
+      position: relative;
+    }
+
+    &:not(.veui-tabs-item-disabled) > a,
+    &:not(.veui-tabs-item-disabled) > span {
+      &::after {
+        content: "";
+        .absolute(_, _, 0, 10px);
+        width: ~"calc(100% - 20px)";
+        height: 2px;
+        z-index: 1;
+      }
+
+      &:hover::after {
+        background-color: @veui-gray-color-3;
+      }
+
+      &:active::after {
+        background-color: @veui-gray-color-1;
+      }
+    }
+
+    &-active {
+      & > a,
+      & > span {
+        &::after {
+          background-color: @veui-gray-color-1;
+        }
+      }
+    }
+
+    &:first-child {
+      & > a,
+      & > span {
+        margin-left: -10px;
+      }
+    }
+
+    &-disabled {
+      & > a,
+      & > span {
+        cursor: not-allowed;
+        color: @veui-text-color-weak;
+      }
+    }
+  }
+
+  &-extra {
+    display: inline-block;
+    padding-left: 60px;
+    background-color: #fff;
+
+    .veui-tabs-list-empty + & {
+      padding-left: 0;
+    }
+
+    &.veui-tabs-extra-overflow {
+      height: 2.5em;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-bottom: 1px solid @veui-gray-color-6;
+      z-index: 2;
+    }
+  }
+
+  &-operator {
+    display: inline-block;
+    line-height: 2.5;
+    cursor: pointer;
+
+    .veui-icon {
+      margin-right: 6px;
+    }
+  }
+
+  &-item,
+  &-operator {
+    .veui-icon {
+      vertical-align: top;
+      margin-top: ~"calc(@{veui-height-normal} / 2 - .5em - 1px)";
+      user-select: none;
+    }
+  }
+
+  &-scroller {
+    display: inline-block;
+    line-height: 2.5;
+    margin-left: 30px;
+
+    &-left,
+    &-right {
+      display: inline-block;
+      .make-margin(5px);
+      .size(2 * @veui-font-size-normal);
+      background-color: @veui-gray-color-8;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: @veui-gray-color-5;
+      }
+
+      &:active {
+        background-color: @veui-gray-color-3;
+      }
+    }
+  }
+
+  &[ui~="large"] & {
+    &-menu::after,
+    &-extra,
+    &-item,
+    &-operator {
+      font-size: @veui-font-size-large;
+    }
+
+    &-item {
+      .make-margin(60px);
+    }
+
+    &-operator {
+      padding: 0 10px;
+    }
+
+    &-item,
+    &-operator {
+      .veui-icon {
+        margin-top: ~"calc(@{veui-height-large} / 2 - .5em - 1px)";
+      }
+    }
+
+    &-scroller {
+      &-left,
+      &-right {
+        .size(2 * @veui-font-size-large);
+
+        .veui-icon {
+          font-size: @veui-font-size-normal;
+          vertical-align: text-top;
+        }
+      }
+    }
+  }
+
+  &[ui~="small"] & {
+    &-item {
+      .make-margin(40px);
+    }
+
+    &-menu {
+      border-bottom: none;
+    }
+  }
+
+  &[ui~="tiny"] & {
+    &-menu {
+      border-bottom: none;
+    }
+
+    &-item {
+      .make-margin(20px);
+      position: relative;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 14px;
+        background-color: @veui-gray-color-6;
+        .absolute(10px, _, _, -10px);
+      }
+
+      &:first-child::before {
+        display: none;
+      }
+    }
+  }
+}

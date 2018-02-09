@@ -1,0 +1,91 @@
+@import "../lib.less";
+
+.veui-alert {
+  position: relative;
+  padding: 10px 20px;
+  margin: 30px;
+  span {
+    display: inline-block;
+  }
+
+  &-icon {
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    font-size: @veui-font-size-large;
+  }
+
+  &-message {
+    margin: 0 56px 0 36px;
+  }
+  &-success {
+      background-color: @veui-success-background-color;
+      color: @veui-success-color;
+      border: 1px solid @veui-success-border-color;
+      border-radius: 2px;
+      .veui-alert-icon {
+          //background-color: @veui-success-color;
+          //color: #fff !important;
+          //border-radius: 50%;
+      }
+      .fa-icon {
+          color: @veui-success-color;
+      }
+  }
+  &-warning {
+      background-color: @veui-warning-background-color;
+      color: @veui-warning-color;
+      border: 1px solid @veui-warning-border-color;
+      border-radius: 2px;
+      .veui-alert-icon {
+          //background-color: @veui-warning-color;
+          //color: #fff !important;
+          //border-radius: 50%;
+      }
+      .veui-icon {
+          color: @veui-warning-color;
+      }
+  }
+  &-error {
+      background-color: @veui-error-background-color;
+      color: @veui-error-color;
+      border: 1px solid @veui-error-border-color;
+      border-radius: 2px;
+      .veui-alert-icon {
+          //background-color: @veui-error-color;
+          //color: #fff !important;
+          //border-radius: 50%;
+      }
+      .veui-icon {
+          color: @veui-error-color;
+      }
+  }
+
+  &-nav,
+  &-close {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  &-nav {
+    .veui-button:first-child {
+      //margin-right: 10px;
+    }
+  }
+
+  .veui-alert-close-text {
+    color: @veui-theme-color;
+
+    &:hover,
+    &.focus-ring {
+      color: @veui-theme-color;
+    }
+
+    &:active {
+      color: @veui-theme-color;
+    }
+  }
+}

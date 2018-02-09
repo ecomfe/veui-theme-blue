@@ -1,0 +1,93 @@
+@import "../lib.less";
+
+.veui-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  color: @veui-text-color-normal;
+  border: 1px solid @veui-gray-color-5;
+
+  &-cell {
+    display: inline-block;
+    line-height: 2;
+    vertical-align: middle;
+  }
+
+  th,
+  td {
+    // .veui-make-table-row-height();
+    height: 38px;
+    .padding(_, 16px);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  th {
+    font-weight: @veui-font-weight-bold;
+  }
+
+  td {
+    border: 1px solid @veui-gray-color-5;
+    border-style: solid none;
+  }
+
+  tfoot th {
+    border-top: none;
+  }
+
+  td&-no-data {
+    height: 300px;
+    text-align: center;
+  }
+
+  .veui-table-selected-row {
+    td {
+      background-color: @veui-gray-color-8;
+    }
+  }
+
+  tr:hover {
+    td {
+      background-color: @veui-gray-color-8;
+    }
+
+    .veui-table-no-data {
+      background-color: transparent;
+    }
+  }
+
+  .veui-button + .veui-button {
+    margin-left: 30px;
+  }
+
+  &-header {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  & &-column-center {
+    text-align: center;
+  }
+
+  & &-column-right {
+    text-align: right;
+    padding-right: 38px;
+  }
+
+  .veui-sorter {
+    margin-left: 5px;
+    font-size: @veui-font-size-small;
+  }
+
+  &[ui~="slim"] {
+    th,
+    td {
+    }
+  }
+
+  &[ui~="alt"] thead {
+    th {
+      background-color: @veui-gray-color-8;
+    }
+  }
+}

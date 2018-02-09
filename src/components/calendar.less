@@ -1,0 +1,255 @@
+@import "../lib.less";
+
+.veui-calendar {
+  display: inline-block;
+  overflow: hidden;
+  border: 1px solid @veui-gray-color-6;
+  background-color: #fff;
+
+  box-shadow: 0 1px 7px 0 rgba(0,0,0,0.14);
+  width: 234px;
+  color: @veui-gray-color-3;
+
+  button {
+    .veui-button-transition();
+  }
+
+  &-panel {
+    display: inline-block;
+    position: relative;
+
+    & + & {
+      .veui-calendar-head {
+        margin-left: 1px;
+      }
+
+      .veui-calendar-body {
+        border-left: 1px solid #fff;
+      }
+    }
+
+    &::before {
+      //content: "";
+      .absolute(36px, 0, _, 0);
+      height: 0;
+      border-bottom: 1px solid @veui-gray-color-6;
+    }
+  }
+
+  &-days + &-months,
+  &-days + &-years,
+  &-months + &-days,
+  &-years + &-days {
+    .veui-calendar-body {
+      border-color: @veui-gray-color-6;
+    }
+  }
+
+  &-body {
+    border-collapse: collapse;
+    table-layout: fixed;
+    padding-bottom: 5px;
+
+    button {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      font-size: 11px;
+      border-radius: 4px;
+      margin-top: 1px;
+      border: none;
+      padding: 0;
+      background-color: #fff;
+      color: @veui-gray-color-3;
+      text-align: center;
+      outline: none;
+
+      &:hover,
+      &.focus-ring {
+        background-color: @veui-brand-color-10;
+        color: @veui-text-color-strong;
+      }
+
+      &:active {
+        background-color: @veui-brand-color-9;
+      }
+
+      &:disabled {
+        &,
+        &:hover {
+          background-color: #fff;
+          color: @veui-gray-color-5;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  th {
+    .size(36px, 34px);
+    background-color: #fff;
+    color: #808080;
+    font-size: 11px;
+    font-weight: @veui-font-weight-normal;
+  }
+
+  td {
+    position: relative;
+    .size(36px, 30px);
+    padding: 0;
+    color: @veui-text-color-normal;
+  }
+
+  th,
+  td {
+    text-align: center;
+  }
+
+  &-aux {
+    button {
+      color: @veui-text-color-aux;
+    }
+  }
+
+  &-today {
+    button {
+      font-weight: @veui-font-weight-extra-bold;
+    }
+  }
+
+  &-selected,
+  &-in-range {
+    button {
+      //background-color: @veui-brand-color-8;
+      background: rgba(77,161,255,0.10);
+      border-radius: 4px;
+
+      &:hover,
+      &.focus-ring {
+        background-color: @veui-brand-color-7;
+      }
+
+      &:active {
+        background-color: @veui-brand-color-6;
+      }
+    }
+  }
+
+  &-head {
+    padding: 13px 6px 20px;
+    text-align: center;
+    .clearfix();
+
+    button {
+      color: @veui-gray-color-3;
+      height: 28px;
+      background: none;
+      border: none;
+      padding: 0 5px;
+      outline: none;
+      cursor: pointer;
+      b {
+        font-weight: @veui-font-weight-normal;
+      }
+
+      .veui-icon {
+        width: 16px;
+        vertical-align: middle;
+        color: @veui-theme-color;
+      }
+
+      &:hover,
+      &.focus-ring {
+      }
+
+      &.veui-calendar-select {
+        background: #fbfcfd;
+        border: 1px solid rgba(217,217,217,0.50);
+        border-radius: 4px;
+        margin: auto 2px;
+        min-width: 52px;
+        .veui-icon {
+          color: inherit;
+          margin-left: -18px;
+          background: #fbfcfd;
+          height: 100%;
+          display: inline-block;
+        }
+      }
+
+      &:active {
+        //background-color: @veui-gray-color-6;
+        color: @veui-text-color-normal;
+
+        .veui-icon {
+          color: inherit;
+        }
+      }
+
+      &:disabled {
+        &,
+        &:hover {
+          color: @veui-text-color-aux;
+          background: transparent;
+          cursor: not-allowed;
+        }
+
+        .veui-icon {
+          color: inherit;
+          background: #fff;
+        }
+      }
+    }
+  }
+
+  &-label {
+    line-height: 36px;
+    color: @veui-gray-color-3;
+  }
+
+  &-prev,
+  &-next {
+    width: 36px;
+  }
+
+  &-prev {
+    float: left;
+  }
+
+  &-next {
+    float: right;
+  }
+
+  &-days {
+    th,
+    td {
+      &:first-child {
+        padding-left: 10px;
+      }
+
+      &:last-child {
+        padding-right: 10px;
+      }
+
+      &:first-child,
+      &:last-child {
+        width: 41px;
+      }
+    }
+  }
+
+  &-months,
+  &-years {
+    td {
+      .size(60px, 65px);
+
+      button {
+        .size(54px);
+      }
+    }
+
+    .veui-calendar-body {
+      padding: 9px 11px 20px;
+    }
+  }
+}
