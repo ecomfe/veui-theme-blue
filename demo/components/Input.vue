@@ -54,15 +54,39 @@
         </div>
       </div>
 
+      <div class="form-row five-sizes">
+        <div class="form-key">5 种大小：</div>
+        <div class="form-value">
+          <p>
+            <label>micro</label>
+            <veui-input ui="micro" v-model="poem"></veui-input>
+          </p>
+          <p>
+            <label>tiny</label>
+            <veui-input ui="tiny" v-model="poem"></veui-input>
+          </p>
+          <p>
+            <label>small</label>
+            <veui-input ui="small" v-model="poem"></veui-input>
+          </p>
+          <p>
+            <label>normal</label>
+            <veui-input v-model="poem"></veui-input>
+          </p>
+          <p>
+            <label>large</label>
+            <veui-input ui="large" v-model="poem"></veui-input>
+          </p>
+        </div>
+      </div>
+
     </section>
   </article>
 </template>
 
 <script>
-/* eslint-disable */
 import bus from '../bus'
 import { Input } from 'veui'
-
 export default {
   name: 'text-input',
   components: {
@@ -78,7 +102,8 @@ export default {
       hiddenValue: '隐藏值',
       textarea1: '1. 使用rows\n2. 固定3行高度\n3. 不包括padding',
       textarea2: '设置高度，同时可缩放',
-      textarea3: '默认高度'
+      textarea3: '默认高度',
+      poem: '兩岸猿聲啼不住，輕舟已過萬重山'
     }
   },
   methods: {
@@ -91,40 +116,40 @@ export default {
 
 <style lang="less">
 @import "~less-plugin-est/src/all.less";
-
 .form-row {
   margin-bottom: 10px;
   .clearfix();
 }
-
 .form-key {
   line-height: 42px;
   float: left;
 }
-
 .form-value {
   float: left;
-
   .veui-input,
   .veui-textarea {
     width: 280px;
     margin-right: 10px;
   }
-
   .veui-textarea {
     vertical-align: top;
-
     &:nth-child(1) {
       height: auto;
     }
-
     &:nth-child(2) {
       height: 100px;
     }
   }
 }
-
 .hidden-tips {
   line-height: 42px;
+}
+.five-sizes {
+  p > label {
+    text-transform: capitalize;
+    display: inline-block;
+    width: 60px;
+    color: #999;
+  }
 }
 </style>
