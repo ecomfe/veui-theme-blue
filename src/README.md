@@ -1,6 +1,6 @@
 # veui-theme-blue
 
-Baidu BI Team theme for VEUI.
+BI theme for VEUI.
 
 ## Installation
 
