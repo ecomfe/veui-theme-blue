@@ -1,7 +1,7 @@
 {
-  "name": "veui-theme-bi",
-  "version": "1.0.0",
-  "description": "BI Team theme for VEUI.",
+  "name": "veui-theme-blue",
+  "version": "0.0.1-debug.1",
+  "description": "BI theme for VEUI.",
   "scripts": {
     "icons": "node build/svg2json.js && node build/icons.js"
   },
@@ -11,7 +11,7 @@
     "baidu",
     "less"
   ],
-  "author": "BI Team",
+  "author": "Baidu BI Team",
   "license": "MIT",
   "dependencies": {
     "less-plugin-est": "^2.0.5"
