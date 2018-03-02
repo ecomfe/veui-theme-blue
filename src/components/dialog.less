@@ -17,6 +17,7 @@
     width: 400px;
     max-height: 100vh;
     overflow-y: auto;
+    outline: none;
     .veui-overlay-shadow();
 
     &-head,
@@ -39,16 +40,28 @@
       font-size: @veui-font-size-large;
     }
 
-    &-head-close,
-    &-head-close:hover {
-      float: right;
-      .centered-line(14px);
-      text-align: center;
-      font-size: @veui-font-size-normal;
-      cursor: pointer;
-      position: absolute;
-      top: 10px;
-      right: 10px;
+    &-head-close {
+      .veui-button-transition();
+      outline: none;
+
+      &,
+      &:hover {
+        border: none;
+        background: none;
+        float: right;
+        .centered-line(14px);
+        text-align: center;
+        font-size: @veui-font-size-normal;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+      &:hover,
+      &:focus {
+        color: @veui-brand-color;
+      }
     }
 
     &-body {

@@ -77,7 +77,7 @@
 </script>
 
 <style lang="less">
-@import "~veui-theme-bi/lib.less";
+@import "~veui-theme-blue/lib.less";
 
     article {
         div {

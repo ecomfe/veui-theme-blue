@@ -1,20 +1,18 @@
 @import "../lib.less";
 
 .veui-pager {
-  @button-width: 30px;
-  @button-height: 30px;
+  @button-width: 28px;
+  @button-height: 28px;
   @button-gap-width: 6px;
 
   @digit-width: 28px;
   @digit-width-delta: 6px;
-  @digit-height: 30px;
-
-  @digit-size: 14px;
+  @digit-height: 28px;
+  @interval-size: 8px; // 分页按钮之间的间隔
 
   .clearfix();
   display: inline-block;
-  color: @veui-text-color-normal;
-  // font-weight: @veui-font-weight-normal;
+  color: @veui-dark-gray-color2;
 
   a {
     color: inherit;
@@ -26,9 +24,11 @@
   }
 
   &-info {
+    display: none;
     float: left;
     margin-right: @button-gap-width;
     line-height: @digit-height;
+    color: @veui-dark-gray-color3;
   }
 
   &-total,
@@ -42,19 +42,12 @@
 
   &-switch {
     float: left;
-
-    .veui-active a,
-    .veui-active span {
-      color: @veui-text-color-strong;
-    }
-  }
-
-  .veui-active a,
-  .veui-active span {
-    background-color: @veui-gray-color-7;
   }
 
   &-buttons {
+    float: left;
+    margin-left: @button-gap-width;
+
     a {
       .veui-button-transition();
     }
@@ -62,33 +55,28 @@
 
   &-buttons a,
   &-buttons span {
-    border: 1px solid @veui-gray-color-5;
-    background: transparent;
+    border: 1px solid @veui-middle-gray-color4;
+    background: @veui-light-gray-color5;
+    border-radius: @veui-border-radius-normal;
+    color: @veui-dark-gray-color2;
 
-    &:hover {
-      color: @veui-text-color-strong;
-      background-color: @veui-gray-color-8;
-    }
-
-    &.focus-ring {
+    &.focus-visible {
       color: @veui-brand-color;
-    }
-
-    &:active {
-      background-color: @veui-gray-color-6;
     }
 
     &.veui-disabled {
       &,
       &:hover,
       &:active {
-        background-color: @veui-gray-color-7;
-        border-color: transparent;
-        color: @veui-text-color-aux;
+        background-color: @veui-light-gray-color6;
+        border-color: @veui-middle-gray-color4;
+        color: @veui-middle-gray-color5;
+        border-radius: @veui-border-radius-normal;
       }
     }
 
     .veui-icon {
+      .size(6px, 9px);
       .veui-position-center()
     }
   }
@@ -104,7 +92,7 @@
       height: @button-height;
       line-height: @button-height - 2px;
       white-space: nowrap;
-      color: @veui-text-color-strong;
+      color: @veui-text-color;
 
       .veui-icon {
         @height: @button-height / 2 - 1px;
@@ -120,17 +108,11 @@
     }
   }
 
-  &-buttons {
-    float: left;
-    margin-left: @button-gap-width;
-  }
-
   &-previous,
   &-next {
     position: relative;
     float: left;
-    width: @button-width;
-    height: @button-height;
+    .size(@button-width, @button-height);
     line-height: @button-width - 2px;
     text-align: center;
   }
@@ -143,39 +125,50 @@
 
     li {
       float: left;
-      width: @digit-width;
+      min-width: @digit-width;
       height: @digit-height;
       text-align: center;
       line-height: @digit-height;
-      font-size: @digit-size;
+      border: 1px solid @veui-middle-gray-color4;
+      border-radius: @veui-border-radius-normal;
+      margin-left: @interval-size;
+      &:first-child {
+        margin-left: 0;
+      }
 
       a,
       span {
         display: inline-block;
         min-width: @button-width;
-        .padding(_, 6px);
+        .padding(_, 10px);
         cursor: pointer;
 
-        &:hover {
-          color: @veui-text-color-strong;
+        &.focus-visible {
+          color: @veui-theme-click-color;
         }
+      }
 
-        &.focus-ring {
-          color: @veui-link-color-active;
-        }
+      &:hover,
+      &.veui-active {
+        border: 1px solid @veui-theme-color;
+        background-color: @veui-theme-color;
+        color: @veui-light-gray-color5;
+      }
+      &.veui-active:hover {
+        background-color: @veui-theme-click-color;
+        border: 1px solid @veui-theme-click-color;
       }
     }
 
     span {
-      color: @veui-link-color-weak;
+      color: @veui-dark-gray-color3;
     }
   }
 
   .generate-responsive-page-digit-width(@length, @scale-ratio: 1) when (@length > 2) {
-
     .veui-pager-digit-length-@{length} {
       li {
-        width: (@digit-width + @digit-width-delta * (@length - 2)) * @scale-ratio;
+        min-width: @digit-width;
       }
     }
 
@@ -184,8 +177,7 @@
 
   .generate-responsive-page-digit-width(4);
 
-  &,
-  &[ui~="slim"] {
+  & {
     .veui-pager-switch {
       padding: 0 @button-width + @button-gap-width;
       position: relative;
@@ -196,7 +188,6 @@
       left: 0;
     }
   }
-
   &[ui~="hetero"],
   &[ui~="full"] {
     .veui-pager-switch {
@@ -218,36 +209,110 @@
       display: block;
     }
   }
+  &[ui~="simple"] {
+    li {
+      min-width: @button-width;
+      height: @button-height;
+      line-height: @button-height;
+      border: 0 none;
+      font-size: @veui-font-size-normal;
 
-  &[ui~="slim"] {
-    @scale: 2 / 3;
-
+      &:hover,
+      &.veui-active {
+        color: @veui-theme-color;
+        background: transparent;
+        border: 0 none;
+      }
+      &.veui-active:hover {
+        color: @veui-theme-click-color;
+      }
+    }
+    .veui-pager-buttons{
+      a, span {
+        border: 0 none;
+        background: transparent;
+        border-radius: 0;
+      }
+    }
+  }
+  &[ui~="square"] {
+    @square-width: 50px; // square类型的宽度
+    @square-height: 50px; // square类型的高度
+    @square-font-size: 15px; // square类型的字体大小
+    @square-interval-size: 10px; // square类型的li之间的间隔
     .veui-pager-switch {
-      padding: 0 (@button-height + @button-gap-width) * @scale;
+      padding: 0 @square-width;
+    }
+    li {
+      min-width: @square-width;
+      height: @square-height;
+      line-height: @square-height;
+      border: 0 none;
+      font-size: @square-font-size;
+      margin-left: @square-interval-size;
 
-      li {
-        width: @digit-width * @scale;
-        height: @digit-height * @scale;
-        line-height: @digit-height * @scale;
-        font-size: @veui-font-size-small;
-
-        a {
-          min-width: @button-width * @scale;
+      &:hover,
+      &.veui-active {
+        border: 1px solid @veui-theme-color;
+        color: @veui-light-gray-color5;
+      }
+    }
+    .veui-pager-previous,
+    .veui-pager-next {
+      .size(@square-width);
+      line-height: @square-height;
+    }
+    .veui-pager-buttons{
+      a, span {
+        .veui-icon {
+          .size(8px, 14px);
         }
       }
     }
-
-    .veui-pager-previous,
-    .veui-pager-next {
-      width: @button-height * @scale;
-      height: @button-height * @scale;
-      line-height: 1.5;
+  }
+  &[ui~="big_square"] {
+    @big-square-width: 64px; // big-square类型的宽度
+    @big-square-height: 64px; // big-square类型的高度
+    @big-square-interval-size: 0; // big-square类型的li之间的间隔
+    @big-square-font-size: 17px; // big-square类型的font-size
+    .veui-pager-switch {
+      padding: 0 @big-square-width;
     }
+    li {
+      min-width: @big-square-width;
+      height: @big-square-height;
+      line-height: @big-square-width;
+      border: 0 none;
+      border-left: 1px solid @veui-dark-gray-color3;
+      margin-left: @big-square-interval-size;
+      font-size: @big-square-font-size;
+      border-radius: 0;
+      &:last-child {
+        border-right: 1px solid @veui-dark-gray-color3;
+      }
 
-    .veui-icon {
-      height: @digit-height * @scale / 2;
+      &.veui-active {
+        color: @veui-light-gray-color5;
+        border: 0 none;
+        &+li { // 当前选中元素的下一元素border也置成0
+          border: 0 none;
+        }
+      }
     }
-
-    .generate-responsive-page-digit-width(4, .8);
+    .veui-pager-buttons{
+      a, span {
+        border: 0 none;
+        background: transparent;
+        border-radius: 0;
+      }
+    }
+    .veui-pager-buttons{
+      a, span {
+        .size(@big-square-width);
+        .veui-icon {
+          .size(8px, 14px);
+        }
+      }
+    }
   }
 }

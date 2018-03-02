@@ -87,6 +87,7 @@
 <script>
 import bus from '../bus'
 import { Input } from 'veui'
+
 export default {
   name: 'text-input',
   components: {
@@ -116,34 +117,43 @@ export default {
 
 <style lang="less">
 @import "~less-plugin-est/src/all.less";
+
 .form-row {
   margin-bottom: 10px;
   .clearfix();
 }
+
 .form-key {
   line-height: 42px;
   float: left;
 }
+
 .form-value {
   float: left;
+
   .veui-input,
   .veui-textarea {
     width: 280px;
     margin-right: 10px;
   }
+
   .veui-textarea {
     vertical-align: top;
+
     &:nth-child(1) {
       height: auto;
     }
+
     &:nth-child(2) {
       height: 100px;
     }
   }
 }
+
 .hidden-tips {
   line-height: 42px;
 }
+
 .five-sizes {
   p > label {
     text-transform: capitalize;

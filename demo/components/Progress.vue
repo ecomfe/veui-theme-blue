@@ -26,7 +26,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { Button, Progress } from 'veui'
 
 export default {

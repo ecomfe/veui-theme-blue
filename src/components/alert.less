@@ -1,91 +1,85 @@
 @import "../lib.less";
 
 .veui-alert {
+  @success: @veui-success-color;
+  @warning: @veui-warning-color;
+  // @info: @veui-info-color;
+  @error: @veui-alert-color;
   position: relative;
-  padding: 10px 20px;
-  margin: 30px;
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 12px;
+
   span {
     display: inline-block;
   }
 
   &-icon {
     transform: translateY(-50%);
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    font-size: @veui-font-size-large;
+    .absolute(50%, _, _, 8px);
+    font-size: @veui-font-size-small;
+  }
+
+  .make-state-message(@state) {
+    &-@{state} {
+      @fg-color-name: ~"veui-@{state}-color";
+      @bg-color-name: ~"veui-@{state}-background-color";
+      @border-color-name: ~"veui-@{state}-border-color";
+      background-color: @@bg-color-name;
+      border: 1px solid @@border-color-name;
+      color: @@fg-color-name;
+
+      .veui-alert-icon {
+        color: @@fg-color-name;
+      }
+    }
   }
 
   &-message {
-    margin: 0 56px 0 36px;
+    margin: 0 21px 0 21px;
   }
-  &-success {
-      background-color: @veui-success-background-color;
-      color: @veui-success-color;
-      border: 1px solid @veui-success-border-color;
-      border-radius: 2px;
-      .veui-alert-icon {
-          //background-color: @veui-success-color;
-          //color: #fff !important;
-          //border-radius: 50%;
-      }
-      .fa-icon {
-          color: @veui-success-color;
-      }
-  }
-  &-warning {
-      background-color: @veui-warning-background-color;
-      color: @veui-warning-color;
-      border: 1px solid @veui-warning-border-color;
-      border-radius: 2px;
-      .veui-alert-icon {
-          //background-color: @veui-warning-color;
-          //color: #fff !important;
-          //border-radius: 50%;
-      }
-      .veui-icon {
-          color: @veui-warning-color;
-      }
-  }
-  &-error {
-      background-color: @veui-error-background-color;
-      color: @veui-error-color;
-      border: 1px solid @veui-error-border-color;
-      border-radius: 2px;
-      .veui-alert-icon {
-          //background-color: @veui-error-color;
-          //color: #fff !important;
-          //border-radius: 50%;
-      }
-      .veui-icon {
-          color: @veui-error-color;
-      }
-  }
+
+  .make-state-message(success);
+  .make-state-message(warning);
+  // .make-state-message(info);
+  .make-state-message(error);
 
   &-nav,
   &-close {
-    position: absolute;
-    top: 50%;
-    right: 20px;
+    .absolute(50%, 20px, _, _);
     transform: translateY(-50%);
   }
 
   &-nav {
-    .veui-button:first-child {
-      //margin-right: 10px;
+    .veui-button:first-child,
+    span {
+      margin-right: 8px;
+    }
+  }
+
+  &-close.veui-button,
+  &-nav .veui-button {
+    .veui-icon {
+      font-size: @veui-font-size-small;
+    }
+
+    &:hover,
+    &.focus-visible,
+    &:active {
+      color: @veui-gray-color-1;
     }
   }
 
   .veui-alert-close-text {
-    color: @veui-theme-color;
+    color: @veui-brand-color;
 
     &:hover,
-    &.focus-ring {
-      color: @veui-theme-color;
+    &.focus-visible {
+      color: @veui-brand-color-2;
     }
 
     &:active {
-      color: @veui-theme-color;
+      color: @veui-brand-color-1;
     }
   }
 }

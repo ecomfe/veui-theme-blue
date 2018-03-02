@@ -13,7 +13,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import bus from '../bus'
 import { Button } from 'veui'
 import toast from 'veui/managers/toast'

@@ -3,11 +3,22 @@
 .veui-tabs {
   position: relative;
 
+  &-menu button {
+    .veui-button-transition();
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
   .make-margin(@margin) {
     margin-left: @margin;
 
     &:first-child {
-      margin-left: 0;
+      margin-left: -10px;
+    }
+
+    &:last-child {
+      margin-right: -10px;
     }
   }
 
@@ -34,14 +45,24 @@
 
   &-item {
     display: inline-block;
-    .make-margin(60px);
+    .make-margin(50px);
 
-    & > .veui-icon {
+    & > &-remove {
       visibility: hidden;
       color: @veui-text-color-weak;
       cursor: pointer;
+      outline: none;
 
-      &:hover {
+      .veui-icon {
+        display: block;
+      }
+
+      &::after {
+        content: none;
+      }
+
+      &:hover,
+      &.focus-visible {
         color: @veui-text-color-normal;
       }
 
@@ -50,12 +71,13 @@
       }
     }
 
-    &:hover > .veui-icon {
+    &-remove:focus,
+    &:hover > &-remove,
+    &-label.focus-visible > &-remove {
       visibility: visible;
     }
 
-    & > a,
-    & > span {
+    & > &-label {
       cursor: pointer;
       padding: 0 10px;
       line-height: 2.5;
@@ -65,14 +87,15 @@
       position: relative;
     }
 
-    &:not(.veui-tabs-item-disabled) > a,
-    &:not(.veui-tabs-item-disabled) > span {
+    &:not(.veui-tabs-item-disabled) > &-label {
+      color: @veui-text-color-strong;
+
       &::after {
         content: "";
-        .absolute(_, _, 0, 10px);
-        width: ~"calc(100% - 20px)";
+        .absolute(_, 10px, 0, 10px);
         height: 2px;
         z-index: 1;
+        transition: background-color .2s;
       }
 
       &:hover::after {
@@ -84,28 +107,21 @@
       }
     }
 
-    &-active {
-      & > a,
-      & > span {
-        &::after {
-          background-color: @veui-gray-color-1;
-        }
+    &-active > &-label {
+      &::after {
+        background-color: @veui-gray-color-1;
       }
     }
 
     &:first-child {
-      & > a,
-      & > span {
+      &-label {
         margin-left: -10px;
       }
     }
 
-    &-disabled {
-      & > a,
-      & > span {
-        cursor: not-allowed;
-        color: @veui-text-color-weak;
-      }
+    &-disabled > &-label {
+      cursor: not-allowed;
+      color: @veui-text-color-weak;
     }
   }
 
@@ -131,6 +147,7 @@
   &-operator {
     display: inline-block;
     line-height: 2.5;
+    outline: none;
     cursor: pointer;
 
     .veui-icon {
@@ -138,13 +155,11 @@
     }
   }
 
-  &-item,
-  &-operator {
-    .veui-icon {
-      vertical-align: top;
-      margin-top: ~"calc(@{veui-height-normal} / 2 - .5em - 1px)";
-      user-select: none;
-    }
+  &-item-remove,
+  &-operator .veui-icon {
+    vertical-align: top;
+    margin-top: ~"calc(@{veui-height-normal} / 2 - .5em - 1px)";
+    user-select: none;
   }
 
   &-scroller {
@@ -161,8 +176,10 @@
       text-align: center;
       cursor: pointer;
       user-select: none;
+      outline: none;
 
-      &:hover {
+      &:hover,
+      &.focus-visible {
         background-color: @veui-gray-color-5;
       }
 
@@ -181,18 +198,16 @@
     }
 
     &-item {
-      .make-margin(60px);
+      .make-margin(50px);
     }
 
     &-operator {
       padding: 0 10px;
     }
 
-    &-item,
-    &-operator {
-      .veui-icon {
-        margin-top: ~"calc(@{veui-height-large} / 2 - .5em - 1px)";
-      }
+    &-item-remove,
+    &-operator .veui-icon {
+      margin-top: ~"calc(@{veui-height-large} / 2 - .5em - 1px)";
     }
 
     &-scroller {
@@ -210,7 +225,7 @@
 
   &[ui~="small"] & {
     &-item {
-      .make-margin(40px);
+      .make-margin(30px);
     }
 
     &-menu {
@@ -221,11 +236,19 @@
   &[ui~="tiny"] & {
     &-menu {
       border-bottom: none;
+
+      &::after {
+        display: none;
+      }
     }
 
     &-item {
-      .make-margin(20px);
+      .make-margin(21px);
       position: relative;
+
+      &-label::after {
+        height: 1px;
+      }
 
       &::before {
         content: "";
@@ -233,7 +256,7 @@
         width: 1px;
         height: 14px;
         background-color: @veui-gray-color-6;
-        .absolute(10px, _, _, -10px);
+        .absolute(10px, _, _, -11px);
       }
 
       &:first-child::before {

@@ -3,12 +3,11 @@
 .veui-uploader {
   @width: 300px;
   @icon-size: 16px;
-  @image-size: 140px;
+  @image-size: 100px;
 
   .disabled() {
-    border-color: transparent;
-    background-color: @veui-gray-color-7;
-    color: @veui-text-color-weak;
+    background-color: @veui-light-gray-color1;
+    color: @veui-dark-gray-color2;
     box-shadow: none;
   }
 
@@ -19,6 +18,12 @@
     position: relative;
     margin-bottom: 12px;
     overflow: hidden;
+
+    .veui-button {
+      border-radius: 2px;
+      padding: 0 12px;
+    }
+
     .veui-uploader-tip,
     .veui-uploader-error {
       margin-top: 8px;
@@ -27,7 +32,7 @@
 
   &-input-label {
     float: left;
-    color: @veui-text-color-strong;
+    color: @veui-dark-gray-color2;
     cursor: pointer;
     margin: 0 1em 8px 0;
 
@@ -40,6 +45,7 @@
   .veui-button.veui-uploader-input-label-disabled {
     cursor: not-allowed;
     .disabled();
+
     &:hover {
       .disabled();
     }
@@ -53,15 +59,16 @@
 
     .veui-icon {
       font-size: 50px;
-      vertical-align: middle;
-      color: @veui-gray-color-2;
+      color: @veui-dark-gray-color2;
+      .veui-position-center();
     }
 
     &:hover {
-      background: @veui-gray-color-8;
+      background: @veui-light-gray-color3;
     }
+
     &:active {
-      background: @veui-gray-color-6;
+      background: @veui-light-gray-color2;
     }
   }
 
@@ -77,7 +84,7 @@
       height: auto;
       max-width: 100%;
       max-height: 100%;
-      vertical-align: middle;
+      .veui-position-center();
     }
 
     &-status {
@@ -96,6 +103,7 @@
         vertical-align: middle;
       }
     }
+
     &-success {
       .absolute(0);
       padding: 9px 4px;
@@ -113,14 +121,13 @@
       padding: 4px;
       margin: 0 10px 5px 0;
       width: @width;
-      color: @veui-gray-color-2;
+      color: @veui-dark-gray-color2;
     }
 
     li:hover {
-      background-color: @veui-gray-color-8;
 
       .veui-button[ui~="link"] {
-        background-color: @veui-gray-color-8;
+        background-color: @veui-light-gray-color3;
       }
 
       .veui-button[ui~="remove"] {
@@ -173,7 +180,7 @@
       &.veui-uploader-list-retry {
         float: none;
         margin-left: 10px;
-        color: @veui-gray-color-1;
+        color: @veui-dark-gray-color2;
 
         .veui-icon {
           margin: 4px 6px 0 0;
@@ -189,6 +196,7 @@
       vertical-align: middle;
     }
   }
+
   &-list-image {
     float: left;
 
@@ -197,9 +205,8 @@
       .size(@image-size);
       margin: 0 10px 5px 0;
       padding: 0;
-      border: 1px solid @veui-gray-color-5;
+      border: 1px solid @veui-middle-gray-color3;
       text-align: center;
-      line-height: @image-size - 2px;
       position: relative;
 
       .veui-button[ui~="operation"] {
@@ -222,13 +229,15 @@
       &-failure {
         background-color: none;
       }
+
       .veui-button {
         padding: 0;
         position: absolute;
-        background-color: fadeout(#000, 20%);
+        background-color: fadeout(#000, 30%);
         border: 1px solid fadeout(#fff, 80%);
         color: #fff;
         font-size: @veui-font-size-normal;
+
         &:hover {
           background-color: fadeout(#000, 20%);
         }
@@ -239,26 +248,30 @@
         }
       }
 
-
       label.veui-button {
         cursor: pointer;
-        top: ~"calc(50% - 14px)";
-        left: ~"calc(50% - 44px)";
-        width: 88px;
-        height: 28px;
-        line-height: 26px;
+        top: ~"calc(50% - 11px)";
+        left: ~"calc(50% - 32px)";
+        width: 64px;
+        height: 22px;
+        line-height: 20px;
+        font-size: @veui-font-size-small;
+        border-radius: 0;
+        background-color: fadeout(#000, 30%);
       }
 
-      &-remove {
-        .size(24px);
-        line-height: 24px;
+      .veui-button&-remove {
+        .size(20px);
+        line-height: 20px;
         top: 0;
         right: 0;
         left: auto;
         overflow: hidden;
+        border-radius: 0;
 
         .veui-icon {
-          margin-top: 5px;
+          margin-top: 4px;
+          .size(12px);
         }
       }
 
@@ -286,7 +299,6 @@
 
       span {
         display: block;
-        vertical-align: middle;
       }
 
       .veui-icon {
@@ -324,7 +336,7 @@
   }
 
   &-tip {
-    color: @veui-gray-color-3;
+    color: @veui-dark-gray-color3;
     display: inline-block;
 
     & + .veui-uploader-error {
@@ -361,13 +373,14 @@
 
   .veui-button[ui~="remove"] {
     float: right;
-    color: @veui-gray-color-2;
+    color: @veui-dark-gray-color2;
     visibility: hidden;
-    .centered-line(20px);
+    .centered-line(8px);
+    margin-top: 6px;
 
     .veui-icon {
-      font-size: 10px;
-      margin-top: 4px;
+      .size(8px);
+      margin-top: 0;
     }
   }
 
@@ -404,11 +417,11 @@
     }
 
     &-bar {
-      background-color: @veui-gray-color-2;
+      background-color: @veui-dark-gray-color2;
 
       &-full {
         z-index: -1;
-        background-color: @veui-gray-color-5;
+        background-color: @veui-middle-gray-color3;
       }
     }
   }

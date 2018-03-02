@@ -59,8 +59,12 @@
     }
   }
 
-  .veui-button + .veui-button {
-    margin-left: 30px;
+  .veui-button,
+  .veui-link {
+    & + .veui-button,
+    & + .veui-link {
+      margin-left: 30px;
+    }
   }
 
   &-header {
@@ -80,5 +84,30 @@
   .veui-sorter {
     margin-left: 5px;
     font-size: @veui-font-size-small;
+  }
+
+  &[ui~="slim"] {
+    th,
+    td {
+      .veui-make-table-row-height(@veui-font-size-normal, 8px);
+    }
+  }
+
+  &[ui~="alt"] thead {
+    th {
+      background-color: @veui-gray-color-8;
+    }
+  }
+
+  &[ui~="bordered"] td {
+    border-style: solid;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
   }
 }

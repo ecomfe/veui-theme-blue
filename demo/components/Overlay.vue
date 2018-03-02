@@ -116,7 +116,6 @@
   </article>
 </template>
 <script>
-/* eslint-disable */
 import { Overlay, Button } from 'veui'
 
 export default {
