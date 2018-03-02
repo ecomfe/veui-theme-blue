@@ -2,7 +2,7 @@
 
 .veui-breadcrumb-item {
   float: left;
-  color: @veui-text-color-strong;
+  color: @veui-text-color;
 
   &-current {
     font-weight: @veui-font-weight-bold;
@@ -11,6 +11,12 @@
   .veui-icon,
   & > span,
   & > a {
+    &[ui~="primary"], &[ui~="link"] {
+      color: @veui-text-color;
+      &:hover {
+        color: @veui-text-hover-color;
+      }
+    }
     display: inline-block;
     vertical-align: middle;
   }

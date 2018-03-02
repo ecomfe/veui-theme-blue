@@ -11,7 +11,7 @@
 /* error color 红色系*/
 @veui-error-color: #FF5B5B; // 错误类提示基础色（一般为文字）
 @veui-error-border-color: #FF9292; // 错误类提示（一般为提示框边框）
-@veui-error-background-color: tint(#FF5B5B, 85%); // 警告类提示（一般为提示框背景色）
+@veui-error-background-color: tint(#FF5B5B, 95%); // 警告类提示（一般为提示框背景色）
 
 /* warning color 橘色系 */
 @veui-warning-color: #FF701A; // 警告类提示基础色（一般为文字）
@@ -27,16 +27,17 @@
 @veui-dark-gray-color1: #333333; // 深灰色系#333
 @veui-dark-gray-color2: #666666; // 深灰色系#666
 @veui-dark-gray-color3: #999999; // 深灰色系#999
-@veui-light-gray-color6: tint(#3D4D65, 30%); //tooltip背景色
 @veui-middle-gray-color1: #B8B8B8; // 中灰色系#b8b8b8
 @veui-middle-gray-color2: #BCBCBC; // 中灰色系#bcbcbc
 @veui-middle-gray-color3: #DBDBDB; // 中灰色系#dbdbdb
 @veui-middle-gray-color4: #D9D9D9; // 中灰色系#d9d9d9
+@veui-middle-gray-color5: #DDDDDD; // 中灰色系#dddddd
 @veui-light-gray-color1: #F5F5F5; // 浅灰色系#f5f5f5
 @veui-light-gray-color2: #F0F0F0; // 浅灰色系#f0f0f0
 @veui-light-gray-color3: #F8F8F8; // 浅灰色系#f8f8f8
 @veui-light-gray-color4: #F6F6F6; // 浅灰色系#f6f6f6
 @veui-light-gray-color5: #FFFFFF; // 浅灰色系#ffffff
+@veui-light-gray-color6: #F2F2F2; // 浅灰色系#f2f2f2
 
 /* height */
 @veui-height-normal: 28px; // 默认高度
@@ -57,7 +58,11 @@
 @veui-font-size-small: 12px;
 
 /* border-radius */
-@veui-border-radius-4: 4px;
+@veui-border-radius-normal: 4px;
+
+/* Text colors */
+@veui-text-color: @veui-dark-gray-color3; // 正常情况下的文字颜色为#999
+@veui-text-hover-color: @veui-theme-hover-color; // 文字悬浮状态下的颜色
 
 /*************注意：只使用上面的变量，不要使用下面的变量*************/
 

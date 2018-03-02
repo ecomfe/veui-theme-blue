@@ -20,14 +20,13 @@
     <section>
       <h2>自定义模板：</h2>
       <veui-steps :steps="steps" :ui="`full${vertical ? ' vertical' : ''}`" :current="current - 1">
-        <template slot="label" scope="step">{{ step.label }} <veui-icon class="star" name="star"></veui-icon></template>
+        <template slot="label" slot-scope="step">{{ step.label }} <veui-icon class="star" name="star"></veui-icon></template>
       </veui-steps>
     </section>
   </article>
 </template>
 
 <script>
-/* eslint-disable */
 import { Checkbox, Steps, Icon } from 'veui'
 import 'vue-awesome/icons/star'
 

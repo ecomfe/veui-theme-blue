@@ -36,7 +36,7 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            'veui-theme-bi': resolve('src')
+            'veui-theme-blue': resolve('src')
         }
     },
     module: {
@@ -49,11 +49,11 @@ module.exports = {
                 options: {
                     modules: [
                         {
-                            package: 'veui-theme-bi',
+                            package: 'veui-theme-blue',
                             fileName: '${module}.less'
                         },
                         {
-                            package: 'veui-theme-bi',
+                            package: 'veui-theme-blue',
                             fileName: '${module}.js',
                             transform: false
                         },

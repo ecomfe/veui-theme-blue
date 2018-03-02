@@ -2,7 +2,7 @@
 
 .veui-steps {
   display: inline-block;
-  @step-height: 30px;
+  @step-height: 26px;
   @full-height: 30px;
   @separator-length-x: 120px;
   @separator-length-y: 60px;
@@ -29,7 +29,7 @@
       border: @border-width solid @veui-brand-color;
       text-align: center;
       line-height: @step-height - @border-width * 2;
-      color: @veui-success-color;
+      color: @veui-brand-color;
       font-size: @veui-font-size-large;
       border-radius: 50%;
 
@@ -49,16 +49,16 @@
 
     &-label {
       margin: 0;
-      font-size: @label-font-size;
-      color: @veui-text-color-normal;
+      font-size: @veui-font-size-normal;
+      color: @veui-dark-gray-color3;
       line-height: @step-height;
-      font-weight: @veui-font-weight-normal;
+      font-weight: normal;
     }
 
     &-desc {
       display: none;
       margin: 0;
-      color: @veui-text-color-weak;
+      color: @veui-dark-gray-color3;
       font-size: @desc-font-size;
     }
 
@@ -69,7 +69,7 @@
       position: absolute;
       top: ~"calc(50% - @{half-width})";
       right: -@separator-gap-x - @separator-length-x;
-      background-color: @veui-gray-color-2;
+      background-color: @veui-brand-color;
       pointer-events: none;
     }
 
@@ -78,15 +78,15 @@
     }
 
     a&:hover,
-    a&.focus-ring {
+    a&.focus-visible {
       .veui-steps-step {
         &-label {
           color: @veui-text-color-strong;
         }
 
         &-index {
-          border-color: @veui-brand-color;
-          color: @veui-brand-color;
+          border-color: @veui-theme-selected-color;
+          color: @veui-theme-selected-color;
         }
       }
     }
@@ -95,42 +95,42 @@
   &-current {
     .veui-steps-step-index {
       border-color: transparent;
-      background-color: @veui-gray-color-2;
+      background-color: @veui-brand-color;
       color: #fff;
     }
 
     .veui-steps-step::after {
-      background-color: @veui-gray-color-5;
+      background-color: @veui-middle-gray-color4;
     }
 
     &,
     & ~ .veui-steps-step {
       &::after {
-        background-color: @veui-gray-color-5;
+        background-color: @veui-middle-gray-color4;
       }
     }
 
     & ~ .veui-steps-step {
       .veui-steps-step-index {
-        background-color: @veui-gray-color-5;
+        background-color: @veui-middle-gray-color3;
         border-color: transparent;
         color: #fff;
       }
     }
 
     a&:hover,
-    a&.focus-ring {
+    a&.focus-visible {
       .veui-steps-step-index {
-        background-color: @veui-gray-color-1;
+        background-color: @veui-dark-gray-color1;
         border-color: transparent;
         color: #fff;
       }
     }
 
     & ~ a.veui-steps-step:hover,
-    & ~ a.veui-steps-step.focus-ring {
+    & ~ a.veui-steps-step.focus-visible {
       .veui-steps-step-index {
-        background-color: @veui-gray-color-4;
+        background-color: @veui-middle-gray-color1;
         border-color: transparent;
         color: #fff;
       }
@@ -179,14 +179,14 @@
   }
 
   &[ui~="small"] {
-    @step-height: 20px;
-    @full-height: 20px;
+    @step-height: 18px;
+    @full-height: 18px;
     @separator-length-x: 60px;
     @separator-length-y: 40px;
     @separator-gap-x: 20px;
     @separator-gap-y: 10px;
     @full-line-height: @veui-line-height-normal * @veui-font-size-normal;
-    @label-font-size: @veui-font-size-normal;
+    @label-font-size: @veui-font-size-small;
     @desc-font-size: @veui-font-size-small;
 
     .veui-steps {

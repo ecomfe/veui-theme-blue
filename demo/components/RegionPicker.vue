@@ -5,7 +5,7 @@
     <section><input type="text" v-model="selected"></section>
     <section>已选地区：{{ selected1.join(', ') || '无' }}</section>
     <section>
-      <veui-region-picker :datasource="regions1" v-model="selected1"></veui-region-picker>
+      <veui-region-picker :datasource="regions1" v-model="selected1" include-indeterminate></veui-region-picker>
     </section>
     <h3>网盟数据源</h3>
     <section>已选地区：{{ selected2.join(', ') || '无' }}</section>
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { RegionPicker } from 'veui'
 
 export default {
@@ -27,7 +26,7 @@ export default {
   data () {
     return {
       regions1: REGIONS_BRAND,
-      selected1: [],
+      selected1: ['15', '333'],
       regions2: REGIONS_CLB,
       selected2: ['742', '743', '17'],
       selected: ''
@@ -375,6 +374,7 @@ const REGIONS_BRAND = [
           {
             id: '15',
             label: '黑龙江',
+            disabled: true,
             children: [
               {
                 id: '333',
@@ -482,7 +482,8 @@ const REGIONS_BRAND = [
             children: [
               {
                 id: '144',
-                label: '丹东'
+                label: '丹东',
+                disabled: true
               },
               {
                 id: '145',
