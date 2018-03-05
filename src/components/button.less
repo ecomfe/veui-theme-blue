@@ -1,19 +1,25 @@
 @import "../lib.less";
 
 .veui-button {
-  padding: 0px 20px;
+  @small-height: 28px;
+  @small-width: 74px;
+  @normal-width: 100px;
+  @normal-height: 32px;
+  @large-width: 110px;
+  @large-height: 38px;
+
+  padding: 0px 12px;
   user-select: none;
   vertical-align: middle;
+  min-width: @normal-width;
+  .make-height(@normal-height);
+  .centered-line(@normal-height);
   .veui-button-transition();
   border: 1px solid @veui-middle-gray-color4;
   background-color: #fff;
   color: @veui-dark-gray-color2;
   border-radius: @veui-border-radius-normal;
-
-  &:hover,
-  &:active {
-    color: @veui-text-color-strong;
-  }
+  font-size: @veui-font-size-normal;
 
   &:hover {
     background-color: @veui-light-gray-color3;
@@ -35,6 +41,10 @@
     border-color: transparent;
     background-color: @veui-brand-color;
     color: #fff;
+    min-width: @normal-width;
+    .make-height(@normal-height);
+    .centered-line(@normal-height);
+    font-size: @veui-font-size-normal;
 
     &:hover,
     &.focus-visible {
@@ -44,18 +54,30 @@
     &:active {
       background-color: @veui-brand-color-1;
     }
+
+    &.veui-disabled,
+    &.veui-disabled[ui], {
+      &,
+      &:hover {
+        cursor: not-allowed;
+        border-color: transparent;
+        background-color: @veui-brand-color;
+        opacity: 0.4;
+        color: #fff;
+      }
+    }
   }
 
   &[ui~="alt"] {
     border-color: transparent;
-    background-color: @veui-gray-color-7;
+    background-color: @veui-light-gray-color1;
 
     &:hover {
-      background-color: @veui-gray-color-6;
+      background-color: @veui-light-gray-color2;
     }
 
     &:active {
-      background-color: @veui-gray-color-5;
+      background-color: @veui-middle-gray-color6;
     }
 
     &.focus-visible {
@@ -63,31 +85,17 @@
     }
   }
   &[ui~="large"] {
-    .centered-line(@veui-height-large);
+    min-width: @large-width;
+    .make-height(@large-height);
+    .centered-line(@large-height);
     font-size: @veui-font-size-large;
-    .make-height(@veui-height-large);
   }
 
   &[ui~="small"] {
-    .centered-line(@veui-height-small);
+    min-width: @small-width;
+    .make-height(@small-height);
+    .centered-line(@small-height);
     font-size: @veui-font-size-small;
-    .make-height(@veui-height-small);
-    .padding(_, 10px);
-  }
-
-  &[ui~="tiny"] {
-    .centered-line(@veui-height-tiny);
-    font-size: @veui-font-size-small;
-    .make-height(@veui-height-tiny);
-    .padding(_, 10px);
-  }
-
-  &[ui~="micro"] {
-    min-width: auto;
-    .centered-line(@veui-height-micro);
-    .make-height(@veui-height-micro);
-    font-size: @veui-font-size-small;
-    .padding(_, 10px);
   }
 
   &[ui~="round"] {
@@ -96,25 +104,17 @@
 
   &[ui~="round"],
   &[ui~="square"] {
-    width: @veui-height-normal;
+    .size(@normal-height);
     min-width: auto;
     .padding(_, 0);
     text-align: center;
 
     &[ui~="large"] {
-      width: @veui-height-large;
+      .size(@large-height);
     }
 
     &[ui~="small"] {
-      width: @veui-height-small;
-    }
-
-    &[ui~="tiny"] {
-      width: @veui-height-tiny;
-    }
-
-    &[ui~="micro"] {
-      width: @veui-height-micro;
+      .size(@small-height);
     }
   }
 
@@ -138,17 +138,20 @@
     border: none;
     padding: 0;
 
+    &.veui-disabled,
+    &.veui-disabled[ui], {
+      &,
+      &:hover {
+        color: @veui-theme-color;
+        opacity: 0.4;
+        background-color: transparent;
+      }
+    }
+
     &,
     &:hover,
     &:active {
       background-color: transparent;
-    }
-
-    &.veui-disabled {
-      &,
-      &:hover {
-        background-color: transparent;
-      }
     }
   }
 
@@ -177,7 +180,6 @@
       margin-top: ~"calc(@{height} - 0.5em)";
     }
   }
-  .make-height(@veui-height-normal);
 }
 
 .veui-button-loading-text {

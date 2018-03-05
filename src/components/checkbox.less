@@ -1,24 +1,34 @@
 @import "../lib.less";
 .veui-checkbox {
+    @size: 14px; // 复选框大小
+    @small-size: 12px; // ui=small复选框大小
+    @big-size: 14px; // ui=big下的复选框大小
+    @radius: 2px; // 圆角大小
+    @bg-color: #5E9BFB; // 选中背景颜色
+
     display: inline-block;
-    color: @veui-dark-gray-color2;
+    color: @veui-dark-gray-color3;
     font-size: @veui-font-size-small;
     line-height: @veui-font-size-large;
     cursor: pointer;
 
-    input,
+    input {
+        position: absolute;
+        opacity: 0;
+    }
+
     .veui-icon {
         display: none;
     }
 
     &-label,
     &-box {
-        vertical-align: middle;
+        vertical-align: top;
         display: inline-block;
     }
 
     .veui-field > & {
-        //line-height: @veui-height-normal;
+        line-height: @veui-height-normal;
 
         .veui-checkbox-box {
             vertical-align: text-top;
@@ -27,18 +37,16 @@
 
     &-box {
         position: relative;
-        height: @veui-font-size-small;
-        width: @veui-font-size-small;
-        margin-right: 7px;
+        .size(@size);
         border: 1px solid @veui-middle-gray-color4;
-        background-color: #fff;
-        font-size: @veui-font-size-small;
+        background-color: @veui-light-gray-color5;
+        border-radius: @radius;
     }
 
     & :checked + &-box,
     & :indeterminate + &-box {
-        border-color: @veui-theme-color;
-        background: @veui-theme-color;
+        border-color: @bg-color;
+        background: @bg-color;
 
         & > .veui-icon {
             display: block;
@@ -52,22 +60,22 @@
         cursor: not-allowed;
 
         .veui-checkbox-label {
-            color: @veui-dark-gray-color2;
+            color: @veui-dark-gray-color3;
         }
         input:checked + .veui-checkbox-box {
             opacity: 0.4;
-            border-color: @veui-theme-disabled-color;
-            background-color: @veui-light-gray-color1;
+            border-color: @bg-color;
+            background-color: @bg-color;
             & > .veui-icon {
-                color: @veui-theme-disabled-color;
+                color: @veui-light-gray-color5;
             }
         }
         input:indeterminate + .veui-checkbox-box {
             opacity: 0.4;
-            border-color: @veui-theme-disabled-color;
-            background-color: @veui-light-gray-color1;
+            border-color: @bg-color;
+            background-color: @bg-color;
             & > .veui-icon {
-                color: @veui-theme-disabled-color;
+                color: @veui-light-gray-color5;
             }
         }
 
@@ -79,6 +87,44 @@
         .veui-icon {
             color: @veui-middle-gray-color3;
         }
+    }
+
+    &[ui~="large"] {
+        font-size: @veui-font-size-large;
+        line-height: @big-size;
+    }
+
+    .veui-field[ui~="large"] > &[ui~="large"] {
+        line-height: @big-size;
+
+        .veui-checkbox-box {
+            vertical-align: -2px;
+        }
+    }
+
+    &[ui~="large"] &-box {
+        margin-right: 6px;
+        .size(@big-size);
+        font-size: @veui-font-size-large;
+    }
+
+    &[ui~="small"] {
+        font-size: @veui-font-size-small;
+        line-height: @small-size;
+    }
+
+    .veui-field[ui~="small"] > &[ui~="small"] {
+        line-height: @small-size;
+
+        .veui-checkbox-box {
+            vertical-align: -2px;
+        }
+    }
+
+    &[ui~="small"] &-box {
+        margin-right: 6px;
+        .size(@small-size);
+        font-size: @veui-font-size-small;
     }
 }
 

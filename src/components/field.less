@@ -25,8 +25,24 @@
 
   .veui-form-label {
     height: @veui-height-normal;
-    width: @veui-form-label-width;
-    line-height: @veui-height-normal;
+    min-width: 66px;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #000000;
+    line-height: 28px;
+  }
+
+  &[ui~="right"] .veui-form-label {
+    text-align: right;
+  }
+
+  &[ui~="require"] .veui-form-label:before {
+    .veui-field-require();
+    color: #ff6f29;
+    font-size: 14px;
+    vertical-align: middle;
+    float: none;
+    margin-right: 1px;
   }
 
   .veui-span {

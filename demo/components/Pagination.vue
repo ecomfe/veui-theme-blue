@@ -66,78 +66,29 @@
       <p v-text="sample" class="sample"></p>
     </section>
 
-    <section>
+    <section class="attrTab">
       <h2>Attributes</h2>
-      <table class="attribute-table">
-        <tr>
-          <th width="10%">参数</th>
-          <th width="40%">说明</th>
-          <th width="10%">类型</th>
-          <th width="30%">可选值</th>
-          <th width="10%">默认值</th>
-        </tr>
-        <tr>
-          <td>page</td>
-          <td>当前页数</td>
-          <td>number</td>
-          <td>--</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>page-size</td>
-          <td>每页显示条目个数</td>
-          <td>number</td>
-          <td>--</td>
-          <td>30</td>
-        </tr>
-        <tr>
-          <td>page-sizes</td>
-          <td>每页显示条目个数选择器的选项设置</td>
-          <td>array</td>
-          <td>--</td>
-          <td>[30, 50, 100]</td>
-        </tr>
-        <tr>
-          <td>total</td>
-          <td>总条数</td>
-          <td>number</td>
-          <td>--</td>
-          <td>--</td>
-        </tr>
-        <tr>
-          <td>to</td>
-          <td>跳转链接</td>
-          <td>string, object</td>
-          <td>--</td>
-          <td>''</td>
-        </tr>
-        <tr>
-          <td>ui</td>
-          <td>样式类型</td>
-          <td>string</td>
-          <td>hetero，full，square，simple，big_square</td>
-          <td>--</td>
-        </tr>
-        <tr>
-          <td>native</td>
-          <td>是否是原生跳转</td>
-          <td>boolean</td>
-          <td>--</td>
-          <td>false（true表示仅翻页，false表示跳转到to的链接）</td>
-        </tr>
-      </table>
+      <veui-table :data="attrData">
+        <veui-table-column field="parameter" title="参数" width="10%"></veui-table-column>
+        <veui-table-column field="desc" title="说明" width="40%"></veui-table-column>
+        <veui-table-column field="type" title="类型" width="10%"></veui-table-column>
+        <veui-table-column field="canSelectVal" title="可选值" width="30%"></veui-table-column>
+        <veui-table-column field="defaultVal" title="默认值" width="10%"></veui-table-column>
+      </veui-table>
     </section>
   </article>
 </template>
 
 <script>
 import bus from '../bus'
-import { Pagination } from 'veui'
+import { Pagination, Table, Column } from 'veui'
 
 export default {
   name: 'pagination-demo',
   components: {
-    'veui-pagination': Pagination
+    'veui-pagination': Pagination,
+    'veui-table': Table,
+    'veui-table-column': Column
   },
   data () {
     return {
@@ -147,7 +98,27 @@ export default {
       pageSize: 30,
       pageSizes: [30, 60, 100, 200],
       fifthPagerMessage: '',
-      sample: '<veui-pagination :page="1" :page-size="20" :total="100" :page-sizes="[10, 20, 30]" :to="" ui="full" :native="true"></veui-pagination>'
+      sample: '<veui-pagination :page="1" :page-size="20" :total="100" :page-sizes="[10, 20, 30]" :to="" ui="full" :native="true"></veui-pagination>',
+      attrData: [
+        {
+          parameter: 'page', desc: '当前页数', type: 'number', canSelectVal: '--', defaultVal: '1'
+        },
+        {
+          parameter: 'page-size', desc: '每页显示条目个数', type: 'number', canSelectVal: '--', defaultVal: '30'
+        },
+        {
+          parameter: 'page-sizes', desc: '每页显示条目个数选择器的选项设置', type: 'array', canSelectVal: '--', defaultVal: '[30, 50, 100]'
+        },
+        {
+          parameter: 'total', desc: '总条数', type: 'number', canSelectVal: '--', defaultVal: '--'
+        },
+        {
+          parameter: 'ui', desc: '样式类型', type: 'string', canSelectVal: 'hetero，full，square，simple，big_square', defaultVal: '--'
+        },
+        {
+          parameter: 'native', desc: '是否是原生跳转', type: 'boolean', canSelectVal: '', defaultVal: 'false（true表示仅翻页，false表示跳转到to的链接）'
+        }
+      ]
     }
   },
   methods: {
@@ -181,19 +152,5 @@ section {
 
 .message {
   margin-top: -3em;
-}
-.attribute-table {
-  th,td {
-    text-align: left;
-    color: #666;
-    border-bottom: 1px solid #d9d9d9;
-    height: 36px;
-    padding: 0 5px;
-  }
-}
-.sample {
-  color: #666;
-  border: 1px solid #d9d9d9;
-  padding: 10px;
 }
 </style>
