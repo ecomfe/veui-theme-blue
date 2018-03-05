@@ -29,7 +29,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { Radio } from 'veui'
 
 export default {

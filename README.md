@@ -1,4 +1,4 @@
-# veui-theme-bi
+# veui-theme-blue
 
 > A Vue.js project
 

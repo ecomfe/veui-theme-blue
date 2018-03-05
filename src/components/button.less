@@ -5,9 +5,10 @@
   user-select: none;
   vertical-align: middle;
   .veui-button-transition();
-  border: 1px solid @veui-gray-color-5;
+  border: 1px solid @veui-middle-gray-color4;
   background-color: #fff;
-  color: @veui-text-color-normal;
+  color: @veui-dark-gray-color2;
+  border-radius: @veui-border-radius-normal;
 
   &:hover,
   &:active {
@@ -15,18 +16,18 @@
   }
 
   &:hover {
-    background-color: @veui-gray-color-8;
+    background-color: @veui-light-gray-color3;
   }
 
   &:active {
-    background-color: @veui-gray-color-6;
+    background-color: @veui-light-gray-color2;
   }
 
   &:focus {
     outline: none;
   }
 
-  &.focus-ring {
+  &.focus-visible {
     color: @veui-brand-color;
   }
 
@@ -36,7 +37,7 @@
     color: #fff;
 
     &:hover,
-    &.focus-ring {
+    &.focus-visible {
       background-color: @veui-brand-color-2;
     }
 
@@ -57,7 +58,7 @@
       background-color: @veui-gray-color-5;
     }
 
-    &.focus-ring {
+    &.focus-visible {
       color: @veui-brand-color;
     }
   }

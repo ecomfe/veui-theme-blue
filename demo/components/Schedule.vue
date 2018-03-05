@@ -9,7 +9,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { Schedule } from 'veui'
 
 export default {

@@ -3,6 +3,6 @@ import config from 'veui/managers/config'
 
 config.defaults({
   'steps.icons': {
-    success: 'check-large'
+    success: 'check'
   }
 })

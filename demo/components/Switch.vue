@@ -20,7 +20,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import { Switch } from 'veui'
 
 export default {
