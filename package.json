@@ -1,7 +1,7 @@
 {
   "name": "veui-theme-blue",
-  "version": "0.0.1-debug.1",
-  "description": "BI Theme for VEUI",
+  "version": "0.0.2-debug.1",
+  "description": "blue Theme for VEUI",
   "author": "BI FE",
   "private": true,
   "scripts": {
