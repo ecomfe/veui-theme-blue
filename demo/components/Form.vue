@@ -5,6 +5,27 @@
       <h2>通过指定data、field及v-model来创建一个form</h2>
       <veui-form ref="form1" :data="storeData1">
 
+        <veui-field label="昵称：" field="nickName" ui="right require narrow">
+          <veui-input v-model="storeData1.nickName"></veui-input>
+        </veui-field>
+
+        <veui-field label="性别：" field="sex" ui="right require narrow">
+          <veui-select :options="storeData1.sexItems" v-model="storeData1.sex"></veui-select>
+        </veui-field>
+
+        <veui-field label="婚姻：" field="married" ui="right require narrow small">
+          <veui-radiogroup ui="small" :items="storeData1.marryItems" v-model="storeData1.married"></veui-radiogroup>
+        </veui-field>
+
+        <veui-field label="爱好：" field="hobby" ui="right require narrow">
+          <veui-checkboxgroup type="checkbox" :items="storeData1.hobbyItems" v-model="storeData1.hobby"></veui-checkboxgroup>
+        </veui-field>
+
+        <veui-field label="生日：" field="birthday" ui="right require narrow">
+          <veui-datepicker v-model="storeData1.birthday"></veui-datepicker>
+        </veui-field>
+
+
         <veui-field label="昵称：" field="nickName">
           <veui-input v-model="storeData1.nickName"></veui-input>
         </veui-field>
