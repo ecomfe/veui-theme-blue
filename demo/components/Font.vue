@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="font-wrap">
         <H1>bi字体规范</H1>
         <div>
             <label>一级A</label>
@@ -76,10 +76,10 @@
     };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import "~veui-theme-blue/lib.less";
 
-    article {
+    .font-wrap {
         div {
             margin:10px;
             .class-name {
