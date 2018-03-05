@@ -1,6 +1,6 @@
 # veui-theme-blue
 
-BI theme for VEUI.
+blue theme for VEUI.
 
 ## Installation
 
