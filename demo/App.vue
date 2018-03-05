@@ -191,4 +191,14 @@ main {
   bottom: 0;
   left: @nav-width;
 }
+.sample {
+  color: #666;
+  border: 1px solid #d9d9d9;
+  padding: 10px;
+}
+.attrTab {
+  .veui-table td {
+    white-space: normal;
+  }
+}
 </style>
