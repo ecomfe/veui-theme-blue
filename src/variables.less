@@ -10,18 +10,23 @@
 
 /* error color 红色系*/
 @veui-error-color: #FF5B5B; // 错误类提示基础色（一般为文字）
-@veui-error-border-color: #FF9292; // 错误类提示（一般为提示框边框）
+@veui-error-border-color: #FF5B5B; // 错误类提示（一般为提示框边框）
 @veui-error-background-color: tint(#FF5B5B, 95%); // 警告类提示（一般为提示框背景色）
 
 /* warning color 橘色系 */
 @veui-warning-color: #FF701A; // 警告类提示基础色（一般为文字）
-@veui-warning-border-color: #FACFB5; // 警告类提示（一般为提示框边框）
-@veui-warning-background-color: #FAEEE6; // 警告类提示（一般为提示框背景色）
+@veui-warning-border-color: #FF9948; // 警告类提示（一般为提示框边框）
+@veui-warning-background-color: tint(#FF9948, 85%); // 警告类提示（一般为提示框背景色）
 
 /* success color 绿色系 */
 @veui-success-color: #39BE77; // 成功类提示基础色（一般为文字）
 @veui-success-border-color: #55CB8C; // 成功类提示（一般为提示框边框）
 @veui-success-background-color: #DAF6E7; // 成功类提示（一般为提示框背景色）
+
+/* info color 蓝色系 */
+@veui-info-color: #3295FF; // 提示类提示基础色（一般为文字）
+@veui-info-border-color: #3295FF; // 提示类提示（一般为提示框边框）
+@veui-info-background-color: tint(#3295FF, 85%); // 提示类提示（一般为提示框背景色）
 
 /* Input/Select/button/font/text color 灰色系（边框、文字等） */
 @veui-dark-gray-color1: #333333; // 深灰色系#333
@@ -131,7 +136,6 @@
 @veui-warning-color-10: tint(@veui-warning-color, 90%); // #fff5e6
 
 // Info
-@veui-info-color: #3998fc;
 @veui-info-color-1: shade(@veui-info-color, 20%); // #2e7aca
 @veui-info-color-2: shade(@veui-info-color, 10%); // #3389e3
 @veui-info-color-3: @veui-info-color;             // #3998fc
