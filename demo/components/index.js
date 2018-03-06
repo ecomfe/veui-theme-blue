@@ -31,6 +31,7 @@ import Progress from './Progress'
 import Carousel from './Carousel'
 import Transfer from './Transfer'
 import Schedule from './Schedule'
+import Slider from './Slider'
 import Textarea from './Textarea'
 import Icon from './Icon'
 
@@ -154,6 +155,11 @@ export default [
     path: '/schedule',
     name: 'Schedule',
     component: Schedule
+  },
+  {
+    path: '/slider',
+    name: 'Slider',
+    component: Slider
   },
   {
     path: '/searchbox',

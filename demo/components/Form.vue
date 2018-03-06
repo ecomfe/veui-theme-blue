@@ -107,6 +107,12 @@
             <veui-icon name="indent"></veui-icon> 使用 &lt;veui-span&gt; 来插入中间非组件内容
           </template>
         </veui-fieldset>
+        <veui-fieldset label="预期收入：">
+          <veui-field field="salary" name="salary">
+            <veui-slider v-model="storeData4.salary" :min="1" :max="10" :step="0.5"></veui-slider>
+          </veui-field>
+          <veui-span>{{storeData4.salary[0].toFixed(1)}}~{{storeData4.salary[1].toFixed(1)}}万</veui-span>
+        </veui-fieldset>
       </veui-form>
     </section>
     <section>
@@ -335,7 +341,7 @@ import {
   Form, Fieldset, Field, Label, Span, Input,
   Button, DatePicker, Uploader, Select,
   Checkbox, CheckboxGroup, RadioGroup, Searchbox,
-  RegionPicker, Radio, Icon
+  RegionPicker, Radio, Icon, Slider
 } from 'veui'
 import moment from 'moment'
 import bus from '../bus'
@@ -2441,7 +2447,8 @@ export default {
     'veui-radiogroup': RadioGroup,
     'veui-searchbox': Searchbox,
     'veui-region-picker': RegionPicker,
-    'veui-icon': Icon
+    'veui-icon': Icon,
+    'veui-slider': Slider
   },
 
   data () {
@@ -2545,7 +2552,8 @@ export default {
         phoneType,
         start: null,
         end: null,
-        protocol: ''
+        protocol: '',
+        salary: [2, 5]
       },
       storeData4Options: {
         hobbyItems,
