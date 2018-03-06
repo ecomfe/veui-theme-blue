@@ -1,6 +1,10 @@
 # veui-theme-blue
 
-> A Vue.js project
+> blue theme for veui,this is a vue.js project.
+
+*This is a work in progress.*
+
+[DEMO](https://ecomfe.github.io/veui-theme-blue/components/#/)
 
 ## Build Setup
 
