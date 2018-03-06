@@ -1,9 +1,9 @@
 {
   "name": "veui-theme-blue",
-  "version": "0.0.2-debug.1",
+  "version": "0.1.0-dev",
   "description": "blue Theme for VEUI",
   "author": "BI FE",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -99,5 +99,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomfe/veui-theme-blue.git"
+  },
+  "keywords": [
+    "veui",
+    "vue",
+    "veui-theme-blue"
+  ],
+  "bugs": {
+    "url": "https://github.com/ecomfe/veui-theme-blue/issues"
+  },
+  "homepage": "https://github.com/ecomfe/veui-theme-blue#readme"
 }

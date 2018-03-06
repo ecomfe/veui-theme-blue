@@ -1,6 +1,6 @@
 {
   "name": "veui-theme-blue",
-  "version": "0.0.2-debug.1",
+  "version": "0.1.0-dev",
   "description": "blue theme for VEUI.",
   "scripts": {
     "icons": "node build/svg2json.js && node build/icons.js"
@@ -22,5 +22,13 @@
   "devDependencies": {
     "svgo": "^0.7.2",
     "svgson": "^2.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomfe/veui-theme-blue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ecomfe/veui-theme-blue/issues"
+  },
+  "homepage": "https://github.com/ecomfe/veui-theme-blue#readme"
 }
