@@ -1,6 +1,7 @@
 @import "../lib.less";
 
 .veui-breadcrumb {
+  @separator-color: #9B9B9B;
   .clearfix();
   .reset-list-style();
   margin: 0;
@@ -9,8 +10,8 @@
   .centered-line(22px);
 
   &-separator {
-    .margin(0, 4px);
+    .margin(0, 7px);
     font-size: @veui-font-size-small;
-    color: @veui-text-color;
+    color: @separator-color;
   }
 }
