@@ -72,7 +72,7 @@
     <section>
       <h2>内联组件嵌套：</h2>
       <veui-select v-model="defaultValue10">
-        <!-- <veui-option-group label="字母">
+        <veui-option-group label="字母">
           <veui-option value="A" label="选项 A"/>
           <veui-option value="B" label="选项 B"/>
           <veui-option value="C" label="选项 C"/>
@@ -81,7 +81,7 @@
           <veui-option value="1" label="选项 1"/>
           <veui-option value="2" label="选项 2"/>
           <veui-option value="3" label="选项 3"/>
-        </veui-option-group> -->
+        </veui-option-group>
       </veui-select>
     </section>
   </article>
@@ -89,8 +89,7 @@
 
 <script>
 import bus from '../bus'
-// import { Icon, Select, Option, OptionGroup, Radio } from 'veui'
-import { Icon, Select, Radio } from 'veui'
+import { Icon, Select, Option, OptionGroup, Radio } from 'veui'
 import type from 'veui/managers/type'
 import 'vue-awesome/icons/eye'
 import 'vue-awesome/icons/gift'
@@ -99,8 +98,8 @@ export default {
   name: 'select-demo',
   components: {
     'veui-select': Select,
-    // 'veui-option': Option,
-    // 'veui-option-group': OptionGroup,
+    'veui-option': Option,
+    'veui-option-group': OptionGroup,
     'radio': Radio,
     'icon': Icon
   },

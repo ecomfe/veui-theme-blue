@@ -1,14 +1,28 @@
 @import "~less-plugin-est/src/all.less";
 @import "./variables.less";
 
+// https://github.com/twbs/bootstrap/blob/e43f97304eac2b276c755267e29de70ae2ac7afd/scss/mixins/_screen-reader.scss#L6-L15
+.veui-invisible() {
+  position: absolute;
+  .size(1px);
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .veui-button-transition() {
   transition-property: border-color, background-color, color, opacity;
   transition-duration: 0.2s;
 }
 
+// https://stackoverflow.com/questions/27000492/css3-transform-property-working-differently-in-internet-explorer
 .veui-position-center(@x: 50%, @y: @x) {
-  .absolute(@x, _, _, @y);
-  transform: translate(-@x, -@y);
+  @right: 100% - @x;
+  @bottom: 100% - @y;
+  .absolute(auto, @right, @bottom, auto);
+  transform: translate(@right, @bottom);
 }
 
 .veui-field-require() {
