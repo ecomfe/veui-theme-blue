@@ -11,6 +11,9 @@
     width: 100%;
     .padding(_, 10px);
     text-align: left;
+    &:hover {
+      background: @veui-light-gray-color5;
+    }
   }
 
   &-label {
@@ -23,74 +26,34 @@
   &-icon {
     float: right;
   }
-
-  &-button[ui~="primary"]:not(.veui-button-loading):disabled {
-    background-color: @veui-gray-color-7;
-    border-color: transparent;
-    color: @veui-text-color-weak;
-  }
-
-  &-expanded &-button:not([ui~="link"]) {
-    &,
-    &:hover,
-    &.focus-visible {
-      color: @veui-text-color-strong;
-      background-color: @veui-gray-color-8;
-    }
-
-    &:active {
-      background-color: @veui-gray-color-6;
-    }
-  }
-
-  &-expanded &-button[ui~="primary"]:not([ui~="link"]) {
-    &,
-    &:hover,
-    &.focus-visible {
-      background-color: @veui-brand-color-2;
-      color: #fff;
-    }
-
-    &:active {
-      background-color: @veui-brand-color-1;
-    }
-  }
-
-  &-expanded &-button[ui~="alt"] {
-    &,
-    &:hover,
-    &.focus-visible {
-      background-color: @veui-gray-color-6;
-    }
-  }
 }
 
 ._veui-dropdown-option {
+  @option-hover-color: #EDF4FE;
   .veui-button-transition();
-  .centered-line(@veui-height-normal);
+  .centered-line(31px);
   .ellipsis();
   display: block;
   width: 100%;
   background-color: #fff;
   border: none;
   padding: 0 10px;
-  color: @veui-text-color-normal;
+  color: @veui-dark-gray-color2;
   text-align: left;
   outline: none;
   cursor: pointer;
 
   &.focus-visible,
   &:hover {
-    background-color: @veui-gray-color-8;
+    background-color: @option-hover-color;
   }
 
   &:active {
-    background-color: @veui-gray-color-6;
+    background-color: @option-hover-color;
   }
 
   &-selected {
-    color: @veui-text-color-strong;
-    font-weight: @veui-font-weight-bold;
+    background-color: @option-hover-color;
   }
 
   &-disabled {
