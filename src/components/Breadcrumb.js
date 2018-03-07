@@ -1,4 +1,4 @@
-import '../icons/angle-right-small'
+import '../icons/bold-angle-right'
 import config from 'veui/managers/config'
 
 config.defaults({
