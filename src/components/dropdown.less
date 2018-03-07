@@ -4,7 +4,6 @@
 .veui-dropdown {
   &:extend(._veui-dropdown-button all);
   display: inline-block;
-  min-width: 110px;
 
   &-options {
     &:extend(._veui-dropdown-overlay all);
@@ -18,6 +17,14 @@
     &:extend(._veui-dropdown-option all);
   }
 
+  &-label {
+    color: @veui-middle-gray-color2;
+  }
+
+  &-icon {
+    color: @veui-middle-gray-color7;
+  }
+
   &[ui~="link"] {
     min-width: auto;
 
@@ -26,6 +33,7 @@
       max-width: none;
       margin-right: 5px;
       vertical-align: middle;
+      color: @veui-dark-gray-color2;
     }
 
     .veui-button {
@@ -35,11 +43,11 @@
       &:not(:disabled) {
         &:hover,
         &.focus-visible {
-          color: @veui-brand-color-2;
+          // color: @veui-brand-color-2;
         }
 
         &:active {
-          color: @veui-brand-color-1;
+          // color: @veui-brand-color-1;
         }
 
       }
@@ -48,6 +56,7 @@
         float: none;
         margin-top: 0;
         vertical-align: middle;
+        color: @veui-dark-gray-color2;
       }
     }
 
