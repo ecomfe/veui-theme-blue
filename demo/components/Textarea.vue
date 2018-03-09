@@ -2,16 +2,23 @@
   <article>
     <h1><code>&lt;veui-textarea&gt;</code></h1>
     <section>
-      <h2>小尺寸 + 显示 3 行</h2>
-      <veui-textarea ui="small" rows="3" v-model="value"/>
-    <section>
+      <p>
+        <span class="veui-font-level-1b">默认尺寸 + 显示 3 行</span>
+      </p>
+      <veui-textarea placeholder="请输入" rows="3" v-model="value"/>
     </section>
-      <h2>默认尺寸 + 行号 + 自动扩展</h2>
+    <section>
+      <p>
+        <span class="veui-font-level-1b">默认尺寸 + 行号 + 自动扩展</span>
+      </p>
       <veui-textarea line-number autoresize placeholder="请输入" v-model="value"/>
-    <section>
     </section>
-      <h2>大尺寸 + 自动扩展</h2>
-      <veui-textarea ui="large" autoresize v-model="value"/>
+    <section>
+      <p>
+        <span class="veui-font-level-1b">宽度100% + 自动扩展：</span>
+        <span class="veui-font-level-2d">ui="auto"</span>
+      </p>
+      <veui-textarea ui="auto" autoresize v-model="value"/>
     </section>
   </article>
 </template>
