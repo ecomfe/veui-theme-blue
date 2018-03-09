@@ -5,26 +5,31 @@
   display: inline-block;
   position: relative;
   overflow: hidden;
-  width: 300px;
-  border: 1px solid @veui-gray-color-5;
+  width: 330px;
+  border: 1px solid @veui-middle-gray-color4;
   padding: 0;
-  background-color: @veui-gray-color-7;
-  font-size: @veui-font-size-normal;
-  line-height: @veui-height-normal;
+  background-color: @veui-light-gray-color5;
+  font-size: @veui-font-size-small;
+  line-height: 20px;
   transition: border-color .2s, color .2s;
-  color: @veui-text-color-normal;
+  color: @veui-dark-gray-color2;
+  border-radius: @veui-border-radius-normal;
+
+  &[ui~="auto"] {
+    width: 100%;
+  }
 
   .veui-field-invalid & {
     &:extend(._veui-input-invalid all);
   }
 
-  &:hover,
-  &-focused {
-    border-color: @veui-gray-color-3;
+  &:hover {
+    border-color: @veui-dark-gray-color3;
   }
 
-  &-focused {
-    color: @veui-text-color-strong;
+  &&-focused {
+    border-color: @veui-theme-color;
+    color: @veui-dark-gray-color2;
   }
 
   &-input,
@@ -36,13 +41,16 @@
     position: relative;
     float: right;
     width: 100%;
-    height: 150px;
+    height: 90px;
     border: none;
     outline: none;
-    padding: 0 10px;
-    background-color: #fff;
+    padding: 4px 8px;
+    background-color: @veui-light-gray-color5;
     z-index: 1;
     resize: none;
+    &::placeholder {
+      color: @veui-middle-gray-color2;
+    }
   }
 
   &-rows &-input {
@@ -58,7 +66,7 @@
     overflow: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
-    color: @veui-text-color-weak;
+    color: @veui-dark-gray-color2;
 
     &-line {
       overflow: hidden;
@@ -77,26 +85,16 @@
     }
   }
 
-  &[ui~="small"] {
-    font-size: @veui-font-size-small;
-    line-height: @veui-height-small;
-  }
-
-  &[ui~="large"] {
-    font-size: @veui-font-size-large;
-    line-height: @veui-height-large;
-  }
-
   &.veui-readonly,
   &.veui-disabled {
     &,
     &:hover {
-      border-color: @veui-gray-color-5;
-      color: @veui-text-color-weak;
+      border-color: @veui-middle-gray-color4;
+      color: @veui-middle-gray-color2;
     }
 
     & .veui-textarea-input {
-      background-color: @veui-gray-color-8;
+      background-color: @veui-light-gray-color4;
     }
   }
 
