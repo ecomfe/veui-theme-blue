@@ -55,39 +55,31 @@
       </div>
 
       <div class="form-row">
-        <div class="form-key">宽度：</div>
+        <p class="veui-font-level-1b">三种样式：</p>
         <div class="form-value">
-          <veui-input ui="small" v-nudge.y="{
+          <p>
+            <span class="veui-font-level-1b">小尺寸：</span>
+            <span class="veui-font-level-2d">ui="small"</span>
+          </p>
+          <p>
+            <veui-input ui="small" v-nudge.y="{
             smallStep: 0,
             update: handleThumbNudgeUpdage
-          }" v-model="width" @focus="log('focus')"></veui-input>
-          <veui-input v-model="width" readonly></veui-input>
-          <veui-input ui="large" v-model="width" disabled></veui-input>
-        </div>
-      </div>
-
-      <div class="form-row five-sizes">
-        <div class="form-key">5 种大小：</div>
-        <div class="form-value">
-          <p>
-            <label>micro</label>
-            <veui-input ui="micro" v-model="poem"></veui-input>
+          }" v-model="smallWidth" @focus="log('focus')"></veui-input>
           </p>
           <p>
-            <label>tiny</label>
-            <veui-input ui="tiny" v-model="poem"></veui-input>
+            <span class="veui-font-level-1b">默认尺寸：</span>
+            <span class="veui-font-level-2d">不传ui</span>
           </p>
           <p>
-            <label>small</label>
-            <veui-input ui="small" v-model="poem"></veui-input>
+            <veui-input v-model="normalWidth" readonly></veui-input>
           </p>
           <p>
-            <label>normal</label>
-            <veui-input v-model="poem"></veui-input>
+            <span class="veui-font-level-1b">大尺寸：</span>
+            <span class="veui-font-level-2d">ui="large"</span>
           </p>
           <p>
-            <label>large</label>
-            <veui-input ui="large" v-model="poem"></veui-input>
+            <veui-input ui="large" v-model="bigWidth" disabled></veui-input>
           </p>
         </div>
       </div>
@@ -121,7 +113,10 @@ export default {
       textarea2: '设置高度，同时可缩放',
       textarea3: '默认高度',
       poem: '兩岸猿聲啼不住，輕舟已過萬重山',
-      width: '1024px'
+      width: '1024px',
+      smallWidth: '74px',
+      normalWidth: '160px',
+      bigWidth: '364px'
     }
   },
   methods: {
@@ -181,7 +176,6 @@ export default {
 
   .veui-input,
   .veui-textarea {
-    width: 280px;
     margin-right: 10px;
   }
 
@@ -190,10 +184,6 @@ export default {
 
     &:nth-child(1) {
       height: auto;
-    }
-
-    &:nth-child(2) {
-      height: 100px;
     }
   }
 }
