@@ -7,12 +7,6 @@
       </veui-radio-group>
     </p>
     <p>value: {{ picked1 }}</p>
-    <p>
-      <veui-radio-group :items="data2" ui="small" v-model="picked2">
-        <template slot-scope="props">{{ props.label }}</template>
-      </veui-radio-group>
-    </p>
-    <p>value: {{ picked2 }}</p>
   </article>
 </template>
 
@@ -27,19 +21,7 @@ export default {
   data () {
     return {
       picked1: null,
-      picked2: 'Nakano Azusa',
       data1: [
-        {
-          value: 'Hirasawa Yui', label: 'Hirasawa Yui'
-        },
-        {
-          value: 'Akiyama Mio', label: 'Akiyama Mio'
-        },
-        {
-          value: 'Nakano Azusa', label: 'Nakano Azusa'
-        }
-      ],
-      data2: [
         {
           value: 'Hirasawa Yui', label: 'Hirasawa Yui'
         },
