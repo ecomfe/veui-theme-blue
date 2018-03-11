@@ -6,19 +6,30 @@
       <p><label><veui-checkbox v-model="vertical">纵向样式</veui-checkbox></label></p>
     </section>
     <section>
-      <h2>默认样式：</h2>
+      <p>
+        <span class="veui-font-level-1b">默认样式：</span>
+        <span class="veui-font-level-2d">ui="vertical"（纵向样式，不传ui则默认为横向样式）</span>
+      </p>
       <veui-steps :steps="steps" :current="current - 1" :ui="`${vertical ? 'vertical' : ''}`"></veui-steps>
     </section>
     <section>
-      <h2>多行样式：</h2>
+      <p>
+        <span class="veui-font-level-1b">多行样式：</span>
+        <span class="veui-font-level-2d">ui="full"</span>
+      </p>
       <veui-steps :steps="steps" :ui="`full${vertical ? ' vertical' : ''}`" :current="current - 1"></veui-steps>
     </section>
     <section>
-      <h2>小型样式：</h2>
+      <p>
+        <span class="veui-font-level-1b">小型样式：</span>
+        <span class="veui-font-level-2d">ui="small"</span>
+      </p>
       <veui-steps :steps="steps" :current="current - 1" :ui="`small ${vertical ? 'vertical' : ''}`"></veui-steps>
     </section>
     <section>
-      <h2>自定义模板：</h2>
+      <p>
+        <span class="veui-font-level-1b">自定义模板：</span>
+      </p>
       <veui-steps :steps="steps" :ui="`full${vertical ? ' vertical' : ''}`" :current="current - 1">
         <template slot="label" slot-scope="step">{{ step.label }} <veui-icon class="star" name="star"></veui-icon></template>
       </veui-steps>
