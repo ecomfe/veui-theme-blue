@@ -10,15 +10,15 @@
         <span class="veui-font-level-2d">不传ui</span>
       </p>
       <p>
-        <span class="veui-font-level-2d">大样式：ui="large"</span>
+        <span class="veui-font-level-2d">大尺寸：ui="large"</span>
       </p>
       <veui-button-group ui="large" :items="items2" :disabled="disabled"></veui-button-group>
       <p>
-        <span class="veui-font-level-2d">中样式：ui=""（不传）</span>
+        <span class="veui-font-level-2d">默认尺寸：ui=""（不传）</span>
       </p>
       <veui-button-group :items="items2" :disabled="disabled"></veui-button-group>
       <p>
-        <span class="veui-font-level-2d">小样式：ui="small"</span>
+        <span class="veui-font-level-2d">小尺寸：ui="small"</span>
       </p>
       <veui-button-group ui="small" :items="items2" :disabled="disabled"></veui-button-group>
     </section>
@@ -28,15 +28,15 @@
         <span class="veui-font-level-2d">ui="primary"</span>
       </p>
       <p>
-        <span class="veui-font-level-2d">大样式：ui="large"</span>
+        <span class="veui-font-level-2d">大尺寸：ui="large"</span>
       </p>
       <veui-button-group ui="primary large" :items="items1" :disabled="disabled"></veui-button-group>
       <p>
-        <span class="veui-font-level-2d">中样式：ui=""（不传）</span>
+        <span class="veui-font-level-2d">默认尺寸：ui=""（不传）</span>
       </p>
       <veui-button-group ui="primary" :items="items1" :disabled="disabled"></veui-button-group>
       <p>
-        <span class="veui-font-level-2d">小样式：ui="small"</span>
+        <span class="veui-font-level-2d">小尺寸：ui="small"</span>
       </p>
       <veui-button-group ui="primary small" :items="items1" :disabled="disabled"></veui-button-group>
     </section>
@@ -46,15 +46,15 @@
         <span class="veui-font-level-2d">ui="alt"</span>
       </p>
       <p>
-        <span class="veui-font-level-2d">大样式：ui="large"</span>
+        <span class="veui-font-level-2d">大尺寸：ui="large"</span>
       </p>
       <veui-button-group ui="alt large" :items="items4" :disabled="disabled"></veui-button-group>
       <p>
-        <span class="veui-font-level-2d">中样式：ui=""（不传）</span>
+        <span class="veui-font-level-2d">默认尺寸：ui=""（不传）</span>
       </p>
       <veui-button-group ui="alt" :items="items4" :disabled="disabled"></veui-button-group>
       <p>
-        <span class="veui-font-level-2d">小样式：ui="small"</span>
+        <span class="veui-font-level-2d">小尺寸：ui="small"</span>
       </p>
       <veui-button-group ui="alt small" :items="items4" :disabled="disabled"></veui-button-group>
     </section>
