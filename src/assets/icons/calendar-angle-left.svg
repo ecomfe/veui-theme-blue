@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="11px" viewBox="0 0 6 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>chevron</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-2" transform="translate(-42.000000, -33.000000)" fill="#4DA1FF">
+            <path d="M47.8370547,38.3401519 C47.9501917,38.6778487 47.8799096,39.0609717 47.604781,39.3283864 L43.8326908,43.0010532 C43.442711,43.3816049 42.8093152,43.3816049 42.4184783,43.0010532 C42.0284985,42.6205015 42.0284985,42.0042477 42.4184783,41.623696 L45.9025835,38.2313004 L42.3053413,34.728339 C41.8982196,34.3332166 41.8982196,33.692107 42.3053413,33.2969846 C42.7107489,32.9010051 43.3690005,32.9010051 43.7752652,33.2969846 L47.6964905,37.1145011 C48.040187,37.4496266 48.0753281,37.9510292 47.8370547,38.3401519 L47.8370547,38.3401519 Z" id="chevron" transform="translate(44.995000, 38.143233) rotate(-180.000000) translate(-44.995000, -38.143233) "></path>
+        </g>
+    </g>
+</svg>

@@ -39,37 +39,44 @@ export default [
   {
     path: '/alert',
     name: 'Alert',
-    component: Alert
+    component: Alert,
+    isComplete: true
   },
   {
     path: '/breadcrumb',
     name: 'Breadcrumb',
-    component: Breadcrumb
+    component: Breadcrumb,
+    isComplete: true
   },
   {
     path: '/button',
     name: 'Button',
-    component: Button
+    component: Button,
+    isComplete: true
   },
   {
     path: '/button-group',
     name: 'ButtonGroup',
-    component: ButtonGroup
+    component: ButtonGroup,
+    isComplete: true
   },
   {
     path: '/calendar',
     name: 'Calendar',
-    component: Calendar
+    component: Calendar,
+    isComplete: true
   },
   {
     path: '/carousel',
     name: 'Carousel',
-    component: Carousel
+    component: Carousel,
+    isComplete: 'noDev'
   },
   {
     path: '/checkbox',
     name: 'Checkbox',
-    component: Checkbox
+    component: Checkbox,
+    isComplete: true
   },
   {
     path: '/check-button-group',
@@ -79,7 +86,8 @@ export default [
   {
     path: '/checkbox-group',
     name: 'CheckboxGroup',
-    component: CheckboxGroup
+    component: CheckboxGroup,
+    isComplete: true
   },
   {
     path: '/date-picker',
@@ -89,42 +97,50 @@ export default [
   {
     path: '/dialog',
     name: 'Dialog',
-    component: Dialog
+    component: Dialog,
+    isComplete: 'noUi'
   },
   {
     path: '/dropdown',
     name: 'Dropdown',
-    component: Dropdown
+    component: Dropdown,
+    isComplete: true
   },
   {
     path: '/form',
     name: 'Form',
-    component: Form
+    component: Form,
+    isComplete: 'noUi'
   },
   {
     path: '/font',
     name: 'Font',
-    component: Font
+    component: Font,
+    isComplete: true
   },
   {
     path: '/icon',
     name: 'Icon',
-    component: Icon
+    component: Icon,
+    isComplete: true
   },
   {
     path: '/input',
     name: 'Input',
-    component: Input
+    component: Input,
+    isComplete: true
   },
   {
     path: '/overlay',
     name: 'Overlay',
-    component: Overlay
+    component: Overlay,
+    isComplete: 'noDev'
   },
   {
     path: '/pagination/:page?',
     name: 'Pagination',
-    component: Pagination
+    component: Pagination,
+    isComplete: true
   },
   {
     path: '/progress',
@@ -134,7 +150,8 @@ export default [
   {
     path: '/radio',
     name: 'Radio',
-    component: Radio
+    component: Radio,
+    isComplete: true
   },
   {
     path: '/radio-button-group',
@@ -144,27 +161,32 @@ export default [
   {
     path: '/radio-group',
     name: 'RadioGroup',
-    component: RadioGroup
+    component: RadioGroup,
+    isComplete: true
   },
   {
     path: '/region-picker',
     name: 'RegionPicker',
-    component: RegionPicker
+    component: RegionPicker,
+    isComplete: 'noDev'
   },
   {
     path: '/schedule',
     name: 'Schedule',
-    component: Schedule
+    component: Schedule,
+    isComplete: 'noDev'
   },
   {
     path: '/slider',
     name: 'Slider',
-    component: Slider
+    component: Slider,
+    isComplete: 'noDev'
   },
   {
     path: '/searchbox',
     name: 'Searchbox',
-    component: Searchbox
+    component: Searchbox,
+    isComplete: true
   },
   {
     path: '/select',
@@ -174,7 +196,8 @@ export default [
   {
     path: '/steps',
     name: 'Steps',
-    component: Steps
+    component: Steps,
+    isComplete: true
   },
   {
     path: '/switch',
@@ -184,7 +207,8 @@ export default [
   {
     path: '/table',
     name: 'Table',
-    component: Table
+    component: Table,
+    isComplete: 'noUi'
   },
   {
     path: '/tabs',
@@ -204,12 +228,14 @@ export default [
         path: 'progress',
         component: Progress
       }
-    ]
+    ],
+    isComplete: 'noUi'
   },
   {
     path: '/textarea',
     name: 'Textarea',
-    component: Textarea
+    component: Textarea,
+    isComplete: true
   },
   {
     path: '/toast',
@@ -224,11 +250,13 @@ export default [
   {
     path: '/transfer',
     name: 'Transfer',
-    component: Transfer
+    component: Transfer,
+    isComplete: 'noDev'
   },
   {
     path: '/uploader',
     name: 'Uploader',
-    component: Uploader
+    component: Uploader,
+    isComplete: true
   }
 ]

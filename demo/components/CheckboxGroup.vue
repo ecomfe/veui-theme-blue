@@ -2,17 +2,35 @@
   <article>
     <h1><code>&lt;veui-checkbox-group&gt;</code></h1>
     <p>
+      <span class="veui-font-level-1b">默认图标：</span>
+      <span class="veui-font-level-2d">不传ui(大小为14px)--同checkbox组件</span>
+    </p>
+    <p>
       <veui-checkbox-group :items="data1" v-model="picked1">
         <template slot-scope="props">{{ props.label }}</template>
       </veui-checkbox-group>
     </p>
     <p>value: {{ picked1 }}</p>
     <p>
+      <span class="veui-font-level-1b">小图标：</span>
+      <span class="veui-font-level-2d">ui="small"(大小为12px)--同checkbox组件</span>
+    </p>
+    <p>
       <veui-checkbox-group :items="data2" ui="small" v-model="picked2">
         <template slot-scope="props">{{ props.label }}</template>
       </veui-checkbox-group>
     </p>
     <p>value: {{ picked2 }}</p>
+    <p>
+      <span class="veui-font-level-1b">大图标：</span>
+      <span class="veui-font-level-2d">ui="big"(大小为16px)--同checkbox组件</span>
+    </p>
+    <p>
+      <veui-checkbox-group :items="data3" v-model="picked3" ui="large">
+        <template slot-scope="props">{{ props.label }}</template>
+      </veui-checkbox-group>
+    </p>
+    <p>value: {{ picked3 }}</p>
   </article>
 </template>
 
@@ -28,6 +46,7 @@ export default {
     return {
       picked1: ['Hirasawa Yui', 'Akiyama Mio'],
       picked2: [],
+      picked3: [],
       data1: [
         {
           value: 'Hirasawa Yui', label: 'Hirasawa Yui'
@@ -40,6 +59,17 @@ export default {
         }
       ],
       data2: [
+        {
+          value: 'Hirasawa Yui', label: 'Hirasawa Yui'
+        },
+        {
+          value: 'Akiyama Mio', label: 'Akiyama Mio'
+        },
+        {
+          value: 'Nakano Azusa', label: 'Nakano Azusa'
+        }
+      ],
+      data3: [
         {
           value: 'Hirasawa Yui', label: 'Hirasawa Yui'
         },
