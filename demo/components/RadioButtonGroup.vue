@@ -6,6 +6,9 @@
     </section>
     <section>
       <p>
+        <span class="veui-font-level-1b">普通按钮：</span>
+      </p>
+      <p>
         <veui-radio-button-group :items="data1" name="111" v-model="picked1" :disabled="disabled">
           <template slot-scope="props">{{ props.label }}</template>
         </veui-radio-button-group>
@@ -14,7 +17,11 @@
     </section>
     <section>
       <p>
-        <veui-radio-button-group :items="data2" ui="small alt" v-model="picked2" :disabled="disabled">
+        <span class="veui-font-level-1b">间隙排列按钮：</span>
+        <span class="veui-font-level-2d">ui="interval"</span>
+      </p>
+      <p>
+        <veui-radio-button-group :items="data2" ui="interval" v-model="picked2" :disabled="disabled">
           <template slot-scope="props">{{ props.label }}</template>
         </veui-radio-button-group>
       </p>
