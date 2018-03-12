@@ -1,13 +1,15 @@
 @import "../lib.less";
 
+@progress-bg-color: #E5E5E5;
+@height: @veui-height-normal;
+@thickness: 5px;
+
 .veui-progress {
-  @height: @veui-height-normal;
-  @thickness: 4px;
   .clearfix();
   display: inline-block;
   position: relative;
   .padding(_, 10px);
-  color: @veui-text-color-weak;
+  color: @veui-dark-gray-color3;
   transition: color .2s;
 
   &-bar {
@@ -18,14 +20,17 @@
       overflow: hidden;
       float: left;
       margin-top: (@height - @thickness) / 2;
-      background-color: @veui-gray-color-5;
+      background-color: @progress-bg-color;
+      border-radius: 2px;
     }
 
     .veui-progress-meter {
       .size(100%);
       margin-left: -100%;
-      background-color: @veui-gray-color-2;
+      background-color: @veui-dark-gray-color2;
       transition: transform .2s, background-color .2s;
+      opacity: 0.74;
+      border-radius: 2px;
     }
   }
 
@@ -38,11 +43,11 @@
     }
 
     .veui-progress-rail {
-      stroke: @veui-gray-color-5;
+      stroke: @progress-bg-color;
     }
 
     .veui-progress-meter {
-      stroke: @veui-gray-color-2;
+      stroke: @veui-dark-gray-color2;
       transition: stroke-dashoffset .2s;
     }
   }
@@ -64,7 +69,7 @@
     .veui-position-center();
     .centered-line(20px);
     padding-left: 0;
-    font-size: @veui-font-size-large;
+    font-size: @veui-font-size-normal;
 
     .veui-icon {
       vertical-align: top;
@@ -78,7 +83,7 @@
 
   &-state {
     &-complete {
-      color: @veui-text-color-normal;
+      color: @veui-dark-gray-color2;
     }
 
     &-success {
