@@ -6,4 +6,49 @@
   .veui-button {
     &:extend(._veui-grouped-button all);
   }
+
+  &[ui~="interval"] {
+    .veui-button {
+      margin-left: 5px;
+      border-radius: @veui-border-radius-normal;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &[ui~="primary"] {
+    .veui-button {
+      border-color: transparent;
+      background-color: @veui-theme-color;
+      color: #fff;
+      margin-left: 1px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &.veui-button-selected {
+        background-color: @veui-theme-click-color;
+      }
+      &:hover,
+      &.focus-visible {
+        background-color: @veui-theme-hover-color;
+      }
+
+      &:active {
+        background-color: @veui-theme-click-color;
+      }
+
+      &.veui-disabled,
+      &.veui-disabled[ui], {
+        &,
+        &:hover {
+          cursor: not-allowed;
+          border-color: transparent;
+          background-color: @veui-theme-color;
+          opacity: 0.4;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
