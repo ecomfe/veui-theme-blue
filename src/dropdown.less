@@ -1,5 +1,8 @@
 @import "./lib.less";
 
+@option-hover-color: #EDF4FE; // option hover色值
+@option-active-color: #DDEBFF; // option click色值
+
 ._veui-dropdown-overlay {
   border: 1px solid @veui-gray-color-6;
   margin: 3px 0;
@@ -29,13 +32,12 @@
 }
 
 ._veui-dropdown-option {
-  @option-hover-color: #EDF4FE;
   .veui-button-transition();
   .centered-line(31px);
   .ellipsis();
   display: block;
   width: 100%;
-  background-color: #fff;
+  background-color: @veui-light-gray-color5;
   border: none;
   padding: 0 10px;
   color: @veui-dark-gray-color2;
@@ -49,7 +51,7 @@
   }
 
   &:active {
-    background-color: @option-hover-color;
+    background-color: @option-active-color;
   }
 
   &-selected {
@@ -57,8 +59,8 @@
   }
 
   &-disabled {
-    background-color: #fff;
-    color: @veui-text-color-weak;
+    background-color: @veui-light-gray-color5;
+    color: @veui-dark-gray-color3;
     cursor: not-allowed;
   }
 

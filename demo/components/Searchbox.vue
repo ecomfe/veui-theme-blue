@@ -4,7 +4,33 @@
     <section>
       <h2>普通</h2>
       <p>
+        <span class="veui-font-level-1b">小尺寸：</span>
+        <span class="veui-font-level-2d">ui="small"</span>
+      </p>
+      <p>
         <veui-searchbox
+          ui="small"
+          :name="name"
+          :placeholder="placeholder"
+          @search="log($event)"></veui-searchbox>
+      </p>
+      <p>
+        <span class="veui-font-level-1b">默认尺寸：</span>
+        <span class="veui-font-level-2d">不传ui</span>
+      </p>
+      <p>
+        <veui-searchbox
+          :name="name"
+          :placeholder="placeholder"
+          @search="log($event)"></veui-searchbox>
+      </p>
+      <p>
+        <span class="veui-font-level-1b">大尺寸：</span>
+        <span class="veui-font-level-2d">ui="large"</span>
+      </p>
+      <p>
+        <veui-searchbox
+          ui="large"
           :name="name"
           :placeholder="placeholder"
           @search="log($event)"></veui-searchbox>
@@ -37,7 +63,11 @@
       </p>
     </section>
     <section>
-      <h2>小ui模式</h2>
+      <h2>ui模式：<span class="veui-font-level-2d">类型ui="primary"</span></h2>
+      <p>
+        <span class="veui-font-level-1b">小尺寸：</span>
+        <span class="veui-font-level-2d">ui="small"</span>
+      </p>
       <p>
         <veui-searchbox
           ui="primary small"
@@ -49,9 +79,25 @@
           @input="handleInput('2', $event)"
           @search="log($event)"></veui-searchbox>
       </p>
-    </section>
-    <section>
-      <h2>大ui模式</h2>
+      <p>
+        <span class="veui-font-level-1b">默认尺寸：</span>
+        <span class="veui-font-level-2d">不传ui</span>
+      </p>
+      <p>
+        <veui-searchbox
+          ui="primary"
+          clearable
+          :name="name"
+          :placeholder="placeholder"
+          :suggestions="suggestions2"
+          replaceOnSelect
+          @input="handleInput('2', $event)"
+          @search="log($event)"></veui-searchbox>
+      </p>
+      <p>
+        <span class="veui-font-level-1b">大尺寸：</span>
+        <span class="veui-font-level-2d">ui="large"</span>
+      </p>
       <p>
         <veui-searchbox
           ui="primary large"
@@ -66,7 +112,7 @@
       <h2>全局搜索框</h2>
       <p>
         <veui-searchbox
-          ui="primary"
+          ui="primary large"
           replaceOnSelect
           :name="name"
           :placeholder="placeholder"
@@ -80,7 +126,7 @@
       <h2>禁用全局搜索框</h2>
       <p>
         <veui-searchbox
-          ui="alt primary"
+          ui="alt primary large"
           disabled
           :name="name"
           :placeholder="placeholder"
