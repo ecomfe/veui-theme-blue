@@ -1,14 +1,26 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
 
+@searchbox-width: 160px; // searchbox宽度
+@searchbox-height: 28px; // searchbox高度
+@searchbox-small-width: 160px; // ui=small searchbox宽度
+@searchbox-small-height: 21px; // ui=small searchbox高度
+@searchbox-big-width: 330px; // ui=large searchbox宽度
+@searchbox-big-height: 34px; // ui=large searchbox高度
+
 .veui-searchbox {
   display: inline-block;
   position: relative;
-  color: @veui-text-color-weak;
-  width: 210px;
+  color: @veui-dark-gray-color2;
+  width: @searchbox-width;
 
   .veui-input {
     width: 100%;
+    &:read-only,
+    &:disabled {
+      color: @veui-dark-gray-color2;
+      opacity: 0.4;
+    }
   }
 
   &.veui-searchbox-clearable {
@@ -24,9 +36,9 @@
 
   &.veui-disabled,
   &.veui-readonly {
-    background-color: @veui-gray-color-8;
-    border-color: @veui-gray-color-5;
-    color: @veui-text-color-aux;
+    background-color: @veui-light-gray-color4;
+    border-color: @veui-middle-gray-color4;
+    color: @veui-dark-gray-color2;
 
     .veui-searchbox-icon {
       cursor: not-allowed;
@@ -47,8 +59,8 @@
     line-height: @veui-height-normal;
   }
   &-placeholder {
-    padding: 0 11px;
-    color: @veui-text-color-weak;
+    padding: 0 9px;
+    color: @veui-middle-gray-color2;
   }
   &-placeholder-hide &-placeholder {
     display: none;
@@ -61,10 +73,16 @@
     bottom: 0;
   }
 
+  &:hover {
+    .veui-searchbox-icon {
+      color: @veui-dark-gray-color3;  
+    }
+  }
+
   button&-icon {
     outline: none;
     pointer-events: auto;
-    color: @veui-text-color-normal;
+    color: #BCBDBE;
     border: none;
     padding: 0;
     width: auto;
@@ -89,18 +107,24 @@
     }
   }
 
-  &:not(.veui-disabled):not(.veui-readonly) {
-    .veui-searchbox-icon:hover {
-      color: @veui-gray-color-1;
+  &.veui-focus {
+    .veui-searchbox-icon {
+      color: @veui-dark-gray-color2;
     }
   }
 
-  &:not(.veui-disabled):not(.veui-readonly):hover,
-  &&-suggestion-expanded {
-    input {
-      border-color: @veui-gray-color-3;
+  &:not(.veui-disabled):not(.veui-readonly) {
+    .veui-searchbox-icon:hover {
+      color: @veui-dark-gray-color3;
     }
   }
+
+  // &:not(.veui-disabled):not(.veui-readonly):hover,
+  // &&-suggestion-expanded {
+  //   input {
+  //     border-color: @veui-theme-color;
+  //   }
+  // }
 
   &-suggestion-overlay {
     &:extend(._veui-dropdown-overlay all);
@@ -111,7 +135,7 @@
 
     &[ui~="large"] {
       .veui-searchbox-suggestion-item {
-        font-size: @veui-font-size-large;
+        font-size: @veui-font-size-normal;
       }
     }
 
@@ -127,11 +151,24 @@
   }
 
   &[ui~="large"] {
-    height: @veui-height-large;
-    font-size: @veui-font-size-large;
+    .size(@searchbox-big-width, @searchbox-big-height);
+    font-size: @veui-font-size-normal;
+
+    .veui-input[ui~="large"] {
+      width: 100%;
+      .centered-line(@searchbox-big-height);
+    }
 
     .veui-searchbox-others {
-      line-height: @veui-height-large;
+      line-height: @searchbox-big-height;
+    }
+
+    .veui-button[ui~="large"] {
+      width: 64px;
+      .centered-line(@searchbox-big-height);
+      min-width: auto;
+      padding: 0;
+      font-size: @veui-font-size-normal;
     }
 
     .veui-searchbox-suggestion-item {
@@ -141,16 +178,21 @@
   }
 
   &[ui~="small"] {
-    height: @veui-height-small;
-    font-size: @veui-font-size-small;
-
-    .veui-searchbox-others {
-      line-height: @veui-height-small;
+    .size(@searchbox-small-width, @searchbox-small-height);
+    .veui-button[ui~="small"] {
+      width: 42px;
+      .centered-line(@searchbox-small-height);
+      min-width: auto;
+      padding: 0;
     }
 
-    .veui-searchbox-suggestion-item {
-      height: @veui-height-small;
-      font-size: @veui-font-size-small;
+    .veui-searchbox-others {
+      line-height: @searchbox-small-height;
+    }
+
+    .veui-input[ui~="small"] {
+      width: 100%;
+      .centered-line(@searchbox-small-height);
     }
   }
 
@@ -158,10 +200,18 @@
     .veui-searchbox-icon-search {
       .veui-button {
         display: inline-block;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
       .veui-icon {
         display: none;
       }
+    }
+    .veui-button {
+      width: 42px;
+      .centered-line(@searchbox-height);
+      min-width: auto;
+      padding: 0;
     }
   }
 }

@@ -1,10 +1,10 @@
 @import "../lib.less";
 
+@radio-size: 12px;
+@disabled-color: #108EE9; // disabled状态color色值
+
 .veui-radio {
   display: inline-block;
-  color: @veui-text-color-normal;
-  font-size: @veui-font-size-normal;
-  line-height: @veui-font-size-large;
   cursor: pointer;
 
   input {
@@ -18,8 +18,9 @@
 
   &-label,
   &-box {
-    vertical-align: top;
+    vertical-align: middle;
     display: inline-block;
+    color: @veui-dark-gray-color3;
   }
 
   .veui-field > & {
@@ -33,32 +34,31 @@
   & :focus ~ &-box,
   & :focus ~ &-label,
   &:hover {
-    color: @veui-text-color-strong;
+    color: @veui-dark-gray-color3;
   }
 
   &-box {
     position: relative;
-    height: @veui-font-size-large;
-    width: @veui-font-size-large;
-    border: 1px solid @veui-gray-color-2;
-    background-color: #fff;
-    margin-right: 8px;
+    .size(@radio-size);
+    border: 1px solid @veui-middle-gray-color4;
+    background: @veui-light-gray-color5;
+    margin-right: 7px;
     border-radius: 50%;
-    font-size: @veui-font-size-normal;
+    font-size: @veui-font-size-small;
   }
 
   &:hover &-box {
-    border-color: @veui-gray-color-1;
+    border-color: @veui-theme-color;
   }
 
   & :checked + &-box {
-    border-color: @veui-gray-color-1;
+    border-color: @veui-theme-color;
 
     &::before {
       content: "";
       display: block;
-      .size(@veui-font-size-large);
-      background-color: @veui-gray-color-1;
+      .size(@radio-size);
+      background: @veui-theme-color;
       border-radius: 50%;
       .absolute(50%, 50%);
       transform: translate(-50%, -50%) scale(.5);
@@ -69,40 +69,25 @@
     cursor: not-allowed;
 
     .veui-radio-label {
-      color: @veui-text-color-weak;
+      color: @veui-dark-gray-color3;
     }
-  }
-
-  & :disabled + &-box {
-    border-color: @veui-gray-color-5;
-    background-color: @veui-gray-color-7;
-
-    &::before {
-      background-color: @veui-gray-color-5;
-    }
-  }
-
-  &[ui~="small"] {
-    font-size: @veui-font-size-small;
-    line-height: @veui-font-size-small;
-  }
-
-  .veui-field[ui~="small"] > &[ui~="small"] {
-    line-height: @veui-height-small;
 
     .veui-radio-box {
-      vertical-align: -2px;
+      background: @veui-light-gray-color4;
+    }
+
+    &:hover .veui-radio-box {
+      border-color: @veui-middle-gray-color4;
     }
   }
 
-  &[ui~="small"] &-box {
-    margin-right: 6px;
-    font-size: @veui-font-size-small;
-    height: @veui-font-size-small;
-    width: @veui-font-size-small;
+  & :checked:disabled + &-box {
+    background-color: @veui-light-gray-color1;
+    border-color: @disabled-color;
+    opacity: 0.4;
 
     &::before {
-      .size(@veui-font-size-small);
+      background-color: @disabled-color;
     }
   }
 }

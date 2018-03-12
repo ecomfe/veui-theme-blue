@@ -3,7 +3,13 @@
     <nav id="main-nav">
       <h1><a href="https://github.com/ecomfe/veui">VEUI components</a><icon name="github" scale="6"></icon></h1>
       <ul>
-        <li v-for="(route, index) in routes" :key="index"><router-link :to='route'>{{route.name}}</router-link></li>
+        <li v-for="(route, index) in routes" :key="index">
+          <router-link :to='route'>{{route.name}}
+            <span v-if="route.isComplete === true" class="red">(ok)</span>
+            <span v-if="route.isComplete === 'noDev'" class="gray">(暂不开发)</span>
+            <span v-if="route.isComplete === 'noUi'" class="orange">(无ui)</span>
+          </router-link>
+        </li>
       </ul>
       <footer><a href="https://www.baidu.com/" target="_blank">© {{year}} Baidu, Inc.</a><icon name="baidu" scale="8"></icon></footer>
     </nav>
@@ -124,6 +130,15 @@ export default {
       &:hover {
         font-weight: 500;
       }
+      .gray {
+        color: #333;
+      }
+      .red {
+        color: #ff0000;
+      }
+      .orange {
+        color: #FF701A;
+      }
     }
   }
 
@@ -195,6 +210,7 @@ main {
   color: #666;
   border: 1px solid #d9d9d9;
   padding: 10px;
+  background: @veui-light-gray-color5;
 }
 .attrTab {
   .veui-table td {

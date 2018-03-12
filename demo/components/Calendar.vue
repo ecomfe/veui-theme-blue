@@ -78,7 +78,7 @@ export default {
 
   .veui-calendar {
     float: left;
-    margin-right: 10px;
+    margin: 10px;
 
     &-weekend:not(.veui-calendar-selected) {
       button {
