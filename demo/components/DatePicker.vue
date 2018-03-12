@@ -5,8 +5,6 @@
       <h2>普通</h2>
       <p>
         <veui-date-picker v-model="selected1"></veui-date-picker>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <veui-date-picker ui="micro" v-model="selected1"></veui-date-picker>
       </p>
     </section>
     <section>
@@ -19,7 +17,7 @@
     </section>
     <section>
       <h2>范围选择</h2>
-      <p><veui-date-picker v-model="selected2" range :shortcuts="shortcuts" ui="alt"></veui-date-picker></p>
+      <p><veui-date-picker v-model="selected2" range :shortcuts="shortcuts"></veui-date-picker></p>
     </section>
     <section>
       <h2>可清除范围选择</h2>
@@ -28,23 +26,6 @@
     <section>
       <h2>范围禁用</h2>
       <p><veui-date-picker v-model="selected2" range disabled></veui-date-picker></p>
-    </section>
-    <section style="height: 500px;"></section>
-    <section>
-      <h2>普通</h2>
-      <p><veui-date-picker v-model="selected1"></veui-date-picker></p>
-    </section>
-    <section>
-      <h2>可清除选择</h2>
-      <p><veui-date-picker v-model="selected1" clearable ui="alt"></veui-date-picker></p>
-    </section>
-    <section>
-      <h2>范围选择</h2>
-      <p><veui-date-picker v-model="selected2" range></veui-date-picker></p>
-    </section>
-    <section>
-      <h2>可清除范围选择</h2>
-      <p><veui-date-picker v-model="selected2" range clearable :panel="3"></veui-date-picker></p>
     </section>
   </article>
 </template>
