@@ -1,11 +1,13 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
 
+@veui-height-normal: 28px;
+
 .veui-option {
   &:extend(._veui-dropdown-option all);
 
   & &-checkmark {
-    float: right;
+    float: left;
     display: none;
   }
 
@@ -13,5 +15,6 @@
     @height: @veui-height-normal / 2;
     display: block;
     margin-top: ~"calc(@{height} - .5em)";
+    color: #108EE9;
   }
 }

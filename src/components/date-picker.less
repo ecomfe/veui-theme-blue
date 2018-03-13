@@ -14,6 +14,19 @@
   width: 160px;
   border-radius: 4px;
 
+  .veui-button {
+    border: 1px solid @veui-middle-gray-color4;
+    border-radius: 4px;
+    & > .veui-icon {
+      margin-top: 6px;
+    }
+    &.veui-disabled,&.veui-disabled:hover {
+      border-color: @veui-middle-gray-color4;
+      background: @veui-light-gray-color4;
+      color: @veui-middle-gray-color2;
+    }
+  }
+
   &-range {
     width: 240px;
   }
@@ -26,24 +39,18 @@
     &:extend(._veui-dropdown-overlay all);
   }
 
-  .veui-button {
-    border: 1px solid @veui-middle-gray-color4;
-    border-radius: 4px;
-  }
-
   &-empty {
     .veui-button {
-      color: @veui-text-color-weak;
+      color: @veui-dark-gray-color3;
 
       &.veui-disabled {
-        color: @veui-text-color-aux;
+        color: @veui-middle-gray-color2;
       }
     }
   }
 
   &-tilde,
   &-label {
-    font-size: 12px;
     color: @veui-dark-gray-color3;
   }
 
@@ -53,13 +60,13 @@
   }
 
   &-clear {
-    .absolute(10px, 10px, _, _);
+    .absolute(6px, 10px, _, _);
     .size(16px);
-    background: #fff;
+    background: @veui-light-gray-color5;
     outline: none;
     border: none;
     padding: 0;
-    color: @veui-text-color-weak;
+    color: @veui-dark-gray-color3;
     cursor: pointer;
     .veui-button-transition();
 
@@ -70,11 +77,11 @@
     }
 
     &:hover {
-      color: @veui-text-color-normal;
+      color: @veui-dark-gray-color2;
     }
 
     &.focus-visible {
-      color: @veui-brand-color;
+      color: @veui-dark-gray-color2;
     }
 
     .veui-icon {
@@ -95,10 +102,10 @@
   &-shortcuts {
     height: 41px;
     padding: 8px 10px;
-    border-bottom: 1px solid @veui-gray-color-6;
+    border-bottom: 1px solid @veui-middle-gray-color4;
 
     .veui-calendar-panel + & {
-      border-top: 1px solid @veui-gray-color-6;
+      border-top: 1px solid @veui-middle-gray-color4;
       border-bottom: none;
     }
   }
@@ -111,19 +118,19 @@
     border: none;
     background: none;
     font-size: @veui-font-size-small;
-    color: @veui-text-color-normal;
+    color: @veui-dark-gray-color3;
     outline: none;
 
     &:hover {
-      background-color: @veui-gray-color-6;
+      background-color: @veui-light-gray-color1;
     }
 
     &.focus-visible {
-      color: @veui-brand-color;
+      color: @veui-light-gray-color1;
     }
 
     &:active {
-      background-color: @veui-gray-color-5;
+      background-color: @veui-light-gray-color1;
     }
 
     &:last-child {
@@ -131,8 +138,8 @@
     }
 
     &-selected {
-      background-color: @veui-gray-color-7;
-      color: @veui-text-color-strong;
+      background-color: @veui-light-gray-color1;
+      color: @veui-dark-gray-color2;
     }
   }
 
@@ -144,32 +151,14 @@
     .veui-date-picker {
       &-button:not(.veui-disabled),
       &-clear {
-        background-color: @veui-gray-color-8;
-        color: @veui-text-color-strong;
+        color: @veui-dark-gray-color3;
       }
     }
   }
 
   &:hover &-button:not(.veui-disabled):active {
-    &,
-    & + .veui-date-picker-clear {
-      background-color: @veui-gray-color-6;
-    }
-  }
-
-  &[ui~="alt"]:hover {
-    .veui-date-picker {
-      &-button:not(.veui-disabled),
-      &-clear {
-        background-color: @veui-gray-color-6;
-      }
-    }
-  }
-
-  &[ui~="alt"]:hover &-button:not(.veui-disabled):active {
-    &,
-    & + .veui-date-picker-clear {
-      background-color: @veui-gray-color-5;
+    & {
+      background-color: @veui-light-gray-color5;
     }
   }
 }

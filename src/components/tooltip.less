@@ -1,20 +1,20 @@
 @import "../lib.less";
+@tooltip-bg: @veui-light-gray-color5;
+@dark-tooltip-bg: #3D4D65;
 
 .veui-tooltip {
   @raw-height: @veui-height-normal;
-  @padding-y: (@raw-height - @veui-line-height-normal * @veui-font-size-normal) / 2;
   @gap: 10px;
   @arrow-size: 10px;
   @arrow-side: 12px;
 
   position: relative;
   padding: 5px 12px;
-  background-color: @veui-light-gray-color6;
-  color: #fff;
+  background-color: @tooltip-bg;
+  color: @veui-dark-gray-color2;
   font-size: @veui-font-size-normal;
-  line-height: @veui-height-small;
   border-radius: 5px;
-  //.veui-overlay-shadow();
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,.2));
 
   &-box-transparent {
     pointer-events: none;
@@ -23,7 +23,7 @@
   &::before,
   &::after {
     content: "";
-    color: @veui-light-gray-color6;
+    color: @tooltip-bg;
     transform-origin: 50% 100%;
     top: 50%;
     left: 50%;
@@ -100,10 +100,10 @@
     .make-direction(left);
   }
 
-  &[ui~="alt"] {
-    background-color: #fff;
-    color: @veui-dark-gray-color2;
-    .veui-overlay-shadow();
+  &[ui~="dark"] {
+    background-color: @dark-tooltip-bg;
+    color: @veui-light-gray-color5;
+    filter: none;
 
     &::before {
       display: block;
@@ -112,7 +112,7 @@
     }
 
     &::after {
-      color: #fff;
+      color: @dark-tooltip-bg;
     }
   }
 }

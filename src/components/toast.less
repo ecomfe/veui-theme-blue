@@ -1,37 +1,38 @@
 @import "../lib.less";
 
 .veui-toast {
-  @line-height: @veui-line-height-normal;
-  @padding-y: 10px;
   position: absolute;
   max-width: 500px;
-  max-height: @padding-y * 2 + @veui-font-size-normal * @veui-line-height-normal * 2;
-  padding: @padding-y 30px;
-  background-color: #fff;
-  line-height: @line-height;
-  border-radius: 1px;
-  color: @veui-text-color-normal;
+  min-width: 300px;
+  padding: 8px;
+  background-color: @veui-light-gray-color5;
+  border-radius: 2px;
+  font-size: @veui-font-size-small;
 
   .veui-overlay-shadow();
 
   .veui-toast-style(@type) {
-    @color-name: ~"veui-@{type}-color";
-    @color: @@color-name;
+    @fg-color-name: ~"veui-@{type}-color";
+    @bg-color-name: ~"veui-@{type}-background-color";
+    @border-color-name: ~"veui-@{type}-border-color";
+    background-color: @@bg-color-name;
+    border: 1px solid @@border-color-name;
+    color: @@fg-color-name;
 
     .veui-toast-icon {
-      color: @color;
+      color: @@fg-color-name;
     }
   }
 
   &-message {
-    display: block;
-    margin-left: 36px;
+    display: inline-block;
+    margin: 0 21px 0 21px;
   }
 
   &-icon {
-    .absolute(50%, _, _, 30px);
+    .absolute(50%, _, _, 8px);
     transform: translateY(-50%);
-    font-size: @veui-font-size-large;
+    font-size: @veui-font-size-small;
   }
 
   &-success {
@@ -47,6 +48,6 @@
   }
 
   &-error {
-    .veui-toast-style(alert);
+    .veui-toast-style(error);
   }
 }
