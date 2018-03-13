@@ -1,4 +1,6 @@
 @import "../lib.less";
+@button-width: 90px;
+@button-height: 28px;
 
 .veui-button-group {
   display: inline-block;
@@ -8,6 +10,9 @@
     z-index: 0;
     margin-left: -1px;
     border-radius: 0;
+    min-width: @button-width;
+    .centered-line(@button-height);
+    font-size: @veui-font-size-small;
 
     &:first-child {
       margin-left: 0;
@@ -27,21 +32,16 @@
       }
     }
 
-    &[ui~="primary"],
-    &[ui~="alt"] {
-      margin: 0 0 0 1px;
-      .border-width(_, 0);
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
     &[ui~="interval"] {
       margin-left: 5px;
       border-radius: @veui-border-radius-normal;
+      background: @veui-light-gray-color1;
       &:first-child {
         margin-left: 0;
+      }
+      &:hover,
+      &:focus {
+        background: @veui-middle-gray-color6;
       }
     }
   }
@@ -57,11 +57,6 @@
 
       &:last-child {
         border-right-color: transparent;
-      }
-
-      &[ui~="primary"],
-      &[ui~="alt"] {
-        .border-width(_, 0);
       }
     }
   }

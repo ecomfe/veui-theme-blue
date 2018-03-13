@@ -3,7 +3,34 @@
     <h1><code>&lt;veui-select&gt;</code></h1>
     <section>
       <h2>默认样式：</h2>
-      <veui-select v-bind="attrs" v-model="defaultValue1" placeholder="全部" clearable></veui-select>
+      <p>
+        <span class="veui-font-level-1b">小尺寸：</span>
+        <span class="veui-font-level-2d">ui="tiny"</span>
+      </p>
+      <p>
+        <veui-select v-bind="attrs" v-model="defaultValue1" placeholder="全部" ui="tiny" clearable></veui-select>
+      </p>
+      <p>
+        <span class="veui-font-level-1b">偏小尺寸：</span>
+        <span class="veui-font-level-2d">ui="small"</span>
+      </p>
+      <p>
+        <veui-select v-bind="attrs" v-model="defaultValue1" placeholder="全部" ui="small" clearable></veui-select>
+      </p>
+      <p>
+        <span class="veui-font-level-1b">默认尺寸：</span>
+        <span class="veui-font-level-2d">ui="normal"</span>
+      </p>
+      <p>
+        <veui-select v-bind="attrs" v-model="defaultValue1" placeholder="全部" clearable></veui-select>
+      </p>
+      <p>
+        <span class="veui-font-level-1b">大尺寸：</span>
+        <span class="veui-font-level-2d">ui="large"</span>
+      </p>
+      <p>
+        <veui-select v-bind="attrs" v-model="defaultValue1" placeholder="全部" ui="large" clearable></veui-select>
+      </p>
     </section>
     <section>
       <h2>显示已选图标样式：</h2>
@@ -15,7 +42,7 @@
     </section>
     <section>
       <h2>Slot[name=option-label] 样式：</h2>
-      <veui-select v-bind="attrs" v-model="defaultValue3" ui="alt">
+      <veui-select v-bind="attrs" v-model="defaultValue3">
         <template slot="option-label" slot-scope="props">
           <span class="veui-option-custom-label">{{ props.label }}</span>
         </template>
@@ -38,7 +65,7 @@
         </template>
       </veui-select>
     </section>
-    <section style="margin-top:500px;">
+    <section style="margin-top:200px;">
       <h2>默认分组样式：</h2>
       <veui-select v-bind="optGroupAttrs" v-model="defaultValue5"></veui-select>
     </section>
@@ -260,17 +287,17 @@ export default {
 }
 .veui-option-custom {
   position: relative;
-  padding-left: 10px;
+  padding-left: 15px;
   &::after {
     content: '❤️';
     position: absolute;
     top: 50%;
-    left: -10px;
+    left: 0;
     transform: translateY(-50%);
   }
 
   &-label {
-    color: rgb(80, 170, 39);
+    color: #666666;
   }
 }
 </style>

@@ -4,7 +4,7 @@
 @option-active-color: #DDEBFF; // option click色值
 
 ._veui-dropdown-overlay {
-  border: 1px solid @veui-gray-color-6;
+  border: 1px solid @veui-middle-gray-color4;
   margin: 3px 0;
   .veui-overlay-shadow();
 }
@@ -12,10 +12,18 @@
 ._veui-dropdown-button {
   & &-button {
     width: 100%;
-    .padding(_, 10px);
+    .padding(_, 8px);
+    .centered-line(28px);
     text-align: left;
     &:hover {
       background: @veui-light-gray-color5;
+    }
+    &.veui-disabled, &.veui-disabled:hover {
+      background: @veui-light-gray-color4;
+      border: 1px solid @veui-middle-gray-color4;
+      .veui-select-label {
+        color: @veui-middle-gray-color2;
+      }
     }
   }
 
@@ -24,6 +32,7 @@
     max-width: ~"calc(100% - 24px)";
     width: 100%;
     .ellipsis();
+    font-size: 12px;
   }
 
   &-icon {

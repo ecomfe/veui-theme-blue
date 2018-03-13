@@ -6,29 +6,33 @@
     </section>
     <section>
       <p>
+        <span class="veui-font-level-1b">普通按钮：</span>
+      </p>
+      <p>
         <veui-check-button-group :items="data1" v-model="picked1" :disabled="disabled">
           <template slot-scope="props">{{ props.label }}</template>
         </veui-check-button-group>
       </p>
       <p>value: {{ picked1 }}</p>
-    </section>
-    <section>
       <p>
-        <veui-check-button-group :items="data2" ui="small alt" v-model="picked2" :disabled="disabled">
-          <template slot-scope="props">{{ props.label }}</template>
-        </veui-check-button-group>
-      </p>
-      <p>value: {{ picked2 }}</p>
-    </section>
-    <section>
-      <p>
-        <veui-check-button-group :items="data3" ui="micro" v-model="picked3" :disabled="disabled">
+        <veui-check-button-group :items="data3" v-model="picked3" :disabled="disabled">
           <template slot-scope="props">
             <veui-icon :name="props.icon" />
           </template>
         </veui-check-button-group>
       </p>
       <p>value: {{ picked3 }}</p>
+    </section>
+    <section>
+      <p>
+        <span class="veui-font-level-1b">间隙排列按钮：</span>
+        <span class="veui-font-level-2d">ui="interval"</span>
+      </p>
+      <p>
+        <veui-check-button-group :items="data2" ui="interval" v-model="picked2" :disabled="disabled">
+          <template slot-scope="props">{{ props.label }}</template>
+        </veui-check-button-group>
+      </p>
     </section>
   </article>
 </template>

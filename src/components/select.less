@@ -2,23 +2,113 @@
 @import (reference) "../dropdown.less";
 @import (reference) "../input.less";
 
+@select-input-tiny-width: 190px; // ui=tiny 输入框的宽度
+@select-input-tiny-height: 21px; // ui=tiny 输入框的高度
+@select-input-small-width: 133px; // ui=small 输入框的宽度
+@select-input-small-height: 28px; // ui=small 输入框的高度
+@select-input-width: 190px; // 默认尺寸 输入框的宽度
+@select-input-height: 28px; // 默认尺寸 输入框的高度
+@select-input-large-width: 364px; // ui=large 输入框的宽度
+@select-input-large-height: 38px; // ui=large 输入框的高度
+@select-dropdown-height: 126px; // 下拉列表的最大高度
+
 .veui-select {
   &:extend(._veui-dropdown-button all);
+
+  &-label {
+    color: @veui-dark-gray-color2;
+  }
+
+  .veui-button {
+    > .veui-icon {
+      color: @veui-middle-gray-color7;
+      margin-top: 7px;
+    }
+  }
 
   .veui-field-invalid & .veui-button.veui-select-button {
     &:extend(._veui-input-invalid all);
   }
 
   display: inline-block;
-  min-width: 110px;
+  color: @veui-dark-gray-color2;
 
-  &-options {
-    &:extend(._veui-dropdown-overlay all);
-    min-width: 110px;
-    max-height: 280px;
-    overflow-y: auto;
-    background-color: #fff;
-    outline: none;
+  .make-options(@ui) {
+    @width: ~"select-input-@{ui}-width";
+    @height: ~"select-input-@{ui}-height";
+    width: @select-input-width;
+    height: @select-input-height;
+    &[ui~=@{ui}] {
+      width: @@width;
+      height: @@height;
+      .veui-button {
+        .centered-line(@@height);
+        > .veui-icon {
+          margin-top: (@@height - 14) / 2;
+        }
+      }
+    }
+    &-options {
+      &:extend(._veui-dropdown-overlay all);
+      width: @select-input-width;
+      max-height: @select-dropdown-height;
+      background-color: @veui-light-gray-color5;
+      outline: none;
+      border-radius: @veui-border-radius-normal;
+      overflow-y: auto;
+      &[ui~=@{ui}] {
+        width: @@width;
+        .veui-option {
+          .centered-line(@@height);
+        }
+        .veui-option-label {
+          display: inline-block;
+          width: @@width - 30px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &[ui~="checkmark"] {
+          &.veui-dropdown-overflow {
+            .veui-option-group {
+              .veui-option {
+                .veui-option-label {
+                  width: @@width - 50px;
+                }
+              }
+            }
+          }
+          .veui-option-group {
+            .veui-option {
+              .veui-option-label {
+                margin-left: 14px;
+                width: @@width - 40px;
+              }
+              &.veui-option-selected {
+                .veui-option-label {
+                  margin-left: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .make-options('tiny');
+  .make-options('small');
+  .make-options('large');
+
+  &[ui~="large"] {
+    .veui-select-label {
+      font-size: @veui-font-size-normal;
+    }
+  }
+
+  &-options[ui~="large"] {
+    .veui-option-label {
+      font-size: @veui-font-size-normal;
+    }
   }
 
   &-option-group {
@@ -31,18 +121,18 @@
     }
 
     .veui-option {
-      padding-left: 20px;
+      padding-left: 14px;
     }
 
     &-unlabelled {
-      border-top: 1px solid @veui-gray-color-6;
+      border-top: 1px solid @veui-middle-gray-color4;
 
       &:first-child {
         border-top: none;
       }
 
       .veui-option {
-        padding-left: 10px;
+        padding: 0 7px;
       }
     }
   }

@@ -12,7 +12,7 @@
       </p>
       <p>
         <veui-button ui="primary">提交</veui-button>
-        <span class="veui-font-level-2d">中尺寸按钮，控制大小ui可不传</span>
+        <span class="veui-font-level-2d">默认尺寸按钮，控制大小ui可不传</span>
       </p>
       <p>
         <veui-button ui="primary large">提交</veui-button>

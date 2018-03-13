@@ -2,28 +2,26 @@
 
 ._veui-grouped-button {
   &.veui-button-selected {
-    background-color: @veui-gray-color-6;
-    color: @veui-text-color-strong;
+    background-color: @veui-light-gray-color1;
+    color: @veui-dark-gray-color2;
     z-index: 1;
 
     &.focus-visible {
-      color: @veui-brand-color;
+      color: @veui-dark-gray-color2;
     }
-  }
-
-  &[ui~="alt"].veui-button-selected {
-    background-color: @veui-gray-color-5;
   }
 
   &.veui-disabled {
     &,
     &:hover {
-      .border-color(_, #fff);
+      .border-color(_, @veui-light-gray-color5);
     }
   }
 
   &.veui-disabled.veui-button-selected {
-    background-color: @veui-gray-color-5;
-    color: @veui-text-color-weak;
+    border-color: @veui-middle-gray-color4;
+    background-color: @veui-light-gray-color1;
+    color: @veui-dark-gray-color2;
+    opacity: 0.4;
   }
 }

@@ -5,9 +5,8 @@
       <ul>
         <li v-for="(route, index) in routes" :key="index">
           <router-link :to='route'>{{route.name}}
-            <span v-if="route.isComplete === true" class="red">(ok)</span>
-            <span v-if="route.isComplete === 'noDev'" class="gray">(暂不开发)</span>
-            <span v-if="route.isComplete === 'noUi'" class="orange">(无ui)</span>
+            <span v-if="route.isComplete" class="red">(done)</span>
+            <span v-else class="gray">(developing)</span>
           </router-link>
         </li>
       </ul>
@@ -135,9 +134,6 @@ export default {
       }
       .red {
         color: #ff0000;
-      }
-      .orange {
-        color: #FF701A;
       }
     }
   }

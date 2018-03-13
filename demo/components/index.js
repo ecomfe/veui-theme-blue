@@ -69,8 +69,7 @@ export default [
   {
     path: '/carousel',
     name: 'Carousel',
-    component: Carousel,
-    isComplete: 'noDev'
+    component: Carousel
   },
   {
     path: '/checkbox',
@@ -81,7 +80,8 @@ export default [
   {
     path: '/check-button-group',
     name: 'CheckButtonGroup',
-    component: CheckButtonGroup
+    component: CheckButtonGroup,
+    isComplete: true
   },
   {
     path: '/checkbox-group',
@@ -92,13 +92,13 @@ export default [
   {
     path: '/date-picker',
     name: 'DatePicker',
-    component: DatePicker
+    component: DatePicker,
+    isComplete: true
   },
   {
     path: '/dialog',
     name: 'Dialog',
-    component: Dialog,
-    isComplete: 'noUi'
+    component: Dialog
   },
   {
     path: '/dropdown',
@@ -109,8 +109,7 @@ export default [
   {
     path: '/form',
     name: 'Form',
-    component: Form,
-    isComplete: 'noUi'
+    component: Form
   },
   {
     path: '/font',
@@ -133,8 +132,7 @@ export default [
   {
     path: '/overlay',
     name: 'Overlay',
-    component: Overlay,
-    isComplete: 'noDev'
+    component: Overlay
   },
   {
     path: '/pagination/:page?',
@@ -145,7 +143,8 @@ export default [
   {
     path: '/progress',
     name: 'Progress',
-    component: Progress
+    component: Progress,
+    isComplete: true
   },
   {
     path: '/radio',
@@ -156,7 +155,8 @@ export default [
   {
     path: '/radio-button-group',
     name: 'RadioButtonGroup',
-    component: RadioButtonGroup
+    component: RadioButtonGroup,
+    isComplete: true
   },
   {
     path: '/radio-group',
@@ -167,20 +167,17 @@ export default [
   {
     path: '/region-picker',
     name: 'RegionPicker',
-    component: RegionPicker,
-    isComplete: 'noDev'
+    component: RegionPicker
   },
   {
     path: '/schedule',
     name: 'Schedule',
-    component: Schedule,
-    isComplete: 'noDev'
+    component: Schedule
   },
   {
     path: '/slider',
     name: 'Slider',
-    component: Slider,
-    isComplete: 'noDev'
+    component: Slider
   },
   {
     path: '/searchbox',
@@ -191,7 +188,8 @@ export default [
   {
     path: '/select',
     name: 'Select',
-    component: Select
+    component: Select,
+    isComplete: true
   },
   {
     path: '/steps',
@@ -202,13 +200,13 @@ export default [
   {
     path: '/switch',
     name: 'Switch',
-    component: Switch
+    component: Switch,
+    isComplete: true
   },
   {
     path: '/table',
     name: 'Table',
-    component: Table,
-    isComplete: 'noUi'
+    component: Table
   },
   {
     path: '/tabs',
@@ -228,8 +226,7 @@ export default [
         path: 'progress',
         component: Progress
       }
-    ],
-    isComplete: 'noUi'
+    ]
   },
   {
     path: '/textarea',
@@ -240,18 +237,19 @@ export default [
   {
     path: '/toast',
     name: 'Toast',
-    component: Toast
+    component: Toast,
+    isComplete: true
   },
   {
     path: '/tooltip',
     name: 'Tooltip',
-    component: Tooltip
+    component: Tooltip,
+    isComplete: true
   },
   {
     path: '/transfer',
     name: 'Transfer',
-    component: Transfer,
-    isComplete: 'noDev'
+    component: Transfer
   },
   {
     path: '/uploader',
