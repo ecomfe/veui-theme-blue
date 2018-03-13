@@ -1,38 +1,68 @@
-@import "../lib.less";  ;
+@import "../lib.less";
+
+@switch-large-width: 70px; // ui=large switch宽度
+@switch-large-height: 25px; // ui=large switch高度
+@switch-width: 58px; // 默认 switch宽度
+@switch-height: 20px; // 默认 switch高度
+@switch-small-width: 26px; // ui=small switch宽度
+@switch-small-height: 11px; // ui=small switch高度
+@switch-small-border-radius: 25px; // ui=small switch圆角
+@switch-border-radius: 63px; // 默认 switch圆角
+@switch-large-border-radius: 23px; // ui=large switch圆角
+
 .veui-switch {
-    @gap: 2px;
-    @height-large: 25px;
-    @height-normal: 20px;
-    @height-small: 14px;
-    @aspect-ratio: 50px / @height-normal;
+    display: inline-block;
+    cursor: pointer;
 
-    .metrics(@size: @height-normal) {
-        .veui-switch {
-            &-switcher {
-                width: @size * @aspect-ratio !important;
-                height: @size !important;
-                border-radius: @size / 2 !important;
-            }
+    &-switcher {
+        .size(@switch-width, @switch-height);
+        border-radius: @switch-border-radius;
+        display: inline-block;
+        background-color: #CAD3DF;
+        user-select: none;
+        transition: background-color ease .2s;
+    }
 
-            &-button {
-                .size(@size - @gap * 2) !important;
-                .veui-icon {
-                    .size(@size / 3 * 2) !important;
-                }
-            }
-
-            &-label {
-                line-height: @size;
-            }
+    &[ui~="small"] {
+        .veui-switch-switcher {
+            .size(@switch-small-width, @switch-small-height);
+            border-radius: @switch-small-border-radius;
+            background-color: rgba(152, 152, 152, 0.11);
         }
-        &.veui-switch-on .veui-switch-button {
-            transform: translateX(@size * (@aspect-ratio - 1)) !important;
+        .veui-switch-button {
+            .size(14px);
+            border: 1px solid #D0D7DD;
+            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.04);
+            top: -2px;
+            margin: 0 0 0 -1px;
+        }
+        &.veui-switch-on {
+            .veui-switch-switcher {
+                background-color: #4DA1FF;
+            }
+            .veui-switch-button {
+                transform: translateX(14px);
+            }
         }
     }
 
-    display: inline-block;
-    cursor: pointer;
-    .metrics();
+    &[ui~="large"] {
+        .veui-switch-switcher {
+            .size(@switch-large-width, @switch-large-height);
+            border-radius: @switch-large-border-radius;
+        }
+        .veui-switch-button {
+            .size(21px);
+        }
+        &.veui-switch-on {
+            .veui-switch-switcher {
+                background-color: #04BE5B;
+            }
+            .veui-switch-button {
+                transform: translateX(45px);
+            }
+        }
+    }
 
     &-switcher,
     &-label {
@@ -44,20 +74,14 @@
         margin-left: 10px;
     }
 
-    &-switcher {
-        display: inline-block;
-        background-color: #CAD3DF !important;
-        user-select: none;
-        transition: background-color ease .2s;
-    }
-
     &-button {
         display: inline-block;
         position: relative;
-        margin: @gap;
+        margin: 2px;
         background-color: #fff;
         border-radius: 50%;
         transition: transform ease .2s;
+        .size(16px);
 
         .veui-icon {
             .absolute(50%, _, _, 50%);
@@ -65,22 +89,14 @@
         }
     }
 
-    &-on &-switcher {
-        background-color: #4DA1FF !important;
+    &-on {
+        .veui-switch-switcher {
+            background-color: #4DA1FF;
+        }
+        .veui-switch-button {
+            transform: translateX(38px);
+        }
     }
-    //&-on[ui~="large"] {
-    //  .veui-switch-switcher {
-    //    background-color: #04BE5B !important;
-    //  }
-    //}
-    //&-on&-disabled[ui~="large"] {
-    //  .veui-switch-switcher {
-    //    background-color: #CAD3DF !important;
-    //    .veui-switch-button {
-    //      background-color: #fff !important;
-    //    }
-    //  }
-    //}
 
     &-readonly {
         cursor: default;
@@ -88,68 +104,6 @@
 
     &-disabled {
         cursor: not-allowed;
-    }
-
-    //&-disabled &-switcher {
-    //  background-color: #CAD3DF !important;
-    //}
-
-    //&-on&-disabled &-switcher {
-    //  background-color: @veui-brand-color-8;
-    //}
-
-    //&-disabled &-button {
-    //  background-color: @veui-gray-color-4;
-    //}
-
-    &[ui~="small"] {
-        .metrics(@height-small);
-        .veui-switch-switcher {
-            position: relative;
-            background-color: #989898 !important;
-            opacity: 0.11 !important;
-            width: 26px !important;
-            height: 11px !important;
-        }
-        .veui-switch-button {
-            position: absolute;
-            width: 14px !important;
-            height: 14px !important;
-            border: 1px solid black !important;
-            top: -4px;
-            left: -4px;
-        }
-    }
-    &-on[ui~="small"] {
-        .veui-switch-switcher {
-            width: 26px !important;
-            height: 11px !important;
-            background: #3998FC !important;
-            opacity: 1 !important;
-            position: relative;
-        }
-        .veui-switch-button {
-            position: absolute;
-            width: 14px !important;
-            height: 14px !important;
-            border: 1px solid #D0D7DD !important;
-            box-shadow: 0 4px 4px 0 !important;
-            color: rgba(0,0,0,0.04) !important;
-            top: -4px;
-            left: -8px;
-        }
-    }
-
-    &[ui~="large"] {
-        .metrics(@height-large);
-        .veui-switch-switcher {
-            background-color: #CAD3DF !important;
-        }
-    }
-    &-on[ui~="large"] {
-        .veui-switch-switcher {
-            background-color: #04BE5B !important;
-        }
     }
 
     input {
