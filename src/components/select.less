@@ -4,12 +4,20 @@
 
 @select-input-tiny-width: 190px; // ui=tiny 输入框的宽度
 @select-input-tiny-height: 21px; // ui=tiny 输入框的高度
+@expand-icon-tiny-width: 6px; // ui=tiny 展开按钮的宽度
+@expand-icon-tiny-height: 4px; // ui=tiny 展开按钮的高度
 @select-input-small-width: 133px; // ui=small 输入框的宽度
 @select-input-small-height: 28px; // ui=small 输入框的高度
+@expand-icon-small-width: 9px; // ui=small 展开按钮的宽度
+@expand-icon-small-height: 6px; // ui=small 展开按钮的高度
 @select-input-width: 190px; // 默认尺寸 输入框的宽度
 @select-input-height: 28px; // 默认尺寸 输入框的高度
+@expand-icon-width: 9px; // 默认尺寸 展开按钮的宽度
+@expand-icon-height: 6px; // 默认尺寸 展开按钮的高度
 @select-input-large-width: 364px; // ui=large 输入框的宽度
 @select-input-large-height: 38px; // ui=large 输入框的高度
+@expand-icon-large-width: 12px; // ui=large 展开按钮的宽度
+@expand-icon-large-height: 8px; // ui=large 展开按钮的高度
 @select-dropdown-height: 126px; // 下拉列表的最大高度
 
 .veui-select {
@@ -22,7 +30,10 @@
   .veui-button {
     > .veui-icon {
       color: @veui-middle-gray-color7;
-      margin-top: 7px;
+      margin-top: (@select-input-height - @expand-icon-height) / 2;
+      width: @expand-icon-width;
+      height: @expand-icon-height;
+      margin-right: 2px;
     }
   }
 
@@ -36,6 +47,8 @@
   .make-options(@ui) {
     @width: ~"select-input-@{ui}-width";
     @height: ~"select-input-@{ui}-height";
+    @expand-width: ~"expand-icon-@{ui}-width";
+    @expand-height: ~"expand-icon-@{ui}-height";
     width: @select-input-width;
     height: @select-input-height;
     &[ui~=@{ui}] {
@@ -44,7 +57,9 @@
       .veui-button {
         .centered-line(@@height);
         > .veui-icon {
-          margin-top: (@@height - 14) / 2;
+          width: @@expand-width;
+          height: @@expand-height;
+          margin-top: (@@height - @@expand-height) / 2;
         }
       }
     }
@@ -110,14 +125,52 @@
       font-size: @veui-font-size-normal;
     }
   }
+  &-options[ui~="multilayer"] {
+    .children-options {
+      > .veui-option-group {
+        &:hover {
+          cursor: pointer;
+          background: #EDF4FE;
+          .children-item-options {
+            // display: block;
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+        .veui-option-group-label {
+          color: @veui-dark-gray-color2;
+          .centered-line(31px);
+        }
+        .angle-right {
+          .size(6px, 9px);
+          color: @veui-middle-gray-color7;
+          float: right;
+          margin: 11px 8px 11px 0;
+        }
+      }
+      .children-item-options {
+        position: absolute;
+        left: 192px;
+        top: 0;
+        background: @veui-light-gray-color5;
+        border: 1px solid @veui-middle-gray-color4;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.20);
+        border-radius: @veui-border-radius-normal;
+        // display: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s;
+      }
+    }
+  }
 
   &-option-group {
     &-label {
       display: inline-block;
-      .centered-line(@veui-height-normal);
-      padding: 0 10px;
+      .centered-line(31px);
+      padding: 0 8px;
       font-size: @veui-font-size-small;
-      color: @veui-text-color-weak;
+      color: @veui-dark-gray-color3;
     }
 
     .veui-option {
