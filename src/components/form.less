@@ -1,12 +1,11 @@
 @import "../lib.less";
+@form-line-gap: 16px; // 表单行与行之间的间距
+@require-color: #FF6847; // 必须* 色值
 
 .veui-form {
   .veui-fieldset,
   .veui-field {
-    margin-bottom: @veui-field-gap;
-    &[ui~="narrow"] {
-      margin-bottom: 12px;
-    }
+    margin-bottom: @form-line-gap;
   }
 
   .veui-fieldset:last-child,

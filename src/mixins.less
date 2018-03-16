@@ -27,21 +27,22 @@
 
 .veui-field-require() {
   content: "*";
-  float: right;
-  margin-right: 9px;
-  color: @veui-alert-color;
+  margin-right: 4px;
+  font-size: @veui-font-size-small;
+  color: @require-color;
+  vertical-align: middle;
 }
 
 .veui-field-gap-error() {
   position: absolute;
   display: block;
   margin: 0;
-  height: @veui-field-gap;
-  line-height: @veui-field-gap;
-  font-size: 12px;
+  height: 28px;
+  line-height: 28px;
+  font-size: @veui-font-size-small;
 
   .veui-icon {
-    margin-top: ~"calc(@{veui-field-gap} / 2 - .5em)";
+    margin-top: 8px;
   }
 }
 

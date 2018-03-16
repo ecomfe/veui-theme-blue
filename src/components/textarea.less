@@ -21,6 +21,7 @@
 
   .veui-field-invalid & {
     &:extend(._veui-input-invalid all);
+    font: inherit;
   }
 
   &:hover {
@@ -41,11 +42,13 @@
     position: relative;
     float: right;
     width: 100%;
-    height: 90px;
+    // 和外部容器的高度保持一致
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit;
     border: none;
     outline: none;
     padding: 4px 8px;
-    background-color: @veui-light-gray-color5;
     z-index: 1;
     resize: none;
     &::placeholder {
@@ -62,8 +65,8 @@
   }
 
   &-measurer {
-    .absolute(0, 0, _, 0);
-    overflow: auto;
+    .absolute(0);
+    overflow: hidden;
     white-space: pre-wrap;
     word-wrap: break-word;
     color: @veui-dark-gray-color2;

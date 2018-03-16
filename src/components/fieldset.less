@@ -4,13 +4,14 @@
   position: relative;
   clear: both;
 
-  &-required > .veui-form-label::after {
+  &-required > .veui-form-label::before {
     .veui-field-require();
   }
 
   &.veui-field-no-label::before,
   & > .veui-field-no-label::before {
     width: auto;
+    margin-right: 0;
   }
 
   & > *:not([class*="veui-form-label"]) + * {
@@ -31,9 +32,9 @@
     &,
     & > .veui-form-label,
     & > .veui-field > .veui-form-label {
-      background-color: @veui-gray-color-7;
-      border-color: @veui-gray-color-7;
-      color: @veui-text-color-normal;
+      background-color: @veui-light-gray-color1;
+      border-color: @veui-middle-gray-color4;
+      color: @veui-dark-gray-color2;
     }
   }
 
@@ -56,12 +57,12 @@
     position: static;
     display: inline-block;
     margin-left: 10px;
-    height: @veui-height-normal;
-    line-height: @veui-height-normal;
+    height: 28px;
+    line-height: 28px;
     font-size: inherit;
 
     .veui-icon {
-      margin-top: ~"calc(@{veui-height-normal} / 2 - .5em)";
+      margin-top: 8px;
     }
   }
 }

@@ -109,7 +109,8 @@ export default [
   {
     path: '/form',
     name: 'Form',
-    component: Form
+    component: Form,
+    isComplete: true
   },
   {
     path: '/font',
