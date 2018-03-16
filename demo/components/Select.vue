@@ -92,6 +92,20 @@
         </template>
       </veui-select>
     </section>
+    <!-- <section>
+      <h2>多层级下拉样式：</h2>
+      <p>多层家下拉选择的值：<span>{{defaultValue11}}</span></p>
+      <veui-select v-model="defaultValue11" ui="multilayer">
+        <div class="children-options">
+          <veui-option-group v-for="(item, index) in optGroupAttrs1.options" :key="index" :label="item.label">
+            <icon name="angle-right" class="angle-right" v-if="item.children.length > 0"></icon>
+            <div class="children-item-options" v-if="item.children.length > 0">
+              <veui-option v-for="(childItem, childIndex) in item.children" :value="childItem.value" :label="childItem.label" :key="childIndex"/>
+            </div>
+          </veui-option-group>
+        </div>
+      </veui-select>
+    </section> -->
     <section>
       <h2>分隔线样式：</h2>
       <veui-select v-bind="optGroupAttrs" :options="groupedOpts" v-model="defaultValue9"></veui-select>
@@ -120,6 +134,7 @@ import { Icon, Select, Option, OptionGroup, Radio } from 'veui'
 import type from 'veui/managers/type'
 import 'vue-awesome/icons/eye'
 import 'vue-awesome/icons/gift'
+import 'veui-theme-blue/icons/angle-right'
 
 export default {
   name: 'select-demo',
@@ -145,6 +160,7 @@ export default {
       defaultValue8: '1-1',
       defaultValue9: null,
       defaultValue10: null,
+      defaultValue11: null,
       attrs: {
         name: 'age',
         readonly: false,
@@ -166,6 +182,83 @@ export default {
           {
             label: '下拉选项4',
             value: 4
+          }
+        ]
+      },
+      optGroupAttrs1: {
+        ui: 'multilayer',
+        name: 'name',
+        readonly: false,
+        disabled: false,
+        selecticon: false,
+        options: [
+          {
+            label: '多层级下拉1',
+            children: [
+              {
+                label: '多层级下拉1-子选项1',
+                value: 'd-1-1'
+              },
+              {
+                label: '多层级下拉1-子选项2',
+                value: 'd-1-2'
+              },
+              {
+                label: '多层级下拉1-子选项3',
+                value: 'd-1-3'
+              }
+            ]
+          },
+          {
+            label: '多层级下拉2',
+            children: [
+              {
+                label: '多层级下拉2-子选项1',
+                value: 'd-2-1'
+              },
+              {
+                label: '多层级下拉2-子选项2',
+                value: 'd-2-2'
+              },
+              {
+                label: '多层级下拉2-子选项3',
+                value: 'd-2-3'
+              }
+            ]
+          },
+          {
+            label: '多层级下拉3',
+            children: [
+              {
+                label: '多层级下拉3-子选项1',
+                value: 'd-3-1'
+              },
+              {
+                label: '多层级下拉3-子选项2',
+                value: 'd-3-2'
+              },
+              {
+                label: '多层级下拉3-子选项3',
+                value: 'd-3-3'
+              }
+            ]
+          },
+          {
+            label: '多层级下拉4',
+            children: [
+              {
+                label: '多层级下拉4-子选项1',
+                value: 'd-4-1'
+              },
+              {
+                label: '多层级下拉4-子选项2',
+                value: 'd-4-2'
+              },
+              {
+                label: '多层级下拉4-子选项3',
+                value: 'd-4-3'
+              }
+            ]
           }
         ]
       },

@@ -13,10 +13,9 @@
   vertical-align: middle;
   min-width: @normal-width;
   .make-height(@normal-height);
-  .centered-line(@normal-height);
   .veui-button-transition();
   border: 1px solid @veui-middle-gray-color4;
-  background-color: #fff;
+  background-color: @veui-light-gray-color5;
   color: @veui-dark-gray-color2;
   border-radius: @veui-border-radius-normal;
   font-size: @veui-font-size-normal;
@@ -40,11 +39,10 @@
   &[ui~="primary"] {
     border-color: transparent;
     background-color: @veui-brand-color;
-    color: #fff;
+    color: @veui-light-gray-color5;
     min-width: @normal-width;
     .make-height(@normal-height);
-    .centered-line(@normal-height);
-    font-size: @veui-font-size-normal;
+    font-size: @veui-font-size-small;
 
     &:hover,
     &.focus-visible {
@@ -63,7 +61,7 @@
         border-color: transparent;
         background-color: @veui-brand-color;
         opacity: 0.4;
-        color: #fff;
+        color: @veui-light-gray-color5;
       }
     }
   }
@@ -83,19 +81,25 @@
     &.focus-visible {
       color: @veui-brand-color;
     }
+
+    &.veui-disabled,
+    &.veui-disabled[ui], {
+      &,
+      &:hover {
+        background-color: @veui-light-gray-color1;
+      }
+    }
   }
   &[ui~="large"] {
     min-width: @large-width;
     .make-height(@large-height);
-    .centered-line(@large-height);
     font-size: @veui-font-size-large;
   }
 
   &[ui~="small"] {
     min-width: @small-width;
     .make-height(@small-height);
-    .centered-line(@small-height);
-    font-size: @veui-font-size-normal;
+    font-size: @veui-font-size-small;
   }
 
   &[ui~="round"] {
@@ -126,9 +130,10 @@
     &,
     &:hover {
       cursor: not-allowed;
-      border-color: transparent;
-      background-color: @veui-gray-color-7;
-      color: @veui-text-color-aux;
+      border-color: @veui-middle-gray-color4;
+      background-color: @veui-light-gray-color5;
+      color: @veui-dark-gray-color2;
+      opacity: 0.4;
     }
   }
 

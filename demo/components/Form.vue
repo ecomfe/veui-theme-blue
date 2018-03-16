@@ -4,42 +4,54 @@
     <section>
       <h2>通过指定data、field及v-model来创建一个form</h2>
       <veui-form ref="form1" :data="storeData1">
-
-        <veui-field label="昵称：" field="nickName" ui="right require narrow">
+        <p>
+          <span class="veui-font-level-1b">默认字段尺寸(仅标题宽度)：</span>
+          <span class="veui-font-level-2d">不传尺寸ui</span>
+        </p>
+        <veui-field label="昵称：" field="nickName" ui="require">
           <veui-input v-model="storeData1.nickName"></veui-input>
         </veui-field>
 
-        <veui-field label="性别：" field="sex" ui="right require narrow">
+        <veui-field label="性别：" field="sex" ui="require">
           <veui-select :options="storeData1.sexItems" v-model="storeData1.sex"></veui-select>
         </veui-field>
 
-        <veui-field label="婚姻：" field="married" ui="right require narrow small">
+        <p>
+          <span class="veui-font-level-1b">小尺寸标题(仅标题宽度)：</span>
+          <span class="veui-font-level-2d">ui="small-title"</span>
+        </p>
+
+        <veui-field label="婚姻：" field="married" ui="require small-title">
           <veui-radiogroup ui="small" :items="storeData1.marryItems" v-model="storeData1.married"></veui-radiogroup>
         </veui-field>
 
-        <veui-field label="爱好：" field="hobby" ui="right require narrow">
-          <veui-checkboxgroup type="checkbox" :items="storeData1.hobbyItems" v-model="storeData1.hobby"></veui-checkboxgroup>
+        <veui-field label="爱好：" field="hobby" ui="require small-title">
+          <veui-checkboxgroup type="checkbox" ui="small" :items="storeData1.hobbyItems" v-model="storeData1.hobby"></veui-checkboxgroup>
         </veui-field>
 
-        <veui-field label="生日：" field="birthday" ui="right require narrow">
+        <veui-field label="生日：" field="birthday" ui="require  small-title">
           <veui-datepicker v-model="storeData1.birthday"></veui-datepicker>
         </veui-field>
 
+        <p>
+          <span class="veui-font-level-1b">大尺寸标题(仅标题宽度)：</span>
+          <span class="veui-font-level-2d">ui="large-title"</span>
+        </p>
 
-        <veui-field label="昵称：" field="nickName">
+        <veui-field label="昵称：" field="nickName" ui="large-title">
           <veui-input v-model="storeData1.nickName"></veui-input>
         </veui-field>
 
-        <veui-field label="性别：" field="sex">
+        <veui-field label="性别：" field="sex" ui="large-title">
           <veui-select :options="storeData1.sexItems" v-model="storeData1.sex"></veui-select>
         </veui-field>
 
-        <veui-field ui="small" label="婚姻：" field="married">
+        <veui-field label="婚姻：" field="married" ui="large-title">
           <veui-radiogroup ui="small" :items="storeData1.marryItems" v-model="storeData1.married"></veui-radiogroup>
         </veui-field>
 
         <veui-field label="爱好：" field="hobby">
-          <veui-checkboxgroup type="checkbox" :items="storeData1.hobbyItems" v-model="storeData1.hobby"></veui-checkboxgroup>
+          <veui-checkboxgroup type="checkbox" ui="small" :items="storeData1.hobbyItems" v-model="storeData1.hobby"></veui-checkboxgroup>
         </veui-field>
 
         <veui-field label="生日：" field="birthday">
@@ -173,7 +185,7 @@
           <veui-radiogroup :items="storeData1.marryItems" v-model="storeData1.married"></veui-radiogroup>
         </veui-field>
 
-        <veui-field ui="small" label="爱好：" field="hobby">
+        <veui-field label="爱好：" field="hobby">
           <veui-checkboxgroup ui="small" type="checkbox" :items="storeData1.hobbyItems" v-model="storeData1.hobby"></veui-checkboxgroup>
         </veui-field>
 
@@ -229,7 +241,7 @@
           <veui-span>万</veui-span>
         </veui-fieldset>
 
-        <veui-field ui="small" field="protocol" name="protocol" label="协议：">
+        <veui-field field="protocol" name="protocol" label="协议：">
           <veui-radio ui="small" :checked="false">我已阅读并同意工作协议</veui-radio>
         </veui-field>
       </veui-form>

@@ -1,17 +1,21 @@
 @import "../lib.less";
+@title-small-width: 80px; // 标题短时的标题宽度
+@title-width: 110px; // 默认标题宽度
+@title-large-width: 160px; // 默认标题宽度
 
 .veui-field {
   vertical-align: top;
   clear: both;
 
-  &-required > .veui-form-label::after {
+  &-required > .veui-form-label::before,
+  &[ui~="require"] .veui-form-label::before {
     .veui-field-require();
   }
 
   &-no-label::before {
     content: "";
     display: inline-block;
-    width: @veui-form-label-width;
+    margin-right: 12px;
   }
 
   & > * {
@@ -24,38 +28,46 @@
   }
 
   .veui-form-label {
-    height: @veui-height-normal;
-    min-width: 66px;
-    margin-right: 10px;
-    font-size: 12px;
-    color: #000000;
+    width: @title-width;
+    height: 28px;
     line-height: 28px;
+    margin-right: 12px;
+    font-size: 12px;
+    color: #151515;
+    vertical-align: middle;
+    text-align: right;
   }
 
   &[ui~="right"] .veui-form-label {
     text-align: right;
   }
 
-  &[ui~="require"] .veui-form-label:before {
-    .veui-field-require();
-    color: #ff6f29;
-    font-size: 14px;
-    vertical-align: middle;
-    float: none;
-    margin-right: 1px;
+  &[ui~="small-title"] {
+    .veui-form-label,
+    &.veui-field-no-label::before {
+      width: @title-small-width;
+    }
+  }
+
+  &[ui~="large-title"] {
+    .veui-form-label,
+    &.veui-field-no-label::before {
+      width: @title-large-width;
+    }
   }
 
   .veui-span {
-    line-height: @veui-height-normal;
+    line-height: 28px;
   }
 
   &-error {
     position: static;
-    height: @veui-height-normal;
-    line-height: @veui-height-normal;
+    height: 28px;
+    line-height: 28px;
     margin: 0 0 0 10px;
     vertical-align: top;
-    color: @veui-alert-color;
+    color: @require-color;
+    font-size: @veui-font-size-small;
 
     .veui-icon {
       margin-right: 7px;
@@ -63,10 +75,10 @@
   }
 
   .veui-form-tip {
-    height: @veui-height-normal;
-    line-height: @veui-height-normal;
+    height: 28px;
+    line-height: 28px;
     margin-left: 10px;
-    color: @veui-text-color-weak;
+    color: @veui-dark-gray-color3;
   }
 
   .veui-form-tip + .veui-field-error {
@@ -74,7 +86,7 @@
   }
 
   .veui-form-label ~ .veui-form-tip + .veui-field-error {
-    margin-left: @veui-form-label-width;
+    margin-left: ~"calc(@{title-width} + 22px)";
   }
 
   .veui-form-label,
@@ -83,49 +95,13 @@
   .veui-span {
     .veui-icon {
       vertical-align: top;
-      margin-top: ~"calc(@{veui-height-normal} / 2 - .5em)";
+      margin-top: 8px;
     }
   }
 
-  &[ui~="small"] {
-    font-size: @veui-font-size-small;
-
-    .veui-form-label,
-    .veui-field-error,
-    .veui-form-tip,
-    .veui-span {
-      line-height: @veui-height-small;
-
-      .veui-icon {
-        margin-top: ~"calc(@{veui-height-small} / 2 - .5em)";
-      }
-    }
-
-    .veui-form-label,
-    .veui-field-error,
-    .veui-form-tip {
-      height: @veui-height-small;
-    }
-  }
-
-  &[ui~="large"] {
-    font-size: @veui-font-size-large;
-
-    .veui-form-label,
-    .veui-field-error,
-    .veui-form-tip,
-    .veui-span {
-      line-height: @veui-height-large;
-
-      .veui-icon {
-        margin-top: ~"calc(@{veui-height-large} / 2 - .5em)";
-      }
-    }
-
-    .veui-form-label,
-    .veui-field-error,
-    .veui-form-tip {
-      height: @veui-height-large;
+  .veui-field-error {
+    .veui-icon {
+      display: none;
     }
   }
 }
