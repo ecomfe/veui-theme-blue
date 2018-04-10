@@ -25,15 +25,46 @@
     color: @veui-middle-gray-color7;
   }
 
+  .veui-dropdown-label {
+    font-size: @veui-font-size-normal;
+    line-height: 26px;
+  }
+
+  .veui-button > .veui-icon {
+    margin-top: 7px;
+  }
+
+  &[ui~="large"] {
+    .veui-dropdown-label {
+      font-size: @veui-font-size-large;
+      line-height: 36px;
+    }
+    .veui-button > .veui-icon {
+      margin-top: 11px;
+    }
+  }
+
+  &[ui~="small"] {
+    .veui-dropdown-label {
+      line-height: 26px;
+      font-size: @veui-font-size-small;
+    }
+    .veui-button > .veui-icon {
+      margin-top: 8px;
+    }
+  }
+
   &[ui~="link"] {
     min-width: auto;
 
     & .veui-dropdown-label {
       width: auto;
       max-width: none;
-      margin-right: 5px;
       vertical-align: middle;
       color: @veui-dark-gray-color2;
+    }
+    .veui-disabled {
+      border: 0 none;
     }
 
     .veui-button {
