@@ -9,7 +9,7 @@
     display: inline-block;
     color: @veui-dark-gray-color3;
     font-size: @veui-font-size-normal;
-    line-height: @veui-font-size-large;
+    line-height: @veui-font-size-normal;
     cursor: pointer;
 
     input {
@@ -23,7 +23,7 @@
 
     &-label,
     &-box {
-        vertical-align: top;
+        vertical-align: middle;
         display: inline-block;
     }
 
@@ -103,7 +103,6 @@
     }
 
     &[ui~="large"] &-box {
-        margin-right: 6px;
         .size(@big-size);
         font-size: @veui-font-size-large;
     }
@@ -122,7 +121,6 @@
     }
 
     &[ui~="small"] &-box {
-        margin-right: 6px;
         .size(@small-size);
         font-size: @veui-font-size-small;
     }
