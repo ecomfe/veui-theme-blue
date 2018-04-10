@@ -3,12 +3,12 @@
     <h1><code>&lt;veui-breadcrumb&gt;</code></h1>
     <p>
       <veui-breadcrumb :routes="items" @redirect="handleRedirect">
-        <template slot-scope="scope"><em>{{ route.label }}</em></template>
+        <template slot-scope="route"><em>{{ route.label }}</em></template>
         <template slot="separator" slot-scope="scope">/</template>
       </veui-breadcrumb>
     </p>
     <p>
-      <veui-breadcrumb :routes="items" @redirect="handleRedirect" />
+      <veui-breadcrumb :routes="items" @redirect="handleRedirect"/>
     </p>
     <p>
       <veui-breadcrumb>
@@ -22,7 +22,6 @@
 
 <script>
 import { Breadcrumb, BreadcrumbItem, Icon } from 'veui'
-
 export default {
   name: 'breadcrumb-demo',
   components: {
