@@ -6,7 +6,8 @@
   @info: @veui-info-color;
   @error: @veui-alert-color;
   position: relative;
-  padding: 8px;
+  height: 28px;
+  line-height: 26px;
   border-radius: 2px;
   font-size: @veui-font-size-small;
 
@@ -51,6 +52,8 @@
         color: @@fg-color-name;
         width: auto;
         font-size: @veui-font-size-small;
+        height: 28px;
+        line-height: 26px;
         &:hover,
         &.focus-visible,
         &:active {
@@ -61,7 +64,7 @@
   }
 
   &-message {
-    margin: 0 21px 0 21px;
+    margin: 0 25px 0 25px;
   }
 
   .make-state-message(success);
@@ -71,7 +74,7 @@
 
   &-nav,
   &-close {
-    .absolute(50%, 20px, _, _);
+    .absolute(50%, 10px, _, _);
     transform: translateY(-50%);
   }
 

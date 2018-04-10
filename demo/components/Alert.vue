@@ -73,6 +73,6 @@ section {
 }
 
 .veui-alert.limit-width {
-  width: 350px;
+  width: 340px;
 }
 </style>
