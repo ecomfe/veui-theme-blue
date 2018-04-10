@@ -4,12 +4,12 @@ import config from 'veui/managers/config'
 
 config.defaults({
   icons: {
-    expand: 'angle-down',
-    collapse: 'angle-up'
+    increase: 'angle-up',
+    decrease: 'angle-down'
   },
   ui: {
     size: {
       values: ['large', 'small', 'tiny', 'micro']
     }
   }
-}, 'select')
+}, 'numberinput')

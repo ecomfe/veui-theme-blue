@@ -4,6 +4,12 @@
   float: left;
   color: @veui-text-color;
 
+  &:last-child {
+    .veui-breadcrumb-separator {
+      display: none;
+    }
+  }
+
   &-current {
     color: @veui-dark-gray-color2;
   }
