@@ -49,7 +49,7 @@
       </p>
     </section>
     <section>
-      <h2>Suggestion(submit async)</h2>
+      <h2>Suggestion</h2>
       <p>
         <veui-searchbox
           v-model="value2"
@@ -57,34 +57,30 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions1"
-          suggest-trigger="submit"
-          @suggest="asyncHandleSuggest('1', $event)"
+          @input="handleInput('1', $event)"
           @search="log($event)"
-          @select="value2 = $event.label"></veui-searchbox>
+          @select="log($event)"></veui-searchbox>
       </p>
     </section>
     <section>
       <h2>ui模式：<span class="veui-font-level-2d">类型ui="primary"</span></h2>
       <p>
-        <span class="veui-font-level-1b">小尺寸(focus)：</span>
+        <span class="veui-font-level-1b">小尺寸：</span>
         <span class="veui-font-level-2d">ui="small"</span>
       </p>
       <p>
         <veui-searchbox
           ui="primary small"
           clearable
-          v-model="value3"
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions2"
           replaceOnSelect
-          suggest-trigger="focus"
-          @suggest="handleSuggest('2', $event)"
-          @search="log($event)"
-          @select="value3 = $event.label"></veui-searchbox>
+          @input="handleInput('2', $event)"
+          @search="log($event)"></veui-searchbox>
       </p>
       <p>
-        <span class="veui-font-level-1b">默认尺寸(input)：</span>
+        <span class="veui-font-level-1b">默认尺寸：</span>
         <span class="veui-font-level-2d">不传ui</span>
       </p>
       <p>
@@ -92,30 +88,24 @@
           ui="primary"
           clearable
           :name="name"
-          v-model="value5"
           :placeholder="placeholder"
           :suggestions="suggestions2"
           replaceOnSelect
-          suggest-trigger="input"
-          @suggest="handleSuggest('3', $event)"
-          @search="log($event)"
-          @select="value5 = $event.label"></veui-searchbox>
+          @input="handleInput('2', $event)"
+          @search="log($event)"></veui-searchbox>
       </p>
       <p>
-        <span class="veui-font-level-1b">大尺寸(input)：</span>
+        <span class="veui-font-level-1b">大尺寸：</span>
         <span class="veui-font-level-2d">ui="large"</span>
       </p>
       <p>
         <veui-searchbox
           ui="primary large"
           :name="name"
-          v-model="value4"
           :placeholder="placeholder"
           :suggestions="suggestions3"
-          suggest-trigger="input"
-          @suggest="handleSuggest('3', $event)"
-          @search="log($event)"
-          @select="value4 = $event.label"></veui-searchbox>
+          @input="handleInput('3', $event)"
+          @search="log($event)"></veui-searchbox>
       </p>
     </section>
     <section>
@@ -127,7 +117,7 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions4"
-          @input="handleSuggest('4', $event)"
+          @input="handleInput('4', $event)"
           @search="log($event)"
           @select="log('select', $event)"></veui-searchbox>
       </p>
@@ -141,7 +131,7 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions5"
-          @input="handleSuggest('5', $event)"
+          @input="handleInput('5', $event)"
           @search="log($event)"></veui-searchbox>
       </p>
     </section>
@@ -153,7 +143,7 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions6"
-          @input="handleSuggest('6', $event)"
+          @input="handleInput('6', $event)"
           @search="log($event)">
           <template slot="suggestion" slot-scope="suggestion">
             <span>{{ suggestion.value }}</span>
@@ -169,7 +159,7 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions7"
-          @input="handleSuggest('7', $event)"
+          @input="handleInput('7', $event)"
           @search="log($event)">
           <template slot="suggestions" slot-scope="props">
             <div>
@@ -194,7 +184,6 @@
 <script>
 import bus from '../bus'
 import { Searchbox, Icon } from 'veui'
-
 export default {
   name: 'demo-searchbox',
   components: {
@@ -206,9 +195,6 @@ export default {
       name: 'name',
       value: '测试值',
       value2: '测试值',
-      value3: '测试值',
-      value4: '测试值',
-      value5: '测试值',
       placeholder: '百度(placeholder)',
       suggestions1: [],
       suggestions2: [],
@@ -220,8 +206,9 @@ export default {
     }
   },
   methods: {
-    handleSuggest (num, value) {
-      if (value && num) {
+    handleInput (num, value) {
+      console.log(num, value)
+      if (value && num < 3) {
         this[`suggestions${num}`] = [
           {
             value,
@@ -240,47 +227,17 @@ export default {
             label: '百度MVP'
           }
         ]
-      } else {
+      } else if (value) {
         this[`suggestions${num}`] = [
-          '',
+          value,
           '百度',
           '百度贴吧',
           '百度MVP',
           '百度指数'
         ]
+      } else {
+        this[`suggestions${num}`] = null
       }
-    },
-    asyncHandleSuggest (num, value) {
-      setTimeout(() => {
-        if (value && num < 3) {
-          this[`suggestions${num}`] = [
-            {
-              value,
-              label: value
-            },
-            {
-              value: '百度',
-              label: '百度'
-            },
-            {
-              value: '百度贴吧',
-              label: '百度贴吧'
-            },
-            {
-              value: '百度MVP',
-              label: '百度MVP'
-            }
-          ]
-        } else {
-          this[`suggestions${num}`] = [
-            '',
-            '百度',
-            '百度贴吧',
-            '百度MVP',
-            '百度指数'
-          ]
-        }
-      }, 1000);
     },
     log (item) {
       bus.$emit('log', item)
