@@ -4,12 +4,6 @@
     <veui-form>
       <section class="five-sizes">
         <h3>5 种大小：</h3>
-        <veui-field ui="micro" label="micro">
-          <veui-input ui="micro" v-model="poem"></veui-input>
-        </veui-field>
-        <veui-field ui="tiny" label="tiny">
-          <veui-input ui="tiny" v-model="poem"></veui-input>
-        </veui-field>
         <veui-field ui="small" label="small">
           <veui-input ui="small" v-model="poem"></veui-input>
         </veui-field>
@@ -156,10 +150,6 @@ section {
     & > .veui-form-label {
       width: 50px;
     }
-  }
-  .veui-input,
-  .veui-textarea {
-    width: 280px;
   }
   .veui-textarea {
     vertical-align: top;
