@@ -184,7 +184,6 @@
 <script>
 import bus from '../bus'
 import { Searchbox, Icon } from 'veui'
-
 export default {
   name: 'demo-searchbox',
   components: {

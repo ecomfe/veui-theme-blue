@@ -32,6 +32,7 @@ import Carousel from './Carousel'
 import Transfer from './Transfer'
 import Schedule from './Schedule'
 import Slider from './Slider'
+import NumberInput from './NumberInput'
 import Textarea from './Textarea'
 import Icon from './Icon'
 
@@ -131,6 +132,11 @@ export default [
     isComplete: true
   },
   {
+    path: '/number-input',
+    name: 'NumberInput',
+    component: NumberInput
+  },
+  {
     path: '/overlay',
     name: 'Overlay',
     component: Overlay
@@ -180,6 +186,7 @@ export default [
     name: 'Slider',
     component: Slider
   },
+  
   {
     path: '/searchbox',
     name: 'Searchbox',

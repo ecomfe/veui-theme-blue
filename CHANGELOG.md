@@ -1,3 +1,23 @@
+## 0.7.0-dev
+
+### 💡 主要变更
+
+* [^] 更新veui demo版本到v1.0.0-alpha.11。
+
+### 🐞 问题修复
+
+* [^] 修改 `Button` 组件small样式的字体大小（#35）
+* [^] 修改 `Alert` 组件高度及关闭按钮距离右侧大小
+* [^] 修改 `Calendar` 组件年份和月份边框被遮住1px问题
+* [^] 修改 `Checkbox` 组件按钮和文字之间的距离
+* [^] 修改 `Dropdown` 组件ui=link disabled状态样式
+* [^] 修改 `Input` Demo以及focus状态样式
+* [^] 修改 `Pagnination` 组件下拉选择一页展示数样式
+* [^] 修改 `Radio` 组件按钮与文字的距离
+* [^] 修改 `Searchbox` 组件样式不清楚的问题
+* [^] 修改 `Textarea` 组件的最小高度
+* [^] 修改 `Switch` 组件小开关的大小
+
 ## 0.6.0-dev
 
 ### 💡 主要变更

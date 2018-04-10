@@ -2,7 +2,20 @@ import '../icons/check'
 import config from 'veui/managers/config'
 
 config.defaults({
-  'progress.icons': {
+  icons: {
     success: 'check'
+  },
+  ui: {
+    size: {
+      values: ['tiny'],
+      data: {
+        default: {
+          radius: 60
+        },
+        tiny: {
+          radius: 13
+        }
+      }
+    }
   }
-})
+}, 'progress')

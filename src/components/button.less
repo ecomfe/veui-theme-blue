@@ -42,7 +42,6 @@
     color: @veui-light-gray-color5;
     min-width: @normal-width;
     .make-height(@normal-height);
-    font-size: @veui-font-size-small;
 
     &:hover,
     &.focus-visible {
@@ -155,7 +154,8 @@
 
     &,
     &:hover,
-    &:active {
+    &:active,
+    &.focus-visible {
       background-color: transparent;
     }
   }
