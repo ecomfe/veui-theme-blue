@@ -2,47 +2,76 @@
 @import (reference) "../input.less";
 
 .veui-input {
-
   border-radius: @veui-border-radius-normal;
-
   .make-line-height(@height) {
     height: @height;
     line-height: @height - 2px;
   }
 
-  .veui-field-invalid & {
-    &:extend(._veui-input-invalid all);
-  }
-
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
   .make-line-height(@veui-height-normal);
   width: @veui-width-normal;
-  padding: 0 9px;
-  vertical-align: middle;
   border: 1px solid @veui-middle-gray-color4;
   background-color: @veui-light-gray-color5;
   color: @veui-dark-gray-color2;
   transition: border-color .2s, color .2s;
   font-size: @veui-font-size-small;
 
-  &:hover {
-    border-color: @veui-dark-gray-color3;
+  &-hidden {
+    display: none;
   }
 
-  &:focus {
+  &-input {
+    float: left;
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+
+    // 和外部容器的高度保持一致
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+
+    border: none;
+    outline: none;
+    z-index: 1;
+  }
+
+  .veui-field-invalid & {
+    &:extend(._veui-input-invalid all);
+  }
+
+  &:hover {
+    // border-color: @veui-dark-gray-color3;
+  }
+
+  &:focus,
+  &-focused {
     outline: none;
     border-color: @veui-theme-color;
     color: @veui-dark-gray-color2;
   }
 
-  &:read-only,
-  &:disabled {
-    background-color: @veui-light-gray-color4;
-    border-color: @veui-middle-gray-color4;
-    color: @veui-middle-gray-color2;
+  &.veui-readonly,
+  &.veui-disabled {
+    &,
+    &:hover {
+      border-color: @veui-middle-gray-color4;
+      color: @veui-middle-gray-color2;
+    }
+
+    & .veui-input-input {
+      background-color: @veui-light-gray-color4;
+    }
   }
 
-  &:disabled {
-    cursor: not-allowed;
+  &.veui-disabled {
+    &,
+    & .veui-input-input {
+      cursor: not-allowed;
+    }
   }
 
   &::placeholder {

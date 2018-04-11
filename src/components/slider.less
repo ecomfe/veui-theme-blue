@@ -48,11 +48,13 @@
         width: 100%;
         position: absolute;
         top: -1 * @default-mark-top-offset;
+
         div {
           height: @default-mark-height;
           border-left: 1px solid @veui-gray-color-5;
           position: absolute;
         }
+
       }
     }
   }
@@ -62,12 +64,12 @@
     left: 0;
     // 利用 translateX 左偏移一半，实现 thumb 宽度自适应
     transform: translateX(-50%);
+    cursor: pointer;
 
     &:focus {
       outline: none;
     }
 
-    &:focus,
     &.focus-visible {
       .veui-slider-thumb-default {
         border-color: @veui-brand-color-1;
@@ -103,12 +105,15 @@
   &[ui~="large"] {
     .slider-size(@veui-height-large);
   }
+
   &[ui~="small"] {
     .slider-size(@veui-height-small);
   }
+
   &[ui~="tiny"] {
     .slider-size(@veui-height-tiny);
   }
+
   &[ui~="micro"] {
     .slider-size(@veui-height-micro);
   }

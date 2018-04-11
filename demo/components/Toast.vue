@@ -1,14 +1,14 @@
 <template>
   <article>
     <h1><code>&lt;veui-toast&gt;</code></h1>
-    <p>
+    <section>
       <div class="toast-title">全局提示</div>
       <veui-button @click="showToast('all')">全部</veui-button>
       <veui-button @click="showToast('success')">成功</veui-button>
       <veui-button @click="showToast('warn')">警告</veui-button>
       <veui-button @click="showToast('info')">提醒</veui-button>
       <veui-button @click="showToast('error')">错误</veui-button>
-    </p>
+    </section>
   </article>
 </template>
 

@@ -68,7 +68,10 @@
 
 <script>
 import { Slider, Tooltip } from 'veui'
-
+import { fill, padStart } from 'lodash'
+function makeArray (length) {
+  return fill(new Array(length), true)
+}
 export default {
   name: 'slider-demo',
   components: {
@@ -79,9 +82,8 @@ export default {
     return {
       value1: 0.2,
       value2: 333,
-      value3: (new Array(5)).fill(1).map((_, i) => `hsl(${(i + 1) * 60}, 100%, 50%)`),
+      value3: makeArray(5).map((_, i) => `hsl(${(i + 1) * 60}, 100%, 50%)`),
       value4: [22, 66],
-
       videoPlayProgress: 0.11,
       videoBufferProgress: 0.57,
       videoDuration: 200
@@ -89,7 +91,7 @@ export default {
   },
   computed: {
     colorGradient () {
-      let colors = (new Array(7)).fill(1).map(function (_, index) {
+      let colors = makeArray(7).map(function (_, index) {
         return `hsl(${60 * index}, 100%, 50%) ${100 / 6 * index}%`
       })
       return `linear-gradient(to right, ${colors.join(',')})`
@@ -104,7 +106,7 @@ export default {
     },
     formatDuration (sec) {
       sec = Math.round(sec)
-      return `${Math.floor(sec / 60).toString().padStart(2, '0')}:${(sec % 60).toString().padStart(2, '0')}`
+      return `${padStart(Math.floor(sec / 60).toString(), 2, '0')}:${padStart((sec % 60).toString(), 2, '0')}`
     }
   }
 }
@@ -115,16 +117,13 @@ section {
   margin: 2em 0;
   padding: 1em;
 }
-
 .veui-slider {
   margin: 10px 0;
   background: repeating-linear-gradient(135deg, #fff 0px, #fff 10px, #f7f7f7 11px, #f7f7f7 12px, #fff 13px, #fff 14px);
 }
-
 .desc {
   margin-top: 1em;
 }
-
 .custom-tip {
   position: absolute;
   top: -24px;
@@ -135,7 +134,6 @@ section {
   border: 1px solid #fff;
   font-size: 12px;
 }
-
 .video {
   display: flex;
   align-items: center;

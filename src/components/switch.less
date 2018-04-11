@@ -4,9 +4,9 @@
 @switch-large-height: 25px; // ui=large switch高度
 @switch-width: 58px; // 默认 switch宽度
 @switch-height: 20px; // 默认 switch高度
-@switch-small-width: 26px; // ui=small switch宽度
+@switch-small-width: 28px; // ui=small switch宽度
 @switch-small-height: 11px; // ui=small switch高度
-@switch-small-border-radius: 25px; // ui=small switch圆角
+@switch-small-border-radius: 5.5px; // ui=small switch圆角
 @switch-border-radius: 63px; // 默认 switch圆角
 @switch-large-border-radius: 23px; // ui=large switch圆角
 
@@ -30,18 +30,17 @@
             background-color: rgba(152, 152, 152, 0.11);
         }
         .veui-switch-button {
-            .size(14px);
+            .size(15px);
             border: 1px solid #D0D7DD;
             box-shadow: 0 4px 4px 0 rgba(0,0,0,0.04);
-            top: -2px;
-            margin: 0 0 0 -1px;
+            margin-top: -2px;
         }
         &.veui-switch-on {
             .veui-switch-switcher {
                 background-color: #4DA1FF;
             }
             .veui-switch-button {
-                transform: translateX(14px);
+                transform: translateX(11.2px);
             }
         }
     }
