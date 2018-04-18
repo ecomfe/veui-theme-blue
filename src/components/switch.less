@@ -9,6 +9,8 @@
 @switch-small-border-radius: 5.5px; // ui=small switch圆角
 @switch-border-radius: 63px; // 默认 switch圆角
 @switch-large-border-radius: 23px; // ui=large switch圆角
+@switch-large-color: #04BE5B; // ui=large switch背景色
+@switch-small-color: #4DA1FF; // ui=small switch背景色
 
 .veui-switch {
     display: inline-block;
@@ -32,15 +34,15 @@
         .veui-switch-button {
             .size(15px);
             border: 1px solid #D0D7DD;
-            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.04);
-            margin-top: -2px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
+            margin: -2px 0 0 0;
         }
         &.veui-switch-on {
             .veui-switch-switcher {
-                background-color: #4DA1FF;
+                background-color: @switch-small-color;
             }
             .veui-switch-button {
-                transform: translateX(11.2px);
+                transform: translateX(13.2px);
             }
         }
     }
@@ -55,7 +57,7 @@
         }
         &.veui-switch-on {
             .veui-switch-switcher {
-                background-color: #04BE5B;
+                background-color: @switch-large-color;
             }
             .veui-switch-button {
                 transform: translateX(45px);
@@ -76,9 +78,9 @@
     &-button {
         display: inline-block;
         position: relative;
-        margin: 2px;
-        background-color: #fff;
+        background-color: @veui-light-gray-color5;
         border-radius: 50%;
+        margin: 2px;
         transition: transform ease .2s;
         .size(16px);
 
@@ -90,7 +92,7 @@
 
     &-on {
         .veui-switch-switcher {
-            background-color: #4DA1FF;
+            background-color: @switch-small-color;
         }
         .veui-switch-button {
             transform: translateX(38px);
