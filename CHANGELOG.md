@@ -7,7 +7,7 @@
 * [^] 修改 `Checkbox` 组件的高度及按钮和文字的距离
 * [^] 修改 `Dropdown` 组件ui=large和ui=small样式
 * [^] 去除 `Input` 组件veui-input-input的float属性
-
+* [^] 修改 `NumberInput` 组件向上增加按钮丢失问题
 
 
 ## 0.7.0-dev
