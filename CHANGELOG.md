@@ -1,3 +1,20 @@
+## 0.8.0-dev
+
+### 🐞 问题修复
+
+* [^] 修改 `Switch` 组件ui=small时，关闭状态左侧有空隙（#38）
+* [^] 修改 `Radio` 组件高度和设计稿不相同（#39）
+* [^] 修改 `Checkbox` 组件的高度及按钮和文字的距离
+* [^] 修改 `Dropdown` 组件ui=large和ui=small样式
+* [^] 去除 `Input` 组件veui-input-input的float属性
+* [^] 修改 `NumberInput` 组件向上增加按钮丢失问题
+* [^] 修改 `Searchbox` 组件placeholder字体与输入字体大小不一致问题（#40）
+* [^] 修改 `Input` 组件placeholder字体颜色（#40）
+* [^] 修改 `Pagnination` 组件按钮间隙、字体大小、active和hover状态无border（#41）
+* [^] 修改 `Datepicker` 组件选中状态样式、展开浮层大小（#42）
+* [^] 更新demo左侧链接，灰色样式不可点击组件表示组件样式未完成
+
+
 ## 0.7.0-dev
 
 ### 💡 主要变更

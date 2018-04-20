@@ -3,7 +3,7 @@
     <h1><code>&lt;veui-input&gt;</code></h1>
     <veui-form>
       <section class="five-sizes">
-        <h3>5 种大小：</h3>
+        <h3>3种大小：</h3>
         <veui-field ui="small" label="small">
           <veui-input ui="small" v-model="poem"></veui-input>
         </veui-field>
@@ -177,6 +177,7 @@ section {
 .input-after-slot {
   position: absolute;
   right: 5px;
+  top: 0;
   z-index: 1;
 }
 </style>

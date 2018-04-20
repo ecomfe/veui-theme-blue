@@ -37,6 +37,28 @@
 
   &-overlay {
     &:extend(._veui-dropdown-overlay all);
+    margin: 10px 0 0 0;
+    width: 243px;
+    height: 286px;
+    border: 0 none;
+    .veui-calendar-panel {
+      width: 100%;
+      height: 100%;
+      .veui-calendar-head {
+        width: 100%;
+        height: 61px;
+      }
+      .veui-calendar-body {
+        width: 100%;
+        height: 220px;
+        margin-bottom: 5px;
+        padding-bottom: 0;
+        table {
+          width: 100%;
+          height: 220px;
+        }
+      }
+    }
   }
 
   &-empty {
