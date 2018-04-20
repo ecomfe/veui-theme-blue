@@ -5,8 +5,8 @@
       <ul>
         <li v-for="(route, index) in routes" :key="index">
           <router-link :to='route'>{{route.name}}
-            <span v-if="route.isComplete" class="red">(done)</span>
-            <span v-else class="gray">(developing)</span>
+            <!-- <span v-if="route.isComplete" class="red">(done)</span> -->
+            <span v-if="!route.isComplete" class="gray">(developing)</span>
           </router-link>
         </li>
       </ul>
