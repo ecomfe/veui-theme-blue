@@ -12,6 +12,7 @@
 * [^] 修改 `Input` 组件placeholder字体颜色（#40）
 * [^] 修改 `Pagnination` 组件按钮间隙、字体大小、active和hover状态无border（#41）
 * [^] 修改 `Datepicker` 组件选中状态样式、展开浮层大小（#42）
+* [^] 更新demo左侧链接，灰色样式不可点击组件表示组件样式未完成
 
 
 ## 0.7.0-dev

@@ -40,32 +40,27 @@ export default [
   {
     path: '/alert',
     name: 'Alert',
-    component: Alert,
-    isComplete: true
+    component: Alert
   },
   {
     path: '/breadcrumb',
     name: 'Breadcrumb',
-    component: Breadcrumb,
-    isComplete: true
+    component: Breadcrumb
   },
   {
     path: '/button',
     name: 'Button',
-    component: Button,
-    isComplete: true
+    component: Button
   },
   {
     path: '/button-group',
     name: 'ButtonGroup',
-    component: ButtonGroup,
-    isComplete: true
+    component: ButtonGroup
   },
   {
     path: '/calendar',
     name: 'Calendar',
-    component: Calendar,
-    isComplete: true
+    component: Calendar
   },
   {
     path: '/carousel',
@@ -75,66 +70,59 @@ export default [
   {
     path: '/checkbox',
     name: 'Checkbox',
-    component: Checkbox,
-    isComplete: true
+    component: Checkbox
   },
   {
     path: '/check-button-group',
     name: 'CheckButtonGroup',
-    component: CheckButtonGroup,
-    isComplete: true
+    component: CheckButtonGroup
   },
   {
     path: '/checkbox-group',
     name: 'CheckboxGroup',
-    component: CheckboxGroup,
-    isComplete: true
+    component: CheckboxGroup
   },
   {
     path: '/date-picker',
     name: 'DatePicker',
-    component: DatePicker,
-    isComplete: true
+    component: DatePicker
   },
   {
     path: '/dialog',
     name: 'Dialog',
-    component: Dialog
+    component: Dialog,
+    noComplete: true
   },
   {
     path: '/dropdown',
     name: 'Dropdown',
-    component: Dropdown,
-    isComplete: true
+    component: Dropdown
   },
   {
     path: '/form',
     name: 'Form',
-    component: Form,
-    isComplete: true
+    component: Form
   },
   {
     path: '/font',
     name: 'Font',
-    component: Font,
-    isComplete: true
+    component: Font
   },
   {
     path: '/icon',
     name: 'Icon',
-    component: Icon,
-    isComplete: true
+    component: Icon
   },
   {
     path: '/input',
     name: 'Input',
-    component: Input,
-    isComplete: true
+    component: Input
   },
   {
     path: '/number-input',
     name: 'NumberInput',
-    component: NumberInput
+    component: NumberInput,
+    noComplete: true
   },
   {
     path: '/overlay',
@@ -144,32 +132,27 @@ export default [
   {
     path: '/pagination/:page?',
     name: 'Pagination',
-    component: Pagination,
-    isComplete: true
+    component: Pagination
   },
   {
     path: '/progress',
     name: 'Progress',
-    component: Progress,
-    isComplete: true
+    component: Progress
   },
   {
     path: '/radio',
     name: 'Radio',
-    component: Radio,
-    isComplete: true
+    component: Radio
   },
   {
     path: '/radio-button-group',
     name: 'RadioButtonGroup',
-    component: RadioButtonGroup,
-    isComplete: true
+    component: RadioButtonGroup
   },
   {
     path: '/radio-group',
     name: 'RadioGroup',
-    component: RadioGroup,
-    isComplete: true
+    component: RadioGroup
   },
   {
     path: '/region-picker',
@@ -190,31 +173,28 @@ export default [
   {
     path: '/searchbox',
     name: 'Searchbox',
-    component: Searchbox,
-    isComplete: true
+    component: Searchbox
   },
   {
     path: '/select',
     name: 'Select',
-    component: Select,
-    isComplete: true
+    component: Select
   },
   {
     path: '/steps',
     name: 'Steps',
-    component: Steps,
-    isComplete: true
+    component: Steps
   },
   {
     path: '/switch',
     name: 'Switch',
-    component: Switch,
-    isComplete: true
+    component: Switch
   },
   {
     path: '/table',
     name: 'Table',
-    component: Table
+    component: Table,
+    noComplete: true
   },
   {
     path: '/tabs',
@@ -234,35 +214,33 @@ export default [
         path: 'progress',
         component: Progress
       }
-    ]
+    ],
+    noComplete: true
   },
   {
     path: '/textarea',
     name: 'Textarea',
-    component: Textarea,
-    isComplete: true
+    component: Textarea
   },
   {
     path: '/toast',
     name: 'Toast',
-    component: Toast,
-    isComplete: true
+    component: Toast
   },
   {
     path: '/tooltip',
     name: 'Tooltip',
-    component: Tooltip,
-    isComplete: true
+    component: Tooltip
   },
   {
     path: '/transfer',
     name: 'Transfer',
-    component: Transfer
+    component: Transfer,
+    noComplete: true
   },
   {
     path: '/uploader',
     name: 'Uploader',
-    component: Uploader,
-    isComplete: true
+    component: Uploader
   }
 ]
