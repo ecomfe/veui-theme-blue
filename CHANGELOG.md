@@ -5,6 +5,8 @@
 * [^] 修改 `Switch` 组件ui=small时，关闭状态左侧有空隙（#38）
 * [^] 修改 `Radio` 组件高度和设计稿不相同（#39）
 * [^] 修改 `Checkbox` 组件的高度及按钮和文字的距离
+* [^] 修改 `Dropdown` 组件ui=large和ui=small样式
+
 
 ## 0.7.0-dev
 

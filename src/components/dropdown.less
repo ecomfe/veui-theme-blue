@@ -11,6 +11,13 @@
     max-height: 280px;
     overflow-y: auto;
     background-color: #fff;
+    &[ui~="small"] {
+      .veui-option {
+        height: 21px;
+        line-height: 21px;
+        font-size: @veui-font-size-small;
+      }
+    }
   }
 
   &-option {
@@ -19,15 +26,12 @@
 
   &-label {
     color: @veui-middle-gray-color2;
+    font-size: @veui-font-size-small;
+    line-height: 26px;
   }
 
   &-icon {
     color: @veui-middle-gray-color7;
-  }
-
-  .veui-dropdown-label {
-    font-size: @veui-font-size-normal;
-    line-height: 26px;
   }
 
   .veui-button > .veui-icon {
@@ -35,9 +39,12 @@
   }
 
   &[ui~="large"] {
+    .veui-dropdown-button {
+      .centered-line(38px);
+    }
     .veui-dropdown-label {
-      font-size: @veui-font-size-large;
       line-height: 36px;
+      font-size: @veui-font-size-normal;
     }
     .veui-button > .veui-icon {
       margin-top: 11px;
@@ -45,12 +52,14 @@
   }
 
   &[ui~="small"] {
+    .veui-dropdown-button {
+      .centered-line(21px);
+    }
     .veui-dropdown-label {
-      line-height: 26px;
-      font-size: @veui-font-size-small;
+      line-height: 19px;
     }
     .veui-button > .veui-icon {
-      margin-top: 8px;
+      margin-top: 4px;
     }
   }
 
