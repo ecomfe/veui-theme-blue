@@ -10,6 +10,7 @@
 * [^] 修改 `NumberInput` 组件向上增加按钮丢失问题
 * [^] 修改 `Searchbox` 组件placeholder字体与输入字体大小不一致问题（#40）
 * [^] 修改 `Input` 组件placeholder字体颜色（#40）
+* [^] 修改 `Pagnination` 组件按钮间隙、字体大小、active和hover状态无border（#41）
 
 
 ## 0.7.0-dev
