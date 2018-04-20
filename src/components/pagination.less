@@ -3,10 +3,9 @@
 .veui-pager {
   @button-width: 28px;
   @button-height: 28px;
-  @button-gap-width: 6px;
+  @button-gap-width: 8px;
 
   @digit-width: 28px;
-  @digit-width-delta: 6px;
   @digit-height: 28px;
   @interval-size: 8px; // 分页按钮之间的间隔
 
@@ -137,6 +136,7 @@
       border-radius: @veui-border-radius-normal;
       margin-left: @interval-size;
       background: @veui-light-gray-color5;
+      font-size: @veui-font-size-small;
       &:first-child {
         margin-left: 0;
       }
@@ -155,7 +155,7 @@
 
       &:hover,
       &.veui-active {
-        border: 1px solid @veui-theme-color;
+        border-color: transparent;
         background-color: @veui-theme-color;
         color: @veui-light-gray-color5;
       }

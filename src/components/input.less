@@ -24,7 +24,6 @@
   }
 
   &-input {
-    float: left;
     position: relative;
     width: 100%;
     padding: 0 10px;
@@ -37,6 +36,9 @@
     border: none;
     outline: none;
     z-index: 1;
+    &::placeholder {
+      color: @veui-middle-gray-color2;
+    }
   }
 
   .veui-field-invalid & {
@@ -72,10 +74,6 @@
     & .veui-input-input {
       cursor: not-allowed;
     }
-  }
-
-  &::placeholder {
-    color: @veui-middle-gray-color2;
   }
 
   &[ui~="large"] {

@@ -111,8 +111,8 @@
   }
 
   &-today {
-    button {
-      font-weight: @veui-font-weight-extra-bold;
+    button::after {
+      // font-weight: @veui-font-weight-extra-bold;
     }
   }
 
@@ -132,6 +132,19 @@
       }
     }
   }
+  &-selected {
+    button:after {
+      content: '';
+      width: 5px;
+      height: 5px;
+      display: inline-block;
+      background: #4DA1FF;
+      border-radius: 50%;
+      position: absolute;
+      right: 6px;
+      top: 4px;
+    }
+  }
 
   &-head {
     padding: 13px 6px 20px;
@@ -148,13 +161,14 @@
       outline: none;
       cursor: pointer;
       b {
-        font-weight: @veui-font-weight-normal;
+        font-weight: normal;
         vertical-align: middle;
         font-size: @veui-font-size-normal;
+        margin-left: -5px;
+        margin-right: -4px;
       }
 
       .veui-icon {
-        width: 16px;
         vertical-align: middle;
         color: @page-color;
       }
@@ -163,13 +177,12 @@
         background: @select-btn-bg;
         border: 1px solid @select-btn-border-color;
         border-radius: @veui-border-radius-normal;
-        margin: auto 2px;
         min-width: 52px;
         .veui-icon {
           color: @veui-dark-gray-color3;
           margin-left: -18px;
           background: @select-btn-bg;
-          height: 90%;
+          margin-right: -5px;
           display: inline-block;
         }
       }

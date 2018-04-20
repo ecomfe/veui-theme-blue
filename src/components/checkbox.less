@@ -8,8 +8,9 @@
 
     display: inline-block;
     color: @veui-dark-gray-color3;
-    font-size: @veui-font-size-normal;
-    line-height: @veui-font-size-normal;
+    font-size: 0;
+    height: @size;
+    line-height: @size;
     cursor: pointer;
 
     input {
@@ -25,11 +26,11 @@
     &-box {
         vertical-align: middle;
         display: inline-block;
+        font-size: @veui-font-size-normal;
     }
 
     .veui-field > & {
-        line-height: @veui-height-normal;
-
+        line-height: @size;
         .veui-checkbox-box {
             vertical-align: text-top;
         }
@@ -41,6 +42,7 @@
         border: 1px solid @veui-middle-gray-color4;
         background-color: @veui-light-gray-color5;
         border-radius: @radius;
+        margin-right: 7px;
     }
 
     & :checked + &-box,
@@ -90,8 +92,27 @@
     }
 
     &[ui~="large"] {
-        font-size: @veui-font-size-large;
+        height: @big-size;
         line-height: @big-size;
+        .veui-checkbox-box {
+            .size(@big-size);
+            font-size: @veui-font-size-large;
+        }
+        .veui-checkbox-label {
+            font-size: @veui-font-size-large;
+        }
+    }
+
+    &[ui~="small"] {
+        height: @small-size;
+        line-height: @small-size;
+        .veui-checkbox-box {
+            .size(@small-size);
+            font-size: @veui-font-size-small;
+        }
+        .veui-checkbox-label {
+            font-size: @veui-font-size-small;
+        }
     }
 
     .veui-field[ui~="large"] > &[ui~="large"] {
@@ -102,27 +123,12 @@
         }
     }
 
-    &[ui~="large"] &-box {
-        .size(@big-size);
-        font-size: @veui-font-size-large;
-    }
-
-    &[ui~="small"] {
-        font-size: @veui-font-size-small;
-        line-height: @small-size;
-    }
-
     .veui-field[ui~="small"] > &[ui~="small"] {
         line-height: @small-size;
 
         .veui-checkbox-box {
             vertical-align: -2px;
         }
-    }
-
-    &[ui~="small"] &-box {
-        .size(@small-size);
-        font-size: @veui-font-size-small;
     }
 }
 

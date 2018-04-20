@@ -2,7 +2,7 @@
   <article>
     <h1><code>&lt;veui-checkbox&gt;</code></h1>
     <p>
-      <veui-checkbox v-model="current" true-value="已选" false-value="未选">当前数据：</veui-checkbox> {{ current }}
+      <veui-checkbox v-model="current" true-value="已选" false-value="未选">当前数据：</veui-checkbox><span class="selected-val">{{ current }}</span>
     </p>
     <section>
       <p>
@@ -150,6 +150,15 @@ export default {
 <style lang="less" scoped>
 section {
   margin-bottom: 20px;
+}
+.veui-checkbox {
+  vertical-align: middle;
+}
+.selected-val {
+  height: 14px;
+  line-height: 14px;
+  display: inline-block;
+  vertical-align: middle;
 }
 </style>
 

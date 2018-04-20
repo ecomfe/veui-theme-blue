@@ -4,9 +4,8 @@
       <h1><a href="https://github.com/ecomfe/veui">VEUI components</a><icon name="github" scale="6"></icon></h1>
       <ul>
         <li v-for="(route, index) in routes" :key="index">
-          <router-link :to='route'>{{route.name}}
-            <span v-if="route.isComplete" class="red">(done)</span>
-            <span v-else class="gray">(developing)</span>
+          <span v-if="route.noComplete" class="gray noCompleteNav">{{route.name}}</span>
+          <router-link v-else :to='route'>{{route.name}}
           </router-link>
         </li>
       </ul>
@@ -118,7 +117,8 @@ export default {
   }
 
   li {
-    a {
+    a,
+    .noCompleteNav {
       display: block;
       padding: .5em 24px;
       text-decoration: none;
@@ -134,6 +134,12 @@ export default {
       }
       .red {
         color: #ff0000;
+      }
+    }
+    .noCompleteNav {
+      color: #dadada;
+      &:hover {
+        font-weight: normal;
       }
     }
   }
