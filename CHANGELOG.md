@@ -11,6 +11,7 @@
 * [^] 修改 `Searchbox` 组件placeholder字体与输入字体大小不一致问题（#40）
 * [^] 修改 `Input` 组件placeholder字体颜色（#40）
 * [^] 修改 `Pagnination` 组件按钮间隙、字体大小、active和hover状态无border（#41）
+* [^] 修改 `Datepicker` 组件选中状态样式、展开浮层大小（#42）
 
 
 ## 0.7.0-dev
