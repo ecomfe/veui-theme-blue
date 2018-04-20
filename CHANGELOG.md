@@ -8,6 +8,7 @@
 * [^] 修改 `Dropdown` 组件ui=large和ui=small样式
 * [^] 去除 `Input` 组件veui-input-input的float属性
 * [^] 修改 `NumberInput` 组件向上增加按钮丢失问题
+* [^] 修改 `Searchbox` 组件placeholder字体与输入字体大小不一致问题（#40）
 
 
 ## 0.7.0-dev

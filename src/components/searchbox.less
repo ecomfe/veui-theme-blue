@@ -6,7 +6,7 @@
 @searchbox-small-width: 160px; // ui=small searchbox宽度
 @searchbox-small-height: 21px; // ui=small searchbox高度
 @searchbox-big-width: 330px; // ui=large searchbox宽度
-@searchbox-big-height: 34px; // ui=large searchbox高度
+@searchbox-big-height: 38px; // ui=large searchbox高度
 
 .veui-searchbox {
   display: inline-block;
@@ -17,11 +17,14 @@
 
   .veui-input {
     width: 100%;
-    vertical-align: top;
+    vertical-align: middle;
     background: transparent;
     &:read-only,
     &:disabled {
       color: @veui-dark-gray-color2;
+    }
+    &-input {
+      top: 0;
     }
   }
 
@@ -64,6 +67,7 @@
   &-placeholder {
     padding: 0 9px;
     color: @veui-middle-gray-color2;
+    font-size: @veui-font-size-small;
   }
   &-placeholder-hide &-placeholder {
     display: none;
@@ -107,6 +111,7 @@
 
     .veui-icon {
       vertical-align: middle;
+      .size(12px);
     }
   }
 
@@ -160,10 +165,21 @@
     .veui-input[ui~="large"] {
       width: 100%;
       .centered-line(@searchbox-big-height);
+      .veui-input-input {
+        font-size: @veui-font-size-normal;
+      }
     }
 
     .veui-searchbox-others {
       line-height: @searchbox-big-height;
+      .veui-searchbox-placeholder {
+        font-size: @veui-font-size-normal;
+      }
+      button.veui-searchbox-icon{
+        .veui-icon {
+          .size(16px);
+        }
+      }
     }
 
     .veui-button[ui~="large"] {
@@ -184,19 +200,14 @@
     .size(@searchbox-small-width, @searchbox-small-height);
     .veui-button[ui~="small"] {
       width: 42px;
-      .centered-line(@searchbox-small-height);
+      .centered-line(@searchbox-small-height - 1);
+      margin-top: 1px;
       min-width: auto;
       padding: 0;
     }
 
     .veui-searchbox-others {
       line-height: @searchbox-small-height;
-      button.veui-searchbox-icon{
-        .veui-icon {
-          margin-top: ~"calc((@{searchbox-small-height} - 12px) / 2)";
-          vertical-align: baseline;
-        }
-      }
     }
 
     .veui-input[ui~="small"] {
