@@ -21,6 +21,7 @@
 .veui-switch {
     display: inline-block;
     cursor: pointer;
+    font-size: 0;
 
     &-switcher {
         .size(@switch-width, @switch-height);
@@ -29,19 +30,30 @@
         background-color: @switch-normal-bg-color;
         user-select: none;
         transition: background-color ease .2s;
+        vertical-align: middle;
     }
 
     &[ui~="small"] {
+        height: 15px;
+        line-height: 15px;
         .veui-switch-switcher {
             .size(@switch-small-width, @switch-small-height);
             border-radius: @switch-small-border-radius;
             background-color: @switch-small-bg-color;
+            margin-top: 2px;
+            vertical-align: baseline;
         }
         .veui-switch-button {
             .size(@switch-btn-small);
             border: 1px solid @switch-btn-border-color;
             box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
             margin: -2px 0 0 0;
+        }
+        .veui-switch-label {
+            position: relative;
+            top: -3px;
+            font-size: @veui-font-size-small;
+            vertical-align: baseline;
         }
         &.veui-switch-on {
             .veui-switch-switcher {
@@ -61,6 +73,9 @@
         .veui-switch-button {
             .size(@switch-btn-large);
         }
+        .veui-switch-label {
+            font-size: @veui-font-size-large;
+        }
         &.veui-switch-on {
             .veui-switch-switcher {
                 background-color: @switch-large-color;
@@ -71,14 +86,12 @@
         }
     }
 
-    &-switcher,
-    &-label {
-        vertical-align: middle;
-    }
-
     &-label {
         display: inline-block;
-        margin-left: 10px;
+        color: @veui-text-color;
+        margin-left: 5px;
+        font-size: @veui-font-size-normal;
+        vertical-align: middle;
     }
 
     &-button {
