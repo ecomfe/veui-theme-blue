@@ -21,6 +21,12 @@
     width: 100%;
   }
 
+  &[ui~="line"] {
+    .veui-textarea-input {
+      padding: 0;
+    }
+  }
+
   .veui-field-invalid & {
     &:extend(._veui-input-invalid all);
     font: inherit;

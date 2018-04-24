@@ -6,6 +6,7 @@
 * [^] 修改 `Datepicker` 组件可清除选择时清除按钮位置出现偏差
 * [^] 修改 `Button` 组件的配置文件size选项
 * [^] 修改 `Textarea` 组件行号和文字不对齐问题
+* [^] `Textarea` 组件增加ui="line"类型
 
 ## 0.8.0-dev
 

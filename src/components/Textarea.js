@@ -4,6 +4,9 @@ config.defaults({
   ui: {
     size: {
       values: ['auto']
+    },
+    type: {
+      values: ['line']
     }
   }
 }, 'textarea')
