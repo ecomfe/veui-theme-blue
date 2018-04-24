@@ -13,7 +13,7 @@
     </section>
     <section>
       <h2>可清除选择</h2>
-      <p><veui-date-picker v-model="selected1" ui="micro" clearable></veui-date-picker></p>
+      <p><veui-date-picker v-model="selected1" clearable></veui-date-picker></p>
     </section>
     <section>
       <h2>范围选择</h2>
@@ -22,8 +22,6 @@
     <section>
       <h2>可清除范围选择</h2>
       <p><veui-date-picker v-model="selected2" range clearable :panel="3"></veui-date-picker></p>
-      <p><veui-date-picker v-model="selected2" ui="large" range clearable :panel="3"></veui-date-picker></p>
-      <p><veui-date-picker v-model="selected2" ui="small" range clearable :panel="3"></veui-date-picker></p>
     </section>
     <section>
       <h2>范围禁用</h2>
