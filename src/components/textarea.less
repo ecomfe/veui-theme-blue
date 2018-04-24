@@ -1,5 +1,6 @@
 @import "../lib.less";
 @import (reference) "../input.less";
+@textarea-line-height: 20px;
 
 .veui-textarea {
   display: inline-block;
@@ -8,16 +9,22 @@
   width: 330px;
   min-height: 90px;
   border: 1px solid @veui-middle-gray-color4;
-  padding: 0;
+  padding: 4px 0;
   background-color: @veui-light-gray-color5;
   font-size: @veui-font-size-small;
-  line-height: 20px;
+  line-height: @textarea-line-height;
   transition: border-color .2s, color .2s;
   color: @veui-dark-gray-color2;
   border-radius: @veui-border-radius-normal;
 
   &[ui~="auto"] {
     width: 100%;
+  }
+
+  &[ui~="line"] {
+    .veui-textarea-input {
+      padding: 0;
+    }
   }
 
   .veui-field-invalid & {
@@ -49,7 +56,7 @@
     max-height: inherit;
     border: none;
     outline: none;
-    padding: 4px 8px;
+    padding: 0 8px;
     z-index: 1;
     resize: none;
     &::placeholder {
@@ -62,11 +69,11 @@
   }
 
   &-measurer + &-input {
-    max-width: ~"calc(100% - @{veui-height-normal})";
+    max-width: ~"calc(100% - @{textarea-line-height})";
   }
 
   &-measurer {
-    .absolute(0);
+    .absolute(4px, 0);
     overflow: hidden;
     word-wrap: break-word;
     color: @veui-dark-gray-color2;
@@ -76,9 +83,8 @@
 
       &-number {
         float: left;
-        min-width: @veui-height-normal;
+        min-width: @textarea-line-height;
         text-align: center;
-        line-height: 22px;
       }
 
       &-content {

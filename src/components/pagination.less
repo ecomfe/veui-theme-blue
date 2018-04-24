@@ -137,17 +137,16 @@
       margin-left: @interval-size;
       background: @veui-light-gray-color5;
       font-size: @veui-font-size-small;
+      cursor: pointer;
       &:first-child {
         margin-left: 0;
       }
 
       a,
       span {
+        min-width: 26px;
         display: inline-block;
-        min-width: @button-width;
-        .padding(_, 10px);
-        cursor: pointer;
-
+        .padding(_, 9px);
         &.focus-visible {
           color: @veui-theme-click-color;
         }

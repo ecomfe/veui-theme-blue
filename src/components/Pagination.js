@@ -9,7 +9,7 @@ config.defaults({
   },
   ui: {
     style: {
-      values: ['slim', 'hetero', 'full']
+      values: ['square', 'hetero', 'full', 'simple', 'big_square']
     }
   }
 }, 'pagination')

@@ -6,7 +6,7 @@
         <span class="veui-font-level-1b">小开关：</span>
         <span class="veui-font-level-2d">ui="small"</span>
       </p>
-      <veui-switch ui="small" v-model="value1"></veui-switch>
+      <veui-switch ui="small" v-model="value1">小开关</veui-switch>
       <veui-switch ui="small" v-model="value1" readonly></veui-switch>
       <veui-switch ui="small" v-model="value1" disabled></veui-switch>
     </section>
@@ -15,7 +15,7 @@
         <span class="veui-font-level-1b">默认开关：</span>
         <span class="veui-font-level-2d">不传ui</span>
       </p>
-      <veui-switch v-model="value2"></veui-switch>
+      <veui-switch v-model="value2">默认开关</veui-switch>
       <veui-switch v-model="value2" readonly></veui-switch>
       <veui-switch v-model="value2" disabled></veui-switch>
     </section>
@@ -24,7 +24,7 @@
         <span class="veui-font-level-1b">大开关：</span>
         <span class="veui-font-level-2d">ui="large"</span>
       </p>
-      <veui-switch ui="large" v-model="value3"></veui-switch>
+      <veui-switch ui="large" v-model="value3">大开关</veui-switch>
       <veui-switch ui="large" v-model="value3" readonly></veui-switch>
       <veui-switch ui="large" v-model="value3" disabled></veui-switch>
     </section>
