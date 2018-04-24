@@ -9,7 +9,8 @@
     </section>
     <section>
       <p>
-        <span class="veui-font-level-1b">默认尺寸 + 行号 + 自动扩展</span>
+        <span class="veui-font-level-1b">默认尺寸 + 行号 + 自动扩展：</span>
+        <span class="veui-font-level-2d">ui="line"</span>
       </p>
       <veui-textarea ui="line" line-number autoresize placeholder="请输入" v-model="value"/>
     </section>
