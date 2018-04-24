@@ -12,10 +12,10 @@ config.defaults({
   placeholderEnd: '',
   ui: {
     style: {
-      values: ['alt']
+      values: []
     },
     size: {
-      values: ['large', 'small', 'tiny', 'micro']
+      values: []
     }
   }
 }, 'datepicker')

@@ -13,7 +13,7 @@ config.defaults({
       values: ['link']
     },
     size: {
-      values: ['large', 'small', 'tiny', 'micro']
+      values: ['large', 'small']
     },
     shape: {
       values: ['round', 'square']

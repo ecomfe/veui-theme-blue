@@ -93,7 +93,7 @@ export default {
   data () {
     return {
       page: parseInt(this.$route.params.page, 10) || 1,
-      total: 10101,
+      total: 5000,
       to: '/pagination/:page',
       pageSize: 30,
       pageSizes: [30, 60, 100, 200],
