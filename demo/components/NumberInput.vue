@@ -4,7 +4,9 @@
     <section>
       <veui-form>
         <veui-field label="Micro：" ui="micro">
-          <veui-number-input ui="micro" v-model="number"/>
+          <veui-number-input ui="micro" v-model="number">
+            <template slot="before">Value:</template>
+          </veui-number-input>
         </veui-field>
         <veui-field label="Tiny：" ui="tiny" tip="精确到小数点后 1 位">
           <veui-number-input ui="tiny" v-model="number1" :decimal-place="1"/>
@@ -21,11 +23,14 @@
         <veui-field label="DecimalPlace = -1：" tip="不处理精度问题">
           <veui-number-input v-model="number5" :decimal-place="-1"/>
         </veui-field>
+        <veui-field label="Max &amp;&amp; Min：" :rules="[{name: 'min', value: -1}]" tip="最大值不大于 10，最小值不小于 -1">
+          <veui-number-input v-model="number6" :max="10"/>
+        </veui-field>
         <veui-field label="Readonly：">
-          <veui-number-input readonly v-model="number6"/>
+          <veui-number-input readonly v-model="number7"/>
         </veui-field>
         <veui-field label="Disabled：" disabled>
-          <veui-number-input v-model="number6"/>
+          <veui-number-input v-model="number7"/>
         </veui-field>
       </veui-form>
     </section>
@@ -50,7 +55,8 @@ export default {
       number3: null,
       number4: null,
       number5: null,
-      number6: 1024
+      number6: null,
+      number7: 1024
     }
   }
 }

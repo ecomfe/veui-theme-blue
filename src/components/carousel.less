@@ -38,7 +38,13 @@
 
     &:hover,
     &.focus-visible {
-      background-color: fadeout(#000, 60%);
+      &:not(:disabled) {
+        background-color: fadeout(#000, 60%);
+      }
+    }
+
+    &:active:not(:disabled) {
+      background-color: fadeout(#000, 40%);
     }
   }
 
@@ -63,10 +69,7 @@
     overflow: hidden;
     background: no-repeat center/cover;
     transition: opacity .3s;
-
-    img {
-      visibility: hidden;
-    }
+    outline: none;
 
     &-enter,
     &-leave-to {
@@ -88,10 +91,6 @@
     &:disabled {
       opacity: .5;
       cursor: default;
-
-      &:hover {
-        background-color: fadeout(#000, 80%);
-      }
     }
 
     &-prev {
@@ -130,6 +129,10 @@
         &.focus-visible {
           background-color: #fff;
           box-shadow: 0 0 4px fadeout(#000, 80%);
+        }
+
+        &:active {
+          background-color: @veui-gray-color-7;
         }
       }
     }
@@ -217,6 +220,10 @@
         &:hover,
         &.focus-visible {
           background-color: @veui-gray-color-1;
+        }
+
+        &:active {
+          background-color: #fff;
         }
       }
     }
