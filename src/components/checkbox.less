@@ -37,7 +37,7 @@
     & .focus-visible ~ &-box,
     & .focus-visible ~ &-label,
     &:hover {
-      color: @veui-theme-focus-color;
+    //   color: @veui-theme-focus-color;
     }
   
     & .focus-visible ~ &-box {
@@ -54,7 +54,7 @@
         transition: box-shadow .3s;
 
         .veui-icon {
-          color: @bg-color;
+          color: @veui-light-gray-color5;
           .absolute(50%, 50%);
           transform: translate(-50%, -50%) scale(1);
           transition: transform .3s, opacity .3s;
@@ -68,7 +68,7 @@
     }
 
     &:hover &-box {
-        border-color: @bg-color;
+        // border-color: @bg-color;
     }
 
     & :checked + &-box,
