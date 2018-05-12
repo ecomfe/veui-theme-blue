@@ -58,28 +58,25 @@
     padding-right: 12px;
 
     &-button {
-      width: 1em;
-      height: 1em;
       padding: 0;
-      vertical-align: ~"calc(-50% + .5em)";
-      vertical-align: ~"-3px\9\0";
       border: none;
       background-color: transparent;
-      color: @veui-text-color-normal;
+      color: @veui-middle-gray-color7;
       outline: none;
       cursor: unset;
 
       &.focus-visible {
-        color: @veui-text-color-strong;
+        color: @veui-dark-gray-color2;
       }
     }
 
     .veui-icon {
       cursor: pointer;
-      vertical-align: top;
+      vertical-align: middle;
+      .size(10px);
 
       &:hover {
-        color: @veui-text-color-strong;
+        color: @veui-dark-gray-color2;
       }
     }
   }
