@@ -6,6 +6,7 @@
     @radius: 2px; // 圆角大小
     @bg-color: #5E9BFB; // 选中背景颜色
 
+    position: relative;
     display: inline-block;
     color: @veui-dark-gray-color3;
     font-size: 0;
@@ -18,15 +19,12 @@
         opacity: 0;
     }
 
-    .veui-icon {
-        display: none;
-    }
-
     &-label,
     &-box {
         vertical-align: middle;
         display: inline-block;
         font-size: @veui-font-size-normal;
+        transition: color .3s;
     }
 
     .veui-field > & {
@@ -36,6 +34,16 @@
         }
     }
 
+    & .focus-visible ~ &-box,
+    & .focus-visible ~ &-label,
+    &:hover {
+    //   color: @veui-theme-focus-color;
+    }
+  
+    & .focus-visible ~ &-box {
+      box-shadow: 0 0 0 2px @veui-theme-focus-color;
+    }
+
     &-box {
         position: relative;
         .size(@size);
@@ -43,19 +51,30 @@
         background-color: @veui-light-gray-color5;
         border-radius: @radius;
         margin-right: 7px;
+        transition: box-shadow .3s;
+
+        .veui-icon {
+          color: @veui-light-gray-color5;
+          .absolute(50%, 50%);
+          transform: translate(-50%, -50%) scale(1);
+          transition: transform .3s, opacity .3s;
+        }
+    }
+
+    &-icon-enter,
+    &-icon-leave-to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(.8);
+    }
+
+    &:hover &-box {
+        // border-color: @bg-color;
     }
 
     & :checked + &-box,
     & :indeterminate + &-box {
         border-color: @bg-color;
         background: @bg-color;
-
-        & > .veui-icon {
-            display: block;
-            color: @veui-light-gray-color5;
-            .absolute(50%, 50%);
-            transform: translate(-50%, -50%);
-        }
     }
 
     &.veui-disabled {

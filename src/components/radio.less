@@ -27,6 +27,10 @@
     font-size: @veui-font-size-small;
   }
 
+  &-box {
+    transition: color .3s;
+  }
+
   .veui-field > & {
     line-height: @veui-height-normal;
 
@@ -35,10 +39,14 @@
     }
   }
 
-  & :focus ~ &-box,
-  & :focus ~ &-label,
+  & .focus-visible ~ &-box,
+  & .focus-visible ~ &-label,
   &:hover {
     color: @veui-dark-gray-color3;
+  }
+
+  & .focus-visible ~ &-box {
+    box-shadow: 0 0 0 2px @veui-middle-gray-color3;
   }
 
   &-box {
@@ -49,6 +57,19 @@
     border: 1px solid @veui-middle-gray-color4;
     background: @veui-light-gray-color5;
     border-radius: 50%;
+    font-size: @veui-font-size-normal;
+    transition: box-shadow .3s;
+
+    &::before {
+      content: "";
+      display: block;
+      .size(@veui-font-size-small);
+      background-color: @veui-theme-color;
+      border-radius: 50%;
+      .absolute(50%, 50%);
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform .3s;
+    }
   }
 
   &:hover &-box {
@@ -59,12 +80,6 @@
     border-color: @veui-theme-color;
 
     &::before {
-      content: "";
-      display: block;
-      .size(@radio-size);
-      background: @veui-theme-color;
-      border-radius: 50%;
-      .absolute(50%, 50%);
       transform: translate(-50%, -50%) scale(.5);
     }
   }

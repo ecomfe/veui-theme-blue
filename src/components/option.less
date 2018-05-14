@@ -12,9 +12,12 @@
   }
 
   [ui~="checkmark"] &-checkmark {
-    @height: @veui-height-normal / 2;
-    display: block;
-    margin-top: ~"calc(@{height} - .5em)";
     color: #108EE9;
+    display: block;
+    .size(10px);
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    margin-top: -5px;
   }
 }

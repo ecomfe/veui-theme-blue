@@ -35,7 +35,10 @@
       </p>
     </section>
     <section>
-      <h2>显示已选图标样式：</h2>
+      <p>
+        <span class="veui-font-level-1b">显示已选图标样式：</span>
+        <span class="veui-font-level-2d">ui="checkmark"</span>
+      </p>
       <veui-select v-bind="attrs" ui="checkmark" v-model="defaultValue2"></veui-select>
     </section>
     <section>
@@ -55,7 +58,7 @@
       <veui-select v-bind="attrs" v-model="defaultValue4">
         <template slot="option" slot-scope="props">
           <span class="veui-option-label-text">{{ props.label }}</span>
-          <icon name="eye"></icon>
+          <veui-icon name="eye"/>
         </template>
       </veui-select>
     </section>
@@ -121,20 +124,6 @@
         </template>
       </veui-select>
     </section>
-    <!-- <section>
-      <h2>多层级下拉样式：</h2>
-      <p>多层家下拉选择的值：<span>{{defaultValue11}}</span></p>
-      <veui-select v-model="defaultValue11" ui="multilayer">
-        <div class="children-options">
-          <veui-option-group v-for="(item, index) in optGroupAttrs1.options" :key="index" :label="item.label">
-            <icon name="angle-right" class="angle-right" v-if="item.children.length > 0"></icon>
-            <div class="children-item-options" v-if="item.children.length > 0">
-              <veui-option v-for="(childItem, childIndex) in item.children" :value="childItem.value" :label="childItem.label" :key="childIndex"/>
-            </div>
-          </veui-option-group>
-        </div>
-      </veui-select>
-    </section> -->
     <section>
       <h2>分隔线样式：</h2>
       <veui-select v-bind="optGroupAttrs" :options="groupedOpts" v-model="defaultValue9"></veui-select>
@@ -164,7 +153,6 @@ import type from 'veui/managers/type'
 import 'vue-awesome/icons/eye'
 import 'vue-awesome/icons/gift'
 import 'veui-theme-blue/icons/angle-right'
-
 export default {
   name: 'select-demo',
   components: {
@@ -411,7 +399,6 @@ export default {
   .veui-icon {
     vertical-align: middle;
   }
-
   .veui-icon {
     margin-left: 5px;
   }
@@ -426,7 +413,6 @@ export default {
     left: 0;
     transform: translateY(-50%);
   }
-
   &-label {
     color: #666666;
   }
