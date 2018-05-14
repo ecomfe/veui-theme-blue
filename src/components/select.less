@@ -6,19 +6,23 @@
 @select-input-tiny-height: 21px; // ui=tiny 输入框的高度
 @expand-icon-tiny-width: 6px; // ui=tiny 展开按钮的宽度
 @expand-icon-tiny-height: 4px; // ui=tiny 展开按钮的高度
+@font-size-tiny: @veui-font-size-small; // ui=tiny 字体大小
 @select-input-small-width: 133px; // ui=small 输入框的宽度
 @select-input-small-height: 28px; // ui=small 输入框的高度
 @expand-icon-small-width: 9px; // ui=small 展开按钮的宽度
 @expand-icon-small-height: 6px; // ui=small 展开按钮的高度
+@font-size-small: @veui-font-size-small; // ui=small 字体大小
 @select-input-width: 190px; // 默认尺寸 输入框的宽度
 @select-input-height: 28px; // 默认尺寸 输入框的高度
 @expand-icon-width: 9px; // 默认尺寸 展开按钮的宽度
 @expand-icon-height: 6px; // 默认尺寸 展开按钮的高度
+@font-size: @veui-font-size-small; // 默认尺寸 字体大小
 @select-input-large-width: 364px; // ui=large 输入框的宽度
 @select-input-large-height: 38px; // ui=large 输入框的高度
 @expand-icon-large-width: 12px; // ui=large 展开按钮的宽度
 @expand-icon-large-height: 8px; // ui=large 展开按钮的高度
-@select-dropdown-height: 126px; // 下拉列表的最大高度
+@select-dropdown-height: 150px; // 下拉列表的最大高度
+@font-size-large: @veui-font-size-normal; // ui=large 字体大小
 
 .veui-select {
   &:extend(._veui-dropdown-button all);
@@ -44,11 +48,28 @@
   display: inline-block;
   color: @veui-dark-gray-color2;
 
+  &-options {
+    &[ui~="checkmark"] {
+      .veui-option-group-unlabelled .veui-option,
+      .veui-option {
+        padding: 0 10px 0 20px;
+        position: relative;
+      }
+    }
+    .veui-option-label {
+      color: @veui-dark-gray-color2;
+    }
+    .veui-option-group-expandable {
+      color: @veui-middle-gray-color7;
+    }
+  }
+
   .make-options(@ui) {
     @width: ~"select-input-@{ui}-width";
     @height: ~"select-input-@{ui}-height";
     @expand-width: ~"expand-icon-@{ui}-width";
     @expand-height: ~"expand-icon-@{ui}-height";
+    @options-font-size: ~"font-size-@{ui}";
     width: @select-input-width;
     height: @select-input-height;
     &[ui~=@{ui}] {
@@ -65,48 +86,54 @@
     }
     &-options {
       &:extend(._veui-dropdown-overlay all);
+      font-size: @font-size;
       width: @select-input-width;
       max-height: @select-dropdown-height;
       background-color: @veui-light-gray-color5;
       outline: none;
       border-radius: @veui-border-radius-normal;
       overflow-y: auto;
+      .veui-input {
+        .centered-line(@select-input-height);
+      }
       &[ui~=@{ui}] {
+        font-size: @@options-font-size;
         width: @@width;
-        .veui-option {
+        .veui-option,
+        .veui-input {
           .centered-line(@@height);
         }
         .veui-option-label {
           display: inline-block;
-          width: @@width - 30px;
+          width: 100%;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
         }
-        &[ui~="checkmark"] {
-          &.veui-dropdown-overflow {
-            .veui-option-group {
-              .veui-option {
-                .veui-option-label {
-                  width: @@width - 50px;
-                }
-              }
-            }
-          }
-          .veui-option-group {
-            .veui-option {
-              .veui-option-label {
-                margin-left: 14px;
-                width: @@width - 40px;
-              }
-              &.veui-option-selected {
-                .veui-option-label {
-                  margin-left: 3px;
-                }
-              }
-            }
-          }
-        }
+        // &[ui~="checkmark"] {
+        //   &.veui-dropdown-overflow {
+        //     .veui-option-group {
+        //       .veui-option {
+        //         .veui-option-label {
+        //           width: @@width - 50px;
+        //         }
+        //       }
+        //     }
+        //   }
+        //   .veui-option-group {
+        //     .veui-option {
+        //       .veui-option-label {
+        //         margin-left: 14px;
+        //         width: @@width - 60px;
+        //       }
+        //       &.veui-option-selected {
+        //         .veui-option-label {
+        //           margin-left: 3px;
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
       }
     }
   }
@@ -164,28 +191,34 @@
     }
   }
 
-  &-option-group {
-    &-label {
-      display: inline-block;
-      .centered-line(31px);
-      padding: 0 8px;
-      font-size: @veui-font-size-small;
-      color: @veui-dark-gray-color3;
-    }
-
-    .veui-option {
-      padding-left: 14px;
-    }
-
-    &-unlabelled {
-      border-top: 1px solid @veui-middle-gray-color4;
-
-      &:first-child {
-        border-top: none;
+  &-options {
+    .veui-option-group {
+      &-label {
+        display: inline-block;
+        .centered-line(31px);
+        padding: 0 8px;
+        font-size: @veui-font-size-small;
+        color: @veui-dark-gray-color3;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
-
+  
       .veui-option {
-        padding: 0 7px;
+        padding-left: 14px;
+      }
+  
+      &-unlabelled {
+        border-top: 1px solid @veui-middle-gray-color4;
+  
+        &:first-child {
+          border-top: none;
+        }
+  
+        .veui-option {
+          padding: 0 7px;
+        }
       }
     }
   }
