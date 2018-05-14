@@ -66,7 +66,7 @@
       <h2>ui模式：<span class="veui-font-level-2d">类型ui="primary"</span></h2>
       <p>
         <span class="veui-font-level-1b">小尺寸：</span>
-        <span class="veui-font-level-2d">ui="small"</span>
+        <span class="veui-font-level-2d">ui="small"(focus)</span>
       </p>
       <p>
         <veui-searchbox
@@ -75,13 +75,14 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions2"
-          replaceOnSelect
+          replace-on-select
+          suggest-trigger="focus"
           @input="handleInput('2', $event)"
           @search="log($event)"></veui-searchbox>
       </p>
       <p>
         <span class="veui-font-level-1b">默认尺寸：</span>
-        <span class="veui-font-level-2d">不传ui</span>
+        <span class="veui-font-level-2d">不传ui(input)</span>
       </p>
       <p>
         <veui-searchbox
@@ -90,13 +91,14 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions2"
-          replaceOnSelect
+          suggest-trigger="input"
+          replace-on-select
           @input="handleInput('2', $event)"
           @search="log($event)"></veui-searchbox>
       </p>
       <p>
         <span class="veui-font-level-1b">大尺寸：</span>
-        <span class="veui-font-level-2d">ui="large"</span>
+        <span class="veui-font-level-2d">ui="large"(input, submit)</span>
       </p>
       <p>
         <veui-searchbox
@@ -104,6 +106,7 @@
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions3"
+          :suggest-trigger="['input', 'submit']"
           @input="handleInput('3', $event)"
           @search="log($event)"></veui-searchbox>
       </p>
@@ -113,7 +116,7 @@
       <p>
         <veui-searchbox
           ui="primary large"
-          replaceOnSelect
+          replace-on-select
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions4"
@@ -126,7 +129,7 @@
       <h2>禁用全局搜索框</h2>
       <p>
         <veui-searchbox
-          ui="alt primary large"
+          ui="primary large"
           disabled
           :name="name"
           :placeholder="placeholder"
@@ -139,7 +142,6 @@
       <h2>自定义Suggestion样式1</h2>
       <p>
         <veui-searchbox
-          ui="alt"
           :name="name"
           :placeholder="placeholder"
           :suggestions="suggestions6"
@@ -195,6 +197,7 @@ export default {
       name: 'name',
       value: '测试值',
       value2: '测试值',
+      valueis: '测试值',
       placeholder: '百度(placeholder)',
       suggestions1: [],
       suggestions2: [],
@@ -202,7 +205,8 @@ export default {
       suggestions4: [],
       suggestions5: [],
       suggestions6: [],
-      suggestions7: []
+      suggestions7: [],
+      suggestionsis: []
     }
   },
   methods: {

@@ -5,14 +5,15 @@
   &-label {
     display: block;
     .centered-line(@veui-height-normal);
-    padding: 0 10px;
+    padding: 0 8px;
     font-size: @veui-font-size-small;
     color: @veui-dark-gray-color3;
   }
 
   &-label:not(&-button) {
-    font-size: @veui-font-size-small;
-    color: @veui-text-color-weak;
+    .veui-option-label {
+      color: @veui-middle-gray-color7;
+    }
   }
 
   .veui-option {

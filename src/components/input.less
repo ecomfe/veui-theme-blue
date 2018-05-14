@@ -2,6 +2,8 @@
 @import (reference) "../input.less";
 
 .veui-input {
+  @left-padding: 9px;
+
   border-radius: @veui-border-radius-normal;
   .make-line-height(@height) {
     height: @height;
@@ -9,36 +11,84 @@
   }
 
   overflow: hidden;
-  display: inline-block;
+  display: inline-table;
   position: relative;
   .make-line-height(@veui-height-normal);
   width: @veui-width-normal;
   border: 1px solid @veui-middle-gray-color4;
   background-color: @veui-light-gray-color5;
   color: @veui-dark-gray-color2;
-  transition: border-color .2s, color .2s;
+  transition: border-color .3s, color .3s;
   font-size: @veui-font-size-small;
 
+  .veui-field > & {
+    display: inline-table;
+  }
+
   &-hidden {
-    display: none;
+    display: none !important;
+  }
+
+  &-before,
+  &-main,
+  &-clear,
+  &-after {
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+  }
+
+  &-main {
+    width: 100%;
   }
 
   &-input {
-    position: relative;
+    display: block;
+    overflow: hidden;
     width: 100%;
-    padding: 0 10px;
-
-    // 和外部容器的高度保持一致
     height: 100%;
-    min-height: inherit;
-    max-height: inherit;
-
     border: none;
     outline: none;
-    z-index: 1;
-    &::placeholder {
-      color: @veui-middle-gray-color2;
+    padding: 0 @left-padding;
+    background-color: transparent;
+    text-overflow: ellipsis;
+  }
+
+  &-clear {
+    padding-right: 12px;
+
+    &-button {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      color: @veui-middle-gray-color7;
+      outline: none;
+      cursor: unset;
+
+      &.focus-visible {
+        color: @veui-dark-gray-color2;
+      }
     }
+
+    .veui-icon {
+      cursor: pointer;
+      vertical-align: middle;
+      .size(10px);
+
+      &:hover {
+        color: @veui-dark-gray-color2;
+      }
+    }
+  }
+
+  &-placeholder {
+    position: absolute;
+    padding-left: @left-padding;
+    color: @veui-middle-gray-color2 !important;
+  }
+
+  &-input::placeholder {
+    color: @veui-middle-gray-color2 !important;
   }
 
   .veui-field-invalid & {

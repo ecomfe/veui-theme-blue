@@ -1,5 +1,5 @@
 <template>
-  <article class="veui-uploader-demo">
+  <article>
     <h1><code>&lt;veui-uploader&gt;</code></h1>
     <h2>图片上传模式，上传进度以文字百分比显示</h2>
     <veui-uploader type="image"
@@ -67,17 +67,19 @@
       @failure="onFailure"
       @change="handleChange('filesExtra')"
       @statuschange="handleStatusChange"
-      class="veui-uploader-demo-extra-operation">
+      class="extra-operation">
       <template slot="desc">请选择jpg,jpeg,gif图片，大小在10M以内，最多上传3张图</template>
       <template slot="extra-operation" slot-scope="file">
-        <veui-button class="veui-uploader-demo-extra-operation-button"
+        <veui-button class="extra-operation-button"
           @click="openTooltip(file)"
           :ref="`add-image${file.index !== undefined ? '-' + file.index : ''}`">输入图片地址</veui-button>
       </template>
     </veui-uploader>
     <veui-tooltip :target="tooltipTarget" :open="tooltipOpen" trigger="click">
-      图片地址：<veui-input v-model="imageSrc"></veui-input>
-      <veui-button @click="addImage">确定</veui-button>
+      <div class="extra-url">
+        <veui-span>图片地址：</veui-span><veui-input v-model="imageSrc"></veui-input>
+        <veui-button @click="addImage">确定</veui-button>
+      </div>
     </veui-tooltip>
     <h2>文件上传模式，通过iframe上传</h2>
     <veui-uploader ref="iframeUploader"
@@ -121,7 +123,7 @@
   </article>
 </template>
 <script>
-import { Uploader, Table, Column, Button, Tooltip, Input } from 'veui'
+import { Uploader, Table, Column, Button, Tooltip, Input, Span } from 'veui'
 import ui from 'veui/mixins/ui'
 import { assign } from 'lodash'
 
@@ -133,7 +135,8 @@ export default {
     'veui-table-column': Column,
     'veui-button': Button,
     'veui-tooltip': Tooltip,
-    'veui-input': Input
+    'veui-input': Input,
+    'veui-span': Span
   },
   data: function () {
     let files = [
@@ -152,7 +155,7 @@ export default {
       files1: files.slice(0),
       files2: files.slice(0),
       filesExtra: files.slice(0),
-      filesIframe: 'http://nodejs.cn/static/images/logo.svg',
+      filesIframe: {name: 'demo-file.txt', src: 'http://www.baidu.com'},
       payload: {
         year: '2017',
         month: '4'
@@ -278,27 +281,32 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import "~veui-theme-one/lib.less";
-.veui-uploader-demo {
-  padding-bottom: 20px;
-  h2 {
-    font-size: 16px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 40px;
+h2 {
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 40px;
+}
+.extra-operation {
+  /deep/ label.veui-button {
+    .veui-position-center(50%, 30%) !important;
   }
-  &-extra-operation {
-    label.veui-button {
-      .veui-position-center(50%, 30%) !important;
-    }
-    .veui-button&-button {
-      width: 120px;
-      padding: 0;
-      height: 28px;
-      line-height: 26px;
-      .veui-position-center(50%, 70%);
-    }
+  /deep/ .veui-button&-button {
+    width: 120px;
+    padding: 0;
+    height: 28px;
+    line-height: 26px;
+    .veui-position-center(50%, 70%);
+  }
+}
+.extra-url {
+  & > * {
+    vertical-align: middle;
+  }
+  .veui-button {
+    margin-left: 5px;
   }
 }
 </style>
