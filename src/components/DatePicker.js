@@ -8,8 +8,7 @@ config.defaults({
     clear: 'cross'
   },
   placeholder: '选择时间',
-  placeholderBegin: '开始选择时间段',
-  placeholderEnd: '',
+  rangePlaceholder: '开始选择时间段',
   ui: {
     style: {
       values: []

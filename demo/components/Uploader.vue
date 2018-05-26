@@ -282,7 +282,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "~veui-theme-one/lib.less";
+@import "~veui-theme-blue/lib.less";
 h2 {
   font-size: 16px;
   border-bottom: 1px solid #eee;
