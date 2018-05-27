@@ -13,10 +13,12 @@
 
   .veui-button {
     min-width: auto;
+    font-size: @veui-font-size-small;
   }
 
   width: 400px;
   overflow: hidden;
+  font-size: @veui-font-size-small;
 
   &-button-container {
     position: relative;
@@ -62,7 +64,7 @@
     cursor: pointer;
 
     .veui-icon {
-      font-size: 50px;
+      font-size: 30px;
       color: @veui-dark-gray-color2;
       .veui-position-center();
     }
@@ -228,9 +230,10 @@
       label.veui-button {
         cursor: pointer;
         .veui-position-center();
-        width: 88px;
-        height: 28px;
-        line-height: 26px;
+        width: 80px;
+        height: 22px;
+        line-height: 20px;
+        border-radius: 0;
         padding: 0;
       }
     }
@@ -254,7 +257,7 @@
         background-color: fadeout(#000, 30%);
         border: 1px solid fadeout(#fff, 80%);
         color: #fff;
-        font-size: @veui-font-size-normal;
+        font-size: @veui-font-size-small;
 
         &:hover {
           background-color: fadeout(#000, 20%);
