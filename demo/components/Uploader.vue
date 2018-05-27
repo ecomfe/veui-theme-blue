@@ -282,7 +282,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "~veui-theme-one/lib.less";
+@import "~veui-theme-blue/lib.less";
 h2 {
   font-size: 16px;
   border-bottom: 1px solid #eee;
@@ -294,10 +294,11 @@ h2 {
     .veui-position-center(50%, 30%) !important;
   }
   /deep/ .veui-button&-button {
-    width: 120px;
+    width: 90%;
     padding: 0;
-    height: 28px;
-    line-height: 26px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 0;
     .veui-position-center(50%, 70%);
   }
 }

@@ -14,6 +14,9 @@
     .size(100%, 50%);
     padding: 0;
     border-width: 0 0 0 1px;
+    min-width: auto;
+    border-radius: 0;
+    color: @veui-dark-gray-color3;
 
     .veui-icon {
       .veui-position-center();
@@ -45,6 +48,7 @@
 
   .veui-button&-step-up {
     top: 0;
+    border-bottom-width: 1px;
   }
 
   .veui-button&-step-down {
@@ -66,7 +70,7 @@
     }
   }
 
-  .veui-field-invalid &:not(.veui-disabled):not(.veui-readonly) {
+  &.veui-input-invalid:not(.veui-disabled):not(.veui-readonly) {
     &:extend(._veui-input-invalid all);
   }
 

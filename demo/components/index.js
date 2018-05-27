@@ -121,8 +121,7 @@ export default [
   {
     path: '/number-input',
     name: 'NumberInput',
-    component: NumberInput,
-    noComplete: true
+    component: NumberInput
   },
   {
     path: '/overlay',
@@ -193,8 +192,7 @@ export default [
   {
     path: '/table',
     name: 'Table',
-    component: Table,
-    noComplete: true
+    component: Table
   },
   {
     path: '/tabs',

@@ -1,11 +1,17 @@
 @import "../lib.less";
 
 .veui-table {
+  @table-border-color: #e5e5e5;
+  @table-th-color: @veui-light-gray-color4;
+  @table-th-td-height: 38px;
+  @padding-gap: 5px; // 单元格距离左右两边的边距
+
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
-  color: @veui-text-color-normal;
-  border: 1px solid #DDDEE4;
+  color: @veui-dark-gray-color2;
+  font-size: @veui-font-size-small;
+  border: 1px solid @table-border-color;
 
   &-cell {
     display: inline-block;
@@ -15,8 +21,8 @@
 
   th,
   td {
-    height: 38px;
-    .padding(_, 16px);
+    height: @table-th-td-height;
+    .padding(_, @padding-gap);
     text-align: left;
     white-space: nowrap;
   }
@@ -26,12 +32,18 @@
   }
 
   td {
-    border: 1px solid #DDDEE4;
+    border: 1px solid @table-border-color;
     border-style: solid none;
+    .veui-table-cell {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   thead th {
-    background-color: #F7F8FA;
+    background-color: @table-th-color;
   }
 
   tfoot th {
@@ -45,13 +57,13 @@
 
   .veui-table-selected-row {
     td {
-      background-color: #F7F8FA;
+      background-color: @table-th-color;
     }
   }
 
   tr:hover {
     td {
-      background-color: #F7F8FA;
+      background-color: @table-th-color;
     }
 
     .veui-table-no-data {
@@ -63,7 +75,7 @@
   .veui-link {
     & + .veui-button,
     & + .veui-link {
-      margin-left: 30px;
+      margin-left: 10px;
     }
   }
 
@@ -78,25 +90,12 @@
 
   & &-column-right {
     text-align: right;
-    padding-right: 38px;
+    padding-right: @padding-gap;
   }
 
   .veui-sorter {
     margin-left: 5px;
     font-size: @veui-font-size-small;
-  }
-
-  &[ui~="slim"] {
-    th,
-    td {
-      .veui-make-table-row-height(@veui-font-size-normal, 8px);
-    }
-  }
-
-  &[ui~="alt"] thead {
-    th {
-      background-color: @veui-gray-color-8;
-    }
   }
 
   &[ui~="bordered"] td {
