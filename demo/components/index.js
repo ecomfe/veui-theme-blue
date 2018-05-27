@@ -121,8 +121,7 @@ export default [
   {
     path: '/number-input',
     name: 'NumberInput',
-    component: NumberInput,
-    noComplete: true
+    component: NumberInput
   },
   {
     path: '/overlay',
