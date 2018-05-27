@@ -22,7 +22,7 @@
       ]"></veui-checkboxgroup>
     </section>
     <section>
-      <veui-table ui="alt bordered" :data="data" :column-filter="columns" :key-field="selectSpanRow ? 'group' : 'id'" selectable
+      <veui-table ui="bordered" :data="data" :column-filter="columns" :key-field="selectSpanRow ? 'group' : 'id'" selectable
         :order-by="orderBy" :order="order" @select="handleSelect" @sort="handleSort" :selected.sync="selected1">
         <veui-table-column field="id" title="数据 ID" sortable>
           <template slot="head"><strong>数据 <span style="color: #3998fc">ID</span></strong></template>
@@ -42,17 +42,17 @@
             <veui-tooltip :target="`time-a-${props.item.id}`">{{ props.item.updateDate | time }}</veui-tooltip>
           </template>
         </veui-table-column>
-        <veui-table-column field="operation" title="操作">
+        <veui-table-column field="operation" title="操作" align="center">
           <template slot-scope="props">
-            <veui-button ui="link" @click="log(props.item)">编辑</veui-button>
-            <veui-button ui="link alert" @click="del(props.index)">删除</veui-button>
+            <veui-button ui="link primary small" @click="log(props.item)">编辑</veui-button>
+            <veui-button ui="link alert primary small" @click="del(props.index)">删除</veui-button>
           </template>
         </veui-table-column>
       </veui-table>
       <p>已选ID：{{ JSON.stringify(selected1) }}</p>
     </section>
     <section class="container">
-      <veui-table ui="slim bordered" :data="data" :column-filter="columns" :key-field="selectSpanRow ? 'group' : 'id'"
+      <veui-table ui="bordered" :data="data" :column-filter="columns" :key-field="selectSpanRow ? 'group' : 'id'"
         selectable select-mode="single" :selected.sync="selected2">
         <veui-table-column field="id" title="数据 ID"></veui-table-column>
         <veui-table-column v-if="showGroup" field="group" title="数据分组" :span="groupSpan">
@@ -105,7 +105,7 @@ export default {
       selectSpanRow: true,
       data: [
         {
-          id: '3154', desc: '数据描述1', price: 1024, updateDate: '20131117', group: '1577', typeId: '788'
+          id: '3154', desc: '数据描述1数据描述1数据描述1数据描述1数据描述1数据描述1', price: 1024, updateDate: '20131117', group: '1577', typeId: '788'
         },
         {
           id: '3155', desc: '数据描述2', price: 598, updateDate: '20140214', group: '1577', typeId: '788'

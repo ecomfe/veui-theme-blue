@@ -21,6 +21,10 @@
   transition: border-color .3s, color .3s;
   font-size: @veui-font-size-small;
 
+  &-autofill {
+    background-color: #faffbd;
+  }
+  
   .veui-field > & {
     display: inline-table;
   }
@@ -85,13 +89,11 @@
     position: absolute;
     padding-left: @left-padding;
     color: @veui-middle-gray-color2 !important;
+    pointer-events: none;
+    cursor: text;
   }
 
-  &-input::placeholder {
-    color: @veui-middle-gray-color2 !important;
-  }
-
-  .veui-field-invalid & {
+  &.veui-input-invalid {
     &:extend(._veui-input-invalid all);
   }
 

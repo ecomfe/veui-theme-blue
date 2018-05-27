@@ -271,7 +271,7 @@
         </veui-field>
 
         <veui-field field="desc" name="desc" rules="required" label="介绍：">
-          <veui-input rows="3" type="textarea" v-model="storeData4.desc"></veui-input>
+          <veui-textarea rows="3" v-model="storeData4.desc"/>
         </veui-field>
 
         <veui-fieldset name="phoneSet" label="电话：" :required="true">
@@ -298,7 +298,6 @@
           </veui-field>
           <veui-span>万</veui-span>
         </veui-fieldset>
-
         <veui-field label="收入下限：" field="floor" name="floor" :rules="[
           {name: 'required', value: true},
           {name: 'min', value: 3500, message: '最低收入不小于 3500'}
@@ -358,7 +357,7 @@
 <script>
 import {
   Form, Fieldset, Field, Label, Span, Input,
-  Button, DatePicker, Uploader, Select,
+  Button, DatePicker, Uploader, Select, Textarea,
   Checkbox, CheckboxGroup, RadioGroup, Searchbox,
   RegionPicker, Radio, Icon, Slider, NumberInput
 } from 'veui'
@@ -2468,7 +2467,8 @@ export default {
     'veui-searchbox': Searchbox,
     'veui-region-picker': RegionPicker,
     'veui-icon': Icon,
-    'veui-slider': Slider
+    'veui-slider': Slider,
+    'veui-textarea': Textarea
   },
 
   data () {

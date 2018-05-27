@@ -5,7 +5,7 @@
 .veui-date-picker {
   &:extend(._veui-dropdown-button all);
 
-  .veui-field-invalid & .veui-button.veui-date-picker-button {
+  &.veui-input-invalid .veui-button.veui-date-picker-button {
     &:extend(._veui-input-invalid all);
   }
 
@@ -139,8 +139,8 @@
   &-shortcut {
     .veui-button-transition();
     .centered-line(24px);
-    margin-right: 10px;
-    padding: 0 10px;
+    // margin-right: 10px;
+    // padding: 0 10px;
     border: none;
     background: none;
     font-size: @veui-font-size-small;
