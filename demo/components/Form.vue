@@ -298,7 +298,6 @@
           </veui-field>
           <veui-span>万</veui-span>
         </veui-fieldset>
-
         <veui-field label="收入下限：" field="floor" name="floor" :rules="[
           {name: 'required', value: true},
           {name: 'min', value: 3500, message: '最低收入不小于 3500'}

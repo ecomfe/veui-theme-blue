@@ -27,13 +27,6 @@
         transition: color .3s;
     }
 
-    .veui-field > & {
-        line-height: @size;
-        .veui-checkbox-box {
-            vertical-align: text-top;
-        }
-    }
-
     & .focus-visible ~ &-box,
     & .focus-visible ~ &-label,
     &:hover {
@@ -131,22 +124,6 @@
         }
         .veui-checkbox-label {
             font-size: @veui-font-size-small;
-        }
-    }
-
-    .veui-field[ui~="large"] > &[ui~="large"] {
-        line-height: @big-size;
-
-        .veui-checkbox-box {
-            vertical-align: -2px;
-        }
-    }
-
-    .veui-field[ui~="small"] > &[ui~="small"] {
-        line-height: @small-size;
-
-        .veui-checkbox-box {
-            vertical-align: -2px;
         }
     }
 }
