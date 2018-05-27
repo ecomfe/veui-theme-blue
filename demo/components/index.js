@@ -192,8 +192,7 @@ export default [
   {
     path: '/table',
     name: 'Table',
-    component: Table,
-    noComplete: true
+    component: Table
   },
   {
     path: '/tabs',
