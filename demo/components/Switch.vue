@@ -35,7 +35,7 @@
 import { Switch } from 'veui'
 
 export default {
-  name: 'SwitchCom',
+  name: 'switch-demo',
   components: {
     'veui-switch': Switch
   },

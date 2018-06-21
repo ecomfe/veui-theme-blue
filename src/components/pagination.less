@@ -142,14 +142,17 @@
         margin-left: 0;
       }
 
-      a,
-      span {
+      .veui-link {
         min-width: 26px;
         display: inline-block;
         .padding(_, 9px);
         &.focus-visible {
           color: @veui-theme-click-color;
         }
+      }
+
+      span.veui-link {
+        cursor: default;
       }
 
       &:hover,

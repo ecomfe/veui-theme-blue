@@ -196,7 +196,7 @@ export default {
     return {
       name: 'name',
       value: '测试值',
-      value2: '测试值',
+      value2: null,
       valueis: '测试值',
       placeholder: '百度(placeholder)',
       suggestions1: [],

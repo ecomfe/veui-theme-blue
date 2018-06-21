@@ -21,6 +21,7 @@
 .veui-switch {
     display: inline-block;
     cursor: pointer;
+    outline: none;
     font-size: 0;
 
     &-switcher {
@@ -29,8 +30,15 @@
         display: inline-block;
         background-color: @switch-normal-bg-color;
         user-select: none;
-        transition: background-color ease .3s;
+        transition: background-color .3s, box-shadow .3s;
         vertical-align: middle;
+    }
+
+    .focus-visible + &-switcher {
+        box-shadow: 0 0 0 2px @veui-gray-color-6;
+    }
+    :checked.focus-visible + &-switcher {
+        box-shadow: 0 0 0 2px @veui-brand-color-8;
     }
 
     &[ui~="small"] {
@@ -55,7 +63,7 @@
             font-size: @veui-font-size-small;
             vertical-align: baseline;
         }
-        &.veui-switch-on {
+        :checked + .veui-switch-switcher {
             .veui-switch-switcher {
                 background-color: @switch-small-color;
             }
@@ -76,7 +84,7 @@
         .veui-switch-label {
             font-size: @veui-font-size-large;
         }
-        &.veui-switch-on {
+        :checked + .veui-switch-switcher {
             .veui-switch-switcher {
                 background-color: @switch-large-color;
             }
@@ -103,13 +111,13 @@
         transition: transform ease .3s;
         .size(@switch-btn);
 
-        .veui-icon {
-            .absolute(50%, _, _, 50%);
-            transform: translate(-50%, -50%);
-        }
+        // .veui-icon {
+        //     .absolute(50%, _, _, 50%);
+        //     transform: translate(-50%, -50%);
+        // }
     }
 
-    &-on {
+    :checked {
         .veui-switch-switcher {
             background-color: @switch-small-color;
         }
@@ -118,15 +126,21 @@
         }
     }
 
-    &-readonly {
+    &.veui-readonly {
         cursor: default;
     }
 
-    &-disabled {
+    &.veui-disabled {
         cursor: not-allowed;
     }
 
+    &.veui-readonly &-switcher,
+    &.veui-disabled &-switcher {
+        background-color: @veui-gray-color-5;
+    }
+
     input {
-        display: none;
+        position: absolute;
+        opacity: 0;
     }
 }
