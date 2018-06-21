@@ -7,6 +7,7 @@
 * [^] 修改 `Dropdown` 组件ui=link时disable状态的样式
 * [^] 修改 `Pagination` 组件选择每页条数下拉框样式
 * [^] 修改 `Select` 组件多层级选择时的样式
+* [^] 修改 `Switch` 组件14版本更新后的样式问题（fix#54）
 
 ## 0.11.0-dev(veui版本为1.0.0-alpha.13)
 

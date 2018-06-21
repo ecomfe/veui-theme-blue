@@ -64,9 +64,7 @@
             vertical-align: baseline;
         }
         :checked + .veui-switch-switcher {
-            .veui-switch-switcher {
-                background-color: @switch-small-color;
-            }
+            background-color: @switch-small-color;
             .veui-switch-button {
                 transform: translateX(13.2px);
             }
@@ -85,9 +83,7 @@
             font-size: @veui-font-size-large;
         }
         :checked + .veui-switch-switcher {
-            .veui-switch-switcher {
-                background-color: @switch-large-color;
-            }
+            background-color: @switch-large-color;
             .veui-switch-button {
                 transform: translateX(45px);
             }
@@ -110,17 +106,10 @@
         margin: 2px;
         transition: transform ease .3s;
         .size(@switch-btn);
-
-        // .veui-icon {
-        //     .absolute(50%, _, _, 50%);
-        //     transform: translate(-50%, -50%);
-        // }
     }
 
-    :checked {
-        .veui-switch-switcher {
-            background-color: @switch-small-color;
-        }
+    :checked + .veui-switch-switcher {
+        background-color: @switch-small-color;
         .veui-switch-button {
             transform: translateX(38px);
         }
@@ -136,7 +125,7 @@
 
     &.veui-readonly &-switcher,
     &.veui-disabled &-switcher {
-        background-color: @veui-gray-color-5;
+        background-color: @switch-small-color;
     }
 
     input {
