@@ -5,6 +5,7 @@
 * [^] 修改 `Breadcrumb` 组件分隔符图标类名为separator （fix#54）
 * [^] 修改 `Transfer` 组件选中状态图标类名为checked （fix#54）
 * [^] 修改 `Dropdown` 组件ui=link时disable状态的样式
+* [^] 修改 `Pagination` 组件选择每页条数下拉框样式
 
 ## 0.11.0-dev(veui版本为1.0.0-alpha.13)
 
