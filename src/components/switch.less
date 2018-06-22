@@ -69,6 +69,15 @@
                 transform: translateX(13.2px);
             }
         }
+        &.veui-readonly,
+        &.veui-disabled {
+            .veui-switch-switcher {
+                background-color: @switch-small-bg-color;  
+            }
+            :checked + .veui-switch-switcher {
+                background-color: @switch-small-bg-color;
+            }
+        }
     }
 
     &[ui~="large"] {
@@ -123,9 +132,12 @@
         cursor: not-allowed;
     }
 
-    &.veui-readonly &-switcher,
-    &.veui-disabled &-switcher {
-        background-color: @switch-small-color;
+    &.veui-readonly,
+    &.veui-disabled {
+        :checked + .veui-switch-switcher,
+        .veui-switch-switcher {
+            background-color: @switch-normal-bg-color;
+        }
     }
 
     input {
