@@ -4,14 +4,14 @@
     <veui-form>
       <section class="five-sizes">
         <h3>3种大小：</h3>
-        <veui-field ui="small" label="small">
-          <veui-input ui="small" v-model="poem"/>
+        <veui-field label="小尺寸">
+          <veui-input ui="small" placeholder="请输入" v-model="poem"/>
         </veui-field>
-        <veui-field label="normal">
-          <veui-input v-model="poem"/>
+        <veui-field label="默认尺寸">
+          <veui-input v-model="poem" placeholder="请输入"/>
         </veui-field>
-        <veui-field ui="large" label="large">
-          <veui-input ui="large" v-model="poem"/>
+        <veui-field label="大尺寸">
+          <veui-input ui="large" v-model="poem" placeholder="请输入"/>
         </veui-field>
       </section>
 
