@@ -1,3 +1,16 @@
+## 0.12.0-dev(veui版本为1.0.0-alpha.14)
+
+### 🐞 问题修复
+
+* [^] 修改 `Breadcrumb` 组件分隔符图标类名为separator （fix#54）
+* [^] 修改 `Transfer` 组件选中状态图标类名为checked （fix#54）
+* [^] 修改 `Dropdown` 组件ui=link时disable状态的样式
+* [^] 修改 `Pagination` 组件选择每页条数下拉框样式
+* [^] 修改 `Select` 组件多层级选择时的样式
+* [^] 修改 `Switch` 组件14版本更新后的样式问题（fix#54）
+* [^] 修改 `Calendar` 组件年月选择时会出现灰色横线的问题（fix#55）
+* [^] 修改 `Searchbox` 组件内部高度超出定义高度的问题
+
 ## 0.11.0-dev(veui版本为1.0.0-alpha.13)
 
 ### 💡 主要变更

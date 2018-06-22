@@ -37,7 +37,7 @@
   &-action {
     color: @icon-color;
     white-space: nowrap;
-    margin: -1px -1px -1px 0;
+    margin-right: -1px;
     &-icon {
       outline: none;
       border: none;
@@ -79,9 +79,6 @@
       overflow: hidden;
     }
 
-    .veui-searchbox-action {
-      margin: 0;
-    }
     .veui-searchbox-action,
     .veui-searchbox-action-icon {
       cursor: not-allowed;
@@ -103,20 +100,23 @@
     background-color: @veui-light-gray-color5;
     font-size: @veui-font-size-small;    
     .veui-searchbox-suggestion-item {
-      .centered-line(@searchbox-height);
+      height: @searchbox-height;
+      line-height: ~"calc(@{searchbox-height} - 2px)";
     }
 
     &[ui~="large"] {
       width: @searchbox-big-width;
       .veui-searchbox-suggestion-item {
         font-size: @veui-font-size-normal;
-        .centered-line(@searchbox-big-height);
+        height: @searchbox-big-height;
+        line-height: ~"calc(@{searchbox-big-height} - 2px)";
       }
     }
 
     &[ui~="small"] {
       .veui-searchbox-suggestion-item {
-        .centered-line(@searchbox-small-height);
+        height: @searchbox-small-height;
+        line-height: ~"calc(@{searchbox-small-height} - 2px)";
       }
     }
   }
@@ -137,7 +137,8 @@
 
     .veui-input[ui~="large"] {
       width: 100%;
-      .centered-line(@searchbox-big-height);
+      height: @searchbox-big-height;
+      line-height: ~"calc(@{searchbox-big-height} - 2px)";
     }
   }
 
@@ -146,7 +147,8 @@
 
     .veui-input[ui~="small"] {
       width: 100%;
-      .centered-line(@searchbox-small-height);
+      height: @searchbox-small-height;
+      line-height: ~"calc(@{searchbox-small-height} - 2px)";
     }
   }
 
@@ -166,17 +168,20 @@
       padding: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      .centered-line(@searchbox-height);
+      height: ~"calc(@{searchbox-height} - 2px)";
+      line-height: ~"calc(@{searchbox-height} - 4px)";
     }
     &[ui~="small"] {
       .veui-button {
-        .centered-line(@searchbox-small-height);
+        height: ~"calc(@{searchbox-small-height} - 2px)";
+        line-height: ~"calc(@{searchbox-small-height} - 4px)";
       }
     }
     &[ui~="large"] {
       .veui-button {
         width: 64px;
-        .centered-line(@searchbox-big-height);
+        height: ~"calc(@{searchbox-big-height} - 2px)";
+        line-height: ~"calc(@{searchbox-big-height} - 4px)";
         font-size: @veui-font-size-normal;
       }
     }
