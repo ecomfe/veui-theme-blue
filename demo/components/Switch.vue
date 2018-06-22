@@ -6,27 +6,45 @@
         <span class="veui-font-level-1b">小开关：</span>
         <span class="veui-font-level-2d">ui="small"</span>
       </p>
-      <veui-switch ui="small" v-model="value1">小开关</veui-switch>
-      <veui-switch ui="small" v-model="value1" readonly></veui-switch>
-      <veui-switch ui="small" v-model="value1" disabled></veui-switch>
+      <p>
+        <veui-switch ui="small" v-model="value1">默认状态</veui-switch>
+      </p>
+      <p>
+        <veui-switch ui="small" v-model="value1" readonly>只读状态</veui-switch>
+      </p>
+      <p>
+        <veui-switch ui="small" v-model="value1" disabled>禁用状态</veui-switch>
+      </p>
     </section>
     <section>
       <p>
         <span class="veui-font-level-1b">默认开关：</span>
         <span class="veui-font-level-2d">不传ui</span>
       </p>
-      <veui-switch v-model="value2">默认开关</veui-switch>
-      <veui-switch v-model="value2" readonly></veui-switch>
-      <veui-switch v-model="value2" disabled></veui-switch>
+      <p>
+        <veui-switch v-model="value2">默认状态</veui-switch>
+      </p>
+      <p>
+        <veui-switch v-model="value2" readonly>只读状态</veui-switch>
+      </p>
+      <p>
+        <veui-switch v-model="value2" disabled>禁用状态</veui-switch>
+      </p>
     </section>
     <section>
       <p>
         <span class="veui-font-level-1b">大开关：</span>
         <span class="veui-font-level-2d">ui="large"</span>
       </p>
-      <veui-switch ui="large" v-model="value3">大开关</veui-switch>
-      <veui-switch ui="large" v-model="value3" readonly></veui-switch>
-      <veui-switch ui="large" v-model="value3" disabled></veui-switch>
+      <P>
+        <veui-switch ui="large" v-model="value3">默认状态</veui-switch>
+      </P>
+      <p>
+        <veui-switch ui="large" v-model="value3" readonly>只读状态</veui-switch>
+      </p>
+      <p>
+        <veui-switch ui="large" v-model="value3" disabled>禁用状态</veui-switch>
+      </p>
     </section>
   </article>
 </template>
@@ -35,7 +53,7 @@
 import { Switch } from 'veui'
 
 export default {
-  name: 'SwitchCom',
+  name: 'switch-demo',
   components: {
     'veui-switch': Switch
   },

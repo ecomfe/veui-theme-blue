@@ -7,7 +7,6 @@
     .centered-line(@veui-height-normal);
     padding: 0 8px;
     font-size: @veui-font-size-small;
-    color: @veui-dark-gray-color3;
   }
 
   &-label:not(&-button) {
@@ -25,10 +24,10 @@
   }
 
   &-expanded &-button {
-    background-color: @veui-gray-color-8;
+    background-color: @option-hover-color;
 
     &:active {
-      background-color: @veui-gray-color-6;
+      background-color: @option-active-color;
     }
   }
 
@@ -44,8 +43,35 @@
     }
   }
 
-  &-box .veui-select-options {
+  &-box &-options {
+    &:extend(._veui-dropdown-overlay all);
     margin: -1px 5px;
+    .veui-option-group {
+      &:first-child {
+        .veui-option-group-label {
+          border-top-left-radius: @veui-border-radius-normal;
+          border-top-right-radius: @veui-border-radius-normal;
+        }
+      }
+      &:last-child {
+        .veui-option-group-label {
+          border-bottom-left-radius: @veui-border-radius-normal;
+          border-bottom-right-radius: @veui-border-radius-normal;
+        }
+      }
+    }
+    .veui-option {
+      .centered-line(@veui-height-normal);
+      font-size: @veui-font-size-small;
+      &:first-child {
+        border-top-left-radius: @veui-border-radius-normal;
+        border-top-right-radius: @veui-border-radius-normal;
+      }
+      &:last-child {
+        border-bottom-left-radius: @veui-border-radius-normal;
+        border-bottom-right-radius: @veui-border-radius-normal;
+      }
+    }
   }
 
   &-expandable {

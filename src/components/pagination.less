@@ -33,6 +33,7 @@
   &-total,
   &-size {
     display: inline-block;
+    font-size: @veui-font-size-small;
   }
 
   &-size {
@@ -83,22 +84,23 @@
   .veui-select {
     width: auto;
     min-width: auto;
-    margin-top: -1px;
     margin-left: 10px;
-    vertical-align: top;
+    margin-top: -3px;
+    vertical-align: middle;
 
     .veui-button {
-      .padding(0, _);
-      height: @button-height;
-      line-height: @button-height - 2px;
+      .padding(0, 6px);
+      height: 22px;
+      line-height: 20px;
       white-space: nowrap;
       color: @veui-text-color;
-      min-width: 40px;
+      min-width: 44px;
       width: auto;
+      font-size: @veui-font-size-small;
 
       .veui-icon {
-        @height: @button-height / 2 - 1px;
-        margin-top: 11px;
+        margin-top: 7px;
+        margin-right: 0;
       }
     }
 
@@ -142,14 +144,17 @@
         margin-left: 0;
       }
 
-      a,
-      span {
+      .veui-link {
         min-width: 26px;
         display: inline-block;
         .padding(_, 9px);
         &.focus-visible {
           color: @veui-theme-click-color;
         }
+      }
+
+      span.veui-link {
+        cursor: default;
       }
 
       &:hover,
@@ -230,9 +235,14 @@
         color: @veui-theme-color;
         background: transparent;
         border: 0 none;
+        span {
+          color: @veui-theme-color;
+        }
       }
       &.veui-active:hover {
-        color: @veui-theme-click-color;
+        span {
+          color: @veui-theme-click-color;
+        }
       }
     }
     .veui-pager-buttons{
@@ -322,5 +332,12 @@
         }
       }
     }
+  }
+}
+
+.veui-pagination-select-overlay {
+  .veui-select-options {
+    min-width: 44px;
+    width: auto;
   }
 }

@@ -72,24 +72,13 @@
       vertical-align: middle;
       color: @veui-dark-gray-color2;
     }
-    .veui-disabled {
-      border: 0 none;
-    }
 
     .veui-button {
       .size(auto);
       line-height: @veui-line-height-normal;
 
-      &:not(:disabled) {
-        &:hover,
-        &.focus-visible {
-          // color: @veui-brand-color-2;
-        }
-
-        &:active {
-          // color: @veui-brand-color-1;
-        }
-
+      &.veui-disabled {
+        border: 0 none;
       }
 
       & > .veui-icon {
