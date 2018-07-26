@@ -1,6 +1,6 @@
 {
   "name": "veui-theme-blue",
-  "version": "0.12.0-dev",
+  "version": "0.12.1-dev",
   "description": "blue theme for VEUI.",
   "scripts": {
     "icons": "node build/svg2json.js && node build/icons.js"

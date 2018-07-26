@@ -2,10 +2,11 @@
 
 @page-color: #4DA1FF; // Calendar翻页按钮颜色
 @date-btn-bg: tint(#4DA1FF, 90%); // 每个日期的背景色
-@week-font-color: #808080; // 日期字体颜色
+@week-font-color: @veui-dark-gray-color2; // 日期字体颜色
 @week-font-size: 11px; // 日期字体大小
 @select-btn-bg: tint(#F4F7F9, 60%); // 下拉选择按钮背景色
 @select-btn-border-color: tint(@veui-middle-gray-color4, 50%); // 下拉选择按钮边框颜色
+@btn-disabled-color: #D8D8D8; // 不可用状态按钮颜色
 
 .veui-calendar {
   display: inline-block;
@@ -15,6 +16,7 @@
   color: @veui-dark-gray-color3;
   outline: none;
   font-size: @veui-font-size-normal;
+  border-radius: @veui-border-radius-normal;
   
   button {
     .veui-button-transition();
@@ -53,23 +55,17 @@
 
     button {
       position: relative;
-      width: 28px;
-      height: 28px;
+      .size(28px);
       font-size: 11px;
-      border-radius: 4px;
-      margin-top: 1px;
       border: none;
       padding: 0;
       background: @veui-light-gray-color5;
-      color: @veui-dark-gray-color3;
       text-align: center;
       outline: none;
+      border-radius: @veui-border-radius-normal;
 
       &:hover,
-      &.focus-visible {
-        background-color: @date-btn-bg;
-      }
-
+      &.focus-visible,
       &:active {
         background-color: @date-btn-bg;
       }
@@ -78,7 +74,7 @@
         &,
         &:hover {
           background: @veui-light-gray-color5;
-          color: @veui-middle-gray-color3;
+          color: @btn-disabled-color;
           cursor: not-allowed;
         }
       }
@@ -86,18 +82,21 @@
   }
 
   th {
-    .size(36px, 34px);
+    .size(12px, 16px);
     background: @veui-light-gray-color5;
     color: @week-font-color;
     font-size: @week-font-size;
     font-weight: @veui-font-weight-normal;
+    letter-spacing: 0.92px;
+    padding-bottom: 4px;
   }
 
   td {
     position: relative;
-    .size(36px, 30px);
-    padding: 0;
-    color: @veui-text-color;
+    .size(28px, 28px);
+    padding: 6px 2px;
+    color: @week-font-color;
+    letter-spacing: 0.92px;
   }
 
   th,
@@ -107,7 +106,7 @@
 
   &-aux {
     button {
-      color: @veui-middle-gray-color1;
+      color: @btn-disabled-color;
     }
   }
 
@@ -142,13 +141,13 @@
       background: #4DA1FF;
       border-radius: 50%;
       position: absolute;
-      right: 6px;
+      right: 5px;
       top: 4px;
     }
   }
 
   &-head {
-    padding: 13px 6px 20px;
+    padding: 10px 0;
     text-align: center;
     .clearfix();
     width: 243px;
@@ -190,6 +189,11 @@
         }
       }
 
+      &.veui-calendar-prev,
+      &.veui-calendar-next {
+        padding: 0;
+      }
+
       &:disabled {
         &,
         &:hover {
@@ -211,17 +215,14 @@
     color: @veui-dark-gray-color3;
   }
 
-  &-prev,
-  &-next {
-    width: 36px;
-  }
-
   &-prev {
     float: left;
+    margin-left: 24px;
   }
 
   &-next {
     float: right;
+    margin-right: 24px;
   }
 
   &-days {
