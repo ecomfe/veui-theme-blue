@@ -14,10 +14,10 @@
   "author": "BI FE",
   "license": "MIT",
   "dependencies": {
-    "less-plugin-est": "^2.0.5"
+    "less-plugin-est": "^3.0.0"
   },
   "peerDependencies": {
-    "veui": "1.0.0-alpha.14"
+    "veui": "1.0.0-alpha.15"
   },
   "devDependencies": {
     "svgo": "^0.7.2",

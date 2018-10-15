@@ -5,19 +5,30 @@
   @warning: @veui-warning-color;
   @info: @veui-info-color;
   @error: @veui-alert-color;
-  position: relative;
   height: 28px;
   line-height: 26px;
   border-radius: 2px;
   font-size: @veui-font-size-small;
+  overflow: hidden;
+  display: table;
+  width: 100%;
+  position: relative;
 
-  span {
-    display: inline-block;
+  &-state,
+  &-message,
+  &-nav,
+  &-close {
+    display: table-cell;
+  }
+
+  &-state {
+    position: relative;
+    padding-right: 36px;
   }
 
   &-icon {
     transform: translateY(-50%);
-    .absolute(50%, _, _, 8px);
+    .absolute(50%, _, _, 0);
     font-size: @veui-font-size-small;
   }
 
@@ -63,25 +74,59 @@
     }
   }
 
-  &-message {
-    margin: 0 25px 0 25px;
-  }
-
   .make-state-message(success);
   .make-state-message(warning);
   .make-state-message(info);
   .make-state-message(error);
 
-  &-nav,
-  &-close {
-    .absolute(50%, 10px, _, _);
-    transform: translateY(-50%);
+  &-message {
+    width: 100%;
+    height: 100%;
   }
 
   &-nav {
     .veui-button:first-child,
     span {
-      margin-right: 8px;
+      .margin(_, 8px);
+    }
+  }
+
+  &-close,
+  &-nav {
+    padding-left: 20px;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    .veui-icon {
+      font-size: @veui-font-size-small;
+    }
+
+    .veui-button {
+      height: auto;
+      line-height: 1;
+
+      .veui-icon {
+        margin-top: auto;
+      }
+
+      &:hover,
+      &.focus-visible,
+      &:active {
+        color: @veui-dark-gray-color1;
+      }
+    }
+  }
+
+  .veui-alert-close-text {
+    color: @veui-theme-color;
+
+    &:hover,
+    &.focus-visible {
+      color: @veui-theme-hover-color;
+    }
+
+    &:active {
+      color: @veui-theme-click-color;
     }
   }
 }
