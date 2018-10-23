@@ -18,7 +18,6 @@
     .size(7px, 12px);
   }
 
-  .veui-icon,
   & > span,
   & > a {
     &[ui~="primary"], &[ui~="link"] {
@@ -28,6 +27,10 @@
       }
     }
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
+
+    .veui-icon {
+      vertical-align: middle;
+    }
   }
 }
