@@ -1,0 +1,17 @@
+@import "../lib.less";
+
+.veui-overlay {
+    &-box {
+        transition: opacity @veui-transition-duration;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+
+    &-enter-to,
+    &-leave {
+        opacity: 1;
+    }
+}

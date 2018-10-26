@@ -62,7 +62,7 @@
     display: block;
     .size(100%);
     cursor: pointer;
-    transition: background-color .2s;
+    transition: background-color @veui-transition-duration;
 
     .veui-icon {
       font-size: 30px;
@@ -89,7 +89,7 @@
     li {
       margin: 0 10px 5px 0;
       position: relative;
-      transition: transform .2s;
+      transition: transform @veui-transition-duration;
     }
 
     img {
@@ -134,7 +134,7 @@
       padding: 4px;
       width: @width;
       color: @veui-dark-gray-color2;
-      transition: background-color .2s;
+      transition: background-color @veui-transition-duration;
     }
 
     &-container:hover {
@@ -247,7 +247,7 @@
 
     &-mask {
       opacity: 0;
-      transition: opacity .2s;
+      transition: opacity @veui-transition-duration;
       .absolute(0);
       background-color: fadeout(#000, 90%);
 
@@ -391,7 +391,7 @@
     opacity: 0;
     .centered-line(8px);
     margin-top: 6px;
-    transition: opacity .2s;
+    transition: opacity @veui-transition-duration;
 
     .veui-icon {
       .size(8px);
@@ -410,7 +410,7 @@
 
   &-fade-leave-active {
     opacity: 0;
-    transition: opacity .2s ease;
+    transition: opacity @veui-transition-duration ease;
   }
 
   &-progress {
