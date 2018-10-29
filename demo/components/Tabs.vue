@@ -141,7 +141,7 @@
       <veui-tabs :active.sync="active3" :index.sync="index4">
         <template v-if="props.removable && tabs2.length > 1" slot="tab-item-extra" slot-scope="props">
           <button type="button" class="veui-tabs-item-remove" @click="removeTab2(props)">
-            <icon name="cross-small"></icon>
+            <icon name="cross-small"/>
           </button>
         </template>
         <veui-tab
@@ -161,7 +161,7 @@
             type="button"
             class="veui-tabs-item-remove"
             @click="removeTab3(props)">
-            <icon name="cross-small"></icon>
+            <icon name="cross-small"/>
           </button>
         </template>
         <veui-tab
@@ -204,122 +204,122 @@
 </template>
 
 <script>
-import { Icon, Tabs, Tab, Button } from 'veui'
-import { findIndex, uniqueId } from 'lodash'
+import { Icon, Tabs, Tab, Button } from 'veui';
+import { findIndex, uniqueId } from 'lodash';
 export default {
-  name: 'tabs-demo',
-  components: {
-    'veui-tabs': Tabs,
-    'veui-tab': Tab,
-    'veui-button': Button,
-    'icon': Icon
-  },
-  data () {
-    return {
-      totalTabs0: 10,
-      totalTabs1: 20,
-      tabs0: [
+    name: 'tabs-demo',
+    components: {
+        'veui-tabs': Tabs,
+        'veui-tab': Tab,
+        'veui-button': Button,
+        'icon': Icon
+    },
+    data() {
+        return {
+          totalTabs0: 10,
+          totalTabs1: 20,
+          tabs0: [
         {label: '弄一个很长的在第一个试试', name: '默认1'},
         {label: '默认2', name: '默认2', status: 'success'},
         {label: '默认3', name: '默认3'}
-      ],
-      tabs1: [
+        ],
+          tabs1: [
         {label: '默认1', name: '默认1'},
         {label: '弄一个很长的在中间试试', name: '默认2', status: 'info'},
         {label: '默认3', name: '默认3'}
-      ],
-      tabs2: [
+        ],
+          tabs2: [
         {label: '默认1', name: '默认1'},
         {label: '弄一个很长的在中间试试', name: '默认2', status: 'warning'},
         {label: '默认3', name: '默认3'}
-      ],
-      tabs3: [
+        ],
+          tabs3: [
         {label: '默认1', name: '默认1', status: 'error'},
         {label: '弄一个很长的在中间试试', name: '默认2', status: 'warning'},
         {label: '默认3', name: '默认3'}
-      ],
-      active0: '',
-      active1: '',
-      active2: '',
-      active3: '',
-      active4: '',
-      active5: '',
-      index0: 0,
-      index1: 0,
-      index2: 0,
-      index3: 0,
-      index4: 0,
-      index5: 0,
-      index6: 0,
-      insertVisiable: false,
-      tabIfRemoving: false
+        ],
+          active0: '',
+          active1: '',
+          active2: '',
+          active3: '',
+          active4: '',
+          active5: '',
+          index0: 0,
+          index1: 0,
+          index2: 0,
+          index3: 0,
+          index4: 0,
+          index5: 0,
+          index6: 0,
+          insertVisiable: false,
+          tabIfRemoving: false
+      };
+    },
+    methods: {
+        addTab0() {
+          if (this.tabs0.length >= this.totalTabs0) {
+            return;
+        }
+          let label = uniqueId('默认');
+          let index = this.tabs0.push({
+            label,
+            name: label
+        });
+          this.index2 = index - 1;
+      },
+        addTab1() {
+          if (this.tabs1.length >= this.totalTabs1) {
+            return;
+        }
+          let label = uniqueId('每次都增加一些很长的来试试看');
+          let index = this.tabs1.push({
+            label,
+            name: label
+        });
+          this.index3 = index - 1;
+      },
+        addTab2() {
+          let label = uniqueId('默认');
+          let index = this.tabs2.push({
+            label,
+            name: label
+        });
+          this.index4 = index - 1;
+      },
+        addTab3() {
+          let label = uniqueId('默认');
+          let index = this.tabs3.push({
+            label,
+            name: label
+        });
+          this.index5 = index - 1;
+      },
+        removeTab0({name}) {
+          let index = findIndex(this.tabs0, tab => tab.name === name);
+          if (index !== -1) {
+            this.tabs0.splice(index, 1);
+        }
+      },
+        removeTab1({name}) {
+          let index = findIndex(this.tabs1, tab => tab.name === name);
+          if (index !== -1) {
+            this.tabs1.splice(index, 1);
+        }
+      },
+        removeTab2({name}) {
+          let index = findIndex(this.tabs2, tab => tab.name === name);
+          if (index !== -1) {
+            this.tabs2.splice(index, 1);
+        }
+      },
+        removeTab3({name}) {
+          let index = findIndex(this.tabs3, tab => tab.name === name);
+          if (index !== -1) {
+            this.tabs3.splice(index, 1);
+        }
+      }
     }
-  },
-  methods: {
-    addTab0 () {
-      if (this.tabs0.length >= this.totalTabs0) {
-        return
-      }
-      let label = uniqueId('默认')
-      let index = this.tabs0.push({
-        label,
-        name: label
-      })
-      this.index2 = index - 1
-    },
-    addTab1 () {
-      if (this.tabs1.length >= this.totalTabs1) {
-        return
-      }
-      let label = uniqueId('每次都增加一些很长的来试试看')
-      let index = this.tabs1.push({
-        label,
-        name: label
-      })
-      this.index3 = index - 1
-    },
-    addTab2 () {
-      let label = uniqueId('默认')
-      let index = this.tabs2.push({
-        label,
-        name: label
-      })
-      this.index4 = index - 1
-    },
-    addTab3 () {
-      let label = uniqueId('默认')
-      let index = this.tabs3.push({
-        label,
-        name: label
-      })
-      this.index5 = index - 1
-    },
-    removeTab0 ({name}) {
-      let index = findIndex(this.tabs0, tab => tab.name === name)
-      if (index !== -1) {
-        this.tabs0.splice(index, 1)
-      }
-    },
-    removeTab1 ({name}) {
-      let index = findIndex(this.tabs1, tab => tab.name === name)
-      if (index !== -1) {
-        this.tabs1.splice(index, 1)
-      }
-    },
-    removeTab2 ({name}) {
-      let index = findIndex(this.tabs2, tab => tab.name === name)
-      if (index !== -1) {
-        this.tabs2.splice(index, 1)
-      }
-    },
-    removeTab3 ({name}) {
-      let index = findIndex(this.tabs3, tab => tab.name === name)
-      if (index !== -1) {
-        this.tabs3.splice(index, 1)
-      }
-    }
-  }
-}
+};
 </script>
 
 <style lang="less" scoped>

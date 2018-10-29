@@ -45,6 +45,30 @@
     </section>
     <section>
       <p>
+        <span class="veui-font-level-1b">蓝色按钮样式：</span>
+        <span class="veui-font-level-2d">类型ui="primary"</span>
+      </p>
+      <p>
+        <veui-dropdown
+        ui="primary"
+        label="操作"
+        split
+        :options="options"></veui-dropdown>
+      </p>
+      <p>
+        <veui-dropdown
+          ui="primary micro"
+          label="操作操作操作操作操作操作"
+          trigger="hover"
+          :options="options">
+          <template slot="option-label" slot-scope="{ label }">
+            👉 {{ label }}
+          </template>
+        </veui-dropdown>
+      </p>
+    </section>
+    <section>
+      <p>
         <span class="veui-font-level-1b">文字样式：</span>
         <span class="veui-font-level-2d">类型ui="link"</span>
       </p>
@@ -74,48 +98,48 @@
 </template>
 
 <script>
-import bus from '../bus'
-import { Dropdown, OptionGroup, Option } from 'veui'
+import bus from '../bus';
+import { Dropdown, OptionGroup, Option } from 'veui';
 
 export default {
-  name: 'dropdown-demo',
-  components: {
-    'veui-dropdown': Dropdown,
-    'veui-option-group': OptionGroup,
-    'veui-option': Option
-  },
-  data () {
-    return {
-      options: [
-        {
-          label: '新建新建新建新建新建新建新建',
-          value: 'create'
-        },
-        {
-          label: '编辑',
-          value: 'edit',
-          disabled: true
-        },
-        {
-          label: '删除',
-          value: 'remove'
-        }
-      ]
+    name: 'dropdown-demo',
+    components: {
+        'veui-dropdown': Dropdown,
+        'veui-option-group': OptionGroup,
+        'veui-option': Option
+    },
+    data() {
+        return {
+          options: [
+            {
+                label: '新建新建新建新建新建新建新建',
+                value: 'create'
+            },
+            {
+                label: '编辑',
+                value: 'edit',
+                disabled: true
+            },
+            {
+                label: '删除',
+                value: 'remove'
+            }
+        ]
+      };
+    },
+    mounted() {
+        this.$children.forEach(child => {
+          child.$on('click', val => {
+            bus.$emit('log', val);
+        });
+      });
+    },
+    methods: {
+        log(val) {
+          bus.$emit('log', val);
+      }
     }
-  },
-  mounted () {
-    this.$children.forEach(child => {
-      child.$on('click', val => {
-        bus.$emit('log', val)
-      })
-    })
-  },
-  methods: {
-    log (val) {
-      bus.$emit('log', val)
-    }
-  }
-}
+};
 </script>
 
 <style lang="less" scoped>

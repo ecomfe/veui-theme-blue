@@ -48,13 +48,12 @@
         width: 100%;
         position: absolute;
         top: -1 * @default-mark-top-offset;
+      }
 
-        div {
-          height: @default-mark-height;
-          border-left: 1px solid @veui-gray-color-5;
-          position: absolute;
-        }
-
+      &-mark {
+        height: @default-mark-height;
+        border-left: 1px solid @veui-gray-color-5;
+        position: absolute;
       }
     }
   }
@@ -128,10 +127,9 @@
         &-fg {
           background-color: @veui-gray-color-4;
         }
-        &-marks {
-          div {
-            border-color: @veui-gray-color-6;
-          }
+
+        &-mark {
+          border-color: @veui-gray-color-6;
         }
       }
     }

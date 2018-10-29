@@ -24,7 +24,7 @@
         vertical-align: middle;
         display: inline-block;
         font-size: @veui-font-size-normal;
-        transition: color .3s;
+        transition: color @veui-transition-duration;
     }
 
     & .focus-visible ~ &-box,
@@ -44,13 +44,13 @@
         background-color: @veui-light-gray-color5;
         border-radius: @radius;
         margin-right: 7px;
-        transition: box-shadow .3s;
+        transition: box-shadow @veui-transition-duration;
 
         .veui-icon {
           color: @veui-light-gray-color5;
           .absolute(50%, 50%);
           transform: translate(-50%, -50%) scale(1);
-          transition: transform .3s, opacity .3s;
+          transition: transform @veui-transition-duration, opacity @veui-transition-duration;
         }
     }
 

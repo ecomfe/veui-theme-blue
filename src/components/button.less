@@ -165,6 +165,7 @@
     &[ui] {
       cursor: default;
       pointer-events: none;
+      opacity: .5;
     }
   }
 
@@ -179,7 +180,7 @@
     height: @button-height;
     line-height: @button-height - 2px;
 
-    & > .veui-icon {
+    .veui-icon {
       vertical-align: top;
       @height: @button-height / 2 - 1px;
       margin-top: ~"calc(@{height} - 0.5em)";

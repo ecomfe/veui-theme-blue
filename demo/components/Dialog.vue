@@ -15,9 +15,14 @@
       <veui-dialog
         :modal="false"
         :open.sync="nonModalDialogVisible"
+        ui="auto"
         :before-close="beforeClose"
         title="Dialog Title">
         The content of the Dialog. You can use the default slot to override it.
+        <template slot="foot" slot-scope="{ close }">
+          <veui-button ui="primary" :loading="loading" @click="close('ok')">OK</veui-button>
+          <veui-button autofocus @click="close">CANCEL</veui-button>
+        </template>
       </veui-dialog>
       <veui-button ui="primary"
         @click="nonModalDialogVisible = !nonModalDialogVisible">Open a modeless dialog box</veui-button>
@@ -41,7 +46,7 @@
         :modal="false"
         :open.sync="draggableDialog2Visible"
         title="Second"
-        ui="reverse top"
+        ui="reverse high large"
         draggable>
         <p>Drag the current dialog box to the right and open the first draggable dialog.</p>
         <p>Keep the two dialog have some parts overlapped.</p>
@@ -54,7 +59,7 @@
         :modal="false"
         :open.sync="draggableDialog3Visible"
         title="Reset Position"
-        ui="reverse top"
+        ui="reverse high small"
         ref="resetDialog"
         draggable>
         Click the `reset` button to put the dialog to the initial position.
@@ -68,7 +73,7 @@
       <veui-dialog
         :open.sync="operationDialogVisible"
         @ok="handleOk"
-        @before-close="handleCancel"
+        @cancel="handleCancel"
         title="The Built-in Button">
         The two built-in buttons emit their own event when clicked.
       </veui-dialog>
@@ -149,132 +154,151 @@ import alertManager from 'veui/managers/alert';
 import confirmManager from 'veui/managers/confirm';
 import promptManager from 'veui/managers/prompt';
 import toastManager from 'veui/managers/toast';
+import alert from 'veui/plugins/alert';
+import confirm from 'veui/plugins/confirm';
+import prompt from 'veui/plugins/prompt';
+import toast from 'veui/plugins/toast';
+import Vue from 'vue';
 import 'veui-theme-blue/icons/calendar';
+Vue.use(alert);
+Vue.use(confirm);
+Vue.use(prompt);
+Vue.use(toast);
 export default {
     name: 'dialog-demo',
     components: {
-        'veui-dialog': Dialog,
-        'veui-alert-box': AlertBox,
-        'veui-confirm-box': ConfirmBox,
-        'veui-prompt-box': PromptBox,
-        'veui-button': Button,
-        'veui-icon': Icon
-    },
+      'veui-dialog': Dialog,
+      'veui-alert-box': AlertBox,
+      'veui-confirm-box': ConfirmBox,
+      'veui-prompt-box': PromptBox,
+      'veui-button': Button,
+      'veui-icon': Icon
+  },
     data() {
-        return {
-            modalDialogVisible: false,
-            nonModalDialogVisible: false,
-            draggableDialog1Visible: false,
-            draggableDialog2Visible: false,
-            draggableDialog3Visible: false,
-            operationDialogVisible: false,
-            customTextTitleDialogVisible: false,
-            customIconTitleDialogVisible: false,
-            contentAutoHeightDialogVisible: false,
-            alertOpen: false,
-            confirmOpen: false,
-            promptOpen: false,
-            dynamicContent: '',
-            test: '123',
-            adaptiveDialogTimer: null,
-            beforeClose: () => {
-                return new Promise(resolve => {
-                    setTimeout(() => resolve(), 2000);
-                });
-            }
-        };
-    },
+      return {
+        modalDialogVisible: false,
+        nonModalDialogVisible: false,
+        draggableDialog1Visible: false,
+        draggableDialog2Visible: false,
+        draggableDialog3Visible: false,
+        operationDialogVisible: false,
+        customTextTitleDialogVisible: false,
+        customIconTitleDialogVisible: false,
+        contentAutoHeightDialogVisible: false,
+        alertOpen: false,
+        confirmOpen: false,
+        promptOpen: false,
+        dynamicContent: '',
+        test: '123',
+        adaptiveDialogTimer: null,
+        loading: false,
+        beforeClose: (type) => {
+          if (type === 'cancel') {
+            return;
+        }
+          this.loading = true;
+          return new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+              this.loading = false;
+          }, 2000);
+        });
+      }
+    };
+  },
     watch: {
-        contentAutoHeightDialogVisible(value) {
-            if (value) {
-                this.adaptiveDialogTimer = setInterval(
+      contentAutoHeightDialogVisible(value) {
+        if (value) {
+          this.adaptiveDialogTimer = setInterval(
           () => {
               this.dynamicContent += `${Date.now()}<br>`;
           },
           1000
         );
-            } else {
-                clearTimeout(this.adaptiveDialogTimer);
-                this.dynamicContent = '';
-            }
-        },
-        draggableDialog3Visible(value) {
-            if (!value) {
-                this.$refs.resetDialog.resetPosition();
-            }
-        }
+      } else {
+          clearTimeout(this.adaptiveDialogTimer);
+          this.dynamicContent = '';
+      }
     },
+      draggableDialog3Visible(value) {
+        if (!value) {
+          this.$refs.resetDialog.resetPosition();
+      }
+    }
+  },
     methods: {
-        popupAlert(type, content, title) {
-            alertManager[type](content, title);
+      popupAlert(type, content, title) {
+        alertManager[type](content, title);
+    },
+      handleOk() {
+        this.$toast('The `OK` button was clicked!');
+    },
+      handleCancel() {
+        this.$alert('The `cancel` button was clicked!');
+    },
+      popupAlerts() {
+        alertManager.success('The task was successfully completed!', 'Success', {
+          ok: () => {
+            this.$alert('This alert box will be closed after 3 seconds.');
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+            }, 3000);
+          });
+        }
+      });
+        alertManager.info('The task has been completed thirty percent.', 'Info');
+        alertManager.error('Something went wrong!', 'Error');
+        alertManager.warn('The name is invalid.', 'Warn');
+    },
+      popupConfirms() {
+        confirmManager.warn('Do you really want to delete it?', 'Confirm', {
+          ok: () => {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+            }, 1000);
+          });
         },
-        handleOk() {
-            alert('The `OK` button was clicked!');
-        },
-        handleCancel() {
-            alert('The `cancel` button was clicked!');
-        },
-        popupAlerts() {
-            alertManager.success('The task was successfully completed!', 'Success', {
-                ok() {
-                    alert('This alert box will be closed after 3 seconds.');
-                    return new Promise(resolve => {
-                        setTimeout(resolve, 3000);
-                    });
-                }
-            });
-            alertManager.info('The task has been completed thirty percent.', 'Info');
-            alertManager.error('Something went wrong!', 'Error');
-            alertManager.warn('The name is invalid.', 'Warn');
-        },
-        popupConfirms() {
-            confirmManager.warn('Do you really want to delete it?', 'Confirm', {
-                ok() {
-                    return new Promise(resolve => {
-                        setTimeout(() => {
-                            resolve();
-                        }, 1000);
-                    });
-                },
-                cancel() {
-                    return new Promise(resolve => {
-                        setTimeout(() => {
-                            resolve();
-                        }, 1000);
-                    });
-                }
-            })
-            .then(ok => {
-                alert(`You chose [${ok ? 'ok' : 'cancel'}]`);
-            });
-        },
-        popupToasts(type) {
-            if (type && toastManager[type]) {
-                toastManager[type](`${type} message`);
-            } else {
-                let index = 0;
-                let timer = setInterval(
+          cancel: () => {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve();
+            }, 1000);
+          });
+        }
+      })
+        .then(ok => {
+            this.$alert(`You chose [${ok ? 'ok' : 'cancel'}]`);
+        });
+    },
+      popupToasts(type) {
+        if (type && toastManager[type]) {
+          toastManager[type](`${type} message`);
+      } else {
+          let index = 0;
+          let timer = setInterval(
           () => {
               const type = ['warn', 'error', 'info', 'success'][index];
               toastManager[type](`${type}-${index + 1}`);
               if (++index > 3) {
-                  clearTimeout(timer);
-              }
+                clearTimeout(timer);
+            }
           },
           1000
         );
-            }
-        },
-        popupPrompt() {
-            promptManager.info('Please tell us your age:', 'Prompt').then(value => {
-                console.log(value);
-            });
-        }
+      }
+    },
+      popupPrompt() {
+        promptManager.info('Please tell us your age:', 'Prompt').then(value => {
+          console.log(value);
+      });
     }
+  }
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 section {
   margin-bottom: 10px;
 }

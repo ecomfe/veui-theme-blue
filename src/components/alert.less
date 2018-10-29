@@ -5,14 +5,14 @@
   @warning: @veui-warning-color;
   @info: @veui-info-color;
   @error: @veui-alert-color;
+  position: relative;
   height: 28px;
   line-height: 26px;
   border-radius: 2px;
   font-size: @veui-font-size-small;
-  overflow: hidden;
   display: table;
   width: 100%;
-  position: relative;
+  line-height: @veui-line-height-normal;
 
   &-state,
   &-message,
@@ -85,9 +85,14 @@
   }
 
   &-nav {
-    .veui-button:first-child,
-    span {
+    &-indicator {
       .margin(_, 8px);
+    }
+
+    .veui-button,
+    &-indicator {
+      vertical-align: top;
+      height: ~"calc(1em * @{veui-line-height-normal})";
     }
   }
 
@@ -103,10 +108,10 @@
 
     .veui-button {
       height: auto;
-      line-height: 1;
+      line-height: @veui-line-height-normal;
 
       .veui-icon {
-        margin-top: auto;
+        margin-top: (@veui-font-size-normal * @veui-line-height-normal / @veui-font-size-small - 1) * .5em;
       }
 
       &:hover,
@@ -117,7 +122,13 @@
     }
   }
 
-  .veui-alert-close-text {
+  &-close {
+    .veui-button {
+      float: left;
+    }
+  }
+
+  &-close-text {
     color: @veui-theme-color;
 
     &:hover,

@@ -3,7 +3,7 @@
     <h1><code>&lt;veui-slider&gt;</code></h1>
 
     <section>
-        <veui-slider v-model="value1"></veui-slider>
+        <veui-slider v-model="value1"/>
         <veui-slider v-model="value1" readonly ui="small">
           <div slot="tip" style="position: absolute">&#8203;</div>
         </veui-slider>
@@ -14,15 +14,15 @@
     </section>
 
     <section>
-        <veui-slider ui="micro" v-model="value2" :min="0" :max="100" :step="8" mark>
+        <veui-slider ui="micro" v-model="value2" :min="10" :max="100" :step="7" mark>
           <span slot="tip-label">{{ value2 }}%</span>
         </veui-slider>
-        <veui-slider ui="micro" disabled v-model="value2" :min="0" :max="100" :step="8" mark></veui-slider>
+        <veui-slider ui="micro" disabled v-model="value2" :min="10" :max="100" :step="7" mark/>
         <div class="desc">Range: 0~100, Step: 8, Value: {{ value2 }}</div>
     </section>
 
     <section>
-        <veui-slider v-model="value4" :min="0" :max="100"></veui-slider>
+        <veui-slider v-model="value4" :min="0" :max="100"/>
         <div class="desc">Range: 0~100, Value: {{ value4 }}</div>
     </section>
 
@@ -67,49 +67,49 @@
 </template>
 
 <script>
-import { Slider, Tooltip } from 'veui'
-import { fill, padStart } from 'lodash'
-function makeArray (length) {
-  return fill(new Array(length), true)
+import { Slider, Tooltip } from 'veui';
+import { fill, padStart } from 'lodash';
+function makeArray(length) {
+    return fill(new Array(length), true);
 }
 export default {
-  name: 'slider-demo',
-  components: {
-    'veui-slider': Slider,
-    'veui-tooltip': Tooltip
-  },
-  data () {
-    return {
-      value1: 0.2,
-      value2: 333,
-      value3: makeArray(5).map((_, i) => `hsl(${(i + 1) * 60}, 100%, 50%)`),
-      value4: [22, 66],
-      videoPlayProgress: 0.11,
-      videoBufferProgress: 0.57,
-      videoDuration: 200
-    }
-  },
-  computed: {
-    colorGradient () {
-      let colors = makeArray(7).map(function (_, index) {
-        return `hsl(${60 * index}, 100%, 50%) ${100 / 6 * index}%`
-      })
-      return `linear-gradient(to right, ${colors.join(',')})`
-    }
-  },
-  methods: {
-    parseColorHue (val) {
-      return parseInt(val.substring(val.indexOf('(') + 1, val.indexOf(',')), 10)
+    name: 'slider-demo',
+    components: {
+        'veui-slider': Slider,
+        'veui-tooltip': Tooltip
     },
-    formatColorHue (val) {
-      return `hsl(${val}, 100%, 50%)`
+    data() {
+        return {
+            value1: 0.2,
+            value2: 333,
+            value3: makeArray(5).map((_, i) => `hsl(${(i + 1) * 60}, 100%, 50%)`),
+            value4: [22, 66],
+            videoPlayProgress: 0.11,
+            videoBufferProgress: 0.57,
+            videoDuration: 200
+        };
     },
-    formatDuration (sec) {
-      sec = Math.round(sec)
-      return `${padStart(Math.floor(sec / 60).toString(), 2, '0')}:${padStart((sec % 60).toString(), 2, '0')}`
+    computed: {
+        colorGradient() {
+            let colors = makeArray(7).map(function (_, index) {
+                return `hsl(${60 * index}, 100%, 50%) ${100 / 6 * index}%`;
+            });
+            return `linear-gradient(to right, ${colors.join(',')})`;
+        }
+    },
+    methods: {
+        parseColorHue(val) {
+            return parseInt(val.substring(val.indexOf('(') + 1, val.indexOf(',')), 10);
+        },
+        formatColorHue(val) {
+            return `hsl(${val}, 100%, 50%)`;
+        },
+        formatDuration(sec) {
+            sec = Math.round(sec);
+            return `${padStart(Math.floor(sec / 60).toString(), 2, '0')}:${padStart((sec % 60).toString(), 2, '0')}`;
+        }
     }
-  }
-}
+};
 </script>
 
 <style lang="less" scoped>
