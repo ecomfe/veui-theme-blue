@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav id="main-nav">
-      <h1><a href="https://github.com/ecomfe/veui">VEUI components</a><icon name="github" scale="6"></icon></h1>
+      <h1><a href="https://github.com/ecomfe/veui">VEUI components</a><icon name="brands/github" scale="6"></icon></h1>
       <ul>
         <li v-for="(route, index) in routes" :key="index">
           <span v-if="route.noComplete" class="gray noCompleteNav">{{route.name}}</span>
@@ -23,7 +23,7 @@ import routes from './components';
 import Console from './Console';
 import { Icon } from 'veui';
 import 'vue-awesome/icons/ban';
-import 'vue-awesome/icons/github';
+import 'vue-awesome/icons/brands/github';
 
 Icon.register({
     baidu: {
@@ -41,9 +41,9 @@ export default {
     },
     data() {
         return {
-          routes,
-          year: (new Date()).getFullYear()
-      };
+            routes,
+            year: (new Date()).getFullYear()
+        };
     }
 };
 </script>

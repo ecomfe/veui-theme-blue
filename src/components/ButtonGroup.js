@@ -1,12 +1,15 @@
-import config from 'veui/managers/config'
+import config from 'veui/managers/config';
 
 config.defaults({
-  ui: {
-    style: {
-      values: ['alt', 'primary']
-    },
-    size: {
-      values: ['large', 'small', 'tiny', 'micro']
+    ui: {
+        style: {
+            values: ['alt', 'primary'],
+            inherit: true
+        },
+        size: {
+            values: ['large', 'small', 'tiny', 'micro'],
+            inherit: true
+        }
     }
-  }
 }, 'buttongroup')
+;

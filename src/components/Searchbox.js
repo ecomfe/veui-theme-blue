@@ -1,13 +1,14 @@
-import '../icons/search'
-import config from 'veui/managers/config'
+import '../icons/search';
+import config from 'veui/managers/config';
 
 config.defaults({
-  icons: {
-    search: 'search'
-  },
-  ui: {
-    size: {
-      values: ['large', 'small']
+    icons: {
+        search: 'search'
+    },
+    ui: {
+        size: {
+            values: ['large', 'small'],
+            inherit: true
+        }
     }
-  }
-}, 'searchbox')
+}, 'searchbox');

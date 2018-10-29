@@ -114,7 +114,7 @@
     <section>
       <div style="margin-bottom:10px;">自定义事件</div>
       <veui-input ui="big" v-model="number" composition @change="log('change')" ref="number" @focus.native="numberOpen = true" @blur.native="numberOpen = false"></veui-input>
-      <veui-tooltip position="top" :ui="ui" target="number" :custom="true" :open.sync="numberOpen">你focus到了</veui-tooltip>
+      <veui-tooltip position="top" :ui="ui" target="number" trigger="custom" :open.sync="numberOpen">你focus到了</veui-tooltip>
     </section>
 
     <section>
@@ -126,57 +126,50 @@
 </template>
 
 <script>
-import bus from '../bus'
-import { Tooltip, Button, Input } from 'veui'
+import bus from '../bus';
+import { Tooltip, Button, Input } from 'veui';
 
 export default {
-  name: 'tooltip-demo',
-  data () {
-    return {
-      position: '',
-      clickPosition: '',
-      ui: '',
-      target: 'topLeftHover',
-      clickTarget: 'topLeftClick',
-      open: false,
-      clickOpen: false,
-      number: '12345678910987654321',
-      numberOpen: false,
-      overlayOptions: {
-        constraints: [
-          {
-            pin: true,
-            to: 'window'
-          }
-        ]
-      }
-    }
-  },
-  components: {
-    'veui-button': Button,
-    'veui-tooltip': Tooltip,
-    'veui-input': Input
-  },
-  mounted () {
-    this.$children.forEach(child => {
-      child.$on('click', () => {
-        bus.$emit('log', child.$el.getAttribute('ui'))
-      })
-    })
-  },
-  methods: {
-    show (obj) {
-      this.position = obj.position
-      this.target = obj.target
-      this.open = true
+    name: 'tooltip-demo',
+    data() {
+        return {
+            position: '',
+            clickPosition: '',
+            ui: '',
+            target: 'topLeftHover',
+            clickTarget: 'topLeftClick',
+            open: false,
+            clickOpen: false,
+            number: '12345678910987654321',
+            numberOpen: false,
+            overlayOptions: {}
+        };
     },
-    clickShow (obj) {
-      this.clickPosition = obj.clickPosition
-      this.clickTarget = obj.clickTarget
-      this.clickOpen = true
+    components: {
+        'veui-button': Button,
+        'veui-tooltip': Tooltip,
+        'veui-input': Input
+    },
+    mounted() {
+        this.$children.forEach(child => {
+            child.$on('click', () => {
+                bus.$emit('log', child.$el.getAttribute('ui'));
+            });
+        });
+    },
+    methods: {
+        show(obj) {
+            this.position = obj.position;
+            this.target = obj.target;
+            this.open = true;
+        },
+        clickShow(obj) {
+            this.clickPosition = obj.clickPosition;
+            this.clickTarget = obj.clickTarget;
+            this.clickOpen = true;
+        }
     }
-  }
-}
+};
 </script>
 
 <style scoped>

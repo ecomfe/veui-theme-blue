@@ -11,7 +11,7 @@
       accept=".jpg,.jpeg,.gif"
       ui="horizontal"
       :payload="payload"
-      progress="number"
+      progress="percent"
       @success="onSuccess"
       @failure="onFailure"
       @change="handleChange('files')"
@@ -47,7 +47,7 @@
       accept=".jpg,.jpeg,.gif"
       :payload="payload"
       ui="horizontal"
-      progress="number"
+      progress="detail"
       @success="onSuccess"
       @failure="onFailure"
       @change="handleChange('files2')"
@@ -72,7 +72,9 @@
       class="extra-operation">
       <template slot="desc">请选择jpg,jpeg,gif图片，大小在10M以内，最多上传3张图</template>
       <template slot="extra-operation" slot-scope="file">
-        <veui-button class="extra-operation-button"
+        <veui-button
+          :ui="file.src ? 'dark' : null"
+          class="extra-operation-button"
           @click="openTooltip(file)"
           :ref="`add-image${file.index !== undefined ? '-' + file.index : ''}`">输入图片地址</veui-button>
       </template>
@@ -159,7 +161,10 @@ export default {
             files1: files.slice(0),
             files2: files.slice(0),
             filesExtra: files.slice(0),
-            filesIframe: {name: 'demo-file.txt', src: 'http://www.baidu.com'},
+            filesIframe: {
+                name: 'demo-file.txt',
+                src: 'http://www.baidu.com'
+            },
             payload: {
                 year: '2017',
                 month: '4'
@@ -191,7 +196,7 @@ export default {
                 let xhr = new XMLHttpRequest();
                 file.xhr = xhr;
                 xhr.upload.onprogress = e => onprogress(file, e);
-                xhr.onload = () => onload(file, JSON.parse(xhr.responseText))
+                xhr.onload = () => onload(file, JSON.parse(xhr.responseText));
                 xhr.onerror = e => onerror(file, e);
                 let formData = new FormData();
                 formData.append('file', file);
@@ -287,9 +292,9 @@ export default {
         },
         addImage() {
             if (this.currentImage.index !== undefined) {
-                this.$set(this.filesExtra, this.currentImage.index, {src: this.imageSrc});
+                this.$set(this.filesExtra, this.currentImage.index, { src: this.imageSrc });
             } else {
-                this.filesExtra.push({src: this.imageSrc});
+                this.filesExtra.push({ src: this.imageSrc });
             }
             this.currentImage = null;
             this.imageSrc = null;
