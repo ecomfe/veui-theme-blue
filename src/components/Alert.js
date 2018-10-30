@@ -20,7 +20,12 @@ config.defaults({
     parts: {
         prev: 'link',
         next: 'link',
-        close: 'link primary',
+        close: 'link',
         closeLabel: 'link'
+    },
+    ui: {
+        size: {
+            values: ['limit']
+        }
     }
 }, 'alert');
