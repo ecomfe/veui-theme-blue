@@ -5,6 +5,11 @@
 .veui-check-button-group {
   .veui-button {
     &:extend(._veui-grouped-button all);
+    &.veui-disabled,
+    &.veui-disabled:hover {
+      border-left-color: @veui-middle-gray-color4;
+      border-right-color: @veui-middle-gray-color4;
+    }
   }
 
   &[ui~="interval"] {

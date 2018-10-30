@@ -8,6 +8,7 @@
 ### 🐞 问题修复
 
 * [^] 修改 `ButtonGroup` 组件禁用状态时无边框问题
+* [^] 修改 `CheckButtonGroup` 组件禁用状态时无边框问题
 
 ## 0.12.1-dev(veui版本为1.0.0-alpha.14)
 
