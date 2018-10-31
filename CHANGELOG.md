@@ -9,6 +9,7 @@
 
 * [^] 修改 `ButtonGroup` 组件禁用状态时无边框问题
 * [^] 修改 `CheckButtonGroup` 组件禁用状态时无边框问题
+* [^] 去除 `Input` 组件中样式采用`!important`的部分
 
 ## 0.12.1-dev(veui版本为1.0.0-alpha.14)
 
