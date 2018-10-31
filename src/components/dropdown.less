@@ -31,24 +31,6 @@
       content: "";
       display: inline-block;
     }
-
-    &[ui~="primary"]::before {
-      .absolute(_, _, 50%, -1.5px);
-      transform: translateY(50%);
-      width: 1px;
-      height: 1em;
-      background-color: #fff;
-      opacity: .5;
-      transition: opacity @veui-transition-duration, transform @veui-transition-duration;
-    }
-  }
-
-  &-split&-expanded[ui~="primary"],
-  &-split[ui~="primary"]:hover, {
-    .veui-dropdown-button::before {
-      opacity: 0;
-      transform: translateY(50%) scaleY(.01);
-    }
   }
 
   &-options {
@@ -133,10 +115,6 @@
         vertical-align: middle;
         color: @veui-dark-gray-color2;
       }
-    }
-
-    &[ui~="primary"]:not(:disabled) {
-      color: @veui-brand-color;
     }
   }
 }
