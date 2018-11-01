@@ -1,10 +1,10 @@
-import '../icons/minus-small';
+import '../icons/minus';
 import '../icons/check-small';
 import config from 'veui/managers/config';
 
 config.defaults({
     icons: {
-        indeterminate: 'minus-small',
+        indeterminate: 'minus',
         checked: 'check-small'
     },
     ui: {
