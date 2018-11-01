@@ -8,19 +8,25 @@
       </p>
       <p><veui-pagination :page="page" :total="total" :to="to"></veui-pagination></p>
       <p>
-        <span class="veui-font-level-1b">翻页按钮放在最后的分页：</span>
+        <span class="veui-font-level-1b">且展示条数信息：</span>
+        <span class="veui-font-level-2d">ui="info"(如需加上条数信息展示，只需加上ui=info即可)</span>
+      </p>
+      <p><veui-pagination :page="page" ui="info" :total="total" :to="to"></veui-pagination></p>
+      <p>
+        <span class="veui-font-level-1b">翻页按钮在最后：</span>
         <span class="veui-font-level-2d">ui="hetero"</span>
       </p>
-      <p><veui-pagination :page="page" :total="total" :to="to" ui="hetero"></veui-pagination></p>
+      <p><veui-pagination :page="page" :total="total" :to="to" ui="hetero full1"></veui-pagination></p>
       <p>
-        <span class="veui-font-level-1b">展示总条数、每页条数的分页：</span>
-        <span class="veui-font-level-2d">ui="full"</span>
+        <span class="veui-font-level-1b">且展示条数信息：</span>
+        <span class="veui-font-level-2d">ui="full"或ui="hetero info"</span>
       </p>
+      <p class="veui-font-level-2d">ui="full"</p>
       <p><veui-pagination :page="page" :total="total" :page-sizes="pageSizes" :to="to" :page-size.sync="pageSize" ui="full"></veui-pagination></p>
-      <p style="margin-top: -4em"><veui-pagination :page="page" :total="total" :page-sizes="pageSizes" :to="to" :page-size.sync="pageSize" ui="full"></veui-pagination></p>
-      <p style="margin-top: -4em"><veui-pagination :page="page" :total="total" :page-sizes="pageSizes" :to="to" :page-size="30" ui="full"></veui-pagination></p>
+      <p class="veui-font-level-2d">ui="hetero info"</p>
+      <p><veui-pagination :page="page" :total="total" :page-sizes="pageSizes" :to="to" :page-size.sync="pageSize" ui="hetero info"></veui-pagination></p>
       <p>
-        <span class="veui-font-level-1b">正方形样式的分页：</span>
+        <span class="veui-font-level-1b">正方形样式：</span>
         <span class="veui-font-level-2d">ui="square"</span>
       </p>
       <p><veui-pagination :page="page" :total="total" :to="to" ui="square"></veui-pagination></p>
@@ -80,66 +86,66 @@
 </template>
 
 <script>
-import bus from '../bus'
-import { Pagination, Table, Column } from 'veui'
+import bus from '../bus';
+import { Pagination, Table, Column } from 'veui';
 
 export default {
-  name: 'pagination-demo',
-  components: {
-    'veui-pagination': Pagination,
-    'veui-table': Table,
-    'veui-table-column': Column
-  },
-  data () {
-    return {
-      page: parseInt(this.$route.params.page, 10) || 1,
-      total: 5000,
-      to: '/pagination/:page',
-      pageSize: 30,
-      pageSizes: [30, 60, 100, 200],
-      fifthPaginationMessage: '',
-      sample: '<veui-pagination :page="1" :page-size="20" :total="100" :page-sizes="[10, 20, 30]" :to="" ui="full" :native="true"></veui-pagination>',
-      attrData: [
-        {
-          parameter: 'page', desc: '当前页数', type: 'number', canSelectVal: '--', defaultVal: '1'
-        },
-        {
-          parameter: 'page-size', desc: '每页显示条目个数', type: 'number', canSelectVal: '--', defaultVal: '30'
-        },
-        {
-          parameter: 'page-sizes', desc: '每页显示条目个数选择器的选项设置', type: 'array', canSelectVal: '--', defaultVal: '[30, 50, 100]'
-        },
-        {
-          parameter: 'total', desc: '总条数', type: 'number', canSelectVal: '--', defaultVal: '--'
-        },
-        {
-          parameter: 'ui', desc: '样式类型', type: 'string', canSelectVal: 'hetero，full，square，simple，big_square', defaultVal: '--'
-        },
-        {
-          parameter: 'native', desc: '是否是原生跳转', type: 'boolean', canSelectVal: '', defaultVal: 'false（true表示仅翻页，false表示跳转到to的链接）'
+    name: 'pagination-demo',
+    components: {
+        'veui-pagination': Pagination,
+        'veui-table': Table,
+        'veui-table-column': Column
+    },
+    data() {
+        return {
+            page: parseInt(this.$route.params.page, 10) || 1,
+            total: 5000,
+            to: '/pagination/:page',
+            pageSize: 30,
+            pageSizes: [30, 60, 100, 200],
+            fifthPaginationMessage: '',
+            sample: '<veui-pagination :page="1" :page-size="20" :total="100" :page-sizes="[10, 20, 30]" :to="" ui="full" :native="true"></veui-pagination>',
+            attrData: [
+                {
+                    parameter: 'page', desc: '当前页数', type: 'number', canSelectVal: '--', defaultVal: '1'
+                },
+                {
+                    parameter: 'page-size', desc: '每页显示条目个数', type: 'number', canSelectVal: '--', defaultVal: '30'
+                },
+                {
+                    parameter: 'page-sizes', desc: '每页显示条目个数选择器的选项设置', type: 'array', canSelectVal: '--', defaultVal: '[30, 50, 100]'
+                },
+                {
+                    parameter: 'total', desc: '总条数', type: 'number', canSelectVal: '--', defaultVal: '--'
+                },
+                {
+                    parameter: 'ui', desc: '样式类型', type: 'string', canSelectVal: 'hetero，full，square，simple，big_square', defaultVal: '--'
+                },
+                {
+                    parameter: 'native', desc: '是否是原生跳转', type: 'boolean', canSelectVal: '', defaultVal: 'false（true表示仅翻页，false表示跳转到to的链接）'
+                }
+            ]
+        };
+    },
+    methods: {
+        handlePageRedirect({page, event}) {
+            event.preventDefault();
+            this.fifthPaginationMessage = `已阻止你跳转到第${page}页`;
         }
-      ]
+    },
+    mounted() {
+        this.$children.forEach(child => {
+            child.$on('click', () => {
+                bus.$emit('log', child.$el.getAttribute('ui'));
+            });
+        });
+    },
+    beforeRouteUpdate({params}, from, next) {
+        let page = parseInt(params.page, 10);
+        this.page = isNaN(page) ? 1 : page;
+        next();
     }
-  },
-  methods: {
-    handlePageRedirect ({page, event}) {
-      event.preventDefault()
-      this.fifthPaginationMessage = `已阻止你跳转到第${page}页`
-    }
-  },
-  mounted () {
-    this.$children.forEach(child => {
-      child.$on('click', () => {
-        bus.$emit('log', child.$el.getAttribute('ui'))
-      })
-    })
-  },
-  beforeRouteUpdate ({params}, from, next) {
-    let page = parseInt(params.page, 10)
-    this.page = isNaN(page) ? 1 : page
-    next()
-  }
-}
+};
 </script>
 
 <style lang="less" scoped>
