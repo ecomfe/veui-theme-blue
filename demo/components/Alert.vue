@@ -8,74 +8,80 @@
         message="恭喜你，你的请求已成功处理"
         closable/>
       <veui-alert
-        class="limit-width"
+        ui="limit"
         type="success"
         message="恭喜你，你的请求已成功处理"
         closable
         close-label="关闭"/>
       <veui-alert
         type="warning"
-        message="警告，进行检查，有风险信息存在"/>
+        message="警告，进行检查，有风险信息存在"
+        closable/>
       <veui-alert
-        class="limit-width"
+        ui="limit"
         type="warning"
         :message="messages"
         closable/>
       <veui-alert
         type="info"
-        message="提醒，这个消息需要注意"/>
+        message="提醒，这个消息需要注意"
+        closable/>
       <veui-alert
-        class="limit-width"
+        ui="limit"
         type="info"
         message="提醒，这个消息需要注意"
+        closable
         close-label="不再提示"/>
       <veui-alert
         type="error"
-        message="错误，请检查并修改后再进行操作"/>
+        message="错误，请检查并修改后再进行操作"
+        closable/>
       <veui-alert
-        class="limit-width"
+        ui="limit"
         type="error"
-        message="错误，请检查并修改后再进行操作"/>
+        message="错误，请检查并修改后再进行操作"
+        closable
+        close-label="关闭"/>
     </section>
   </article>
 </template>
 
 <script>
-import bus from '../bus'
-import { Alert, Icon } from 'veui'
+import bus from '../bus';
+import { Alert, Icon } from 'veui';
 
 export default {
-  name: 'alert',
-  components: {
-    'veui-alert': Alert,
-    'veui-icon': Icon
-  },
-  data () {
-    return {
-      open: false,
-      messages: [
-        '我是消息1我是消息1我是消息1我是消息1',
-        '我是消息2',
-        '我是消息3',
-        '我是消息4',
-        '我是消息5'
-      ],
-      messageIndex: 0
+    name: 'alert',
+    components: {
+        'veui-alert': Alert,
+        'veui-icon': Icon
+    },
+    data() {
+        return {
+            open: false,
+            messages: [
+                '我是消息1我是消息1我是消息1我是消息1',
+                '我是消息2',
+                '我是消息3',
+                '我是消息4',
+                '我是消息5'
+            ],
+            messageIndex: 0
+        };
+    },
+    methods: {
+        close() {
+            this.open = true;
+        }
+    },
+    mounted() {
+        this.$children.forEach(child => {
+            child.$on('click', () => {
+                bus.$emit('log', child.$el.getAttribute('ui'));
+            });
+        });
     }
-  },
-  methods: {
-    close () {
-      this.open = true
-    }
-  },
-  mounted () {
-    this.$children.forEach(child => {
-      child.$on('click', () => {
-        bus.$emit('log', child.$el.getAttribute('ui'))
-      })
-    })
-  }
-}
+};
 </script>
 
 <style scoped>
@@ -85,9 +91,5 @@ section {
 
 .veui-alert {
   margin: 30px 0;
-}
-
-.veui-alert.limit-width {
-  width: 340px;
 }
 </style>

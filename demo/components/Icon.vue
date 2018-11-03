@@ -26,6 +26,7 @@ export default {
         'veui-icon': Icon
     },
     mounted() {
+        console.log(this.icons);
         this.$children.forEach(child => {
             child.$on('click', () => {
                 bus.$emit('log', child.$el.getAttribute('ui'));

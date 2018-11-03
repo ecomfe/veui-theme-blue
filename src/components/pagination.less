@@ -37,7 +37,7 @@
   }
 
   &-size {
-    .margin(_, 10px, _, 20px);
+    .margin(_, 10px);
   }
 
   &-switch {
@@ -46,20 +46,21 @@
 
   .veui-select {
     min-width: auto;
-    margin-top: -1px;
-    margin-left: 10px;
-    vertical-align: top;
+    margin-left: 5px;
+    width: auto;
+    margin-top: -3px;
+    vertical-align: middle;
 
     .veui-button {
-      .padding(0, _);
-      height: @button-height;
-      line-height: @button-height - 2px;
+      .padding(0, 6px);
+      height: 22px;
+      line-height: 20px;
       white-space: nowrap;
-      color: @veui-text-color-strong;
+      min-width: 44px;
+      width: auto;
 
       .veui-icon {
-        @height: @button-height / 2 - 1px;
-        margin-top: ~"calc(@{height} - 0.5em)";
+        margin-top: 7px;
       }
     }
 
@@ -68,6 +69,7 @@
       width: auto;
       float: left;
       margin-right: 5px;
+      color: @veui-dark-gray-color3;
     }
   }
 
@@ -186,22 +188,22 @@
   &[ui~="full"] {
     .veui-pagination-switch {
       position: relative;
-    }
 
-    .veui-pagination-previous {
-      margin-right: @button-width + @button-gap-width * 2;
-    }
-    .veui-pagination-prev {
-      position: absolute;
-      right: @button-width;
-    }
-
-    .veui-pagination-next {
-      margin-left: 0;
+      .veui-pagination-prev {
+        position: absolute;
+        right: -(@button-width + @button-gap-width);
+        margin-right: 0;
+      }
+  
+      .veui-pagination-next {
+        position: absolute;
+        right: -((@button-width + @button-gap-width) * 2);
+        margin-left: 0;
+      }
     }
   }
 
-  &[ui~="full"] {
+  &[ui~="full"], &[ui~="info"] {
     .veui-pagination-info {
       display: block;
     }
@@ -230,8 +232,9 @@
         }
       }
     }
-    .veui-pagination-buttons{
-      a, span {
+    .veui-pagination-switch {
+      .veui-pagination-prev,
+      .veui-pagination-next {
         border: 0 none;
         background: transparent;
         border-radius: 0;
@@ -260,16 +263,12 @@
         color: @veui-light-gray-color5;
       }
     }
-    .veui-pagination-previous,
+    .veui-pagination-prev,
     .veui-pagination-next {
       .size(@square-width);
       line-height: @square-height;
-    }
-    .veui-pagination-buttons{
-      a, span {
-        .veui-icon {
-          .size(8px, 14px);
-        }
+      .veui-icon {
+        .size(8px, 14px);
       }
     }
   }
@@ -302,16 +301,13 @@
         }
       }
     }
-    .veui-pagination-buttons{
-      a, span {
+    .veui-pagination-switch {
+      .veui-pagination-prev,
+      .veui-pagination-next {
+        .size(@big-square-width);
         border: 0 none;
         background: transparent;
         border-radius: 0;
-      }
-    }
-    .veui-pagination-buttons{
-      a, span {
-        .size(@big-square-width);
         .veui-icon {
           .size(8px, 14px);
         }

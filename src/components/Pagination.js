@@ -10,6 +10,9 @@ config.defaults({
   ui: {
     style: {
       values: ['square', 'hetero', 'full', 'simple', 'big_square']
+    },
+    role: {
+      values: ['info']
     }
   }
 }, 'pagination')

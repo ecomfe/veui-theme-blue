@@ -1,6 +1,6 @@
 import Icon from 'veui/components/Icon'
 Icon.register({
-  "minus-small": {
+  "minus": {
     "width": "12",
     "height": "12",
     "paths": [

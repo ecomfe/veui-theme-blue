@@ -13,7 +13,7 @@ config.defaults({
             inherit: true
         },
         style: {
-            values: ['alt']
+            values: ['alt', 'checkmark']
         }
     }
 }, 'select');

@@ -4,7 +4,7 @@
     <section><veui-button @click="next">Switch separator</veui-button></section>
     <section>
       <veui-breadcrumb :routes="items" @redirect="handleRedirect">
-        <template slot-scope="route"><em>{{ route.label }}</em></template>
+        <template slot-scope="route">{{ route.label }}</template>
         <template slot="separator" slot-scope="_">{{ sep }}</template>
       </veui-breadcrumb>
     </section>

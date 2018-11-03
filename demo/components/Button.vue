@@ -49,6 +49,19 @@
     </p>
     <section>
       <p>
+        <span class="veui-font-level-1b">黑色按钮：</span>
+        <span class="veui-font-level-2d">ui="dark"</span>
+      </p>
+      <p>
+        <veui-button ui="dark small">取消</veui-button>
+        <veui-button ui="dark">取消</veui-button>
+        <veui-button ui="dark large">取消</veui-button>
+        <veui-button ui="dark" disabled>取消</veui-button>
+        <veui-button ui="dark" loading>取消</veui-button>
+      </p>
+    </section>
+    <section>
+      <p>
         <span class="veui-font-level-1b">辅助按钮：</span>
         <span class="veui-font-level-2d">ui="alt"</span>
       </p>
@@ -137,46 +150,46 @@
 </template>
 
 <script>
-import bus from '../bus'
-import { Button, Icon, Table, Column } from 'veui'
-import 'veui-theme-blue/icons/cross-small'
-import 'veui-theme-blue/icons/check'
-import 'veui-theme-blue/icons/edit'
-import 'veui-theme-blue/icons/search'
-import 'veui-theme-blue/icons/cross'
+import bus from '../bus';
+import { Button, Icon, Table, Column } from 'veui';
+import 'veui-theme-blue/icons/cross-small';
+import 'veui-theme-blue/icons/check';
+import 'veui-theme-blue/icons/edit';
+import 'veui-theme-blue/icons/search';
+import 'veui-theme-blue/icons/cross';
 
 export default {
-  name: 'button-demo',
-  components: {
-    Icon,
-    'veui-button': Button,
-    'veui-table': Table,
-    'veui-table-column': Column
+    name: 'button-demo',
+    components: {
+      Icon,
+      'veui-button': Button,
+      'veui-table': Table,
+      'veui-table-column': Column
   },
-  data() {
-    return {
-      sample: '<veui-button ui="large" disabled>保存</veui-button>',
-      attrData: [
-        {
-          parameter: 'ui', desc: '样式类型', type: 'string', canSelectVal: '类型ui：primary（蓝色），link（文字），round（圆形），square（方形），alt（灰色背景）；大小ui：small（小样式），large（大样式）', defaultVal: '--'
-        },
-        {
-          parameter: 'disabled', desc: '是否禁用状态', type: 'boolean', canSelectVal: '--', defaultVal: 'false'
-        },
-        {
-          parameter: 'loading', desc: '是否加载中状态', type: 'boolean', canSelectVal: '--', defaultVal: 'false'
-        }
+    data() {
+      return {
+        sample: '<veui-button ui="large" disabled>保存</veui-button>',
+        attrData: [
+          {
+              parameter: 'ui', desc: '样式类型', type: 'string', canSelectVal: '类型ui：primary（蓝色），link（文字），round（圆形），square（方形），alt（灰色背景）；大小ui：small（小样式），large（大样式）', defaultVal: '--'
+          },
+          {
+              parameter: 'disabled', desc: '是否禁用状态', type: 'boolean', canSelectVal: '--', defaultVal: 'false'
+          },
+          {
+              parameter: 'loading', desc: '是否加载中状态', type: 'boolean', canSelectVal: '--', defaultVal: 'false'
+          }
       ]
-    }
+    };
   },
-  mounted () {
-    this.$children.forEach(child => {
-      child.$on('click', () => {
-        bus.$emit('log', child.$el.getAttribute('ui'))
-      })
-    })
+    mounted() {
+      this.$children.forEach(child => {
+        child.$on('click', () => {
+          bus.$emit('log', child.$el.getAttribute('ui'));
+      });
+    });
   }
-}
+};
 </script>
 
 <style scoped>

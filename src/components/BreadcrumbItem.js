@@ -6,6 +6,6 @@ config.defaults({
         separator: 'bold-angle-right'
     },
     parts: {
-        link: 'link primary'
+        link: 'link'
     }
 }, 'breadcrumbitem');

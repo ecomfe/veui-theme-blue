@@ -5,6 +5,10 @@
   @icon-size: 16px;
   @image-size: 100px;
 
+  width: 100%;
+  overflow: hidden;
+  font-size: @veui-font-size-small;
+
   .disabled() {
     background-color: @veui-light-gray-color1;
     color: @veui-dark-gray-color2;
@@ -16,10 +20,6 @@
     font-size: @veui-font-size-small;
   }
 
-  width: 400px;
-  overflow: hidden;
-  font-size: @veui-font-size-small;
-
   &-button-container {
     position: relative;
     margin-bottom: 12px;
@@ -28,19 +28,24 @@
     .veui-button {
       border-radius: 2px;
       padding: 0 12px;
+      height: 28px;
+      line-height: 26px;
+
+      .veui-icon {
+        margin-top: 7px;
+      }
     }
 
     .veui-uploader-tip,
     .veui-uploader-error {
-      margin-top: 8px;
+      margin-top: 5px;
     }
   }
 
   &-input-label {
     float: left;
-    color: @veui-dark-gray-color2;
     cursor: pointer;
-    margin: 0 1em 8px 0;
+    margin-right: 8px;
 
     &-icon {
       margin-right: 5px;
@@ -84,11 +89,14 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    .clearfix();
 
     li {
       margin: 0 10px 5px 0;
       position: relative;
       transition: transform @veui-transition-duration;
+      float: left;
+      margin-right: 10px;
     }
 
     img {
@@ -130,7 +138,6 @@
     &-container {
       position: relative;
       padding: 3px 4px;
-      max-width: @width;
       color: @veui-dark-gray-color2;
       transition: background-color @veui-transition-duration;
       text-align: right;
@@ -149,7 +156,8 @@
     &-name {
       .ellipsis();
       float: left;
-      max-width: ~"calc(100% - 3em)";
+      width: ~"calc(100% - 3em)";
+      max-width: 300px;
       line-height: 22px;
       text-align: left;
       vertical-align: middle;
@@ -220,11 +228,12 @@
       label.veui-button {
         cursor: pointer;
         .veui-position-center();
-        width: 80px;
+        min-width: 65px;
         height: 22px;
         line-height: 20px;
         border-radius: 0;
         padding: 0;
+        opacity: 0.7;
       }
     }
 
@@ -244,6 +253,14 @@
 
       .veui-button&-remove {
         .absolute(-1px, -1px, _, _);
+        .size(20px);
+        border-radius: 0;
+        padding: 0;
+
+        .veui-icon {
+          .size(12px);
+          margin-top: 4px;
+        }
       }
 
       .veui-button.veui-uploader-input-label-disabled {
@@ -332,29 +349,17 @@
     display: none;
   }
 
-  &[ui~="horizontal"] {
-    width: 100%;
-
-    .veui-uploader-list,
-    .veui-uploader-list-image {
-      .clearfix();
-      li {
-        float: left;
-        margin-right: 10px;
-      }
-    }
-
-    .veui-uploader-list-container {
-      width: auto;
-    }
-  }
-
   & &-button-remove {
-    margin-right: -1px;
     color: @veui-dark-gray-color2;
     opacity: 0;
-    vertical-align: middle;
     transition: opacity @veui-transition-duration;
+    height: 8px;
+    line-height: 8px;
+    margin-left: 8px;
+    .veui-icon {
+      .size(8px);
+      margin-top: 0;
+    }
   }
 
   &-list-enter,
@@ -390,6 +395,32 @@
       &-full {
         z-index: -1;
         background-color: @veui-middle-gray-color3;
+      }
+    }
+  }
+
+  &[ui~="vertical"] {
+    .veui-uploader-list,
+    .veui-uploader-list-image {
+      float: none;
+      li {
+        float: none;
+        .veui-uploader-list-container {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+
+  /* 提示文字放在下方 */
+  &[ui~="bottom"] {
+    .veui-uploader-button-container {
+      height: 52px;
+      .veui-uploader-tip {
+        position: absolute;
+        left: 0;
+        top: 35px;
+        margin-top: 0;
       }
     }
   }

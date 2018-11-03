@@ -19,17 +19,20 @@ config.defaults({
     },
     ui: {
         direction: {
-            values: ['horizontal']
+            values: ['vertical']
+        },
+        position: {
+            values: ['bottom']
         }
     },
     parts: {
-        retryFileDone: 'link micro',
-        clearFileDone: 'link square micro',
-        cancelFile: 'link square micro',
+        retryFileDone: 'link',
+        clearFileDone: 'link',
+        cancelFile: 'link',
         cancelImage: 'small',
         retryImageSuccess: 'dark',
-        clearImageSuccess: 'dark square micro',
+        clearImageSuccess: 'dark',
         retryImageFailure: 'small',
-        clearImageFailure: 'link square micro'
+        clearImageFailure: 'link'
     }
 }, 'uploader');

@@ -36,6 +36,7 @@ import NumberInput from './NumberInput';
 import Textarea from './Textarea';
 import Icon from './Icon';
 import Grid from './Grid';
+import InfoImg from './InfoImg';
 
 export default [
     {
@@ -201,19 +202,19 @@ export default [
         component: Tabs,
         redirect: '/tabs/button',
         children: [
-        {
-            path: 'button',
-            component: Button
-        },
-        {
-            path: 'input',
-            component: Input
-        },
-        {
-            path: 'progress',
-            component: Progress
-        }
-    ],
+            {
+                path: 'button',
+                component: Button
+            },
+            {
+                path: 'input',
+                component: Input
+            },
+            {
+                path: 'progress',
+                component: Progress
+            }
+        ],
         noComplete: true
     },
     {
@@ -246,5 +247,10 @@ export default [
         path: '/grid',
         name: 'Grid',
         component: Grid
+    },
+    {
+        path: '/InfoImg',
+        name: 'InfoImg',
+        component: InfoImg
     }
 ];
