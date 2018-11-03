@@ -1,10 +1,10 @@
-import '../icons/plus-huge'
-import '../icons/minus'
+import '../icons/angle-up'
+import '../icons/angle-down'
 import config from 'veui/managers/config'
 
 config.defaults({
   icons: {
-    increase: 'plus-huge',
-    decrease: 'minus'
+    increase: 'angle-up',
+    decrease: 'angle-down'
   }
 }, 'numberinput')
