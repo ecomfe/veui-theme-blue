@@ -11,28 +11,29 @@
 </template>
 
 <script>
-import bus from '../bus'
-import { Icon } from 'veui'
-import 'veui-theme-blue/icons'
+import bus from '../bus';
+import { Icon } from 'veui';
+import 'veui-theme-blue/icons';
 
 export default {
-  name: 'icon-demo',
-  data () {
-    return {
-      icons: Object.keys(Icon.components.FaIcon.icons).sort((a, b) => a > b ? 1 : -1)
+    name: 'icon-demo',
+    data() {
+        return {
+            icons: Object.keys(Icon.icons).sort((a, b) => a > b ? 1 : -1)
+        };
+    },
+    components: {
+        'veui-icon': Icon
+    },
+    mounted() {
+        console.log(this.icons);
+        this.$children.forEach(child => {
+            child.$on('click', () => {
+                bus.$emit('log', child.$el.getAttribute('ui'));
+            });
+        });
     }
-  },
-  components: {
-    'veui-icon': Icon
-  },
-  mounted () {
-    this.$children.forEach(child => {
-      child.$on('click', () => {
-        bus.$emit('log', child.$el.getAttribute('ui'))
-      })
-    })
-  }
-}
+};
 </script>
 
 <style lang="less" scoped>

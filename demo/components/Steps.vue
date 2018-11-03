@@ -24,7 +24,14 @@
         <span class="veui-font-level-1b">小型样式：</span>
         <span class="veui-font-level-2d">ui="small"</span>
       </p>
-      <veui-steps :steps="steps" :current="current - 1" :ui="`small ${vertical ? 'vertical' : ''}`"></veui-steps>
+      <veui-steps :steps="steps" :current="current - 1" :ui="`small${vertical ? ' vertical' : ''}`"></veui-steps>
+    </section>
+    <section>
+      <p>
+        <span class="veui-font-level-1b">多行小型样式：</span>
+        <span class="veui-font-level-2d">ui="small full"</span>
+      </p>
+      <veui-steps :steps="steps" :current="current - 1" :ui="`small full${vertical ? ' vertical' : ''}`"></veui-steps>
     </section>
     <section>
       <p>

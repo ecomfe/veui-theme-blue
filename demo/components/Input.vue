@@ -72,63 +72,63 @@
 </template>
 
 <script>
-import bus from '../bus'
-import { Input, Field, Form, Span } from 'veui'
-import nudge from 'veui/directives/nudge'
+import bus from '../bus';
+import { Input, Field, Form, Span } from 'veui';
+import nudge from 'veui/directives/nudge';
 export default {
-  name: 'text-input',
-  components: {
-    'veui-input': Input,
-    'veui-field': Field,
-    'veui-form': Form,
-    'veui-span': Span
-  },
-  directives: {
-    nudge
-  },
-  data () {
-    return {
-      key: null,
-      name: null,
-      phone: '13800138000',
-      password: null,
-      hiddenValue: '隐藏值',
-      poem: '兩岸猿聲啼不住，輕舟已過萬重山',
-      price: '1024'
-    }
-  },
-  methods: {
-    log (item) {
-      bus.$emit('log', item)
+    name: 'text-input',
+    components: {
+        'veui-input': Input,
+        'veui-field': Field,
+        'veui-form': Form,
+        'veui-span': Span
     },
-    handleThumbNudgeUpdate (delta) {
-      let val = this.price
-      let digits
-      let unit
-      if (typeof val === 'string') {
-        let matched = val.match(/^(\d+(?:\.\d+)?)(.*)$/)
-        if (!matched) {
-          return
-        }
-        [digits, unit] = matched.slice(1)
-        digits = parseFloat(digits)
-        if (isNaN(digits)) {
-          return
-        }
-      } else if (typeof val === 'number') {
-        digits = val
+    directives: {
+        nudge
+    },
+    data() {
+        return {
+          key: null,
+          name: null,
+          phone: '13800138000',
+          password: null,
+          hiddenValue: '隐藏值',
+          poem: '兩岸猿聲啼不住，輕舟已過萬重山',
+          price: '1024'
+      };
+    },
+    methods: {
+        log(item) {
+          bus.$emit('log', item);
+      },
+        handleThumbNudgeUpdate(delta) {
+          let val = this.price;
+          let digits;
+          let unit;
+          if (typeof val === 'string') {
+            let matched = val.match(/^(\d+(?:\.\d+)?)(.*)$/);
+            if (!matched) {
+              return;
+          }
+            [digits, unit] = matched.slice(1);
+            digits = parseFloat(digits);
+            if (isNaN(digits)) {
+              return;
+          }
+        } else if (typeof val === 'number') {
+          digits = val;
       } else {
-        return
+          return;
       }
       // 因为加 0.1 所以处理一下，否则会出现 0.30000000000000004
-      let newVal = Math.round((digits + delta) * 10) / 10
-      if (unit !== undefined) {
-        newVal += unit
+          let newVal = Math.round((digits + delta) * 10) / 10;
+          if (unit !== undefined) {
+            newVal += unit;
+        }
+          this.price = newVal;
       }
-      this.price = newVal
     }
-  }
-}
+};
 </script>
 
 <style lang="less" scoped>

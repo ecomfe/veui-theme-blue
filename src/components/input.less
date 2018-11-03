@@ -18,19 +18,15 @@
   border: 1px solid @veui-middle-gray-color4;
   background-color: @veui-light-gray-color5;
   color: @veui-dark-gray-color2;
-  transition: border-color .3s, color .3s;
+  transition: border-color @veui-transition-duration, color @veui-transition-duration;
   font-size: @veui-font-size-small;
 
   &-autofill {
     background-color: #faffbd;
   }
-  
-  .veui-field > & {
-    display: inline-table;
-  }
 
   &-hidden {
-    display: none !important;
+    display: none;
   }
 
   &-before,
@@ -88,7 +84,7 @@
   &-placeholder {
     position: absolute;
     padding-left: @left-padding;
-    color: @veui-middle-gray-color2 !important;
+    color: @veui-middle-gray-color2;
     pointer-events: none;
     cursor: text;
   }

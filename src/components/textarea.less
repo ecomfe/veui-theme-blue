@@ -13,7 +13,7 @@
   background-color: @veui-light-gray-color5;
   font-size: @veui-font-size-small;
   line-height: @textarea-line-height;
-  transition: border-color .3s, color .3s;
+  transition: border-color @veui-transition-duration, color @veui-transition-duration;
   color: @veui-dark-gray-color2;
   border-radius: @veui-border-radius-normal;
 
@@ -62,6 +62,10 @@
     &::placeholder {
       color: @veui-middle-gray-color2;
     }
+  }
+
+  &-rows {
+    min-height: auto;
   }
 
   &-rows &-input {

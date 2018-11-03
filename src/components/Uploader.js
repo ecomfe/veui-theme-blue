@@ -1,25 +1,38 @@
-import '../icons/upload'
-import '../icons/cross'
-import '../icons/check'
-import '../icons/clip'
-import '../icons/refresh'
-import '../icons/plus-huge'
-import '../icons/exclamation-circle-o'
-import config from 'veui/managers/config'
+import '../icons/upload';
+import '../icons/cross';
+import '../icons/check';
+import '../icons/clip';
+import '../icons/refresh';
+import '../icons/plus-huge';
+import '../icons/exclamation-circle-o';
+import config from 'veui/managers/config';
 
 config.defaults({
-  icons: {
-    upload: 'upload',
-    clear: 'cross',
-    success: 'check',
-    redo: 'refresh',
-    file: 'clip',
-    add: 'plus-huge',
-    alert: 'exclamation-circle-o'
-  },
-  ui: {
-    direction: {
-      values: ['horizontal']
+    icons: {
+        upload: 'upload',
+        clear: 'cross',
+        success: 'check',
+        redo: 'refresh',
+        file: 'clip',
+        add: 'plus-huge',
+        alert: 'exclamation-circle-o'
+    },
+    ui: {
+        direction: {
+            values: ['vertical']
+        },
+        position: {
+            values: ['bottom']
+        }
+    },
+    parts: {
+        retryFileDone: 'link',
+        clearFileDone: 'link',
+        cancelFile: 'link',
+        cancelImage: 'small',
+        retryImageSuccess: 'dark',
+        clearImageSuccess: 'dark',
+        retryImageFailure: 'small',
+        clearImageFailure: 'link'
     }
-  }
-}, 'uploader')
+}, 'uploader');

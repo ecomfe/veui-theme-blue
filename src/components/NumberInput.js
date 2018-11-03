@@ -6,10 +6,5 @@ config.defaults({
   icons: {
     increase: 'angle-up',
     decrease: 'angle-down'
-  },
-  ui: {
-    size: {
-      values: ['large', 'small', 'tiny', 'micro']
-    }
   }
 }, 'numberinput')

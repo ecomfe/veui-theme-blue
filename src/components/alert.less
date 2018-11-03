@@ -5,20 +5,35 @@
   @warning: @veui-warning-color;
   @info: @veui-info-color;
   @error: @veui-alert-color;
+
   position: relative;
   height: 28px;
   line-height: 26px;
   border-radius: 2px;
   font-size: @veui-font-size-small;
+  display: table;
+  width: 100%;
+  padding: 0 10px 0 8px;
 
-  span {
-    display: inline-block;
+  &[ui="limit"] {
+    width: 340px;
+  }
+
+  &-state,
+  &-message,
+  &-nav,
+  &-close {
+    display: table-cell;
+  }
+
+  &-state {
+    padding-right: 17px;
+    position: relative;
   }
 
   &-icon {
     transform: translateY(-50%);
-    .absolute(50%, _, _, 8px);
-    font-size: @veui-font-size-small;
+    .absolute(50%, _, _, 0);
   }
 
   .make-state-message(@state) {
@@ -30,9 +45,11 @@
       border: 1px solid @@border-color-name;
       color: @@fg-color-name;
 
-      .veui-alert-close.veui-button,
+      .veui-alert-close .veui-button,
       .veui-alert-nav .veui-button {
         color: @@fg-color-name;
+        font-size: @veui-font-size-small;
+
         &:hover,
         &.focus-visible,
         &:active {
@@ -40,20 +57,11 @@
         }
       }
 
-      .veui-alert-close, .veui-alert-nav .veui-button {
-        .size(8px);
-        .veui-icon {
-          margin-top: 0;
-          .size(8px);
-        }
-      }
-
-      .veui-alert-close-text[ui~="primary"] {
+      .veui-button.veui-alert-close-text {
         color: @@fg-color-name;
         width: auto;
-        font-size: @veui-font-size-small;
-        height: 28px;
-        line-height: 26px;
+        height: auto;
+        line-height: 1.5;
         &:hover,
         &.focus-visible,
         &:active {
@@ -63,25 +71,45 @@
     }
   }
 
-  &-message {
-    margin: 0 25px 0 25px;
-  }
-
   .make-state-message(success);
   .make-state-message(warning);
   .make-state-message(info);
   .make-state-message(error);
 
-  &-nav,
-  &-close {
-    .absolute(50%, 10px, _, _);
-    transform: translateY(-50%);
+  &-message {
+    width: 100%;
+    height: 100%;
   }
 
   &-nav {
-    .veui-button:first-child,
-    span {
-      margin-right: 8px;
+    &-indicator {
+      .margin(_, 8px);
+    }
+
+    .veui-button {
+      vertical-align: middle;
+    }
+  }
+
+  &-close,
+  &-nav {
+    padding-left: 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    .veui-button {
+      height: 8px;
+
+      .veui-icon {
+        margin-top: 0;
+        .size(8px);
+      }
+
+      &:hover,
+      &.focus-visible,
+      &:active {
+        color: @veui-dark-gray-color1;
+      }
     }
   }
 }

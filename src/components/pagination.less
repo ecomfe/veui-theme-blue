@@ -1,6 +1,6 @@
 @import "../lib.less";
 
-.veui-pager {
+.veui-pagination {
   @button-width: 28px;
   @button-height: 28px;
   @button-gap-width: 8px;
@@ -37,24 +37,52 @@
   }
 
   &-size {
-    .margin(_, 10px, _, 20px);
+    .margin(_, 10px);
   }
 
   &-switch {
     float: left;
   }
 
-  &-buttons {
-    float: left;
-    margin-left: @button-gap-width;
+  .veui-select {
+    min-width: auto;
+    margin-left: 5px;
+    width: auto;
+    margin-top: -3px;
+    vertical-align: middle;
 
-    a {
-      .veui-button-transition();
+    .veui-button {
+      .padding(0, 6px);
+      height: 22px;
+      line-height: 20px;
+      white-space: nowrap;
+      min-width: 44px;
+      width: auto;
+
+      .veui-icon {
+        margin-top: 7px;
+      }
+    }
+
+    .veui-select-label {
+      max-width: none;
+      width: auto;
+      float: left;
+      margin-right: 5px;
+      color: @veui-dark-gray-color3;
     }
   }
 
-  &-buttons a,
-  &-buttons span {
+  &-prev,
+  &-next {
+    .veui-button-transition();
+
+    position: relative;
+    float: left;
+    width: @button-width;
+    height: @button-height;
+    line-height: @button-width - 2px;
+    text-align: center;
     border: 1px solid @veui-middle-gray-color4;
     background: @veui-light-gray-color5;
     border-radius: @veui-border-radius-normal;
@@ -81,45 +109,12 @@
     }
   }
 
-  .veui-select {
-    width: auto;
-    min-width: auto;
-    margin-left: 10px;
-    margin-top: -3px;
-    vertical-align: middle;
-
-    .veui-button {
-      .padding(0, 6px);
-      height: 22px;
-      line-height: 20px;
-      white-space: nowrap;
-      color: @veui-text-color;
-      min-width: 44px;
-      width: auto;
-      font-size: @veui-font-size-small;
-
-      .veui-icon {
-        margin-top: 7px;
-        margin-right: 0;
-      }
-    }
-
-    .veui-select-label {
-      max-width: none;
-      width: auto;
-      float: left;
-      margin-right: 5px;
-      color: @veui-dark-gray-color3;
-    }
+  &-prev {
+    margin-right: @button-gap-width;
   }
 
-  &-previous,
   &-next {
-    position: relative;
-    float: left;
-    .size(@button-width, @button-height);
-    line-height: @button-width - 2px;
-    text-align: center;
+    margin-left: @button-gap-width;
   }
 
   &-pages {
@@ -178,7 +173,7 @@
   }
 
   .generate-responsive-page-digit-width(@length, @scale-ratio: 1) when (@length > 2) {
-    .veui-pager-digit-length-@{length} {
+    .veui-pagination-digit-length-@{length} {
       li {
         min-width: @digit-width;
       }
@@ -189,35 +184,27 @@
 
   .generate-responsive-page-digit-width(4);
 
-  & {
-    .veui-pager-switch {
-      padding: 0 @button-width + @button-gap-width;
-      position: relative;
-    }
-
-    .veui-pager-previous {
-      position: absolute;
-      left: 0;
-    }
-  }
   &[ui~="hetero"],
   &[ui~="full"] {
-    .veui-pager-switch {
-      padding-left: 0;
-    }
-
-    .veui-pager-previous {
+    .veui-pagination-switch {
       position: relative;
-      margin-right: @button-gap-width;
+
+      .veui-pagination-prev {
+        position: absolute;
+        right: -(@button-width + @button-gap-width);
+        margin-right: 0;
+      }
+  
+      .veui-pagination-next {
+        position: absolute;
+        right: -((@button-width + @button-gap-width) * 2);
+        margin-left: 0;
+      }
     }
   }
 
-  &-info {
-    display: none;
-  }
-
-  &[ui~="full"] {
-    .veui-pager-info {
+  &[ui~="full"], &[ui~="info"] {
+    .veui-pagination-info {
       display: block;
     }
   }
@@ -245,8 +232,9 @@
         }
       }
     }
-    .veui-pager-buttons{
-      a, span {
+    .veui-pagination-switch {
+      .veui-pagination-prev,
+      .veui-pagination-next {
         border: 0 none;
         background: transparent;
         border-radius: 0;
@@ -258,7 +246,7 @@
     @square-height: 50px; // square类型的高度
     @square-font-size: 15px; // square类型的字体大小
     @square-interval-size: 10px; // square类型的li之间的间隔
-    .veui-pager-switch {
+    .veui-pagination-switch {
       padding: 0 @square-width;
     }
     li {
@@ -275,16 +263,12 @@
         color: @veui-light-gray-color5;
       }
     }
-    .veui-pager-previous,
-    .veui-pager-next {
+    .veui-pagination-prev,
+    .veui-pagination-next {
       .size(@square-width);
       line-height: @square-height;
-    }
-    .veui-pager-buttons{
-      a, span {
-        .veui-icon {
-          .size(8px, 14px);
-        }
+      .veui-icon {
+        .size(8px, 14px);
       }
     }
   }
@@ -293,7 +277,7 @@
     @big-square-height: 64px; // big-square类型的高度
     @big-square-interval-size: 0; // big-square类型的li之间的间隔
     @big-square-font-size: 17px; // big-square类型的font-size
-    .veui-pager-switch {
+    .veui-pagination-switch {
       padding: 0 @big-square-width;
     }
     li {
@@ -317,16 +301,13 @@
         }
       }
     }
-    .veui-pager-buttons{
-      a, span {
+    .veui-pagination-switch {
+      .veui-pagination-prev,
+      .veui-pagination-next {
+        .size(@big-square-width);
         border: 0 none;
         background: transparent;
         border-radius: 0;
-      }
-    }
-    .veui-pager-buttons{
-      a, span {
-        .size(@big-square-width);
         .veui-icon {
           .size(8px, 14px);
         }

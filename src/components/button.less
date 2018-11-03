@@ -89,6 +89,29 @@
       }
     }
   }
+
+  &[ui~="dark"] {
+    border-color: transparent;
+    background: rgba(0, 0, 0, 0.7);
+    color: @veui-light-gray-color5;
+
+    &:hover,
+    &:active,
+    &.focus-visible {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    &.veui-disabled,
+    &.veui-disabled[ui], {
+      &,
+      &:hover {
+        background: rgba(0, 0, 0, 0.4);
+        border-color: transparent;
+        color: @veui-light-gray-color5;
+      }
+    }
+  }
+
   &[ui~="large"] {
     min-width: @large-width;
     .make-height(@large-height);
@@ -165,6 +188,7 @@
     &[ui] {
       cursor: default;
       pointer-events: none;
+      opacity: .5;
     }
   }
 
@@ -179,7 +203,7 @@
     height: @button-height;
     line-height: @button-height - 2px;
 
-    & > .veui-icon {
+    .veui-icon {
       vertical-align: top;
       @height: @button-height / 2 - 1px;
       margin-top: ~"calc(@{height} - 0.5em)";

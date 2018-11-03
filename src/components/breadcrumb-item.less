@@ -2,11 +2,20 @@
 
 .veui-breadcrumb-item {
   float: left;
-  color: @veui-text-color;
 
   &:last-child {
     .veui-breadcrumb-separator {
       display: none;
+    }
+  }
+
+  .veui-link {
+    color: @veui-text-color;
+    &:hover {
+      color: @veui-theme-color;
+    }
+    &:active {
+      color: @veui-theme-click-color;
     }
   }
 
@@ -18,16 +27,14 @@
     .size(7px, 12px);
   }
 
-  .veui-icon,
   & > span,
   & > a {
-    &[ui~="primary"], &[ui~="link"] {
-      color: @veui-text-color;
-      &:hover {
-        color: @veui-text-hover-color;
-      }
-    }
     display: inline-block;
     vertical-align: middle;
+
+    .veui-icon {
+      vertical-align: middle;
+      margin-top: -2px;
+    }
   }
 }

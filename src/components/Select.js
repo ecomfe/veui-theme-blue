@@ -1,18 +1,19 @@
-import '../icons/angle-up'
-import '../icons/angle-down'
-import config from 'veui/managers/config'
+import '../icons/angle-up';
+import '../icons/angle-down';
+import config from 'veui/managers/config';
 
 config.defaults({
-  icons: {
-    expand: 'angle-down',
-    collapse: 'angle-up'
-  },
-  ui: {
-    size: {
-      values: ['large', 'small', 'tiny', 'micro']
+    icons: {
+        expand: 'angle-down',
+        collapse: 'angle-up'
     },
-    style: {
-      values: ['alt']
+    ui: {
+        size: {
+            values: ['large', 'small', 'tiny', 'micro'],
+            inherit: true
+        },
+        style: {
+            values: ['alt', 'checkmark']
+        }
     }
-  }
-}, 'select')
+}, 'select');

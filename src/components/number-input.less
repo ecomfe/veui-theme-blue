@@ -2,8 +2,20 @@
 @import (reference) "../input.less";
 
 .veui-number-input {
+  @width: 88px;
+  @height: 45px;
+
+  &.veui-input {
+    width: @width;
+    height: @height;
+  }
+
+  input {
+    ime-mode: disabled;
+  }
+
   &-controls {
-    width: 28px;
+    width: 24px;
     height: 100%;
   }
 
@@ -18,9 +30,16 @@
     border-radius: 0;
     color: @veui-dark-gray-color3;
 
+    &,
+    &:hover,
+    &:active {
+      background: rgba(244, 247, 249, 0.40);
+    }
+
     .veui-icon {
       .veui-position-center();
       margin-top: 0;
+      .size(6px);
     }
 
     &.veui-disabled,
@@ -31,19 +50,6 @@
       }
     }
 
-  }
-
-  &-focused.veui-input {
-    border-color: @veui-gray-color-3;
-  }
-
-  .veui-button&-step-up {
-    &:hover,
-    &:active {
-      & + .veui-number-input-step-down:not(.veui-disabled):not(.veui-readonly)::after {
-        border-bottom-color: @veui-gray-color-5;
-      }
-    }
   }
 
   .veui-button&-step-up {
@@ -59,54 +65,9 @@
       .absolute(0, 0, _);
       border-bottom: 1px solid transparent;
     }
-
-    &:not(.veui-disabled):not(.veui-readonly) {
-      &:hover,
-      &:active {
-        &::after {
-          border-bottom-color: @veui-gray-color-5;
-        }
-      }
-    }
   }
 
   &.veui-input-invalid:not(.veui-disabled):not(.veui-readonly) {
     &:extend(._veui-input-invalid all);
-  }
-
-  .veui-number-input-step-up,
-    .veui-number-input-step-down {
-      .veui-icon {
-        transform: translate(50%, 50%) scale(.7);
-      }
-    }
-
-  &[ui~="small"] {
-    .veui-number-input-step-up,
-    .veui-number-input-step-down {
-      .veui-icon {
-        transform: translate(50%, 50%) scale(.7);
-      }
-    }
-  }
-
-  &[ui~="tiny"] {
-    .veui-number-input-step-up,
-    .veui-number-input-step-down {
-      .veui-icon {
-        transform: translate(50%, 50%) scale(.66);
-      }
-    }
-  }
-
-  &[ui~="micro"] {
-    height: 22px;
-    line-height: 20px;
-    .veui-number-input-step-up,
-    .veui-number-input-step-down {
-      .veui-icon {
-        transform: translate(50%, 50%) scale(.5);
-      }
-    }
   }
 }

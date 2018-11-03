@@ -7,12 +7,16 @@
       </p>
       <p>
         <veui-button @click="status = 'alert'">Trigger Error</veui-button>
-        <veui-button @click="status = null">Clear Error</veui-button>
+        <veui-button @click="status = null">Clear Status</veui-button>
       </p>
     </section>
     <section>
       <h2>线性进度条</h2>
       <veui-progress :value="Number(progress)" desc :auto-succeed="200" :status.sync="status" :decimal-place="1"></veui-progress>
+    </section>
+    <section>
+      <h2>线性进度条（自适应宽度）</h2>
+      <veui-progress :value="Number(progress)" ui="fluid" desc :auto-succeed="200" :status.sync="status" :decimal-place="1"></veui-progress>
     </section>
     <section>
       <h2>环形进度条</h2>
@@ -26,21 +30,21 @@
 </template>
 
 <script>
-import { Button, Progress } from 'veui'
+import { Button, Progress } from 'veui';
 
 export default {
-  name: 'progress-demo',
-  components: {
-    'veui-button': Button,
-    'veui-progress': Progress
+    name: 'progress-demo',
+    components: {
+      'veui-button': Button,
+      'veui-progress': Progress
   },
-  data () {
-    return {
-      progress: 0.3,
-      status: null
-    }
+    data() {
+      return {
+        progress: 0.3,
+        status: null
+    };
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

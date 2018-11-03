@@ -1,22 +1,22 @@
-import '../icons/loading'
-import config from 'veui/managers/config'
+import '../icons/loading';
+import config from 'veui/managers/config';
 
 config.defaults({
-  icons: {
-    loading: 'loading'
-  },
-  ui: {
-    style: {
-      values: ['alt', 'primary']
+    icons: {
+        loading: 'loading'
     },
-    role: {
-      values: ['link']
-    },
-    size: {
-      values: ['large', 'small']
-    },
-    shape: {
-      values: ['round', 'square']
+    ui: {
+        style: {
+            values: ['alt', 'primary', 'dark']
+        },
+        role: {
+            values: ['link']
+        },
+        size: {
+            values: ['large', 'small']
+        },
+        shape: {
+            values: ['round', 'square']
+        }
     }
-  }
-}, 'button')
+}, 'button');

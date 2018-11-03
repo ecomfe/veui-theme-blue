@@ -14,46 +14,47 @@
 </template>
 
 <script>
-import bus from './bus'
-import Icon from 'veui/components/Icon'
-import 'vue-awesome/icons/ban'
-import 'veui-theme-one/icons/angle-up'
-import 'veui-theme-one/icons/angle-down'
+import bus from './bus';
+import Icon from 'veui/components/Icon';
+import 'vue-awesome/icons/ban';
+import 'veui-theme-one/icons/angle-up';
+import 'veui-theme-one/icons/angle-down';
 export default {
-  components: {
-    Icon
+    name: 'veui-console',
+    components: {
+      Icon
   },
-  data () {
-    return {
-      expanded: false,
-      logs: []
-    }
+    data() {
+      return {
+        expanded: false,
+        logs: []
+    };
   },
-  methods: {
-    log (...messages) {
-      console.log(...messages)
-      this.logs.push(messages)
-      let el = this.$refs.logList
-      this.$nextTick(() => {
-        el.scrollTop = el.scrollHeight
-      })
+    methods: {
+      log(...messages) {
+        console.log(...messages);
+        this.logs.push(messages);
+        let el = this.$refs.logList;
+        this.$nextTick(() => {
+          el.scrollTop = el.scrollHeight;
+      });
     },
-    format (text) {
-      if (text != null) {
-        return text
+      format(text) {
+        if (text != null) {
+          return text;
       }
-      return `<span style="color: #ccc">${text === '' ? 'empty' : String(text)}</span>`
+        return `<span style="color: #ccc">${text === '' ? 'empty' : String(text)}</span>`;
     }
   },
-  watch: {
-    expanded (value) {
-      document.body.classList.toggle('console-expanded', value)
+    watch: {
+      expanded(value) {
+        document.body.classList.toggle('console-expanded', value);
     }
   },
-  mounted () {
-    bus.$on('log', (...messages) => this.log(...messages))
+    mounted() {
+      bus.$on('log', (...messages) => this.log(...messages));
   }
-}
+};
 </script>
 
 <style lang="less">

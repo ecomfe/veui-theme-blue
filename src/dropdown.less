@@ -7,7 +7,35 @@
   border: 1px solid @veui-middle-gray-color4;
   margin: 3px 0;
   border-radius: @veui-border-radius-normal;
+  outline: none;
+  transition: transform @veui-transition-duration;
+  transform-origin: 50% 0;
   .veui-overlay-shadow();
+
+  .veui-overlay-enter &,
+  .veui-overlay-leave-to & {
+    transform: scaleY(0);
+  }
+  .tether-element-attached-bottom.veui-overlay-enter-active &,
+  .tether-element-attached-bottom.veui-overlay-leave-active & {
+    transform-origin: 50% 100%;
+  }
+
+  &.veui-dropdown-overflow {
+    &-scroll {
+      &-start {
+        &::before {
+          opacity: 0;
+        }
+      }
+
+      &-end {
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+  }
 }
 
 ._veui-dropdown-button {

@@ -1,15 +1,15 @@
-import '../icons/minus-small'
-import '../icons/check-small'
-import config from 'veui/managers/config'
+import '../icons/minus';
+import '../icons/check-small';
+import config from 'veui/managers/config';
 
 config.defaults({
-  icons: {
-    indeterminate: 'minus-small',
-    checked: 'check-small'
-  },
-  ui: {
-    size: {
-      values: ['small']
+    icons: {
+        indeterminate: 'minus',
+        checked: 'check-small'
+    },
+    ui: {
+        size: {
+            values: ['small', 'large']
+        }
     }
-  }
-}, 'checkbox')
+}, 'checkbox');
