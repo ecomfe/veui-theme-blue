@@ -5,7 +5,7 @@
 * [+] `Alert`组件新增`ui=limit`样式（限制宽度为340px）
 * [+] `Button`组件新增`ui=dark`黑色按钮样式
 * [^] `Icon`组件中的`Minus-small`更名为`Minus`
-* [^] 更改`NumberInput`组件中的操作按钮
+* [^] 更改`NumberInput`组件样式
 * [+] `Pagination`组件新增`ui=info`展示条数信息样式
 * [+] `Uploader`组件去除`ui=horizontal`,默认为横向展示，新增`ui=vertical`纵向排列展示，新增`ui=bottom`提示文字在下方
 * [+] 新增`InfoImg`样式，显示数据在不同状态下的图片
