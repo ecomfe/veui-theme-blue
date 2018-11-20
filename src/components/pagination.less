@@ -28,12 +28,20 @@
     margin-right: @button-gap-width;
     line-height: @digit-height;
     color: @veui-dark-gray-color3;
+    &::after {
+      clear: both;
+      content: '';
+      display: inline-block;
+      height: 0;
+      overflow: hidden;
+    }
   }
 
   &-total,
   &-size {
     display: inline-block;
     font-size: @veui-font-size-small;
+    float: left;
   }
 
   &-size {
@@ -48,19 +56,18 @@
     min-width: auto;
     margin-left: 5px;
     width: auto;
-    margin-top: -3px;
-    vertical-align: middle;
 
     .veui-button {
       .padding(0, 6px);
-      height: 22px;
-      line-height: 20px;
+      height: 28px;
+      line-height: 26px;
       white-space: nowrap;
-      min-width: 44px;
+      min-width: 46px;
       width: auto;
+      vertical-align: top;
 
       .veui-icon {
-        margin-top: 7px;
+        margin-top: 10px;
       }
     }
 
