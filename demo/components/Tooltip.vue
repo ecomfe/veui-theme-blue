@@ -205,6 +205,7 @@ section {
 .bottom .veui-button {
   margin-right: 10px;
 }
+.top,
 .left .veui-button,
 .right .veui-button {
   margin-bottom: 10px;
