@@ -4,9 +4,12 @@
 .veui-dropdown {
   &:extend(._veui-dropdown-button all);
   display: inline-block;
-  min-width: 110px;
-  max-width: 210px;
-
+  
+  &-split {
+    min-width: 110px;
+    max-width: 210px;
+  }
+  
   &-split &-command {
     width: ~"calc(100% - 36px)";
     margin-right: -1px;

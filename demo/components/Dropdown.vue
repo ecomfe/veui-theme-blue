@@ -13,6 +13,7 @@
         <veui-dropdown
         ui="large"
         label="操作操作操作操作操作操作"
+        split
         :options="options"></veui-dropdown>
       </p>
       <p>
