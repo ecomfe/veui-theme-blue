@@ -8,31 +8,39 @@
   &-split {
     min-width: 110px;
     max-width: 210px;
-  }
-  
-  &-split &-command {
-    width: ~"calc(100% - 36px)";
-    margin-right: -1px;
-  }
-
-  &-split &-label {
-    max-width: none;
-  }
-
-  &-split &-button {
     position: relative;
-    width: 36px;
-    padding: 0;
-    text-align: center;
-
-    .veui-icon {
-      float: none;
+    height: 28px;
+    .veui-dropdown-command {
+      width: ~"calc(100% - 36px)";
+      margin-right: -1px;
+      height: 28px;
+      line-height: 26px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
-
-    &::before,
-    &::after, {
-      content: "";
-      display: inline-block;
+    .veui-dropdown-label {
+      max-width: none;
+    }
+    .veui-dropdown-button {
+      position: absolute;
+      min-width: auto;
+      width: 36px;
+      padding: 0;
+      text-align: center;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+  
+      .veui-icon {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+  
+      &::before,
+      &::after, {
+        content: "";
+        display: inline-block;
+      }
     }
   }
 

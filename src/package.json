@@ -1,9 +1,9 @@
 {
   "name": "veui-theme-blue",
-  "version": "0.13.2-dev",
+  "version": "0.14.0-dev",
   "description": "blue theme for VEUI.",
   "scripts": {
-    "icons": "node build/svg2json.js && node build/icons.js"
+    "icons": "node -r esm build/svg2json.js && node -r esm build/icons.js"
   },
   "keywords": [
     "veui",
@@ -14,15 +14,18 @@
   "author": "BI FE",
   "license": "MIT",
   "dependencies": {
-    "less-plugin-est": "^3.0.0"
+    "esm": "^3.0.84",
+    "less-plugin-est": "^3.0.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "stringify-object": "^3.3.0",
+    "svgo": "^1.1.1",
+    "svgson": "^3.0.0"
   },
   "peerDependencies": {
     "veui": "1.0.0-alpha.18"
   },
-  "devDependencies": {
-    "svgo": "^0.7.2",
-    "svgson": "^2.1.0"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ecomfe/veui-theme-blue.git"

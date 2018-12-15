@@ -153,6 +153,19 @@
   }
 
   &[ui~="primary"] {
+    .veui-input {
+      border: 0 none;
+      &-main {
+        border: 1px solid #D9D9D9;
+        border-right: 0 none;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+      &-clear {
+        border-top: 1px solid #D9D9D9;
+        border-bottom: 1px solid #D9D9D9;
+      }
+    }
     .veui-searchbox-action {
       .veui-searchbox-action-button {
         display: block;
@@ -168,20 +181,20 @@
       padding: 0;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      height: ~"calc(@{searchbox-height} - 2px)";
-      line-height: ~"calc(@{searchbox-height} - 4px)";
+      height: @searchbox-height;
+      line-height: ~"calc(@{searchbox-height} - 2px)";
     }
     &[ui~="small"] {
       .veui-button {
-        height: ~"calc(@{searchbox-small-height} - 2px)";
-        line-height: ~"calc(@{searchbox-small-height} - 4px)";
+        height: @searchbox-small-height;
+        line-height: ~"calc(@{searchbox-small-height} - 2px)";
       }
     }
     &[ui~="large"] {
       .veui-button {
         width: 64px;
-        height: ~"calc(@{searchbox-big-height} - 2px)";
-        line-height: ~"calc(@{searchbox-big-height} - 4px)";
+        height: @searchbox-big-height;
+        line-height: ~"calc(@{searchbox-big-height} - 2px)";
         font-size: @veui-font-size-normal;
       }
     }

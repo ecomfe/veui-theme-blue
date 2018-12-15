@@ -7,13 +7,21 @@
         <span class="veui-font-level-2d">类型ui=""（不传）</span>
       </p>
       <p>
+        <span class="veui-font-level-2d">split样式</span>
+      </p>
+      <p>
+        <veui-dropdown
+        label="操作操作操作操作操作操作"
+        split
+        :options="options"></veui-dropdown>
+      </p>
+      <p>
         <span class="veui-font-level-2d">大样式：ui="large"</span>
       </p>
       <p>
         <veui-dropdown
         ui="large"
         label="操作操作操作操作操作操作"
-        split
         :options="options"></veui-dropdown>
       </p>
       <p>
@@ -88,27 +96,27 @@ export default {
     data() {
         return {
             options: [
-              {
-                  label: '新建新建新建新建新建新建新建',
-                  value: 'create'
-              },
-              {
-                  label: '编辑',
-                  value: 'edit',
-                  disabled: true
-              },
-              {
-                  label: '删除',
-                  value: 'remove'
-              }
-          ]
+                {
+                    label: '新建新建新建新建新建新建新建',
+                    value: 'create'
+                },
+                {
+                    label: '编辑',
+                    value: 'edit',
+                    disabled: true
+                },
+                {
+                    label: '删除',
+                    value: 'remove'
+                }
+            ]
         };
     },
     mounted() {
         this.$children.forEach(child => {
             child.$on('click', val => {
-              bus.$emit('log', val);
-          });
+                bus.$emit('log', val);
+            });
         });
     },
     methods: {

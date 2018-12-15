@@ -12,7 +12,7 @@
           ui="small"
           :name="name"
           :placeholder="placeholder"
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
       <p>
         <span class="veui-font-level-1b">默认尺寸：</span>
@@ -22,7 +22,7 @@
         <veui-searchbox
           :name="name"
           :placeholder="placeholder"
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
       <p>
         <span class="veui-font-level-1b">大尺寸：</span>
@@ -33,7 +33,7 @@
           ui="large"
           :name="name"
           :placeholder="placeholder"
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
     </section>
     <section>
@@ -45,7 +45,7 @@
           clearable
           :placeholder="placeholder"
           disabled
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
     </section>
     <section>
@@ -59,7 +59,7 @@
           :suggestions="suggestions1"
           @input="handleInput('1', $event)"
           @search="log($event)"
-          @select="log($event)"></veui-searchbox>
+          @select="log($event)"/>
       </p>
     </section>
     <section>
@@ -78,7 +78,7 @@
           replace-on-select
           suggest-trigger="focus"
           @input="handleInput('2', $event)"
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
       <p>
         <span class="veui-font-level-1b">默认尺寸：</span>
@@ -94,7 +94,7 @@
           suggest-trigger="input"
           replace-on-select
           @input="handleInput('2', $event)"
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
       <p>
         <span class="veui-font-level-1b">大尺寸：</span>
@@ -108,7 +108,7 @@
           :suggestions="suggestions3"
           :suggest-trigger="['input', 'submit']"
           @input="handleInput('3', $event)"
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
     </section>
     <section>
@@ -135,7 +135,7 @@
           :placeholder="placeholder"
           :suggestions="suggestions5"
           @input="handleInput('5', $event)"
-          @search="log($event)"></veui-searchbox>
+          @search="log($event)"/>
       </p>
     </section>
     <section>
@@ -184,68 +184,68 @@
 </template>
 
 <script>
-import bus from '../bus'
-import { Searchbox, Icon } from 'veui'
+import bus from '../bus';
+import { Searchbox, Icon } from 'veui';
 export default {
-  name: 'demo-searchbox',
-  components: {
-    'veui-searchbox': Searchbox,
-    Icon
-  },
-  data () {
-    return {
-      name: 'name',
-      value: '测试值',
-      value2: null,
-      valueis: '测试值',
-      placeholder: '百度(placeholder)',
-      suggestions1: [],
-      suggestions2: [],
-      suggestions3: [],
-      suggestions4: [],
-      suggestions5: [],
-      suggestions6: [],
-      suggestions7: [],
-      suggestionsis: []
-    }
-  },
-  methods: {
-    handleInput (num, value) {
-      console.log(num, value)
-      if (value && num < 3) {
-        this[`suggestions${num}`] = [
-          {
-            value,
-            label: value
-          },
-          {
-            value: '百度',
-            label: '百度'
-          },
-          {
-            value: '百度贴吧',
-            label: '百度贴吧'
-          },
-          {
-            value: '百度MVP',
-            label: '百度MVP'
-          }
-        ]
-      } else if (value) {
-        this[`suggestions${num}`] = [
-          value,
-          '百度',
-          '百度贴吧',
-          '百度MVP',
-          '百度指数'
-        ]
-      } else {
-        this[`suggestions${num}`] = null
-      }
+    name: 'demo-searchbox',
+    components: {
+        'veui-searchbox': Searchbox,
+        Icon
     },
-    log (item) {
-      bus.$emit('log', item)
+    data() {
+        return {
+            name: 'name',
+            value: '测试值',
+            value2: null,
+            valueis: '测试值',
+            placeholder: '百度(placeholder)',
+            suggestions1: [],
+            suggestions2: [],
+            suggestions3: [],
+            suggestions4: [],
+            suggestions5: [],
+            suggestions6: [],
+            suggestions7: [],
+            suggestionsis: []
+        };
+    },
+    methods: {
+        handleInput(num, value) {
+            console.log(num, value);
+            if (value && num < 3) {
+              this[`suggestions${num}`] = [
+                {
+                    value,
+                    label: value
+                },
+                {
+                    value: '百度',
+                    label: '百度'
+                },
+                {
+                    value: '百度贴吧',
+                    label: '百度贴吧'
+                },
+                {
+                    value: '百度MVP',
+                    label: '百度MVP'
+                }
+            ];
+          } else if (value) {
+            this[`suggestions${num}`] = [
+              value,
+              '百度',
+              '百度贴吧',
+              '百度MVP',
+              '百度指数'
+          ];
+        } else {
+            this[`suggestions${num}`] = null;
+        }
+        },
+        log(item) {
+            bus.$emit('log', item);
+        }
     }
-  }
-}
+};
 </script>

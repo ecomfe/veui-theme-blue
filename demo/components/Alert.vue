@@ -48,13 +48,12 @@
 
 <script>
 import bus from '../bus';
-import { Alert, Icon } from 'veui';
+import { Alert } from 'veui';
 
 export default {
     name: 'alert',
     components: {
-        'veui-alert': Alert,
-        'veui-icon': Icon
+        'veui-alert': Alert
     },
     data() {
         return {
@@ -69,17 +68,17 @@ export default {
             messageIndex: 0
         };
     },
-    methods: {
-        close() {
-            this.open = true;
-        }
-    },
     mounted() {
         this.$children.forEach(child => {
             child.$on('click', () => {
                 bus.$emit('log', child.$el.getAttribute('ui'));
             });
         });
+    },
+    methods: {
+        close() {
+            this.open = true;
+        }
     }
 };
 </script>

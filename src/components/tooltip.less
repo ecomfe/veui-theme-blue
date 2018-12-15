@@ -8,7 +8,7 @@
   @arrow-size: 10px;
   @arrow-side: 12px;
 
-  .veui-overlay-shadow();
+  filter: drop-shadow(0 1px 4px rgba(0, 0 ,0, .2));
   position: relative;
   padding: 5px 12px;
   background-color: @tooltip-bg;
@@ -31,7 +31,8 @@
   }
 
   &::before {
-    display: none;
+    display: block;
+    z-index: -1;
   }
 
   .make-direction(top) {

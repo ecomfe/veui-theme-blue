@@ -4,6 +4,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const veuiLoaderOptions = require('./veui-loader.conf')
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -46,19 +47,7 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'veui-loader',
                 enforce: 'pre',
-                options: {
-                    modules: [
-                        {
-                            package: 'veui-theme-blue',
-                            fileName: '${module}.less'
-                        },
-                        {
-                            package: 'veui-theme-blue',
-                            fileName: '${module}.js',
-                            transform: false
-                        },
-                    ]
-                },
+                options: veuiLoaderOptions,
                 include: [resolve('node_modules/veui')]
             },
             {

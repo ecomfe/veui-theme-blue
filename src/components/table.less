@@ -6,17 +6,41 @@
   @table-th-td-height: 38px;
   @padding-gap: 5px; // 单元格距离左右两边的边距
 
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
   color: @veui-dark-gray-color2;
   font-size: @veui-font-size-small;
   border: 1px solid @table-border-color;
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+   &-fixed-header {
+    position: relative;
+    margin-bottom: -1px;
+    border-bottom: 1px solid @table-border-color;
+  }
+   &-fixed-footer {
+    margin-top: -1px;
+    border-top: 1px solid @table-border-color;
+  }
+   &-fixed-header + &-main {
+    overflow: auto;
+  }
+
 
   &-cell {
     display: inline-block;
     line-height: 2;
     vertical-align: middle;
+  }
+
+  &-col-select {
+    width: 60px;
+  }
+
+  &-col-expand {
+    width: 24px;
   }
 
   th,
@@ -25,6 +49,7 @@
     .padding(_, @padding-gap);
     text-align: left;
     white-space: nowrap;
+    transition: background-color @veui-transition-duration;
   }
 
   th {
@@ -48,6 +73,7 @@
 
   tfoot th {
     border-top: none;
+    border-bottom: 1px solid @table-border-color;
   }
 
   td&-no-data {
@@ -98,6 +124,55 @@
     font-size: @veui-font-size-small;
   }
 
+  & &-cell-expand {
+    padding: 0 0 0 10px;
+    text-align: center;
+     & + th,
+    & + td {
+      padding-left: 10px;
+    }
+  }
+   &-cell-expand {
+    button {
+      .size(1em);
+      background: none;
+      outline: none;
+      border: none;
+      padding: 0;
+      color: @veui-text-color-weak;
+      cursor: pointer;
+      vertical-align: middle;
+      .veui-button-transition();
+       &:hover,
+      &.focus-visible {
+        color: @veui-brand-color;
+      }
+       &:active {
+        color: @veui-brand-color-1;
+      }
+       .veui-icon {
+        display: block;
+      }
+    }
+  }
+   &-sub-row {
+    td {
+      background-color: @veui-gray-color-8;
+    }
+     &:hover .veui-table-cell-expand {
+      background-color: #fff;
+    }
+  }
+   &-sub-row &-cell-expand {
+    position: relative;
+    background-color: #fff;
+     &::before {
+      content: "";
+      .absolute(-1px, 0, _);
+      border-top: 1px solid #fff;
+    }
+  }
+
   &[ui~="alt"] thead {
     th {
       background-color: @veui-gray-color-8;
@@ -113,6 +188,13 @@
 
     &:last-child {
       border-right: none;
+    }
+  }
+
+  &-expander {
+    transition: transform @veui-transition-duration;
+     &-collapse {
+      transform: rotateZ(90deg);
     }
   }
 }

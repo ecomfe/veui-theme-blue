@@ -1,10 +1,10 @@
 <template>
   <article>
     <h1><code>&lt;InfoImg&gt;不同状态下显示的图片</code></h1>
-    <div class="info-img-wrap">
+    <div class="info-img-wrap theme-blue">
       <div class="info-img" v-for="item in imgArr" :key="item.className">
         <div class="img">
-            <span :class="item.className"></span>
+            <span :class="`theme-blue-${item.className}`"></span>
         </div>
         <div class="desc">
           <div>{{ item.desc }}</div>
@@ -15,6 +15,7 @@
   </article>  
 </template>
 <script>
+import 'veui-theme-blue/info-img.less';
 export default {
     name: 'InfoImg',
     data() {

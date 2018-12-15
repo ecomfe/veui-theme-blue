@@ -1,13 +1,14 @@
-import Icon from 'veui/components/Icon'
+import Icon from 'veui/components/Icon';
+
 Icon.register({
-  "minus": {
-    "width": "12",
-    "height": "12",
-    "paths": [
+  minus: {
+    paths: [
       {
-        "d": "M3 5h6v2H3z",
-        "fill-rule": "evenodd"
+        d: 'M3 5h6v2H3z',
+        'fill-rule': 'evenodd'
       }
-    ]
+    ],
+    width: '12',
+    height: '12'
   }
-})
+});

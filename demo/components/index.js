@@ -37,6 +37,7 @@ import Textarea from './Textarea';
 import Icon from './Icon';
 import Grid from './Grid';
 import InfoImg from './InfoImg';
+import Link from './Link';
 
 export default [
     {
@@ -119,6 +120,11 @@ export default [
         path: '/input',
         name: 'Input',
         component: Input
+    },
+    {
+        path: '/link',
+        name: 'Link',
+        component: Link
     },
     {
         path: '/number-input',
