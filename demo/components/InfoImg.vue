@@ -1,6 +1,12 @@
 <template>
   <article>
     <h1><code>&lt;InfoImg&gt;不同状态下显示的图片</code></h1>
+    <section>
+        <p class="veui-font-level-2a">使用时需手动引入info-img.less样式，import 'veui-theme-blue/info-img.less';</p>
+        <p class="veui-font-level-2d">使用方式一：父元素设class="theme-blue"，元素本身设class="no-search"等</p>
+        <p class="veui-font-level-2d">使用方式二：父元素可不设class="theme-blue"，元素本身设class="theme-blue-no-search"等</p>
+    </section>
+
     <div class="info-img-wrap theme-blue">
       <div class="info-img" v-for="item in imgArr" :key="item.className">
         <div class="img">
