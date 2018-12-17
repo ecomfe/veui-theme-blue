@@ -1,6 +1,6 @@
 {
   "name": "veui-theme-blue",
-  "version": "0.14.0-dev",
+  "version": "0.14.1-dev",
   "description": "blue theme for VEUI.",
   "scripts": {
     "icons": "node -r esm build/svg2json.js && node -r esm build/icons.js"
@@ -23,7 +23,7 @@
     "svgson": "^3.0.0"
   },
   "peerDependencies": {
-    "veui": "1.0.0-alpha.18"
+    "veui": "1.0.0-alpha.19"
   },
   "devDependencies": {},
   "repository": {
