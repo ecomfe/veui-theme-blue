@@ -60,25 +60,22 @@
 </template>
 
 <script>
-    import bus from '../bus';
-    import {Alert, Dialog} from 'veui';
-    export default {
-        name: 'Font',
-        components: {
-        },
-        data() {
-            return {};
-        },
-        methods: {
-            close() {}
-        },
-        mounted() {}
-    };
+export default {
+    name: 'Font',
+    components: {
+    },
+    data() {
+        return {};
+    },
+    methods: {
+        close() {}
+    },
+    mounted() {}
+};
 </script>
 
 <style lang="less" scoped>
 @import "~veui-theme-blue/lib.less";
-
     .font-wrap {
         div {
             margin:10px;

@@ -1,6 +1,6 @@
 # veui-theme-blue
 
-blue theme for VEUI.
+blue theme for [VEUI](https://github.com/ecomfe/veui).
 
 ## Installation
 

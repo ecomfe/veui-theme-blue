@@ -21,41 +21,40 @@
 </template>
 
 <script>
-import { Button, ButtonGroup, Checkbox } from 'veui'
+import { ButtonGroup, Checkbox } from 'veui';
 
 export default {
-  name: 'button-group-demo',
-  components: {
-    'veui-button': Button,
-    'veui-button-group': ButtonGroup,
-    'veui-checkbox': Checkbox
-  },
-  data () {
-    return {
-      disabled: false,
-      items1: [
+    name: 'button-group-demo',
+    components: {
+        'veui-button-group': ButtonGroup,
+        'veui-checkbox': Checkbox
+    },
+    data() {
+        return {
+            disabled: false,
+            items1: [
         { label: '新建', event: 'add' },
         { label: '编辑', event: 'edit' },
         { label: '删除', event: 'remove' }
-      ],
-      items2: [
+          ],
+            items2: [
         { label: '新建', event: 'add'},
         { label: '编辑', event: 'edit' },
         { label: '删除', event: 'remove' }
-      ],
-      items3: [
+          ],
+            items3: [
         { label: '新建', event: 'add', disabled: true },
         { label: '编辑', event: 'edit' },
         { label: '删除', event: 'remove' }
-      ],
-      items4: [
+          ],
+            items4: [
         { label: '新建', event: 'add', disabled: true },
         { label: '编辑', event: 'edit' },
         { label: '删除', event: 'remove' }
-      ]
+          ]
+        };
     }
-  }
-}
+};
 </script>
 
 <style lang="less" scoped>

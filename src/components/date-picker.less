@@ -44,7 +44,7 @@
     .veui-calendar-panel {
       height: 100%;
       .veui-calendar-body {
-        height: 220px;
+        min-height: 220px;
         margin-bottom: 5px;
         padding-bottom: 0;
         table {
@@ -183,5 +183,9 @@
     & {
       background-color: @veui-light-gray-color5;
     }
+  }
+
+  &-expanded &-icon {
+    transform: none;
   }
 }
