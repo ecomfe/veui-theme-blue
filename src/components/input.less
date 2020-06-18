@@ -1,144 +1,249 @@
 @import "../lib.less";
-@import (reference) "../input.less";
 
-.veui-input {
-  @left-padding: 9px;
+.@{veui-prefix}-input {
+  // @left-padding: @dls-input-padding;
 
-  border-radius: @veui-border-radius-normal;
-  .make-line-height(@height) {
-    height: @height;
-    line-height: @height - 2px;
-  }
-
-  overflow: hidden;
-  display: inline-table;
-  position: relative;
-  .make-line-height(@veui-height-normal);
-  width: @veui-width-normal;
-  border: 1px solid @veui-middle-gray-color4;
-  background-color: @veui-light-gray-color5;
-  color: @veui-dark-gray-color2;
-  transition: border-color @veui-transition-duration, color @veui-transition-duration;
-  font-size: @veui-font-size-small;
+  display: inline-flex;
+  align-items: stretch;
+  vertical-align: middle;
+  // height: @dls-input-height-m;
+  // font-size: @dls-input-font-size-m;
+  // width: @dls-input-width;
+  // border-radius: @dls-input-border-radius-m;
 
   &-autofill {
-    background-color: #faffbd;
-  }
-
-  .veui-field > & {
-    display: inline-table;
+    background-color: @veui-autofill-color;
   }
 
   &-hidden {
-    display: none;
-  }
-
-  &-before,
-  &-main,
-  &-clear,
-  &-after {
-    display: table-cell;
-    vertical-align: top;
-    height: 100%;
+    display: none !important;
   }
 
   &-main {
-    width: 100%;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: stretch;
+    position: relative;
+    // padding: 0 @dls-input-padding;
+    // border: 1px solid @dls-input-border-color;
+    border-radius: inherit;
+    // background-color: @dls-input-background-color;
+    // color: @dls-input-font-color;
+    cursor: text;
+    .veui-transition(border-color, color, box-shadow);
+  }
+
+  &-has-before &-main {
+    .border-left-radius(0);
+  }
+
+  &-has-after &-main {
+    .border-right-radius(0);
+  }
+
+  &-before,
+  &-after,
+  &-prepend,
+  &-append {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+  }
+
+  &-before,
+  &-after {
+    border-radius: inherit;
+  }
+
+  &-before-label,
+  &-after-label {
+    display: flex;
+    align-items: center;
+    .size(100%);
+    // border: 1px solid @dls-input-border-color;
+    border-radius: inherit;
+    // padding: 0 @dls-input-padding;
+  }
+
+  &-before-label {
+    .border-right-radius(0);
+    border-right: none;
+  }
+
+  &-after-label {
+    .border-left-radius(0);
+    border-left: none;
+  }
+
+  &-prepend {
+    // padding-right: @dls-input-content-spacing;
+  }
+
+  &-append {
+    // padding-left: @dls-input-content-spacing;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    position: relative;
   }
 
   &-input {
     display: block;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
     border: none;
     outline: none;
-    padding: 0 @left-padding;
+    color: inherit;
+    padding: 0;
+    width: 100%;
     background-color: transparent;
-    text-overflow: ellipsis;
+    .ellipsis();
   }
 
   &-clear {
-    padding-right: 12px;
-
-    &-button {
-      padding: 0;
-      border: none;
-      background-color: transparent;
-      color: @veui-middle-gray-color7;
-      outline: none;
-      cursor: unset;
-
-      &.focus-visible {
-        color: @veui-dark-gray-color2;
-      }
+    &-has-append {
+      // margin-right: @dls-input-content-spacing;
     }
+  }
 
-    .veui-icon {
-      cursor: pointer;
-      vertical-align: middle;
-      .size(10px);
+  &-clear + &-count {
+    // margin-left: @dls-input-content-spacing;
+  }
 
-      &:hover {
-        color: @veui-dark-gray-color2;
-      }
-    }
+  &-main:hover {
+    // border-color: @dls-input-border-color-hover;
+  }
+
+  &.@{veui-prefix}-readonly &-main {
+    // border-color: @dls-input-border-color-read-only;
+    // background-color: @dls-input-background-color-read-only;
+  }
+
+  &.@{veui-prefix}-readonly &-main:hover {
+    // border-color: @dls-input-border-color-read-only-hover;
+  }
+
+  &.@{veui-prefix}-readonly &-input {
+    // color: @dls-input-font-color-read-only;
+  }
+
+  &.@{veui-prefix}-focus {
+    position: relative;
+  }
+
+  &.@{veui-prefix}-focus &-main {
+    // .dls-focus-ring(@dls-input-border-color-focus, @dls-input-shadow-focus);
+  }
+
+  &.@{veui-prefix}-invalid &-main {
+    // border-color: @dls-input-border-color-error;
+    // color: @dls-input-font-color-error;
+  }
+
+  &.@{veui-prefix}-invalid &-main:hover {
+    // border-color: @dls-input-border-color-error-hover;
+  }
+
+  &.@{veui-prefix}-invalid.@{veui-prefix}-focus &-main {
+    // .dls-focus-ring(
+    //   @dls-input-border-color-error-focus,
+    //   @dls-input-shadow-error-focus
+    // );
+  }
+
+  &.@{veui-prefix}-focus.@{veui-prefix}-readonly &-main {
+    // border-color: @dls-input-border-color-read-only-focus;
+  }
+
+  &.@{veui-prefix}-disabled &-main,
+  &.@{veui-prefix}-readonly &-before-label,
+  &.@{veui-prefix}-readonly &-after-label,
+  &.@{veui-prefix}-disabled &-before-label,
+  &.@{veui-prefix}-disabled &-after-label {
+    // background-color: @dls-input-background-color-disabled;
+    // border-color: @dls-input-border-color-disabled;
+    cursor: not-allowed;
+  }
+
+  &.@{veui-prefix}-disabled &-input,
+  &.@{veui-prefix}-readonly &-before-label,
+  &.@{veui-prefix}-readonly &-after-label,
+  &.@{veui-prefix}-disabled &-before-label,
+  &.@{veui-prefix}-disabled &-after-label,
+  &.@{veui-prefix}-disabled &-prepend,
+  &.@{veui-prefix}-disabled &-append {
+    // color: @dls-input-font-color-disabled;
+    pointer-events: none;
   }
 
   &-placeholder {
     position: absolute;
-    padding-left: @left-padding;
-    color: @veui-middle-gray-color2;
+    width: 100%;
+    // color: @dls-input-placeholder-color;
     pointer-events: none;
     cursor: text;
+    .ellipsis();
   }
 
-  &.veui-input-invalid {
-    &:extend(._veui-input-invalid all);
-  }
+  &-count {
+    line-height: 2; // ensure even number
+    // color: @dls-input-count-color;
+    font-variant-numeric: tabular-nums;
+    .veui-transition(color);
 
-  &:hover {
-    // border-color: @veui-dark-gray-color3;
-  }
-
-  &:focus,
-  &-focused {
-    outline: none;
-    border-color: @veui-theme-color;
-    color: @veui-dark-gray-color2;
-  }
-
-  &.veui-readonly,
-  &.veui-disabled {
-    &,
-    &:hover {
-      border-color: @veui-middle-gray-color4;
-      color: @veui-middle-gray-color2;
-    }
-
-    & .veui-input-input {
-      background-color: @veui-light-gray-color4;
-    }
-    .veui-input-after {
-      background-color: @veui-light-gray-color4;
+    &-overflow {
+      // color: @dls-input-count-color-error;
     }
   }
 
-  &.veui-disabled {
-    &,
-    & .veui-input-input {
-      cursor: not-allowed;
+  &[ui~="xs"] {
+    // height: @dls-input-height-xs;
+    // font-size: @dls-input-font-size-xs;
+    // border-radius: @dls-input-border-radius-xs;
+  }
+
+  &[ui~="s"] {
+    // height: @dls-input-height-s;
+    // font-size: @dls-input-font-size-s;
+    // border-radius: @dls-input-border-radius-s;
+  }
+
+  &[ui~="l"] {
+    // height: @dls-input-height-l;
+    // font-size: @dls-input-font-size-l;
+    // border-radius: @dls-input-border-radius-l;
+  }
+
+  &[ui~="inline"] {
+    border-radius: 0;
+    position: relative;
+    background-color: transparent;
+
+    &.@{veui-prefix}-readonly,
+    &.@{veui-prefix}-disabled {
+      .@{veui-prefix}-input-main {
+        background-color: transparent;
+      }
     }
   }
 
-  &[ui~="large"] {
-    .make-line-height(@veui-height-large);
-    width: @veui-width-large;
-    font-size: @veui-font-size-normal;
+  &[ui~="inline"] &-main {
+    position: relative;
+    box-shadow: none;
+    border-style: none none solid;
   }
 
-  &[ui~="small"] {
-    .make-line-height(@veui-height-normal);
-    width: @veui-width-small;
+  &[ui~="inline"].@{veui-prefix}-input-has-after .@{veui-prefix}-input-main {
+    border-radius: 0;
+  }
+
+  &.@{veui-prefix}-focus[ui~="inline"] &-main {
+    // box-shadow: @dls-input-shadow-inline-focus;
+  }
+
+  &.@{veui-prefix}-invalid.@{veui-prefix}-focus[ui~="inline"] &-main {
+    // box-shadow: @dls-input-shadow-inline-error-focus;
   }
 }

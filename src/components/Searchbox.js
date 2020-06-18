@@ -1,20 +1,25 @@
-import '../icons/search';
+import 'veui-theme-blue-icons/search';
 import config from 'veui/managers/config';
 
-config.defaults({
-    icons: {
-        search: 'search'
-    },
-    parts: {
-        button: 'primary'
-    },
-    ui: {
-        style: {
-            values: ['primary']
+config.defaults(
+    {
+        icons: {
+            search: 'search'
         },
-        size: {
-            values: ['large', 'small'],
-            inherit: true
+        parts: {
+            button: 'primary',
+            search: 'icon'
+        },
+        ui: {
+            style: {
+                values: ['normal', 'inline', 'strong'],
+                inherit: true
+            },
+            size: {
+                values: ['xs', 's', 'm', 'l'],
+                inherit: true
+            }
         }
-    }
-}, 'searchbox');
+    },
+    'searchbox'
+);

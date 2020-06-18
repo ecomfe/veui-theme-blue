@@ -1,13 +1,14 @@
-import '../icons/selected'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/check';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    checked: 'selected'
-  },
-  ui: {
-    style: {
-      values: ['checkmark']
-    }
-  }
-}, 'option')
+config.defaults(
+    {
+        ui: {
+            size: {
+                values: ['xs', 's', 'm', 'l'],
+                inherit: true
+            }
+        }
+    },
+    'option'
+);

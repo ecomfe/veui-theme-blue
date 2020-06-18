@@ -1,18 +1,27 @@
-import '../icons/calendar'
-import '../icons/cross'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/calendar';
+import 'veui-theme-blue-icons/times-circle';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    calendar: 'calendar',
-    clear: 'cross'
-  },
-  ui: {
-    style: {
-      values: []
+config.defaults(
+    {
+        icons: {
+            calendar: 'calendar',
+            clear: 'times-circle'
+        },
+        ui: {
+            style: {
+                values: ['alt'],
+                inherit: true
+            },
+            size: {
+                values: ['s', 'm'],
+                inherit: true
+            }
+        },
+        parts: {
+            clear: 'icon',
+            input: 'inline'
+        }
     },
-    size: {
-      values: []
-    }
-  }
-}, 'datepicker')
+    'datepicker'
+);

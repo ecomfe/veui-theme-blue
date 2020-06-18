@@ -1,33 +1,44 @@
 @import "../lib.less";
-@import (reference) "../input.less";
 
-.veui-slider {
-  @default-progress-height: 4px;
-  @default-thumb-height: 14px;
-  @default-mark-top-offset: 3px;
-  @default-mark-height: @default-progress-height + @default-mark-top-offset * 2;
-
+.@{veui-prefix}-slider {
+  display: flex;
   width: 100%;
-  min-width: @veui-width-normal;
   position: relative;
   user-select: none;
   overflow: visible;
+  outline: none;
+  // color: @dls-slider-font-color;
 
   &-track {
+    flex-grow: 1;
+
     &-default {
-      &-wrapper {
-        position: relative;
+      display: flex;
+      align-items: center;
+
+      &-progress {
+        // min-height: @dls-slider-track-min-width;
       }
 
-      &-bg,
-      &-sp,
-      &-fg {
-        height: @default-progress-height;
-        border-radius: @default-progress-height / 2;
+      &-wrapper {
+        position: relative;
+        flex-grow: 1;
       }
 
       &-bg {
-        background-color: @veui-gray-color-5;
+        // background-color: @dls-slider-track-color;
+        cursor: pointer;
+        .veui-transition(background-color);
+
+        &:hover {
+          // background-color: @dls-slider-track-color-hover;
+
+          &
+            ~ .@{veui-prefix}-slider-track-default-marks
+            .@{veui-prefix}-slider-track-default-mark-out-progress {
+            // background-color: @dls-slider-track-color-hover;
+          }
+        }
       }
 
       &-sp,
@@ -36,24 +47,78 @@
         top: 0;
       }
 
-      &-sp {
-        background-color: @veui-brand-color-8;
-      }
+      // &-sp {
+      //   background-color: @veui-brand-color-8;
+      // }
 
       &-fg {
-        background-color: @veui-brand-color;
+        // background-color: @dls-slider-track-progress-color;
+        .veui-transition(background-color);
+        cursor: pointer;
+
+        &:hover {
+          // background-color: @dls-slider-track-progress-color-hover;
+
+          &
+            ~ .@{veui-prefix}-slider-track-default-marks
+            .@{veui-prefix}-slider-track-default-mark-in-progress {
+            // background-color: @dls-slider-track-progress-color-hover;
+          }
+        }
       }
 
       &-marks {
-        width: 100%;
-        position: absolute;
-        top: -1 * @default-mark-top-offset;
+        .absolute(0);
+        transform: translateY(50%);
+        pointer-events: none;
       }
 
       &-mark {
-        height: @default-mark-height;
-        border-left: 1px solid @veui-gray-color-5;
         position: absolute;
+        transform: translate(-50%, -50%);
+        // min-width: @dls-slider-mark-min-size;
+        // min-height: @dls-slider-mark-min-size;
+        border-radius: 50%;
+        .veui-transition(background-color, transform);
+        cursor: pointer;
+        pointer-events: all;
+
+        &-in-progress {
+          // background-color: @dls-slider-track-progress-color;
+        }
+
+        &-out-progress {
+          // background-color: @dls-slider-track-color;
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          .absolute(_, 50%, 50%, _);
+          border-radius: 50%;
+          transform: translate(50%, 50%) scale(0);
+          .veui-transition(transform);
+        }
+
+        &::before {
+          // background-color: @dls-slider-thumb-background-color-hover;
+          border-radius: 50%;
+        }
+
+        &::after {
+          // min-width: @dls-slider-thumb-dot-min-size;
+          // min-height: @dls-slider-thumb-dot-min-size;
+          // background-color: @dls-slider-thumb-dot-color;
+        }
+
+        &:hover {
+          // background-color: @dls-slider-track-progress-color-hover;
+
+          &::before,
+          &::after {
+            transform: translate(50%, 50%) scale(1);
+          }
+        }
       }
     }
   }
@@ -61,6 +126,10 @@
   &-thumb {
     position: absolute;
     left: 0;
+    background: none;
+    padding: 0;
+    border: none;
+    overflow: visible;
     // 利用 translateX 左偏移一半，实现 thumb 宽度自适应
     transform: translateX(-50%);
     cursor: pointer;
@@ -69,76 +138,181 @@
       outline: none;
     }
 
-    &.focus-visible {
-      .veui-slider-thumb-default {
-        border-color: @veui-brand-color-1;
+    &-default {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      // background-color: @dls-slider-thumb-background-color;
+      .veui-button-transition();
+
+      &::before {
+        content: "";
+        // min-width: @dls-slider-thumb-dot-min-size;
+        // min-height: @dls-slider-thumb-dot-min-size;
+        // background-color: @dls-slider-thumb-dot-color;
+        border-radius: 50%;
       }
     }
 
-    &-default {
-      width: @default-thumb-height;
-      height: @default-thumb-height;
-      border: 2px solid @veui-brand-color;
-      border-radius: 100%;
-      background-color: #fff;
+    &:hover {
+      .@{veui-prefix}-slider-thumb-default {
+        // background-color: @dls-slider-thumb-background-color-hover;
+      }
+    }
+
+    &.focus-visible {
+      .@{veui-prefix}-slider-thumb-default {
+        // background-color: @dls-slider-thumb-background-color-focus;
+        // .dls-focus-ring(
+        //   @dls-slider-thumb-border-color-focus,
+        //   @dls-slider-thumb-shadow-focus
+        // );
+      }
+    }
+
+    &:active {
+      .@{veui-prefix}-slider-thumb-default {
+        // background-color: @dls-slider-thumb-background-color-active;
+      }
     }
   }
 
-  .slider-size(@slider-height) {
-    .veui-slider {
+  .slider-size(@total-height, @track-height, @track-radius, @thumb-size, @mark-size, @dot-size) {
+    .@{veui-prefix}-slider {
       &-track {
         &-default {
           // Slider 高度靠 default track 撑起来，如果替换了 track slot 就高度自适应了
-          height: @slider-height;
-          padding-top: (@slider-height - @default-progress-height) / 2;
+          height: @total-height;
+
+          &-progress {
+            height: @track-height;
+            border-radius: @track-radius;
+          }
+
+          &-mark {
+            .size(@mark-size);
+
+            &::before {
+              .size(@thumb-size);
+            }
+
+            &::after {
+              .size(@dot-size);
+            }
+          }
         }
       }
+
       &-thumb {
         // track/thumb slot 高度变化需要调整 thumb 的位置
-        top: (@slider-height - @default-thumb-height) / 2;
+        top: (@total-height - @thumb-size) / 2;
+
+        &-default {
+          .size(@thumb-size);
+
+          &::before {
+            .size(@dot-size);
+          }
+        }
       }
     }
   }
 
-  .slider-size(@veui-height-normal);
-  &[ui~="large"] {
-    .slider-size(@veui-height-large);
+  &[ui~="s"] {
+    // .slider-size(
+      // dls-line-height(@dls-line-height-m, @dls-slider-font-size-s),
+      // @dls-slider-track-width-s,
+      // @dls-slider-track-border-radius-s,
+      // @dls-slider-thumb-size-s,
+      // @dls-slider-mark-size-s,
+      // @dls-slider-thumb-dot-size-s
+    // );
   }
 
-  &[ui~="small"] {
-    .slider-size(@veui-height-small);
+  &[ui~="m"] {
+    // .slider-size(
+      // dls-line-height(@dls-line-height-m, @dls-slider-font-size-m),
+      // @dls-slider-track-width-m,
+      // @dls-slider-track-border-radius-m,
+      // @dls-slider-thumb-size-m,
+      // @dls-slider-mark-size-m,
+      // @dls-slider-thumb-dot-size-m
+    // );
   }
 
-  &[ui~="tiny"] {
-    .slider-size(@veui-height-tiny);
-  }
-
-  &[ui~="micro"] {
-    .slider-size(@veui-height-micro);
-  }
-
-  &.veui-disabled,
-  &.veui-readonly {
-    .veui-slider-track {
+  &.@{veui-prefix}-readonly {
+    .@{veui-prefix}-slider-track {
       &-default {
-        &-bg {
-          background-color: @veui-gray-color-6;
-        }
-        &-fg {
-          background-color: @veui-gray-color-4;
+        &-bg,
+        &-mark-out-progress {
+          // background-color: @dls-slider-track-color-read-only;
         }
 
+        &-fg,
+        &-mark-in-progress {
+          // background-color: @dls-slider-track-progress-color-read-only;
+        }
+
+        &-bg,
+        &-fg,
         &-mark {
-          border-color: @veui-gray-color-6;
+          pointer-events: none;
         }
       }
     }
 
-    .veui-slider-thumb {
+    .@{veui-prefix}-slider-thumb {
+      cursor: default;
+
       &-default {
-        border-color: @veui-gray-color-4;
+        // background-color: @dls-slider-thumb-background-color-read-only;
+
+        &:hover {
+          // background-color: @dls-slider-thumb-background-color-read-only-hover;
+        }
+      }
+
+      &.focus-visible .@{veui-prefix}-slider-thumb-default {
+        // background-color: @dls-slider-thumb-background-color-read-only-focus;
+        // .dls-focus-ring(
+        //   @dls-slider-thumb-border-color-read-only-focus,
+        //   @dls-slider-thumb-shadow-read-only-focus
+        // );
       }
     }
   }
 
+  &.@{veui-prefix}-disabled {
+    // color: @dls-slider-font-color-disabled;
+
+    .@{veui-prefix}-slider-track {
+      &-default {
+        &-bg,
+        &-mark-out-progress {
+          // background-color: @dls-slider-track-color-disabled;
+        }
+
+        &-fg,
+        &-mark-in-progress {
+          // background-color: @dls-slider-track-progress-color-disabled;
+        }
+
+        &-bg,
+        &-fg,
+        &-mark {
+          pointer-events: none;
+        }
+      }
+    }
+
+    .@{veui-prefix}-slider-thumb {
+      cursor: not-allowed;
+
+      &-default {
+        // background-color: @dls-slider-thumb-background-color-disabled;
+      }
+    }
+  }
 }

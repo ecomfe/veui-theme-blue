@@ -1,23 +1,6 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
 
-@veui-height-normal: 28px;
-
-.veui-option {
+.@{veui-prefix}-option {
   &:extend(._veui-dropdown-option all);
-
-  & &-checkmark {
-    float: left;
-    display: none;
-  }
-
-  [ui~="checkmark"] &-checkmark {
-    color: #108EE9;
-    display: block;
-    .size(10px);
-    position: absolute;
-    left: 7px;
-    top: 50%;
-    margin-top: -5px;
-  }
 }

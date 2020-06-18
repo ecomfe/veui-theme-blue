@@ -1,13 +1,19 @@
-.veui-prompt-box {
+@import "../lib.less";
+
+.@{veui-prefix}-prompt-box {
+  .@{veui-prefix}-dialog-content {
+    // width: @dls-dialog-width-narrow;
+  }
+
   & &-info {
     margin-top: 0;
   }
 
-  & &-input {
-    width: 100%;
+  &-info {
+    // margin-bottom: @dls-spacing-unit * 3;
   }
 
-  .veui-dialog-content-foot {
-    padding-top: 40px;
+  & &-input {
+    width: 100%;
   }
 }

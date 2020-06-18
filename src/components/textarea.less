@@ -1,67 +1,100 @@
 @import "../lib.less";
-@import (reference) "../input.less";
-@textarea-line-height: 20px;
 
-.veui-textarea {
+.@{veui-prefix}-textarea {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  width: 330px;
-  min-height: 90px;
-  border: 1px solid @veui-middle-gray-color4;
-  padding: 4px 0;
-  background-color: @veui-light-gray-color5;
-  font-size: @veui-font-size-small;
-  line-height: @textarea-line-height;
-  transition: border-color @veui-transition-duration, color @veui-transition-duration;
-  color: @veui-dark-gray-color2;
-  border-radius: @veui-border-radius-normal;
+  width: 200px;
+  border: 1px solid #333;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333;
+  min-height: 100px;
+  border-radius: 4px;
+  .veui-transition(border-color, color, box-shadow);
 
-  &[ui~="auto"] {
-    width: 100%;
+  @line-number-default-width: 100px;
+
+  &:hover {
+    // border-color: @dls-input-border-color-hover;
   }
 
-  &[ui~="line"] {
-    .veui-textarea-input {
-      padding: 0;
+  &-resizable &-input {
+    resize: vertical;
+  }
+
+  &.@{veui-prefix}-readonly {
+    // border-color: @dls-input-border-color-read-only;
+    // background-color: @dls-input-background-color-read-only;
+    // color: @dls-input-font-color-read-only;
+
+    &:hover {
+      // border-color: @dls-input-border-color-read-only-hover;
     }
   }
 
-  &.veui-input-invalid {
-    &:extend(._veui-input-invalid all);
-    font: inherit;
+  &.@{veui-prefix}-disabled {
+    &,
+    &:hover {
+      // border-color: @dls-input-border-color-disabled;
+      // color: @dls-input-font-color-disabled;
+    }
+
+    & .@{veui-prefix}-textarea-input {
+      // background-color: @dls-input-background-color-disabled;
+    }
+
+    &,
+    & .@{veui-prefix}-textarea-input {
+      cursor: not-allowed;
+    }
   }
 
-  &:hover {
-    border-color: @veui-dark-gray-color3;
+  &.@{veui-prefix}-focus {
+    &,
+    &:hover {
+      // .dls-focus-ring(@dls-input-border-color-focus, @dls-input-shadow-focus);
+    }
   }
 
-  &&-focused {
-    border-color: @veui-theme-color;
-    color: @veui-dark-gray-color2;
+  &.@{veui-prefix}-invalid {
+    // border-color: @dls-input-border-color-error;
+    // color: @dls-input-font-color-error;
+  }
+
+  &.@{veui-prefix}-invalid:hover {
+    // border-color: @dls-input-border-color-error-hover;
+  }
+
+  &.@{veui-prefix}-invalid.@{veui-prefix}-focus {
+    // .dls-focus-ring(
+    //   @dls-input-border-color-error-focus,
+    //   @dls-input-shadow-error-focus
+    // );
+  }
+
+  // 不要给 textarea 设置背景色，不然在 IE9 下面光标位置会很难看，同时引起一些其他怪异问题
+  &-input {
+    position: relative;
+    float: right;
+    width: 100%;
+    // padding: @dls-textarea-padding-y @dls-textarea-padding-x;
+
+    // 和外部容器的高度保持一致
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit;
+
+    border: none;
+    outline: none;
+    z-index: 1;
+    resize: none;
   }
 
   &-input,
   &-measurer {
     font: inherit;
-  }
-
-  &-input {
-    position: relative;
-    float: right;
-    width: 100%;
-    // 和外部容器的高度保持一致
-    height: inherit;
-    min-height: inherit;
-    max-height: inherit;
-    border: none;
-    outline: none;
-    padding: 0 8px;
-    z-index: 1;
-    resize: none;
-    &::placeholder {
-      color: @veui-middle-gray-color2;
-    }
   }
 
   &-rows {
@@ -73,49 +106,103 @@
   }
 
   &-measurer + &-input {
-    max-width: ~"calc(100% - @{textarea-line-height})";
+    // max-width: ~"calc(100% - @{dls-height-m})";
   }
 
   &-measurer {
-    .absolute(4px, 0);
+    .absolute(0);
     overflow: hidden;
+    white-space: pre-wrap;
     word-wrap: break-word;
-    color: @veui-dark-gray-color2;
+    // color: @dls-font-color-weak;
 
     &-line {
-      overflow: hidden;
+      &:first-child {
+        // margin-top: @dls-textarea-padding-y;
+      }
+
+      &:last-child {
+        // margin-bottom: @dls-textarea-padding-y;
+      }
 
       &-number {
         float: left;
-        min-width: @textarea-line-height;
+        position: relative;
+        min-width: @line-number-default-width;
         text-align: center;
+
+        &::before {
+          content: "";
+          // .absolute(-@dls-textarea-padding-y, 0, _, _);
+          .size(1px, 9999px);
+          // background-color: @dls-separator-color-normal;
+          z-index: 2;
+        }
       }
 
       &-content {
-        .padding(_, 10px);
+        // .padding(_, @dls-textarea-padding-x);
         overflow: hidden;
         visibility: hidden;
       }
     }
   }
 
-  &.veui-readonly,
-  &.veui-disabled {
-    &,
-    &:hover {
-      border-color: @veui-middle-gray-color4;
-      color: @veui-middle-gray-color2;
-    }
+  &-autoresize &-measurer {
+    bottom: auto;
+    min-height: inherit;
+  }
 
-    & .veui-textarea-input {
-      background-color: @veui-light-gray-color4;
+  &-count {
+    // .absolute(_, @dls-textarea-padding-x, @dls-textarea-padding-y, _);
+    // margin-left: @dls-input-content-spacing;
+    // padding: 0 @dls-textarea-count-padding;
+    // line-height: @dls-textarea-count-height;
+    // background-color: @dls-textarea-count-background-color;
+    // font-size: @dls-textarea-count-font-size;
+    // color: @dls-textarea-count-font-color;
+    z-index: 2;
+    // border-radius: @dls-textarea-count-border-radius;
+    font-variant-numeric: tabular-nums;
+    .veui-transition(background-color, color);
+
+    &-overflow {
+      // background-color: @dls-textarea-count-background-color-error;
+      // color: @dls-textarea-count-font-color-error;
     }
   }
 
-  &.veui-disabled {
-    &,
-    & .veui-textarea-input {
-      cursor: not-allowed;
-    }
+  &[ui~="s"] {
+    // font-size: @dls-textarea-font-size-s;
+    // min-height: @dls-textarea-height-s;
+    // border-radius: @dls-input-border-radius-s;
+  }
+
+  &-count-overlap &-input {
+    // padding-bottom: dls-sum(
+    //   @dls-textarea-padding-y,
+    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-m)
+    // );
+  }
+
+  &-count-overlap &-measurer-line:last-child {
+    // margin-bottom: dls-sum(
+    //   @dls-textarea-padding-y,
+    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-m)
+    // );
+  }
+
+  &-count-overlap[ui~="s"] &-input {
+    // padding-bottom: dls-sum(
+    //   @dls-textarea-padding-y,
+    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-s)
+    // );
+  }
+
+  &-count-overlap[ui~="s"] &-measurer-line:last-child {
+    // margin-bottom: dls-sum(
+    //   @dls-textarea-padding-y,
+    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-s)
+    // );
   }
 }
