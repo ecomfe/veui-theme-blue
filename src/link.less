@@ -1,0 +1,60 @@
+@import "./lib.less";
+
+._veui-link {
+  cursor: pointer;
+  color: #333;
+  text-decoration: none;
+  outline: none;
+  .veui-transition(color);
+
+  &:hover {
+    color: #666;
+    text-decoration: underline;
+  }
+
+  &.focus-visible {
+    color: #666;
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  &.@{veui-prefix}-disabled {
+    text-decoration: underline;
+
+    &,
+    &:hover {
+      color: #ccc;
+    }
+  }
+
+  &[ui~="s"] {
+    font-size: 12px;
+  }
+  &[ui~="m"] {
+    font-size: 14px;
+  }
+
+  &[ui~="strong"] {
+    // color: @dls-link-font-color-strong;
+
+    &:hover {
+      // color: @dls-link-font-color-strong-hover;
+    }
+
+    &.focus-visible {
+      // color: @dls-link-font-color-strong-focus;
+    }
+
+    &:active {
+      // color: @dls-link-font-color-strong-active;
+    }
+
+    &.@{veui-prefix}-disabled {
+      // color: @dls-link-font-color-strong-disabled;
+    }
+  }
+}

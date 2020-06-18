@@ -1,40 +1,18 @@
 @import "../lib.less";
 
-.veui-breadcrumb-item {
-  float: left;
+.@{veui-prefix}-breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  // line-height: @dls-line-height-m;
 
   &:last-child {
-    .veui-breadcrumb-separator {
+    .@{veui-prefix}-breadcrumb-separator {
       display: none;
     }
   }
 
-  .veui-link {
-    color: @veui-text-color;
-    &:hover {
-      color: @veui-theme-color;
-    }
-    &:active {
-      color: @veui-theme-click-color;
-    }
-  }
-
   &-current {
-    color: @veui-dark-gray-color2;
-  }
-
-  .veui-icon{
-    .size(7px, 12px);
-  }
-
-  & > span,
-  & > a {
-    display: inline-block;
-    vertical-align: middle;
-
-    .veui-icon {
-      vertical-align: middle;
-      margin-top: -2px;
-    }
+    // font-weight: @dls-breadcrumb-item-current-font-weight;
   }
 }

@@ -1,14 +1,29 @@
-import '../icons/check-circle-o'
-import '../icons/exclamation-circle-o'
-import '../icons/info-circle-o'
-import '../icons/cross-circle-o'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/check-circle';
+import 'veui-theme-blue-icons/exclamation-circle';
+import 'veui-theme-blue-icons/info-circle';
+import 'veui-theme-blue-icons/times-circle';
+import 'veui-theme-blue-icons/times';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    success: 'check-circle-o',
-    warning: 'exclamation-circle-o',
-    info: 'info-circle-o',
-    error: 'cross-circle-o'
-  }
-}, 'toast')
+config.defaults(
+    {
+        icons: {
+            success: 'check-circle',
+            warning: 'exclamation-circle',
+            info: 'info-circle',
+            error: 'times-circle',
+            close: 'times'
+        },
+        parts: {
+            close: 'icon'
+        },
+        ui: {
+            size: {
+                values: ['s', 'm'],
+                default: 'm',
+                inherit: true
+            }
+        }
+    },
+    'toast'
+);

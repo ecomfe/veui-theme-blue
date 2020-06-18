@@ -1,20 +1,12 @@
 @import "./lib.less";
 
 ._veui-grouped-button {
-  &.veui-button-selected {
-    background-color: @veui-light-gray-color1;
-    color: @veui-dark-gray-color2;
-    z-index: 1;
+    &.@{veui-prefix}-button-selected {
+        z-index: 3;
 
-    &.focus-visible {
-      color: @veui-dark-gray-color2;
+        &:hover,
+        &[data-focus-visible-added] {
+            z-index: 4;
+        }
     }
-  }
-
-  &.veui-disabled.veui-button-selected {
-    border-color: @veui-middle-gray-color4;
-    background-color: @veui-light-gray-color1;
-    color: @veui-dark-gray-color2;
-    opacity: 0.4;
-  }
 }

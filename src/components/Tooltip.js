@@ -1,12 +1,12 @@
-import config from 'veui/managers/config'
+import config from 'veui/managers/config';
 
-config.defaults({
-  ui: {
-    style: {
-      values: ['alt']
+config.defaults(
+    {
+        ui: {
+            reverse: {
+                boolean: true
+            }
+        }
     },
-    size: {
-      values: ['large', 'small']
-    }
-  }
-}, 'tooltip')
+    'tooltip'
+);

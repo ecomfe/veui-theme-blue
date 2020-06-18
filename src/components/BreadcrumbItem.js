@@ -1,11 +1,22 @@
-import '../icons/bold-angle-right';
+import 'veui-theme-blue-icons/chevron-right';
 import config from 'veui/managers/config';
 
-config.defaults({
-    icons: {
-        separator: 'bold-angle-right'
+config.defaults(
+    {
+        icons: {
+            separator: 'chevron-right'
+        },
+        ui: {
+            size: {
+                values: ['s', 'm'],
+                inherit: true,
+                default: 'm'
+            },
+            style: {
+                values: ['normal', 'strong'],
+                inherit: true
+            }
+        }
     },
-    parts: {
-        link: 'link'
-    }
-}, 'breadcrumbitem');
+    'breadcrumbitem'
+);
