@@ -1,12 +1,12 @@
-import config from 'veui/managers/config'
+import config from 'veui/managers/config';
 
-config.defaults({
-  ui: {
-    size: {
-      values: ['auto']
+config.defaults(
+    {
+        ui: {
+            size: {
+                values: ['s', 'm']
+            }
+        }
     },
-    type: {
-      values: ['line']
-    }
-  }
-}, 'textarea')
+    'textarea'
+);

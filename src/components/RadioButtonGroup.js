@@ -1,14 +1,17 @@
 import config from 'veui/managers/config';
 
-config.defaults({
-    ui: {
-        style: {
-            values: ['alt'],
-            inherit: true
+config.defaults(
+    {
+        ui: {
+            size: {
+                values: ['s', 'm'],
+                default: 'm',
+                inherit: true
+            }
         },
-        size: {
-            values: ['large', 'small', 'tiny', 'micro'],
-            inherit: true
+        parts: {
+            checked: 'strong'
         }
-    }
-}, 'radiobuttongroup');
+    },
+    'radiobuttongroup'
+);

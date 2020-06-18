@@ -1,143 +1,84 @@
 @import "./lib.less";
-@import "./font.less";
+@import "./normalize.less";
+@import (reference) "./link.less";
 
 /* Overriding est variables */
-@support-ie-version: 9;
-@default-text-color: @veui-text-color-normal;
-@default-base-font-family: @veui-font-family;
-@default-heading-font-family: @veui-font-family;
-@default-border-radius: 4px;
+@support-ie-version: 11;
 
-.global-normalize();
+._veui-output-common(@element) {
+  .output-selector() when (@element = html) {
+    @selector: html;
+  }
+  .output-selector() when not (@element = html) {
+    @selector: @element, @veui-overlay-element;
+  }
+  .output-selector();
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+  @{selector} {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    sans-serif;
+    color: #333;
+  }
+
+  // only enable on Retina displays
+  @media screen and (min-resolution: 2dppx) {
+    @{selector} {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
 }
+._veui-output-common(html) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-html {
-  font-size: 14px;
-  font-weight: @veui-font-weight-normal;
+  ._veui-output-common-content();
 }
+._veui-output-common(@element) when not (@element = html) {
+  @{element},
+  @{veui-overlay-element} {
+    display: block;
 
-// only enable on Retina displays
-@media screen and (min-resolution: 2dppx) {
-  html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    &,
+    * {
+      &,
+      &::before,
+      &::after {
+        box-sizing: border-box;
+      }
+    }
+    ._veui-output-common-content();
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: @veui-font-weight-bold;
-}
+._veui-output-common(@veui-root-element);
 
-input,
-button,
-textarea {
-  font: inherit;
-  font-weight: inherit;
-  color: @veui-dark-gray-color2;
-}
-
-button {
-  border-radius: 0;
-}
-
-.veui-disabled {
-  cursor: not-allowed !important;
-}
-
-.veui-sr-only {
-  .veui-invisible();
-}
-
-a {
-  text-decoration: none;
-}
-
-a,
-[ui~="link"],
-.veui-button[ui~="link"] {
-  cursor: pointer;
-  color: @veui-link-color-normal;
-
-  &:focus {
-    outline: none;
+// common styles for content
+._veui-output-common-content () {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
   }
 
-  &[ui~="primary"] {
-    color: @veui-link-color-strong;
+  .@{veui-prefix}-disabled {
+    cursor: not-allowed !important;
   }
 
-  &:hover,
-  &.focus-ring {
-    color: @veui-link-color-hover;
+  .@{veui-prefix}-sr-only {
+    .veui-invisible();
   }
 
-  &:active {
-    color: @veui-link-color-active;
-  }
-
-  &[ui~="aux"] {
-    color: @veui-text-color-weak;
-
-    &:hover,
-    &.focus-ring {
-      color: @veui-text-color-normal;
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: @veui-alert-color;
-    }
-  }
-
-  &[ui~="alert"] {
-    color: @veui-alert-color;
-
-    &:hover,
-    &.focus-ring {
-      color: @veui-alert-color;
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: @veui-alert-color;
-    }
-  }
-
-  &[ui~="success"] {
-    color: @veui-success-color-1;
-
-    &:hover,
-    &.focus-ring {
-      color: @veui-success-color-1;
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: @veui-success-color-1;
-    }
-  }
-
-  &[ui~="warning"] {
-    color: @veui-warning-color-1;
-
-    &:hover,
-    &.focus-ring {
-      color: @veui-warning-color-1;
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: @veui-warning-color-1;
-    }
+  a {
+    &:extend(._veui-link all);
   }
 }

@@ -1,8 +1,17 @@
-import '../icons/angle-right-small'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/chevron-right';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    expandable: 'angle-right-small'
-  }
-}, 'optiongroup')
+config.defaults(
+    {
+        icons: {
+            expandable: 'chevron-right'
+        },
+        ui: {
+            size: {
+                values: ['xs', 's', 'm', 'l'],
+                inherit: true
+            }
+        }
+    },
+    'optiongroup'
+);

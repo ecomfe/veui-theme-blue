@@ -1,114 +1,130 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
-@import (reference) "../input.less";
 
-.veui-date-picker {
+.@{veui-prefix}-date-picker {
   &:extend(._veui-dropdown-button all);
-
-  &.veui-input-invalid .veui-button.veui-date-picker-button {
-    &:extend(._veui-input-invalid all);
-  }
-
   position: relative;
   display: inline-block;
-  width: 160px;
-  border-radius: 4px;
+  // width: @dls-date-picker-width;
 
-  .veui-button {
-    border: 1px solid @veui-middle-gray-color4;
-    border-radius: 4px;
-    & > .veui-icon {
-      margin-top: 6px;
+  &-range {
+    // width: @dls-date-picker-width-range;
+  }
+
+  &-trigger {
+    .veui-button-transition();
+    display: flex;
+    align-items: center;
+    // border: 1px solid @dls-input-border-color;
+    // padding-right: @dls-input-padding;
+    // border-radius: @dls-border-radius-m;
+    outline: none;
+    // background-color: @dls-input-background-color;
+
+    .@{veui-prefix}-input-main {
+      border: 0;
+      padding-right: 0;
     }
-    &.veui-disabled,&.veui-disabled:hover {
-      border-color: @veui-middle-gray-color4;
-      background: @veui-light-gray-color4;
-      color: @veui-middle-gray-color2;
+
+    .@{veui-prefix}-invalid & {
+      // border-color: @dls-input-border-color-error;
+      .@{veui-prefix}-input-main {
+        // color: @dls-input-font-color-error;
+      }
+
+      &:hover {
+        // border-color: @dls-input-border-color-error-hover;
+      }
+      &.focus-visible {
+        // .dls-focus-ring(
+        //   @dls-input-border-color-error-focus,
+        //   @dls-input-shadow-error-focus
+        // );
+      }
     }
   }
 
-  &-range {
-    width: 240px;
+  &:not(.@{veui-prefix}-disabled):not(.@{veui-prefix}-invalid) &-trigger {
+    &:hover {
+      // border-color: @dls-input-border-color-hover;
+    }
+    &.focus-visible {
+      // .dls-focus-ring(@dls-input-border-color-focus, @dls-input-shadow-focus);
+    }
   }
 
   &-icon {
-    color: @veui-dark-gray-color3;
+    display: flex;
+    position: relative;
+    // margin-left: @dls-input-content-spacing;
   }
 
-  &-overlay {
-    &:extend(._veui-dropdown-overlay all);
-    margin: 10px 0 0 0;
-    min-width: 243px;
-    min-height: 286px;
-    border: 0 none;
-    .veui-calendar-panel {
-      height: 100%;
-      .veui-calendar-body {
-        min-height: 220px;
-        margin-bottom: 5px;
-        padding-bottom: 0;
-        table {
-          width: 100%;
-          height: 220px;
-        }
-      }
+  &-clock {
+    // .dls-icon-size(@dls-input-icon-size);
+    .veui-transition(color, opacity);
+    // color: @dls-date-picker-icon-color;
+
+    .@{veui-prefix}-readonly &,
+    .@{veui-prefix}-disabled & {
+      // color: @dls-date-picker-icon-color-disabled;
     }
   }
 
-  &-empty {
-    .veui-button {
-      color: @veui-dark-gray-color3;
-
-      &.focus-visible {
-        color: @veui-theme-color;
-      }
-
-      &.veui-disabled {
-        color: @veui-middle-gray-color2;
-      }
-    }
-  }
-
-  &-tilde,
-  &-label {
-    color: @veui-dark-gray-color3;
-  }
-
-  &-empty &-tilde,
-  &-empty &-label ~ &-label {
-    display: none;
+  &:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
+    &-clear
+    + &-clock,
+  .@{veui-prefix}-focus &-clear + &-clock,
+  &-clear.focus-visible + &-clock {
+    opacity: 0;
   }
 
   &-clear {
-    .absolute(~"calc(50% - .5em - 1px)", 9px, _, _);
-    .size(~"calc(1em + 2px)");
-    background: @veui-light-gray-color5;
-    outline: none;
-    border: none;
-    padding: 0;
-    color: @veui-dark-gray-color3;
-    cursor: pointer;
-    .veui-button-transition();
+    .absolute(50%, 50%, _, _);
+    transform: translate(50%, -50%);
+    opacity: 0;
+    z-index: 1;
 
-    .veui-date-picker:hover &,
+    .@{veui-prefix}-icon {
+      // .dls-icon-size(@dls-input-icon-size);
+      // color: @dls-date-picker-icon-color;
+    }
+
+    .@{veui-prefix}-date-picker:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
+      &,
+    .@{veui-prefix}-focus &,
     &.focus-visible {
-      .size(~"calc(1em + 2px)");
-      clip: auto;
+      opacity: 1;
     }
+  }
 
-    &:hover {
-      color: @veui-dark-gray-color2;
+  &-overlay-content {
+    &:extend(._veui-dropdown-overlay all);
+    &[ui] {
+      max-height: none;
     }
+    // box-shadow: @dls-date-picker-dropdown-shadow;
+    // .border-radius(@dls-date-picker-dropdown-border-radius-m);
+    margin-top: -1px;
+    display: flex;
+    align-items: stretch;
 
-    &.focus-visible {
-      color: @veui-dark-gray-color2;
-    }
+  }
+  &-overlay-content .@{veui-prefix}-calendar-type-year,
+  &-overlay-content .@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,
+  &-overlay-content &-inputs {
+    min-width: 100%;
+  }
 
-    .veui-icon {
-      display: block;
-      width: 11px;
-      height: 12px;
-      color: @veui-dark-gray-color2;
+  &-inputs {
+    // border-bottom: 1px solid @dls-input-border-color;
+    display: flex;
+    align-items: center;
+    .@{veui-prefix}-input {
+      flex: 1 1 auto;
+      width: auto; // 覆盖 width
+      &-main {
+        margin-bottom: -1px;
+      }
     }
   }
 
@@ -117,75 +133,76 @@
   }
 
   &-tilde {
-    display: inline-block;
     overflow: hidden;
-    margin: 0 3px;
+    // padding: 0 @dls-date-picker-range-connector-padding-x;
+    // color: @dls-font-color-aux;
+
+    .@{veui-prefix}-disabled & {
+      // color: @dls-input-font-color-disabled;
+    }
+
+    .@{veui-prefix}-readonly & {
+      // color: @dls-input-font-color-read-only;
+    }
   }
 
   &-shortcuts {
-    height: 41px;
-    padding: 8px 10px;
-    border-bottom: 1px solid @veui-middle-gray-color4;
-
-    .veui-calendar-panel + & {
-      border-top: 1px solid @veui-middle-gray-color4;
-      border-bottom: none;
-    }
+    display: flex;
+    flex-direction: column;
+    // padding: @dls-date-picker-header-padding-y 0;
+    // border-bottom: 1px solid @dls-date-picker-panel-separator-color;
+    // border-top: 1px solid @dls-date-picker-panel-separator-color;
   }
 
   &-shortcut {
     .veui-button-transition();
-    .centered-line(24px);
-    // margin-right: 10px;
-    // padding: 0 10px;
+    text-align: left;
+    // .centered-line(@dls-date-picker-list-item-height-m);
     border: none;
     background: none;
-    font-size: @veui-font-size-small;
-    color: @veui-dark-gray-color3;
+    // color: @dls-date-picker-list-font-color;
     outline: none;
+    // padding: 0 @dls-date-picker-panel-padding-x;
+    // margin-bottom: @dls-date-picker-list-item-spacing;
+    cursor: pointer;
 
     &:hover {
-      background-color: @veui-light-gray-color1;
+      // color: @dls-date-picker-list-font-color-hover;
+      // background-color: @dls-date-picker-list-background-color-hover;
     }
 
     &.focus-visible {
-      color: @veui-light-gray-color1;
+      // color: @dls-date-picker-list-font-color-focus;
+      // background-color: @dls-date-picker-list-background-color-focus;
     }
 
     &:active {
-      background-color: @veui-light-gray-color1;
+      // color: @dls-date-picker-list-font-color-active;
+      // background-color: @dls-date-picker-list-background-color-active;
     }
 
     &:last-child {
       margin-right: 0;
     }
-
-    &-selected {
-      background-color: @veui-light-gray-color1;
-      color: @veui-dark-gray-color2;
-    }
-  }
-
-  &:hover &-clear {
-    display: block;
-  }
-
-  &:hover {
-    .veui-date-picker {
-      &-button:not(.veui-disabled),
-      &-clear {
-        color: @veui-dark-gray-color3;
-      }
-    }
-  }
-
-  &:hover &-button:not(.veui-disabled):active {
-    & {
-      background-color: @veui-light-gray-color5;
-    }
   }
 
   &-expanded &-icon {
     transform: none;
+  }
+
+  &.@{veui-prefix}-readonly,
+  &.@{veui-prefix}-disabled {
+    // background-color: @dls-input-background-color-disabled;
+  }
+
+  &-overlay-content[ui~="s"],
+  &[ui~="s"] {
+    // font-size: @dls-date-picker-font-size-s;
+  }
+  &-overlay-content[ui~="s"] {
+    // .border-radius(@dls-date-picker-dropdown-border-radius-s);
+  }
+  &-overlay-content[ui~="s"] &-shortcut {
+    // .centered-line(@dls-date-picker-list-item-height-s);
   }
 }

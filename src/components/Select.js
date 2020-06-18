@@ -1,19 +1,40 @@
-import '../icons/angle-up';
-import '../icons/angle-down';
+import 'veui-theme-blue-icons/chevron-down';
+import 'veui-theme-blue-icons/times-circle';
 import config from 'veui/managers/config';
 
-config.defaults({
-    icons: {
-        expand: 'angle-down',
-        collapse: 'angle-up'
-    },
-    ui: {
-        size: {
-            values: ['large', 'small', 'tiny', 'micro'],
-            inherit: true
+const CHECKBOX_SIZE_MAP = {
+    xs: 's',
+    s: 's',
+    m: 'm',
+    l: 'm'
+};
+
+const TAG_SIZE_MAP = {
+    xs: 's',
+    s: 's',
+    m: 's',
+    l: 'm'
+};
+
+config.defaults(
+    {
+        icons: {
+            expand: 'chevron-down',
+            collapse: 'chevron-down',
+            clear: 'times-circle'
         },
-        style: {
-            values: ['alt', 'checkmark']
+        ui: {
+            size: {
+                values: ['xs', 's', 'm', 'l'],
+                inherit: true,
+                default: 'm'
+            }
+        },
+        parts: {
+            clear: 'icon',
+            checkbox: ({size}) => CHECKBOX_SIZE_MAP[size] || size,
+            tag: ({size}) => TAG_SIZE_MAP[size] || size
         }
-    }
-}, 'select');
+    },
+    'select'
+);

@@ -1,18 +1,21 @@
 @import "../lib.less";
 
-.veui-dialog {
-  @golden-ratio: 38.2%;
+.@{veui-prefix}-dialog {
   @transition-offset: 10px;
-
 
   display: none;
 
   &-box {
     .fixed(0);
+    display: flex;
 
     &:not(&-mask) {
       pointer-events: none;
     }
+  }
+
+  &-inline {
+    position: static;
   }
 
   &-draggable {
@@ -20,123 +23,141 @@
   }
 
   &-content {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    // background: @dls-dialog-background-color;
+    // padding-bottom: @dls-dialog-padding-y;
     .veui-position-center();
-    .veui-overlay-shadow();
-    background: #fff;
-    position: absolute;
-    width: 400px;
-    max-height: ~"calc(100vh - 40px)";
+    // max-height: @dls-dialog-max-height;
     overflow-y: auto;
     outline: none;
     pointer-events: auto;
-    transition: transform @veui-transition-duration;
+    .veui-transition(transform);
     transform-origin: 50% 50%;
+    // box-shadow: @dls-dialog-shadow;
+    // border-radius: @dls-dialog-border-radius;
 
-    [ui~="small"] & {
-      width: 350px;
+    [ui~="narrow"] & {
+      // width: @dls-dialog-width-narrow;
     }
 
-    [ui~="large"] & {
-      width: 540px;
+    [ui~="medium"] & {
+      // width: @dls-dialog-width-medium;
+    }
+
+    [ui~="wide"] & {
+      // width: @dls-dialog-width-wide;
+    }
+
+    [ui~="fullscreen"] & {
+      .fixed(0);
+      width: auto;
+      max-height: none;
+      transform: none;
+      border-radius: 0;
+    }
+
+    [ui~="fullscreen"].@{veui-prefix}-overlay-enter &,
+    [ui~="fullscreen"].@{veui-prefix}-overlay-leave-to & {
+      transform: scale(0.98);
     }
 
     [ui~="auto"] & {
       width: auto;
     }
 
-    .veui-dialog-box[ui~="high"] & {
-      .veui-position-center(@y: @golden-ratio);
-    }
-
-    &-head,
-    &-foot {
-      padding: 0 20px;
-    }
-
     &-head {
-      .centered-line(56px);
-    }
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      // padding: @dls-dialog-padding-y @dls-dialog-padding-x
+      //   @dls-dialog-title-spacing-after;
 
-    &-head-title,
-    &-head-close,
-    &-head-close:hover {
-      color: @veui-text-color-strong;
-    }
-
-    &-head-title {
-      margin: 0;
-      font-weight: @veui-font-weight-normal;
-      font-size: @veui-font-size-large;
-    }
-
-    &-head-close {
-      .veui-button-transition();
-      outline: none;
-
-      &,
-      &:hover {
-        border: none;
-        background: none;
-        float: right;
-        .centered-line(14px);
-        text-align: center;
-        font-size: @veui-font-size-normal;
-        cursor: pointer;
-        position: absolute;
-        top: 10px;
-        right: 10px;
+      &:empty {
+        padding-bottom: 0;
       }
 
-      &:hover,
-      &:focus {
-        color: @veui-brand-color;
+      &-title {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        flex-grow: 1;
+        // line-height: @dls-dialog-title-line-height;
+        // font-weight: @dls-font-weight-1;
+        // color: @dls-dialog-title-font-color;
+
+        [ui~="s"] & {
+          // font-size: @dls-dialog-title-font-size-s;
+        }
+
+        [ui~="m"] & {
+          // font-size: @dls-dialog-title-font-size-m;
+        }
+      }
+
+      &-close {
+        // margin-left: @dls-dialog-title-content-spacing;
+        font-size: inherit;
+
+        .@{veui-prefix}-icon {
+          // .dls-icon-size(
+          //   @dls-dialog-close-icon-size,
+          //   @dls-dialog-close-icon-min-size
+          // );
+
+          [ui~="fullscreen"] & {
+            // .dls-icon-size(
+            //   @dls-dialog-close-icon-size-fullscreen,
+            //   @dls-dialog-close-icon-min-size
+            // );
+          }
+        }
       }
     }
 
     &-body {
-      padding-top: 0;
-      .margin(20px, 20px, 0);
-    }
+      flex-grow: 1;
+      // .margin(-@dls-shadow-spread-focus, _);
+      // padding: @dls-shadow-spread-focus @dls-dialog-padding-x;
+      // font-size: @dls-dialog-body-font-size-m;
+      // line-height: @dls-dialog-body-line-height;
+      // color: @dls-dialog-body-font-color;
+      overflow: auto;
 
-    &-head + &-body {
-      margin-top: 10px;
+      [ui~="s"] & {
+        // font-size: @dls-dialog-body-font-size-s;
+      }
     }
 
     &-foot {
-      padding: 30px 20px 20px;
-      text-align: center;
-    }
+      // padding: @dls-dialog-action-spacing-before @dls-dialog-padding-x 0;
 
-    &-foot .veui-button {
-      min-width: 94px;
-      margin-right: 20px;
-
-      &:last-child {
-        margin-right: 0;
+      .@{veui-prefix}-button + .@{veui-prefix}-button {
+        // margin-left: @dls-dialog-action-content-spacing;
       }
     }
   }
 
   &-box-mask {
-    background-color: fade(@veui-gray-color-1, 50);
-    overflow: auto;
-
-    // 提升优先级，覆盖样式
-    &,
-    &[ui~="high"] {
-      .fixed(0);
-      transform: none;
-    }
+    // background-color: @dls-dialog-backdrop-color;
+    overflow: hidden;
+    transform: none;
   }
 
-  .veui-overlay-enter &-content,
-  .veui-overlay-leave-to &-content {
-    transform: translate(50%, ~"calc(50% - @{transition-offset})");
+  &-inline &-content {
+    position: static;
+    width: 100%;
+    transform: none;
   }
 
-  .veui-overlay-enter[ui~="high"] &-content,
-  .veui-overlay-leave-to[ui~="high"] &-content {
-    @ratio: 100% - @golden-ratio;
-    transform: translate(50%, ~"calc(@{ratio} - @{transition-offset})");
+  &-inline&-box-mask {
+    overflow: visible;
+    background-color: transparent;
+  }
+
+  .@{veui-prefix}-overlay-enter &-content,
+  .@{veui-prefix}-overlay-leave-to &-content {
+    transform: translate(50%, calc(50% - @transition-offset));
   }
 }

@@ -1,10 +1,40 @@
-import '../icons/angle-up'
-import '../icons/angle-down'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/chevron-up';
+import 'veui-theme-blue-icons/chevron-down';
+import 'veui-theme-blue-icons/plus';
+import 'veui-theme-blue-icons/minus';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    increase: 'angle-up',
-    decrease: 'angle-down'
-  }
-}, 'numberinput')
+const ICON_MAP = {
+    normal: {
+        increase: 'chevron-up',
+        decrease: 'chevron-down'
+    },
+    strong: {
+        increase: 'plus',
+        decrease: 'minus'
+    }
+};
+
+config.defaults(
+    {
+        ui: {
+            size: {
+                values: ['xs', 's', 'm'],
+                default: 'm',
+                inherit: true
+            },
+            style: {
+                values: ['normal', 'strong'],
+                default: 'normal'
+            }
+        },
+        parts: {
+            spinner: ''
+        },
+        icons: {
+            increase: ({style}) => ICON_MAP[style].increase,
+            decrease: ({style}) => ICON_MAP[style].decrease
+        }
+    },
+    'numberinput'
+);

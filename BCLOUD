@@ -1,1 +1,0 @@
-BUILD_SUBMITTER -x -m baidu/bi/veui-theme-blue -c "cd baidu/bi/veui-theme-blue && mkdir output &&cp BCLOUD ./output/" -u ./

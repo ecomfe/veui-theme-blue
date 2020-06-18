@@ -1,8 +1,21 @@
-import '../icons/angle-right'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/chevron-right';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    collapsed: 'angle-right'
-  }
-}, 'tree')
+config.defaults(
+    {
+        ui: {
+            size: {
+                values: ['m', 's'],
+                inherit: true
+            },
+            'checkbox-after': {
+                boolean: true
+            }
+        },
+        icons: {
+            collapse: 'chevron-right',
+            expand: 'chevron-right'
+        }
+    },
+    'tree'
+);

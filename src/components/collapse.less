@@ -1,0 +1,94 @@
+@import "../lib.less";
+
+.@{veui-prefix}-collapse {
+  // border: 1px solid @dls-collapse-border-color;
+  // border-radius: @dls-collapse-border-radius-m;
+
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: -1px;
+    // padding: @dls-collapse-header-padding-y @dls-collapse-header-padding-x;
+    // border: 1px solid @dls-collapse-border-color;
+    // background-color: @dls-collapse-header-background-color;
+    // font-size: @dls-collapse-header-font-size-m;
+    // color: @dls-collapse-header-font-color;
+    .border-top-radius(inherit);
+    // line-height: @dls-collapse-header-line-height;
+    .veui-transition(color, background-color, border-color, border-radius);
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      // background-color: @dls-collapse-header-background-color-hover;
+    }
+
+    &.focus-visible {
+      // background-color: @dls-collapse-header-background-color-focus;
+      // border-color: @dls-collapse-border-color-focus;
+      z-index: 1;
+    }
+
+    &:active {
+      // background-color: @dls-collapse-header-background-color-active;
+    }
+  }
+
+  &-collapsed &-header {
+    .border-bottom-radius(inherit);
+  }
+
+  &-toggle {
+    // .dls-icon-size(@dls-collapse-icon-size-aux);
+    // color: @dls-collapse-icon-color-aux;
+    // margin-right: @dls-collapse-header-content-spacing;
+    .veui-transition(transform);
+  }
+
+  &-expanded &-toggle {
+    transform: rotateZ(90deg);
+  }
+
+  &.@{veui-prefix}-disabled {
+    .@{veui-prefix}-collapse {
+      &-header {
+        // background-color: @dls-collapse-header-background-color-disabled;
+        // color: @dls-collapse-header-font-color-disabled;
+        cursor: not-allowed;
+      }
+
+      &-toggle {
+        // color: @dls-collapse-icon-color-aux-disabled;
+      }
+    }
+  }
+
+  &-body {
+    // background-color: @dls-collapse-body-background-color;
+    overflow: hidden;
+    will-change: height;
+    .veui-transition(height);
+    .border-bottom-radius(inherit);
+    // color: @dls-collapse-body-font-color;
+    // font-size: @dls-collapse-body-font-size-m;
+  }
+
+  &-content {
+    // padding: @dls-collapse-body-padding-y @dls-collapse-body-padding-x;
+  }
+
+  &[ui~="s"] {
+    // border-radius: @dls-collapse-border-radius-s;
+
+    .@{veui-prefix}-collapse {
+      &-header {
+        // font-size: @dls-collapse-header-font-size-s;
+      }
+
+      &-body {
+        // font-size: @dls-collapse-body-font-size-s;
+      }
+    }
+  }
+}

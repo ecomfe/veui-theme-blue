@@ -1,147 +1,233 @@
 @import "../lib.less";
 
-@switch-large-width: 70px; // ui=large switch宽度
-@switch-large-height: 25px; // ui=large switch高度
-@switch-width: 58px; // 默认 switch宽度
-@switch-height: 20px; // 默认 switch高度
-@switch-small-width: 28px; // ui=small switch宽度
-@switch-small-height: 11px; // ui=small switch高度
-@switch-small-border-radius: 5.5px; // ui=small switch圆角
-@switch-border-radius: 63px; // 默认 switch圆角
-@switch-large-border-radius: 23px; // ui=large switch圆角
-@switch-large-color: #04BE5B; // ui=large switch open色
-@switch-small-color: #4DA1FF; // ui=small switch open色
-@switch-normal-bg-color: #CAD3DF; // 默认状态下 switch背景色
-@switch-small-bg-color: rgba(152, 152, 152, 0.11); // ui=small switch背景色
-@switch-btn-border-color: #D0D7DD; // switch按钮的border颜色
-@switch-btn-small: 15px; // ui=small switch按钮的大小
-@switch-btn: 16px; // 默认情况 switch按钮的大小
-@switch-btn-large: 21px; // ui=large switch按钮的大小
+.@{veui-prefix}-switch {
+  .metrics(@size) {
+    @width: 24px;
+    @height: 12px;
+    @thumb-size: 8px;
+    @padding: 2px;
+    @text-offset: 3px;
 
-.veui-switch {
-    display: inline-block;
-    cursor: pointer;
-    outline: none;
-    font-size: 0;
+    .@{veui-prefix}-switch {
+      &-switcher {
+        .size(@width, @height);
+        padding: @padding;
+        border-radius: @height / 2;
+      }
 
-    &-switcher {
-        .size(@switch-width, @switch-height);
-        border-radius: @switch-border-radius;
-        display: inline-block;
-        background-color: @switch-normal-bg-color;
-        user-select: none;
-        transition: background-color @veui-transition-duration, box-shadow @veui-transition-duration;
-        vertical-align: middle;
-    }
+      &-button {
+        .size(@thumb-size);
 
-    .focus-visible + &-switcher {
-        box-shadow: 0 0 0 2px @veui-gray-color-6;
-    }
-    :checked.focus-visible + &-switcher {
-        box-shadow: 0 0 0 2px @veui-brand-color-8;
-    }
-
-    &[ui~="small"] {
-        height: 15px;
-        line-height: 15px;
-        .veui-switch-switcher {
-            .size(@switch-small-width, @switch-small-height);
-            border-radius: @switch-small-border-radius;
-            background-color: @switch-small-bg-color;
-            margin-top: 2px;
-            vertical-align: baseline;
+        .@{veui-prefix}-icon {
+          // .dls-icon-size(dls-sum(@@thumb-size, -2px));
         }
-        .veui-switch-button {
-            .size(@switch-btn-small);
-            border: 1px solid @switch-btn-border-color;
-            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
-            margin: -2px 0 0 0;
-        }
-        .veui-switch-label {
-            position: relative;
-            top: -3px;
-            font-size: @veui-font-size-small;
-            vertical-align: baseline;
-        }
-        :checked + .veui-switch-switcher {
-            background-color: @switch-small-color;
-            .veui-switch-button {
-                transform: translateX(13.2px);
-            }
-        }
-        &.veui-readonly,
-        &.veui-disabled {
-            .veui-switch-switcher {
-                background-color: @switch-small-bg-color;  
-            }
-            :checked + .veui-switch-switcher {
-                background-color: @switch-small-bg-color;
-            }
-        }
+      }
+
+      &-text {
+        left: @text-offset;
+      }
     }
 
-    &[ui~="large"] {
-        .veui-switch-switcher {
-            .size(@switch-large-width, @switch-large-height);
-            border-radius: @switch-large-border-radius;
-        }
-        .veui-switch-button {
-            .size(@switch-btn-large);
-        }
-        .veui-switch-label {
-            font-size: @veui-font-size-large;
-        }
-        :checked + .veui-switch-switcher {
-            background-color: @switch-large-color;
-            .veui-switch-button {
-                transform: translateX(45px);
-            }
-        }
+    &.@{veui-prefix}-switch-on &-text {
+      right: @text-offset;
+      left: auto;
     }
 
-    &-label {
-        display: inline-block;
-        color: @veui-text-color;
-        margin-left: 5px;
-        font-size: @veui-font-size-normal;
-        vertical-align: middle;
+    &.@{veui-prefix}-switch-loading .@{veui-prefix}-switch-button,
+    &.@{veui-prefix}-switch-on:not(.@{veui-prefix}-switch-loading)
+      > .@{veui-prefix}-switch-switcher
+      > .@{veui-prefix}-switch-button {
+      // transform: translateX(
+      //   dls-sum(@@width, @@thumb-size * -1, @@padding * -2)
+      // );
     }
 
-    &-button {
-        display: inline-block;
-        position: relative;
-        background-color: @veui-light-gray-color5;
-        border-radius: 50%;
-        margin: 2px;
-        transition: transform ease @veui-transition-duration;
-        .size(@switch-btn);
+    &.@{veui-prefix}-switch-on.@{veui-prefix}-switch-loading
+      .@{veui-prefix}-switch-button {
+      transform: translateX(0);
     }
+  }
 
-    :checked + .veui-switch-switcher {
-        background-color: @switch-small-color;
-        .veui-switch-button {
-            transform: translateX(38px);
-        }
-    }
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  // font-size: @dls-font-size-m;
 
-    &.veui-readonly {
-        cursor: default;
-    }
+  .metrics(m);
 
-    &.veui-disabled {
-        cursor: not-allowed;
-    }
+  input {
+    position: absolute;
+    opacity: 0;
+  }
 
-    &.veui-readonly,
-    &.veui-disabled {
-        :checked + .veui-switch-switcher,
-        .veui-switch-switcher {
-            background-color: @switch-normal-bg-color;
-        }
-    }
+  &-switcher,
+  &-label {
+    display: inline-flex;
+    align-items: center;
+  }
 
-    input {
-        position: absolute;
-        opacity: 0;
+  &-label {
+    // margin-left: @dls-padding-unit * 2;
+    line-height: 1;
+  }
+
+  &-switcher {
+    position: relative;
+    // font-size: @dls-switch-font-size;
+    // background-color: @dls-switch-track-color-off;
+    user-select: none;
+    .veui-transition(background-color, box-shadow);
+  }
+
+  &-text {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    // color: @dls-switch-font-color;
+
+    .@{veui-prefix}-icon {
+      // .dls-icon-size(@dls-icon-size-aux);
     }
+  }
+
+  &:hover &-switcher {
+    // background-color: @dls-switch-track-color-off-hover;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-off-hover;
+    }
+  }
+
+  &:active &-switcher {
+    // background-color: @dls-switch-track-color-off-active;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-off-active;
+    }
+  }
+
+  .focus-visible + &-switcher {
+    // background-color: @dls-switch-track-color-off-focus;
+    // box-shadow: @dls-switch-shadow-off-focus;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-off-focus;
+    }
+  }
+
+  .focus-visible:checked + &-switcher {
+    // background-color: @dls-switch-track-color-on-focus;
+    // box-shadow: @dls-switch-shadow-on-focus;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-on-focus;
+    }
+  }
+
+  &-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: @dls-switch-thumb-color-off;
+    border-radius: 50%;
+    .veui-transition(transform);
+
+    .@{veui-prefix}-icon {
+      position: absolute;
+      // color: @dls-switch-track-color-off;
+    }
+  }
+
+  :checked + &-switcher {
+    // background-color: @dls-switch-track-color-on;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-on;
+
+      .@{veui-prefix}-icon {
+        // color: @dls-switch-track-color-on;
+      }
+    }
+  }
+
+  &:hover :checked + &-switcher {
+    // background-color: @dls-switch-track-color-on-hover;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-on-hover;
+    }
+  }
+
+  &:active :checked + &-switcher {
+    // background-color: @dls-switch-track-color-on-active;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-on-active;
+    }
+  }
+
+  &.@{veui-prefix}-readonly {
+    cursor: default;
+  }
+
+  &-loading {
+    pointer-events: none;
+  }
+
+  &-loading &-switcher {
+    .@{veui-prefix}-icon {
+      // color: @dls-switch-track-color-off;
+    }
+  }
+
+  &-on&-loading &-switcher {
+    .@{veui-prefix}-icon {
+      // color: @dls-switch-track-color-on;
+    }
+  }
+
+  &.@{veui-prefix}-disabled {
+    cursor: not-allowed;
+  }
+
+  &-loading &-switcher,
+  &.@{veui-prefix}-readonly &-switcher,
+  &.@{veui-prefix}-disabled &-switcher {
+    // background-color: @dls-switch-track-color-off-disabled;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-off-disabled;
+    }
+  }
+
+  &-on&-loading &-switcher,
+  &-on.@{veui-prefix}-readonly &-switcher,
+  &-on.@{veui-prefix}-disabled &-switcher {
+    // background-color: @dls-switch-track-color-on-disabled;
+
+    .@{veui-prefix}-switch-button {
+      // background-color: @dls-switch-thumb-color-on-disabled;
+    }
+  }
+
+  &[ui~="xs"] {
+    // font-size: @dls-font-size-s;
+    .metrics(xs);
+  }
+
+  &[ui~="s"] {
+    // font-size: @dls-font-size-s;
+    .metrics(s);
+  }
+
+  &[ui~="xs"] &-text,
+  &[ui~="s"] &-text {
+    display: none;
+  }
 }
