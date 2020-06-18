@@ -1,10 +1,8 @@
 # veui-theme-blue
 
-blue theme for [VEUI](https://github.com/ecomfe/veui).
+Theme Blue for VEUI.
 
 ## Installation
-
-npm install veui-theme-blue
 
 ### Load base styles for VEUI
 

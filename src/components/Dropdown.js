@@ -1,20 +1,30 @@
-import '../icons/angle-up-small';
-import '../icons/angle-down-small';
+import 'veui-theme-blue-icons/chevron-down';
 import config from 'veui/managers/config';
 
-config.defaults({
-    icons: {
-        expand: 'angle-down-small',
-        collapse: 'angle-up-small'
-    },
-    ui: {
-        style: {
-            values: ['primary'],
-            inherit: true
+config.defaults(
+    {
+        icons: {
+            expand: 'chevron-down',
+            collapse: 'chevron-down'
         },
-        role: {
-            values: ['link'],
-            inherit: true
+        ui: {
+            size: {
+                values: ['xs', 's', 'm', 'l'],
+                inherit: true,
+                default: 'm'
+            },
+            style: {
+                values: ['primary'],
+                inherit: true
+            },
+            role: {
+                values: ['text'],
+                inherit: true
+            }
+        },
+        parts: {
+            search: 'inline'
         }
-    }
-}, 'dropdown');
+    },
+    'dropdown'
+);

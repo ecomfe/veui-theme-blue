@@ -1,0 +1,80 @@
+@import "../lib.less";
+
+.@{veui-prefix}-anchor {
+  position: relative;
+  max-height: 100%;
+  overflow: auto;
+
+  &-placeholder {
+    display: block;
+    width: 0;
+    height: 0;
+  }
+
+  &-tree {
+    display: inline-block;
+    padding: 0 0 0 1px;
+    &::before {
+      content: "";
+      display: block;
+      border-left: 1px solid #333;
+      width: 1px;
+      .absolute(0, _, 0, 0);
+    }
+  }
+
+  &-wrapper {
+    max-height: 100vh;
+    .@{veui-prefix}-tree-item {
+      height: 20px;
+      line-height: 20px;
+      margin-top: 5px;
+      &:hover::before {
+        display: none;
+      }
+      .@{veui-prefix}-anchor-item {
+        height: inherit;
+      }
+    }
+
+    &[ui~="s"] {
+      .@{veui-prefix}-tree-item {
+      }
+    }
+
+    &
+      > .@{veui-prefix}-tree
+      > li:first-child
+      > .@{veui-prefix}-tree-item:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &-wrapper &-item:first-child {
+  }
+
+  &-current::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: inherit;
+  }
+
+  &-wrapper &-current {
+    &::before {
+      // background-color: @dls-anchor-indicator-color;
+    }
+
+    &:hover::before {
+      // background-color: @dls-anchor-indicator-color-hover;
+    }
+
+    &.focus-visible::before {
+      // background-color: @dls-anchor-indicator-color-focus;
+    }
+
+    &:active::before {
+      // background-color: @dls-anchor-indicator-color-active;
+    }
+  }
+}

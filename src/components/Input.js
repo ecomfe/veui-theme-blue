@@ -1,14 +1,20 @@
-import '../icons/cross'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/times-circle';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    remove: 'cross'
-  },
-  ui: {
-    size: {
-      values: ['large', 'small', 'tiny', 'micro'],
-      inherit: true
-    }
-  }
-}, 'input')
+config.defaults(
+    {
+        icons: {
+            clear: 'times-circle'
+        },
+        ui: {
+            size: {
+                values: ['xs', 's', 'm', 'l'],
+                inherit: true
+            }
+        },
+        parts: {
+            clear: 'icon'
+        }
+    },
+    'input'
+);

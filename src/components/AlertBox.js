@@ -1,12 +1,20 @@
-import '../icons/check-circle-o-large'
-import '../icons/info-circle-o-large'
-import '../icons/cross-circle-o-large'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/check-circle';
+import 'veui-theme-blue-icons/info-circle';
+import 'veui-theme-blue-icons/exclamation-circle';
+import 'veui-theme-blue-icons/times-circle';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    success: 'check-circle-o-large',
-    info: 'info-circle-o-large',
-    error: 'cross-circle-o-large'
-  }
-}, 'alertbox')
+config.defaults(
+    {
+        icons: {
+            success: 'check-circle',
+            info: 'info-circle',
+            error: 'times-circle',
+            warning: 'exclamation-circle'
+        },
+        parts: {
+            ok: 'primary'
+        }
+    },
+    'alertbox'
+);

@@ -1,7 +1,3 @@
 /build/
-/config/
-/dist/
 /*.js
-/test/unit/coverage/
-/src/icons/
-/src/components/*.js
+/demo/icons/
