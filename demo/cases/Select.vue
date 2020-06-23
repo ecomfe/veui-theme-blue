@@ -1,3 +1,4 @@
+
 <template>
     <article>
         <h1>
@@ -541,7 +542,6 @@ import type from 'veui/managers/type';
 import 'vue-awesome/icons/flag';
 import 'vue-awesome/icons/gift';
 import 'veui-theme-blue-icons/info-circle';
-
 export default {
     name: 'select-demo',
     components: {
@@ -789,12 +789,11 @@ export default {
                 bus.$emit('log', child.$el.getAttribute('ui'));
             });
         });
-
         this.loaded = true;
     },
     methods: {
         change(value) {
-            console('您选中的下拉选项值是' + value);
+            // alert('您选中的下拉选项值是' + value)
         },
         handleSearch(val) {
             if (val) {
@@ -818,12 +817,10 @@ export default {
   .veui-icon {
     vertical-align: middle;
   }
-
   .veui-icon {
     margin-left: 5px;
   }
 }
-
 .veui-option-custom {
   position: relative;
   padding-left: 24px;
@@ -834,29 +831,24 @@ export default {
     left: 0;
     transform: translateY(-50%);
   }
-
   &-label {
     color: rgb(80, 170, 39);
   }
 }
-
 .filter {
   width: calc(100% - 10px);
   margin: 5px;
 }
-
 .note {
   margin: 8px;
   font-size: 12px;
   width: 240px;
-
   .veui-icon {
     float: left;
     margin-top: 3px;
     margin-right: 8px;
     margin-left: 8px;
   }
-
   .text {
     overflow: hidden;
   }

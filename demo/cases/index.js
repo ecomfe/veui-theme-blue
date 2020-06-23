@@ -50,8 +50,26 @@ import TimePicker from './TimePicker';
 import Embedded from './Embedded';
 import Anchor from './Anchor';
 import Menu from './Menu';
+import Color from './Color';
+import Base from './Base';
+import Mixins from './Mixins';
 
 export default [
+    {
+        path: '/color',
+        name: 'Color(var)',
+        component: Color
+    },
+    {
+        path: '/base',
+        name: 'Base(var)',
+        component: Base
+    },
+    {
+        path: '/mixins',
+        name: 'Mixins(var)',
+        component: Mixins
+    },
     {
         path: '/alert',
         name: 'Alert',
