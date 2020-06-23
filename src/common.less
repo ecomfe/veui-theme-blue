@@ -1,3 +1,7 @@
+/**
+* @file common.less
+* @desc 公共样式文件
+*/
 @import "./lib.less";
 @import "./normalize.less";
 @import (reference) "./link.less";
@@ -6,79 +10,77 @@
 @support-ie-version: 11;
 
 ._veui-output-common(@element) {
-  .output-selector() when (@element = html) {
-    @selector: html;
-  }
-  .output-selector() when not (@element = html) {
-    @selector: @element, @veui-overlay-element;
-  }
-  .output-selector();
-
-  @{selector} {
-    font-size: 14px;
-    font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-    sans-serif;
-    color: #333;
-  }
-
-  // only enable on Retina displays
-  @media screen and (min-resolution: 2dppx) {
-    @{selector} {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    .output-selector() when (@element = html) {
+        @selector: html;
     }
-  }
+    .output-selector() when not (@element = html) {
+        @selector: @element, @veui-overlay-element;
+    }
+    .output-selector();
+
+    @{selector} {
+        font-size: @veui-font-size-normal;
+        font-weight: @veui-font-weight-normal;
+        font-family: @veui-font-family;
+        color: @veui-font-color-main;
+    }
+
+    // only enable on Retina displays
+    @media screen and (min-resolution: 2dppx) {
+        @{selector} {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
 }
 ._veui-output-common(html) {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
-  ._veui-output-common-content();
+    ._veui-output-common-content();
 }
 ._veui-output-common(@element) when not (@element = html) {
-  @{element},
-  @{veui-overlay-element} {
-    display: block;
+    @{element},
+    @{veui-overlay-element} {
+        display: block;
 
-    &,
-    * {
-      &,
-      &::before,
-      &::after {
-        box-sizing: border-box;
-      }
+        &,
+        * {
+        &,
+        &::before,
+        &::after {
+            box-sizing: border-box;
+        }
+        }
+        ._veui-output-common-content();
     }
-    ._veui-output-common-content();
-  }
 }
 
 ._veui-output-common(@veui-root-element);
 
 // common styles for content
 ._veui-output-common-content () {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 500;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: @veui-font-weight-bold;
+    }
 
-  .@{veui-prefix}-disabled {
-    cursor: not-allowed !important;
-  }
+    .@{veui-prefix}-disabled {
+        cursor: not-allowed !important;
+    }
 
-  .@{veui-prefix}-sr-only {
-    .veui-invisible();
-  }
+    .@{veui-prefix}-sr-only {
+        .veui-invisible();
+    }
 
-  a {
-    &:extend(._veui-link all);
-  }
+    a {
+        &:extend(._veui-link all);
+    }
 }

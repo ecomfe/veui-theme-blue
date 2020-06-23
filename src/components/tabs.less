@@ -62,7 +62,7 @@
   &-prev,
   &-next {
     .@{veui-prefix}-icon {
-      // .dls-icon-size(@dls-tab-icon-size-aux);
+      // .veui-icon-size(@dls-tab-icon-size-aux);
     }
   }
 
@@ -196,7 +196,7 @@
       .veui-transition(transform, opacity);
 
       .@{veui-prefix}-icon {
-        // .dls-icon-size(@dls-tab-icon-size-aux);
+        // .veui-icon-size(@dls-tab-icon-size-aux);
       }
     }
 
@@ -213,7 +213,7 @@
     cursor: pointer;
 
     .veui-tabs-status(@type) {
-      @color-name: ~"veui-@{type}-color";
+      @color-name: ~"veui-@{type}-color-6";
       @color: @@color-name;
 
       color: @color;
@@ -232,7 +232,7 @@
     }
 
     &-error {
-      .veui-tabs-status(alert);
+      .veui-tabs-status(error);
     }
   }
 

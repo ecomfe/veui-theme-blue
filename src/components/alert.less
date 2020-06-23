@@ -1,9 +1,10 @@
 @import "../lib.less";
+@import "../variables/components/alert.less";
 
 .@{veui-prefix}-alert {
   display: flex;
   align-items: flex-start;
-  // line-height: @dls-alert-line-height;
+  line-height: @veui-alert-line-height;
   // padding: @dls-alert-padding-y @dls-alert-padding-x;
   border: 1px solid transparent;
   // color: @dls-alert-font-color;
@@ -24,13 +25,13 @@
   }
 
   &-icon {
-    // .dls-icon-size(@dls-alert-icon-size);
+    // .veui-icon-size(@dls-alert-icon-size);
   }
 
   &-nav,
   &-close {
     .@{veui-prefix}-icon {
-      // .dls-icon-size(@dls-alert-icon-size-aux);
+      // .veui-icon-size(@dls-alert-icon-size-aux);
     }
 
     .@{veui-prefix}-button {
@@ -95,7 +96,7 @@
     // padding: @dls-alert-padding-y-titled @dls-alert-padding-x;
 
     .@{veui-prefix}-alert-icon {
-      // .dls-icon-size(@dls-alert-icon-size-titled);
+      // .veui-icon-size(@dls-alert-icon-size-titled);
     }
 
     .@{veui-prefix}-alert-close {

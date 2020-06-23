@@ -5,6 +5,16 @@
             <veui-checkbox>未绑定数据</veui-checkbox>
         </section>
         <section>
+            <veui-checkbox :checked="false">
+                受控checked：永远为false
+            </veui-checkbox>
+        </section>
+        <section>
+            <veui-checkbox :checked="true">
+                受控checked：永远为true
+            </veui-checkbox>
+        </section>
+        <section>
             <veui-checkbox
                 v-model="current"
                 true-value="已选"
@@ -175,7 +185,6 @@
 
 <script>
 import {Checkbox, Button} from 'veui';
-
 export default {
     name: 'checkbox-demo',
     components: {
@@ -211,7 +220,6 @@ export default {
 section {
   margin-bottom: 1em;
 }
-
 .veui-checkbox + .veui-button,
 .veui-checkbox + .veui-checkbox {
   margin-left: 20px;
