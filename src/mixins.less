@@ -1,6 +1,10 @@
+/**
+* @file mixins.less
+* @desc mixins混合函数文件
+*/
 /* stylelint-disable at-rule-no-unknown */
 @import "~less-plugin-est/src/all.less";
-@import "./variables.less";
+@import "./variables/index.less";
 
 // https://github.com/twbs/bootstrap/blob/e43f97304eac2b276c755267e29de70ae2ac7afd/scss/mixins/_screen-reader.scss#L6-L15
 .veui-invisible() {
@@ -13,9 +17,10 @@
   border: 0;
 }
 
+// transition
 .veui-transition(...) {
   transition-property: args(@arguments);
-  transition-duration: @veui-transition-duration;
+  transition-duration: 0.2s;
 }
 
 /* prettier-ignore */
@@ -35,27 +40,28 @@
   content: "*";
   float: right;
   margin-right: 9px;
-  color: @veui-alert-color;
+  color: @veui-error-color-6;
 }
 
 .veui-field-gap-error() {
   position: absolute;
   display: block;
   margin: 0;
-  height: @veui-field-gap;
-  line-height: @veui-field-gap;
+  height: 30px;
+  line-height: 30px;
   font-size: 12px;
 
   .@{veui-prefix}-icon {
-    margin-top: ~"calc(@{veui-field-gap} / 2 - 0.5em)";
+    margin-top: ~"calc(30px / 2 - 0.5em)";
   }
 }
 
-.veui-overlay-shadow() {
-  box-shadow: 0 1px 4px fadeout(#000, 80%);
+// shadow阴影
+.veui-overlay-shadow(@color: rgba(0, 0, 0, 0.15)) {
+  box-shadow: 0 1px 4px 0 @color;
 }
 
-.veui-focus-shadow(@color: fadeout(@veui-gray-color-4, 50%)) {
+.veui-focus-shadow(@color: @veui-brand-color-2) {
   box-shadow: 0 0 0 2px @color;
   outline: none;
 }
@@ -66,18 +72,18 @@
   box-shadow: none;
 }
 
-.dls-focus-ring(@border-color: @dls-border-color-focus, @shadow: @dls-shadow-focus) {
+.veui-focus-ring(@border-color: @veui-border-color-focus, @shadow: @veui-shadow-focus) {
   border-color: @border-color;
   box-shadow: @shadow;
 }
-
-.dls-icon-size(@size) {
+// icon size
+.veui-icon-size(@size) {
   .size(auto, @size);
 }
-.dls-icon-size(@size, @min-size) when not (@min-size = true) {
+.veui-icon-size(@size, @min-size) when not (@min-size = true) {
   .size(auto, @size);
   min-height: @min-size;
 }
-.dls-icon-size(@size, @fixed-width) when (@fixed-width = true) {
+.veui-icon-size(@size, @fixed-width) when (@fixed-width = true) {
   .size(@size);
 }

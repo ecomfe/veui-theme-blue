@@ -110,6 +110,11 @@ export default {
 @title-height: 30px;
 @console-height: 40vh;
 
+p {
+  padding: 0;
+  margin: 0;
+}
+
 #app {
   position: fixed;
   top: 0;

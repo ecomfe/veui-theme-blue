@@ -32,7 +32,7 @@
     & > .@{veui-prefix}-field > .@{veui-prefix}-form-label {
       background-color: @veui-gray-color-7;
       border-color: @veui-gray-color-7;
-      color: @veui-text-color-normal;
+      color: @veui-font-color-main;
     }
   }
 
@@ -54,7 +54,7 @@
   &
     > .@{veui-prefix}-field:not(.@{veui-prefix}-field-no-tip)
     + .@{veui-prefix}-field-error {
-    margin-left: @veui-form-label-width;
+    margin-left: 120px;
   }
 
   &.@{veui-prefix}-field-no-tip
@@ -63,12 +63,12 @@
     position: static;
     display: inline-block;
     margin-left: 10px;
-    height: @veui-height-normal;
-    line-height: @veui-height-normal;
+    height: @veui-height-s;
+    line-height: @veui-height-s;
     font-size: inherit;
 
     .@{veui-prefix}-icon {
-      margin-top: ~"calc(@{veui-height-normal} / 2 - 0.5em)";
+      margin-top: ~"calc(@{veui-height-s} / 2 - 0.5em)";
     }
   }
 }
