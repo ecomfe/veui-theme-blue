@@ -1,104 +1,129 @@
 @import "../lib.less";
 
-@radio-size: 12px;
-@disabled-color: #108EE9; // disabled状态color色值
-@radio-height: 16px; // radio高度
-
-.veui-radio {
-  display: inline-block;
+.@{veui-prefix}-radio {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  // color: @dls-radio-font-color;
+  // font-size: @dls-radio-font-size-m;
+  // line-height: @dls-line-height-m;
   cursor: pointer;
-  height: @radio-height;
-  line-height: @radio-height;
-  color: @veui-dark-gray-color3;
-  font-size: 0;
 
   input {
     position: absolute;
     opacity: 0;
-  }
-
-  .veui-icon {
-    display: none;
-  }
-
-  &-label {
-    margin-left: 7px;
-    display: inline-block;
-    font-size: @veui-font-size-small;
+    cursor: inherit;
   }
 
   &-box {
-    transition: color @veui-transition-duration;
-  }
-
-  & .focus-visible ~ &-box,
-  & .focus-visible ~ &-label,
-  &:hover {
-    color: @veui-dark-gray-color3;
-  }
-
-  & .focus-visible ~ &-box {
-    box-shadow: 0 0 0 2px @veui-middle-gray-color3;
-  }
-
-  &-box {
-    display: inline-block;
-    position: relative;
-    .size(@radio-size);
-    top: 2px;
-    border: 1px solid @veui-middle-gray-color4;
-    background: @veui-light-gray-color5;
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    // .size(@dls-radio-size-m);
+    // margin-right: @dls-radio-spacing;
+    // border: 1px solid @dls-radio-border-color;
+    // background-color: @dls-radio-background-color;
     border-radius: 50%;
-    font-size: @veui-font-size-normal;
-    transition: box-shadow @veui-transition-duration;
+    // font-size: @dls-font-size-m;
+    .veui-transition(border-color, background-color, box-shadow);
+
+    .@{veui-prefix}-icon {
+      display: none;
+    }
 
     &::before {
       content: "";
-      display: block;
-      .size(@veui-font-size-small);
-      background-color: @veui-theme-color;
+      margin: auto;
+      // .size(@dls-radio-dot-size-m);
+      // background-color: @dls-radio-dot-color;
       border-radius: 50%;
-      .absolute(50%, 50%);
-      transform: translate(-50%, -50%) scale(0);
-      transition: transform @veui-transition-duration;
+      transform: scale(0);
+      .veui-transition(background-color, transform);
+    }
+  }
+
+  & :checked + &-box {
+    // border-color: @dls-radio-border-color-checked;
+    // background-color: @dls-radio-background-color-checked;
+
+    &::before {
+      transform: scale(1);
     }
   }
 
   &:hover &-box {
-    border-color: @veui-theme-color;
-  }
-
-  & :checked + &-box {
-    border-color: @veui-theme-color;
+    // border-color: @dls-radio-border-color-hover;
+    // background-color: @dls-radio-background-color-hover;
 
     &::before {
-      transform: translate(-50%, -50%) scale(.5);
+      // background-color: @dls-radio-dot-color-hover;
     }
   }
 
-  &.veui-disabled {
+  &:active &-box {
+    // border-color: @dls-radio-border-color-active;
+    // background-color: @dls-radio-background-color-active;
+
+    &::before {
+      // background-color: @dls-radio-dot-color-active;
+    }
+  }
+
+  & .focus-visible + &-box {
+    // border-color: @dls-border-color-focus;
+    // background-color: @dls-radio-background-color-focus;
+    // .veui-focus-ring(@dls-radio-border-color-focus, @dls-radio-shadow-focus);
+
+    &::before {
+      // background-color: @dls-radio-dot-color-focus;
+    }
+  }
+
+  & .focus-visible:checked + &-box {
+    // background-color: @dls-radio-background-color-checked-focus;
+    // .veui-focus-ring(
+    //   @dls-radio-border-color-checked-focus,
+    //   @dls-radio-shadow-focus
+    // );
+  }
+
+  &:hover :checked + &-box {
+    // border-color: @dls-radio-border-color-checked-hover;
+    // background-color: @dls-radio-background-color-checked-hover;
+  }
+
+  &:active :checked + &-box {
+    // border-color: @dls-radio-border-color-checked-active;
+    // background-color: @dls-radio-background-color-checked-active;
+  }
+
+  &.@{veui-prefix}-disabled {
     cursor: not-allowed;
+  }
 
-    .veui-radio-label {
-      color: @veui-dark-gray-color3;
-    }
+  & :disabled + &-box {
+    // border-color: @dls-radio-border-color-disabled;
+    // background-color: @dls-radio-background-color-disabled;
 
-    .veui-radio-box {
-      background: @veui-light-gray-color4;
-    }
-
-    &:hover .veui-radio-box {
-      border-color: @veui-middle-gray-color4;
+    &::before {
+      // background-color: @dls-radio-dot-color-disabled;
     }
   }
 
   & :checked:disabled + &-box {
-    background-color: @veui-light-gray-color1;
-    border-color: @disabled-color;
-    opacity: 0.4;
+    // border-color: @dls-radio-border-color-checked-disabled;
+    // background-color: @dls-radio-background-color-checked-disabled;
+  }
+
+  &[ui~="s"] {
+    // font-size: @dls-radio-font-size-s;
+  }
+
+  &[ui~="s"] &-box {
+    // .size(@dls-radio-size-s);
 
     &::before {
-      background-color: @disabled-color;
+      // .size(@dls-radio-dot-size-s);
     }
   }
 }

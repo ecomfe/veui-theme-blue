@@ -1,17 +1,22 @@
 @import "../lib.less";
 
-.veui-breadcrumb {
-  @separator-color: #9B9B9B;
-  .reset-list-style();
-  overflow: hidden;
+.@{veui-prefix}-breadcrumb {
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
-  font-size: @veui-font-size-small;
-  height: 16px;
-  line-height: 16px;
+  // font-size: @dls-breadcrumb-font-size-m;
+  line-height: 1; // hack to keep items vertially aligned
+
+  &[ui~="s"] {
+    // font-size: @dls-breadcrumb-font-size-s;
+  }
 
   &-separator {
-    margin: 0 7px 0 5px;
-    color: @separator-color;
+    // .margin(_, @dls-breadcrumb-separator-spacing);
+    .@{veui-prefix}-icon {
+      // .veui-icon-size(@dls-breadcrumb-separator-icon-size);
+      // color: @dls-breadcrumb-separator-color;
+    }
   }
 }

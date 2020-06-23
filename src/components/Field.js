@@ -1,14 +1,17 @@
-import '../icons/exclamation-circle-o';
+import 'veui-theme-blue-icons/exclamation-circle';
 import config from 'veui/managers/config';
 
-config.defaults({
-    icons: {
-        alert: 'exclamation-circle-o'
-    },
-    ui: {
-        size: {
-            values: ['large', 'small', 'tiny', 'micro'],
-            inherit: true
+config.defaults(
+    {
+        icons: {
+            alert: 'exclamation-circle'
+        },
+        ui: {
+            size: {
+                values: ['large', 'small', 'tiny', 'micro'],
+                inherit: true
+            }
         }
-    }
-}, 'field');
+    },
+    'field'
+);

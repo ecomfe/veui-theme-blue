@@ -1,331 +1,183 @@
 @import "../lib.less";
 
-.veui-pagination {
-  @button-width: 28px;
-  @button-height: 28px;
-  @button-gap-width: 8px;
+.@{veui-prefix}-pagination {
+  display: inline-flex;
+  vertical-align: middle;
+  // font-size: @dls-pagination-font-size-m;
 
-  @digit-width: 28px;
-  @digit-height: 28px;
-  @interval-size: 8px; // 分页按钮之间的间隔
-
-  .clearfix();
-  display: inline-block;
-  color: @veui-dark-gray-color2;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-
-    &:focus {
-      outline: none;
-    }
+  &,
+  &-info,
+  &-pages,
+  &-switch,
+  & .@{veui-prefix}-link {
+    display: inline-flex;
+    align-items: center;
   }
 
   &-info {
+    // margin-right: @dls-pagination-page-items-margin-before;
+  }
+
+  &-size {
+    .@{veui-prefix}-select {
+      width: auto;
+      flex-grow: 0;
+      // margin-left: @dls-pagination-spacing-1;
+    }
+  }
+
+  &-total {
     display: none;
-    float: left;
-    margin-right: @button-gap-width;
-    line-height: @digit-height;
-    color: @veui-dark-gray-color3;
-    &::after {
-      clear: both;
-      content: '';
-      display: inline-block;
-      height: 0;
-      overflow: hidden;
-    }
   }
 
-  &-total,
-  &-size {
-    display: inline-block;
-    font-size: @veui-font-size-small;
-    float: left;
-  }
+  &-goto {
+    display: flex;
+    align-items: center;
+    // margin-left: @dls-pagination-page-items-margin-after;
 
-  &-size {
-    .margin(_, 10px);
-  }
+    .@{veui-prefix}-input {
+      // width: @dls-pagination-goto-input-width;
 
-  &-switch {
-    float: left;
-  }
-
-  .veui-select {
-    min-width: auto;
-    margin-left: 5px;
-    width: auto;
-
-    .veui-button {
-      .padding(0, 6px);
-      height: 28px;
-      line-height: 26px;
-      white-space: nowrap;
-      min-width: 46px;
-      width: auto;
-      vertical-align: top;
-
-      .veui-icon {
-        margin-top: 10px;
+      &-main {
+        // .padding(_, @dls-pagination-goto-input-padding-x);
       }
     }
 
-    .veui-select-label {
-      max-width: none;
-      width: auto;
-      float: left;
-      margin-right: 5px;
-      color: @veui-dark-gray-color3;
-    }
-  }
-
-  &-prev,
-  &-next {
-    .veui-button-transition();
-
-    position: relative;
-    float: left;
-    width: @button-width;
-    height: @button-height;
-    line-height: @button-width - 2px;
-    text-align: center;
-    border: 1px solid @veui-middle-gray-color4;
-    background: @veui-light-gray-color5;
-    border-radius: @veui-border-radius-normal;
-    color: @veui-dark-gray-color2;
-
-    &.focus-visible {
-      color: @veui-brand-color;
+    &-label-before,
+    &-label-after {
+      display: block;
     }
 
-    &.veui-disabled {
-      &,
-      &:hover,
-      &:active {
-        background-color: @veui-light-gray-color6;
-        border-color: @veui-middle-gray-color4;
-        color: @veui-middle-gray-color5;
-        border-radius: @veui-border-radius-normal;
-      }
+    &-label-before {
+      // margin-right: @dls-pagination-spacing-1;
     }
 
-    .veui-icon {
-      .size(6px, 9px);
-      .veui-position-center()
+    &-label-after {
+      // margin-left: @dls-pagination-spacing-1;
     }
-  }
 
-  &-prev {
-    margin-right: @button-gap-width;
-  }
-
-  &-next {
-    margin-left: @button-gap-width;
+    .@{veui-prefix}-button {
+      // margin-left: @dls-pagination-spacing-2;
+    }
   }
 
   &-pages {
-    float: left;
-    margin: 0;
-    padding: 0;
     list-style: none;
-
-    li {
-      float: left;
-      min-width: @digit-width;
-      height: @digit-height;
-      text-align: center;
-      line-height: @digit-height;
-      border: 1px solid @veui-middle-gray-color4;
-      border-radius: @veui-border-radius-normal;
-      margin-left: @interval-size;
-      background: @veui-light-gray-color5;
-      font-size: @veui-font-size-small;
-      cursor: pointer;
-      &:first-child {
-        margin-left: 0;
-      }
-
-      .veui-link {
-        min-width: 26px;
-        display: inline-block;
-        .padding(_, 9px);
-        &.focus-visible {
-          color: @veui-theme-click-color;
-        }
-      }
-
-      span.veui-link {
-        cursor: default;
-      }
-
-      &:hover,
-      &.veui-active {
-        border-color: transparent;
-        background-color: @veui-theme-color;
-        color: @veui-light-gray-color5;
-        span {
-          color: @veui-light-gray-color5;
-        }
-      }
-      &.veui-active:hover {
-        background-color: @veui-theme-click-color;
-        border: 1px solid @veui-theme-click-color;
-      }
-    }
-
-    span {
-      color: @veui-dark-gray-color3;
-    }
+    // margin: 0 @dls-pagination-page-item-spacing;
+    padding: 0;
   }
 
-  .generate-responsive-page-digit-width(@length, @scale-ratio: 1) when (@length > 2) {
-    .veui-pagination-digit-length-@{length} {
-      li {
-        min-width: @digit-width;
-      }
-    }
-
-    .generate-responsive-page-digit-width(@length - 1, @scale-ratio);
+  &-page + &-page {
+    // margin-left: @dls-pagination-page-item-spacing;
   }
 
-  .generate-responsive-page-digit-width(4);
+  .make-metrics(@size) {
+    // @height: ~"dls-button-height-@{size}";
+    // @radius: ~"dls-button-border-radius-@{size}";
+    // @min-width: ~"dls-pagination-page-item-min-width-@{size}";
+    // height: @@height;
+    // min-width: @@min-width;
+    // border-radius: @@radius;
+  }
 
-  &[ui~="hetero"],
-  &[ui~="full"] {
-    .veui-pagination-switch {
+  .@{veui-prefix}-link {
+    // .padding(_, @dls-pagination-page-item-padding-x);
+    .make-metrics(m);
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+    font-size: inherit;
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+
+    // border: 1px solid @dls-button-border-color-normal;
+    // background-color: @dls-button-background-color-normal;
+    // color: @dls-button-font-color-normal;
+    .veui-button-transition();
+
+    &.@{veui-prefix}-pagination-more {
+      border-color: transparent;
+      background-color: transparent;
       position: relative;
 
-      .veui-pagination-prev {
-        position: absolute;
-        right: -(@button-width + @button-gap-width);
-        margin-right: 0;
+      .@{veui-prefix}-icon {
+        .veui-transition(opacity);
       }
-  
-      .veui-pagination-next {
-        position: absolute;
-        right: -((@button-width + @button-gap-width) * 2);
-        margin-left: 0;
-      }
-    }
-  }
 
-  &[ui~="full"], &[ui~="info"] {
-    .veui-pagination-info {
-      display: block;
-    }
-  }
-  &[ui~="simple"] {
-    li {
-      min-width: @button-width;
-      height: @button-height;
-      line-height: @button-height;
-      border: 0 none;
-      font-size: @veui-font-size-normal;
-      background: transparent;
+      .@{veui-prefix}-pagination-more-ellipsis {
+        opacity: 1;
+      }
+
+      .@{veui-prefix}-pagination-more-arrow {
+        position: absolute;
+        opacity: 0;
+      }
+
+      &:hover {
+        // border-color: @dls-button-border-color-normal;
+      }
 
       &:hover,
-      &.veui-active {
-        color: @veui-theme-color;
-        background: transparent;
-        border: 0 none;
-        span {
-          color: @veui-theme-color;
+      &.focus-visible,
+      &[data-focus-visible-added] {
+        .@{veui-prefix}-pagination-more-ellipsis {
+          opacity: 0;
         }
-      }
-      &.veui-active:hover {
-        span {
-          color: @veui-theme-click-color;
+
+        .@{veui-prefix}-pagination-more-arrow {
+          opacity: 1;
         }
       }
     }
-    .veui-pagination-switch {
-      .veui-pagination-prev,
-      .veui-pagination-next {
-        border: 0 none;
-        background: transparent;
-        border-radius: 0;
-      }
+
+    &:hover {
+      // background-color: @dls-button-background-color-normal-hover;
+    }
+
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      // background-color: @dls-button-background-color-normal-focus;
+      // .veui-focus-ring(@dls-button-border-color-focus, @dls-button-shadow-focus);
+    }
+
+    &:hover,
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      text-decoration: none;
+    }
+
+    &:active {
+      // background-color: @dls-button-background-color-normal-active;
+    }
+
+    &.@{veui-prefix}-disabled {
+      // border-color: @dls-button-border-color-normal-disabled;
+      // background-color: @dls-button-background-color-normal-disabled;
+      // color: @dls-button-font-color-normal-disabled;
+    }
+
+    &.@{veui-prefix}-current {
+      // border-color: @dls-pagination-page-item-border-color-current;
+      // background-color: @dls-pagination-page-item-background-color-current;
+      // color: @dls-pagination-page-item-font-color-current;
+      // font-weight: @dls-pagination-page-item-font-weight-current;
     }
   }
-  &[ui~="square"] {
-    @square-width: 50px; // square类型的宽度
-    @square-height: 50px; // square类型的高度
-    @square-font-size: 15px; // square类型的字体大小
-    @square-interval-size: 10px; // square类型的li之间的间隔
-    .veui-pagination-switch {
-      padding: 0 @square-width;
-    }
-    li {
-      min-width: @square-width;
-      height: @square-height;
-      line-height: @square-height;
-      border: 0 none;
-      font-size: @square-font-size;
-      margin-left: @square-interval-size;
 
-      &:hover,
-      &.veui-active {
-        border: 1px solid @veui-theme-color;
-        color: @veui-light-gray-color5;
-      }
-    }
-    .veui-pagination-prev,
-    .veui-pagination-next {
-      .size(@square-width);
-      line-height: @square-height;
-      .veui-icon {
-        .size(8px, 14px);
-      }
+  &[ui~="xs"] {
+    // font-size: @dls-pagination-font-size-xs;
+
+    .@{veui-prefix}-link {
+      .make-metrics(xs);
     }
   }
-  &[ui~="big_square"] {
-    @big-square-width: 64px; // big-square类型的宽度
-    @big-square-height: 64px; // big-square类型的高度
-    @big-square-interval-size: 0; // big-square类型的li之间的间隔
-    @big-square-font-size: 17px; // big-square类型的font-size
-    .veui-pagination-switch {
-      padding: 0 @big-square-width;
-    }
-    li {
-      min-width: @big-square-width;
-      height: @big-square-height;
-      line-height: @big-square-width;
-      border: 0 none;
-      border-left: 1px solid @veui-dark-gray-color3;
-      margin-left: @big-square-interval-size;
-      font-size: @big-square-font-size;
-      border-radius: 0;
-      &:last-child {
-        border-right: 1px solid @veui-dark-gray-color3;
-      }
 
-      &.veui-active {
-        color: @veui-light-gray-color5;
-        border: 0 none;
-        &+li { // 当前选中元素的下一元素border也置成0
-          border: 0 none;
-        }
-      }
-    }
-    .veui-pagination-switch {
-      .veui-pagination-prev,
-      .veui-pagination-next {
-        .size(@big-square-width);
-        border: 0 none;
-        background: transparent;
-        border-radius: 0;
-        .veui-icon {
-          .size(8px, 14px);
-        }
-      }
-    }
-  }
-}
+  &[ui~="s"] {
+    // font-size: @dls-pagination-font-size-s;
 
-.veui-pagination-select-overlay {
-  .veui-select-options {
-    min-width: 44px;
-    width: auto;
+    .@{veui-prefix}-link {
+      .make-metrics(s);
+    }
   }
 }

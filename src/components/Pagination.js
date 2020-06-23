@@ -1,18 +1,25 @@
-import '../icons/angle-left'
-import '../icons/angle-right'
-import config from 'veui/managers/config'
+import 'veui-theme-blue-icons/chevron-left';
+import 'veui-theme-blue-icons/chevron-right';
+import 'veui-theme-blue-icons/chevron-double-left';
+import 'veui-theme-blue-icons/chevron-double-right';
+import 'veui-theme-blue-icons/ellipsis';
+import config from 'veui/managers/config';
 
-config.defaults({
-  icons: {
-    prev: 'angle-left',
-    next: 'angle-right'
-  },
-  ui: {
-    style: {
-      values: ['square', 'hetero', 'full', 'simple', 'big_square']
+config.defaults(
+    {
+        icons: {
+            prev: 'chevron-left',
+            next: 'chevron-right',
+            backward: 'chevron-double-left',
+            forward: 'chevron-double-right',
+            more: 'ellipsis'
+        },
+        ui: {
+            size: {
+                values: ['xs', 's', 'm'],
+                inherit: true
+            }
+        }
     },
-    role: {
-      values: ['info']
-    }
-  }
-}, 'pagination')
+    'pagination'
+);

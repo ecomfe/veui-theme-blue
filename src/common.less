@@ -1,143 +1,86 @@
+/**
+* @file common.less
+* @desc 公共样式文件
+*/
 @import "./lib.less";
-@import "./font.less";
+@import "./normalize.less";
+@import (reference) "./link.less";
 
 /* Overriding est variables */
-@support-ie-version: 9;
-@default-text-color: @veui-text-color-normal;
-@default-base-font-family: @veui-font-family;
-@default-heading-font-family: @veui-font-family;
-@default-border-radius: 4px;
+@support-ie-version: 11;
 
-.global-normalize();
+._veui-output-common(@element) {
+    .output-selector() when (@element = html) {
+        @selector: html;
+    }
+    .output-selector() when not (@element = html) {
+        @selector: @element, @veui-overlay-element;
+    }
+    .output-selector();
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 14px;
-  font-weight: @veui-font-weight-normal;
-}
-
-// only enable on Retina displays
-@media screen and (min-resolution: 2dppx) {
-  html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: @veui-font-weight-bold;
-}
-
-input,
-button,
-textarea {
-  font: inherit;
-  font-weight: inherit;
-  color: @veui-dark-gray-color2;
-}
-
-button {
-  border-radius: 0;
-}
-
-.veui-disabled {
-  cursor: not-allowed !important;
-}
-
-.veui-sr-only {
-  .veui-invisible();
-}
-
-a {
-  text-decoration: none;
-}
-
-a,
-[ui~="link"],
-.veui-button[ui~="link"] {
-  cursor: pointer;
-  color: @veui-link-color-normal;
-
-  &:focus {
-    outline: none;
-  }
-
-  &[ui~="primary"] {
-    color: @veui-link-color-strong;
-  }
-
-  &:hover,
-  &.focus-ring {
-    color: @veui-link-color-hover;
-  }
-
-  &:active {
-    color: @veui-link-color-active;
-  }
-
-  &[ui~="aux"] {
-    color: @veui-text-color-weak;
-
-    &:hover,
-    &.focus-ring {
-      color: @veui-text-color-normal;
-      text-decoration: underline;
+    @{selector} {
+        font-size: @veui-font-size-normal;
+        font-weight: @veui-font-weight-normal;
+        font-family: @veui-font-family;
+        color: @veui-font-color-main;
     }
 
-    &:active {
-      color: @veui-alert-color;
+    // only enable on Retina displays
+    @media screen and (min-resolution: 2dppx) {
+        @{selector} {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
     }
-  }
-
-  &[ui~="alert"] {
-    color: @veui-alert-color;
-
-    &:hover,
-    &.focus-ring {
-      color: @veui-alert-color;
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: @veui-alert-color;
-    }
-  }
-
-  &[ui~="success"] {
-    color: @veui-success-color-1;
-
-    &:hover,
-    &.focus-ring {
-      color: @veui-success-color-1;
-      text-decoration: underline;
+}
+._veui-output-common(html) {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
     }
 
-    &:active {
-      color: @veui-success-color-1;
-    }
-  }
+    ._veui-output-common-content();
+}
+._veui-output-common(@element) when not (@element = html) {
+    @{element},
+    @{veui-overlay-element} {
+        display: block;
 
-  &[ui~="warning"] {
-    color: @veui-warning-color-1;
+        &,
+        * {
+        &,
+        &::before,
+        &::after {
+            box-sizing: border-box;
+        }
+        }
+        ._veui-output-common-content();
+    }
+}
 
-    &:hover,
-    &.focus-ring {
-      color: @veui-warning-color-1;
-      text-decoration: underline;
+._veui-output-common(@veui-root-element);
+
+// common styles for content
+._veui-output-common-content () {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: @veui-font-weight-bold;
     }
 
-    &:active {
-      color: @veui-warning-color-1;
+    .@{veui-prefix}-disabled {
+        cursor: not-allowed !important;
     }
-  }
+
+    .@{veui-prefix}-sr-only {
+        .veui-invisible();
+    }
+
+    a {
+        &:extend(._veui-link all);
+    }
 }

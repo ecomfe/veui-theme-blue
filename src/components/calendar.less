@@ -1,260 +1,614 @@
 @import "../lib.less";
 
-@page-color: #4DA1FF; // Calendar翻页按钮颜色
-@date-btn-bg: tint(#4DA1FF, 90%); // 每个日期的背景色
-@week-font-color: @veui-dark-gray-color2; // 日期字体颜色
-@week-font-size: 11px; // 日期字体大小
-@select-btn-bg: tint(#F4F7F9, 60%); // 下拉选择按钮背景色
-@select-btn-border-color: tint(@veui-middle-gray-color4, 50%); // 下拉选择按钮边框颜色
-@btn-disabled-color: #D8D8D8; // 不可用状态按钮颜色
+.make-header-height(@font-size) {
+  // @header-height: dls-sum(
+  //   dls-line-height(@dls-line-height-m, @font-size),
+  //   @dls-date-picker-header-padding-y * 2
+  // );
+}
 
-.veui-calendar {
+.make-day-body-height(@font-size, @date-picker-cell-height) {
+  // @day-body-height: dls-sum(
+  //   @dls-date-picker-day-body-padding-top,
+  //   dls-line-height(@dls-line-height-m, @font-size),
+  //   @dls-date-picker-day-body-padding-bottom,
+  //   @dls-date-picker-weekdays-spacing-after,
+  //   @date-picker-cell-height * 6,
+  //   @dls-date-picker-day-cell-spacing-y * 7
+  // );
+}
+
+.make-month-body-height(@font-size, @date-picker-cell-height) {
+  // @month-body-height: dls-sum(
+  //   @dls-date-picker-month-body-padding-top,
+  //   @dls-date-picker-month-cell-spacing-y * 4,
+  //   @date-picker-cell-height * 4
+  // );
+}
+
+.make-year-body-height(@font-size, @date-picker-cell-height) {
+  // @year-body-height: dls-sum(
+  //   @dls-date-picker-year-body-padding-top,
+  //   @dls-date-picker-year-cell-spacing-y * 4,
+  //   @date-picker-cell-height * 4
+  // );
+}
+
+.make-date-panel-width(@date-picker-cell-width) {
+  @date-panel-width: 300px;
+}
+
+.@{veui-prefix}-calendar {
   display: inline-block;
-  overflow: hidden;
-  background: @veui-light-gray-color5;
-  box-shadow: 0 1px 7px 0 rgba(0,0,0,0.14);
-  color: @veui-dark-gray-color3;
+  // border: 1px solid @dls-date-picker-panel-separator-color;
+  // background-color: @dls-date-picker-dropdown-background-color;
   outline: none;
-  font-size: @veui-font-size-normal;
-  border-radius: @veui-border-radius-normal;
-  
+  // font-size: @dls-date-picker-font-size-m;
+
   button {
     .veui-button-transition();
-  }
+    // line-height: @dls-line-height-m;
 
-  &-panel {
-    display: inline-block;
-    position: relative;
-    vertical-align: top;
-
-    & + & {
-      .veui-calendar-head {
-        margin-left: 1px;
-      }
-
-      .veui-calendar-body {
-        border-left: 1px solid @veui-light-gray-color5;
-      }
+    &.focus-visible {
+      // .veui-focus-ring(
+      //   @dls-date-picker-cell-border-focus-color,
+      //   @dls-date-picker-cell-shadow-focus
+      // );
     }
   }
 
-  &-days + &-months,
-  &-days + &-years,
-  &-months + &-days,
-  &-years + &-days {
-    .veui-calendar-body {
-      // border-color: @veui-gray-color-6;
+  // .make-date-panel-width(@dls-date-picker-cell-width-m);
+
+  &-type-year .@{veui-prefix}-date-picker-inputs {
+    // width: dls-sum(@date-panel-width, -@dls-date-picker-year-scroller-width);
+  }
+
+  &-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // .size(@date-panel-width, auto);
+
+    .@{veui-prefix}-calendar-range & {
+      display: inline-flex;
+    }
+
+    & + & {
+      // padding-left: @dls-date-picker-range-panel-spacing;
+      // width: dls-sum(@date-panel-width, @dls-date-picker-range-panel-spacing);
+    }
+
+    .@{veui-prefix}-calendar-body {
+      flex-grow: 1;
+    }
+
+    &::before {
+      content: "";
+      // .make-header-height(@dls-date-picker-font-size-m);
+      // .absolute(dls-sum(@header-height, -1px), 0, _, 0);
+      height: 0;
+      // border-bottom: 1px solid @dls-date-picker-panel-separator-color;
+    }
+  }
+
+  &-panel + &-expanded &-body,
+  &-expanded + &-panel &-body {
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      // .absolute(0, _, 0, -@dls-date-picker-range-panel-spacing / 2);
+      // border-left: 1px solid @dls-date-picker-panel-separator-color;
+    }
+  }
+
+  &-type-month &-panel,
+  &-type-year &-panel {
+    // width: dls-sum(@date-panel-width, -@dls-date-picker-year-scroller-width);
+  }
+  &-type-month &-panel + &-panel {
+    // width: dls-sum(
+    //   @date-panel-width,
+    //   -@dls-date-picker-year-scroller-width,
+    //   @dls-date-picker-range-panel-spacing
+    // );
+  }
+
+  &-head {
+    // padding: @dls-date-picker-header-padding-y @dls-date-picker-panel-padding-x;
+    display: flex;
+    align-items: center;
+
+    .@{veui-prefix}-button[ui~="icon"] {
+      // line-height: @dls-line-height-m;
+    }
+
+    .@{veui-prefix}-calendar-select,
+    .@{veui-prefix}-calendar-prev,
+    .@{veui-prefix}-calendar-next,
+    .@{veui-prefix}-calendar-backward,
+    .@{veui-prefix}-calendar-forward {
+      flex-grow: 0;
+      visibility: hidden;
+
+      &.@{veui-prefix}-calendar-visible {
+        visibility: visible;
+      }
+
+      .@{veui-prefix}-icon {
+        // .veui-icon-size(@dls-date-picker-header-pagination-icon-size);
+        // color: @dls-date-picker-icon-color;
+      }
+    }
+
+    .@{veui-prefix}-calendar-prev {
+      // margin-left: @dls-date-picker-header-pagination-spacing;
+    }
+    .@{veui-prefix}-calendar-next {
+      // margin-right: @dls-date-picker-header-pagination-spacing;
+    }
+
+    .@{veui-prefix}-calendar-select {
+      text-align: center;
+      // color: @dls-font-color-normal;
+      margin: auto;
+      height: auto;
+      border: none;
+      // line-height: @dls-line-height-m;
+
+      &.focus-visible,
+      &:hover {
+        // background-color: @dls-background-color-normal;
+        // color: @dls-font-color-normal;
+      }
+
+      .@{veui-prefix}-icon {
+        // margin-left: @dls-date-picker-header-icon-aux-spacing;
+        margin-right: 0;
+        // .veui-icon-size(@dls-date-picker-header-icon-size-aux);
+        .veui-transition(transform);
+
+        .@{veui-prefix}-calendar-expanded & {
+          transform: rotate(180deg);
+        }
+      }
     }
   }
 
   &-body {
-    border-collapse: collapse;
+    display: flex;
+  }
+
+  &-type-date &-body {
+    // .make-day-body-height(
+    //   @dls-date-picker-font-size-m,
+    //   @dls-date-picker-cell-height-m
+    // );
+    height: 300px;
+  }
+
+  &-type-month &-body {
+    // .make-month-body-height(
+    //   @dls-date-picker-font-size-m,
+    //   @dls-date-picker-cell-height-m
+    // );
+    height: 300px;
+  }
+
+  &-type-year &-body {
+    // .make-year-body-height(
+    //   @dls-date-picker-font-size-m,
+    //   @dls-date-picker-cell-height-m
+    // );
+    // height: @year-body-height;
+  }
+
+  &-type-date &-panel:not(&-expanded) &-body {
+    // padding: @dls-date-picker-day-body-padding-top
+      // @dls-date-picker-panel-padding-x @dls-date-picker-day-body-padding-bottom;
+  }
+
+  &-type-month &-expanded &-body,
+  &-type-year &-body {
+    .@{veui-prefix}-calendar-year-table-wrap {
+      overflow: auto;
+      // padding: dls-sum(
+      //     @dls-date-picker-month-body-padding-top,
+      //     -@dls-date-picker-month-cell-spacing-y
+      //   )
+      //   @dls-date-picker-panel-padding-x 0;
+    }
+    .@{veui-prefix}-calendar-year-table {
+      width: 100%;
+    }
+  }
+
+  &-table {
+    flex-grow: 1;
     table-layout: fixed;
-    padding-bottom: 5px;
-    width: 243px;
+    border-collapse: separate;
+    // border-spacing: @dls-date-picker-day-cell-spacing-x
+    //   @dls-date-picker-day-cell-spacing-y;
 
-    button {
-      position: relative;
-      .size(28px);
-      font-size: 11px;
-      border: none;
-      padding: 0;
-      background: @veui-light-gray-color5;
-      text-align: center;
-      outline: none;
-      border-radius: @veui-border-radius-normal;
-
-      &:hover,
-      &.focus-visible,
-      &:active {
-        background-color: @date-btn-bg;
-      }
-
-      &:disabled {
-        &,
-        &:hover {
-          background: @veui-light-gray-color5;
-          color: @btn-disabled-color;
-          cursor: not-allowed;
-        }
-      }
-    }
-  }
-
-  th {
-    .size(12px, 16px);
-    background: @veui-light-gray-color5;
-    color: @week-font-color;
-    font-size: @week-font-size;
-    font-weight: @veui-font-weight-normal;
-    letter-spacing: 0.92px;
-    padding-bottom: 4px;
-  }
-
-  td {
-    position: relative;
-    .size(28px, 28px);
-    padding: 6px 2px;
-    color: @week-font-color;
-    letter-spacing: 0.92px;
-  }
-
-  th,
-  td {
-    text-align: center;
-  }
-
-  &-aux {
-    button {
-      color: @btn-disabled-color;
-    }
-  }
-
-  &-today {
-    button::after {
-      // font-weight: @veui-font-weight-extra-bold;
-    }
-  }
-
-  &-selected,
-  &-in-range {
-    button {
-      background: rgba(77,161,255,0.10);
-      border-radius: @veui-border-radius-normal;
-
-      &:hover,
-      &.focus-visible {
-        background-color: @date-btn-bg;
-      }
-
-      &:active {
-        background-color: @date-btn-bg;
-      }
-    }
-  }
-  &-selected {
-    button:after {
-      content: '';
-      width: 5px;
-      height: 5px;
-      display: inline-block;
-      background: #4DA1FF;
-      border-radius: 50%;
-      position: absolute;
-      right: 5px;
-      top: 4px;
-    }
-  }
-
-  &-head {
-    padding: 10px 0;
-    text-align: center;
-    .clearfix();
-    width: 243px;
-
-    button {
-      color: @veui-dark-gray-color3;
-      height: 28px;
-      background: none;
-      border: none;
-      padding: 0 5px;
-      outline: none;
-      cursor: pointer;
-      b {
-        font-weight: normal;
-        font-size: @veui-font-size-normal;
-        display: inline-block;
-        vertical-align: middle;
-        margin-right: 5px;
-      }
-
-      .veui-icon {
-        vertical-align: middle;
-        color: @page-color;
-        width: 6px;
-        height: 10.3px;
-      }
-
-      &.veui-calendar-select {
-        background: @select-btn-bg;
-        border: 1px solid @select-btn-border-color;
-        border-radius: @veui-border-radius-normal;
-        min-width: 52px;
-        font-size: 0;
-        .veui-icon {
-          color: @veui-dark-gray-color3;
-          display: inline-block;
-          width: 9.3px;
-          height: 5.5px;
-        }
-      }
-
-      &.veui-calendar-prev,
-      &.veui-calendar-next {
-        padding: 0;
-      }
-
-      &:disabled {
-        &,
-        &:hover {
-          color: @veui-middle-gray-color1;
-          background: transparent;
-          cursor: not-allowed;
-        }
-
-        .veui-icon {
-          color: inherit;
-          background: @veui-light-gray-color5;
-        }
-      }
-    }
-  }
-
-  &-label {
-    line-height: 36px;
-    color: @veui-dark-gray-color3;
-  }
-
-  &-prev {
-    float: left;
-    margin-left: 24px;
-  }
-
-  &-next {
-    float: right;
-    margin-right: 24px;
-  }
-
-  &-days {
     th,
     td {
-      &:first-child {
-        padding-left: 10px;
+      text-align: center;
+      padding: 0;
+      // font-weight: @dls-date-picker-cell-font-weight;
+    }
+
+    button {
+      // border: 1px solid @dls-date-picker-cell-border-color;
+      // border-radius: @dls-date-picker-cell-border-radius-m;
+      padding: 0;
+      // background-color: @dls-date-picker-cell-background-color;
+      // color: @dls-date-picker-cell-font-color;
+      text-align: center;
+      outline: none;
+      cursor: pointer;
+      // font-weight: @dls-date-picker-cell-font-weight;
+      // .size(auto, @dls-date-picker-cell-height-m);
+
+      &:hover {
+        // background-color: @dls-date-picker-cell-background-color-hover;
+        // color: @dls-font-color-strong;
       }
 
-      &:last-child {
-        padding-right: 10px;
+      &.focus-visible {
+        // background-color: @dls-date-picker-cell-background-color-focus;
+        // color: @dls-font-color-strong;
+        // .veui-focus-ring(
+        //   @dls-date-picker-cell-border-focus-color,
+        //   @dls-date-picker-cell-shadow-focus
+        // );
       }
 
-      &:first-child,
-      &:last-child {
-        width: 41px;
+      &:active {
+        // background-color: @dls-date-picker-cell-background-color-active;
+      }
+
+      &:disabled {
+        &,
+        &:hover {
+          // background-color: @dls-date-picker-cell-background-color-disabled;
+          // color: @dls-date-picker-cell-font-color-disabled;
+          cursor: not-allowed;
+        }
       }
     }
   }
 
-  &-months,
-  &-years {
-    td {
-      .size(60px, 65px);
+  &-type-date {
+    th {
+      // padding-bottom: dls-sum(
+      //   @dls-date-picker-weekdays-spacing-after,
+      //   -@dls-date-picker-day-cell-spacing-y
+      // );
+    }
+  }
 
-      button {
-        .size(54px);
+  &-date-table button {
+    // .size(@dls-date-picker-cell-width-m, @dls-date-picker-cell-height-m);
+  }
+
+  &-month-table,
+  &-year-table {
+    td {
+      width: 100% / 3;
+    }
+    button {
+      // TODO
+      transition-duration: 0s;
+    }
+  }
+
+  &-table &-selected {
+    button {
+      // background-color: @dls-date-picker-cell-background-color-selected;
+      // color: @dls-date-picker-cell-font-color-selected;
+      // font-weight: @dls-date-picker-cell-font-weight-selected;
+
+      &:hover {
+        // background-color: @dls-date-picker-cell-background-color-selected-hover;
+      }
+
+      &.focus-visible {
+        // background-color: @dls-date-picker-cell-background-color-selected-focus;
+      }
+
+      &:active {
+        // background-color: @dls-date-picker-cell-background-color-selected-active;
       }
     }
+  }
 
-    .veui-calendar-body {
-      padding: 9px 11px 20px;
+  &-month-table {
+    // padding: dls-sum(
+    //     @dls-date-picker-month-body-padding-top,
+    //     -@dls-date-picker-month-cell-spacing-y
+    //   )
+    //   @dls-date-picker-panel-padding-x 0;
+    // border-spacing: 0 @dls-date-picker-month-cell-spacing-y;
+
+    button {
+      width: auto;
+      // padding: 0 @dls-date-picker-month-cell-padding-x;
     }
+  }
+
+  &-year-table {
+    // border-spacing: 0 @dls-date-picker-year-cell-spacing-y;
+    button {
+      width: auto;
+      // padding: 0 @dls-date-picker-year-cell-padding-x;
+    }
+  }
+
+  &-aux button {
+    // color: @dls-date-picker-cell-font-color-aux;
+    // background-color: @dls-date-picker-cell-background-color-aux;
+
+    &:hover {
+      // background-color: @dls-date-picker-cell-background-color-aux-hover;
+    }
+
+    &.focus-visible {
+      // background-color: @dls-date-picker-cell-background-color-aux-focus;
+    }
+
+    &:active {
+      // background-color: @dls-date-picker-cell-background-color-aux-active;
+    }
+  }
+
+  &-month-table &-current button,
+  &-year-scroller &-current button,
+  &-today button {
+    // color: @dls-date-picker-cell-font-color-current;
+    // font-weight: @dls-font-weight-3;
+  }
+
+  // in-range
+  &-in-range {
+    position: relative;
+    button {
+      // background-color: @dls-date-picker-cell-background-color-active;
+      border-radius: 0;
+    }
+  }
+
+  &-in-range&-range-start {
+    background-color: transparent;
+    button {
+      // .border-left-radius(@dls-date-picker-cell-border-radius-m);
+    }
+  }
+
+  &-in-range&-range-end {
+    background-color: transparent;
+    button {
+      // .border-right-radius(@dls-date-picker-cell-border-radius-m);
+    }
+  }
+
+  &-in-range&-action-end button {
+    &:hover {
+      // background-color: @dls-date-picker-cell-background-color-range-end-hover;
+      // border-color: @dls-date-picker-cell-border-color-range-end-hover;
+      // color: @dls-date-picker-cell-font-color;
+    }
+    &.focus-visible {
+      // background-color: @dls-date-picker-cell-background-color-range-end-focus;
+    }
+    &:active {
+      // border-color: @dls-date-picker-cell-border-color-range-end-active;
+      // color: @dls-date-picker-cell-font-color;
+      // background-color: @dls-date-picker-cell-background-color-active;
+    }
+  }
+
+  &-range {
+    td {
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        .size(100%);
+        .absolute(0, _, _, _);
+        // background-color: @dls-background-color-normal;
+      }
+    }
+  }
+
+  &-range &-table button {
+    position: relative;
+  }
+
+  &-in-range:not(&-range-single)::before {
+    // background-color: @dls-date-picker-cell-background-color-active;
+  }
+
+  &-date-table {
+    td::before {
+      // width: @dls-date-picker-day-cell-spacing-x;
+      // right: -@dls-date-picker-day-cell-spacing-x;
+      .veui-button-transition();
+    }
+  }
+  &-range-end,
+  &-in-range:last-child {
+    .@{veui-prefix}-calendar-date-table &::before {
+      // background-color: @dls-background-color-normal;
+    }
+  }
+
+  &-range-start,
+  &-range-end,
+  &-in-range:first-child,
+  &-in-range:last-child {
+    .@{veui-prefix}-calendar-month-table &::before,
+    .@{veui-prefix}-calendar-year-table &::before {
+      width: 50%;
+    }
+  }
+
+  &-range-start,
+  &-in-range:first-child {
+    .@{veui-prefix}-calendar-month-table &::before,
+    .@{veui-prefix}-calendar-year-table &::before {
+      right: 0;
+    }
+  }
+  &-range-start&-range-end,
+  &-range-start:last-child,
+  &-range-end:first-child {
+    .@{veui-prefix}-calendar-month-table &::before,
+    .@{veui-prefix}-calendar-year-table &::before {
+      // background-color: @dls-background-color-normal;
+    }
+  }
+
+  &-month-table &-range-end:not(&-range-start),
+  &-year-table &-range-end:not(&-range-start) {
+    &::before {
+      left: 0;
+    }
+  }
+
+  &-year-scroller {
+    // .size(@dls-date-picker-year-scroller-width, 100%);
+    // padding: @dls-date-picker-list-padding-y 0 0 0;
+    // border-right: 1px solid @dls-date-picker-panel-separator-color;
+    overflow: auto;
+    list-style-type: none;
+    margin: 0;
+
+    button {
+      // padding-left: @dls-date-picker-list-item-padding-x;
+      // background-color: @dls-date-picker-list-background-color;
+      border: none;
+      // font-weight: @dls-date-picker-list-font-weight;
+      // .centered-line(@dls-date-picker-list-item-height-m);
+      // color: @dls-date-picker-list-font-color;
+      // margin: 0 0 @dls-date-picker-list-item-spacing 0;
+      outline: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+
+      &:hover {
+        // background-color: @dls-date-picker-list-background-color-hover;
+        // color: @dls-date-picker-list-font-color-hover;
+      }
+      &.focus-visible {
+        // background-color: @dls-date-picker-list-background-color-focus;
+        // color: @dls-date-picker-list-font-color-focus;
+      }
+      &:active {
+        // background-color: @dls-date-picker-list-background-color-active;
+        // color: @dls-date-picker-list-font-color-active;
+      }
+    }
+  }
+
+  &-year-scroller &-selected {
+    button {
+      // color: @dls-date-picker-list-font-color-selected;
+      // font-weight: @dls-date-picker-list-font-weight-selected;
+      // background-color: @dls-date-picker-list-background-color-selected;
+
+      &:hover {
+        // color: @dls-date-picker-list-font-color-selected-hover;
+      }
+
+      &.focus-visible {
+        // color: @dls-date-picker-list-font-color-selected-focus;
+      }
+
+      &:active {
+        // color: @dls-date-picker-list-font-color-selected-active;
+      }
+    }
+  }
+
+  &[ui~="s"] {
+    // font-size: @dls-date-picker-font-size-s;
+    // .make-date-panel-width(@dls-date-picker-cell-width-s);
+    .@{veui-prefix}-calendar-panel {
+      // .size(@date-panel-width, auto);
+      & + .@{veui-prefix}-calendar-panel {
+        // width: dls-sum(@date-panel-width, @dls-date-picker-range-panel-spacing);
+      }
+      &::before {
+        // .make-header-height(@dls-date-picker-font-size-s);
+        // .absolute(dls-sum(@header-height, -1px), 0, _, 0);
+      }
+    }
+    &.@{veui-prefix}-calendar-type-month .@{veui-prefix}-calendar-panel,
+    &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,
+    &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-date-picker-inputs {
+      // width: dls-sum(@date-panel-width, -@dls-date-picker-year-scroller-width);
+    }
+
+    &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,
+    &.@{veui-prefix}-calendar-type-month .@{veui-prefix}-calendar-panel {
+      & + .@{veui-prefix}-calendar-panel {
+        // width: dls-sum(
+        //   @date-panel-width,
+        //   -@dls-date-picker-year-scroller-width,
+        //   @dls-date-picker-range-panel-spacing
+        // );
+      }
+    }
+  }
+
+  &[ui~="s"] &-table button {
+    // .size(auto, @dls-date-picker-cell-height-s);
+    // border-radius: @dls-date-picker-cell-border-radius-s;
+  }
+  &[ui~="s"] &-date-table button {
+    // .size(@dls-date-picker-cell-width-s, @dls-date-picker-cell-height-s);
+  }
+
+  &[ui~="s"] &-in-range button {
+    border-radius: 0;
+  }
+
+  &[ui~="s"] &-in-range&-range-start button {
+    // .border-left-radius(@dls-date-picker-cell-border-radius-s);
+  }
+
+  &[ui~="s"] &-in-range&-range-end button {
+    // .border-right-radius(@dls-date-picker-cell-border-radius-s);
+  }
+
+  &[ui~="s"] &-year-scroller {
+    button {
+      // .centered-line(@dls-date-picker-list-item-height-s);
+    }
+  }
+
+  &-type-date[ui~="s"] &-body {
+    // .make-day-body-height(
+    //   @dls-date-picker-font-size-s,
+    //   @dls-date-picker-cell-height-s
+    // );
+    height: 300px;
+  }
+
+  &-type-month[ui~="s"] &-body {
+    // .make-month-body-height(
+    //   @dls-date-picker-font-size-s,
+    //   @dls-date-picker-cell-height-s
+    // );
+    height: 300px;
+  }
+
+  &-type-year[ui~="s"] &-body {
+    // .make-year-body-height(
+    //   @dls-date-picker-font-size-s,
+    //   @dls-date-picker-cell-height-s
+    // );
+    // height: @year-body-height;
   }
 }

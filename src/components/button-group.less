@@ -1,48 +1,78 @@
 @import "../lib.less";
-@button-width: 90px;
-@button-height: 28px;
 
-.veui-button-group {
-  display: inline-block;
+.@{veui-prefix}-button-group {
+  display: inline-flex;
+  vertical-align: middle;
 
-  .veui-button {
+  .@{veui-prefix}-button {
     position: relative;
-    z-index: 0;
+    flex: 1 1 0;
     margin-left: -1px;
     border-radius: 0;
-    min-width: @button-width;
-    .centered-line(@button-height);
-    font-size: @veui-font-size-small;
 
     &:first-child {
       margin-left: 0;
-      border-bottom-left-radius: @veui-border-radius-normal;
-      border-top-left-radius: @veui-border-radius-normal;
+      .border-left-radius(inherit);
     }
 
     &:last-child {
-      border-bottom-right-radius: @veui-border-radius-normal;
-      border-top-right-radius: @veui-border-radius-normal;
+      .border-right-radius(inherit);
     }
 
-    &:hover,
-    &:focus {
-      &:not(.veui-disabled) {
-        z-index: 2;
-      }
+    &[data-focus-visible-added] {
+      z-index: 1;
     }
 
-    &[ui~="interval"] {
-      margin-left: 5px;
-      border-radius: @veui-border-radius-normal;
-      background: @veui-light-gray-color1;
-      &:first-child {
-        margin-left: 0;
-      }
-      &:hover,
-      &:focus {
-        background: @veui-middle-gray-color6;
-      }
+    &.@{veui-prefix}-disabled {
+      position: static;
+    }
+  }
+
+  &[ui~="xs"] {
+    // border-radius: @dls-button-border-radius-xs;
+  }
+
+  &[ui~="s"] {
+    // border-radius: @dls-button-border-radius-s;
+  }
+
+  &[ui~="m"] {
+    // border-radius: @dls-button-border-radius-m;
+  }
+
+  &[ui~="l"] {
+    // border-radius: @dls-button-border-radius-l;
+  }
+
+  &[ui~="xl"] {
+    // border-radius: @dls-button-border-radius-xl;
+  }
+
+  .@{veui-prefix}-button[ui~="primary"]
+    + .@{veui-prefix}-button[ui~="primary"] {
+    &::before {
+      content: "";
+      .absolute(-1px, _, -1px, -1px);
+      width: 1px;
+      // background-color: @dls-button-group-separator-color-primary;
+    }
+
+    &.focus-visible::before {
+      background-color: transparent;
+    }
+
+    &.@{veui-prefix}-disabled::before {
+      // background-color: @dls-button-group-separator-color-primary-disabled;
+    }
+  }
+
+  &[ui~="s"] .@{veui-prefix}-button {
+    &:first-child {
+      // .border-left-radius(@dls-button-border-radius-s);
+    }
+
+    &:last-child {
+      // .border-right-radius(@dls-button-border-radius-s);
     }
   }
 }

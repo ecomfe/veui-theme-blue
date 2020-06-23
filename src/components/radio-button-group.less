@@ -2,23 +2,8 @@
 @import "./button-group.less";
 @import (reference) "../grouped-button.less";
 
-.veui-radio-button-group {
-  .veui-button {
+.@{veui-prefix}-radio-button-group {
+  .@{veui-prefix}-button {
     &:extend(._veui-grouped-button all);
-  }
-  &[ui~="interval"] {
-    .veui-button {
-      background: @veui-light-gray-color1;
-      margin-left: 5px;
-      border-radius: @veui-border-radius-normal;
-      &:first-child {
-        margin-left: 0;
-      }
-      &:hover,
-      &:focus,
-      &.veui-button-selected {
-        background: @veui-middle-gray-color6;
-      }
-    }
   }
 }

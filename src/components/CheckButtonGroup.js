@@ -1,9 +1,21 @@
+import 'veui-theme-blue-icons/check';
 import config from 'veui/managers/config';
 
-config.defaults({
-    ui: {
-        style: {
-            values: ['interval']
+config.defaults(
+    {
+        ui: {
+            size: {
+                values: ['s', 'm'],
+                default: 'm',
+                inherit: true
+            }
+        },
+        parts: {
+            checked: 'strong'
+        },
+        icons: {
+            check: 'check'
         }
-    }
-}, 'checkbuttongroup');
+    },
+    'checkbuttongroup'
+);

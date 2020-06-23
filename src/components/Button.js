@@ -1,22 +1,20 @@
-import '../icons/loading';
+import 'veui-theme-blue-icons/loading';
 import config from 'veui/managers/config';
 
-config.defaults({
-    icons: {
-        loading: 'loading'
-    },
-    ui: {
-        style: {
-            values: ['alt', 'primary', 'dark']
+config.defaults(
+    {
+        icons: {
+            loading: 'loading'
         },
-        role: {
-            values: ['link']
-        },
-        size: {
-            values: ['large', 'small']
-        },
-        shape: {
-            values: ['round', 'square']
+        ui: {
+            // style: {
+            //     values: ['translucent', 'primary', 'strong', 'text', 'icon']
+            // },
+            // size: {
+            //     values: ['xs', 's', 'm', 'l', 'xl'],
+            //     default: 'm'
+            // }
         }
-    }
-}, 'button');
+    },
+    'button'
+);

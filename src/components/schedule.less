@@ -1,17 +1,15 @@
 @import "../lib.less";
 
-.veui-schedule {
+.@{veui-prefix}-schedule {
   width: 653px;
   border: 1px solid @veui-gray-color-5;
+  outline: none;
 
   &-header {
     overflow: hidden;
     padding: 10px 20px;
     font-size: @veui-font-size-small;
     line-height: 24px;
-  }
-
-  &-header {
     border-bottom: 1px solid @veui-gray-color-5;
   }
 
@@ -25,7 +23,7 @@
     padding: 0 10px;
     border: none;
     background-color: transparent;
-    color: @veui-text-color-normal;
+    color: @veui-font-color-main;
     outline: none;
     .veui-button-transition();
 
@@ -35,7 +33,7 @@
 
     &-selected {
       background-color: @veui-gray-color-7;
-      color: @veui-text-color-strong;
+      color: @veui-font-color-main;
     }
   }
 
@@ -44,7 +42,7 @@
 
     &-item {
       margin-left: 20px;
-      color: @veui-text-color-weak;
+      color: @veui-font-color-main;
 
       &:first-child {
         margin-left: 0;
@@ -77,7 +75,7 @@
   &-head {
     &-hour {
       float: right;
-      color: @veui-text-color-weak;
+      color: @veui-font-color-main;
       margin-bottom: 10px;
       font-size: @veui-font-size-small;
 
@@ -92,13 +90,13 @@
       float: left;
       clear: right;
       margin-right: 10px;
-      color: @veui-text-color-weak;
+      color: @veui-font-color-main;
 
       &-item {
         line-height: 23px;
 
-        .veui-checkbox[ui~="small"] {
-          .veui-checkbox {
+        .@{veui-prefix}-checkbox[ui~="small"] {
+          .@{veui-prefix}-checkbox {
             &-box {
               margin-right: 10px;
             }
@@ -109,7 +107,7 @@
           }
         }
 
-        .veui-checkbox-label {
+        .@{veui-prefix}-checkbox-label {
           width: 1em;
           text-align: center;
         }
@@ -149,15 +147,20 @@
 
         &:hover,
         &.focus-visible {
-          color: @veui-brand-color-10;
+          color: @veui-brand-color-9;
+        }
+
+        &.focus-visible {
+          .veui-focus-shadow();
+          z-index: 1;
         }
 
         &:hover:active,
-        &.veui-schedule-selected {
+        &.@{veui-prefix}-schedule-selected {
           color: @veui-brand-color-8;
         }
 
-        &.veui-schedule-selected {
+        &.@{veui-prefix}-schedule-selected {
           &:hover,
           &.focus-visible {
             color: @veui-brand-color-7;
@@ -176,7 +179,7 @@
           height: 23px;
           z-index: 1;
           background-color: #fff;
-          opacity: .001;
+          opacity: 0.001;
         }
       }
 
@@ -184,7 +187,9 @@
         position: relative;
         border: 1px solid @veui-gray-color-6;
 
-        &.veui-schedule-selected + .veui-schedule-selected button::before {
+        &.@{veui-prefix}-schedule-selected
+          + .@{veui-prefix}-schedule-selected
+          button::before {
           content: "";
           .absolute(0, _, _, -1px);
           .size(1px, 22px);
@@ -197,7 +202,7 @@
       pointer-events: none; // for Firefox
       .absolute(0, _, _, 0);
       font-size: @veui-font-size-small;
-      color: @veui-text-color-normal;
+      color: @veui-font-color-main;
 
       td {
         padding-top: 1px;

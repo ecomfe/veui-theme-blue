@@ -1,221 +1,273 @@
 @import "../lib.less";
 
-.veui-button {
-  @small-height: 28px;
-  @small-width: 74px;
-  @normal-width: 100px;
-  @normal-height: 32px;
-  @large-width: 110px;
-  @large-height: 38px;
-
-  padding: 0px 12px;
+.@{veui-prefix}-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   user-select: none;
+  border: 1px solid #333;
+  // border: 1px solid @dls-button-border-color-normal;
+  // background-color: @dls-button-background-color-normal;
+  // color: @dls-button-font-color-normal;
+  line-height: 1;
+  white-space: nowrap;
   vertical-align: middle;
-  min-width: @normal-width;
-  .make-height(@normal-height);
+  cursor: pointer;
   .veui-button-transition();
-  border: 1px solid @veui-middle-gray-color4;
-  background-color: @veui-light-gray-color5;
-  color: @veui-dark-gray-color2;
-  border-radius: @veui-border-radius-normal;
-  font-size: @veui-font-size-normal;
 
-  &:hover {
-    background-color: @veui-light-gray-color3;
+  .make-metrics(@size) {
+    // @height: ~"dls-button-height-@{size}";
+    // @padding: ~"dls-button-padding-@{size}";
+    // @radius: ~"dls-button-border-radius-@{size}";
+    // @font-size: ~"dls-button-font-size-@{size}";
+    // height: @@height;
+    // .padding(0, @@padding);
+    // border-radius: @@radius;
+    // font-size: @@font-size;
   }
 
-  &:active {
-    background-color: @veui-light-gray-color2;
+  &[ui~="xs"] {
+    .make-metrics(xs);
+  }
+
+  &[ui~="s"] {
+    .make-metrics(s);
+  }
+
+  &[ui~="m"] {
+    .make-metrics(m);
+  }
+
+  &[ui~="l"] {
+    .make-metrics(l);
+  }
+
+  &[ui~="xl"] {
+    .make-metrics(xl);
+  }
+
+  .@{veui-prefix}-icon {
+    .veui-icon-size(1em);
+    // margin-right: @dls-button-content-spacing;
+  }
+
+  &-icon-only .@{veui-prefix}-icon {
+    margin-right: 0;
   }
 
   &:focus {
     outline: none;
   }
 
-  &.focus-visible {
-    color: @veui-brand-color;
+  &:hover,
+  &.focus-visible,
+  &[data-focus-visible-added] {
+    // background-color: @dls-button-background-color-normal-hover;
+  }
+
+  &:active {
+    // background-color: @dls-button-background-color-normal-active;
+  }
+
+  &.@{veui-prefix}-disabled {
+    // border-color: @dls-button-border-color-normal-disabled;
+    // background-color: @dls-button-background-color-normal-disabled;
+    // color: @dls-button-font-color-normal-disabled;
+  }
+
+  &&-loading {
+    pointer-events: none;
+    cursor: default;
+    // background-color: @dls-button-background-color-normal-active;
+  }
+
+  &-loading .@{veui-prefix}-icon:not(&-loading-icon) {
+    display: none;
+  }
+
+  &[ui~="strong"] {
+    // border-color: @dls-button-border-color-strong;
+    // background-color: @dls-button-background-color-strong;
+    // color: @dls-button-font-color-strong;
+
+    &:hover {
+      // background-color: @dls-button-background-color-strong-hover;
+    }
+
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      // background-color: @dls-button-background-color-strong-focus;
+    }
+
+    &:active {
+      // background-color: @dls-button-background-color-strong-active;
+    }
+
+    &.@{veui-prefix}-disabled {
+      // border-color: @dls-button-border-color-strong-disabled;
+      // background-color: @dls-button-background-color-strong-disabled;
+      // color: @dls-button-font-color-strong-disabled;
+    }
+
+    &.@{veui-prefix}-button-loading {
+      // background-color: @dls-button-background-color-strong-active;
+    }
   }
 
   &[ui~="primary"] {
-    border-color: transparent;
-    background-color: @veui-brand-color;
-    color: @veui-light-gray-color5;
-    min-width: @normal-width;
-    .make-height(@normal-height);
+    // border-color: @dls-button-border-color-primary;
+    // background-color: @dls-button-background-color-primary;
+    // color: @dls-button-font-color-primary;
 
-    &:hover,
-    &.focus-visible {
-      background-color: @veui-brand-color-2;
+    &:hover {
+      // background-color: @dls-button-background-color-primary-hover;
+    }
+
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      // background-color: @dls-button-background-color-primary-focus;
     }
 
     &:active {
-      background-color: @veui-brand-color-1;
+      // background-color: @dls-button-background-color-primary-active;
     }
 
-    &.veui-disabled,
-    &.veui-disabled[ui], {
-      &,
-      &:hover {
-        cursor: not-allowed;
-        border-color: transparent;
-        background-color: @veui-brand-color;
-        opacity: 0.4;
-        color: @veui-light-gray-color5;
-      }
+    &.@{veui-prefix}-disabled {
+      // border-color: @dls-button-border-color-primary-disabled;
+      // background-color: @dls-button-background-color-primary-disabled;
+      // color: @dls-button-font-color-primary-disabled;
+    }
+
+    &.@{veui-prefix}-button-loading {
+      // background-color: @dls-button-background-color-primary-active;
     }
   }
 
-  &[ui~="alt"] {
-    border-color: transparent;
-    background-color: @veui-light-gray-color1;
+  &[ui~="translucent"] {
+    // border-color: @dls-button-border-color-translucent;
+    // background-color: @dls-button-background-color-translucent;
+    // color: @dls-button-font-color-translucent;
 
     &:hover {
-      background-color: @veui-light-gray-color2;
+      // background-color: @dls-button-background-color-translucent-hover;
+    }
+
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      // background-color: @dls-button-background-color-translucent-focus;
     }
 
     &:active {
-      background-color: @veui-middle-gray-color6;
+      // background-color: @dls-button-background-color-translucent-active;
     }
 
-    &.focus-visible {
-      color: @veui-brand-color;
+    &.@{veui-prefix}-disabled {
+      // border-color: @dls-button-border-color-translucent-disabled;
+      // background-color: @dls-button-background-color-translucent-disabled;
+      // color: @dls-button-font-color-translucent-disabled;
     }
 
-    &.veui-disabled,
-    &.veui-disabled[ui], {
-      &,
-      &:hover {
-        background-color: @veui-light-gray-color1;
-      }
+    &.@{veui-prefix}-button-loading {
+      // background-color: @dls-button-background-color-translucent-active;
     }
   }
 
-  &[ui~="dark"] {
-    border-color: transparent;
-    background: rgba(0, 0, 0, 0.7);
-    color: @veui-light-gray-color5;
-
-    &:hover,
-    &:active,
-    &.focus-visible {
-      background: rgba(0, 0, 0, 0.8);
-    }
-
-    &.veui-disabled,
-    &.veui-disabled[ui], {
-      &,
-      &:hover {
-        background: rgba(0, 0, 0, 0.4);
-        border-color: transparent;
-        color: @veui-light-gray-color5;
-      }
-    }
-  }
-
-  &[ui~="large"] {
-    min-width: @large-width;
-    .make-height(@large-height);
-    font-size: @veui-font-size-large;
-  }
-
-  &[ui~="small"] {
-    min-width: @small-width;
-    .make-height(@small-height);
-    font-size: @veui-font-size-small;
-  }
-
-  &[ui~="round"] {
-    border-radius: 50%;
-  }
-
-  &[ui~="round"],
-  &[ui~="square"] {
-    .size(@normal-height);
-    min-width: auto;
-    .padding(_, 0);
-    text-align: center;
-
-    &[ui~="large"] {
-      .size(@large-height);
-    }
-
-    &[ui~="small"] {
-      .size(@small-height);
-    }
-  }
-
-  // use class here to give IE a better experience because
-  // we disabled the current <button> element to prevent
-  // user interaction with buttons while loading
-  &.veui-disabled,
-  &.veui-disabled[ui], {
-    &,
-    &:hover {
-      cursor: not-allowed;
-      border-color: @veui-middle-gray-color4;
-      background-color: @veui-light-gray-color5;
-      color: @veui-dark-gray-color2;
-      opacity: 0.4;
-    }
-  }
-
-  &[ui~="link"] {
-    display: inline;
-    min-width: auto;
+  &[ui~="text"],
+  &[ui~="icon"] {
     border: none;
     padding: 0;
+    height: auto;
+    line-height: 1;
 
-    &.veui-disabled,
-    &.veui-disabled[ui], {
-      &,
-      &:hover {
-        color: @veui-theme-color;
-        opacity: 0.4;
-        background-color: transparent;
+    &::after {
+      content: "";
+      border: 1px solid transparent;
+      border-radius: inherit;
+      .veui-button-transition();
+    }
+
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      box-shadow: none;
+
+      &::after {
+        // .veui-focus-ring(
+        //   @dls-button-border-color-focus,
+        //   @dls-button-shadow-focus
+        // );
       }
     }
+  }
 
-    &,
-    &:hover,
-    &:active,
-    &.focus-visible {
-      background-color: transparent;
+  &[ui~="text"] {
+    // background-color: @dls-button-background-color-text;
+    // color: @dls-button-font-color-text;
+
+    &::after {
+      // .absolute(-@dls-button-padding-text);
+    }
+
+    &:hover {
+      // background-color: @dls-button-background-color-text-hover;
+      // color: @dls-button-font-color-text-hover;
+    }
+
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      // background-color: @dls-button-background-color-text-focus;
+      // color: @dls-button-font-color-text-focus;
+    }
+
+    &:active {
+      // background-color: @dls-button-background-color-text-active;
+      // color: @dls-button-font-color-text-active;
+    }
+
+    &.@{veui-prefix}-disabled {
+      // background-color: @dls-button-background-color-text-disabled;
+      // color: @dls-button-font-color-text-disabled;
     }
   }
 
-  &-loading {
-    &,
-    &[ui] {
-      cursor: default;
-      pointer-events: none;
-      opacity: .5;
+  &[ui~="icon"] {
+    // background-color: @dls-button-background-color-icon;
+    // color: @dls-button-font-color-icon;
+
+    &::after {
+      // .absolute(-@dls-button-padding-icon);
+    }
+
+    &:hover {
+      // background-color: @dls-button-background-color-icon-hover;
+      // color: @dls-button-font-color-icon-hover;
+    }
+
+    &.focus-visible,
+    &[data-focus-visible-added] {
+      // background-color: @dls-button-background-color-icon-focus;
+      // color: @dls-button-font-color-icon-focus;
+    }
+
+    &:active {
+      // background-color: @dls-button-background-color-icon-active;
+      // color: @dls-button-font-color-icon-active;
+    }
+
+    &.@{veui-prefix}-disabled {
+      // background-color: @dls-button-background-color-icon-disabled;
+      // color: @dls-button-font-color-icon-disabled;
+    }
+
+    &.@{veui-prefix}-button-loading {
+      .@{veui-prefix}-icon:not(.@{veui-prefix}-button-loading-icon) {
+        display: none;
+      }
     }
   }
 
-  .veui-icon {
-    max-width: 1em;
-    & + .veui-button-loading-text {
-      margin-left: 5px;
-    }
-  }
-
-  .make-height(@button-height) {
-    height: @button-height;
-    line-height: @button-height - 2px;
-
-    .veui-icon {
-      vertical-align: top;
-      @height: @button-height / 2 - 1px;
-      margin-top: ~"calc(@{height} - 0.5em)";
-    }
-  }
-}
-
-.veui-button-loading-text {
-  vertical-align: top;
-
-  [ui~="round"] > &,
-  [ui~="square"] > & {
-    display: none;
+  &.focus-visible,
+  &[data-focus-visible-added] {
+    // .veui-focus-ring(@dls-button-border-color-focus, @dls-button-shadow-focus);
   }
 }

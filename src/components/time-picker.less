@@ -1,0 +1,86 @@
+@import "../lib.less";
+@import (reference) "../dropdown.less";
+
+.@{veui-prefix}-time-picker {
+  display: inline-block;
+  // width: @dls-time-picker-width;
+
+  & > .@{veui-prefix}-input {
+    width: 100%;
+  }
+
+  &-overlay-content {
+    &:extend(._veui-dropdown-overlay all);
+    // min-width: @dls-time-picker-dropdown-min-width;
+    // background-color: @dls-option-background-color;
+    // box-shadow: @dls-option-dropdown-shadow;
+    display: flex;
+  }
+
+  &-option-group-wrapper {
+    flex-shrink: 1;
+    flex-grow: 1;
+    // max-height: @dls-option-dropdown-max-height-m;
+    overflow: auto;
+    & + & {
+      // border-left: 1px solid @dls-option-group-separator-color;
+    }
+
+    .@{veui-prefix}-option {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+
+      &::before {
+        content: "00";
+        display: block;
+        height: 0;
+        // font-weight: @dls-option-font-weight-selected;
+        opacity: 0;
+      }
+    }
+  }
+
+  &-icon {
+    display: flex;
+    position: relative;
+  }
+
+  &-clock {
+    // .veui-icon-size(@dls-input-icon-size);
+    .veui-transition(color, opacity);
+    // color: @dls-time-picker-icon-color;
+
+    .@{veui-prefix}-readonly &,
+    .@{veui-prefix}-disabled & {
+      // color: @dls-time-picker-icon-color-disabled;
+    }
+  }
+
+  &:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
+    &-clear
+    + &-clock,
+  .@{veui-prefix}-focus &-clear + &-clock,
+  &-clear.focus-visible + &-clock {
+    opacity: 0;
+  }
+
+  &-clear {
+    .absolute(50%, 50%, _, _);
+    transform: translate(50%, -50%);
+    opacity: 0;
+    z-index: 1;
+
+    .@{veui-prefix}-icon {
+      // .veui-icon-size(@dls-input-icon-size);
+    }
+
+    .@{veui-prefix}-time-picker:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
+      &,
+    .@{veui-prefix}-focus &,
+    &.focus-visible {
+      opacity: 1;
+    }
+  }
+}

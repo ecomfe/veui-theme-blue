@@ -1,0 +1,354 @@
+@import "../lib.less";
+@import (reference) "../dropdown.less";
+
+.@{veui-prefix}-menu {
+  // border-right: 1px solid @dls-menu-border-color;
+  display: flex;
+  flex-direction: column;
+  // width: @dls-menu-width;
+  .veui-transition(width);
+
+  &-collapsed {
+    // width: @dls-menu-width-collapsed;
+  }
+
+  &-tree,
+  &-overlay {
+    // font-size: @dls-menu-font-size-m;
+    .@{veui-prefix}-menu-link {
+      text-decoration: none;
+    }
+  }
+
+  // tree
+  &-tree-wrapper {
+    overflow: auto;
+    flex: auto;
+    padding-right: 1px;
+    margin-right: -1px;
+
+    // 当 tree 收起时可能会看到 active 样式溢出到 tree 外面，盖住
+    &::after {
+      content: "";
+      display: block;
+      flex: auto;
+      // background: @dls-menu-item-background-color;
+      position: relative;
+      // border-right: 1px solid @dls-menu-border-color;
+      margin-right: -1px;
+    }
+  }
+
+  &-tree {
+    position: relative;
+    margin-right: -1px;
+    // padding: @dls-menu-padding-y @dls-menu-padding-x;
+    // 盖住 tree 顶部的 padding 间隙
+    &::before {
+      content: "";
+      .absolute(0, 0, _, 0);
+      // height: @dls-menu-item-spacing;
+      // background-color: @dls-menu-item-background-color;
+      // border-right: 1px solid @dls-menu-border-color;
+      display: block;
+      z-index: 0;
+    }
+
+    .@{veui-prefix}-tree-item {
+      // margin-top: @dls-menu-item-spacing;
+      // height: @dls-menu-item-height-m;
+      // 盖住 active 样式在 expand 过渡时从 margin-top 露出来的部分
+      &::before {
+        content: "";
+        .absolute(_, 0);
+        // height: @dls-menu-item-spacing;
+        // background-color: @dls-menu-item-background-color;
+        // border-right: 1px solid @dls-menu-border-color;
+        transform: translateY(100%);
+        align-self: flex-end;
+        width: auto;
+        display: block;
+        z-index: 0;
+      }
+
+      &-group {
+        // padding-left: @dls-menu-level-indent;
+      }
+    }
+
+    // 第二级缩进
+    &-has-icon > li > ul.@{veui-prefix}-tree-item-group {
+      // padding-left: dls-sum(
+      //   @dls-menu-item-icon-size,
+      //   @dls-menu-item-content-spacing
+      // );
+    }
+    & > li:first-child > .@{veui-prefix}-tree-item {
+      margin-top: 0;
+    }
+
+  }
+
+  // footer
+  &-footer {
+    flex: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    // border-top: 1px solid @dls-menu-separator-color;
+    // height: @dls-menu-footer-height-m;
+    // padding-right: @dls-menu-padding-x;
+  }
+  &-toggle {
+    transform: rotateZ(180deg);
+  }
+
+  // item
+  &-item {
+    cursor: pointer;
+    display: flex;
+    flex: auto;
+    align-items: center;
+    outline: none;
+    max-width: 100%;
+    height: inherit;
+
+    &::before {
+      content: "";
+      .absolute(_, 0);
+      height: inherit;
+      // background-color: @dls-menu-item-background-color;
+      // border-right: 1px solid @dls-menu-border-color;
+    }
+
+    &:not(.@{veui-prefix}-disabled) {
+      &:hover {
+        // color: @dls-menu-item-font-color-hover;
+        &::before {
+          // background-color: @dls-menu-item-background-color-hover;
+        }
+      }
+      .@{veui-prefix}-tree-item.focus-visible & {
+        // color: @dls-menu-item-font-color-focus;
+        &::before {
+          // background-color: @dls-menu-item-background-color-focus;
+        }
+      }
+      &:active {
+        // color: @dls-menu-item-font-color-active;
+        &::before {
+          // background-color: @dls-menu-item-background-color-active;
+        }
+      }
+    }
+  }
+
+  &-overlay .@{veui-prefix}-option-group-expandable,
+  &-item-label,
+  &-item-icon {
+    position: relative;
+    z-index: 1;
+  }
+
+  &-item-icon {
+    // margin-right: @dls-menu-item-content-spacing;
+    display: flex;
+    align-items: center;
+    // .veui-icon-size(@dls-menu-item-icon-size, true);
+  }
+
+  &-item-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-link {
+    flex: auto;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    height: inherit;
+
+    // link 充满整个 item
+    &::before {
+      content: "";
+      .absolute(_, 0);
+      height: inherit;
+    }
+  }
+
+  .@{veui-prefix}-button &-toggle-icon {
+    // .veui-icon-size(@dls-menu-item-icon-size-aux);
+  }
+
+  &-tree &-link {
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &-item-active:not(.@{veui-prefix}-disabled),
+  &-item-exact-active:not(.@{veui-prefix}-disabled) {
+    .@{veui-prefix}-menu-item-icon,
+    .@{veui-prefix}-menu-link {
+      // color: @dls-menu-item-font-color-current;
+      // font-weight: @dls-menu-item-font-weight-current;
+      // .veui-transition(color);
+    }
+
+    &:hover {
+      .@{veui-prefix}-menu-item-icon,
+      .@{veui-prefix}-menu-link {
+        // color: @dls-menu-item-font-color-current-hover;
+      }
+    }
+
+    &.focus-visible {
+      .@{veui-prefix}-menu-item-icon,
+      .@{veui-prefix}-menu-link {
+        // color: @dls-menu-item-font-color-current-focus;
+      }
+    }
+
+    &:active {
+      .@{veui-prefix}-menu-item-icon,
+      .@{veui-prefix}-menu-link {
+        // color: @dls-menu-item-font-color-current-active;
+      }
+    }
+  }
+
+  &-item-exact-active:not(.@{veui-prefix}-disabled) {
+    &::before {
+      // background-color: @dls-menu-item-background-color-current;
+      .veui-transition(background-color);
+    }
+
+    &:hover::before {
+      // background-color: @dls-menu-item-background-color-current-hover;
+    }
+
+    &.focus-visible::before {
+      // background-color: @dls-menu-item-background-color-current-focus;
+    }
+
+    &:active::before {
+      // background-color: @dls-menu-item-background-color-current-active;
+    }
+
+    // Indicators
+    &::after {
+      content: "";
+      .absolute(_, 0, _, _);
+      // .size(@dls-menu-indicator-width, inherit);
+      // background: @dls-menu-indicator-color;
+
+      .@{veui-prefix}-menu-overlay & {
+        .absolute(_, 0, _, _);
+      }
+    }
+
+    &:hover::after {
+      // background-color: @dls-menu-indicator-color-hover;
+    }
+
+    &.focus-visible::after {
+      // background-color: @dls-menu-indicator-color-focus;
+    }
+
+    &:active::after {
+      // background-color: @dls-menu-indicator-color-active;
+    }
+  }
+
+  &-item.@{veui-prefix}-disabled &-item-icon,
+  &-item.@{veui-prefix}-disabled &-link {
+    // color: @dls-menu-item-font-color-disabled;
+  }
+
+  &-item-toggle,
+  &-toggle {
+    display: flex;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    // color: @dls-icon-color-aux;
+    .veui-transition(transform);
+  }
+
+  &-item-toggle {
+    position: relative;
+    // margin-left: @dls-menu-item-content-spacing;
+    transform: rotateZ(90deg);
+  }
+  .@{veui-prefix}-tree-item-expanded &-item-toggle {
+    transform: rotateZ(-90deg);
+  }
+
+  // collapsed
+  &-collapsed &-toggle {
+    transform: rotateZ(0);
+  }
+
+  &-collapsed &-tree {
+    // padding: @dls-menu-padding-y 0;
+  }
+  &-collapsed &-tree &-item {
+    justify-content: center;
+  }
+  &-collapsed &-tree &-item-toggle,
+  &-collapsed &-tree &-link {
+    flex: 0;
+    overflow: hidden;
+  }
+
+  &-collapsed &-item-icon {
+    margin: 0;
+  }
+
+  &-overlay {
+    & > .@{veui-prefix}-option-group-options,
+    & > .@{veui-prefix}-option-group {
+      &:extend(._veui-dropdown-overlay all);
+      // margin: 0 @dls-option-dropdown-target-spacing;
+    }
+
+    .@{veui-prefix}-option {
+      &,
+      &-group-label {
+        position: relative;
+      }
+    }
+  }
+
+  &[ui~="s"],
+  &[ui~="s"] &-tree,
+  &-overlay[ui~="s"] {
+    // font-size: @dls-menu-font-size-s;
+  }
+
+  &[ui~="s"] &-tree .@{veui-prefix}-tree-item {
+    // height: @dls-menu-item-height-s;
+  }
+
+  &[ui~="s"] &-footer {
+    // height: @dls-menu-footer-height-s;
+  }
+
+  &[ui~="l"],
+  &[ui~="l"] &-tree,
+  &-overlay[ui~="l"] {
+    // font-size: @dls-menu-font-size-l;
+  }
+
+  &[ui~="l"] &-tree .@{veui-prefix}-tree-item {
+    // height: @dls-menu-item-height-l;
+  }
+
+  &[ui~="l"] &-footer {
+    // height: @dls-menu-footer-height-l;
+  }
+}

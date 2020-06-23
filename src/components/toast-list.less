@@ -1,12 +1,15 @@
 @import "../lib.less";
 
-.veui-toast-list {
-  .fixed(85px, 0, _, 0);
+.@{veui-prefix}-toast-list {
+  // .fixed(@dls-toast-list-spacing-before, 0, _, 0);
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 
-  .veui-toast {
-    left: 50%;
-    transform: translateX(-50%);
-    transition: opacity @veui-transition-duration, top @veui-transition-duration, transform @veui-transition-duration;
+  .@{veui-prefix}-toast {
+    .veui-transition(opacity, top, transform);
+    transform: translateY(0);
+    // margin-bottom: @dls-toast-spacing;
 
     &-enter,
     &-leave-to {
@@ -14,7 +17,7 @@
     }
 
     &-enter {
-      transform: translate(-50%, -100%);
+      transform: translateY(-100%);
     }
   }
 }

@@ -1,19 +1,17 @@
 @import "../lib.less";
-@form-line-gap: 16px; // 表单行与行之间的间距
-@require-color: #FF6847; // 必须* 色值
 
-.veui-form {
-  .veui-fieldset,
-  .veui-field {
-    margin-bottom: @form-line-gap;
+.@{veui-prefix}-form {
+  .@{veui-prefix}-fieldset,
+  .@{veui-prefix}-field {
+    margin-bottom: 30px;
   }
 
-  .veui-fieldset:last-child,
-  .veui-field:last-child {
+  .@{veui-prefix}-fieldset:last-child,
+  .@{veui-prefix}-field:last-child {
     margin-bottom: 0;
   }
 
-  .veui-fieldset > .veui-field {
+  .@{veui-prefix}-fieldset > .@{veui-prefix}-field {
     margin-bottom: 0;
   }
 
@@ -21,21 +19,21 @@
     .clearfix();
 
     & > * + * {
-        margin-left: 10px;
+      margin-left: 10px;
     }
 
-    .veui-fieldset,
-    .veui-field {
+    .@{veui-prefix}-fieldset,
+    .@{veui-prefix}-field {
       display: inline-block;
       margin-bottom: 0;
       clear: none;
 
-      & > .veui-form-label,
-      &.veui-field-no-label::before {
+      & > .@{veui-prefix}-form-label,
+      &.@{veui-prefix}-field-no-label::before {
         width: auto;
       }
 
-      & + .veui-fieldset {
+      & + .@{veui-prefix}-fieldset {
         margin-left: 30px;
       }
     }
