@@ -1,5 +1,5 @@
-import 'veui-theme-blue-icons/check';
-import 'veui-theme-blue-icons/times';
+import '../icons/check';
+import '../icons/times';
 import config from 'veui/managers/config';
 
 config.defaults(

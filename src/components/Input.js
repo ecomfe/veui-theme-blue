@@ -1,4 +1,4 @@
-import 'veui-theme-blue-icons/times-circle';
+import '../icons/times-circle';
 import config from 'veui/managers/config';
 
 config.defaults(
