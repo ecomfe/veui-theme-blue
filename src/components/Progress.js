@@ -1,7 +1,7 @@
-import 'veui-theme-blue-icons/check';
-import 'veui-theme-blue-icons/times';
-import 'veui-theme-blue-icons/check-circle';
-import 'veui-theme-blue-icons/times-circle';
+import '../icons/check';
+import '../icons/times';
+import '../icons/check-circle';
+import '../icons/times-circle';
 import config from 'veui/managers/config';
 
 config.defaults(

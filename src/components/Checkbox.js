@@ -1,5 +1,5 @@
-import 'veui-theme-blue-icons/minus';
-import 'veui-theme-blue-icons/check';
+import '../icons/minus';
+import '../icons/check';
 import config from 'veui/managers/config';
 
 config.defaults(

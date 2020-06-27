@@ -1,7 +1,7 @@
-import 'veui-theme-blue-icons/chevron-up';
-import 'veui-theme-blue-icons/chevron-down';
-import 'veui-theme-blue-icons/plus';
-import 'veui-theme-blue-icons/minus';
+import '../icons/chevron-up';
+import '../icons/chevron-down';
+import '../icons/plus';
+import '../icons/minus';
 import config from 'veui/managers/config';
 
 const ICON_MAP = {

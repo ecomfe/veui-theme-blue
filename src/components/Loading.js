@@ -1,4 +1,4 @@
-import 'veui-theme-blue-icons/loading';
+import '../icons/loading';
 import config from 'veui/managers/config';
 
 config.defaults(

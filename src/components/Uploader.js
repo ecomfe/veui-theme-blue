@@ -1,13 +1,13 @@
-import 'veui-theme-blue-icons/upload';
-import 'veui-theme-blue-icons/trash';
-import 'veui-theme-blue-icons/check-circle';
-import 'veui-theme-blue-icons/times-circle';
-import 'veui-theme-blue-icons/file';
-import 'veui-theme-blue-icons/image-add';
-import 'veui-theme-blue-icons/exclamation-circle';
-import 'veui-theme-blue-icons/loading';
-import 'veui-theme-blue-icons/eye';
-import 'veui-theme-blue-icons/question-circle';
+import '../icons/upload';
+import '../icons/trash';
+import '../icons/check-circle';
+import '../icons/times-circle';
+import '../icons/file';
+import '../icons/image-add';
+import '../icons/exclamation-circle';
+import '../icons/loading';
+import '../icons/eye';
+import '../icons/question-circle';
 import config from 'veui/managers/config';
 
 config.defaults(

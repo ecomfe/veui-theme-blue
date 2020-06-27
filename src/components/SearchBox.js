@@ -1,4 +1,4 @@
-import 'veui-theme-blue-icons/search';
+import '../icons/search';
 import config from 'veui/managers/config';
 
 config.defaults(

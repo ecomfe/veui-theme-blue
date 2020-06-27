@@ -1,4 +1,4 @@
-import 'veui-theme-blue-icons/check';
+import '../icons/check';
 import config from 'veui/managers/config';
 
 config.defaults(
