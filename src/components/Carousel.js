@@ -1,5 +1,5 @@
-import 'veui-theme-blue-icons/chevron-left';
-import 'veui-theme-blue-icons/chevron-right';
+import '../icons/chevron-left';
+import '../icons/chevron-right';
 import config from 'veui/managers/config';
 
 config.defaults(

@@ -1,7 +1,7 @@
-import 'veui-theme-blue-icons/chevron-double-down';
-import 'veui-theme-blue-icons/chevron-down';
-import 'veui-theme-blue-icons/arrow-down';
-import 'veui-theme-blue-icons/sort';
+import '../icons/chevron-double-down';
+import '../icons/chevron-down';
+import '../icons/arrow-down';
+import '../icons/sort';
 import config from 'veui/managers/config';
 
 config.defaults(

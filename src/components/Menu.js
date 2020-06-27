@@ -1,4 +1,4 @@
-import 'veui-theme-blue-icons/chevron-right';
+import '../icons/chevron-right';
 import config from 'veui/managers/config';
 
 config.defaults(

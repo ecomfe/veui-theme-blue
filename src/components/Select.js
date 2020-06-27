@@ -1,5 +1,5 @@
-import 'veui-theme-blue-icons/chevron-down';
-import 'veui-theme-blue-icons/times-circle';
+import '../icons/chevron-down';
+import '../icons/times-circle';
 import config from 'veui/managers/config';
 
 const CHECKBOX_SIZE_MAP = {

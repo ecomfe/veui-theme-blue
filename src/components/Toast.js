@@ -1,8 +1,8 @@
-import 'veui-theme-blue-icons/check-circle';
-import 'veui-theme-blue-icons/exclamation-circle';
-import 'veui-theme-blue-icons/info-circle';
-import 'veui-theme-blue-icons/times-circle';
-import 'veui-theme-blue-icons/times';
+import '../icons/check-circle';
+import '../icons/exclamation-circle';
+import '../icons/info-circle';
+import '../icons/times-circle';
+import '../icons/times';
 import config from 'veui/managers/config';
 
 config.defaults(

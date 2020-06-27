@@ -1,6 +1,6 @@
-import 'veui-theme-blue-icons/check';
-import 'veui-theme-blue-icons/times';
-import 'veui-theme-blue-icons/chevron-right';
+import '../icons/check';
+import '../icons/times';
+import '../icons/chevron-right';
 import config from 'veui/managers/config';
 
 config.defaults(

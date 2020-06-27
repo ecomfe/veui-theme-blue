@@ -1,8 +1,8 @@
-import 'veui-theme-blue-icons/chevron-left';
-import 'veui-theme-blue-icons/chevron-down';
-import 'veui-theme-blue-icons/chevron-right';
-import 'veui-theme-blue-icons/chevron-double-left';
-import 'veui-theme-blue-icons/chevron-double-right';
+import '../icons/chevron-left';
+import '../icons/chevron-down';
+import '../icons/chevron-right';
+import '../icons/chevron-double-left';
+import '../icons/chevron-double-right';
 import config from 'veui/managers/config';
 
 config.defaults(

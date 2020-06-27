@@ -1,5 +1,5 @@
 import config from 'veui/managers/config';
-import 'veui-theme-blue-icons/times';
+import '../icons/times';
 
 config.defaults(
     {
