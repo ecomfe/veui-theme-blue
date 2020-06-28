@@ -2,43 +2,23 @@
     <article>
         <h1><code>&lt;veui-alert&gt;</code></h1>
         <section>
-            <div>固定提示</div>
+            <h4>含图标、关闭、操作的警示（不传ui）</h4>
             <veui-alert
+                class="limit-width"
                 type="success"
-                ui="strong"
                 message="恭喜你，你的请求已成功处理"
-                closable
             >
-                <template slot="title">
-                    恭喜你
-                </template>
-                <template slot="extra">
-                    <veui-button ui="text">
-                        查看详情
-                    </veui-button>
-                </template>
-                恭喜你，你的请求已成功处理
-            </veui-alert>
-            <veui-alert
-                type="success"
-                ui="s"
-                message="恭喜你，你的请求已成功处理"
-                closable
-                :show-icon="false"
-            >
-                <template slot="title">
-                    恭喜你
-                </template>
-                恭喜你，你的请求已成功处理，欢迎<a
-                    href="#"
-                    ui="strong"
-                >查看详情</a>。
             </veui-alert>
             <veui-alert
                 type="success"
                 message="恭喜你，你的请求已成功处理"
                 closable
-                ui="m strong"
+            >
+            </veui-alert>
+            <veui-alert
+                type="success"
+                message="恭喜你，你的请求已成功处理"
+                closable
             >
                 <template slot="title">
                     恭喜你
@@ -52,20 +32,17 @@
             </veui-alert>
             <veui-alert
                 class="limit-width"
-                ui="strong s"
                 type="success"
                 message="恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理"
                 closable
             />
             <veui-alert
                 type="warning"
-                ui="strong"
                 message="警告，进行检查，有风险信息存在"
             />
             <veui-alert
                 class="limit-width"
                 type="warning"
-                ui="s"
                 :message="messages"
                 closable
             />
@@ -84,25 +61,117 @@
             </veui-alert>
             <veui-alert
                 type="info"
-                ui="s"
                 message="提醒，这个消息需要注意"
             />
             <veui-alert
                 class="limit-width"
                 type="info"
                 message="提醒，这个消息需要注意"
-                close-label="不再提示"
+                closable
             />
             <veui-alert
+                type="info"
+                closable
+            >
+                <template slot="title">
+                    提醒
+                </template>
+                <template slot="extra">
+                    <veui-button ui="text">
+                        查看详情
+                    </veui-button>
+                </template>
+                这个消息需要注意
+            </veui-alert>
+            <veui-alert
                 type="error"
-                ui="s"
                 message="错误，请检查并修改后再进行操作"
             />
             <veui-alert
                 class="limit-width"
                 type="error"
                 message="错误，请检查并修改后再进行操作"
+                closable
             />
+            <veui-alert
+                type="error"
+                closable
+            >
+                <template slot="title">
+                    错误
+                </template>
+                <template slot="extra">
+                    <veui-button ui="text">
+                        查看详情
+                    </veui-button>
+                </template>
+                请检查并修改后再进行操作
+            </veui-alert>
+        </section>
+        <section>
+            <h4>不带图标，不带关闭（ui="normal"）</h4>
+            <veui-alert
+                type="success"
+                ui="normal"
+                message="恭喜你，你的请求已成功处理"
+                closable
+            >
+            </veui-alert>
+            <veui-alert
+                type="success"
+                ui="normal"
+                message="恭喜你，你的请求已成功处理"
+            >
+                <template slot="title">
+                    恭喜你
+                </template>
+                恭喜你，你的请求已成功处理
+            </veui-alert>
+            <veui-alert
+                type="warning"
+                ui="normal"
+                message="警告，进行检查，有风险信息存在"
+            />
+            <veui-alert
+                class="limit-width"
+                type="warning"
+                ui="normal"
+            >
+                <template slot="title">
+                    警告
+                </template>
+                进行检查，有风险信息存在
+            </veui-alert>
+            <veui-alert
+                type="info"
+                ui="normal"
+                message="提醒，这个消息需要注意"
+            />
+            <veui-alert
+                class="limit-width"
+                type="info"
+                ui="normal"
+            >
+                <template slot="title">
+                    提醒
+                </template>
+                这个消息需要注意
+            </veui-alert>
+            <veui-alert
+                type="error"
+                ui="normal"
+                message="错误，请检查并修改后再进行操作"
+            />
+            <veui-alert
+                class="limit-width"
+                ui="normal"
+                type="error"
+            >
+                <template slot="title">
+                    错误
+                </template>
+                请检查并修改后再进行操作
+            </veui-alert>
         </section>
     </article>
 </template>

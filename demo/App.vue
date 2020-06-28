@@ -103,7 +103,7 @@ export default {
 <style lang="less">
 @import '~less-plugin-est/src/all.less';
 @import '~veui-theme-blue/common.less';
-@veui-root-element: veui-x-demo;
+// @veui-root-element: veui-x-demo;
 
 @nav-width: 240px;
 @light-bg-color: #f6f9ff;
