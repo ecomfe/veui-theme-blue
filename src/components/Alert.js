@@ -24,11 +24,6 @@ config.defaults(
             close: 'icon'
         },
         ui: {
-            // size: {
-            //     values: ['s', 'm'],
-            //     default: 'm',
-            //     inherit: true
-            // },
             style: {
                 values: ['normal']
             }

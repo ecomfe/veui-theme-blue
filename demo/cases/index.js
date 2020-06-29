@@ -76,11 +76,6 @@ export default [
         component: Alert
     },
     {
-        path: '/alert-box',
-        name: 'AlertBox',
-        component: AlertBox
-    },
-    {
         path: '/anchor',
         hash: '#milk-coffee',
         name: 'Anchor',
