@@ -5,7 +5,7 @@
       <div>固定提示4</div>
       <veui-alert
         type="success"
-        message="恭喜你，你的请求已成功处理"
+        message="恭喜你，你的请求已成功处理1"
         closable/>
       <veui-alert
         ui="limit"
