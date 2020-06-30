@@ -1,10 +1,14 @@
 @import "../lib.less";
+@import "../variables/components/badge.less";
 
 .@{veui-prefix}-badge {
   position: relative;
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
+  border: 1px solid @veui-badge-border-color;
+  padding: @veui-badge-padding-y @veui-badge-padding-x;
+  border-radius: @veui-badge-border-radius;
 
   &-main {
     .absolute(0, 0, _, _);
