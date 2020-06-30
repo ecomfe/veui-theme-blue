@@ -2,7 +2,7 @@
   <article>
     <h1><code>&lt;veui-alert&gt;</code></h1>
     <section>
-      <div>固定提示1</div>
+      <div>固定提示2</div>
       <veui-alert
         type="success"
         message="恭喜你，你的请求已成功处理"
