@@ -5,102 +5,111 @@
             <veui-checkbox v-model="hidden">Hidden</veui-checkbox>
         </section>
         <section>
+            <h2>圆点徽标：</h2>
             <veui-badge
                 :hidden="hidden"
                 type="success"
-            >保存</veui-badge>
+            >
+                <veui-button>绿点徽标</veui-button>
+            </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 type="info"
-            >保存</veui-badge>
-            <veui-badge :hidden="hidden">保存</veui-badge>
+            >
+                <veui-button>蓝点徽标</veui-button>
+            </veui-badge>
+            <veui-badge :hidden="hidden">
+                <veui-button>红点徽标</veui-button>
+            </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 type="warning"
-            >保存</veui-badge>
+            >
+                <veui-button>橙点徽标</veui-button>
+            </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 type="aux"
-            >保存</veui-badge>
+            >
+                <veui-button>灰点徽标</veui-button>
+            </veui-badge>
         </section>
         <section>
+            <h2>数字徽标：</h2>
             <veui-badge
                 :hidden="hidden"
-                value="New"
-                type="success"
-            ><veui-button>消息</veui-button></veui-badge>
-            <veui-badge
-                :hidden="hidden"
-                value="New"
-                type="info"
-            ><veui-button>消息</veui-button></veui-badge>
-            <veui-badge
-                :hidden="hidden"
-                value="New"
-            ><veui-button>消息</veui-button></veui-badge>
-            <veui-badge
-                :hidden="hidden"
-                value="New"
-                type="warning"
-            ><veui-button>消息</veui-button></veui-badge>
-            <veui-badge
-                :hidden="hidden"
-                value="New"
-                type="aux"
-            ><veui-button>消息</veui-button></veui-badge>
-        </section>
-        <section>
-            <veui-badge
-                :hidden="hidden"
-                :value="count"
+                value="1"
                 type="success"
             >
-                <veui-button
-                    ui="primary"
-                    @click="count++"
-                >写文章</veui-button>
+                <veui-button>数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
-                :value="count"
+                value="10"
                 type="info"
             >
-                <veui-button
-                    ui="primary"
-                    @click="count++"
-                >写文章</veui-button>
+                <veui-button>数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
-                :value="count"
+                value="99+"
             >
-                <veui-button
-                    ui="primary"
-                    @click="count++"
-                >写文章</veui-button>
+                <veui-button>数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
-                :value="count"
+                value="68"
                 type="warning"
             >
-                <veui-button
-                    ui="primary"
-                    @click="count++"
-                >写文章</veui-button>
+                <veui-button>数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
-                :value="count"
+                value="1000"
                 type="aux"
             >
-                <veui-button
-                    ui="primary"
-                    @click="count++"
-                >写文章</veui-button>
+                <veui-button>数字徽标</veui-button>
             </veui-badge>
         </section>
         <section>
+            <h2>文字徽标</h2>
+            <veui-badge
+                :hidden="hidden"
+                value="new"
+                type="success"
+            >
+                <veui-button>文字徽标</veui-button>
+            </veui-badge>
+            <veui-badge
+                :hidden="hidden"
+                value="hot"
+                type="info"
+            >
+                <veui-button>文字徽标</veui-button>
+            </veui-badge>
+            <veui-badge
+                :hidden="hidden"
+                value="new"
+            >
+                <veui-button>文字徽标</veui-button>
+            </veui-badge>
+            <veui-badge
+                :hidden="hidden"
+                value="count"
+                type="warning"
+            >
+                <veui-button>文字徽标</veui-button>
+            </veui-badge>
+            <veui-badge
+                :hidden="hidden"
+                value="count"
+                type="aux"
+            >
+                <veui-button>文字徽标</veui-button>
+            </veui-badge>
+        </section>
+        <section>
+            <h2>状态徽标</h2>
             <veui-badge
                 :hidden="hidden"
                 type="success"
@@ -127,26 +136,26 @@
             <veui-badge
                 :hidden="hidden"
                 type="success"
-                value="审核中"
+                value="成功"
             />
             <veui-badge
                 :hidden="hidden"
                 type="info"
-                value="审核中"
+                value="进行中"
             />
             <veui-badge
                 :hidden="hidden"
-                value="审核中"
+                value="失败"
             />
             <veui-badge
                 :hidden="hidden"
                 type="warning"
-                value="审核中"
+                value="警告"
             />
             <veui-badge
                 :hidden="hidden"
                 type="aux"
-                value="审核中"
+                value="置灰"
             />
         </section>
     </article>
@@ -168,7 +177,6 @@ export default {
     },
     data() {
         return {
-            count: 996,
             hidden: false
         };
     }
@@ -177,8 +185,6 @@ export default {
 
 <style scoped>
 section {
-  display: flex;
-  align-items: center;
   margin-bottom: 40px;
 }
 
