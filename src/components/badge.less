@@ -2,76 +2,83 @@
 @import "../variables/components/badge.less";
 
 .@{veui-prefix}-badge {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-  border: 1px solid @veui-badge-border-color;
-  padding: @veui-badge-padding-y @veui-badge-padding-x;
-  border-radius: @veui-badge-border-radius;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 
-  &-main {
-    .absolute(0, 0, _, _);
-    transform: translate(50%, -50%);
-    z-index: 1;
-  }
+    // 依赖button组件的样式
+    .veui-button {
+        background: @veui-badge-button-background-color;
+        border: 1px solid @veui-badge-button-border-color;
+        padding: @veui-badge-padding-y @veui-badge-padding-x;
+        border-radius: @veui-badge-button-border-radius;
+        line-height: @veui-badge-button-line-height;
+    }
 
-  &-standalone &-main {
-    position: static;
-    transform: none;
-  }
+    &-main {
+        .absolute(0, 0, _, _);
+        transform: translate(50%, -50%);
+        z-index: 1;
+    }
 
-  &-enter,
-  &-leave-to {
-    transform: translate(50%, -50%) scale(0);
-  }
+    &-standalone &-main {
+        position: static;
+        transform: none;
+    }
 
-  &-enter-to,
-  &-leave {
-    transform: translate(50%, -50%) scale(1);
-  }
+    &-enter,
+    &-leave-to {
+        transform: translate(50%, -50%) scale(0);
+    }
 
-  &-enter-active,
-  &-leave-active {
-    .veui-transition(transform);
-    transform-origin: 50% 50%;
-  }
+    &-enter-to,
+    &-leave {
+        transform: translate(50%, -50%) scale(1);
+    }
 
-  &-standalone-label {
-    // margin-left: @dls-badge-label-spacing-status;
-  }
+    &-enter-active,
+    &-leave-active {
+        .veui-transition(transform);
+        transform-origin: 50% 50%;
+    }
 
-  &-label {
-    // .centered-line(@dls-badge-label-height);
-    // .padding(_, @dls-badge-label-padding-x);
-    // min-width: @dls-badge-label-min-width;
-    // font-size: @dls-badge-font-size;
-    // color: @dls-badge-font-color;
-    // border-radius: @dls-badge-label-height / 2;
-  }
+    &-standalone-label {
+        margin-left: @veui-badge-label-spacing-status;
+    }
 
-  &-dot {
-    // .size(@dls-badge-dot-size);
-    border-radius: 50%;
-  }
+    &-label {
+        .centered-line(@veui-badge-label-height);
+        .padding(_, @veui-badge-label-padding-x);
+        min-width: @veui-badge-label-min-width;
+        font-size: @veui-badge-font-size;
+        color: @veui-badge-font-color;
+        border-radius: @veui-badge-label-height / 2;
+        text-align: center;
+    }
 
-  &-aux {
-    // background-color: @dls-badge-background-color-aux;
-  }
+    &-dot {
+        .size(@veui-badge-dot-size);
+        border-radius: 50%;
+    }
 
-  &-info {
-    // background-color: @dls-badge-background-color-info;
-  }
+    &-aux {
+        background-color: @veui-badge-background-color-aux;
+    }
 
-  &-success {
-    // background-color: @dls-badge-background-color-success;
-  }
+    &-info {
+        background-color: @veui-badge-background-color-info;
+    }
 
-  &-warning {
-    // background-color: @dls-badge-background-color-warning;
-  }
+    &-success {
+        background-color: @veui-badge-background-color-success;
+    }
 
-  &-error {
-    // background-color: @dls-badge-background-color-error;
-  }
+    &-warning {
+        background-color: @veui-badge-background-color-warning;
+    }
+
+    &-error {
+        background-color: @veui-badge-background-color-error;
+    }
 }
