@@ -1,0 +1,74 @@
+/**
+* @file pagination.less
+* @desc pagination组件样式变量
+*/
+@import "../index.less";
+
+// font-size
+@veui-pagination-font-size-xs: @veui-font-size-small;
+@veui-pagination-font-size-s: @veui-font-size-small;
+@veui-pagination-font-size-m: @veui-font-size-normal;
+
+/* page item*/
+// font color
+@veui-pagination-button-font-color-normal: @veui-font-color-main;
+@veui-pagination-button-font-color-normal-disabled: @veui-font-color-disabled;
+
+// min width
+@veui-pagination-button-min-width-xs: @veui-height-xs;
+@veui-pagination-button-min-width-s: @veui-height-s;
+@veui-pagination-button-min-width-m: @veui-height-m;
+
+// border-radius
+@veui-pagination-button-border-radius-xs: @veui-border-radius-s;
+@veui-pagination-button-border-radius-s: @veui-border-radius-s;
+@veui-pagination-button-border-radius-m: @veui-border-radius-l;
+
+// border-color
+@veui-pagination-button-border-color-normal: @veui-border-color;
+@veui-pagination-button-border-color-focus: @veui-border-color-focus;
+@veui-pagination-button-border-color-normal-disabled: @veui-border-color-disabled;
+
+// box-shadow
+@veui-pagination-button-shadow-focus: @veui-shadow-focus;
+
+// background-color
+@veui-pagination-button-background-color-normal: @veui-gray-color-1;
+@veui-pagination-button-background-color-normal-hover: @veui-gray-color-3;
+@veui-pagination-button-background-color-normal-focus: @veui-brand-color-1;
+@veui-pagination-button-background-color-normal-active: @veui-gray-color-4;
+@veui-pagination-button-background-color-normal-disabled: @veui-gray-color-2;
+
+// item current style
+@veui-pagination-button-background-color-current: @veui-brand-color-1;
+@veui-pagination-button-border-color-current: @veui-brand-color-6;
+@veui-pagination-button-font-color-current: @veui-brand-color-6;
+@veui-pagination-button-font-weight-current: @veui-font-weight-bold;
+
+// padding
+@veui-pagination-button-padding-x: @veui-padding-unit * 1;
+
+// spacing
+@veui-pagination-button-spacing: @veui-padding-unit * 1;
+@veui-pagination-spacing-1: @veui-padding-unit * 2;
+@veui-pagination-spacing-2: @veui-padding-unit * 3;
+
+// pagesize
+@veui-pagination-pagesizes-text-font-color: @veui-font-color-title;
+@veui-pagination-pagesizes-text-line-height: @veui-line-height-normal;
+
+// goto left
+@veui-pagination-page-items-margin-after: @veui-padding-unit * 5;
+@veui-pagination-goto-input-padding-x: @veui-padding-unit * 2;
+@veui-pagination-goto-input-digits: 3;
+// 3 digits + padding-x + border-width
+@veui-pagination-goto-input-width: veui-sum(
+  1ch * @veui-pagination-goto-input-digits,
+  @veui-pagination-goto-input-padding-x * 2,
+  2px
+);
+
+// info total spacing
+@veui-pagination-total-spacing-xs: @veui-padding-unit * 2;
+@veui-pagination-total-spacing-s: @veui-padding-unit * 3;
+@veui-pagination-total-spacing-m: @veui-padding-unit * 4;
