@@ -1,6 +1,7 @@
 <template>
     <article>
         <h1><code>&lt;veui-carousel&gt;</code></h1>
+        todo: 等待其他同学完成button、checkbox、radio、input相关组件样式
         <p>
             <code>index</code>:
             <veui-number-input
