@@ -1,169 +1,170 @@
 @import "../lib.less";
+@import "../variables/components/carousel.less";
 
 .@{veui-prefix}-carousel {
-  // TODO: use a better default size
-  @width-normal: 480px;
-  @height-normal: 270px;
+    // TODO: use a better default size
+    @width-normal: 480px;
+    @height-normal: 270px;
 
-  position: relative;
-  .clearfix();
-  .size(@width-normal, @height-normal);
-
-  &-viewport {
-    .size(@width-normal, @height-normal);
-    margin: 0 auto;
-  }
-
-  &-items {
     position: relative;
-    .reset-list-style();
-    .size(100%);
-    margin: 0;
-    padding: 0;
-  }
+    .clearfix();
+    .size(@width-normal, @height-normal);
 
-  &-item {
-    .absolute(0);
-    overflow: hidden;
-    outline: none;
-    .veui-transition(opacity);
-
-    &-image {
-      .size(100%);
-      background: no-repeat center/cover;
+    &-viewport {
+        .size(@width-normal, @height-normal);
+        margin: 0 auto;
     }
 
-    &-enter,
-    &-leave-to {
-      opacity: 0;
-    }
-  }
-
-  &-control {
-    .absolute(50%, _, _);
-    transform: translateY(-50%);
-    opacity: 0;
-
-    &[ui] {
-      // .size(@dls-carousel-control-size);
-      padding: 0;
+    &-items {
+        position: relative;
+        .reset-list-style();
+        .size(100%);
+        margin: 0;
+        padding: 0;
     }
 
-    &,
-    &[ui] {
-      // border-radius: @dls-carousel-control-border-radius;
-    }
-
-    &-prev {
-      // left: @dls-carousel-control-spacing;
-    }
-
-    &-next {
-      // right: @dls-carousel-control-spacing;
-    }
-
-    .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-carousel-control-icon-size);
-    }
-  }
-
-  &:hover &-control,
-  &.@{veui-prefix}-focus &-control {
-    opacity: 1;
-  }
-
-  &-indicator {
-    &-radios {
-      display: inline-flex;
-      // .absolute(_, _, @dls-carousel-indicator-spacing-outer, 50%);
-      transform: translateX(-50%);
-    }
-
-    &-radios &-item {
-      display: block;
-      border: none;
-      flex: 0 0 auto;
-      padding: 0;
-      // margin-left: @dls-carousel-indicator-spacing-inner;
-      // .size(@dls-carousel-indicator-width, @dls-carousel-indicator-height);
-      .hide-text();
-      .veui-transition(width, background-color);
-      // background-color: @dls-carousel-indicator-background-color;
-      // border-radius: @dls-carousel-indicator-border-radius;
-      outline: none;
-      cursor: pointer;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &:hover {
-        // background-color: @dls-carousel-indicator-background-color-hover;
-      }
-
-      &:active {
-        // background-color: @dls-carousel-indicator-background-color-active;
-      }
-
-      &-current {
-        // width: @dls-carousel-indicator-width-current;
-        // background-color: @dls-carousel-indicator-background-color-current;
-      }
-    }
-
-    &-numbers {
-      // .absolute(_, _, @dls-carousel-indicator-spacing-outer, 50%);
-      transform: translateX(-50%);
-      // .padding(_, @dls-carousel-pages-padding-x);
-      // background-color: @dls-carousel-pages-background-color;
-      // color: @dls-carousel-pages-font-color;
-      // font-size: @dls-carousel-pages-font-size;
-      // .centered-line(@dls-carousel-pages-height);
-      font-variant-numeric: tabular-nums;
-      // border-radius: @dls-carousel-pages-border-radius;
-      user-select: none;
-      cursor: default;
-
-      &-separator {
-        .margin(_, 2px);
-
-        &::after {
-          content: "";
-          display: inline-block;
-          .size(1px, 8px);
-          background-color: currentColor;
-          transform: rotate(15deg);
-        }
-      }
-    }
-
-    &-tabs {
-      .absolute(_, 0, 0);
-      // .vertical-gradient(transparent, @dls-color-gray-9);
-      text-align: right;
-      // font-size: @dls-font-size-m;
-    }
-
-    &-tabs &-item {
-      // .centered-line(@dls-height-unit * 12);
-      // margin-right: @dls-spacing-unit * 5;
-      padding: 0;
-      border: none;
-      background: none;
-      // color: fadeout(@dls-color-gray-1, 50%);
-      .veui-transition(color);
-      cursor: pointer;
-
-      &:focus {
+    &-item {
+        .absolute(0);
+        overflow: hidden;
         outline: none;
-      }
+        .veui-transition(opacity);
 
-      &:hover,
-      &.focus-visible,
-      &-current,
-      &-current:hover {
-        // color: @dls-color-gray-1;
-      }
+        &-image {
+            .size(100%);
+            background: no-repeat center/cover;
+        }
+
+        &-enter,
+        &-leave-to {
+            opacity: 0;
+        }
     }
-  }
+
+    &-control {
+        .absolute(50%, _, _);
+        transform: translateY(-50%);
+        opacity: 0;
+
+        &[ui] {
+            .size(@veui-carousel-control-size);
+            padding: 0;
+        }
+
+        &,
+        &[ui] {
+            border-radius: @veui-carousel-control-border-radius;
+        }
+
+        &-prev {
+            left: @veui-carousel-control-spacing;
+        }
+
+        &-next {
+            right: @veui-carousel-control-spacing;
+        }
+
+        .@{veui-prefix}-icon {
+            .veui-icon-size(@veui-carousel-control-icon-size);
+        }
+    }
+
+    &:hover &-control,
+    &.@{veui-prefix}-focus &-control {
+        opacity: 1;
+    }
+
+    &-indicator {
+        &-radios {
+            display: inline-flex;
+            .absolute(_, _, @veui-carousel-indicator-spacing-outer, 50%);
+            transform: translateX(-50%);
+        }
+
+        &-radios &-item {
+            display: block;
+            border: none;
+            flex: 0 0 auto;
+            padding: 0;
+            margin-left: @veui-carousel-indicator-spacing-inner;
+            .size(@veui-carousel-indicator-width, @veui-carousel-indicator-height);
+            .hide-text();
+            .veui-transition(width, background-color);
+            background-color: @veui-carousel-indicator-background-color;
+            border-radius: @veui-carousel-indicator-border-radius;
+            outline: none;
+            cursor: pointer;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:hover {
+                background-color: @veui-carousel-indicator-background-color-hover;
+            }
+
+            &:active {
+                background-color: @veui-carousel-indicator-background-color-active;
+            }
+
+            &-current {
+                width: @veui-carousel-indicator-width-current;
+                background-color: @veui-carousel-indicator-background-color-current;
+            }
+        }
+
+        &-numbers {
+            .absolute(_, _, @veui-carousel-indicator-spacing-outer, 50%);
+            transform: translateX(-50%);
+            .padding(_, @veui-carousel-pages-padding-x);
+            background-color: @veui-carousel-pages-background-color;
+            color: @veui-carousel-pages-font-color;
+            font-size: @veui-carousel-pages-font-size;
+            .centered-line(@veui-carousel-pages-height);
+            font-variant-numeric: tabular-nums;
+            border-radius: @veui-carousel-pages-border-radius;
+            user-select: none;
+            cursor: default;
+
+            &-separator {
+                .margin(_, 2px);
+
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    .size(1px, 8px);
+                    background-color: currentColor;
+                    transform: rotate(15deg);
+                }
+            }
+        }
+
+        &-tabs {
+            .absolute(_, 0, 0);
+            .vertical-gradient(transparent, @veui-gray-color-9);
+            text-align: right;
+            font-size: @veui-font-size-normal;
+        }
+
+        &-tabs &-item {
+            .centered-line(@veui-height-unit * 12);
+            margin-right: @veui-spacing-unit * 5;
+            padding: 0;
+            border: none;
+            background: none;
+            color: fadeout(@veui-gray-color-1, 50%);
+            .veui-transition(color);
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:hover,
+            &.focus-visible,
+            &-current,
+            &-current:hover {
+                color: @veui-gray-color-1;
+            }
+        }
+    }
 }
