@@ -1,15 +1,15 @@
 @import "../lib.less";
+@import "../variables/components/input.less";
 
 .@{veui-prefix}-input {
-  // @left-padding: @dls-input-padding;
 
   display: inline-flex;
   align-items: stretch;
   vertical-align: middle;
-  // height: @dls-input-height-m;
-  // font-size: @dls-input-font-size-m;
-  // width: @dls-input-width;
-  // border-radius: @dls-input-border-radius-m;
+  height: @veui-input-height-m;
+  font-size: @veui-input-font-size-m;
+  width: @veui-input-width;
+  border-radius: @veui-input-border-radius-m;
 
   &-autofill {
     background-color: @veui-tag-fill-color;
@@ -24,11 +24,11 @@
     flex: 1 1 auto;
     align-items: stretch;
     position: relative;
-    // padding: 0 @dls-input-padding;
-    // border: 1px solid @dls-input-border-color;
+    padding: 0 @veui-input-padding;
+    border: 1px solid @veui-input-border-color;
     border-radius: inherit;
-    // background-color: @dls-input-background-color;
-    // color: @dls-input-font-color;
+    background-color: @veui-input-background-color;
+    color: @veui-input-font-color;
     cursor: text;
     .veui-transition(border-color, color, box-shadow);
   }
@@ -60,9 +60,9 @@
     display: flex;
     align-items: center;
     .size(100%);
-    // border: 1px solid @dls-input-border-color;
+    border: 1px solid @veui-input-border-color;
     border-radius: inherit;
-    // padding: 0 @dls-input-padding;
+    padding: 0 @veui-input-padding;
   }
 
   &-before-label {
@@ -76,11 +76,11 @@
   }
 
   &-prepend {
-    // padding-right: @dls-input-content-spacing;
+    padding-right: @veui-input-content-spacing;
   }
 
   &-append {
-    // padding-left: @dls-input-content-spacing;
+    padding-left: @veui-input-content-spacing;
   }
 
   &-content {
@@ -98,35 +98,36 @@
     color: inherit;
     padding: 0;
     width: 100%;
+    line-height: @veui-line-height-normal;
     background-color: transparent;
     .ellipsis();
   }
 
   &-clear {
     &-has-append {
-      // margin-right: @dls-input-content-spacing;
+      margin-right: @veui-input-content-spacing;
     }
   }
 
   &-clear + &-count {
-    // margin-left: @dls-input-content-spacing;
+    margin-left: @veui-input-content-spacing;
   }
 
   &-main:hover {
-    // border-color: @dls-input-border-color-hover;
+    border-color: @veui-input-border-color-hover;
   }
 
   &.@{veui-prefix}-readonly &-main {
-    // border-color: @dls-input-border-color-read-only;
-    // background-color: @dls-input-background-color-read-only;
+    border-color: @veui-input-border-color-read-only;
+    background-color: @veui-input-background-color-read-only;
   }
 
   &.@{veui-prefix}-readonly &-main:hover {
-    // border-color: @dls-input-border-color-read-only-hover;
+    border-color: @veui-input-border-color-read-only-hover;
   }
 
   &.@{veui-prefix}-readonly &-input {
-    // color: @dls-input-font-color-read-only;
+    color: @veui-input-font-color-read-only;
   }
 
   &.@{veui-prefix}-focus {
@@ -134,27 +135,27 @@
   }
 
   &.@{veui-prefix}-focus &-main {
-    // .veui-focus-ring(@dls-input-border-color-focus, @dls-input-shadow-focus);
+    .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
   }
 
   &.@{veui-prefix}-invalid &-main {
-    // border-color: @dls-input-border-color-error;
-    // color: @dls-input-font-color-error;
+    border-color: @veui-input-border-color-error;
+    color: @veui-input-font-color-error;
   }
 
   &.@{veui-prefix}-invalid &-main:hover {
-    // border-color: @dls-input-border-color-error-hover;
+    border-color: @veui-input-border-color-error-hover;
   }
 
   &.@{veui-prefix}-invalid.@{veui-prefix}-focus &-main {
-    // .veui-focus-ring(
-    //   @dls-input-border-color-error-focus,
-    //   @dls-input-shadow-error-focus
-    // );
+    .veui-focus-ring(
+      @veui-input-border-color-error-focus,
+      @veui-input-shadow-error-focus
+    );
   }
 
   &.@{veui-prefix}-focus.@{veui-prefix}-readonly &-main {
-    // border-color: @dls-input-border-color-read-only-focus;
+    border-color: @veui-input-border-color-read-only-focus;
   }
 
   &.@{veui-prefix}-disabled &-main,
@@ -162,8 +163,8 @@
   &.@{veui-prefix}-readonly &-after-label,
   &.@{veui-prefix}-disabled &-before-label,
   &.@{veui-prefix}-disabled &-after-label {
-    // background-color: @dls-input-background-color-disabled;
-    // border-color: @dls-input-border-color-disabled;
+    background-color: @veui-input-background-color-disabled;
+    border-color: @veui-input-border-color-disabled;
     cursor: not-allowed;
   }
 
@@ -174,14 +175,14 @@
   &.@{veui-prefix}-disabled &-after-label,
   &.@{veui-prefix}-disabled &-prepend,
   &.@{veui-prefix}-disabled &-append {
-    // color: @dls-input-font-color-disabled;
+    color: @veui-input-font-color-disabled;
     pointer-events: none;
   }
 
   &-placeholder {
     position: absolute;
     width: 100%;
-    // color: @dls-input-placeholder-color;
+    color: @veui-input-placeholder-color;
     pointer-events: none;
     cursor: text;
     .ellipsis();
@@ -189,61 +190,30 @@
 
   &-count {
     line-height: 2; // ensure even number
-    // color: @dls-input-count-color;
+    color: @veui-input-count-color;
     font-variant-numeric: tabular-nums;
     .veui-transition(color);
 
     &-overflow {
-      // color: @dls-input-count-color-error;
+      color: @veui-input-count-color-error;
     }
   }
 
   &[ui~="xs"] {
-    // height: @dls-input-height-xs;
-    // font-size: @dls-input-font-size-xs;
-    // border-radius: @dls-input-border-radius-xs;
+    height: @veui-input-height-xs;
+    font-size: @veui-input-font-size-xs;
+    border-radius: @veui-input-border-radius-xs;
   }
 
   &[ui~="s"] {
-    // height: @dls-input-height-s;
-    // font-size: @dls-input-font-size-s;
-    // border-radius: @dls-input-border-radius-s;
+    height: @veui-input-height-s;
+    font-size: @veui-input-font-size-s;
+    border-radius: @veui-input-border-radius-s;
   }
 
   &[ui~="l"] {
-    // height: @dls-input-height-l;
-    // font-size: @dls-input-font-size-l;
-    // border-radius: @dls-input-border-radius-l;
-  }
-
-  &[ui~="inline"] {
-    border-radius: 0;
-    position: relative;
-    background-color: transparent;
-
-    &.@{veui-prefix}-readonly,
-    &.@{veui-prefix}-disabled {
-      .@{veui-prefix}-input-main {
-        background-color: transparent;
-      }
-    }
-  }
-
-  &[ui~="inline"] &-main {
-    position: relative;
-    box-shadow: none;
-    border-style: none none solid;
-  }
-
-  &[ui~="inline"].@{veui-prefix}-input-has-after .@{veui-prefix}-input-main {
-    border-radius: 0;
-  }
-
-  &.@{veui-prefix}-focus[ui~="inline"] &-main {
-    // box-shadow: @dls-input-shadow-inline-focus;
-  }
-
-  &.@{veui-prefix}-invalid.@{veui-prefix}-focus[ui~="inline"] &-main {
-    // box-shadow: @dls-input-shadow-inline-error-focus;
+    height: @veui-input-height-l;
+    font-size: @veui-input-font-size-l;
+    border-radius: @veui-input-border-radius-l;
   }
 }
