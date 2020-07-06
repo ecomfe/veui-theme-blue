@@ -216,35 +216,4 @@
     font-size: @veui-input-font-size-l;
     border-radius: @veui-input-border-radius-l;
   }
-
-  &[ui~="inline"] {
-    border-radius: 0;
-    position: relative;
-    background-color: transparent;
-
-    &.@{veui-prefix}-readonly,
-    &.@{veui-prefix}-disabled {
-      .@{veui-prefix}-input-main {
-        background-color: transparent;
-      }
-    }
-  }
-
-  &[ui~="inline"] &-main {
-    position: relative;
-    box-shadow: none;
-    border-style: none none solid;
-  }
-
-  &[ui~="inline"].@{veui-prefix}-input-has-after .@{veui-prefix}-input-main {
-    border-radius: 0;
-  }
-
-  &.@{veui-prefix}-focus[ui~="inline"] &-main {
-    box-shadow: @veui-input-shadow-inline-focus;
-  }
-
-  &.@{veui-prefix}-invalid.@{veui-prefix}-focus[ui~="inline"] &-main {
-    box-shadow: @veui-input-shadow-inline-error-focus;
-  }
 }
