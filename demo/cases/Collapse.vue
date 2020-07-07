@@ -4,16 +4,13 @@
             <code>&lt;veui-collapse&gt;</code> &amp;
             <code>&lt;veui-accordion&gt;</code>
         </h1>
-
-        <h2>Collapse</h2>
-
+        <h2>基础折叠面板</h2>
         <section>
-            <h3>本地状态</h3>
+            <h3>本地状态 [默认尺寸：中号，不传ui]</h3>
             <veui-collapse label="点击切换">
                 Content
             </veui-collapse>
         </section>
-
         <section>
             <h3>.sync</h3>
             <veui-checkbox v-model="expanded">展开</veui-checkbox>
@@ -26,7 +23,7 @@
         </section>
 
         <section>
-            <h3>受控 & 小号</h3>
+            <h3>受控 [尺寸：小号，ui=s]</h3>
             <veui-checkbox v-model="expanded2">展开</veui-checkbox>
             <veui-collapse
                 ui="s"
@@ -48,7 +45,7 @@
             </veui-collapse>
         </section>
 
-        <h2>Accordion</h2>
+        <h2>手风琴折叠面板</h2>
 
         <section>
             <h3>本地状态</h3>
@@ -60,6 +57,25 @@
                     Content
                 </veui-collapse>
                 <veui-collapse
+                    label="标题三"
+                    disabled
+                >
+                    Content
+                </veui-collapse>
+            </veui-accordion>
+        </section>
+
+        <section>
+            <h3>小号</h3>
+            <veui-accordion ui="m">
+                <veui-collapse label="标题一" ui="s">
+                    Content
+                </veui-collapse>
+                <veui-collapse label="标题二" ui="s">
+                    Content
+                </veui-collapse>
+                <veui-collapse
+                    ui="s"
                     label="标题三"
                     disabled
                 >
