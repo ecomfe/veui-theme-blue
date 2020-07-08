@@ -5,10 +5,10 @@
 .@{veui-prefix}-uploader {
   display: flex;
   outline: none;
-  font-size: 14px;
+  font-size: @veui-uploader-font-size-m;
 
   .@{veui-prefix}-icon {
-    color: #333;
+    color: @veui-uploader-file-item-font-color;
   }
 
   .@{veui-prefix}-disabled .@{veui-prefix}-icon {
@@ -79,7 +79,7 @@
       display: flex;
       align-items: center;
       position: relative;
-      background-color: #fafafa;
+      background-color: @veui-uploader-file-item-background-color;
       .veui-transition(background-color);
       padding: 0 @veui-uploader-file-item-padding-x;
     }

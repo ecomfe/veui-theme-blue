@@ -22,14 +22,14 @@
     }
   }
 
-  tree
+  // tree
   &-tree-wrapper {
     overflow: auto;
     flex: auto;
     padding-right: 1px;
     margin-right: -1px;
 
-    当 tree 收起时可能会看到 active 样式溢出到 tree 外面，盖住
+    // 当 tree 收起时可能会看到 active 样式溢出到 tree 外面，盖住
     &::after {
       content: "";
       display: block;
@@ -45,7 +45,7 @@
     position: relative;
     margin-right: -1px;
     padding: @veui-menu-padding-y @veui-menu-padding-x;
-    盖住 tree 顶部的 padding 间隙
+    // 盖住 tree 顶部的 padding 间隙
     &::before {
       content: "";
       .absolute(0, 0, _, 0);
@@ -59,7 +59,7 @@
     .@{veui-prefix}-tree-item {
       margin-top: @veui-menu-item-spacing;
       height: @veui-menu-item-height-m;
-      盖住 active 样式在 expand 过渡时从 margin-top 露出来的部分
+      // 盖住 active 样式在 expand 过渡时从 margin-top 露出来的部分
       &::before {
         content: "";
         .absolute(_, 0);
@@ -78,7 +78,7 @@
       }
     }
 
-    第二级缩进
+    // 第二级缩进
     &-has-icon > li > ul.@{veui-prefix}-tree-item-group {
       padding-left: veui-sum(
         @veui-menu-item-icon-size,
@@ -91,7 +91,7 @@
 
   }
 
-  footer
+  // footer
   &-footer {
     flex: none;
     display: flex;
@@ -105,7 +105,7 @@
     transform: rotateZ(180deg);
   }
 
-  item
+  // item
   &-item {
     cursor: pointer;
     display: flex;
@@ -172,7 +172,7 @@
     align-items: center;
     height: inherit;
 
-    link 充满整个 item
+    // link 充满整个 item
     &::before {
       content: "";
       .absolute(_, 0);
@@ -239,7 +239,7 @@
       background-color: @veui-menu-item-background-color-current-active;
     }
 
-    Indicators
+    // Indicators
     &::after {
       content: "";
       .absolute(_, 0, _, _);
@@ -290,7 +290,7 @@
     transform: rotateZ(-90deg);
   }
 
-  collapsed
+  // collapsed
   &-collapsed &-toggle {
     transform: rotateZ(0);
   }

@@ -52,7 +52,7 @@
     }
 
     &-label {
-      // .margin(veui-sum(@step-height / 2, -@title-height / 2), _, 0);
+      .margin(veui-sum(@step-height / 2, -@title-height / 2), _, 0);
       line-height: @veui-line-height-m;
       font-size: @title-font-size;
       color: @veui-steps-title-font-color;
@@ -476,11 +476,11 @@
         }
 
         &-label {
-          // margin-top: veui-sum(@step-height / 2, -@title-height / 2);
+          margin-top: veui-sum(@step-height / 2, -@title-height / 2);
           font-size: @title-font-size;
 
           &::after {
-            // top: veui-sum(@title-height / 2, -@separator-width / 2);
+            top: veui-sum(@title-height / 2, -@separator-width / 2);
           }
         }
 
@@ -493,7 +493,7 @@
     &[ui~="label-vertical"] {
       .@{veui-prefix}-steps-step {
         &-connector {
-          // margin-top: veui-sum(@step-height / 2, -@separator-width / 2);
+          margin-top: veui-sum(@step-height / 2, -@separator-width / 2);
         }
         &::after {
           top: veui-sum(

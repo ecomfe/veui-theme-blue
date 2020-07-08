@@ -17,13 +17,13 @@
   .veui-transition(color, border-color, background-color, box-shadow, opacity);
 
   .make-metrics(@size) {
-    @height: 30px;
-    @radius: 4px;
-    @font-size: 14px;
+    @height: ~"veui-tag-height-@{size}";
+    @radius: ~"veui-tag-border-radius-@{size}";
+    @font-size: ~"veui-tag-font-size-@{size}";
 
-    height: @height;
-    border-radius: @radius;
-    font-size: @font-size;
+    height: @@height;
+    border-radius: @@radius;
+    font-size: @@font-size;
   }
 
   &[ui~="s"] {
@@ -93,29 +93,29 @@
 
   .make-state-color (@state) {
     &-@{state} {
-      @color-name: #333;
-      @bd-color-name: #e0e0e0;
-      @bg-color-name: #f5f5f5;
-      @disabled-color-name: #333;
-      @disabled-bd-color-name: #eee;
+      @color-name: ~"veui-tag-font-color-@{state}";
+      @bd-color-name: ~"veui-tag-border-color-@{state}";
+      @bg-color-name: ~"veui-tag-background-color-@{state}";
+      @disabled-color-name: ~"veui-tag-font-color-@{state}-disabled";
+      @disabled-bd-color-name: ~"veui-tag-border-color-@{state}-disabled";
 
-      @selected-bg-color-name: #333;
-      @selected-disabled-bg-color: #fafafa;
+      @selected-bg-color-name: ~"veui-tag-background-color-@{state}-reversed";
+      @selected-disabled-bg-color: ~"veui-tag-background-color-@{state}-reversed-disabled";
 
-      color: @color-name;
-      border-color: @bd-color-name;
-      background-color: @bg-color-name;
+      color: @@color-name;
+      border-color: @@bd-color-name;
+      background-color: @@bg-color-name;
 
       &.@{veui-prefix}-disabled {
-        color: @disabled-color-name;
-        border-color: @disabled-bd-color-name;
+        color: @@disabled-color-name;
+        border-color: @@disabled-bd-color-name;
       }
 
       &.@{veui-prefix}-tag-selected,
       &[ui~="reverse"] {
         color: @veui-tag-font-color-selected;
         border-color: @veui-tag-border-color-selected;
-        background-color: @selected-bg-color-name;
+        background-color: @@selected-bg-color-name;
 
         &.focus-visible {
           .veui-focus-ring(
@@ -126,7 +126,7 @@
 
         &.@{veui-prefix}-disabled {
           border-color: @veui-tag-border-color-selected-disabled;
-          background-color: @selected-disabled-bg-color;
+          background-color: @@selected-disabled-bg-color;
         }
       }
 

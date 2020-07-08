@@ -6,17 +6,17 @@
   display: inline-block;
   position: relative;
   overflow: hidden;
-  width: 200px;
-  border: 1px solid #333;
-  background-color: #fff;
-  font-size: 14px;
-  line-height: 18px;
-  color: #333;
-  min-height: 100px;
-  border-radius: 4px;
+  width: @veui-textarea-width;
+  border: 1px solid @veui-input-border-color;
+  background-color: @veui-background-color-normal;
+  font-size: @veui-textarea-font-size-m;
+  line-height: @veui-textarea-line-height;
+  color: @veui-input-font-color;
+  min-height: @veui-textarea-height-m;
+  border-radius: @veui-input-border-radius-m;
   .veui-transition(border-color, color, box-shadow);
 
-  @line-number-default-width: 100px;
+  @line-number-default-width: @veui-height-m;
 
   &:hover {
     border-color: @veui-input-border-color-hover;
@@ -176,7 +176,7 @@
 
   &[ui~="s"] {
     font-size: @veui-textarea-font-size-s;
-    // min-height: @veui-textarea-height-s;
+    min-height: @veui-textarea-height-s;
     border-radius: @veui-input-border-radius-s;
   }
 

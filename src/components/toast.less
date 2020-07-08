@@ -4,12 +4,12 @@
 .@{veui-prefix}-toast {
   display: flex;
   align-items: flex-start;
-  line-height: 18px;
-  padding: 8px;
+  line-height: @veui-toast-line-height;
+  padding: @veui-toast-padding-y @veui-toast-padding-x;
   position: absolute;
-  max-width: 200px;
-  background-color: #fff;
-  color: #333;
+  max-width: @veui-toast-max-width;
+  background-color: @veui-toast-background-color;
+  color: @veui-toast-font-color;
   box-shadow: @veui-toast-shadow;
 
   &-multiline {
@@ -41,8 +41,8 @@
   }
 
   .veui-toast-style(@type) {
-    @color-name: #333;
-    @color: @color-name;
+    @color-name: ~"veui-toast-icon-color-@{type}";
+    @color: @@color-name;
 
     .@{veui-prefix}-toast-icon {
       color: @color;
