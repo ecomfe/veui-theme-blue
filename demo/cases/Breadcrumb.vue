@@ -2,7 +2,7 @@
     <article>
         <h1><code>&lt;veui-breadcrumb&gt;</code></h1>
         <section>
-            <veui-button @click="next">
+            <veui-button ui="m" @click="next">
                 Switch separator
             </veui-button>
         </section>

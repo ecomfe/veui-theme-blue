@@ -1,6 +1,7 @@
 @import "../lib.less";
 @import "./button-group.less";
 @import (reference) "../grouped-button.less";
+@import "../variables/components/checkbox.less";
 
 .@{veui-prefix}-check-button-group {
   position: relative;
@@ -10,27 +11,27 @@
   }
 
   .@{veui-prefix}-button &-checkmark {
-    @offset: 4px;
+    @offset: (@veui-button-padding-m - @veui-checkbox-strong-check-icon-size) / 2;
     .absolute(@offset, @offset, _, _);
-    // .veui-icon-size(@veui-checkbox-strong-check-icon-size);
+    .veui-icon-size(@veui-checkbox-strong-check-icon-size);
     margin: 0;
-    // color: @veui-checkbox-strong-check-icon-color;
+    color: @veui-checkbox-strong-check-icon-color;
   }
 
   &[ui~="s"] .@{veui-prefix}-button &-checkmark {
-    @offset: 4px;
+    @offset: (@veui-button-padding-s - @veui-checkbox-strong-check-icon-size) / 2;
     .absolute(@offset, @offset, _, _);
   }
 
   .@{veui-prefix}-button-selected &-checkmark {
-    // color: @veui-checkbox-strong-check-icon-color-checked;
+    color: @veui-checkbox-strong-check-icon-color-checked;
   }
 
   .@{veui-prefix}-disabled &-checkmark {
-    // color: @veui-checkbox-strong-check-icon-color-disabled;
+    color: @veui-checkbox-strong-check-icon-color-disabled;
   }
 
   .@{veui-prefix}-button-selected.@{veui-prefix}-disabled &-checkmark {
-    // color: @veui-checkbox-strong-check-icon-color-checked-disabled;
+    color: @veui-checkbox-strong-check-icon-color-checked-disabled;
   }
 }

@@ -37,7 +37,11 @@
 }
 
 .make-date-panel-width(@date-picker-cell-width) {
-  @date-panel-width: 300px;
+  @date-panel-width: veui-sum(
+    @veui-date-picker-panel-padding-x * 2,
+    @date-picker-cell-width * 7,
+    @veui-date-picker-day-cell-spacing-x * 8
+  );
 }
 
 .@{veui-prefix}-calendar {
@@ -186,7 +190,7 @@
       @veui-date-picker-font-size-m,
       @veui-date-picker-cell-height-m
     );
-    height: 300px;
+    height: @day-body-height;
   }
 
   &-type-month &-body {
@@ -194,7 +198,7 @@
       @veui-date-picker-font-size-m,
       @veui-date-picker-cell-height-m
     );
-    height: 300px;
+    height: @month-body-height;
   }
 
   &-type-year &-body {
@@ -299,7 +303,7 @@
       width: 100% / 3;
     }
     button {
-      TODO
+      // TODO
       transition-duration: 0s;
     }
   }
@@ -370,7 +374,7 @@
     font-weight: @veui-font-weight-3;
   }
 
-  in-range
+  // in-range
   &-in-range {
     position: relative;
     button {
@@ -595,7 +599,7 @@
       @veui-date-picker-font-size-s,
       @veui-date-picker-cell-height-s
     );
-    height: 300px;
+    height: @day-body-height;
   }
 
   &-type-month[ui~="s"] &-body {
@@ -603,7 +607,7 @@
       @veui-date-picker-font-size-s,
       @veui-date-picker-cell-height-s
     );
-    height: 300px;
+    height: @month-body-height;
   }
 
   &-type-year[ui~="s"] &-body {

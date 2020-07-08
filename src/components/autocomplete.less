@@ -6,26 +6,26 @@
     display: inline-flex;
     vertical-align: middle;
     border-radius: @veui-input-border-radius-m;
-
+  
     &[ui~="s"] {
-        border-radius: @veui-input-border-radius-s;
+      border-radius: @veui-input-border-radius-s;
     }
-
+  
     &[ui~="xs"] {
-        border-radius: @veui-input-border-radius-xs;
+      border-radius: @veui-input-border-radius-xs;
     }
-
+  
     &[ui~="l"] {
-        border-radius: @veui-input-border-radius-l;
+      border-radius: @veui-input-border-radius-l;
     }
-
+  
     .@{veui-prefix}-input {
-        border-radius: inherit;
-        width: auto;
-        flex-grow: 1;
+      border-radius: inherit;
+      width: auto;
+      flex-grow: 1;
     }
-
+  
     &-suggestion-group {
-        &:extend(._veui-dropdown-overlay all);
+      &:extend(._veui-dropdown-overlay all);
     }
 }

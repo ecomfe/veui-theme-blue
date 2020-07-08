@@ -1,9 +1,10 @@
 @import "../lib.less";
 @import "../variables/components/popover.less";
+@import "../variables/components/tooltip.less";
 
 .@{veui-prefix}-popover-box {
-  @arrow-size: 8px;
-  @arrow-indent: 12px;
+  @arrow-size: @veui-tooltip-arrow-width;
+  @arrow-indent: @veui-popover-arrow-spacing;
 
   .@{veui-prefix}-tooltip {
     max-width: @veui-popover-max-width;

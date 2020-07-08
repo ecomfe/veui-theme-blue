@@ -21,18 +21,18 @@
 
 // Heights
 @veui-textarea-rows: 3;
-// @veui-textarea-height-s: veui-sum(
-//   veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-s) *
-//     @veui-textarea-rows,
-//   @veui-textarea-padding-y * 2,
-//   2px
-// );
-// @veui-textarea-height-m: veui-sum(
-//   veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-m) *
-//     @veui-textarea-rows,
-//   @veui-textarea-padding-y * 2,
-//   2px
-// );
+@veui-textarea-height-s: veui-sum(
+  veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-s) *
+    @veui-textarea-rows,
+  @veui-textarea-padding-y * 2,
+  2px
+);
+@veui-textarea-height-m: veui-sum(
+  veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-m) *
+    @veui-textarea-rows,
+  @veui-textarea-padding-y * 2,
+  2px
+);
 
 /* Character count */
 @veui-textarea-count-height: @veui-height-unit * 4;
