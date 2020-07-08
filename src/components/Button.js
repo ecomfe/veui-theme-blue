@@ -10,10 +10,10 @@ config.defaults(
             // style: {
             //     values: ['translucent', 'primary', 'strong', 'text', 'icon']
             // },
-            // size: {
-            //     values: ['xs', 's', 'm', 'l', 'xl'],
-            //     default: 'm'
-            // }
+            size: {
+                values: ['xs', 's', 'm', 'l', 'xl'],
+                default: 'm'
+            }
         }
     },
     'button'
