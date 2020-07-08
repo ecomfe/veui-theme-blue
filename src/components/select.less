@@ -1,29 +1,31 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
+@import "../variables/components/select.less";
+@import "../variables/components/option.less";
 
 .@{veui-prefix}-select {
-  // @adjusted-select-padding-y: dls-sum(@dls-select-padding-y, -1px);
+  @adjusted-select-padding-y: veui-sum(@veui-select-padding-y, -1px);
 
   position: relative;
   display: inline-flex;
   align-items: center;
-  // width: @dls-select-width;
+  width: @veui-select-width;
   vertical-align: middle;
   outline: none;
 
   &:not(&-empty):not(&-expanded)
     .@{veui-prefix}-input:not(.@{veui-prefix}-focus)
     .@{veui-prefix}-input-placeholder {
-    // color: @dls-input-font-color;
+    color: @veui-input-font-color;
   }
 
   &.@{veui-prefix}-readonly .@{veui-prefix}-input-placeholder {
-    // color: @dls-input-font-color-read-only;
+    color: @veui-input-font-color-read-only;
   }
 
   &.focus-visible .@{veui-prefix}-input-main,
   &[data-focus-visible-added] .@{veui-prefix}-input-main {
-    // .veui-focus-ring(@dls-input-border-color-focus, @dls-input-shadow-focus);
+    .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
   }
 
   .@{veui-prefix}-input {
@@ -50,14 +52,14 @@
     }
 
     .@{veui-prefix}-input-append {
-      // padding-left: @dls-select-content-spacing;
-      // color: @dls-font-color-weak;
+      padding-left: @veui-select-content-spacing;
+      color: @veui-font-color-weak;
     }
 
     .@{veui-prefix}-input-main {
       max-width: 100%;
       cursor: pointer;
-      // .padding(_, @dls-select-padding-x);
+      .padding(_, @veui-select-padding-x);
     }
 
     .@{veui-prefix}-input-input {
@@ -70,11 +72,11 @@
     .ellipsis();
 
     .@{veui-prefix}-readonly & {
-      // color: @dls-input-font-color-read-only;
+      color: @veui-input-font-color-read-only;
     }
 
     .@{veui-prefix}-disabled & {
-      // color: @dls-input-font-color-disabled;
+      color: @veui-input-font-color-disabled;
     }
   }
 
@@ -94,29 +96,29 @@
 
         .@{veui-prefix}-tag {
           float: left;
-          // margin-right: @dls-select-tag-spacing;
-          // margin-top: @adjusted-select-padding-y;
+          margin-right: @veui-select-tag-spacing;
+          margin-top: @adjusted-select-padding-y;
         }
 
         .@{veui-prefix}-select-placeholder {
           float: left;
-          // margin-top: @adjusted-select-padding-y;
+          margin-top: @adjusted-select-padding-y;
         }
       }
 
       &-input {
         float: left;
-        // margin-top: @adjusted-select-padding-y;
+        margin-top: @adjusted-select-padding-y;
         width: 0;
       }
 
       &-placeholder {
-        // margin-top: @adjusted-select-padding-y;
+        margin-top: @adjusted-select-padding-y;
       }
 
       &-append {
         float: right;
-        // margin: @adjusted-select-padding-y 0;
+        margin: @adjusted-select-padding-y 0;
       }
     }
   }
@@ -133,11 +135,11 @@
   }
 
   &-placeholder {
-    // color: @dls-input-placeholder-color;
+    color: @veui-input-placeholder-color;
   }
 
   &-count {
-    // margin-right: @dls-select-content-spacing;
+    margin-right: @veui-select-content-spacing;
   }
 
   &-icon {
@@ -146,13 +148,13 @@
   }
 
   &-toggle {
-    // .veui-icon-size(@dls-select-icon-size-aux);
-    // .veui-transition(transform, color, opacity);
-    // color: @dls-select-icon-color-aux;
+    .veui-icon-size(@veui-select-icon-size-aux);
+    .veui-transition(transform, color, opacity);
+    color: @veui-select-icon-color-aux;
 
     .@{veui-prefix}-readonly &,
     .@{veui-prefix}-disabled & {
-      // color: @dls-select-icon-color-aux-disabled;
+      color: @veui-select-icon-color-aux-disabled;
     }
   }
 
@@ -175,7 +177,7 @@
     z-index: 1;
 
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-input-icon-size);
+      .veui-icon-size(@veui-input-icon-size);
     }
 
     .@{veui-prefix}-select:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
@@ -189,11 +191,11 @@
   &-options {
     &:extend(._veui-dropdown-overlay all);
     overflow-y: auto;
-    // background-color: @dls-option-background-color;
+    background-color: @veui-option-background-color;
     outline: none;
 
     &-multiple .@{veui-prefix}-option-selected {
-      // font-weight: @dls-font-weight-1;
+      font-weight: @veui-font-weight-1;
     }
   }
 

@@ -1,0 +1,67 @@
+@import "../global.less";
+
+/* Metrics */
+@veui-transfer-font-size-s: @veui-font-size-s;
+@veui-transfer-font-size-m: @veui-font-size-m;
+
+@veui-transfer-border-radius-s: @veui-border-radius-s;
+@veui-transfer-border-radius-m: @veui-border-radius-m;
+
+@veui-transfer-padding-x: @veui-padding-unit * 4;
+@veui-transfer-header-content-spacing-1: @veui-padding-unit * 1;
+@veui-transfer-header-content-spacing-2: @veui-padding-unit * 2;
+@veui-transfer-content-padding-y: @veui-padding-unit * 1;
+
+@veui-transfer-item-height-s: @veui-height-unit * 7;
+@veui-transfer-item-height-m: @veui-height-unit * 8;
+
+@veui-transfer-item-content-spacing: @veui-padding-unit * 2;
+
+@veui-transfer-content-min-height-s: veui-sum(
+  @veui-transfer-item-height-s * 10,
+  @veui-transfer-content-padding-y * 2
+);
+@veui-transfer-content-min-height-m: veui-sum(
+  @veui-transfer-item-height-m * 10,
+  @veui-transfer-content-padding-y * 2
+);
+
+@veui-transfer-panel-width-s: veui-sum(
+  @veui-font-size-s * 15,
+  @veui-transfer-padding-x * 2,
+  2px,
+  @veui-checkbox-size-s,
+  @veui-transfer-item-content-spacing
+);
+@veui-transfer-panel-width-m: veui-sum(
+  @veui-font-size-m * 15,
+  @veui-transfer-padding-x * 2,
+  2px,
+  @veui-checkbox-size-m,
+  @veui-transfer-item-content-spacing
+);
+
+@veui-transfer-panel-spacing: @veui-padding-unit * 3;
+
+/* Headers */
+@veui-transfer-header-height-s: @veui-height-unit * 8;
+@veui-transfer-header-height-m: @veui-height-unit * 9;
+
+@veui-transfer-header-background-color: @veui-background-color-normal;
+@veui-transfer-header-font-color: @veui-font-color-aux;
+@veui-transfer-header-font-weight: @veui-font-weight-2;
+@veui-transfer-header-button-font-weight: @veui-font-weight-3;
+
+/* Colors */
+@veui-transfer-border-color: @veui-border-color-normal;
+
+@veui-transfer-item-background-color: @veui-background-color-normal;
+@veui-transfer-item-background-color-hover: @veui-background-color-normal-hover;
+@veui-transfer-item-background-color-focus: @veui-background-color-normal-focus;
+@veui-transfer-item-background-color-active: @veui-background-color-normal-active;
+
+@veui-transfer-item-font-color: @veui-font-color-normal;
+@veui-transfer-item-font-color-hover: @veui-font-color-strong;
+@veui-transfer-item-font-color-focus: @veui-transfer-item-font-color-hover;
+@veui-transfer-item-font-color-active: @veui-transfer-item-font-color-hover;
+@veui-transfer-item-font-color-disabled: @veui-font-color-disabled;

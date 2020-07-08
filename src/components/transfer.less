@@ -1,48 +1,50 @@
 @import "../lib.less";
+@import "../variables/components/transfer.less";
+@import "../variables/components/checkbox.less";
 
 .@{veui-prefix}-transfer {
   .clearfix();
   display: flex;
-  // font-size: @dls-transfer-font-size-m;
+  font-size: @veui-transfer-font-size-m;
 
   &-selected-panel {
-    // margin-left: @dls-transfer-panel-spacing;
+    margin-left: @veui-transfer-panel-spacing;
   }
 
   .@{veui-prefix}-tree {
     & &-item-check {
-      // padding-left: @dls-transfer-item-content-spacing;
+      padding-left: @veui-transfer-item-content-spacing;
     }
 
     & &-item {
-      // color: @dls-transfer-item-font-color;
+      color: @veui-transfer-item-font-color;
 
       &::before {
-        // background-color: @dls-transfer-item-background-color;
+        background-color: @veui-transfer-item-background-color;
       }
 
       &:hover {
-        // color: @dls-transfer-item-font-color-hover;
+        color: @veui-transfer-item-font-color-hover;
 
         &::before {
-          // background-color: @dls-transfer-item-background-color-hover;
+          background-color: @veui-transfer-item-background-color-hover;
         }
       }
 
       &.focus-visible,
       &[data-focus-visible-added] {
-        // color: @dls-transfer-item-font-color-focus;
+        color: @veui-transfer-item-font-color-focus;
 
         &::before {
-          // background-color: @dls-transfer-item-background-color-focus;
+          background-color: @veui-transfer-item-background-color-focus;
         }
       }
 
       &:active {
-        // color: @dls-transfer-item-font-color-active;
+        color: @veui-transfer-item-font-color-active;
 
         &::before {
-          // background-color: @dls-transfer-item-background-color-active;
+          background-color: @veui-transfer-item-background-color-active;
         }
       }
     }
@@ -56,7 +58,7 @@
   &-selected-flat {
     .@{veui-prefix}-tree-item-label {
       .ellipsis();
-      // padding-right: @dls-transfer-item-content-spacing;
+      padding-right: @veui-transfer-item-content-spacing;
 
       &:first-child {
         margin-left: 0;
@@ -70,14 +72,14 @@
     &-separator {
       margin-top: 2px;
       flex-shrink: 0;
-      // .veui-icon-size(@veui-icon-size-aux);
-      // color: @dls-icon-color-aux;
+      .veui-icon-size(@veui-icon-size-aux);
+      color: @veui-icon-color-aux;
     }
   }
 
-  // disabled 之后的样式
+  disabled 之后的样式
   &-disabled .@{veui-prefix}-tree-item {
-    // color: @dls-transfer-item-font-color-disabled;
+    color: @veui-transfer-item-font-color-disabled;
   }
 
   &-disabled &-selected-flat-item {
@@ -85,10 +87,10 @@
   }
 
   &-disabled &-selected-flat-separator {
-    // color: @dls-icon-color-aux-disabled;
+    color: @veui-icon-color-aux-disabled;
   }
 
   &[ui~="s"] {
-    // font-size: @dls-transfer-font-size-s;
+    font-size: @veui-transfer-font-size-s;
   }
 }

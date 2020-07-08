@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/dialog.less";
 
 .@{veui-prefix}-dialog {
   @transition-offset: 10px;
@@ -26,28 +27,28 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    // background: @dls-dialog-background-color;
-    // padding-bottom: @dls-dialog-padding-y;
+    background: @veui-dialog-background-color;
+    padding-bottom: @veui-dialog-padding-y;
     .veui-position-center();
-    // max-height: @dls-dialog-max-height;
+    max-height: @veui-dialog-max-height;
     overflow-y: auto;
     outline: none;
     pointer-events: auto;
     .veui-transition(transform);
     transform-origin: 50% 50%;
-    // box-shadow: @dls-dialog-shadow;
-    // border-radius: @dls-dialog-border-radius;
+    box-shadow: @veui-dialog-shadow;
+    border-radius: @veui-dialog-border-radius;
 
     [ui~="narrow"] & {
-      // width: @dls-dialog-width-narrow;
+      width: @veui-dialog-width-narrow;
     }
 
     [ui~="medium"] & {
-      // width: @dls-dialog-width-medium;
+      width: @veui-dialog-width-medium;
     }
 
     [ui~="wide"] & {
-      // width: @dls-dialog-width-wide;
+      width: @veui-dialog-width-wide;
     }
 
     [ui~="fullscreen"] & {
@@ -71,8 +72,8 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
-      // padding: @dls-dialog-padding-y @dls-dialog-padding-x
-      //   @dls-dialog-title-spacing-after;
+      padding: @veui-dialog-padding-y @veui-dialog-padding-x
+        @veui-dialog-title-spacing-after;
 
       &:empty {
         padding-bottom: 0;
@@ -83,34 +84,34 @@
         align-items: center;
         margin: 0;
         flex-grow: 1;
-        // line-height: @dls-dialog-title-line-height;
-        // font-weight: @dls-font-weight-1;
-        // color: @dls-dialog-title-font-color;
+        line-height: @veui-dialog-title-line-height;
+        font-weight: @veui-font-weight-1;
+        color: @veui-dialog-title-font-color;
 
         [ui~="s"] & {
-          // font-size: @dls-dialog-title-font-size-s;
+          font-size: @veui-dialog-title-font-size-s;
         }
 
         [ui~="m"] & {
-          // font-size: @dls-dialog-title-font-size-m;
+          font-size: @veui-dialog-title-font-size-m;
         }
       }
 
       &-close {
-        // margin-left: @dls-dialog-title-content-spacing;
+        margin-left: @veui-dialog-title-content-spacing;
         font-size: inherit;
 
         .@{veui-prefix}-icon {
-          // .veui-icon-size(
-          //   @dls-dialog-close-icon-size,
-          //   @dls-dialog-close-icon-min-size
-          // );
+          .veui-icon-size(
+            @veui-dialog-close-icon-size,
+            @veui-dialog-close-icon-min-size
+          );
 
           [ui~="fullscreen"] & {
-            // .veui-icon-size(
-            //   @dls-dialog-close-icon-size-fullscreen,
-            //   @dls-dialog-close-icon-min-size
-            // );
+            .veui-icon-size(
+              @veui-dialog-close-icon-size-fullscreen,
+              @veui-dialog-close-icon-min-size
+            );
           }
         }
       }
@@ -118,29 +119,29 @@
 
     &-body {
       flex-grow: 1;
-      // .margin(-@dls-shadow-spread-focus, _);
-      // padding: @dls-shadow-spread-focus @dls-dialog-padding-x;
-      // font-size: @dls-dialog-body-font-size-m;
-      // line-height: @dls-dialog-body-line-height;
-      // color: @dls-dialog-body-font-color;
+      .margin(-@veui-shadow-spread-focus, _);
+      padding: @veui-shadow-spread-focus @veui-dialog-padding-x;
+      font-size: @veui-dialog-body-font-size-m;
+      line-height: @veui-dialog-body-line-height;
+      color: @veui-dialog-body-font-color;
       overflow: auto;
 
       [ui~="s"] & {
-        // font-size: @dls-dialog-body-font-size-s;
+        font-size: @veui-dialog-body-font-size-s;
       }
     }
 
     &-foot {
-      // padding: @dls-dialog-action-spacing-before @dls-dialog-padding-x 0;
+      padding: @veui-dialog-action-spacing-before @veui-dialog-padding-x 0;
 
       .@{veui-prefix}-button + .@{veui-prefix}-button {
-        // margin-left: @dls-dialog-action-content-spacing;
+        margin-left: @veui-dialog-action-content-spacing;
       }
     }
   }
 
   &-box-mask {
-    // background-color: @dls-dialog-backdrop-color;
+    background-color: @veui-dialog-backdrop-color;
     overflow: hidden;
     transform: none;
   }

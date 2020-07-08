@@ -39,7 +39,7 @@
     line-height: @veui-height-s;
     margin: 0 0 0 10px;
     vertical-align: top;
-    color: @veui-error-color-6;
+    color: @veui-color-error-6;
 
     .@{veui-prefix}-icon {
       margin-right: 7px;
@@ -50,7 +50,7 @@
     height: @veui-height-s;
     line-height: @veui-height-s;
     margin-left: 10px;
-    color: @veui-font-color-main;
+    color: @veui-font-color-normal;
   }
 
   .@{veui-prefix}-form-tip + .@{veui-prefix}-field-error {
@@ -95,18 +95,18 @@
   }
 
   &[ui~="large"] {
-    .make-ui(@veui-font-size-large, @veui-height-l);
+    .make-ui(@veui-font-size-l, @veui-height-l);
   }
 
   &[ui~="small"] {
-    .make-ui(@veui-font-size-small, @veui-height-m);
+    .make-ui(@veui-font-size-s, @veui-height-m);
   }
 
   &[ui~="tiny"] {
-    .make-ui(@veui-font-size-small, @veui-height-s);
+    .make-ui(@veui-font-size-s, @veui-height-s);
   }
 
   &[ui~="micro"] {
-    .make-ui(@veui-font-size-small, @veui-height-xs);
+    .make-ui(@veui-font-size-s, @veui-height-xs);
   }
 }
