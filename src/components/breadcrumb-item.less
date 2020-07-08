@@ -1,18 +1,19 @@
 @import "../lib.less";
+@import "../variables/components/breadcrumb.less";
 
 .@{veui-prefix}-breadcrumb-item {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  // line-height: @dls-line-height-m;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    line-height: @veui-line-height-m;
 
-  &:last-child {
-    .@{veui-prefix}-breadcrumb-separator {
-      display: none;
+    &:last-child {
+        .@{veui-prefix}-breadcrumb-separator {
+            display: none;
+        }
     }
-  }
 
-  &-current {
-    // font-weight: @dls-breadcrumb-item-current-font-weight;
-  }
+    &-current {
+        font-weight: @veui-breadcrumb-item-current-font-weight;
+    }
 }

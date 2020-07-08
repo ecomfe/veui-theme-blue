@@ -1,0 +1,123 @@
+@import "../global.less";
+
+/* Font sizes */
+@veui-button-font-size-xs: @veui-font-size-s;
+@veui-button-font-size-s: @veui-font-size-s;
+@veui-button-font-size-m: @veui-font-size-m;
+@veui-button-font-size-l: @veui-font-size-l;
+@veui-button-font-size-xl: @veui-font-size-l;
+
+/* Metrics */
+@veui-button-height-xs: @veui-height-unit * 6;
+@veui-button-height-s: @veui-height-unit * 7;
+@veui-button-height-m: @veui-height-unit * 8;
+@veui-button-height-l: @veui-height-unit * 9;
+@veui-button-height-xl: @veui-height-unit * 10;
+
+@veui-button-padding-xs: @veui-padding-unit * 2;
+@veui-button-padding-s: @veui-padding-unit * 3;
+@veui-button-padding-m: @veui-padding-unit * 4;
+@veui-button-padding-l: @veui-padding-unit * 5;
+@veui-button-padding-xl: @veui-padding-unit * 6;
+
+@veui-button-border-radius-xs: @veui-border-radius-s;
+@veui-button-border-radius-s: @veui-border-radius-s;
+@veui-button-border-radius-m: @veui-border-radius-m;
+@veui-button-border-radius-l: @veui-border-radius-l;
+@veui-button-border-radius-xl: @veui-border-radius-l;
+
+@veui-button-content-spacing: @veui-padding-unit * 1;
+
+/* Stylistic variants */
+// normal
+@veui-button-font-color-normal: @veui-font-color-normal;
+@veui-button-font-color-normal-disabled: @veui-font-color-disabled;
+
+@veui-button-border-color-normal: @veui-border-color-strong;
+@veui-button-border-color-normal-disabled: @veui-border-color-normal;
+
+@veui-button-background-color-normal: @veui-background-color-normal;
+@veui-button-background-color-normal-hover: @veui-background-color-normal-hover;
+@veui-button-background-color-normal-focus: @veui-button-background-color-normal-hover;
+@veui-button-background-color-normal-active: @veui-background-color-normal-active;
+@veui-button-background-color-normal-disabled: @veui-background-color-disabled;
+
+// strong
+@veui-button-font-color-strong: @veui-color-brand-6;
+@veui-button-font-color-strong-disabled: @veui-color-brand-3;
+
+@veui-button-border-color-strong: @veui-color-brand-5;
+@veui-button-border-color-strong-disabled: @veui-color-brand-2;
+
+@veui-button-background-color-strong: @veui-background-color-normal;
+@veui-button-background-color-strong-hover: @veui-color-brand-1;
+@veui-button-background-color-strong-focus: @veui-button-background-color-strong-hover;
+@veui-button-background-color-strong-active: @veui-color-brand-2;
+@veui-button-background-color-strong-disabled: @veui-color-brand-1;
+
+// primary
+@veui-button-font-color-primary: @veui-color-gray-1;
+@veui-button-font-color-primary-disabled: @veui-button-font-color-primary;
+
+@veui-button-border-color-primary: transparent;
+@veui-button-border-color-primary-disabled: transparent;
+
+@veui-button-background-color-primary: @veui-color-brand-6;
+@veui-button-background-color-primary-hover: @veui-color-brand-5;
+@veui-button-background-color-primary-focus: @veui-button-background-color-primary-hover;
+@veui-button-background-color-primary-active: @veui-color-brand-7;
+@veui-button-background-color-primary-disabled: @veui-color-brand-2;
+
+// translucent
+@veui-button-font-color-translucent: @veui-color-gray-1;
+@veui-button-font-color-translucent-disabled: fade(@veui-color-gray-1, 30%);
+
+@veui-button-border-color-translucent: transparent;
+@veui-button-border-color-translucent-disabled: transparent;
+
+@veui-button-background-color-translucent: fade(@veui-color-gray-10, 60%);
+@veui-button-background-color-translucent-hover: fade(@veui-color-gray-10, 50%);
+@veui-button-background-color-translucent-focus: @veui-button-background-color-translucent-hover;
+@veui-button-background-color-translucent-active: fade(@veui-color-gray-10, 70%);
+@veui-button-background-color-translucent-disabled: fade(
+  @veui-color-gray-10,
+  20%
+);
+
+// text buttons
+@veui-button-font-color-text: @veui-color-brand-6;
+@veui-button-font-color-text-hover: @veui-color-brand-5;
+@veui-button-font-color-text-focus: @veui-color-brand-6;
+@veui-button-font-color-text-active: @veui-color-brand-7;
+@veui-button-font-color-text-disabled: @veui-color-brand-3;
+
+@veui-button-background-color-text: transparent;
+@veui-button-background-color-text-hover: @veui-button-background-color-text;
+@veui-button-background-color-text-focus: @veui-button-background-color-text-hover;
+@veui-button-background-color-text-active: @veui-button-background-color-text;
+@veui-button-background-color-text-disabled: @veui-button-background-color-text;
+
+@veui-button-padding-text: @veui-padding-unit * 1;
+
+// icon buttons
+@veui-button-font-color-icon: @veui-font-color-weak;
+@veui-button-font-color-icon-hover: @veui-font-color-aux;
+@veui-button-font-color-icon-focus: @veui-button-font-color-icon-hover;
+@veui-button-font-color-icon-active: @veui-font-color-normal;
+@veui-button-font-color-icon-disabled: @veui-font-color-disabled;
+
+@veui-button-background-color-icon: transparent;
+@veui-button-background-color-icon-hover: @veui-button-background-color-icon;
+@veui-button-background-color-icon-focus: @veui-button-background-color-icon-hover;
+@veui-button-background-color-icon-active: @veui-button-background-color-icon;
+@veui-button-background-color-icon-disabled: @veui-button-background-color-icon;
+
+@veui-button-padding-icon: @veui-padding-unit * 0.5;
+
+/* Focus rings */
+@veui-button-border-color-focus: @veui-border-color-focus;
+@veui-button-shadow-focus: @veui-shadow-focus;
+
+/* Button group separator */
+@veui-button-group-separator-color-primary: @veui-color-brand-4;
+@veui-button-group-separator-color-primary-disabled: @veui-color-brand-1;

@@ -200,8 +200,8 @@ section {
             flex: 1;
         }
         .pagination-type {
-            color: @veui-font-color-guide;
-            font-size: @veui-font-size-small;
+            color: @veui-font-color-weak;
+            font-size: @veui-font-size-s;
             margin-right: 23px;
         }
     }

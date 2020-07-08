@@ -2,15 +2,15 @@
 
 .@{veui-prefix}-schedule {
   width: 653px;
-  border: 1px solid @veui-gray-color-5;
+  border: 1px solid @veui-color-gray-5;
   outline: none;
 
   &-header {
     overflow: hidden;
     padding: 10px 20px;
-    font-size: @veui-font-size-small;
+    font-size: @veui-font-size-s;
     line-height: 24px;
-    border-bottom: 1px solid @veui-gray-color-5;
+    border-bottom: 1px solid @veui-color-gray-5;
   }
 
   &-shortcuts {
@@ -23,7 +23,7 @@
     padding: 0 10px;
     border: none;
     background-color: transparent;
-    color: @veui-font-color-main;
+    color: @veui-font-color-normal;
     outline: none;
     .veui-button-transition();
 
@@ -32,8 +32,8 @@
     }
 
     &-selected {
-      background-color: @veui-gray-color-7;
-      color: @veui-font-color-main;
+      background-color: @veui-color-gray-7;
+      color: @veui-font-color-normal;
     }
   }
 
@@ -42,7 +42,7 @@
 
     &-item {
       margin-left: 20px;
-      color: @veui-font-color-main;
+      color: @veui-font-color-normal;
 
       &:first-child {
         margin-left: 0;
@@ -57,27 +57,27 @@
     }
 
     &-available::before {
-      border: 1px solid @veui-gray-color-5;
+      border: 1px solid @veui-color-gray-5;
       background-color: #fff;
     }
 
     &-selected::before {
-      background-color: @veui-brand-color-8;
+      background-color: @veui-color-brand-8;
     }
   }
 
   &-body {
     .clearfix();
     padding: 20px 10px 20px 20px;
-    background-color: @veui-gray-color-8;
+    background-color: @veui-color-gray-8;
   }
 
   &-head {
     &-hour {
       float: right;
-      color: @veui-font-color-main;
+      color: @veui-font-color-normal;
       margin-bottom: 10px;
-      font-size: @veui-font-size-small;
+      font-size: @veui-font-size-s;
 
       &-item {
         float: left;
@@ -90,7 +90,7 @@
       float: left;
       clear: right;
       margin-right: 10px;
-      color: @veui-font-color-main;
+      color: @veui-font-color-normal;
 
       &-item {
         line-height: 23px;
@@ -147,7 +147,7 @@
 
         &:hover,
         &.focus-visible {
-          color: @veui-brand-color-9;
+          color: @veui-color-brand-9;
         }
 
         &.focus-visible {
@@ -157,17 +157,17 @@
 
         &:hover:active,
         &.@{veui-prefix}-schedule-selected {
-          color: @veui-brand-color-8;
+          color: @veui-color-brand-8;
         }
 
         &.@{veui-prefix}-schedule-selected {
           &:hover,
           &.focus-visible {
-            color: @veui-brand-color-7;
+            color: @veui-color-brand-7;
           }
 
           &:hover:active {
-            color: @veui-brand-color-6;
+            color: @veui-color-brand-6;
           }
         }
 
@@ -185,7 +185,7 @@
 
       td {
         position: relative;
-        border: 1px solid @veui-gray-color-6;
+        border: 1px solid @veui-color-gray-6;
 
         &.@{veui-prefix}-schedule-selected
           + .@{veui-prefix}-schedule-selected
@@ -201,8 +201,8 @@
     &-selected {
       pointer-events: none; // for Firefox
       .absolute(0, _, _, 0);
-      font-size: @veui-font-size-small;
-      color: @veui-font-color-main;
+      font-size: @veui-font-size-s;
+      color: @veui-font-color-normal;
 
       td {
         padding-top: 1px;

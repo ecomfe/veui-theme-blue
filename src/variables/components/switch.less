@@ -1,0 +1,51 @@
+@import "../global.less";
+
+/* Metrics */
+@veui-switch-width-xs: @veui-padding-unit * 6;
+@veui-switch-width-s: @veui-padding-unit * 8;
+@veui-switch-width-m: @veui-padding-unit * 10;
+
+@veui-switch-height-xs: @veui-height-unit * 3;
+@veui-switch-height-s: @veui-height-unit * 4;
+@veui-switch-height-m: @veui-height-unit * 5;
+
+@veui-switch-thumb-size-xs: @veui-height-unit * 2;
+@veui-switch-thumb-size-s: @veui-height-unit * 3;
+@veui-switch-thumb-size-m: @veui-height-unit * 4;
+
+@veui-switch-padding-xs: (@veui-switch-height-xs - @veui-switch-thumb-size-xs) / 2;
+@veui-switch-padding-s: (@veui-switch-height-s - @veui-switch-thumb-size-s) / 2;
+@veui-switch-padding-m: (@veui-switch-height-m - @veui-switch-thumb-size-m) / 2;
+
+/* Colors */
+@veui-switch-track-color-on: @veui-color-brand-6;
+@veui-switch-track-color-on-hover: @veui-color-brand-5;
+@veui-switch-track-color-on-focus: @veui-switch-track-color-on-hover;
+@veui-switch-track-color-on-active: @veui-color-brand-7;
+@veui-switch-track-color-on-disabled: @veui-color-brand-2;
+
+@veui-switch-track-color-off: @veui-color-gray-6;
+@veui-switch-track-color-off-hover: @veui-color-gray-7;
+@veui-switch-track-color-off-focus: @veui-switch-track-color-off-hover;
+@veui-switch-track-color-off-active: @veui-color-gray-8;
+@veui-switch-track-color-off-disabled: @veui-color-gray-5;
+
+@veui-switch-thumb-color-on: @veui-color-gray-1;
+@veui-switch-thumb-color-on-hover: @veui-switch-thumb-color-on;
+@veui-switch-thumb-color-on-focus: @veui-switch-thumb-color-on-hover;
+@veui-switch-thumb-color-on-active: @veui-switch-thumb-color-on;
+@veui-switch-thumb-color-on-disabled: @veui-switch-thumb-color-on;
+
+@veui-switch-thumb-color-off: @veui-switch-thumb-color-on;
+@veui-switch-thumb-color-off-hover: @veui-switch-thumb-color-on;
+@veui-switch-thumb-color-off-focus: @veui-switch-thumb-color-off-hover;
+@veui-switch-thumb-color-off-active: @veui-switch-thumb-color-on;
+@veui-switch-thumb-color-off-disabled: @veui-switch-thumb-color-on;
+
+@veui-switch-shadow-on-focus: @veui-shadow-focus;
+@veui-switch-shadow-off-focus: 0 0 0 @veui-shadow-spread-focus
+  fade(@veui-color-gray-7, percentage(@veui-shadow-opacity-focus));
+
+/* Typography */
+@veui-switch-font-size: @veui-font-size-s;
+@veui-switch-font-color: @veui-color-gray-1;

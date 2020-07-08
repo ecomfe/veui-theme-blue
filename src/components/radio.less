@@ -1,12 +1,13 @@
 @import "../lib.less";
+@import "../variables/components/radio.less";
 
 .@{veui-prefix}-radio {
   display: inline-flex;
   align-items: center;
   position: relative;
-  // color: @dls-radio-font-color;
-  // font-size: @dls-radio-font-size-m;
-  // line-height: @dls-line-height-m;
+  color: @veui-radio-font-color;
+  font-size: @veui-radio-font-size-m;
+  line-height: @veui-line-height-m;
   cursor: pointer;
 
   input {
@@ -19,12 +20,12 @@
     display: flex;
     flex-grow: 0;
     flex-shrink: 0;
-    // .size(@dls-radio-size-m);
-    // margin-right: @dls-radio-spacing;
-    // border: 1px solid @dls-radio-border-color;
-    // background-color: @dls-radio-background-color;
+    .size(@veui-radio-size-m);
+    margin-right: @veui-radio-spacing;
+    border: 1px solid @veui-radio-border-color;
+    background-color: @veui-radio-background-color;
     border-radius: 50%;
-    // font-size: @dls-font-size-m;
+    font-size: @veui-font-size-m;
     .veui-transition(border-color, background-color, box-shadow);
 
     .@{veui-prefix}-icon {
@@ -34,8 +35,8 @@
     &::before {
       content: "";
       margin: auto;
-      // .size(@dls-radio-dot-size-m);
-      // background-color: @dls-radio-dot-color;
+      // .size(@veui-radio-dot-size-m);
+      background-color: @veui-radio-dot-color;
       border-radius: 50%;
       transform: scale(0);
       .veui-transition(background-color, transform);
@@ -43,8 +44,8 @@
   }
 
   & :checked + &-box {
-    // border-color: @dls-radio-border-color-checked;
-    // background-color: @dls-radio-background-color-checked;
+    border-color: @veui-radio-border-color-checked;
+    background-color: @veui-radio-background-color-checked;
 
     &::before {
       transform: scale(1);
@@ -52,49 +53,49 @@
   }
 
   &:hover &-box {
-    // border-color: @dls-radio-border-color-hover;
-    // background-color: @dls-radio-background-color-hover;
+    border-color: @veui-radio-border-color-hover;
+    background-color: @veui-radio-background-color-hover;
 
     &::before {
-      // background-color: @dls-radio-dot-color-hover;
+      background-color: @veui-radio-dot-color-hover;
     }
   }
 
   &:active &-box {
-    // border-color: @dls-radio-border-color-active;
-    // background-color: @dls-radio-background-color-active;
+    border-color: @veui-radio-border-color-active;
+    background-color: @veui-radio-background-color-active;
 
     &::before {
-      // background-color: @dls-radio-dot-color-active;
+      background-color: @veui-radio-dot-color-active;
     }
   }
 
   & .focus-visible + &-box {
-    // border-color: @dls-border-color-focus;
-    // background-color: @dls-radio-background-color-focus;
-    // .veui-focus-ring(@dls-radio-border-color-focus, @dls-radio-shadow-focus);
+    border-color: @veui-border-color-focus;
+    background-color: @veui-radio-background-color-focus;
+    .veui-focus-ring(@veui-radio-border-color-focus, @veui-radio-shadow-focus);
 
     &::before {
-      // background-color: @dls-radio-dot-color-focus;
+      background-color: @veui-radio-dot-color-focus;
     }
   }
 
   & .focus-visible:checked + &-box {
-    // background-color: @dls-radio-background-color-checked-focus;
-    // .veui-focus-ring(
-    //   @dls-radio-border-color-checked-focus,
-    //   @dls-radio-shadow-focus
-    // );
+    background-color: @veui-radio-background-color-checked-focus;
+    .veui-focus-ring(
+      @veui-radio-border-color-checked-focus,
+      @veui-radio-shadow-focus
+    );
   }
 
   &:hover :checked + &-box {
-    // border-color: @dls-radio-border-color-checked-hover;
-    // background-color: @dls-radio-background-color-checked-hover;
+    border-color: @veui-radio-border-color-checked-hover;
+    background-color: @veui-radio-background-color-checked-hover;
   }
 
   &:active :checked + &-box {
-    // border-color: @dls-radio-border-color-checked-active;
-    // background-color: @dls-radio-background-color-checked-active;
+    border-color: @veui-radio-border-color-checked-active;
+    background-color: @veui-radio-background-color-checked-active;
   }
 
   &.@{veui-prefix}-disabled {
@@ -102,28 +103,28 @@
   }
 
   & :disabled + &-box {
-    // border-color: @dls-radio-border-color-disabled;
-    // background-color: @dls-radio-background-color-disabled;
+    border-color: @veui-radio-border-color-disabled;
+    background-color: @veui-radio-background-color-disabled;
 
     &::before {
-      // background-color: @dls-radio-dot-color-disabled;
+      background-color: @veui-radio-dot-color-disabled;
     }
   }
 
   & :checked:disabled + &-box {
-    // border-color: @dls-radio-border-color-checked-disabled;
-    // background-color: @dls-radio-background-color-checked-disabled;
+    border-color: @veui-radio-border-color-checked-disabled;
+    background-color: @veui-radio-background-color-checked-disabled;
   }
 
   &[ui~="s"] {
-    // font-size: @dls-radio-font-size-s;
+    font-size: @veui-radio-font-size-s;
   }
 
   &[ui~="s"] &-box {
-    // .size(@dls-radio-size-s);
+    .size(@veui-radio-size-s);
 
     &::before {
-      // .size(@dls-radio-dot-size-s);
+      // .size(@veui-radio-dot-size-s);
     }
   }
 }

@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/drawer.less";
 
 .@{veui-prefix}-drawer {
   &-box {
@@ -14,19 +15,19 @@
 
       &-head {
         [ui~="s"]& {
-          // font-size: @dls-drawer-title-font-size-s;
+          font-size: @veui-drawer-title-font-size-s;
         }
 
         [ui~="m"]& {
-          // font-size: @dls-drawer-title-font-size-m;
+          font-size: @veui-drawer-title-font-size-m;
         }
 
         &-close {
           .@{veui-prefix}-icon {
-            // .veui-icon-size(
-            //   @dls-drawer-close-icon-size,
-            //   @dls-dialog-close-icon-min-size
-            // );
+            .veui-icon-size(
+              @veui-drawer-close-icon-size,
+              @veui-dialog-close-icon-min-size
+            );
           }
         }
       }
@@ -41,28 +42,28 @@
     .@{veui-prefix}-dialog-content {
       .absolute(0, 0, auto, 0);
       width: auto !important;
-      // box-shadow: @dls-drawer-shadow-top;
+      box-shadow: @veui-drawer-shadow-top;
     }
   }
   &-right {
     .@{veui-prefix}-dialog-content {
       .absolute(0, 0, 0, auto);
-      // width: @dls-drawer-width;
-      // box-shadow: @dls-drawer-shadow-right;
+      width: @veui-drawer-width;
+      box-shadow: @veui-drawer-shadow-right;
     }
   }
   &-bottom {
     .@{veui-prefix}-dialog-content {
       .absolute(auto, 0, 0, 0);
       width: auto !important;
-      // box-shadow: @dls-drawer-shadow-bottom;
+      box-shadow: @veui-drawer-shadow-bottom;
     }
   }
   &-left {
     .@{veui-prefix}-dialog-content {
       .absolute(0, auto, 0, 0);
-      // width: @dls-drawer-width;
-      // box-shadow: @dls-drawer-shadow-left;
+      width: @veui-drawer-width;
+      box-shadow: @veui-drawer-shadow-left;
     }
   }
 

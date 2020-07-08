@@ -140,9 +140,9 @@
 
         &-tabs {
             .absolute(_, 0, 0);
-            .vertical-gradient(transparent, @veui-gray-color-9);
+            .vertical-gradient(transparent, @veui-color-gray-9);
             text-align: right;
-            font-size: @veui-font-size-normal;
+            font-size: @veui-font-size-m;
         }
 
         &-tabs &-item {
@@ -151,7 +151,7 @@
             padding: 0;
             border: none;
             background: none;
-            color: fadeout(@veui-gray-color-1, 50%);
+            color: fadeout(@veui-color-gray-1, 50%);
             .veui-transition(color);
             cursor: pointer;
 
@@ -163,7 +163,7 @@
             &.focus-visible,
             &-current,
             &-current:hover {
-                color: @veui-gray-color-1;
+                color: @veui-color-gray-1;
             }
         }
     }

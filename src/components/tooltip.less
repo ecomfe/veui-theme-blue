@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/tooltip.less";
 
 .@{veui-prefix}-tooltip {
   @arrow-size: 8px;
@@ -8,13 +9,13 @@
 
   position: relative;
   padding: 4px;
-  // background-color: @dls-tooltip-background-color-normal;
-  // color: @dls-tooltip-font-color-normal;
-  // line-height: @dls-tooltip-line-height;
-  // border-radius: @dls-tooltip-border-radius;
-  // max-width: @dls-tooltip-max-width;
-  // font-size: @dls-tooltip-font-size;
-  // box-shadow: @dls-tooltip-shadow-normal;
+  background-color: @veui-tooltip-background-color-normal;
+  color: @veui-tooltip-font-color-normal;
+  line-height: @veui-tooltip-line-height;
+  border-radius: @veui-tooltip-border-radius;
+  max-width: @veui-tooltip-max-width;
+  font-size: @veui-tooltip-font-size;
+  box-shadow: @veui-tooltip-shadow-normal;
   pointer-events: all;
 
   &-box-transparent {
@@ -26,7 +27,7 @@
     position: absolute;
     overflow: hidden;
     pointer-events: none;
-    // color: @dls-tooltip-background-color-normal;
+    color: @veui-tooltip-background-color-normal;
 
     &::after {
       content: "";
@@ -145,16 +146,16 @@
   }
 
   &[ui~="reverse"] {
-    // background-color: @dls-tooltip-background-color-reverse;
-    // color: @dls-tooltip-font-color-reverse;
-    // box-shadow: @dls-tooltip-shadow-reverse;
+    background-color: @veui-tooltip-background-color-reverse;
+    color: @veui-tooltip-font-color-reverse;
+    box-shadow: @veui-tooltip-shadow-reverse;
 
     .@{veui-prefix}-tooltip-arrow {
-      // color: @dls-tooltip-background-color-reverse;
+      color: @veui-tooltip-background-color-reverse;
 
       &::after {
-        // box-shadow: 0 0 @dls-shadow-blur-radius
-          // fade(@dls-shadow-color, percentage(@dls-shadow-opacity));
+        box-shadow: 0 0 @veui-shadow-blur-radius
+          fade(@veui-shadow-color, percentage(@veui-shadow-opacity));
       }
     }
   }

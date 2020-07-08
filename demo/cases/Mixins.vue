@@ -118,7 +118,7 @@ export default {
 }
 .focus-shadow-outline {
     border: 1px solid @veui-border-color-focus;
-    .veui-focus-shadow(@veui-brand-color-6, 2);
+    .veui-focus-shadow(@veui-color-brand-6, 2);
 }
 .focus-ring {
     border-width: 1px;

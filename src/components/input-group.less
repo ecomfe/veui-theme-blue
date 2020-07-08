@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/input.less";
 
 .@{veui-prefix}-input-group {
   display: inline-flex;
@@ -10,30 +11,30 @@
     display: flex;
     align-items: center;
     line-height: 1;
-    // border: 1px solid @dls-input-border-color;
-    // padding: 0 @dls-input-padding;
+    border: 1px solid @veui-input-border-color;
+    padding: 0 @veui-input-padding;
     border-radius: inherit;
     font-size: inherit;
   }
 
   &[ui~="xs"] {
-    // border-radius: @dls-input-border-radius-xs;
-    // font-size: @dls-input-font-size-xs;
+    border-radius: @veui-input-border-radius-xs;
+    font-size: @veui-input-font-size-xs;
   }
 
   &[ui~="s"] {
-    // border-radius: @dls-input-border-radius-s;
-    // font-size: @dls-input-font-size-s;
+    border-radius: @veui-input-border-radius-s;
+    font-size: @veui-input-font-size-s;
   }
 
   &[ui~="m"] {
-    // border-radius: @dls-input-border-radius-m;
-    // font-size: @dls-input-font-size-m;
+    border-radius: @veui-input-border-radius-m;
+    font-size: @veui-input-font-size-m;
   }
 
   &[ui~="l"] {
-    // border-radius: @dls-input-border-radius-l;
-    // font-size: @dls-input-font-size-l;
+    border-radius: @veui-input-border-radius-l;
+    font-size: @veui-input-font-size-l;
   }
 
   & > [class*="@{veui-prefix}"] {

@@ -1,9 +1,12 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
+@import "../variables/components/time-picker.less";
+@import "../variables/components/input.less";
+@import "../variables/components/option.less";
 
 .@{veui-prefix}-time-picker {
   display: inline-block;
-  // width: @dls-time-picker-width;
+  width: @veui-time-picker-width;
 
   & > .@{veui-prefix}-input {
     width: 100%;
@@ -11,19 +14,19 @@
 
   &-overlay-content {
     &:extend(._veui-dropdown-overlay all);
-    // min-width: @dls-time-picker-dropdown-min-width;
-    // background-color: @dls-option-background-color;
-    // box-shadow: @dls-option-dropdown-shadow;
+    min-width: @veui-time-picker-dropdown-min-width;
+    background-color: @veui-option-background-color;
+    box-shadow: @veui-option-dropdown-shadow;
     display: flex;
   }
 
   &-option-group-wrapper {
     flex-shrink: 1;
     flex-grow: 1;
-    // max-height: @dls-option-dropdown-max-height-m;
+    max-height: @veui-option-dropdown-max-height-m;
     overflow: auto;
     & + & {
-      // border-left: 1px solid @dls-option-group-separator-color;
+      border-left: 1px solid @veui-option-group-separator-color;
     }
 
     .@{veui-prefix}-option {
@@ -36,7 +39,7 @@
         content: "00";
         display: block;
         height: 0;
-        // font-weight: @dls-option-font-weight-selected;
+        font-weight: @veui-option-font-weight-selected;
         opacity: 0;
       }
     }
@@ -48,13 +51,13 @@
   }
 
   &-clock {
-    // .veui-icon-size(@dls-input-icon-size);
+    .veui-icon-size(@veui-input-icon-size);
     .veui-transition(color, opacity);
-    // color: @dls-time-picker-icon-color;
+    color: @veui-time-picker-icon-color;
 
     .@{veui-prefix}-readonly &,
     .@{veui-prefix}-disabled & {
-      // color: @dls-time-picker-icon-color-disabled;
+      color: @veui-time-picker-icon-color-disabled;
     }
   }
 
@@ -73,7 +76,7 @@
     z-index: 1;
 
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-input-icon-size);
+      .veui-icon-size(@veui-input-icon-size);
     }
 
     .@{veui-prefix}-time-picker:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover

@@ -1,0 +1,74 @@
+@import "../global.less";
+
+/* Metrics */
+@veui-slider-thumb-size-s: @veui-height-unit * 2;
+@veui-slider-thumb-size-m: @veui-height-unit * 3;
+
+@veui-slider-track-min-width: 2px;
+@veui-slider-track-width-s: max(
+  @veui-slider-thumb-size-s - @veui-height-unit * 2,
+  @veui-slider-track-min-width
+);
+@veui-slider-track-width-m: max(
+  @veui-slider-thumb-size-m - @veui-height-unit * 2,
+  @veui-slider-track-min-width
+);
+
+@veui-slider-track-border-radius-s: @veui-slider-track-width-s / 2;
+@veui-slider-track-border-radius-m: @veui-slider-track-width-m / 2;
+
+@veui-slider-thumb-dot-min-size: @veui-slider-track-min-width;
+@veui-slider-thumb-dot-size-s: max(
+  @veui-slider-track-width-s,
+  @veui-slider-thumb-dot-min-size
+);
+@veui-slider-thumb-dot-size-m: max(
+  @veui-slider-track-width-m,
+  @veui-slider-thumb-dot-min-size
+);
+
+@veui-slider-mark-min-size: 4px;
+@veui-slider-mark-size-s: max(
+  @veui-slider-thumb-size-s - @veui-height-unit * 1,
+  @veui-slider-mark-min-size
+);
+@veui-slider-mark-size-m: max(
+  @veui-slider-thumb-size-m - @veui-height-unit * 1,
+  @veui-slider-mark-min-size
+);
+
+@veui-slider-font-size-s: @veui-font-size-s;
+@veui-slider-font-size-m: @veui-font-size-m;
+
+/* Colors */
+@veui-slider-font-color: @veui-font-color-aux;
+@veui-slider-font-color-disabled: @veui-font-color-disabled;
+
+@veui-slider-thumb-background-color: @veui-color-brand-6;
+@veui-slider-thumb-background-color-hover: @veui-color-brand-5;
+@veui-slider-thumb-background-color-focus: @veui-slider-thumb-background-color-hover;
+@veui-slider-thumb-background-color-active: @veui-color-brand-7;
+
+@veui-slider-thumb-background-color-read-only: @veui-color-gray-6;
+@veui-slider-thumb-background-color-read-only-hover: @veui-color-gray-7;
+@veui-slider-thumb-background-color-read-only-focus: @veui-slider-thumb-background-color-read-only-hover;
+
+@veui-slider-thumb-background-color-disabled: @veui-color-brand-2;
+
+@veui-slider-thumb-border-color-focus: @veui-border-color-focus;
+@veui-slider-thumb-border-color-read-only-focus: @veui-border-color-focus;
+
+@veui-slider-thumb-shadow-focus: @veui-shadow-focus;
+@veui-slider-thumb-shadow-read-only-focus: @veui-shadow-focus;
+
+@veui-slider-thumb-dot-color: @veui-color-gray-1;
+
+@veui-slider-track-color: @veui-color-gray-4;
+@veui-slider-track-color-hover: @veui-color-gray-5;
+@veui-slider-track-color-read-only: @veui-color-gray-3;
+@veui-slider-track-color-disabled: @veui-slider-track-color-read-only;
+
+@veui-slider-track-progress-color: @veui-slider-thumb-background-color;
+@veui-slider-track-progress-color-hover: @veui-slider-thumb-background-color-hover;
+@veui-slider-track-progress-color-read-only: @veui-color-gray-6;
+@veui-slider-track-progress-color-disabled: @veui-slider-thumb-background-color-disabled;

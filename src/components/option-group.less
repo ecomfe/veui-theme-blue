@@ -1,11 +1,12 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
+@import "../variables/components/option.less";
 
 .@{veui-prefix}-option-group {
   // 先给所有的 OptionGroup 设置 padding 和 max-height， 然后通过后代选择器清除内部的
   // OptionGroup 的 padding 和 max-height，保证只有最外层的设置了 max-height 和 padding
-  // font-size: @dls-option-font-size-m;
-  // .padding(@dls-option-group-padding-y, _);
+  font-size: @veui-option-font-size-m;
+  .padding(@veui-option-group-padding-y, _);
 
   & & {
     .padding(0, _);
@@ -18,9 +19,9 @@
 
   // 找到有分割线的元素，padding-top 设置分割线下间距， margin-top 设置分割线上间距
   & &:not(.@{veui-prefix}-option-group-popout):not(:first-child) {
-    // margin-top: @dls-option-group-padding-y;
-    // padding-top: @dls-option-group-padding-y;
-    // border-top: 1px solid @dls-option-group-separator-color;
+    margin-top: @veui-option-group-padding-y;
+    padding-top: @veui-option-group-padding-y;
+    border-top: 1px solid @veui-option-group-separator-color;
   }
 
   &-popout &-label {
@@ -29,52 +30,52 @@
 
   &.@{veui-prefix}-option-group-popout {
     .@{veui-prefix}-option-group-label {
-      // color: @dls-option-font-color;
+      color: @veui-option-font-color;
     }
   }
 
   &[ui~="xs"] {
     .@{veui-prefix}-option-group-label {
-      // font-size: @dls-option-font-size-xs;
-      // max-width: @dls-option-max-width-xs;
+      font-size: @veui-option-font-size-xs;
+      max-width: @veui-option-max-width-xs;
     }
   }
 
   &[ui~="s"] {
     .@{veui-prefix}-option-group-label {
-      // font-size: @dls-option-font-size-s;
-      // max-width: @dls-option-max-width-s;
+      font-size: @veui-option-font-size-s;
+      max-width: @veui-option-max-width-s;
     }
   }
 
   &[ui~="l"] {
     .@{veui-prefix}-option-group-label {
-      // font-size: @dls-option-font-size-l;
-      // max-width: @dls-option-max-width-l;
+      font-size: @veui-option-font-size-l;
+      max-width: @veui-option-max-width-l;
     }
   }
 
   .@{veui-prefix}-text-highlighted {
-    // color: @dls-option-font-color-highlighted;
+    color: @veui-option-font-color-highlighted;
   }
 
   &-label {
     display: flex;
     align-items: center;
-    // max-width: @dls-option-max-width-m;
-    // font-size: @dls-option-font-size-m;
-    // color: @dls-option-group-label-font-color;
-    // line-height: @dls-option-group-label-line-height;
-    // .padding(@dls-option-group-label-padding-y, @dls-option-padding-m);
+    max-width: @veui-option-max-width-m;
+    font-size: @veui-option-font-size-m;
+    color: @veui-option-group-label-font-color;
+    line-height: @veui-option-group-label-line-height;
+    .padding(@veui-option-group-label-padding-y, @veui-option-padding-m);
 
     .@{veui-prefix}-option-label {
       flex-grow: 1;
     }
 
     .@{veui-prefix}-option-group-expandable {
-      // color: @dls-option-icon-color-aux;
-      // .veui-icon-size(@dls-option-icon-size-aux);
-      // margin-left: @dls-option-label-spacing-after;
+      color: @veui-option-icon-color-aux;
+      .veui-icon-size(@veui-option-icon-size-aux);
+      margin-left: @veui-option-label-spacing-after;
     }
   }
 
@@ -84,12 +85,12 @@
 
   &-label-disabled {
     .@{veui-prefix}-option-group-expandable {
-      // color: @dls-option-icon-color-aux-disabled;
+      color: @veui-option-icon-color-aux-disabled;
     }
   }
 
   .@{veui-prefix}-option {
-    // .padding(_, @dls-option-padding-m);
+    .padding(_, @veui-option-padding-m);
   }
 
   &-button {
@@ -97,11 +98,11 @@
   }
 
   &-expanded &-button {
-    // font-weight: @dls-option-font-weight-selected-parent;
-    // background-color: @dls-option-background-color-selected-parent;
+    font-weight: @veui-option-font-weight-selected-parent;
+    background-color: @veui-option-background-color-selected-parent;
 
     &:active {
-      // background-color: @dls-option-background-color-active;
+      background-color: @veui-option-background-color-active;
     }
   }
 
@@ -111,8 +112,8 @@
 
   &-box &-options {
     &:extend(._veui-dropdown-overlay all);
-    // .padding(@dls-option-group-padding-y, _);
-    // .margin(0, @dls-option-dropdown-target-spacing);
+    .padding(@veui-option-group-padding-y, _);
+    .margin(0, @veui-option-dropdown-target-spacing);
     pointer-events: all;
   }
 }

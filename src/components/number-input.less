@@ -1,15 +1,16 @@
 @import "../lib.less";
+@import "../variables/components/number-input.less";
 
 .@{veui-prefix}-number-input {
   position: relative;
-  // width: @dls-number-input-width-normal-m;
+  width: @veui-number-input-width-normal-m;
 
   &[ui~="xs"] {
-    // width: @dls-number-input-width-normal-xs;
+    width: @veui-number-input-width-normal-xs;
   }
 
   &[ui~="s"] {
-    // width: @dls-number-input-width-normal-s;
+    width: @veui-number-input-width-normal-s;
   }
 
   input {
@@ -25,9 +26,9 @@
     .@{veui-prefix}-input-append {
       right: 0;
       position: absolute;
-      // min-width: dls-sum(@dls-number-input-spin-button-min-width-normal, -1px);
+      min-width: veui-sum(@veui-number-input-spin-button-min-width-normal, -1px);
       padding: 0;
-      // margin-left: @dls-input-padding;
+      margin-left: @veui-input-padding;
     }
 
     .@{veui-prefix}-input-append,
@@ -36,15 +37,15 @@
     }
 
     &[ui~="xs"] .@{veui-prefix}-input-append {
-      // .size(dls-sum(@dls-number-input-spin-button-width-normal-xs, -1px), 100%);
+      .size(veui-sum(@veui-number-input-spin-button-width-normal-xs, -1px), 100%);
     }
 
     &[ui~="s"] .@{veui-prefix}-input-append {
-      // .size(dls-sum(@dls-number-input-spin-button-width-normal-s, -1px), 100%);
+      .size(veui-sum(@veui-number-input-spin-button-width-normal-s, -1px), 100%);
     }
 
     &[ui~="m"] .@{veui-prefix}-input-append {
-      // .size(dls-sum(@dls-number-input-spin-button-width-normal-m, -1px), 100%);
+      .size(veui-sum(@veui-number-input-spin-button-width-normal-m, -1px), 100%);
     }
   }
 
@@ -104,7 +105,7 @@
     }
 
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-number-input-spin-icon-size-normal);
+      .veui-icon-size(@veui-number-input-spin-icon-size-normal);
     }
   }
 
@@ -151,46 +152,46 @@
     }
 
     &[ui~="xs"] {
-      // width: @dls-number-input-width-strong-xs;
+      width: @veui-number-input-width-strong-xs;
 
       .@{veui-prefix}-input {
         &-main {
-          // border-radius: @dls-input-border-radius-xs;
+          border-radius: @veui-input-border-radius-xs;
         }
 
         &-before,
         &-after {
-          // .size(@dls-number-input-height-xs);
+          .size(@veui-number-input-height-xs);
         }
       }
     }
 
     &[ui~="s"] {
-      // width: @dls-number-input-width-strong-s;
+      width: @veui-number-input-width-strong-s;
 
       .@{veui-prefix}-input {
         &-main {
-          // border-radius: @dls-input-border-radius-s;
+          border-radius: @veui-input-border-radius-s;
         }
 
         &-before,
         &-after {
-          // .size(@dls-number-input-height-s);
+          .size(@veui-number-input-height-s);
         }
       }
     }
 
     &[ui~="m"] {
-      // width: @dls-number-input-width-strong-m;
+      width: @veui-number-input-width-strong-m;
 
       .@{veui-prefix}-input {
         &-main {
-          // border-radius: @dls-input-border-radius-m;
+          border-radius: @veui-input-border-radius-m;
         }
 
         &-before,
         &-after {
-          // .size(@dls-number-input-height-m);
+          .size(@veui-number-input-height-m);
         }
       }
     }
@@ -220,7 +221,7 @@
         }
 
         .@{veui-prefix}-icon {
-          // .veui-icon-size(@dls-number-input-spin-icon-size-strong);
+          .veui-icon-size(@veui-number-input-spin-icon-size-strong);
         }
       }
     }

@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/switch.less";
 
 .@{veui-prefix}-switch {
   .metrics(@size) {
@@ -19,7 +20,7 @@
         .size(@thumb-size);
 
         .@{veui-prefix}-icon {
-          // .veui-icon-size(dls-sum(@@thumb-size, -2px));
+          .veui-icon-size(veui-sum(@@thumb-size, -2px));
         }
       }
 
@@ -37,9 +38,9 @@
     &.@{veui-prefix}-switch-on:not(.@{veui-prefix}-switch-loading)
       > .@{veui-prefix}-switch-switcher
       > .@{veui-prefix}-switch-button {
-      // transform: translateX(
-      //   dls-sum(@@width, @@thumb-size * -1, @@padding * -2)
-      // );
+      transform: translateX(
+        veui-sum(@@width, @@thumb-size * -1, @@padding * -2)
+      );
     }
 
     &.@{veui-prefix}-switch-on.@{veui-prefix}-switch-loading
@@ -54,9 +55,9 @@
   position: relative;
   cursor: pointer;
   outline: none;
-  // font-size: @dls-font-size-m;
+  font-size: @veui-font-size-m;
 
-  .metrics(m);
+  // .metrics(m);
 
   input {
     position: absolute;
@@ -70,14 +71,14 @@
   }
 
   &-label {
-    // margin-left: @dls-padding-unit * 2;
+    margin-left: @veui-padding-unit * 2;
     line-height: 1;
   }
 
   &-switcher {
     position: relative;
-    // font-size: @dls-switch-font-size;
-    // background-color: @dls-switch-track-color-off;
+    font-size: @veui-switch-font-size;
+    background-color: @veui-switch-track-color-off;
     user-select: none;
     .veui-transition(background-color, box-shadow);
   }
@@ -89,44 +90,44 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    // color: @dls-switch-font-color;
+    color: @veui-switch-font-color;
 
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@veui-icon-size-aux);
+      .veui-icon-size(@veui-icon-size-aux);
     }
   }
 
   &:hover &-switcher {
-    // background-color: @dls-switch-track-color-off-hover;
+    background-color: @veui-switch-track-color-off-hover;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-hover;
+      background-color: @veui-switch-thumb-color-off-hover;
     }
   }
 
   &:active &-switcher {
-    // background-color: @dls-switch-track-color-off-active;
+    background-color: @veui-switch-track-color-off-active;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-active;
+      background-color: @veui-switch-thumb-color-off-active;
     }
   }
 
   .focus-visible + &-switcher {
-    // background-color: @dls-switch-track-color-off-focus;
-    // box-shadow: @dls-switch-shadow-off-focus;
+    background-color: @veui-switch-track-color-off-focus;
+    box-shadow: @veui-switch-shadow-off-focus;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-focus;
+      background-color: @veui-switch-thumb-color-off-focus;
     }
   }
 
   .focus-visible:checked + &-switcher {
-    // background-color: @dls-switch-track-color-on-focus;
-    // box-shadow: @dls-switch-shadow-on-focus;
+    background-color: @veui-switch-track-color-on-focus;
+    box-shadow: @veui-switch-shadow-on-focus;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-focus;
+      background-color: @veui-switch-thumb-color-on-focus;
     }
   }
 
@@ -134,41 +135,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // background-color: @dls-switch-thumb-color-off;
+    background-color: @veui-switch-thumb-color-off;
     border-radius: 50%;
     .veui-transition(transform);
 
     .@{veui-prefix}-icon {
       position: absolute;
-      // color: @dls-switch-track-color-off;
+      color: @veui-switch-track-color-off;
     }
   }
 
   :checked + &-switcher {
-    // background-color: @dls-switch-track-color-on;
+    background-color: @veui-switch-track-color-on;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on;
+      background-color: @veui-switch-thumb-color-on;
 
       .@{veui-prefix}-icon {
-        // color: @dls-switch-track-color-on;
+        color: @veui-switch-track-color-on;
       }
     }
   }
 
   &:hover :checked + &-switcher {
-    // background-color: @dls-switch-track-color-on-hover;
+    background-color: @veui-switch-track-color-on-hover;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-hover;
+      background-color: @veui-switch-thumb-color-on-hover;
     }
   }
 
   &:active :checked + &-switcher {
-    // background-color: @dls-switch-track-color-on-active;
+    background-color: @veui-switch-track-color-on-active;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-active;
+      background-color: @veui-switch-thumb-color-on-active;
     }
   }
 
@@ -182,13 +183,13 @@
 
   &-loading &-switcher {
     .@{veui-prefix}-icon {
-      // color: @dls-switch-track-color-off;
+      color: @veui-switch-track-color-off;
     }
   }
 
   &-on&-loading &-switcher {
     .@{veui-prefix}-icon {
-      // color: @dls-switch-track-color-on;
+      color: @veui-switch-track-color-on;
     }
   }
 
@@ -199,31 +200,31 @@
   &-loading &-switcher,
   &.@{veui-prefix}-readonly &-switcher,
   &.@{veui-prefix}-disabled &-switcher {
-    // background-color: @dls-switch-track-color-off-disabled;
+    background-color: @veui-switch-track-color-off-disabled;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-disabled;
+      background-color: @veui-switch-thumb-color-off-disabled;
     }
   }
 
   &-on&-loading &-switcher,
   &-on.@{veui-prefix}-readonly &-switcher,
   &-on.@{veui-prefix}-disabled &-switcher {
-    // background-color: @dls-switch-track-color-on-disabled;
+    background-color: @veui-switch-track-color-on-disabled;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-disabled;
+      background-color: @veui-switch-thumb-color-on-disabled;
     }
   }
 
   &[ui~="xs"] {
-    // font-size: @dls-font-size-s;
-    .metrics(xs);
+    font-size: @veui-font-size-s;
+    // .metrics(xs);
   }
 
   &[ui~="s"] {
-    // font-size: @dls-font-size-s;
-    .metrics(s);
+    font-size: @veui-font-size-s;
+    // .metrics(s);
   }
 
   &[ui~="xs"] &-text,
