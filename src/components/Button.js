@@ -7,9 +7,9 @@ config.defaults(
             loading: 'loading'
         },
         ui: {
-            // style: {
-            //     values: ['translucent', 'primary', 'strong', 'text', 'icon']
-            // },
+            style: {
+                values: ['translucent', 'primary', 'strong', 'text', 'icon', 'square']
+            },
             size: {
                 values: ['xs', 's', 'm', 'l', 'xl'],
                 default: 'm'
