@@ -2,53 +2,56 @@
 @import "../variables/components/switch.less";
 
 .@{veui-prefix}-switch {
-  .metrics(@size) {
+  .metrics(@size, @fontSize: m) {
     @width: ~"veui-switch-width-@{size}";
     @height: ~"veui-switch-height-@{size}";
     @thumb-size: ~"veui-switch-thumb-size-@{size}";
     @padding: ~"veui-switch-padding-@{size}";
+    @font-size: ~"veui-font-size-@{fontSize}";
     @text-offset: veui-sum(@@height / 2, @@thumb-size / 2, @veui-padding-unit);
-
+    @offset: @@thumb-size + @veui-padding-unit + @@padding;
+ 
     .@{veui-prefix}-switch {
+      font-size: @@font-size;
       &-switcher {
-        .size(@@width, @@height);
-        padding: @@padding;
+        // .size(@@width, @@height);
+        height: @@height;
+        min-width: @@width;
+        // padding: @@padding;
         border-radius: @@height / 2;
       }
 
       &-button {
         .size(@@thumb-size);
-
+        left: @@padding;
         .@{veui-prefix}-icon {
           .veui-icon-size(veui-sum(@@thumb-size, -2px));
         }
       }
 
       &-text {
-        left: @text-offset;
+        margin: 0 @veui-padding-unit * 2 0 @offset
       }
     }
 
-    &.@{veui-prefix}-switch-on &-text {
-      right: @text-offset;
-      left: auto;
+    &.@{veui-prefix}-switch-on .veui-switch-text {
+
+      margin: 0 @offset 0 @veui-padding-unit * 2
     }
 
     &.@{veui-prefix}-switch-loading .@{veui-prefix}-switch-button,
     &.@{veui-prefix}-switch-on:not(.@{veui-prefix}-switch-loading)
       > .@{veui-prefix}-switch-switcher
       > .@{veui-prefix}-switch-button {
-      transform: translateX(
-        veui-sum(@@width, @@thumb-size * -1, @@padding * -2)
-      );
+      left: calc(~"100% - @{@{thumb-size}} - @{@{padding}}");
     }
 
     &.@{veui-prefix}-switch-on.@{veui-prefix}-switch-loading
       .@{veui-prefix}-switch-button {
-      transform: translateX(0);
+      left: @@padding;
     }
   }
-
+  
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
@@ -57,8 +60,7 @@
   outline: none;
   font-size: @veui-font-size-m;
 
-  .metrics(m);
-
+  .metrics(m, m);
   input {
     position: absolute;
     opacity: 0;
@@ -77,7 +79,7 @@
 
   &-switcher {
     position: relative;
-    font-size: @veui-switch-font-size;
+    // font-size: @veui-switch-font-size;
     background-color: @veui-switch-track-color-off;
     user-select: none;
     .veui-transition(background-color, box-shadow);
@@ -87,9 +89,11 @@
     display: flex;
     height: 100%;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    font-size: @veui-font-size-s;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // transform-origin: left center;
     color: @veui-switch-font-color;
 
     .@{veui-prefix}-icon {
@@ -115,7 +119,8 @@
 
   .focus-visible + &-switcher {
     background-color: @veui-switch-track-color-off-focus;
-    box-shadow: @veui-switch-shadow-off-focus;
+    // box-shadow: @veui-switch-shadow-off-focus;
+    box-shadow: @veui-switch-shadow-on-focus;
 
     .@{veui-prefix}-switch-button {
       background-color: @veui-switch-thumb-color-off-focus;
@@ -137,12 +142,19 @@
     justify-content: center;
     background-color: @veui-switch-thumb-color-off;
     border-radius: 50%;
-    .veui-transition(transform);
+    position: absolute;
+    // .veui-transition(transform);
+    .veui-transition(left);
 
     .@{veui-prefix}-icon {
       position: absolute;
-      color: @veui-switch-track-color-off;
+      // color: @veui-switch-track-color-off;
+      color: @veui-switch-circle-off;
     }
+  }
+
+  &-text {
+    .veui-transition(margin);
   }
 
   :checked + &-switcher {
@@ -152,7 +164,8 @@
       background-color: @veui-switch-thumb-color-on;
 
       .@{veui-prefix}-icon {
-        color: @veui-switch-track-color-on;
+        // color: @veui-switch-track-color-on;
+        color: @veui-switch-circle-on;
       }
     }
   }
@@ -183,13 +196,15 @@
 
   &-loading &-switcher {
     .@{veui-prefix}-icon {
-      color: @veui-switch-track-color-off;
+      // color: @veui-switch-track-color-off;
+      color: @veui-switch-circle-off;
     }
   }
 
   &-on&-loading &-switcher {
     .@{veui-prefix}-icon {
-      color: @veui-switch-track-color-on;
+      // color: @veui-switch-track-color-on;
+      color: @veui-switch-circle-on;
     }
   }
 
@@ -217,18 +232,25 @@
     }
   }
 
-  &[ui~="xs"] {
-    font-size: @veui-font-size-s;
-    .metrics(xs);
-  }
+  
+  // &[ui~="m"] {
+  //   font-size: @veui-font-size-m;
+  //   .metrics(m);
+  // }
 
-  &[ui~="s"] {
-    font-size: @veui-font-size-s;
-    .metrics(s);
-  }
+    &[ui~="xs"] &-text,
+    &[ui~="s"] &-text {
+      display: none;
+    }
+    &[ui="xs"] {
+      font-size: @veui-font-size-s;
+      .metrics(xs, s);
+    }
 
-  &[ui~="xs"] &-text,
-  &[ui~="s"] &-text {
-    display: none;
-  }
+    &[ui="s"] {
+      font-size: @veui-font-size-s;
+      .metrics(s, s);
+    }
 }
+
+

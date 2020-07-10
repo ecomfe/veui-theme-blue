@@ -77,6 +77,49 @@
                 </template>
             </veui-switch>
         </section>
+        <section>
+            <veui-switch
+                v-model="value2"
+                :loading="loading"
+                ui="xs"
+                on-label="开"
+                off-label="关"
+            >
+                <template
+                    slot="content"
+                    slot-scope="{ on }"
+                >
+                    {{on ? "开开开" : "开开关"}}
+                </template>
+            </veui-switch>
+            <veui-switch
+                v-model="value2"
+                :loading="loading"
+                ui="s"
+                on-label="开"
+                off-label="关"
+            >
+                <template
+                    slot="content"
+                    slot-scope="{ on }"
+                >
+                    {{on ? "开" : "关"}}
+                </template>
+            </veui-switch>
+            <veui-switch
+                v-model="value2"
+                :loading="loading"
+                on-label="开"
+                off-label="关"
+            >
+                <template
+                    slot="content"
+                    slot-scope="{ on }"
+                >
+                    {{on ? "开开开开开" : "开开开开关"}}
+                </template>
+            </veui-switch>
+        </section>
     </article>
 </template>
 

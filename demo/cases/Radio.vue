@@ -90,6 +90,7 @@
             <p>
                 <veui-radio
                     v-model="group"
+                    ui="s"
                     name="group"
                     value="A"
                 >
@@ -97,6 +98,7 @@
                 </veui-radio>
                 <veui-radio
                     v-model="group"
+                    ui="m"
                     name="group"
                     value="B"
                 >
@@ -104,6 +106,7 @@
                 </veui-radio>
                 <veui-radio
                     v-model="group"
+                    ui="l"
                     name="group"
                     value="C"
                 >
