@@ -7,8 +7,11 @@ config.defaults(
             loading: 'loading'
         },
         ui: {
+            shape: {
+                values: ['text', 'icon', 'square']
+            },
             style: {
-                values: ['translucent', 'primary', 'strong', 'text', 'icon', 'square']
+                values: ['normal', 'translucent', 'primary', 'strong']
             },
             size: {
                 values: ['xs', 's', 'm', 'l', 'xl'],
