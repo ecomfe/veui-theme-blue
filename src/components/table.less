@@ -1,13 +1,12 @@
 @import "../lib.less";
 @import "../variables/components/table.less";
-
-@veui-checkbox-size-s: 14px; // todo: 等待checkbox.less完成
-@veui-checkbox-size-m: 16px; // todo: 等待checkbox.less完成
+@import "../variables/components/checkbox.less";
 
 .@{veui-prefix}-table {
     position: relative;
     overflow: hidden;
     border: 1px @veui-table-border-color;
+    border-radius: @veui-table-border-radius;
     border-style: solid none;
     font-variant-numeric: tabular-nums;
 
@@ -27,6 +26,8 @@
         display: flex;
         line-height: @veui-line-height-m;
         align-items: center;
+        white-space: normal;
+        word-break: break-all;
     }
 
     th,
@@ -38,7 +39,7 @@
 
     thead th {
         border-bottom-style: solid;
-        padding: 0 @veui-table-header-padding-x;
+        padding: @veui-table-cell-padding-y-s @veui-table-cell-padding-x @veui-table-cell-padding-y-s - 1  @veui-table-cell-padding-x;
         background-color: @veui-table-header-background-color;
         font-weight: @veui-table-header-font-weight;
         color: @veui-table-header-font-color;
@@ -51,9 +52,14 @@
     td,
     tfoot th {
         border-top-style: solid;
-        padding: 0 @veui-table-cell-padding-x;
+        padding: @veui-table-cell-padding-y-s @veui-table-cell-padding-x @veui-table-cell-padding-y-s - 1  @veui-table-cell-padding-x;
         background-color: @veui-table-cell-background-color;
         color: @veui-table-cell-font-color;
+    }
+
+    tfoot th {
+        background: @veui-table-tfoot-background-color;
+        font-weight: @veui-table-header-font-weight;
     }
 
     tbody tr:first-child td {
@@ -173,7 +179,7 @@
         position: sticky;
         right: 0;
         left: 0;
-        padding: @veui-table-cell-padding-y @veui-table-cell-padding-x;
+        padding: @veui-table-cell-padding-y-s @veui-table-cell-padding-x;
     }
 
     &-bordered &-cell-hero &-cell {
@@ -272,58 +278,79 @@
     &-col-expand {
         width: veui-sum(
             @veui-table-icon-size-aux,
-            @veui-table-header-padding-x * 2
+            @veui-table-cell-padding-x * 2
         );
     }
 
     &-bordered &-col-expand {
         width: veui-sum(
             @veui-table-icon-size-aux,
-            @veui-table-header-padding-x * 2,
+            @veui-table-cell-padding-x * 2,
             1px
         );
     }
 
-    &[ui~="m"] {
-        font-size: @veui-table-font-size-m;
-        border-radius: @veui-table-border-radius-m;
-
+    &[ui~="xs"], &[ui~="s"] {
+        font-size: @veui-table-font-size-s;
         .@{veui-prefix}-table {
             &-col-select {
-                width: veui-sum(@veui-checkbox-size-m, @veui-table-header-padding-x * 2);
+                width: veui-sum(@veui-checkbox-size-s, @veui-table-cell-padding-x * 2);
             }
 
             &-bordered &-col-select {
                 width: veui-sum(
-                    @veui-checkbox-size-m,
-                    @veui-table-header-padding-x * 2,
+                    @veui-checkbox-size-s,
+                    @veui-table-cell-padding-x * 2,
                     1px
                 );
             }
         }
     }
 
-    &[ui~="s"] {
-        font-size: @veui-table-font-size-s;
-        border-radius: @veui-table-border-radius-s;
-
-        &-col-select {
-            width: veui-sum(@veui-checkbox-size-s, @veui-table-header-padding-x * 2);
-        }
-
+    &[ui~="xs"] {
         td,
         tfoot th,
         thead th {
-            padding-top: @veui-table-header-padding-y-s;
-            padding-bottom: @veui-table-header-padding-y-s - 1;
+            padding-top: @veui-table-cell-padding-y-xs;
+            padding-bottom: @veui-table-cell-padding-y-xs - 1;
         }
+    }
 
-        &-bordered &-col-select {
-            width: veui-sum(
-                @veui-checkbox-size-s,
-                @veui-table-header-padding-x * 2,
-                1px
-            );
+    &[ui~="m"], &[ui~="l"] {
+        font-size: @veui-table-font-size-m;
+        .@{veui-prefix}-table {
+            &-col-select {
+                width: veui-sum(@veui-checkbox-size-m, @veui-table-cell-padding-x * 2);
+            }
+
+            &-bordered &-col-select {
+                width: veui-sum(
+                    @veui-checkbox-size-m,
+                    @veui-table-cell-padding-x * 2,
+                    1px
+                );
+            }
+        }
+    }
+
+    &[ui~="m"] {
+        td,
+        tfoot th,
+        thead th {
+            padding-top: @veui-table-cell-padding-y-m;
+            padding-bottom: @veui-table-cell-padding-y-m - 1;
+        }
+    }
+
+    &[ui~="l"] {
+        thead th {
+            padding-top: @veui-table-cell-padding-y-m;
+            padding-bottom: @veui-table-cell-padding-y-m - 1;
+        }
+        td,
+        tfoot th {
+            padding-top: @veui-table-cell-padding-y-l;
+            padding-bottom: @veui-table-cell-padding-y-l - 1;
         }
     }
 }
