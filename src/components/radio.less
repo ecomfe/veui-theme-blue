@@ -127,4 +127,15 @@
       .size(@veui-radio-dot-size-s);
     }
   }
+  &[ui~="l"] {
+    font-size: @veui-radio-font-size-l;
+  }
+
+  &[ui~="l"] &-box {
+    .size(@veui-radio-size-l);
+
+    &::before {
+      .size(@veui-radio-dot-size-l);
+    }
+  }
 }

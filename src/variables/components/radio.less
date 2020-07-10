@@ -3,28 +3,32 @@
 /* Typography */
 @veui-radio-font-size-s: @veui-font-size-s;
 @veui-radio-font-size-m: @veui-font-size-m;
+@veui-radio-font-size-l: @veui-font-size-l;
 
 @veui-radio-font-color: @veui-font-color-normal;
 
 /* Metrics */
 @veui-radio-size-s: veui-sum(@veui-radio-font-size-s, 2px);
 @veui-radio-size-m: veui-sum(@veui-radio-font-size-m, 2px);
+@veui-radio-size-l: veui-sum(@veui-radio-font-size-l, 2px);
 
 @veui-radio-dot-size-s: @veui-radio-size-s - 8px;
 @veui-radio-dot-size-m: @veui-radio-size-m - 8px;
+@veui-radio-dot-size-l: @veui-radio-size-l - 8px;
 
 @veui-radio-spacing: @veui-padding-unit * 2;
 
 /* Colors */
 @veui-radio-border-color: @veui-color-gray-6;
-@veui-radio-border-color-hover: @veui-color-gray-7;
-@veui-radio-border-color-focus: @veui-border-color-focus;
-@veui-radio-border-color-active: @veui-color-gray-7;
+// @veui-radio-border-color-hover: @veui-color-gray-6;
+@veui-radio-border-color-hover: @veui-color-brand-6;
+@veui-radio-border-color-focus: @veui-border-color-focus;   //@veui-color-brand-6
+@veui-radio-border-color-active: @veui-color-brand-6;
 @veui-radio-border-color-disabled: @veui-color-gray-4;
 
 @veui-radio-border-color-checked: @veui-color-brand-6;
 @veui-radio-border-color-checked-hover: @veui-color-brand-5;
-@veui-radio-border-color-checked-focus: @veui-border-color-focus;
+@veui-radio-border-color-checked-focus: @veui-border-color-focus;   //@veui-color-brand-6
 @veui-radio-border-color-checked-active: @veui-color-brand-7;
 @veui-radio-border-color-checked-disabled: @veui-color-brand-2;
 
@@ -36,9 +40,11 @@
 
 @veui-radio-background-color-checked: @veui-color-gray-1;
 @veui-radio-background-color-checked-hover: @veui-color-gray-1;
-@veui-radio-background-color-checked-focus: @veui-color-brand-1;
+// @veui-radio-background-color-checked-focus: @veui-color-brand-1;
+@veui-radio-background-color-checked-focus: #F2F7FF;
 @veui-radio-background-color-checked-active: @veui-color-gray-1;
-@veui-radio-background-color-checked-disabled: @veui-color-brand-1;
+// @veui-radio-background-color-checked-disabled: @veui-color-brand-1;
+@veui-radio-background-color-checked-disabled: #F2F7FF;
 
 @veui-radio-dot-color: @veui-radio-border-color-checked;
 @veui-radio-dot-color-hover: @veui-radio-border-color-checked-hover;
