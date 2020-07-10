@@ -33,7 +33,6 @@
         </section>
         <section>
             <veui-table
-                ui="s"
                 :scroll="{
                     x: 1280,
                     y: 300
@@ -140,6 +139,7 @@
         </section>
         <section class="container">
             <veui-table
+                ui="s"
                 :data="data"
                 :column-filter="columns"
                 :key-field="selectSpanRow ? 'group' : 'id'"
@@ -377,6 +377,219 @@
                     title="level"
                 />
             </veui-table>
+            <h2>不同尺寸规则表格</h2>
+            <section>
+                <h3>1. 12字号超小表格[ui=xs]</h3>
+                <veui-table
+                    ui="xs"
+                    :data="data"
+                    :column-filter="columns"
+                    :key-field="selectSpanRow ? 'group' : 'id'"
+                    selectable
+                    select-mode="single"
+                    :selected.sync="selected2"
+                >
+                    <veui-table-column title="元数据">
+                        <veui-table-column
+                            field="id"
+                            title="数据 ID"
+                        />
+                        <veui-table-column
+                            v-if="showGroup"
+                            field="group"
+                            title="数据分组"
+                            :span="groupSpan"
+                        />
+                        <veui-table-column
+                            field="desc"
+                            title="数据描述"
+                        />
+                    </veui-table-column>
+                    <veui-table-column
+                        field="price"
+                        title="价格"
+                        width="160"
+                        align="right"
+                    >
+                        <template slot-scope="props">{{
+                            props.item.price | currency
+                        }}</template>
+                    </veui-table-column>
+                    <veui-table-column
+                        field="updateDate"
+                        title="更新时间"
+                        align="right"
+                    >
+                        <template slot-scope="props">
+                            <span :ref="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | date
+                            }}</span>
+                            <veui-tooltip :target="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | time
+                            }}</veui-tooltip>
+                        </template>
+                    </veui-table-column>
+                </veui-table>
+            </section>
+            <section>
+                <h3>2. 12字号小表格[ui=s]</h3>
+                <veui-table
+                    ui="s"
+                    :data="data"
+                    :column-filter="columns"
+                    :key-field="selectSpanRow ? 'group' : 'id'"
+                    selectable
+                    select-mode="single"
+                    :selected.sync="selected2"
+                >
+                    <veui-table-column title="元数据">
+                        <veui-table-column
+                            field="id"
+                            title="数据 ID"
+                        />
+                        <veui-table-column
+                            v-if="showGroup"
+                            field="group"
+                            title="数据分组"
+                            :span="groupSpan"
+                        />
+                        <veui-table-column
+                            field="desc"
+                            title="数据描述"
+                        />
+                    </veui-table-column>
+                    <veui-table-column
+                        field="price"
+                        title="价格"
+                        width="160"
+                        align="right"
+                    >
+                        <template slot-scope="props">{{
+                            props.item.price | currency
+                        }}</template>
+                    </veui-table-column>
+                    <veui-table-column
+                        field="updateDate"
+                        title="更新时间"
+                        align="right"
+                    >
+                        <template slot-scope="props">
+                            <span :ref="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | date
+                            }}</span>
+                            <veui-tooltip :target="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | time
+                            }}</veui-tooltip>
+                        </template>
+                    </veui-table-column>
+                </veui-table>
+            </section>
+            <section>
+                <h3>3. 14字号小表格[ui=m]</h3>
+                <veui-table
+                    ui="m"
+                    :data="data"
+                    :column-filter="columns"
+                    :key-field="selectSpanRow ? 'group' : 'id'"
+                    selectable
+                    select-mode="single"
+                    :selected.sync="selected2"
+                >
+                    <veui-table-column title="元数据">
+                        <veui-table-column
+                            field="id"
+                            title="数据 ID"
+                        />
+                        <veui-table-column
+                            v-if="showGroup"
+                            field="group"
+                            title="数据分组"
+                            :span="groupSpan"
+                        />
+                        <veui-table-column
+                            field="desc"
+                            title="数据描述"
+                        />
+                    </veui-table-column>
+                    <veui-table-column
+                        field="price"
+                        title="价格"
+                        width="160"
+                        align="right"
+                    >
+                        <template slot-scope="props">{{
+                            props.item.price | currency
+                        }}</template>
+                    </veui-table-column>
+                    <veui-table-column
+                        field="updateDate"
+                        title="更新时间"
+                        align="right"
+                    >
+                        <template slot-scope="props">
+                            <span :ref="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | date
+                            }}</span>
+                            <veui-tooltip :target="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | time
+                            }}</veui-tooltip>
+                        </template>
+                    </veui-table-column>
+                </veui-table>
+            </section>
+            <section>
+                <h3>4. 14字号大表格[ui=l]</h3>
+                <veui-table
+                    ui="l"
+                    :data="data"
+                    :column-filter="columns"
+                    :key-field="selectSpanRow ? 'group' : 'id'"
+                    selectable
+                    select-mode="single"
+                    :selected.sync="selected2"
+                >
+                    <veui-table-column title="元数据">
+                        <veui-table-column
+                            field="id"
+                            title="数据 ID"
+                        />
+                        <veui-table-column
+                            v-if="showGroup"
+                            field="group"
+                            title="数据分组"
+                            :span="groupSpan"
+                        />
+                        <veui-table-column
+                            field="desc"
+                            title="数据描述"
+                        />
+                    </veui-table-column>
+                    <veui-table-column
+                        field="price"
+                        title="价格"
+                        width="160"
+                        align="right"
+                    >
+                        <template slot-scope="props">{{
+                            props.item.price | currency
+                        }}</template>
+                    </veui-table-column>
+                    <veui-table-column
+                        field="updateDate"
+                        title="更新时间"
+                        align="right"
+                    >
+                        <template slot-scope="props">
+                            <span :ref="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | date
+                            }}</span>
+                            <veui-tooltip :target="`time-b-${props.item.id}`">{{
+                                props.item.updateDate | time
+                            }}</veui-tooltip>
+                        </template>
+                    </veui-table-column>
+                </veui-table>
+            </section>
         </section>
     </article>
 </template>
@@ -424,7 +637,7 @@ const tableData = [
     },
     {
         id: '3155',
-        desc: '数据描述2',
+        desc: '数据描述2数据描述2',
         price: 598,
         updateDate: '20140214',
         group: '1577',
@@ -450,7 +663,7 @@ const tableData = [
     },
     {
         id: '3156',
-        desc: '数据描述3',
+        desc: '数据描述3数据描述3数据描述3数据描述3',
         price: 820,
         updateDate: '20170610',
         group: '1578',
@@ -476,7 +689,7 @@ const tableData = [
     },
     {
         id: '3157',
-        desc: '数据描述4',
+        desc: '数据描述4数据描述4数据描述4',
         price: 736,
         updateDate: '20180109',
         group: '1578',
@@ -526,7 +739,7 @@ const tableData = [
     },
     {
         id: '3161',
-        desc: '数据描述8',
+        desc: '数据描述8数据描述8',
         price: 360,
         updateDate: '20180109',
         group: '1580',
@@ -697,11 +910,6 @@ label {
 
 .veui-table {
   margin-bottom: 30px;
-
-  tfoot strong {
-    font-size: 14px;
-    font-weight: 400;
-  }
 }
 
 .container {
