@@ -4,6 +4,7 @@
 .@{veui-prefix}-button-group {
   display: inline-flex;
   vertical-align: middle;
+  border-radius: @veui-button-border-radius-l;
 
   .@{veui-prefix}-button {
     position: relative;
@@ -29,26 +30,6 @@
     }
   }
 
-  &[ui~="xs"] {
-    border-radius: @veui-button-border-radius-xs;
-  }
-
-  &[ui~="s"] {
-    border-radius: @veui-button-border-radius-l;
-  }
-
-  &[ui~="m"] {
-    border-radius: @veui-button-border-radius-l;
-  }
-
-  &[ui~="l"] {
-    border-radius: @veui-button-border-radius-l;
-  }
-
-  &[ui~="xl"] {
-    border-radius: @veui-button-border-radius-xl;
-  }
-
   .@{veui-prefix}-button[ui~="primary"]
     + .@{veui-prefix}-button[ui~="primary"] {
     &::before {
@@ -66,14 +47,4 @@
       background-color: @veui-button-group-separator-color-primary-disabled;
     }
   }
-
-//   &[ui~="s"] .@{veui-prefix}-button {
-//     &:first-child {
-//       .border-left-radius(@veui-button-border-radius-s);
-//     }
-
-//     &:last-child {
-//       .border-right-radius(@veui-button-border-radius-s);
-//     }
-//   }
 }
