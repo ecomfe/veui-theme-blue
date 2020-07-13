@@ -1,0 +1,86 @@
+@import "../global.less";
+
+/* Typography */
+@veui-steps-title-font-size-s: @veui-font-size-s;
+@veui-steps-title-font-size-m: @veui-font-size-m;
+@veui-steps-desc-font-size-s: @veui-font-size-s;
+@veui-steps-desc-font-size-m: @veui-font-size-s;
+@veui-steps-marker-font-size-s: @veui-font-size-m;
+@veui-steps-marker-font-size-m: @veui-font-size-l;
+@veui-steps-title-font-weight: @veui-font-weight-2;
+
+@veui-steps-title-font-color: @veui-font-color-normal;
+@veui-steps-title-font-color-hover: @veui-font-color-aux;
+@veui-steps-title-font-color-focus: @veui-steps-title-font-color-hover;
+@veui-steps-title-font-color-active: @veui-font-color-strong;
+@veui-steps-desc-font-color: @veui-font-color-aux;
+
+// Incomplete
+@veui-steps-title-font-color-incomplete: @veui-font-color-weak;
+@veui-steps-desc-font-color-incomplete: @veui-font-color-weak;
+
+/* Markers */
+@veui-steps-marker-size-s: @veui-steps-marker-font-size-s * 2;
+@veui-steps-marker-size-m: @veui-steps-marker-font-size-m * 2;
+@veui-steps-marker-icon-size: @veui-icon-size-aux;
+
+/* Metrics */
+@veui-steps-title-max-width-horizontal: 10em;
+@veui-steps-desc-max-width-horizontal: 12em;
+
+/* Spacing */
+@veui-steps-marker-spacing: @veui-padding-unit * 2;
+@veui-steps-title-spacing: @veui-padding-unit * 1;
+@veui-steps-connector-spacing-horizontal: @veui-padding-unit * 3;
+@veui-steps-connector-spacing-vertical: @veui-padding-unit * 2;
+
+@veui-steps-connector-min-length: @veui-height-unit * 6;
+
+/* Statuses */
+// Incomplete
+@veui-steps-marker-background-color-incomplete: @veui-color-gray-1;
+@veui-steps-marker-border-color-incomplete: @veui-border-color-strong;
+@veui-steps-marker-foreground-color-incomplete: @veui-font-color-weak;
+@veui-steps-connector-color-incomplete: @veui-steps-marker-border-color-incomplete;
+
+// Completed
+@veui-steps-marker-background-color-completed: @veui-color-gray-1;
+@veui-steps-marker-background-color-completed-hover: @veui-color-brand-1;
+@veui-steps-marker-background-color-completed-focus: @veui-steps-marker-background-color-completed-hover;
+@veui-steps-marker-background-color-completed-active: @veui-color-brand-2;
+@veui-steps-marker-border-color-completed: @veui-color-brand-6;
+@veui-steps-marker-foreground-color-completed: @veui-steps-marker-border-color-completed;
+@veui-steps-marker-shadow-completed-focus: @veui-shadow-focus;
+@veui-steps-connector-color-completed: @veui-steps-marker-border-color-completed;
+
+// Error
+@veui-steps-marker-background-color-error: @veui-color-gray-1;
+@veui-steps-marker-background-color-error-hover: @veui-color-error-1;
+@veui-steps-marker-background-color-error-focus: @veui-steps-marker-background-color-error-hover;
+@veui-steps-marker-background-color-error-active: @veui-color-error-2;
+@veui-steps-marker-border-color-error: @veui-color-error-6;
+@veui-steps-marker-foreground-color-error: @veui-steps-marker-border-color-error;
+@veui-steps-marker-shadow-error-focus: @veui-shadow-error-focus;
+@veui-steps-connector-color-error: @veui-steps-marker-border-color-error;
+
+// Current
+@veui-steps-marker-background-color-current: @veui-color-brand-6;
+@veui-steps-marker-background-color-current-hover: @veui-color-brand-5;
+@veui-steps-marker-background-color-current-focus: @veui-steps-marker-background-color-current-hover;
+@veui-steps-marker-background-color-current-active: @veui-color-brand-7;
+@veui-steps-marker-border-color-current: transparent;
+@veui-steps-marker-border-color-current-focus: @veui-steps-marker-background-color-current;
+@veui-steps-marker-foreground-color-current: @veui-color-gray-1;
+@veui-steps-marker-shadow-current-focus: @veui-shadow-focus;
+@veui-steps-connector-color-current: @veui-steps-marker-background-color-current;
+
+// Error & current
+@veui-steps-marker-background-color-error-current: @veui-color-error-6;
+@veui-steps-marker-background-color-error-current-hover: @veui-color-error-5;
+@veui-steps-marker-background-color-error-current-focus: @veui-steps-marker-background-color-error-current-hover;
+@veui-steps-marker-background-color-error-current-active: @veui-color-error-7;
+@veui-steps-marker-border-color-error-current: transparent;
+@veui-steps-marker-border-color-error-current-focus: @veui-steps-marker-background-color-error-current;
+@veui-steps-marker-foreground-color-error-current: @veui-color-gray-1;
+@veui-steps-marker-shadow-error-current-focus: @veui-shadow-error-focus;
+@veui-steps-connector-color-error-current: @veui-steps-marker-background-color-error-current;

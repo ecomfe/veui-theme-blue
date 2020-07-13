@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/slider.less";
 
 .@{veui-prefix}-slider {
   display: flex;
@@ -7,7 +8,7 @@
   user-select: none;
   overflow: visible;
   outline: none;
-  // color: @dls-slider-font-color;
+  color: @veui-slider-font-color;
 
   &-track {
     flex-grow: 1;
@@ -17,7 +18,7 @@
       align-items: center;
 
       &-progress {
-        // min-height: @dls-slider-track-min-width;
+        min-height: @veui-slider-track-min-width;
       }
 
       &-wrapper {
@@ -26,17 +27,17 @@
       }
 
       &-bg {
-        // background-color: @dls-slider-track-color;
+        background-color: @veui-slider-track-color;
         cursor: pointer;
         .veui-transition(background-color);
 
         &:hover {
-          // background-color: @dls-slider-track-color-hover;
+          background-color: @veui-slider-track-color-hover;
 
           &
             ~ .@{veui-prefix}-slider-track-default-marks
             .@{veui-prefix}-slider-track-default-mark-out-progress {
-            // background-color: @dls-slider-track-color-hover;
+            background-color: @veui-slider-track-color-hover;
           }
         }
       }
@@ -47,22 +48,22 @@
         top: 0;
       }
 
-      // &-sp {
-      //   background-color: @veui-brand-color-8;
-      // }
+      &-sp {
+        background-color: @veui-color-brand-8;
+      }
 
       &-fg {
-        // background-color: @dls-slider-track-progress-color;
+        background-color: @veui-slider-track-progress-color;
         .veui-transition(background-color);
         cursor: pointer;
 
         &:hover {
-          // background-color: @dls-slider-track-progress-color-hover;
+          background-color: @veui-slider-track-progress-color-hover;
 
           &
             ~ .@{veui-prefix}-slider-track-default-marks
             .@{veui-prefix}-slider-track-default-mark-in-progress {
-            // background-color: @dls-slider-track-progress-color-hover;
+            background-color: @veui-slider-track-progress-color-hover;
           }
         }
       }
@@ -76,19 +77,19 @@
       &-mark {
         position: absolute;
         transform: translate(-50%, -50%);
-        // min-width: @dls-slider-mark-min-size;
-        // min-height: @dls-slider-mark-min-size;
+        min-width: @veui-slider-mark-min-size;
+        min-height: @veui-slider-mark-min-size;
         border-radius: 50%;
         .veui-transition(background-color, transform);
         cursor: pointer;
         pointer-events: all;
 
         &-in-progress {
-          // background-color: @dls-slider-track-progress-color;
+          background-color: @veui-slider-track-progress-color;
         }
 
         &-out-progress {
-          // background-color: @dls-slider-track-color;
+          background-color: @veui-slider-track-color;
         }
 
         &::before,
@@ -101,18 +102,18 @@
         }
 
         &::before {
-          // background-color: @dls-slider-thumb-background-color-hover;
+          background-color: @veui-slider-thumb-background-color-hover;
           border-radius: 50%;
         }
 
         &::after {
-          // min-width: @dls-slider-thumb-dot-min-size;
-          // min-height: @dls-slider-thumb-dot-min-size;
-          // background-color: @dls-slider-thumb-dot-color;
+          min-width: @veui-slider-thumb-dot-min-size;
+          min-height: @veui-slider-thumb-dot-min-size;
+          background-color: @veui-slider-thumb-dot-color;
         }
 
         &:hover {
-          // background-color: @dls-slider-track-progress-color-hover;
+          background-color: @veui-slider-track-progress-color-hover;
 
           &::before,
           &::after {
@@ -144,37 +145,37 @@
       align-items: center;
       border-radius: 50%;
       border: 1px solid transparent;
-      // background-color: @dls-slider-thumb-background-color;
+      background-color: @veui-slider-thumb-background-color;
       .veui-button-transition();
 
       &::before {
         content: "";
-        // min-width: @dls-slider-thumb-dot-min-size;
-        // min-height: @dls-slider-thumb-dot-min-size;
-        // background-color: @dls-slider-thumb-dot-color;
+        min-width: @veui-slider-thumb-dot-min-size;
+        min-height: @veui-slider-thumb-dot-min-size;
+        background-color: @veui-slider-thumb-dot-color;
         border-radius: 50%;
       }
     }
 
     &:hover {
       .@{veui-prefix}-slider-thumb-default {
-        // background-color: @dls-slider-thumb-background-color-hover;
+        background-color: @veui-slider-thumb-background-color-hover;
       }
     }
 
     &.focus-visible {
       .@{veui-prefix}-slider-thumb-default {
-        // background-color: @dls-slider-thumb-background-color-focus;
-        // .veui-focus-ring(
-        //   @dls-slider-thumb-border-color-focus,
-        //   @dls-slider-thumb-shadow-focus
-        // );
+        background-color: @veui-slider-thumb-background-color-focus;
+        .veui-focus-ring(
+          @veui-slider-thumb-border-color-focus,
+          @veui-slider-thumb-shadow-focus
+        );
       }
     }
 
     &:active {
       .@{veui-prefix}-slider-thumb-default {
-        // background-color: @dls-slider-thumb-background-color-active;
+        background-color: @veui-slider-thumb-background-color-active;
       }
     }
   }
@@ -221,25 +222,25 @@
   }
 
   &[ui~="s"] {
-    // .slider-size(
-      // dls-line-height(@dls-line-height-m, @dls-slider-font-size-s),
-      // @dls-slider-track-width-s,
-      // @dls-slider-track-border-radius-s,
-      // @dls-slider-thumb-size-s,
-      // @dls-slider-mark-size-s,
-      // @dls-slider-thumb-dot-size-s
-    // );
+    .slider-size(
+      veui-line-height(@veui-line-height-m, @veui-slider-font-size-s),
+      @veui-slider-track-width-s,
+      @veui-slider-track-border-radius-s,
+      @veui-slider-thumb-size-s,
+      @veui-slider-mark-size-s,
+      @veui-slider-thumb-dot-size-s
+    );
   }
 
   &[ui~="m"] {
-    // .slider-size(
-      // dls-line-height(@dls-line-height-m, @dls-slider-font-size-m),
-      // @dls-slider-track-width-m,
-      // @dls-slider-track-border-radius-m,
-      // @dls-slider-thumb-size-m,
-      // @dls-slider-mark-size-m,
-      // @dls-slider-thumb-dot-size-m
-    // );
+    .slider-size(
+      veui-line-height(@veui-line-height-m, @veui-slider-font-size-m),
+      @veui-slider-track-width-m,
+      @veui-slider-track-border-radius-m,
+      @veui-slider-thumb-size-m,
+      @veui-slider-mark-size-m,
+      @veui-slider-thumb-dot-size-m
+    );
   }
 
   &.@{veui-prefix}-readonly {
@@ -247,12 +248,12 @@
       &-default {
         &-bg,
         &-mark-out-progress {
-          // background-color: @dls-slider-track-color-read-only;
+          background-color: @veui-slider-track-color-read-only;
         }
 
         &-fg,
         &-mark-in-progress {
-          // background-color: @dls-slider-track-progress-color-read-only;
+          background-color: @veui-slider-track-progress-color-read-only;
         }
 
         &-bg,
@@ -267,36 +268,36 @@
       cursor: default;
 
       &-default {
-        // background-color: @dls-slider-thumb-background-color-read-only;
+        background-color: @veui-slider-thumb-background-color-read-only;
 
         &:hover {
-          // background-color: @dls-slider-thumb-background-color-read-only-hover;
+          background-color: @veui-slider-thumb-background-color-read-only-hover;
         }
       }
 
       &.focus-visible .@{veui-prefix}-slider-thumb-default {
-        // background-color: @dls-slider-thumb-background-color-read-only-focus;
-        // .veui-focus-ring(
-        //   @dls-slider-thumb-border-color-read-only-focus,
-        //   @dls-slider-thumb-shadow-read-only-focus
-        // );
+        background-color: @veui-slider-thumb-background-color-read-only-focus;
+        .veui-focus-ring(
+          @veui-slider-thumb-border-color-read-only-focus,
+          @veui-slider-thumb-shadow-read-only-focus
+        );
       }
     }
   }
 
   &.@{veui-prefix}-disabled {
-    // color: @dls-slider-font-color-disabled;
+    color: @veui-slider-font-color-disabled;
 
     .@{veui-prefix}-slider-track {
       &-default {
         &-bg,
         &-mark-out-progress {
-          // background-color: @dls-slider-track-color-disabled;
+          background-color: @veui-slider-track-color-disabled;
         }
 
         &-fg,
         &-mark-in-progress {
-          // background-color: @dls-slider-track-progress-color-disabled;
+          background-color: @veui-slider-track-progress-color-disabled;
         }
 
         &-bg,
@@ -311,7 +312,7 @@
       cursor: not-allowed;
 
       &-default {
-        // background-color: @dls-slider-thumb-background-color-disabled;
+        background-color: @veui-slider-thumb-background-color-disabled;
       }
     }
   }

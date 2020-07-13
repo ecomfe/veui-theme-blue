@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/field.less";
 
 .@{veui-prefix}-fieldset {
   position: relative;
@@ -30,9 +31,9 @@
     &,
     & > .@{veui-prefix}-form-label,
     & > .@{veui-prefix}-field > .@{veui-prefix}-form-label {
-      background-color: @veui-gray-color-7;
-      border-color: @veui-gray-color-7;
-      color: @veui-font-color-main;
+      background-color: @veui-color-gray-7;
+      border-color: @veui-color-gray-7;
+      color: @veui-font-color-normal;
     }
   }
 
@@ -54,7 +55,7 @@
   &
     > .@{veui-prefix}-field:not(.@{veui-prefix}-field-no-tip)
     + .@{veui-prefix}-field-error {
-    margin-left: 120px;
+    margin-left: @veui-form-label-width;
   }
 
   &.@{veui-prefix}-field-no-tip
@@ -63,12 +64,12 @@
     position: static;
     display: inline-block;
     margin-left: 10px;
-    height: @veui-height-s;
-    line-height: @veui-height-s;
+    height: @veui-height-l;
+    line-height: @veui-height-l;
     font-size: inherit;
 
     .@{veui-prefix}-icon {
-      margin-top: ~"calc(@{veui-height-s} / 2 - 0.5em)";
+      margin-top: ~"calc(@{veui-height-l} / 2 - 0.5em)";
     }
   }
 }

@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/tag.less";
 
 .@{veui-prefix}-tag {
   position: relative;
@@ -6,23 +7,23 @@
   align-items: center;
   vertical-align: middle;
   .make-metrics(m);
-  // .padding(0, @dls-tag-padding);
-  // border: 1px solid @dls-tag-border-color;
-  // color: @dls-tag-font-color;
-  // background-color: @dls-tag-background-color;
+  .padding(0, @veui-tag-padding);
+  border: 1px solid @veui-tag-border-color;
+  color: @veui-tag-font-color;
+  background-color: @veui-tag-background-color;
   white-space: nowrap;
   outline: none;
   line-height: 1;
   .veui-transition(color, border-color, background-color, box-shadow, opacity);
 
   .make-metrics(@size) {
-    @height: 30px;
-    @radius: 4px;
-    @font-size: 14px;
+    @height: ~"veui-tag-height-@{size}";
+    @radius: ~"veui-tag-border-radius-@{size}";
+    @font-size: ~"veui-tag-font-size-@{size}";
 
-    height: @height;
-    border-radius: @radius;
-    font-size: @font-size;
+    height: @@height;
+    border-radius: @@radius;
+    font-size: @@font-size;
   }
 
   &[ui~="s"] {
@@ -34,16 +35,16 @@
   }
 
   &-close {
-    // margin-left: @dls-tag-content-spacing;
+    margin-left: @veui-tag-content-spacing;
     font-size: inherit;
 
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-tag-icon-size-aux);
+      .veui-icon-size(@veui-tag-icon-size-aux);
     }
   }
 
   &.focus-visible {
-    // .veui-focus-ring(@dls-tag-border-color-focus, @dls-tag-shadow-focus);
+    .veui-focus-ring(@veui-tag-border-color-focus, @veui-tag-shadow-focus);
   }
 
   &:active {
@@ -54,12 +55,12 @@
     cursor: pointer;
 
     &:hover:not(.@{veui-prefix}-disabled) {
-      // opacity: @dls-tag-opacity-hover;
+      opacity: @veui-tag-opacity-hover;
     }
   }
 
   &.@{veui-prefix}-disabled {
-    // color: @dls-tag-font-color-disabled;
+    color: @veui-tag-font-color-disabled;
     outline: none;
 
     .@{veui-prefix}-tag-close {
@@ -68,74 +69,74 @@
   }
 
   &-default.@{veui-prefix}-disabled {
-    // border-color: @dls-tag-border-color-disabled;
-    // background-color: @dls-tag-background-color-disabled;
+    border-color: @veui-tag-border-color-disabled;
+    background-color: @veui-tag-background-color-disabled;
   }
 
   &.@{veui-prefix}-tag-selected {
-    // color: @dls-tag-font-color-selected;
-    // border-color: @dls-tag-border-color-selected;
-    // background-color: @dls-tag-background-color-selected;
+    color: @veui-tag-font-color-selected;
+    border-color: @veui-tag-border-color-selected;
+    background-color: @veui-tag-background-color-selected;
 
     &.focus-visible {
-      // .veui-focus-ring(
-      //   @dls-tag-border-color-selected-focus,
-      //   @dls-tag-shadow-selected-focus
-      // );
+      .veui-focus-ring(
+        @veui-tag-border-color-selected-focus,
+        @veui-tag-shadow-selected-focus
+      );
     }
 
     &.@{veui-prefix}-disabled {
-      // border-color: @dls-tag-border-color-selected-disabled;
-      // background-color: @dls-tag-background-color-selected-disabled;
+      border-color: @veui-tag-border-color-selected-disabled;
+      background-color: @veui-tag-background-color-selected-disabled;
     }
   }
 
   .make-state-color (@state) {
     &-@{state} {
-      @color-name: #333;
-      @bd-color-name: #e0e0e0;
-      @bg-color-name: #f5f5f5;
-      @disabled-color-name: #333;
-      @disabled-bd-color-name: #eee;
+      @color-name: ~"veui-tag-font-color-@{state}";
+      @bd-color-name: ~"veui-tag-border-color-@{state}";
+      @bg-color-name: ~"veui-tag-background-color-@{state}";
+      @disabled-color-name: ~"veui-tag-font-color-@{state}-disabled";
+      @disabled-bd-color-name: ~"veui-tag-border-color-@{state}-disabled";
 
-      @selected-bg-color-name: #333;
-      @selected-disabled-bg-color: #fafafa;
+      @selected-bg-color-name: ~"veui-tag-background-color-@{state}-reversed";
+      @selected-disabled-bg-color: ~"veui-tag-background-color-@{state}-reversed-disabled";
 
-      color: @color-name;
-      border-color: @bd-color-name;
-      background-color: @bg-color-name;
+      color: @@color-name;
+      border-color: @@bd-color-name;
+      background-color: @@bg-color-name;
 
       &.@{veui-prefix}-disabled {
-        color: @disabled-color-name;
-        border-color: @disabled-bd-color-name;
+        color: @@disabled-color-name;
+        border-color: @@disabled-bd-color-name;
       }
 
       &.@{veui-prefix}-tag-selected,
       &[ui~="reverse"] {
-        // color: @dls-tag-font-color-selected;
-        // border-color: @dls-tag-border-color-selected;
-        // background-color: @@selected-bg-color-name;
+        color: @veui-tag-font-color-selected;
+        border-color: @veui-tag-border-color-selected;
+        background-color: @@selected-bg-color-name;
 
         &.focus-visible {
-          // .veui-focus-ring(
-          //   @dls-tag-border-color-selected-focus,
-          //   @dls-tag-shadow-selected-focus
-          // );
+          .veui-focus-ring(
+            @veui-tag-border-color-selected-focus,
+            @veui-tag-shadow-selected-focus
+          );
         }
 
         &.@{veui-prefix}-disabled {
-          // border-color: @dls-tag-border-color-selected-disabled;
-          // background-color: @@selected-disabled-bg-color;
+          border-color: @veui-tag-border-color-selected-disabled;
+          background-color: @@selected-disabled-bg-color;
         }
       }
 
       &[ui~="reverse"] {
-        // color: @dls-tag-font-color-reversed;
+        color: @veui-tag-font-color-reversed;
       }
 
       &.focus-visible,
       &.@{veui-prefix}-tag.focus-visible {
-        // .veui-focus-ring(@dls-tag-border-color-focus, @dls-tag-shadow-focus);
+        .veui-focus-ring(@veui-tag-border-color-focus, @veui-tag-shadow-focus);
       }
     }
   }

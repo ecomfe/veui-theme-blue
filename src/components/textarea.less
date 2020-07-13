@@ -1,23 +1,25 @@
 @import "../lib.less";
+@import "../variables/components/textarea.less";
+@import "../variables/components/input.less";
 
 .@{veui-prefix}-textarea {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  width: 200px;
-  border: 1px solid #333;
-  background-color: #fff;
-  font-size: 14px;
-  line-height: 18px;
-  color: #333;
-  min-height: 100px;
-  border-radius: 4px;
+  width: @veui-textarea-width;
+  border: 1px solid @veui-input-border-color;
+  background-color: @veui-background-color-normal;
+  font-size: @veui-textarea-font-size-m;
+  line-height: @veui-textarea-line-height;
+  color: @veui-input-font-color;
+  min-height: @veui-textarea-height-m;
+  border-radius: @veui-input-border-radius-m;
   .veui-transition(border-color, color, box-shadow);
 
-  @line-number-default-width: 100px;
+  @line-number-default-width: @veui-height-m;
 
   &:hover {
-    // border-color: @dls-input-border-color-hover;
+    border-color: @veui-input-border-color-hover;
   }
 
   &-resizable &-input {
@@ -25,24 +27,24 @@
   }
 
   &.@{veui-prefix}-readonly {
-    // border-color: @dls-input-border-color-read-only;
-    // background-color: @dls-input-background-color-read-only;
-    // color: @dls-input-font-color-read-only;
+    border-color: @veui-input-border-color-read-only;
+    background-color: @veui-input-background-color-read-only;
+    color: @veui-input-font-color-read-only;
 
     &:hover {
-      // border-color: @dls-input-border-color-read-only-hover;
+      border-color: @veui-input-border-color-read-only-hover;
     }
   }
 
   &.@{veui-prefix}-disabled {
     &,
     &:hover {
-      // border-color: @dls-input-border-color-disabled;
-      // color: @dls-input-font-color-disabled;
+      border-color: @veui-input-border-color-disabled;
+      color: @veui-input-font-color-disabled;
     }
 
     & .@{veui-prefix}-textarea-input {
-      // background-color: @dls-input-background-color-disabled;
+      background-color: @veui-input-background-color-disabled;
     }
 
     &,
@@ -54,24 +56,24 @@
   &.@{veui-prefix}-focus {
     &,
     &:hover {
-      // .veui-focus-ring(@dls-input-border-color-focus, @dls-input-shadow-focus);
+      .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
     }
   }
 
   &.@{veui-prefix}-invalid {
-    // border-color: @dls-input-border-color-error;
-    // color: @dls-input-font-color-error;
+    border-color: @veui-input-border-color-error;
+    color: @veui-input-font-color-error;
   }
 
   &.@{veui-prefix}-invalid:hover {
-    // border-color: @dls-input-border-color-error-hover;
+    border-color: @veui-input-border-color-error-hover;
   }
 
   &.@{veui-prefix}-invalid.@{veui-prefix}-focus {
-    // .veui-focus-ring(
-    //   @dls-input-border-color-error-focus,
-    //   @dls-input-shadow-error-focus
-    // );
+    .veui-focus-ring(
+      @veui-input-border-color-error-focus,
+      @veui-input-shadow-error-focus
+    );
   }
 
   // 不要给 textarea 设置背景色，不然在 IE9 下面光标位置会很难看，同时引起一些其他怪异问题
@@ -79,7 +81,7 @@
     position: relative;
     float: right;
     width: 100%;
-    // padding: @dls-textarea-padding-y @dls-textarea-padding-x;
+    padding: @veui-textarea-padding-y @veui-textarea-padding-x;
 
     // 和外部容器的高度保持一致
     height: inherit;
@@ -106,7 +108,7 @@
   }
 
   &-measurer + &-input {
-    // max-width: ~"calc(100% - @{dls-height-m})";
+    max-width: ~"calc(100% - @{veui-height-m})";
   }
 
   &-measurer {
@@ -114,15 +116,15 @@
     overflow: hidden;
     white-space: pre-wrap;
     word-wrap: break-word;
-    // color: @dls-font-color-weak;
+    color: @veui-font-color-weak;
 
     &-line {
       &:first-child {
-        // margin-top: @dls-textarea-padding-y;
+        margin-top: @veui-textarea-padding-y;
       }
 
       &:last-child {
-        // margin-bottom: @dls-textarea-padding-y;
+        margin-bottom: @veui-textarea-padding-y;
       }
 
       &-number {
@@ -133,15 +135,15 @@
 
         &::before {
           content: "";
-          // .absolute(-@dls-textarea-padding-y, 0, _, _);
+          .absolute(-@veui-textarea-padding-y, 0, _, _);
           .size(1px, 9999px);
-          // background-color: @dls-separator-color-normal;
+          background-color: @veui-separator-color-normal;
           z-index: 2;
         }
       }
 
       &-content {
-        // .padding(_, @dls-textarea-padding-x);
+        .padding(_, @veui-textarea-padding-x);
         overflow: hidden;
         visibility: hidden;
       }
@@ -154,55 +156,55 @@
   }
 
   &-count {
-    // .absolute(_, @dls-textarea-padding-x, @dls-textarea-padding-y, _);
-    // margin-left: @dls-input-content-spacing;
-    // padding: 0 @dls-textarea-count-padding;
-    // line-height: @dls-textarea-count-height;
-    // background-color: @dls-textarea-count-background-color;
-    // font-size: @dls-textarea-count-font-size;
-    // color: @dls-textarea-count-font-color;
+    .absolute(_, @veui-textarea-padding-x, @veui-textarea-padding-y, _);
+    margin-left: @veui-input-content-spacing;
+    padding: 0 @veui-textarea-count-padding;
+    line-height: @veui-textarea-count-height;
+    background-color: @veui-textarea-count-background-color;
+    font-size: @veui-textarea-count-font-size;
+    color: @veui-textarea-count-font-color;
     z-index: 2;
-    // border-radius: @dls-textarea-count-border-radius;
+    border-radius: @veui-textarea-count-border-radius;
     font-variant-numeric: tabular-nums;
     .veui-transition(background-color, color);
 
     &-overflow {
-      // background-color: @dls-textarea-count-background-color-error;
-      // color: @dls-textarea-count-font-color-error;
+      background-color: @veui-textarea-count-background-color-error;
+      color: @veui-textarea-count-font-color-error;
     }
   }
 
   &[ui~="s"] {
-    // font-size: @dls-textarea-font-size-s;
-    // min-height: @dls-textarea-height-s;
-    // border-radius: @dls-input-border-radius-s;
+    font-size: @veui-textarea-font-size-s;
+    min-height: @veui-textarea-height-s;
+    border-radius: @veui-input-border-radius-s;
   }
 
   &-count-overlap &-input {
-    // padding-bottom: dls-sum(
-    //   @dls-textarea-padding-y,
-    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-m)
-    // );
+    padding-bottom: veui-sum(
+      @veui-textarea-padding-y,
+      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-m)
+    );
   }
 
   &-count-overlap &-measurer-line:last-child {
-    // margin-bottom: dls-sum(
-    //   @dls-textarea-padding-y,
-    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-m)
-    // );
+    margin-bottom: veui-sum(
+      @veui-textarea-padding-y,
+      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-m)
+    );
   }
 
   &-count-overlap[ui~="s"] &-input {
-    // padding-bottom: dls-sum(
-    //   @dls-textarea-padding-y,
-    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-s)
-    // );
+    padding-bottom: veui-sum(
+      @veui-textarea-padding-y,
+      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-s)
+    );
   }
 
   &-count-overlap[ui~="s"] &-measurer-line:last-child {
-    // margin-bottom: dls-sum(
-    //   @dls-textarea-padding-y,
-    //   dls-line-height(@dls-textarea-line-height, @dls-textarea-font-size-s)
-    // );
+    margin-bottom: veui-sum(
+      @veui-textarea-padding-y,
+      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-s)
+    );
   }
 }

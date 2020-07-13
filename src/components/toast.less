@@ -1,18 +1,19 @@
 @import "../lib.less";
+@import "../variables/components/toast.less";
 
 .@{veui-prefix}-toast {
   display: flex;
   align-items: flex-start;
-  line-height: 18px;
-  padding: 8px;
+  line-height: @veui-toast-line-height;
+  padding: @veui-toast-padding-y @veui-toast-padding-x;
   position: absolute;
-  max-width: 200px;
-  background-color: #fff;
-  color: #333;
-  // box-shadow: @dls-toast-shadow;
+  max-width: @veui-toast-max-width;
+  background-color: @veui-toast-background-color;
+  color: @veui-toast-font-color;
+  box-shadow: @veui-toast-shadow;
 
   &-multiline {
-    // .padding(@dls-toast-padding-y-multiline, _);
+    .padding(@veui-toast-padding-y-multiline, _);
   }
 
   &-state,
@@ -22,16 +23,16 @@
   }
 
   &-state {
-    // margin-right: @dls-toast-content-spacing-before;
+    margin-right: @veui-toast-content-spacing-before;
   }
 
   &-icon {
-    // .veui-icon-size(@dls-toast-icon-size);
+    .veui-icon-size(@veui-toast-icon-size);
   }
 
   &-close {
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-toast-icon-size-aux);
+      .veui-icon-size(@veui-toast-icon-size-aux);
     }
 
     .@{veui-prefix}-button {
@@ -40,8 +41,8 @@
   }
 
   .veui-toast-style(@type) {
-    @color-name: #333;
-    @color: @color-name;
+    @color-name: ~"veui-toast-icon-color-@{type}";
+    @color: @@color-name;
 
     .@{veui-prefix}-toast-icon {
       color: @color;
@@ -50,13 +51,13 @@
 
   &-content {
     flex-grow: 1;
-    // margin-right: @dls-toast-content-spacing-after;
+    margin-right: @veui-toast-content-spacing-after;
 
     &-title {
-      // font-weight: @dls-toast-title-font-weight;
-      // line-height: @dls-toast-title-line-height;
-      // padding-bottom: @dls-toast-title-spacing-after;
-      // color: @dls-toast-title-font-color;
+      font-weight: @veui-toast-title-font-weight;
+      line-height: @veui-toast-title-line-height;
+      padding-bottom: @veui-toast-title-spacing-after;
+      color: @veui-toast-title-font-color;
     }
 
     &-message {
@@ -83,10 +84,10 @@
 
   /* 有title样式 */
   &&-titled {
-    // padding: @dls-toast-padding-y-titled @dls-toast-padding-x;
+    padding: @veui-toast-padding-y-titled @veui-toast-padding-x;
 
     .@{veui-prefix}-toast-icon {
-      // .veui-icon-size(@dls-toast-icon-size-titled);
+      .veui-icon-size(@veui-toast-icon-size-titled);
     }
 
     .@{veui-prefix}-toast-close {
@@ -95,19 +96,19 @@
   }
 
   &[ui~="m"] {
-    // font-size: @dls-toast-font-size-m;
-    // border-radius: @dls-toast-border-radius-m;
+    font-size: @veui-toast-font-size-m;
+    border-radius: @veui-toast-border-radius-m;
 
     .@{veui-prefix}-toast {
       &-state,
       &-close {
-        // font-size: @dls-toast-font-size-m;
-        // height: dls-line-height(@dls-toast-line-height, @dls-toast-font-size-m);
+        font-size: @veui-toast-font-size-m;
+        height: veui-line-height(@veui-toast-line-height, @veui-toast-font-size-m);
       }
 
       &-content {
         &-title {
-          // font-size: @dls-toast-title-font-size-m;
+          font-size: @veui-toast-title-font-size-m;
         }
       }
     }
@@ -117,29 +118,29 @@
     .@{veui-prefix}-toast {
       &-state,
       &-close {
-        // font-size: @dls-toast-title-font-size-m;
-        // height: dls-line-height(
-        //   @dls-toast-title-line-height,
-        //   @dls-toast-title-font-size-m
-        // );
+        font-size: @veui-toast-title-font-size-m;
+        height: veui-line-height(
+          @veui-toast-title-line-height,
+          @veui-toast-title-font-size-m
+        );
       }
     }
   }
 
   &[ui~="s"] {
-    // font-size: @dls-toast-font-size-s;
-    // border-radius: @dls-toast-border-radius-s;
+    font-size: @veui-toast-font-size-s;
+    border-radius: @veui-toast-border-radius-s;
 
     .@{veui-prefix}-toast {
       &-state,
       &-close {
-        // font-size: @dls-toast-font-size-s;
-        // height: dls-line-height(@dls-toast-line-height, @dls-toast-font-size-s);
+        font-size: @veui-toast-font-size-s;
+        height: veui-line-height(@veui-toast-line-height, @veui-toast-font-size-s);
       }
 
       &-content {
         &-title {
-          // font-size: @dls-toast-title-font-size-s;
+          font-size: @veui-toast-title-font-size-s;
         }
       }
     }
@@ -149,11 +150,11 @@
     .@{veui-prefix}-toast {
       &-state,
       &-close {
-        // font-size: @dls-toast-title-font-size-s;
-        // height: dls-line-height(
-        //   @dls-toast-title-line-height,
-        //   @dls-toast-title-font-size-s
-        // );
+        font-size: @veui-toast-title-font-size-s;
+        height: veui-line-height(
+          @veui-toast-title-line-height,
+          @veui-toast-title-font-size-s
+        );
       }
     }
   }

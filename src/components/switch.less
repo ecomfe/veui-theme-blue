@@ -1,63 +1,66 @@
 @import "../lib.less";
+@import "../variables/components/switch.less";
 
 .@{veui-prefix}-switch {
-  .metrics(@size) {
-    @width: 24px;
-    @height: 12px;
-    @thumb-size: 8px;
-    @padding: 2px;
-    @text-offset: 3px;
-
+  .metrics(@size, @fontSize: m) {
+    @width: ~"veui-switch-width-@{size}";
+    @height: ~"veui-switch-height-@{size}";
+    @thumb-size: ~"veui-switch-thumb-size-@{size}";
+    @padding: ~"veui-switch-padding-@{size}";
+    @font-size: ~"veui-font-size-@{fontSize}";
+    @text-offset: veui-sum(@@height / 2, @@thumb-size / 2, @veui-padding-unit);
+    @offset: @@thumb-size + @veui-padding-unit + @@padding;
+ 
     .@{veui-prefix}-switch {
+      font-size: @@font-size;
       &-switcher {
-        .size(@width, @height);
-        padding: @padding;
-        border-radius: @height / 2;
+        // .size(@@width, @@height);
+        height: @@height;
+        min-width: @@width;
+        // padding: @@padding;
+        border-radius: @@height / 2;
       }
 
       &-button {
-        .size(@thumb-size);
-
+        .size(@@thumb-size);
+        left: @@padding;
         .@{veui-prefix}-icon {
-          // .veui-icon-size(dls-sum(@@thumb-size, -2px));
+          .veui-icon-size(veui-sum(@@thumb-size, -2px));
         }
       }
 
       &-text {
-        left: @text-offset;
+        margin: 0 @veui-padding-unit * 2 0 @offset
       }
     }
 
-    &.@{veui-prefix}-switch-on &-text {
-      right: @text-offset;
-      left: auto;
+    &.@{veui-prefix}-switch-on .veui-switch-text {
+
+      margin: 0 @offset 0 @veui-padding-unit * 2
     }
 
     &.@{veui-prefix}-switch-loading .@{veui-prefix}-switch-button,
     &.@{veui-prefix}-switch-on:not(.@{veui-prefix}-switch-loading)
       > .@{veui-prefix}-switch-switcher
       > .@{veui-prefix}-switch-button {
-      // transform: translateX(
-      //   dls-sum(@@width, @@thumb-size * -1, @@padding * -2)
-      // );
+      left: calc(~"100% - @{@{thumb-size}} - @{@{padding}}");
     }
 
     &.@{veui-prefix}-switch-on.@{veui-prefix}-switch-loading
       .@{veui-prefix}-switch-button {
-      transform: translateX(0);
+      left: @@padding;
     }
   }
-
+  
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
   position: relative;
   cursor: pointer;
   outline: none;
-  // font-size: @dls-font-size-m;
+  font-size: @veui-font-size-m;
 
-  .metrics(m);
-
+  .metrics(m, m);
   input {
     position: absolute;
     opacity: 0;
@@ -70,14 +73,14 @@
   }
 
   &-label {
-    // margin-left: @dls-padding-unit * 2;
+    margin-left: @veui-padding-unit * 2;
     line-height: 1;
   }
 
   &-switcher {
     position: relative;
-    // font-size: @dls-switch-font-size;
-    // background-color: @dls-switch-track-color-off;
+    // font-size: @veui-switch-font-size;
+    background-color: @veui-switch-track-color-off;
     user-select: none;
     .veui-transition(background-color, box-shadow);
   }
@@ -86,47 +89,50 @@
     display: flex;
     height: 100%;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    // color: @dls-switch-font-color;
+    font-size: @veui-font-size-s;
+    // position: absolute;
+    // top: 50%;
+    // transform: translateY(-50%);
+    // transform-origin: left center;
+    color: @veui-switch-font-color;
 
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@veui-icon-size-aux);
+      .veui-icon-size(@veui-icon-size-aux);
     }
   }
 
   &:hover &-switcher {
-    // background-color: @dls-switch-track-color-off-hover;
+    background-color: @veui-switch-track-color-off-hover;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-hover;
+      background-color: @veui-switch-thumb-color-off-hover;
     }
   }
 
   &:active &-switcher {
-    // background-color: @dls-switch-track-color-off-active;
+    background-color: @veui-switch-track-color-off-active;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-active;
+      background-color: @veui-switch-thumb-color-off-active;
     }
   }
 
   .focus-visible + &-switcher {
-    // background-color: @dls-switch-track-color-off-focus;
-    // box-shadow: @dls-switch-shadow-off-focus;
+    background-color: @veui-switch-track-color-off-focus;
+    // box-shadow: @veui-switch-shadow-off-focus;
+    box-shadow: @veui-switch-shadow-on-focus;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-focus;
+      background-color: @veui-switch-thumb-color-off-focus;
     }
   }
 
   .focus-visible:checked + &-switcher {
-    // background-color: @dls-switch-track-color-on-focus;
-    // box-shadow: @dls-switch-shadow-on-focus;
+    background-color: @veui-switch-track-color-on-focus;
+    box-shadow: @veui-switch-shadow-on-focus;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-focus;
+      background-color: @veui-switch-thumb-color-on-focus;
     }
   }
 
@@ -134,41 +140,49 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // background-color: @dls-switch-thumb-color-off;
+    background-color: @veui-switch-thumb-color-off;
     border-radius: 50%;
-    .veui-transition(transform);
+    position: absolute;
+    // .veui-transition(transform);
+    .veui-transition(left);
 
     .@{veui-prefix}-icon {
       position: absolute;
-      // color: @dls-switch-track-color-off;
+      // color: @veui-switch-track-color-off;
+      color: @veui-switch-circle-off;
     }
   }
 
+  &-text {
+    .veui-transition(margin);
+  }
+
   :checked + &-switcher {
-    // background-color: @dls-switch-track-color-on;
+    background-color: @veui-switch-track-color-on;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on;
+      background-color: @veui-switch-thumb-color-on;
 
       .@{veui-prefix}-icon {
-        // color: @dls-switch-track-color-on;
+        // color: @veui-switch-track-color-on;
+        color: @veui-switch-circle-on;
       }
     }
   }
 
   &:hover :checked + &-switcher {
-    // background-color: @dls-switch-track-color-on-hover;
+    background-color: @veui-switch-track-color-on-hover;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-hover;
+      background-color: @veui-switch-thumb-color-on-hover;
     }
   }
 
   &:active :checked + &-switcher {
-    // background-color: @dls-switch-track-color-on-active;
+    background-color: @veui-switch-track-color-on-active;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-active;
+      background-color: @veui-switch-thumb-color-on-active;
     }
   }
 
@@ -182,13 +196,15 @@
 
   &-loading &-switcher {
     .@{veui-prefix}-icon {
-      // color: @dls-switch-track-color-off;
+      // color: @veui-switch-track-color-off;
+      color: @veui-switch-circle-off;
     }
   }
 
   &-on&-loading &-switcher {
     .@{veui-prefix}-icon {
-      // color: @dls-switch-track-color-on;
+      // color: @veui-switch-track-color-on;
+      color: @veui-switch-circle-on;
     }
   }
 
@@ -199,35 +215,42 @@
   &-loading &-switcher,
   &.@{veui-prefix}-readonly &-switcher,
   &.@{veui-prefix}-disabled &-switcher {
-    // background-color: @dls-switch-track-color-off-disabled;
+    background-color: @veui-switch-track-color-off-disabled;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-off-disabled;
+      background-color: @veui-switch-thumb-color-off-disabled;
     }
   }
 
   &-on&-loading &-switcher,
   &-on.@{veui-prefix}-readonly &-switcher,
   &-on.@{veui-prefix}-disabled &-switcher {
-    // background-color: @dls-switch-track-color-on-disabled;
+    background-color: @veui-switch-track-color-on-disabled;
 
     .@{veui-prefix}-switch-button {
-      // background-color: @dls-switch-thumb-color-on-disabled;
+      background-color: @veui-switch-thumb-color-on-disabled;
     }
   }
 
-  &[ui~="xs"] {
-    // font-size: @dls-font-size-s;
-    .metrics(xs);
-  }
+  
+  // &[ui~="m"] {
+  //   font-size: @veui-font-size-m;
+  //   .metrics(m);
+  // }
 
-  &[ui~="s"] {
-    // font-size: @dls-font-size-s;
-    .metrics(s);
-  }
+    &[ui~="xs"] &-text,
+    &[ui~="s"] &-text {
+      display: none;
+    }
+    &[ui="xs"] {
+      font-size: @veui-font-size-s;
+      .metrics(xs, s);
+    }
 
-  &[ui~="xs"] &-text,
-  &[ui~="s"] &-text {
-    display: none;
-  }
+    &[ui="s"] {
+      font-size: @veui-font-size-s;
+      .metrics(s, s);
+    }
 }
+
+

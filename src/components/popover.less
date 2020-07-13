@@ -1,27 +1,29 @@
 @import "../lib.less";
+@import "../variables/components/popover.less";
+@import "../variables/components/tooltip.less";
 
 .@{veui-prefix}-popover-box {
-  @arrow-size: 8px;
-  @arrow-indent: 12px;
+  @arrow-size: @veui-tooltip-arrow-width;
+  @arrow-indent: @veui-popover-arrow-spacing;
 
   .@{veui-prefix}-tooltip {
-    // max-width: @dls-popover-max-width;
-    // line-height: @dls-popover-line-height;
+    max-width: @veui-popover-max-width;
+    line-height: @veui-popover-line-height;
     font-size: inherit;
     padding: 0;
     border: 0.1px solid transparent;
 
     .@{veui-prefix}-tooltip-content {
       overflow: auto;
-      // margin: @dls-popover-padding-y @dls-popover-padding-x;
+      margin: @veui-popover-padding-y @veui-popover-padding-x;
     }
 
     &[ui~="s"] {
-      // border-radius: @dls-popover-border-radius-s;
+      border-radius: @veui-popover-border-radius-s;
     }
   
     &[ui~="m"] {
-      // border-radius: @dls-popover-border-radius-m;
+      border-radius: @veui-popover-border-radius-m;
     }
   }
 

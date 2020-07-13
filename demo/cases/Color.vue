@@ -75,14 +75,14 @@ export default {
     margin-bottom: 16px;
     &-title {
         flex-shrink: 0;
-        font-size: @veui-font-size-large;
-        font-weight: @veui-font-weight-bold;
+        font-size: @veui-font-size-l;
+        font-weight: @veui-font-weight-2;
         width: 104px;
         margin-right: 20px;
         text-align: right;
         .title-type {
-            color: @veui-gray-color-8;
-            font-size: @veui-font-size-normal;
+            color: @veui-color-gray-8;
+            font-size: @veui-font-size-m;
         }
     }
     &-con {
@@ -90,7 +90,7 @@ export default {
         .no-color-item {
             width: 80px;
             text-align: center;
-            color: @veui-gray-color-9;
+            color: @veui-color-gray-9;
         }
         .color-item {
             display: flex;
@@ -100,13 +100,13 @@ export default {
             box-sizing: border-box;
             width: 80px;
             height: 80px;
-            font-size: @veui-font-size-small;
+            font-size: @veui-font-size-s;
             cursor: pointer;
             &:nth-child(-n + 5) {
-                color: @veui-gray-color-9;
+                color: @veui-color-gray-9;
             }
             &:nth-child(n + 6) {
-                color: @veui-gray-color-1;
+                color: @veui-color-gray-1;
             }
             &:hover {
                 transition: all .3s ease;

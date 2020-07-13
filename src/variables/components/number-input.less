@@ -1,0 +1,70 @@
+@import "../global.less";
+@import "./input.less";
+
+/* Metrics */
+
+// Heights
+@veui-number-input-height-xs: @veui-height-xs;
+@veui-number-input-height-s: @veui-height-s;
+@veui-number-input-height-m: @veui-height-m;
+
+// Widths
+
+// Normal
+@veui-number-input-spin-icon-size-normal: @veui-height-unit * 2;
+@veui-number-input-spin-button-min-width-normal: 18px;
+@veui-number-input-spin-button-width-normal-xs: max(
+  @veui-number-input-spin-button-min-width-normal,
+  @veui-number-input-height-xs / 2
+);
+@veui-number-input-spin-button-width-normal-s: max(
+  @veui-number-input-spin-button-min-width-normal,
+  @veui-number-input-height-s / 2
+);
+@veui-number-input-spin-button-width-normal-m: max(
+  @veui-number-input-spin-button-min-width-normal,
+  @veui-number-input-height-m / 2
+);
+
+@veui-number-input-digits-normal: 6;
+// digits + spin button + horizontal paddings + left border
+@veui-number-input-width-normal-xs: veui-sum(
+  unit(@veui-number-input-digits-normal, ch),
+  @veui-number-input-spin-button-width-normal-xs,
+  @veui-input-padding * 2,
+  1px
+);
+@veui-number-input-width-normal-s: veui-sum(
+  unit(@veui-number-input-digits-normal, ch),
+  @veui-number-input-spin-button-width-normal-s,
+  @veui-input-padding * 2,
+  1px
+);
+@veui-number-input-width-normal-m: veui-sum(
+  unit(@veui-number-input-digits-normal, ch),
+  @veui-number-input-spin-button-width-normal-m,
+  @veui-input-padding * 2,
+  1px
+);
+
+// Strong
+@veui-number-input-spin-icon-size-strong: 10px;
+// Strong spin buttons' width and height share the same value
+
+@veui-number-input-digits-strong: 6;
+
+@veui-number-input-width-strong-xs: veui-sum(
+  unit(@veui-number-input-digits-strong, ch),
+  @veui-number-input-height-xs * 2,
+  @veui-input-padding * 2
+);
+@veui-number-input-width-strong-s: veui-sum(
+  unit(@veui-number-input-digits-strong, ch),
+  @veui-number-input-height-s * 2,
+  @veui-input-padding * 2
+);
+@veui-number-input-width-strong-m: veui-sum(
+  unit(@veui-number-input-digits-strong, ch),
+  @veui-number-input-height-m * 2,
+  @veui-input-padding * 2
+);

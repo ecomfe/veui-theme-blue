@@ -1,4 +1,15 @@
 @import "../lib.less";
+@import "../variables/components/anchor.less";
+
+// TODO remove it
+@veui-anchor-height-m: veui-line-height(
+  @veui-line-height-m,
+  @veui-link-font-size-m
+);
+@veui-anchor-height-s: veui-line-height(
+  @veui-line-height-m,
+  @veui-link-font-size-s
+);
 
 .@{veui-prefix}-anchor {
   position: relative;
@@ -13,12 +24,12 @@
 
   &-tree {
     display: inline-block;
-    padding: 0 0 0 1px;
+    padding: 0 0 0 @veui-anchor-track-width;
     &::before {
       content: "";
       display: block;
-      border-left: 1px solid #333;
-      width: 1px;
+      border-left: @veui-anchor-track-width solid @veui-anchor-track-color;
+      width: @veui-anchor-track-width;
       .absolute(0, _, 0, 0);
     }
   }
@@ -26,9 +37,9 @@
   &-wrapper {
     max-height: 100vh;
     .@{veui-prefix}-tree-item {
-      height: 20px;
-      line-height: 20px;
-      margin-top: 5px;
+      height: @veui-anchor-height-m;
+      line-height: @veui-anchor-height-m;
+      margin-top: @veui-anchor-padding-x;
       &:hover::before {
         display: none;
       }
@@ -39,6 +50,8 @@
 
     &[ui~="s"] {
       .@{veui-prefix}-tree-item {
+        height: @veui-anchor-height-s;
+        line-height: @veui-anchor-height-s;
       }
     }
 
@@ -51,30 +64,32 @@
   }
 
   &-wrapper &-item:first-child {
+    margin-left: @veui-anchor-level-indent;
   }
 
   &-current::before {
     content: "";
     position: absolute;
     left: 0;
+    width: @veui-anchor-indicator-width;
     height: inherit;
   }
 
   &-wrapper &-current {
     &::before {
-      // background-color: @dls-anchor-indicator-color;
+      background-color: @veui-anchor-indicator-color;
     }
 
     &:hover::before {
-      // background-color: @dls-anchor-indicator-color-hover;
+      background-color: @veui-anchor-indicator-color-hover;
     }
 
     &.focus-visible::before {
-      // background-color: @dls-anchor-indicator-color-focus;
+      background-color: @veui-anchor-indicator-color-focus;
     }
 
     &:active::before {
-      // background-color: @dls-anchor-indicator-color-active;
+      background-color: @veui-anchor-indicator-color-active;
     }
   }
 }

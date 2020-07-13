@@ -1,81 +1,87 @@
 @import "../lib.less";
+@import "../variables/components/date-picker.less";
+@import "../variables/components/input.less";
 
 .make-header-height(@font-size) {
-  // @header-height: dls-sum(
-  //   dls-line-height(@dls-line-height-m, @font-size),
-  //   @dls-date-picker-header-padding-y * 2
-  // );
+  @header-height: veui-sum(
+    veui-line-height(@veui-line-height-m, @font-size),
+    @veui-date-picker-header-padding-y * 2
+  );
 }
 
 .make-day-body-height(@font-size, @date-picker-cell-height) {
-  // @day-body-height: dls-sum(
-  //   @dls-date-picker-day-body-padding-top,
-  //   dls-line-height(@dls-line-height-m, @font-size),
-  //   @dls-date-picker-day-body-padding-bottom,
-  //   @dls-date-picker-weekdays-spacing-after,
-  //   @date-picker-cell-height * 6,
-  //   @dls-date-picker-day-cell-spacing-y * 7
-  // );
+  @day-body-height: veui-sum(
+    @veui-date-picker-day-body-padding-top,
+    veui-line-height(@veui-line-height-m, @font-size),
+    @veui-date-picker-day-body-padding-bottom,
+    @veui-date-picker-weekdays-spacing-after,
+    @date-picker-cell-height * 6,
+    @veui-date-picker-day-cell-spacing-y * 7
+  );
 }
 
 .make-month-body-height(@font-size, @date-picker-cell-height) {
-  // @month-body-height: dls-sum(
-  //   @dls-date-picker-month-body-padding-top,
-  //   @dls-date-picker-month-cell-spacing-y * 4,
-  //   @date-picker-cell-height * 4
-  // );
+  @month-body-height: veui-sum(
+    @veui-date-picker-month-body-padding-top,
+    @veui-date-picker-month-cell-spacing-y * 4,
+    @date-picker-cell-height * 4
+  );
 }
 
 .make-year-body-height(@font-size, @date-picker-cell-height) {
-  // @year-body-height: dls-sum(
-  //   @dls-date-picker-year-body-padding-top,
-  //   @dls-date-picker-year-cell-spacing-y * 4,
-  //   @date-picker-cell-height * 4
-  // );
+  @year-body-height: veui-sum(
+    @veui-date-picker-year-body-padding-top,
+    @veui-date-picker-year-cell-spacing-y * 4,
+    @date-picker-cell-height * 4
+  );
 }
 
 .make-date-panel-width(@date-picker-cell-width) {
-  @date-panel-width: 300px;
+  @date-panel-width: veui-sum(
+    @veui-date-picker-panel-padding-x * 2,
+    @date-picker-cell-width * 7,
+    @veui-date-picker-day-cell-spacing-x * 8
+  );
 }
 
 .@{veui-prefix}-calendar {
   display: inline-block;
-  // border: 1px solid @dls-date-picker-panel-separator-color;
-  // background-color: @dls-date-picker-dropdown-background-color;
+  border: 1px solid @veui-date-picker-panel-separator-color;
+  background-color: @veui-date-picker-dropdown-background-color;
   outline: none;
-  // font-size: @dls-date-picker-font-size-m;
+  font-size: @veui-date-picker-font-size-m;
 
   button {
     .veui-button-transition();
-    // line-height: @dls-line-height-m;
+    line-height: @veui-line-height-m;
 
     &.focus-visible {
-      // .veui-focus-ring(
-      //   @dls-date-picker-cell-border-focus-color,
-      //   @dls-date-picker-cell-shadow-focus
-      // );
+      .veui-focus-ring(
+        @veui-date-picker-cell-border-focus-color,
+        @veui-date-picker-cell-shadow-focus
+      );
     }
   }
 
-  // .make-date-panel-width(@dls-date-picker-cell-width-m);
+  .make-date-panel-width(@veui-date-picker-cell-width-m);
 
   &-type-year .@{veui-prefix}-date-picker-inputs {
-    // width: dls-sum(@date-panel-width, -@dls-date-picker-year-scroller-width);
+    width: veui-sum(@date-panel-width, -@veui-date-picker-year-scroller-width);
   }
 
   &-panel {
     position: relative;
     display: flex;
     flex-direction: column;
-    // .size(@date-panel-width, auto);
+    .size(@date-panel-width, auto);
 
     .@{veui-prefix}-calendar-range & {
       display: inline-flex;
     }
 
     & + & {
-      // padding-left: @dls-date-picker-range-panel-spacing;
-      // width: dls-sum(@date-panel-width, @dls-date-picker-range-panel-spacing);
+      padding-left: @veui-date-picker-range-panel-spacing;
+      width: veui-sum(@date-panel-width, @veui-date-picker-range-panel-spacing);
     }
 
     .@{veui-prefix}-calendar-body {
@@ -84,10 +90,10 @@
 
     &::before {
       content: "";
-      // .make-header-height(@dls-date-picker-font-size-m);
-      // .absolute(dls-sum(@header-height, -1px), 0, _, 0);
+      .make-header-height(@veui-date-picker-font-size-m);
+      .absolute(veui-sum(@header-height, -1px), 0, _, 0);
       height: 0;
-      // border-bottom: 1px solid @dls-date-picker-panel-separator-color;
+      border-bottom: 1px solid @veui-date-picker-panel-separator-color;
     }
   }
 
@@ -97,30 +103,30 @@
     &::after {
       content: "";
       display: block;
-      // .absolute(0, _, 0, -@dls-date-picker-range-panel-spacing / 2);
-      // border-left: 1px solid @dls-date-picker-panel-separator-color;
+      .absolute(0, _, 0, -@veui-date-picker-range-panel-spacing / 2);
+      border-left: 1px solid @veui-date-picker-panel-separator-color;
     }
   }
 
   &-type-month &-panel,
   &-type-year &-panel {
-    // width: dls-sum(@date-panel-width, -@dls-date-picker-year-scroller-width);
+    width: veui-sum(@date-panel-width, -@veui-date-picker-year-scroller-width);
   }
   &-type-month &-panel + &-panel {
-    // width: dls-sum(
-    //   @date-panel-width,
-    //   -@dls-date-picker-year-scroller-width,
-    //   @dls-date-picker-range-panel-spacing
-    // );
+    width: veui-sum(
+      @date-panel-width,
+      -@veui-date-picker-year-scroller-width,
+      @veui-date-picker-range-panel-spacing
+    );
   }
 
   &-head {
-    // padding: @dls-date-picker-header-padding-y @dls-date-picker-panel-padding-x;
+    padding: @veui-date-picker-header-padding-y @veui-date-picker-panel-padding-x;
     display: flex;
     align-items: center;
 
     .@{veui-prefix}-button[ui~="icon"] {
-      // line-height: @dls-line-height-m;
+      line-height: @veui-line-height-m;
     }
 
     .@{veui-prefix}-calendar-select,
@@ -136,36 +142,36 @@
       }
 
       .@{veui-prefix}-icon {
-        // .veui-icon-size(@dls-date-picker-header-pagination-icon-size);
-        // color: @dls-date-picker-icon-color;
+        .veui-icon-size(@veui-date-picker-header-pagination-icon-size);
+        color: @veui-date-picker-icon-color;
       }
     }
 
     .@{veui-prefix}-calendar-prev {
-      // margin-left: @dls-date-picker-header-pagination-spacing;
+      margin-left: @veui-date-picker-header-pagination-spacing;
     }
     .@{veui-prefix}-calendar-next {
-      // margin-right: @dls-date-picker-header-pagination-spacing;
+      margin-right: @veui-date-picker-header-pagination-spacing;
     }
 
     .@{veui-prefix}-calendar-select {
       text-align: center;
-      // color: @dls-font-color-normal;
+      color: @veui-font-color-normal;
       margin: auto;
       height: auto;
       border: none;
-      // line-height: @dls-line-height-m;
+      line-height: @veui-line-height-m;
 
       &.focus-visible,
       &:hover {
-        // background-color: @dls-background-color-normal;
-        // color: @dls-font-color-normal;
+        background-color: @veui-background-color-normal;
+        color: @veui-font-color-normal;
       }
 
       .@{veui-prefix}-icon {
-        // margin-left: @dls-date-picker-header-icon-aux-spacing;
+        margin-left: @veui-date-picker-header-icon-aux-spacing;
         margin-right: 0;
-        // .veui-icon-size(@dls-date-picker-header-icon-size-aux);
+        .veui-icon-size(@veui-date-picker-header-icon-size-aux);
         .veui-transition(transform);
 
         .@{veui-prefix}-calendar-expanded & {
@@ -180,43 +186,43 @@
   }
 
   &-type-date &-body {
-    // .make-day-body-height(
-    //   @dls-date-picker-font-size-m,
-    //   @dls-date-picker-cell-height-m
-    // );
-    height: 300px;
+    .make-day-body-height(
+      @veui-date-picker-font-size-m,
+      @veui-date-picker-cell-height-m
+    );
+    height: @day-body-height;
   }
 
   &-type-month &-body {
-    // .make-month-body-height(
-    //   @dls-date-picker-font-size-m,
-    //   @dls-date-picker-cell-height-m
-    // );
-    height: 300px;
+    .make-month-body-height(
+      @veui-date-picker-font-size-m,
+      @veui-date-picker-cell-height-m
+    );
+    height: @month-body-height;
   }
 
   &-type-year &-body {
-    // .make-year-body-height(
-    //   @dls-date-picker-font-size-m,
-    //   @dls-date-picker-cell-height-m
-    // );
-    // height: @year-body-height;
+    .make-year-body-height(
+      @veui-date-picker-font-size-m,
+      @veui-date-picker-cell-height-m
+    );
+    height: @year-body-height;
   }
 
   &-type-date &-panel:not(&-expanded) &-body {
-    // padding: @dls-date-picker-day-body-padding-top
-      // @dls-date-picker-panel-padding-x @dls-date-picker-day-body-padding-bottom;
+    padding: @veui-date-picker-day-body-padding-top
+      @veui-date-picker-panel-padding-x @veui-date-picker-day-body-padding-bottom;
   }
 
   &-type-month &-expanded &-body,
   &-type-year &-body {
     .@{veui-prefix}-calendar-year-table-wrap {
       overflow: auto;
-      // padding: dls-sum(
-      //     @dls-date-picker-month-body-padding-top,
-      //     -@dls-date-picker-month-cell-spacing-y
-      //   )
-      //   @dls-date-picker-panel-padding-x 0;
+      padding: veui-sum(
+          @veui-date-picker-month-body-padding-top,
+          -@veui-date-picker-month-cell-spacing-y
+        )
+        @veui-date-picker-panel-padding-x 0;
     }
     .@{veui-prefix}-calendar-year-table {
       width: 100%;
@@ -227,51 +233,51 @@
     flex-grow: 1;
     table-layout: fixed;
     border-collapse: separate;
-    // border-spacing: @dls-date-picker-day-cell-spacing-x
-    //   @dls-date-picker-day-cell-spacing-y;
+    border-spacing: @veui-date-picker-day-cell-spacing-x
+      @veui-date-picker-day-cell-spacing-y;
 
     th,
     td {
       text-align: center;
       padding: 0;
-      // font-weight: @dls-date-picker-cell-font-weight;
+      font-weight: @veui-date-picker-cell-font-weight;
     }
 
     button {
-      // border: 1px solid @dls-date-picker-cell-border-color;
-      // border-radius: @dls-date-picker-cell-border-radius-m;
+      border: 1px solid @veui-date-picker-cell-border-color;
+      border-radius: @veui-date-picker-cell-border-radius-m;
       padding: 0;
-      // background-color: @dls-date-picker-cell-background-color;
-      // color: @dls-date-picker-cell-font-color;
+      background-color: @veui-date-picker-cell-background-color;
+      color: @veui-date-picker-cell-font-color;
       text-align: center;
       outline: none;
       cursor: pointer;
-      // font-weight: @dls-date-picker-cell-font-weight;
-      // .size(auto, @dls-date-picker-cell-height-m);
+      font-weight: @veui-date-picker-cell-font-weight;
+      .size(auto, @veui-date-picker-cell-height-m);
 
       &:hover {
-        // background-color: @dls-date-picker-cell-background-color-hover;
-        // color: @dls-font-color-strong;
+        background-color: @veui-date-picker-cell-background-color-hover;
+        color: @veui-font-color-strong;
       }
 
       &.focus-visible {
-        // background-color: @dls-date-picker-cell-background-color-focus;
-        // color: @dls-font-color-strong;
-        // .veui-focus-ring(
-        //   @dls-date-picker-cell-border-focus-color,
-        //   @dls-date-picker-cell-shadow-focus
-        // );
+        background-color: @veui-date-picker-cell-background-color-focus;
+        color: @veui-font-color-strong;
+        .veui-focus-ring(
+          @veui-date-picker-cell-border-focus-color,
+          @veui-date-picker-cell-shadow-focus
+        );
       }
 
       &:active {
-        // background-color: @dls-date-picker-cell-background-color-active;
+        background-color: @veui-date-picker-cell-background-color-active;
       }
 
       &:disabled {
         &,
         &:hover {
-          // background-color: @dls-date-picker-cell-background-color-disabled;
-          // color: @dls-date-picker-cell-font-color-disabled;
+          background-color: @veui-date-picker-cell-background-color-disabled;
+          color: @veui-date-picker-cell-font-color-disabled;
           cursor: not-allowed;
         }
       }
@@ -280,15 +286,15 @@
 
   &-type-date {
     th {
-      // padding-bottom: dls-sum(
-      //   @dls-date-picker-weekdays-spacing-after,
-      //   -@dls-date-picker-day-cell-spacing-y
-      // );
+      padding-bottom: veui-sum(
+        @veui-date-picker-weekdays-spacing-after,
+        -@veui-date-picker-day-cell-spacing-y
+      );
     }
   }
 
   &-date-table button {
-    // .size(@dls-date-picker-cell-width-m, @dls-date-picker-cell-height-m);
+    .size(@veui-date-picker-cell-width-m, @veui-date-picker-cell-height-m);
   }
 
   &-month-table,
@@ -304,75 +310,75 @@
 
   &-table &-selected {
     button {
-      // background-color: @dls-date-picker-cell-background-color-selected;
-      // color: @dls-date-picker-cell-font-color-selected;
-      // font-weight: @dls-date-picker-cell-font-weight-selected;
+      background-color: @veui-date-picker-cell-background-color-selected;
+      color: @veui-date-picker-cell-font-color-selected;
+      font-weight: @veui-date-picker-cell-font-weight-selected;
 
       &:hover {
-        // background-color: @dls-date-picker-cell-background-color-selected-hover;
+        background-color: @veui-date-picker-cell-background-color-selected-hover;
       }
 
       &.focus-visible {
-        // background-color: @dls-date-picker-cell-background-color-selected-focus;
+        background-color: @veui-date-picker-cell-background-color-selected-focus;
       }
 
       &:active {
-        // background-color: @dls-date-picker-cell-background-color-selected-active;
+        background-color: @veui-date-picker-cell-background-color-selected-active;
       }
     }
   }
 
   &-month-table {
-    // padding: dls-sum(
-    //     @dls-date-picker-month-body-padding-top,
-    //     -@dls-date-picker-month-cell-spacing-y
-    //   )
-    //   @dls-date-picker-panel-padding-x 0;
-    // border-spacing: 0 @dls-date-picker-month-cell-spacing-y;
+    padding: veui-sum(
+        @veui-date-picker-month-body-padding-top,
+        -@veui-date-picker-month-cell-spacing-y
+      )
+      @veui-date-picker-panel-padding-x 0;
+    border-spacing: 0 @veui-date-picker-month-cell-spacing-y;
 
     button {
       width: auto;
-      // padding: 0 @dls-date-picker-month-cell-padding-x;
+      padding: 0 @veui-date-picker-month-cell-padding-x;
     }
   }
 
   &-year-table {
-    // border-spacing: 0 @dls-date-picker-year-cell-spacing-y;
+    border-spacing: 0 @veui-date-picker-year-cell-spacing-y;
     button {
       width: auto;
-      // padding: 0 @dls-date-picker-year-cell-padding-x;
+      padding: 0 @veui-date-picker-year-cell-padding-x;
     }
   }
 
   &-aux button {
-    // color: @dls-date-picker-cell-font-color-aux;
-    // background-color: @dls-date-picker-cell-background-color-aux;
+    color: @veui-date-picker-cell-font-color-aux;
+    background-color: @veui-date-picker-cell-background-color-aux;
 
     &:hover {
-      // background-color: @dls-date-picker-cell-background-color-aux-hover;
+      background-color: @veui-date-picker-cell-background-color-aux-hover;
     }
 
     &.focus-visible {
-      // background-color: @dls-date-picker-cell-background-color-aux-focus;
+      background-color: @veui-date-picker-cell-background-color-aux-focus;
     }
 
     &:active {
-      // background-color: @dls-date-picker-cell-background-color-aux-active;
+      background-color: @veui-date-picker-cell-background-color-aux-active;
     }
   }
 
   &-month-table &-current button,
   &-year-scroller &-current button,
   &-today button {
-    // color: @dls-date-picker-cell-font-color-current;
-    // font-weight: @dls-font-weight-3;
+    color: @veui-date-picker-cell-font-color-current;
+    font-weight: @veui-font-weight-3;
   }
 
   // in-range
   &-in-range {
     position: relative;
     button {
-      // background-color: @dls-date-picker-cell-background-color-active;
+      background-color: @veui-date-picker-cell-background-color-active;
       border-radius: 0;
     }
   }
@@ -380,30 +386,30 @@
   &-in-range&-range-start {
     background-color: transparent;
     button {
-      // .border-left-radius(@dls-date-picker-cell-border-radius-m);
+      .border-left-radius(@veui-date-picker-cell-border-radius-m);
     }
   }
 
   &-in-range&-range-end {
     background-color: transparent;
     button {
-      // .border-right-radius(@dls-date-picker-cell-border-radius-m);
+      .border-right-radius(@veui-date-picker-cell-border-radius-m);
     }
   }
 
   &-in-range&-action-end button {
     &:hover {
-      // background-color: @dls-date-picker-cell-background-color-range-end-hover;
-      // border-color: @dls-date-picker-cell-border-color-range-end-hover;
-      // color: @dls-date-picker-cell-font-color;
+      background-color: @veui-date-picker-cell-background-color-range-end-hover;
+      border-color: @veui-date-picker-cell-border-color-range-end-hover;
+      color: @veui-date-picker-cell-font-color;
     }
     &.focus-visible {
-      // background-color: @dls-date-picker-cell-background-color-range-end-focus;
+      background-color: @veui-date-picker-cell-background-color-range-end-focus;
     }
     &:active {
-      // border-color: @dls-date-picker-cell-border-color-range-end-active;
-      // color: @dls-date-picker-cell-font-color;
-      // background-color: @dls-date-picker-cell-background-color-active;
+      border-color: @veui-date-picker-cell-border-color-range-end-active;
+      color: @veui-date-picker-cell-font-color;
+      background-color: @veui-date-picker-cell-background-color-active;
     }
   }
 
@@ -415,7 +421,7 @@
         display: block;
         .size(100%);
         .absolute(0, _, _, _);
-        // background-color: @dls-background-color-normal;
+        background-color: @veui-background-color-normal;
       }
     }
   }
@@ -425,20 +431,20 @@
   }
 
   &-in-range:not(&-range-single)::before {
-    // background-color: @dls-date-picker-cell-background-color-active;
+    background-color: @veui-date-picker-cell-background-color-active;
   }
 
   &-date-table {
     td::before {
-      // width: @dls-date-picker-day-cell-spacing-x;
-      // right: -@dls-date-picker-day-cell-spacing-x;
+      width: @veui-date-picker-day-cell-spacing-x;
+      right: -@veui-date-picker-day-cell-spacing-x;
       .veui-button-transition();
     }
   }
   &-range-end,
   &-in-range:last-child {
     .@{veui-prefix}-calendar-date-table &::before {
-      // background-color: @dls-background-color-normal;
+      background-color: @veui-background-color-normal;
     }
   }
 
@@ -464,7 +470,7 @@
   &-range-end:first-child {
     .@{veui-prefix}-calendar-month-table &::before,
     .@{veui-prefix}-calendar-year-table &::before {
-      // background-color: @dls-background-color-normal;
+      background-color: @veui-background-color-normal;
     }
   }
 
@@ -476,98 +482,98 @@
   }
 
   &-year-scroller {
-    // .size(@dls-date-picker-year-scroller-width, 100%);
-    // padding: @dls-date-picker-list-padding-y 0 0 0;
-    // border-right: 1px solid @dls-date-picker-panel-separator-color;
+    .size(@veui-date-picker-year-scroller-width, 100%);
+    padding: @veui-date-picker-list-padding-y 0 0 0;
+    border-right: 1px solid @veui-date-picker-panel-separator-color;
     overflow: auto;
     list-style-type: none;
     margin: 0;
 
     button {
-      // padding-left: @dls-date-picker-list-item-padding-x;
-      // background-color: @dls-date-picker-list-background-color;
+      padding-left: @veui-date-picker-list-item-padding-x;
+      background-color: @veui-date-picker-list-background-color;
       border: none;
-      // font-weight: @dls-date-picker-list-font-weight;
-      // .centered-line(@dls-date-picker-list-item-height-m);
-      // color: @dls-date-picker-list-font-color;
-      // margin: 0 0 @dls-date-picker-list-item-spacing 0;
+      font-weight: @veui-date-picker-list-font-weight;
+      .centered-line(@veui-date-picker-list-item-height-m);
+      color: @veui-date-picker-list-font-color;
+      margin: 0 0 @veui-date-picker-list-item-spacing 0;
       outline: none;
       width: 100%;
       text-align: left;
       cursor: pointer;
 
       &:hover {
-        // background-color: @dls-date-picker-list-background-color-hover;
-        // color: @dls-date-picker-list-font-color-hover;
+        background-color: @veui-date-picker-list-background-color-hover;
+        color: @veui-date-picker-list-font-color-hover;
       }
       &.focus-visible {
-        // background-color: @dls-date-picker-list-background-color-focus;
-        // color: @dls-date-picker-list-font-color-focus;
+        background-color: @veui-date-picker-list-background-color-focus;
+        color: @veui-date-picker-list-font-color-focus;
       }
       &:active {
-        // background-color: @dls-date-picker-list-background-color-active;
-        // color: @dls-date-picker-list-font-color-active;
+        background-color: @veui-date-picker-list-background-color-active;
+        color: @veui-date-picker-list-font-color-active;
       }
     }
   }
 
   &-year-scroller &-selected {
     button {
-      // color: @dls-date-picker-list-font-color-selected;
-      // font-weight: @dls-date-picker-list-font-weight-selected;
-      // background-color: @dls-date-picker-list-background-color-selected;
+      color: @veui-date-picker-list-font-color-selected;
+      font-weight: @veui-date-picker-list-font-weight-selected;
+      background-color: @veui-date-picker-list-background-color-selected;
 
       &:hover {
-        // color: @dls-date-picker-list-font-color-selected-hover;
+        color: @veui-date-picker-list-font-color-selected-hover;
       }
 
       &.focus-visible {
-        // color: @dls-date-picker-list-font-color-selected-focus;
+        color: @veui-date-picker-list-font-color-selected-focus;
       }
 
       &:active {
-        // color: @dls-date-picker-list-font-color-selected-active;
+        color: @veui-date-picker-list-font-color-selected-active;
       }
     }
   }
 
   &[ui~="s"] {
-    // font-size: @dls-date-picker-font-size-s;
-    // .make-date-panel-width(@dls-date-picker-cell-width-s);
+    font-size: @veui-date-picker-font-size-s;
+    .make-date-panel-width(@veui-date-picker-cell-width-s);
     .@{veui-prefix}-calendar-panel {
-      // .size(@date-panel-width, auto);
+      .size(@date-panel-width, auto);
       & + .@{veui-prefix}-calendar-panel {
-        // width: dls-sum(@date-panel-width, @dls-date-picker-range-panel-spacing);
+        width: veui-sum(@date-panel-width, @veui-date-picker-range-panel-spacing);
       }
       &::before {
-        // .make-header-height(@dls-date-picker-font-size-s);
-        // .absolute(dls-sum(@header-height, -1px), 0, _, 0);
+        .make-header-height(@veui-date-picker-font-size-s);
+        .absolute(veui-sum(@header-height, -1px), 0, _, 0);
       }
     }
     &.@{veui-prefix}-calendar-type-month .@{veui-prefix}-calendar-panel,
     &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,
     &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-date-picker-inputs {
-      // width: dls-sum(@date-panel-width, -@dls-date-picker-year-scroller-width);
+      width: veui-sum(@date-panel-width, -@veui-date-picker-year-scroller-width);
     }
 
     &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,
     &.@{veui-prefix}-calendar-type-month .@{veui-prefix}-calendar-panel {
       & + .@{veui-prefix}-calendar-panel {
-        // width: dls-sum(
-        //   @date-panel-width,
-        //   -@dls-date-picker-year-scroller-width,
-        //   @dls-date-picker-range-panel-spacing
-        // );
+        width: veui-sum(
+          @date-panel-width,
+          -@veui-date-picker-year-scroller-width,
+          @veui-date-picker-range-panel-spacing
+        );
       }
     }
   }
 
   &[ui~="s"] &-table button {
-    // .size(auto, @dls-date-picker-cell-height-s);
-    // border-radius: @dls-date-picker-cell-border-radius-s;
+    .size(auto, @veui-date-picker-cell-height-s);
+    border-radius: @veui-date-picker-cell-border-radius-s;
   }
   &[ui~="s"] &-date-table button {
-    // .size(@dls-date-picker-cell-width-s, @dls-date-picker-cell-height-s);
+    .size(@veui-date-picker-cell-width-s, @veui-date-picker-cell-height-s);
   }
 
   &[ui~="s"] &-in-range button {
@@ -575,40 +581,40 @@
   }
 
   &[ui~="s"] &-in-range&-range-start button {
-    // .border-left-radius(@dls-date-picker-cell-border-radius-s);
+    .border-left-radius(@veui-date-picker-cell-border-radius-s);
   }
 
   &[ui~="s"] &-in-range&-range-end button {
-    // .border-right-radius(@dls-date-picker-cell-border-radius-s);
+    .border-right-radius(@veui-date-picker-cell-border-radius-s);
   }
 
   &[ui~="s"] &-year-scroller {
     button {
-      // .centered-line(@dls-date-picker-list-item-height-s);
+      .centered-line(@veui-date-picker-list-item-height-s);
     }
   }
 
   &-type-date[ui~="s"] &-body {
-    // .make-day-body-height(
-    //   @dls-date-picker-font-size-s,
-    //   @dls-date-picker-cell-height-s
-    // );
-    height: 300px;
+    .make-day-body-height(
+      @veui-date-picker-font-size-s,
+      @veui-date-picker-cell-height-s
+    );
+    height: @day-body-height;
   }
 
   &-type-month[ui~="s"] &-body {
-    // .make-month-body-height(
-    //   @dls-date-picker-font-size-s,
-    //   @dls-date-picker-cell-height-s
-    // );
-    height: 300px;
+    .make-month-body-height(
+      @veui-date-picker-font-size-s,
+      @veui-date-picker-cell-height-s
+    );
+    height: @month-body-height;
   }
 
   &-type-year[ui~="s"] &-body {
-    // .make-year-body-height(
-    //   @dls-date-picker-font-size-s,
-    //   @dls-date-picker-cell-height-s
-    // );
-    // height: @year-body-height;
+    .make-year-body-height(
+      @veui-date-picker-font-size-s,
+      @veui-date-picker-cell-height-s
+    );
+    height: @year-body-height;
   }
 }

@@ -1,30 +1,31 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
+@import "../variables/components/input.less";
 
 .@{veui-prefix}-autocomplete {
-  display: inline-flex;
-  vertical-align: middle;
-  // border-radius: @dls-input-border-radius-m;
-
-  &[ui~="s"] {
-    // border-radius: @dls-input-border-radius-s;
-  }
-
-  &[ui~="xs"] {
-    // border-radius: @dls-input-border-radius-xs;
-  }
-
-  &[ui~="l"] {
-    // border-radius: @dls-input-border-radius-l;
-  }
-
-  .@{veui-prefix}-input {
-    border-radius: inherit;
-    width: auto;
-    flex-grow: 1;
-  }
-
-  &-suggestion-group {
-    &:extend(._veui-dropdown-overlay all);
-  }
+    display: inline-flex;
+    vertical-align: middle;
+    border-radius: @veui-input-border-radius-m;
+  
+    &[ui~="s"] {
+      border-radius: @veui-input-border-radius-s;
+    }
+  
+    &[ui~="xs"] {
+      border-radius: @veui-input-border-radius-xs;
+    }
+  
+    &[ui~="l"] {
+      border-radius: @veui-input-border-radius-l;
+    }
+  
+    .@{veui-prefix}-input {
+      border-radius: inherit;
+      width: auto;
+      flex-grow: 1;
+    }
+  
+    &-suggestion-group {
+      &:extend(._veui-dropdown-overlay all);
+    }
 }

@@ -1,9 +1,10 @@
 @import "../lib.less";
+@import "../variables/components/dialog.less";
 
 .@{veui-prefix}-alert-box {
   .@{veui-prefix}-dialog-content {
-    // width: @dls-dialog-width-contextual;
-    // padding-top: @dls-dialog-padding-y;
+    width: @veui-dialog-width-contextual;
+    padding-top: @veui-dialog-padding-y;
 
     &-head {
       display: none;
@@ -15,39 +16,39 @@
   }
 
   &-icon {
-    // .veui-icon-size(@dls-dialog-icon-size-contextual);
+    .veui-icon-size(@veui-dialog-icon-size-contextual);
 
     &-wrapper {
       display: flex;
       align-items: center;
-      // margin-right: @dls-dialog-icon-spacing-contextual;
-      // height: dls-line-height(
-      //   @dls-dialog-title-line-height,
-      //   @dls-dialog-title-font-size-m
-      // );
-      // font-size: @dls-dialog-title-font-size-m;
+      margin-right: @veui-dialog-icon-spacing-contextual;
+      height: veui-line-height(
+        @veui-dialog-title-line-height,
+        @veui-dialog-title-font-size-m
+      );
+      font-size: @veui-dialog-title-font-size-m;
 
       [ui~="s"] & {
-        // height: dls-line-height(
-        //   @dls-dialog-title-line-height,
-        //   @dls-dialog-title-font-size-s
-        // );
-        // font-size: @dls-dialog-title-font-size-s;
+        height: veui-line-height(
+          @veui-dialog-title-line-height,
+          @veui-dialog-title-font-size-s
+        );
+        font-size: @veui-dialog-title-font-size-s;
       }
 
       .@{veui-prefix}-alert-box-titleless & {
-        // height: dls-line-height(
-        //   @dls-dialog-body-line-height,
-        //   @dls-dialog-body-font-size-m
-        // );
-        // font-size: @dls-dialog-body-font-size-m;
+        height: veui-line-height(
+          @veui-dialog-body-line-height,
+          @veui-dialog-body-font-size-m
+        );
+        font-size: @veui-dialog-body-font-size-m;
 
         [ui~="s"]& {
-          // height: dls-line-height(
-          //   @dls-dialog-body-line-height,
-          //   @dls-dialog-body-font-size-s
-          // );
-          // font-size: @dls-dialog-body-font-size-s;
+          height: veui-line-height(
+            @veui-dialog-body-line-height,
+            @veui-dialog-body-font-size-s
+          );
+          font-size: @veui-dialog-body-font-size-s;
         }
       }
     }
@@ -57,11 +58,11 @@
     display: flex;
     align-items: center;
     margin-top: 0;
-    // margin-bottom: @dls-dialog-title-spacing-after-contextual;
-    // color: @dls-dialog-title-font-color;
-    // line-height: @dls-dialog-title-line-height;
-    // font-weight: @dls-font-weight-1;
-    // font-size: @dls-dialog-title-font-size-m;
+    margin-bottom: @veui-dialog-title-spacing-after-contextual;
+    color: @veui-dialog-title-font-color;
+    line-height: @veui-dialog-title-line-height;
+    font-weight: @veui-font-weight-1;
+    font-size: @veui-dialog-title-font-size-m;
   }
 
   &-wrapper {
@@ -69,7 +70,7 @@
   }
 
   &-content {
-    // line-height: @dls-dialog-body-line-height;
+    line-height: @veui-dialog-body-line-height;
   }
 
   .@{veui-prefix}-dialog-content-foot {
@@ -79,35 +80,35 @@
       content: "";
       display: block;
       float: left;
-      // font-size: @dls-dialog-title-font-size-m;
-      // width: dls-sum(
-      //   @dls-dialog-icon-size-contextual,
-      //   @dls-dialog-icon-spacing-contextual
-      // );
+      font-size: @veui-dialog-title-font-size-m;
+      width: veui-sum(
+        @veui-dialog-icon-size-contextual,
+        @veui-dialog-icon-spacing-contextual
+      );
     }
   }
 
   &[ui~="s"] .@{veui-prefix}-dialog-content-foot::before {
-    // font-size: @dls-dialog-title-font-size-s;
+    font-size: @veui-dialog-title-font-size-s;
   }
 
   &-titleless[ui~="s"] .@{veui-prefix}-dialog-content-foot::before {
-    // font-size: @dls-dialog-body-font-size-s;
+    font-size: @veui-dialog-body-font-size-s;
   }
 
   &-info &-icon {
-    // color: @dls-dialog-icon-color-info;
+    color: @veui-dialog-icon-color-info;
   }
 
   &-success &-icon {
-    // color: @dls-dialog-icon-color-success;
+    color: @veui-dialog-icon-color-success;
   }
 
   &-error &-icon {
-    // color: @dls-dialog-icon-color-error;
+    color: @veui-dialog-icon-color-error;
   }
 
   &-warning &-icon {
-    // color: @dls-dialog-icon-color-warning;
+    color: @veui-dialog-icon-color-warning;
   }
 }

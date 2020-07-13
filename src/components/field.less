@@ -1,4 +1,5 @@
 @import "../lib.less";
+@import "../variables/components/field.less";
 
 .@{veui-prefix}-field {
   vertical-align: top;
@@ -11,7 +12,7 @@
   &-no-label::before {
     content: "";
     display: inline-block;
-    width: 120px;
+    width: @veui-form-label-width;
   }
 
   & > * {
@@ -24,22 +25,22 @@
   }
 
   .@{veui-prefix}-form-label {
-    height: @veui-height-s;
-    width: 120px;
-    line-height: @veui-height-s;
+    height: @veui-height-l;
+    width: @veui-form-label-width;
+    line-height: @veui-height-l;
   }
 
   .@{veui-prefix}-span {
-    line-height: @veui-height-s;
+    line-height: @veui-height-l;
   }
 
   &-error {
     position: static;
-    height: @veui-height-s;
-    line-height: @veui-height-s;
+    height: @veui-height-l;
+    line-height: @veui-height-l;
     margin: 0 0 0 10px;
     vertical-align: top;
-    color: @veui-error-color-6;
+    color: @veui-color-error-6;
 
     .@{veui-prefix}-icon {
       margin-right: 7px;
@@ -47,10 +48,10 @@
   }
 
   .@{veui-prefix}-form-tip {
-    height: @veui-height-s;
-    line-height: @veui-height-s;
+    height: @veui-height-l;
+    line-height: @veui-height-l;
     margin-left: 10px;
-    color: @veui-font-color-main;
+    color: @veui-font-color-weak;
   }
 
   .@{veui-prefix}-form-tip + .@{veui-prefix}-field-error {
@@ -60,7 +61,7 @@
   .@{veui-prefix}-form-label
     ~ .@{veui-prefix}-form-tip
     + .@{veui-prefix}-field-error {
-    margin-left: 120px;
+    margin-left: @veui-form-label-width;
   }
 
   .@{veui-prefix}-form-label,
@@ -69,7 +70,7 @@
   .@{veui-prefix}-span {
     .@{veui-prefix}-icon {
       vertical-align: top;
-      margin-top: ~"calc(@{veui-height-s} / 2 - 0.5em)";
+      margin-top: ~"calc(@{veui-height-l} / 2 - 0.5em)";
     }
   }
 
@@ -95,18 +96,18 @@
   }
 
   &[ui~="large"] {
-    .make-ui(@veui-font-size-large, @veui-height-l);
+    .make-ui(@veui-font-size-l, @veui-height-xl);
   }
 
   &[ui~="small"] {
-    .make-ui(@veui-font-size-small, @veui-height-m);
+    .make-ui(@veui-font-size-s, @veui-height-m);
   }
 
   &[ui~="tiny"] {
-    .make-ui(@veui-font-size-small, @veui-height-s);
+    .make-ui(@veui-font-size-s, @veui-height-s);
   }
 
   &[ui~="micro"] {
-    .make-ui(@veui-font-size-small, @veui-height-xs);
+    .make-ui(@veui-font-size-s, @veui-height-xs);
   }
 }

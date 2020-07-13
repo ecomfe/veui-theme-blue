@@ -1,13 +1,14 @@
 @import "../lib.less";
+@import "../variables/components/tabs.less";
 
 .@{veui-prefix}-tabs {
-  @veui-tabs-height: 30px;
-  @veui-tabs-height-l: 36px;
-  @veui-tabs-height-s: 28px;
+  @veui-tabs-height: @veui-tab-height-m;
+  @veui-tabs-height-l: @veui-tab-height-l;
+  @veui-tabs-height-s: @veui-tab-height-s;
 
-  // .make-margin-left(@dls-tab-spacing-x-m);
+  .make-margin-left(@veui-tab-spacing-x-m);
   position: relative;
-  // font-size: @dls-tab-font-size-m;
+  font-size: @veui-tab-font-size-m;
 
   &-menu {
     display: flex;
@@ -19,8 +20,8 @@
     &::after {
       content: "";
       .absolute(_, 0, 0);
-      // border-bottom: @dls-tab-container-border-width solid
-      //   @dls-tab-container-separator-color;
+      border-bottom: @veui-tab-container-border-width solid
+        @veui-tab-container-separator-color;
     }
   }
 
@@ -62,16 +63,16 @@
   &-prev,
   &-next {
     .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-tab-icon-size-aux);
+      .veui-icon-size(@veui-tab-icon-size-aux);
     }
   }
 
   &-prev {
-    // margin-right: @dls-tab-nav-spacing-m;
+    margin-right: @veui-tab-nav-spacing-m;
   }
 
   &-next {
-    // margin-left: @dls-tab-nav-spacing-m;
+    margin-left: @veui-tab-nav-spacing-m;
   }
 
   &-item {
@@ -87,7 +88,7 @@
     & > &-label {
       display: flex;
       align-items: center;
-      // padding: 0 @dls-tab-padding-x-m;
+      padding: 0 @veui-tab-padding-x-m;
       text-decoration: none;
       outline: none;
       position: relative;
@@ -102,68 +103,68 @@
     }
 
     &:not(.@{veui-prefix}-tabs-item-disabled) > &-label {
-      // color: @dls-tab-font-color;
+      color: @veui-tab-font-color;
 
       &::after {
         content: "";
         .absolute(_, 0, 0);
-        // height: @dls-tab-indicator-width;
+        height: @veui-tab-indicator-width;
         .veui-transition(background-color, height);
       }
 
       &.focus-visible {
-        // color: @dls-tab-font-color-focus;
+        color: @veui-tab-font-color-focus;
 
         &::before {
-          // background-color: @dls-tab-background-color-focus;
+          background-color: @veui-tab-background-color-focus;
         }
       }
 
       &:hover {
         cursor: pointer;
-        // color: @dls-tab-font-color-hover;
+        color: @veui-tab-font-color-hover;
       }
 
       &:active {
-        // color: @dls-tab-font-color-active;
+        color: @veui-tab-font-color-active;
       }
     }
 
     &-active:not(.@{veui-prefix}-tabs-item-disabled) > &-label {
-      // color: @dls-tab-font-color-current;
+      color: @veui-tab-font-color-current;
 
       &::after {
-        // background-color: @dls-tab-indicator-color;
+        background-color: @veui-tab-indicator-color;
       }
 
       &.focus-visible {
-        // color: @dls-tab-font-color-current-focus;
+        color: @veui-tab-font-color-current-focus;
 
         &::after {
-          // background-color: @dls-tab-font-color-current-focus;
+          background-color: @veui-tab-font-color-current-focus;
         }
       }
 
       &:hover {
-        // color: @dls-tab-font-color-current-hover;
+        color: @veui-tab-font-color-current-hover;
 
         &::after {
-          // background-color: @dls-tab-font-color-current-hover;
+          background-color: @veui-tab-font-color-current-hover;
         }
       }
 
       &:active {
-        // color: @dls-tab-font-color-current-active;
+        color: @veui-tab-font-color-current-active;
 
         &::after {
-          // background-color: @dls-tab-font-color-current-active;
+          background-color: @veui-tab-font-color-current-active;
         }
       }
     }
 
     &-disabled > &-label {
       cursor: not-allowed;
-      // color: @dls-tab-font-color-disabled;
+      color: @veui-tab-font-color-disabled;
     }
 
     &-label-content {
@@ -176,27 +177,27 @@
     &-removable&-remove-focus &-label-content,
     &-removable &-label.focus-visible &-label-content,
     &-removable:hover &-label-content {
-      // @offset: dls-sum(
-      //   calc(@dls-tab-content-spacing * -0.5),
-      //   calc(@dls-tab-icon-size-aux * -0.5)
-      // );
+      @offset: veui-sum(
+        calc(@veui-tab-content-spacing * -0.5),
+        calc(@veui-tab-icon-size-aux * -0.5)
+      );
 
-      // transform: ~"translateX(@{offset})";
+      transform: ~"translateX(@{offset})";
     }
 
     &-remove {
-      // @offset: dls-sum(
-      //   @dls-tab-padding-x-m,
-      //   calc(@dls-tab-content-spacing * -0.5),
-      //   calc(@dls-tab-icon-size-aux * -0.5)
-      // );
-      // .absolute(50%, @offset, _, _);
+      @offset: veui-sum(
+        @veui-tab-padding-x-m,
+        calc(@veui-tab-content-spacing * -0.5),
+        calc(@veui-tab-icon-size-aux * -0.5)
+      );
+      .absolute(50%, @offset, _, _);
       transform: translateY(-50%) scale(0.5);
       opacity: 0;
       .veui-transition(transform, opacity);
 
       .@{veui-prefix}-icon {
-        // .veui-icon-size(@dls-tab-icon-size-aux);
+        .veui-icon-size(@veui-tab-icon-size-aux);
       }
     }
 
@@ -209,11 +210,11 @@
   }
 
   &-item-status {
-    // margin-left: @dls-tab-content-spacing;
+    margin-left: @veui-tab-content-spacing;
     cursor: pointer;
 
     .veui-tabs-status(@type) {
-      @color-name: ~"veui-@{type}-color-6";
+      @color-name: ~"veui-color-@{type}-6";
       @color: @@color-name;
 
       color: @color;
@@ -239,16 +240,16 @@
   &-add.@{veui-prefix}-button {
     flex: 0 0 auto;
     align-self: center;
-    // color: @dls-tab-font-color;
+    color: @veui-tab-font-color;
   }
 
   &-tip {
-    // color: @dls-font-color-weak;
+    color: @veui-font-color-weak;
   }
 
   &[ui~="l"] {
-    // .make-margin-left(@dls-tab-spacing-x-l);
-    // font-size: @dls-tab-font-size-l;
+    .make-margin-left(@veui-tab-spacing-x-l);
+    font-size: @veui-tab-font-size-l;
   }
 
   &[ui~="l"] & {
@@ -257,13 +258,13 @@
     }
 
     &-item-label {
-      // padding: 0 @dls-tab-padding-x-l;
+      padding: 0 @veui-tab-padding-x-l;
     }
   }
 
   &[ui~="s"] {
-    // .make-margin-left(@dls-tab-spacing-x-s);
-    // font-size: @dls-tab-font-size-s;
+    .make-margin-left(@veui-tab-spacing-x-s);
+    font-size: @veui-tab-font-size-s;
   }
 
   &[ui~="s"] & {
@@ -272,15 +273,15 @@
     }
 
     &-item-label {
-      // padding: 0 @dls-tab-padding-x-s;
+      padding: 0 @veui-tab-padding-x-s;
     }
 
     &-prev {
-      // margin-right: @dls-tab-nav-spacing-s;
+      margin-right: @veui-tab-nav-spacing-s;
     }
 
     &-next {
-      // margin-left: @dls-tab-nav-spacing-s;
+      margin-left: @veui-tab-nav-spacing-s;
     }
   }
 }

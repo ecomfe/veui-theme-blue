@@ -7,13 +7,16 @@ config.defaults(
             loading: 'loading'
         },
         ui: {
-            // style: {
-            //     values: ['translucent', 'primary', 'strong', 'text', 'icon']
-            // },
-            // size: {
-            //     values: ['xs', 's', 'm', 'l', 'xl'],
-            //     default: 'm'
-            // }
+            shape: {
+                values: ['text', 'icon', 'square']
+            },
+            style: {
+                values: ['normal', 'translucent', 'primary', 'strong']
+            },
+            size: {
+                values: ['xs', 's', 'm', 'l', 'xl'],
+                default: 'm'
+            }
         }
     },
     'button'

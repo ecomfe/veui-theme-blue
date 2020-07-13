@@ -1,8 +1,10 @@
 @import "../lib.less";
+@import "../variables/components/button.less";
 
 .@{veui-prefix}-button-group {
   display: inline-flex;
   vertical-align: middle;
+  border-radius: @veui-button-border-radius-l;
 
   .@{veui-prefix}-button {
     position: relative;
@@ -28,33 +30,13 @@
     }
   }
 
-  &[ui~="xs"] {
-    // border-radius: @dls-button-border-radius-xs;
-  }
-
-  &[ui~="s"] {
-    // border-radius: @dls-button-border-radius-s;
-  }
-
-  &[ui~="m"] {
-    // border-radius: @dls-button-border-radius-m;
-  }
-
-  &[ui~="l"] {
-    // border-radius: @dls-button-border-radius-l;
-  }
-
-  &[ui~="xl"] {
-    // border-radius: @dls-button-border-radius-xl;
-  }
-
   .@{veui-prefix}-button[ui~="primary"]
     + .@{veui-prefix}-button[ui~="primary"] {
     &::before {
       content: "";
       .absolute(-1px, _, -1px, -1px);
       width: 1px;
-      // background-color: @dls-button-group-separator-color-primary;
+      background-color: @veui-button-group-separator-color-primary;
     }
 
     &.focus-visible::before {
@@ -62,17 +44,7 @@
     }
 
     &.@{veui-prefix}-disabled::before {
-      // background-color: @dls-button-group-separator-color-primary-disabled;
-    }
-  }
-
-  &[ui~="s"] .@{veui-prefix}-button {
-    &:first-child {
-      // .border-left-radius(@dls-button-border-radius-s);
-    }
-
-    &:last-child {
-      // .border-right-radius(@dls-button-border-radius-s);
+      background-color: @veui-button-group-separator-color-primary-disabled;
     }
   }
 }

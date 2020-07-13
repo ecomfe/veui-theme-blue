@@ -1,25 +1,27 @@
 @import "../lib.less";
 @import (reference) "../dropdown.less";
+@import "../variables/components/input.less";
+@import "../variables/components/option.less";
 
 .@{veui-prefix}-search-box {
   display: inline-flex;
   vertical-align: middle;
   position: relative;
-  // width: @dls-input-width;
-  // color: @dls-input-font-color;
-  // background-color: @dls-input-background-color;
-  // border-radius: @dls-input-border-radius-m;
+  width: @veui-input-width;
+  color: @veui-input-font-color;
+  background-color: @veui-input-background-color;
+  border-radius: @veui-input-border-radius-m;
 
   &[ui~="s"] {
-    // border-radius: @dls-input-border-radius-s;
+    border-radius: @veui-input-border-radius-s;
   }
 
   &[ui~="xs"] {
-    // border-radius: @dls-input-border-radius-xs;
+    border-radius: @veui-input-border-radius-xs;
   }
 
   &[ui~="l"] {
-    // border-radius: @dls-input-border-radius-l;
+    border-radius: @veui-input-border-radius-l;
   }
 
   .@{veui-prefix}-input-main {
@@ -36,7 +38,7 @@
         margin-right: 0;
       }
       .@{veui-prefix}-search-box-action-icon {
-        // margin-left: @dls-input-content-spacing;
+        margin-left: @veui-input-content-spacing;
       }
     }
   }
@@ -49,7 +51,7 @@
   &-action {
     display: flex;
     white-space: nowrap;
-    // color: @dls-input-font-color;
+    color: @veui-input-font-color;
 
     &-button.@{veui-prefix}-button {
       display: none;
@@ -58,9 +60,9 @@
   }
 
   &.@{veui-prefix}-readonly {
-    // background-color: @dls-input-background-color-read-only;
-    // border-color: @dls-input-border-color-read-only;
-    // color: @dls-input-font-color-read-only;
+    background-color: @veui-input-background-color-read-only;
+    border-color: @veui-input-border-color-read-only;
+    color: @veui-input-font-color-read-only;
 
     .@{veui-prefix}-input-after {
       overflow: hidden;
@@ -69,14 +71,14 @@
     .@{veui-prefix}-search-box-action,
     .@{veui-prefix}-search-box-action-icon {
       cursor: not-allowed;
-      // color: @dls-input-font-color-read-only;
+      color: @veui-input-font-color-read-only;
     }
   }
 
   &.@{veui-prefix}-disabled {
-    // background-color: @dls-input-background-color-disabled;
-    // border-color: @dls-input-border-color-disabled;
-    // color: @dls-input-font-color-disabled;
+    background-color: @veui-input-background-color-disabled;
+    border-color: @veui-input-border-color-disabled;
+    color: @veui-input-font-color-disabled;
 
     .@{veui-prefix}-input-after {
       overflow: hidden;
@@ -85,20 +87,20 @@
     .@{veui-prefix}-search-box-action,
     .@{veui-prefix}-search-box-action-icon {
       cursor: not-allowed;
-      // color: @dls-input-font-color-disabled;
+      color: @veui-input-font-color-disabled;
     }
   }
 
   &:not(.@{veui-prefix}-disabled):not(.@{veui-prefix}-readonly) {
     .@{veui-prefix}-search-box-action:hover {
-      // color: @dls-input-font-color;
+      color: @veui-input-font-color;
     }
   }
 
   &-suggestion-overlay {
     &:extend(._veui-dropdown-overlay all);
     overflow-y: auto;
-    // background-color: @dls-option-background-color;
+    background-color: @veui-option-background-color;
   }
 
   .@{veui-prefix}-option {

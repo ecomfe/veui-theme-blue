@@ -141,6 +141,29 @@
         </section>
 
         <section>
+            <h3>流体栅格</h3>
+            <figure>
+                <veui-grid-container
+                    flex
+                >
+                    <veui-grid-row>
+                        <veui-grid-column
+                            class="uncertain"
+                        >
+                            <div class="content">
+                                250px +- 50px
+                            </div>
+                        </veui-grid-column>
+                        <veui-grid-column class="correspond">
+                            <div class="content accord">
+                                8/24
+                            </div>
+                        </veui-grid-column>
+                    </veui-grid-row>
+                </veui-grid-container>
+            </figure>
+        </section>
+        <section>
             <h3>Offset, push & pull</h3>
             <figure>
                 <veui-grid-container>
@@ -233,5 +256,14 @@ figure {
       margin-top: 10px;
     }
   }
+}
+
+.uncertain {
+    flex: 1 1 auto;
+    max-width: 208px;
+    min-width: 192px;
+}
+.correspond {
+    flex: 1 1 auto;
 }
 </style>

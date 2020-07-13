@@ -1,8 +1,9 @@
 @import "../lib.less";
+@import "../variables/components/tree.less";
 
 .@{veui-prefix}-tree {
   position: relative;
-  // padding: 0 @dls-tree-padding-x;
+  padding: 0 @veui-tree-padding-x;
 
   &,
   &-item-group {
@@ -14,19 +15,19 @@
   }
 
   ul {
-    // padding-left: dls-sum(@dls-tree-icon-size-aux, @dls-tree-node-content-spacing);
+    padding-left: veui-sum(@veui-tree-icon-size-aux, @veui-tree-node-content-spacing);
   }
 
   &-item {
     display: flex;
     align-items: center;
-    // height: @dls-tree-node-height-m;
+    height: @veui-tree-node-height-m;
 
     .clearfix();
     outline: none;
 
     & > .@{veui-prefix}-icon {
-      // .veui-icon-size(@dls-tree-icon-size);
+      .veui-icon-size(@veui-tree-icon-size);
     }
 
     &-expand-switcher,
@@ -39,14 +40,14 @@
       background: none;
       border: none;
       padding: 0;
-      // margin-right: @dls-tree-node-content-spacing;
+      margin-right: @veui-tree-node-content-spacing;
       cursor: pointer;
       outline: none;
-      // color: @dls-tree-icon-color-aux;
+      color: @veui-tree-icon-color-aux;
       .veui-transition(box-shadow, transform);
 
       .@{veui-prefix}-icon {
-        // .veui-icon-size(@dls-tree-icon-size-aux);
+        .veui-icon-size(@veui-tree-icon-size-aux);
       }
     }
 
@@ -61,10 +62,10 @@
     // 如果前面没有图标，就把图标位置让出来。
     &-check:first-child,
     &-label:first-child {
-      // margin-left: dls-sum(
-      //   @dls-tree-icon-size-aux,
-      //   @dls-tree-node-content-spacing
-      // );
+      margin-left: veui-sum(
+        @veui-tree-icon-size-aux,
+        @veui-tree-node-content-spacing
+      );
     }
 
     &-clickable {
@@ -76,7 +77,7 @@
       margin-left: auto;
 
       .@{veui-prefix}-icon {
-        // .veui-icon-size(@dls-tree-icon-size-aux);
+        .veui-icon-size(@veui-tree-icon-size-aux);
       }
     }
 
@@ -95,44 +96,44 @@
     }
 
     &:hover::before {
-      // background-color: @dls-tree-node-background-color-hover;
+      background-color: @veui-tree-node-background-color-hover;
     }
 
     &.focus-visible::before,
     &[data-focus-visible-added]::before {
-      // background-color: @dls-tree-node-background-color-focus;
+      background-color: @veui-tree-node-background-color-focus;
     }
 
     &:active::before {
-      // background-color: @dls-tree-node-background-color-active;
+      background-color: @veui-tree-node-background-color-active;
     }
 
     &-selected {
-      // font-weight: @dls-tree-node-font-weight-selected;
-      // color: @dls-tree-node-font-color-selected;
+      font-weight: @veui-tree-node-font-weight-selected;
+      color: @veui-tree-node-font-color-selected;
       &::before {
-        // background-color: @dls-tree-node-background-color-selected;
+        background-color: @veui-tree-node-background-color-selected;
       }
 
       &:hover {
-        // color: @dls-tree-node-font-color-selected-hover;
+        color: @veui-tree-node-font-color-selected-hover;
         &::before {
-          // background-color: @dls-tree-node-background-color-selected-hover;
+          background-color: @veui-tree-node-background-color-selected-hover;
         }
       }
 
       &.focus-visible,
       &[data-focus-visible-added] {
-        // color: @dls-tree-node-font-color-selected-focus;
+        color: @veui-tree-node-font-color-selected-focus;
         &::before {
-          // background-color: @dls-tree-node-background-color-selected-focus;
+          background-color: @veui-tree-node-background-color-selected-focus;
         }
       }
 
       &:active {
-        // color: @dls-tree-node-font-color-selected-active;
+        color: @veui-tree-node-font-color-selected-active;
         &::before {
-          // background-color: @dls-tree-node-background-color-selected-active;
+          background-color: @veui-tree-node-background-color-selected-active;
         }
       }
     }
@@ -148,13 +149,13 @@
 
   &-item-disabled,
   &-disabled &-item {
-    // color: @dls-tree-node-font-color-disabled;
+    color: @veui-tree-node-font-color-disabled;
     cursor: not-allowed;
   }
 
   &-disabled &-item-expand-switcher,
   &-item-disabled &-item-expand-switcher {
-    // color: @dls-tree-icon-color-aux-disabled;
+    color: @veui-tree-icon-color-aux-disabled;
     cursor: not-allowed;
   }
 
@@ -165,10 +166,10 @@
         justify-content: flex-end;
 
         &-label {
-          // margin-left: dls-sum(
-          //   @dls-tree-icon-size-aux,
-          //   @dls-tree-node-content-spacing
-          // );
+          margin-left: veui-sum(
+            @veui-tree-icon-size-aux,
+            @veui-tree-node-content-spacing
+          );
         }
 
         &-expand-switcher {
@@ -182,7 +183,7 @@
 
       &-item-check {
         margin-left: auto;
-        // padding-left: @dls-tree-node-content-spacing;
+        padding-left: @veui-tree-node-content-spacing;
         cursor: pointer;
 
         .@{veui-prefix}-checkbox-box {
@@ -193,11 +194,11 @@
   }
 
   &[ui~="s"] {
-    // font-size: @dls-tree-font-size-s;
+    font-size: @veui-tree-font-size-s;
 
     .@{veui-prefix}-tree {
       &-item {
-        // height: @dls-tree-node-height-s;
+        height: @veui-tree-node-height-s;
       }
     }
   }

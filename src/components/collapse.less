@@ -1,94 +1,100 @@
 @import "../lib.less";
+@import "../variables/components/collapse.less";
 
 .@{veui-prefix}-collapse {
-  // border: 1px solid @dls-collapse-border-color;
-  // border-radius: @dls-collapse-border-radius-m;
+    border: 1px solid @veui-collapse-border-color;
+    border-radius: @veui-collapse-border-radius-m;
 
-  &-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin: -1px;
-    // padding: @dls-collapse-header-padding-y @dls-collapse-header-padding-x;
-    // border: 1px solid @dls-collapse-border-color;
-    // background-color: @dls-collapse-header-background-color;
-    // font-size: @dls-collapse-header-font-size-m;
-    // color: @dls-collapse-header-font-color;
-    .border-top-radius(inherit);
-    // line-height: @dls-collapse-header-line-height;
-    .veui-transition(color, background-color, border-color, border-radius);
-    outline: none;
-    cursor: pointer;
+    &-header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin: -1px;
+        padding: @veui-collapse-header-padding-y @veui-collapse-header-padding-x;
+        border: 1px solid @veui-collapse-border-color;
+        background-color: @veui-collapse-header-background-color;
+        font-size: @veui-collapse-font-size-m;
+        color: @veui-collapse-header-font-color;
+        .border-top-radius(inherit);
+        line-height: @veui-collapse-header-line-height;
+        .veui-transition(color, background-color, border-color, border-radius);
+        outline: none;
+        cursor: pointer;
 
-    &:hover {
-      // background-color: @dls-collapse-header-background-color-hover;
+        &:hover {
+            background-color: @veui-collapse-header-background-color-hover;
+        }
+
+        &.focus-visible {
+            background-color: @veui-collapse-header-background-color-focus;
+            border-color: @veui-collapse-border-color-focus;
+            z-index: 1;
+        }
+
+        &:active {
+            background-color: @veui-collapse-header-background-color-active;
+        }
     }
 
-    &.focus-visible {
-      // background-color: @dls-collapse-header-background-color-focus;
-      // border-color: @dls-collapse-border-color-focus;
-      z-index: 1;
+    &-collapsed &-header {
+        .border-bottom-radius(inherit);
     }
 
-    &:active {
-      // background-color: @dls-collapse-header-background-color-active;
+    &-toggle {
+        .veui-icon-size(@veui-collapse-icon-size);
+        color: @veui-collapse-icon-color-aux;
+        margin-right: @veui-collapse-header-content-spacing;
+        .veui-transition(transform);
     }
-  }
 
-  &-collapsed &-header {
-    .border-bottom-radius(inherit);
-  }
-
-  &-toggle {
-    // .veui-icon-size(@dls-collapse-icon-size-aux);
-    // color: @dls-collapse-icon-color-aux;
-    // margin-right: @dls-collapse-header-content-spacing;
-    .veui-transition(transform);
-  }
-
-  &-expanded &-toggle {
-    transform: rotateZ(90deg);
-  }
-
-  &.@{veui-prefix}-disabled {
-    .@{veui-prefix}-collapse {
-      &-header {
-        // background-color: @dls-collapse-header-background-color-disabled;
-        // color: @dls-collapse-header-font-color-disabled;
-        cursor: not-allowed;
-      }
-
-      &-toggle {
-        // color: @dls-collapse-icon-color-aux-disabled;
-      }
+    &-expanded &-toggle {
+        transform: rotateZ(90deg);
+        margin-right: @veui-collapse-header-content-spacing-s;
     }
-  }
 
-  &-body {
-    // background-color: @dls-collapse-body-background-color;
-    overflow: hidden;
-    will-change: height;
-    .veui-transition(height);
-    .border-bottom-radius(inherit);
-    // color: @dls-collapse-body-font-color;
-    // font-size: @dls-collapse-body-font-size-m;
-  }
+    &.@{veui-prefix}-disabled {
+        .@{veui-prefix}-collapse {
+            &-header {
+            background-color: @veui-collapse-header-background-color-disabled;
+            color: @veui-collapse-header-font-color-disabled;
+            cursor: not-allowed;
+            }
 
-  &-content {
-    // padding: @dls-collapse-body-padding-y @dls-collapse-body-padding-x;
-  }
-
-  &[ui~="s"] {
-    // border-radius: @dls-collapse-border-radius-s;
-
-    .@{veui-prefix}-collapse {
-      &-header {
-        // font-size: @dls-collapse-header-font-size-s;
-      }
-
-      &-body {
-        // font-size: @dls-collapse-body-font-size-s;
-      }
+            &-toggle {
+                color: @veui-collapse-icon-color-aux-disabled;
+            }
+        }
     }
-  }
+
+    &-body {
+        background-color: @veui-collapse-body-background-color;
+        overflow: hidden;
+        will-change: height;
+        .veui-transition(height);
+        .border-bottom-radius(inherit);
+        color: @veui-collapse-body-font-color;
+        font-size: @veui-collapse-font-size-m;
+    }
+
+    &-content {
+        padding: @veui-collapse-body-padding-y @veui-collapse-body-padding-right @veui-collapse-body-padding-y @veui-collapse-body-padding-left;
+    }
+
+    &[ui~="s"] {
+        border-radius: @veui-collapse-border-radius-s;
+
+        .@{veui-prefix}-collapse {
+            &-header {
+                font-size: @veui-collapse-font-size-s;
+                line-height: @veui-collapse-header-line-height-s;
+                padding: @veui-collapse-header-padding-y-s @veui-collapse-header-padding-x-s;
+            }
+            &-body {
+                font-size: @veui-collapse-font-size-s;
+            }
+            &-content {
+                padding: @veui-collapse-body-padding-y-s @veui-collapse-body-padding-right-s @veui-collapse-body-padding-y-s @veui-collapse-body-padding-left-s;
+            }
+        }
+    }
 }

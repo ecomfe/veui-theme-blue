@@ -1,9 +1,10 @@
 @import "../lib.less";
+@import "../variables/components/field.less";
 
 .@{veui-prefix}-form {
   .@{veui-prefix}-fieldset,
   .@{veui-prefix}-field {
-    margin-bottom: 30px;
+    margin-bottom: @veui-field-gap;
   }
 
   .@{veui-prefix}-fieldset:last-child,

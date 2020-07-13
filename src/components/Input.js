@@ -3,6 +3,7 @@ import config from 'veui/managers/config';
 
 config.defaults(
     {
+        // TODO: 需要替换新icon
         icons: {
             clear: 'times-circle'
         },

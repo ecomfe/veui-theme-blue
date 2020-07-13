@@ -1,12 +1,13 @@
 @import "../lib.less";
+@import "../variables/components/checkbox.less";
 
 .@{veui-prefix}-checkbox {
   display: inline-flex;
   align-items: center;
   position: relative;
-  // color: @dls-checkbox-font-color;
-  // font-size: @dls-checkbox-font-size-m;
-  line-height: @veui-font-size-large;
+  color: @veui-checkbox-font-color;
+  font-size: @veui-checkbox-font-size-m;
+  line-height: @veui-font-size-l;
   cursor: pointer;
 
   input {
@@ -25,19 +26,19 @@
     display: flex;
     flex-grow: 0;
     flex-shrink: 0;
-    // .size(@dls-checkbox-size-m);
-    // margin-right: @dls-checkbox-spacing;
-    // border: 1px solid @dls-checkbox-border-color;
-    // background-color: @dls-checkbox-background-color;
-    // color: @dls-checkbox-foreground-color;
-    // border-radius: @dls-checkbox-border-radius;
-    // font-size: @dls-checkbox-font-size-m;
+    .size(@veui-checkbox-size-m);
+    margin-right: @veui-checkbox-spacing;
+    border: 1px solid @veui-checkbox-border-color;
+    background-color: @veui-checkbox-background-color;
+    color: @veui-checkbox-foreground-color;
+    border-radius: @veui-checkbox-border-radius;
+    font-size: @veui-checkbox-font-size-m;
     .veui-transition(border-color, background-color, box-shadow);
 
     .@{veui-prefix}-icon {
       position: absolute;
       margin: auto;
-      // .veui-icon-size(@dls-checkbox-icon-size, @dls-checkbox-icon-min-size);
+      .veui-icon-size(@veui-checkbox-icon-size, @veui-checkbox-icon-min-size);
       .veui-position-center();
       .veui-transition(transform, opacity);
     }
@@ -50,60 +51,60 @@
   }
 
   &:hover &-box {
-    // border-color: @dls-checkbox-border-color-hover;
-    // background-color: @dls-checkbox-background-color-hover;
-    // color: @dls-checkbox-foreground-color-hover;
+    border-color: @veui-checkbox-border-color-hover;
+    background-color: @veui-checkbox-background-color-hover;
+    color: @veui-checkbox-foreground-color-hover;
   }
 
   & .focus-visible + &-box {
-    // .veui-focus-ring(
-    //   @dls-checkbox-border-color-focus,
-    //   @dls-checkbox-shadow-focus
-    // );
-    // background-color: @dls-checkbox-background-color-focus;
-    // color: @dls-checkbox-foreground-color-focus;
+    .veui-focus-ring(
+      @veui-checkbox-border-color-focus,
+      @veui-checkbox-shadow-focus
+    );
+    background-color: @veui-checkbox-background-color-focus;
+    color: @veui-checkbox-foreground-color-focus;
   }
 
   &:active &-box {
-    // border-color: @dls-checkbox-border-color-active;
-    // background-color: @dls-checkbox-background-color-active;
-    // color: @dls-checkbox-foreground-color-active;
+    border-color: @veui-checkbox-border-color-active;
+    background-color: @veui-checkbox-background-color-active;
+    color: @veui-checkbox-foreground-color-active;
   }
 
   & :disabled + &-box {
-    // border-color: @dls-checkbox-border-color-disabled;
-    // background-color: @dls-checkbox-background-color-disabled;
-    // color: @dls-checkbox-foreground-color-disabled;
+    border-color: @veui-checkbox-border-color-disabled;
+    background-color: @veui-checkbox-background-color-disabled;
+    color: @veui-checkbox-foreground-color-disabled;
   }
 
   & :checked + &-box,
   & :indeterminate + &-box {
-    // border-color: @dls-checkbox-border-color-checked;
-    // background-color: @dls-checkbox-background-color-checked;
+    border-color: @veui-checkbox-border-color-checked;
+    background-color: @veui-checkbox-background-color-checked;
   }
 
   &:hover :checked + &-box,
   &:hover :indeterminate + &-box {
-    // border-color: @dls-checkbox-border-color-checked-hover;
-    // background-color: @dls-checkbox-background-color-checked-hover;
+    border-color: @veui-checkbox-border-color-checked-hover;
+    background-color: @veui-checkbox-background-color-checked-hover;
   }
 
   & :checked.focus-visible + &-box,
   & :indeterminate.focus-visible + &-box {
-    // border-color: @dls-checkbox-border-color-checked-focus;
-    // background-color: @dls-checkbox-background-color-checked-focus;
+    border-color: @veui-checkbox-border-color-checked-focus;
+    background-color: @veui-checkbox-background-color-checked-focus;
   }
 
   &:active :checked + &-box,
   &:active :indeterminate + &-box {
-    // border-color: @dls-checkbox-border-color-checked-active;
-    // background-color: @dls-checkbox-background-color-checked-active;
+    border-color: @veui-checkbox-border-color-checked-active;
+    background-color: @veui-checkbox-background-color-checked-active;
   }
 
   & :checked:disabled + &-box,
   & :indeterminate:disabled + &-box {
-    // border-color: @dls-checkbox-border-color-checked-disabled;
-    // background-color: @dls-checkbox-background-color-checked-disabled;
+    border-color: @veui-checkbox-border-color-checked-disabled;
+    background-color: @veui-checkbox-background-color-checked-disabled;
   }
 
   &.@{veui-prefix}-disabled {
@@ -111,10 +112,17 @@
   }
 
   &[ui~="s"] {
-    // font-size: @dls-checkbox-font-size-s;
+    font-size: @veui-checkbox-font-size-s;
 
     .@{veui-prefix}-checkbox-box {
-      // .size(@dls-checkbox-size-s);
+      .size(@veui-checkbox-size-s);
+    }
+  }
+  &[ui~="l"] {
+    font-size: @veui-checkbox-font-size-l;
+
+    .@{veui-prefix}-checkbox-box {
+      .size(@veui-checkbox-size-l);
     }
   }
 }

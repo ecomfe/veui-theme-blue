@@ -6,33 +6,46 @@
                 禁用
             </veui-checkbox>
         </section>
+        <h2>加强样式</h2>
         <section>
-            <p>
-                <veui-check-button-group
-                    v-model="picked1"
-                    :items="data1"
-                    :disabled="disabled"
-                >
-                    <template slot-scope="props">
-                        {{ props.label }}
-                    </template>
-                </veui-check-button-group>
-            </p>
+            <span class="title-memo">大样式</span>
+            <veui-check-button-group
+                v-model="picked2"
+                :items="data2"
+                ui="l"
+                :disabled="disabled"
+            >
+                <template slot-scope="props">
+                    {{ props.label }}
+                </template>
+            </veui-check-button-group>
+            <p>value: {{ picked2 }}</p>
+        </section>
+        <section>
+            <span class="title-memo">中样式</span>
+            <veui-check-button-group
+                v-model="picked1"
+                :items="data1"
+                :disabled="disabled"
+            >
+                <template slot-scope="props">
+                    {{ props.label }}
+                </template>
+            </veui-check-button-group>
             <p>value: {{ picked1 }}</p>
         </section>
         <section>
-            <p>
-                <veui-check-button-group
-                    v-model="picked2"
-                    :items="data2"
-                    ui="s"
-                    :disabled="disabled"
-                >
-                    <template slot-scope="props">
-                        {{ props.label }}
-                    </template>
-                </veui-check-button-group>
-            </p>
+            <span class="title-memo">小样式</span>
+            <veui-check-button-group
+                v-model="picked2"
+                :items="data2"
+                ui="s"
+                :disabled="disabled"
+            >
+                <template slot-scope="props">
+                    {{ props.label }}
+                </template>
+            </veui-check-button-group>
             <p>value: {{ picked2 }}</p>
         </section>
         <section>
@@ -123,3 +136,13 @@ export default {
     }
 };
 </script>
+<style lang="less" scoped>
+    .title-memo {
+        margin-right: 20px;
+        display: inline-flex;
+        width: 80px;
+    }
+    p {
+        margin-left: 100px;
+    }
+</style>

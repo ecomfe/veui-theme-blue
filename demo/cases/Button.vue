@@ -1,7 +1,9 @@
 <template>
     <article>
         <h1><code>&lt;veui-button&gt;</code></h1>
+        <h2>普通按钮</h2>
         <section>
+            <span class="title-memo">普通按钮</span>
             <veui-button ui="xs">
                 保存
             </veui-button>
@@ -25,6 +27,7 @@
             </veui-button>
         </section>
         <section>
+            <span class="title-memo">加强按钮</span>
             <veui-button ui="strong xs">
                 保存
             </veui-button>
@@ -54,6 +57,7 @@
             </veui-button>
         </section>
         <section>
+            <span class="title-memo">重要按钮</span>
             <veui-button ui="primary xs">
                 提交
             </veui-button>
@@ -83,15 +87,7 @@
             </veui-button>
         </section>
         <section>
-            <veui-button ui="xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="s"><veui-icon name="times"/>取消</veui-button>
-            <veui-button><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="l"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="xl"><veui-icon name="times"/>取消</veui-button>
-            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
-            <veui-button loading><veui-icon name="times"/>取消</veui-button>
-        </section>
-        <section>
+            <span class="title-memo">半透明按钮</span>
             <veui-button ui="translucent xs">
                 取消
             </veui-button>
@@ -120,7 +116,9 @@
                 取消
             </veui-button>
         </section>
+        <h2>纯文字按钮</h2>
         <section>
+            <span class="title-memo">普通样式</span>
             <veui-button ui="text xs">
                 编辑
             </veui-button>
@@ -150,6 +148,39 @@
             </veui-button>
         </section>
         <section>
+            <span class="title-memo">加强样式</span>
+            <veui-button ui="text strong xs">
+                编辑
+            </veui-button>
+            <veui-button ui="text strong s">
+                编辑
+            </veui-button>
+            <veui-button ui="text strong">
+                编辑
+            </veui-button>
+            <veui-button ui="text strong l">
+                编辑
+            </veui-button>
+            <veui-button ui="text strong xl">
+                编辑
+            </veui-button>
+            <veui-button
+                ui="text strong"
+                disabled
+            >
+                编辑
+            </veui-button>
+            <veui-button
+                ui="text strong"
+                loading
+            >
+                编辑
+            </veui-button>
+        </section>
+      
+        <h2>图标按钮</h2>
+        <section>
+            <span class="title-memo">纯图标样式</span>
             <veui-button ui="icon xs">
                 <veui-icon name="search"/>
             </veui-button>
@@ -167,16 +198,167 @@
             </veui-button>
             <veui-button
                 ui="icon"
-                disabled
-            >
+                disabled>
                 <veui-icon name="search"/>
             </veui-button>
             <veui-button
                 ui="icon"
-                loading
-            >
+                loading>
                 <veui-icon name="search"/>
             </veui-button>
+        </section>
+        <section>
+            <span class="title-memo">普通样式</span>
+            <veui-button ui="normal square xs">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="normal square s">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="normal square m">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="normal square l">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="normal square xl">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="normal square"
+                disabled>
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="normal square"
+                loading>
+                <veui-icon name="search"/>
+            </veui-button>
+        </section>
+        <section>
+            <span class="title-memo">加强样式</span>
+            <veui-button ui="strong square xs">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="strong square s">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="strong square m">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="strong square l">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="strong square xl">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="strong square"
+                disabled>
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="strong square"
+                loading>
+                <veui-icon name="search"/>
+            </veui-button>
+        </section>
+        <section>
+            <span class="title-memo">重要样式</span>
+            <veui-button ui="primary square xs">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="primary square s">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="primary square m">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="primary square l">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="primary square xl">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="primary square"
+                disabled>
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="primary square"
+                loading>
+                <veui-icon name="search"/>
+            </veui-button>
+        </section>
+        <section>
+            <span class="title-memo">半透明样式</span>
+            <veui-button ui="translucent square xs">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="translucent square s">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="translucent square m">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="translucent square l">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="translucent square xl">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="translucent square"
+                disabled>
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button
+                ui="translucent square"
+                loading>
+                <veui-icon name="search"/>
+            </veui-button>
+        </section>
+        <h2>图文按钮</h2>
+        <section>
+            <span class="title-memo">普通样式</span>
+            <veui-button ui="xs"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="s"><veui-icon name="times"/>取消</veui-button>
+            <veui-button><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="l"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="xl"><veui-icon name="times"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
+            <veui-button loading><veui-icon name="times"/>取消</veui-button>
+        </section>
+        <section>
+            <span class="title-memo">加强样式</span>
+            <veui-button ui="strong xs"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="strong s"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="strong"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="strong l"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="strong xl"><veui-icon name="times"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
+            <veui-button loading><veui-icon name="times"/>取消</veui-button>
+        </section>
+        <section>
+            <span class="title-memo">重要样式</span>
+            <veui-button ui="primary xs"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="primary s"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="primary"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="primary l"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="primary xl"><veui-icon name="times"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
+            <veui-button loading><veui-icon name="times"/>取消</veui-button>
+        </section>
+        <section>
+            <span class="title-memo">半透明样式</span>
+            <veui-button ui="translucent xs"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="translucent s"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="translucent"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="translucent l"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="translucent xl"><veui-icon name="times"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
+            <veui-button loading><veui-icon name="times"/>取消</veui-button>
         </section>
         <section class="dynamic">
             <h4>动态内容</h4>
@@ -220,12 +402,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 section {
   user-select: none;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+    .title-memo {
+        margin-right: 20px;
+        display: inline-flex;
+        width: 80px;
+    }
 }
 
 .dynamic {
