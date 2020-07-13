@@ -11,16 +11,11 @@
   }
 
   .@{veui-prefix}-button &-checkmark {
-    @offset: (@veui-button-padding-m - @veui-checkbox-strong-check-icon-size) / 2;
+    @offset: @veui-spacing-unit;
     .absolute(@offset, @offset, _, _);
     .veui-icon-size(@veui-checkbox-strong-check-icon-size);
     margin: 0;
     color: @veui-checkbox-strong-check-icon-color;
-  }
-
-  &[ui~="s"] .@{veui-prefix}-button &-checkmark {
-    @offset: (@veui-button-padding-s - @veui-checkbox-strong-check-icon-size) / 2;
-    .absolute(@offset, @offset, _, _);
   }
 
   .@{veui-prefix}-button-selected &-checkmark {
