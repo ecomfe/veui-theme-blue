@@ -24,10 +24,29 @@
     height: @@height;
     border-radius: @@radius;
     font-size: @@font-size;
+    &[ui~="ellipse"] {
+        border-radius: @@height;
+    }
+    &[ui~="circle"] {
+        border-radius: @@height;
+        width: @@height;
+        border-radius: 50%;
+        overflow: hidden;
+        justify-content: center;
+        padding: 0;
+    }
   }
-
+  &[ui~="xs"] {
+    .make-metrics(xs);
+  }
   &[ui~="s"] {
     .make-metrics(s);
+  }
+  &[ui~="m"] {
+    .make-metrics(m);
+  }
+  &[ui~="l"] {
+    .make-metrics(l);
   }
 
   &[ui~="borderless"]:not(.focus-visible) {

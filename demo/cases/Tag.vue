@@ -24,46 +24,77 @@
                 >
                     {{ type }}
                 </veui-tag>
-                <veui-tag ui="borderless">borderless</veui-tag>
             </div>
+            <div>
+                <veui-tag
+                    v-for="type in types"
+                    :key="type"
+                    :type="type"
+                    ui="borderless"
+                >
+                    {{ type }}
+                </veui-tag>
+            </div>
+            <div>
+                <veui-tag
+                    v-for="type in types"
+                    :key="type"
+                    :type="type"
+                    ui="borderless ellipse"
+                >
+                    {{ type }}
+                </veui-tag>
+            </div>
+            <div class="tag-circle">
+                <div
+                    v-for="type in types"
+                    :key="type"
+                    :class="type">
+                    <veui-tag
+                        :type="type"
+                        ui="borderless circle"
+                    >
+                        签
+                    </veui-tag>
+                </div>
+            </div>
+            
         </section>
 
         <section>
             <h2>可移除标签</h2>
             <div>
                 <veui-tag
-                    v-for="(team, index) in teams2"
-                    :key="team"
-                    :type="types[index]"
+                    v-for="(item, index) in tags"
+                    :key="index"
+                    :ui ="sizes[index]"
                     closable
-                    @close="handleClose(team)"
+                    @close="handleClose(`${sizes[index]}${item}`)"
                 >
-                    {{ team }}
+                    {{ item }}
                 </veui-tag>
-                <veui-tag
-                    ui="borderless"
-                    closable
-                >borderless</veui-tag>
             </div>
-        </section>
-
-        <section>
-            <h2>可移除标签（小）</h2>
             <div>
                 <veui-tag
-                    v-for="(team, index) in teams"
-                    :key="team"
-                    :type="types[index]"
+                    v-for="(item, index) in tags"
+                    :key="index"
+                    :ui="`${sizes[index]} borderless`"
                     closable
-                    ui="s"
-                    @close="handleClose(team)"
+                    @close="handleClose(`${sizes[index]}${item}`)"
                 >
-                    {{ team }}
+                    {{ item }}
                 </veui-tag>
+            </div>
+            <div>
                 <veui-tag
-                    ui="borderless"
+                    v-for="(item, index) in tags"
+                    :key="index"
+                    :ui="`${sizes[index]} borderless ellipse`"
                     closable
-                >borderless</veui-tag>
+                    @close="handleClose(`${sizes[index]}${item}`)"
+                >
+                    {{ item }}
+                </veui-tag>
             </div>
         </section>
 
@@ -107,7 +138,7 @@
                     selectable
                 >borderless</veui-tag>
             </div>
-            <div style="margin-top: 20px">
+            <div>
                 <veui-tag
                     v-for="type in types"
                     :key="type"
@@ -133,10 +164,9 @@ export default {
     },
     data() {
         return {
-            teams: ['湖人', '火箭', '猛龙', '马刺', '勇士'],
-            teams2: ['湖人', '火箭', '猛龙', '马刺', '勇士'],
+            tags: ['标签', '标签', '标签', '标签'],
             types: ['default', 'info', 'success', 'warning', 'error'],
-            sizes: ['s', 'm', 'default'],
+            sizes: ['xs', 's', 'm', 'l'],
             selected: false
         };
     },
@@ -148,8 +178,30 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .veui-tag {
   margin-right: 15px;
+}
+section > div {
+    margin-bottom: 15px;
+}
+.tag-circle {
+    display: flex;
+    > div {
+        text-align: center;
+        width: 76px;
+    }
+    .default {
+        width: 76px;
+    }
+    .info {
+        width: 60px;
+    }
+    .success {
+        width: 90px;
+    }
+    .error {
+        width: 68px;
+    }
 }
 </style>

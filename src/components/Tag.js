@@ -14,9 +14,12 @@ config.defaults(
                 boolean: true
             },
             size: {
-                values: ['s', 'm'],
+                values: ['xs', 's', 'm', 'l'],
                 inherit: true,
                 default: 'm'
+            },
+            shape: {
+                values: ['ellipse', 'circle']
             }
         },
         parts: {
