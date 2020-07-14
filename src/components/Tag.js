@@ -19,7 +19,7 @@ config.defaults(
                 default: 'm'
             },
             shape: {
-                values: ['ellipse', 'circle']
+                values: ['rect', 'ellipse', 'circle']
             }
         },
         parts: {

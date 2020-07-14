@@ -3,6 +3,7 @@
         <h1><code>&lt;veui-tag&gt;</code></h1>
         <section>
             <h2>不同尺寸</h2>
+            <p>可选的 ui 尺寸属性值：xs / s / m / l（默认 m）</p>
             <div>
                 <veui-tag
                     v-for="size in sizes"
@@ -13,9 +14,10 @@
                 </veui-tag>
             </div>
         </section>
-
         <section>
-            <h2>不同样式</h2>
+            <h2>不同类型</h2>
+            <p>可选的 type 类型属性值：default / info / success / warning / error（默认 default）</p>
+            <p>无边框 ui 属性值： borderless</p>
             <div>
                 <veui-tag
                     v-for="type in types"
@@ -35,118 +37,85 @@
                     {{ type }}
                 </veui-tag>
             </div>
-            <div>
+        </section>
+        <section>
+            <h2>不同形状</h2>
+            <p>可选的 ui 形状属性值：rect / ellipse / circle（默认 rect）</p>
+            <div 
+                v-for="type in types"
+                :key="type">
                 <veui-tag
-                    v-for="type in types"
-                    :key="type"
+                    v-for="item in shape"
+                    :key="item"
                     :type="type"
-                    ui="borderless ellipse"
+                    :ui="item"
                 >
-                    {{ type }}
+                    {{ item === 'circle' ? '签' : item }}
                 </veui-tag>
             </div>
-            <div class="tag-circle">
-                <div
-                    v-for="type in types"
-                    :key="type"
-                    :class="type">
-                    <veui-tag
-                        :type="type"
-                        ui="borderless circle"
-                    >
-                        签
-                    </veui-tag>
-                </div>
-            </div>
-            
         </section>
-
         <section>
             <h2>可移除标签</h2>
+            <p>设置 closable 来使标签处于可移除状态</p>
             <div>
                 <veui-tag
-                    v-for="(item, index) in tags"
+                    v-for="(item, index) in sizes"
                     :key="index"
-                    :ui ="sizes[index]"
+                    :ui="item"
                     closable
-                    @close="handleClose(`${sizes[index]}${item}`)"
+                    @close="handleClose(`${item}`)"
                 >
-                    {{ item }}
+                    标签
                 </veui-tag>
             </div>
             <div>
                 <veui-tag
-                    v-for="(item, index) in tags"
+                    v-for="(item, index) in sizes"
                     :key="index"
-                    :ui="`${sizes[index]} borderless`"
+                    :ui="`${item} borderless`"
                     closable
-                    @close="handleClose(`${sizes[index]}${item}`)"
+                    @close="handleClose(`${item}`)"
                 >
-                    {{ item }}
+                    标签
                 </veui-tag>
             </div>
             <div>
                 <veui-tag
-                    v-for="(item, index) in tags"
+                    v-for="(item, index) in sizes"
                     :key="index"
-                    :ui="`${sizes[index]} borderless ellipse`"
+                    :ui="`${item} borderless ellipse`"
                     closable
-                    @close="handleClose(`${sizes[index]}${item}`)"
+                    @close="handleClose(`${item}`)"
                 >
-                    {{ item }}
+                    标签
                 </veui-tag>
             </div>
         </section>
-
         <section>
             <h2>选择性标签</h2>
+            <p>设置 selectable 来使标签处于可选择状态</p>
             <div>
                 <veui-tag
-                    v-for="type in types"
-                    :key="type"
-                    :type="type"
-                    :selected.sync="selected"
+                    v-for="(item, index) in sizes"
+                    :key="index"
+                    :ui="item"
                     selectable
                 >
-                    {{ type }}
+                    标签
                 </veui-tag>
-                <veui-tag
-                    ui="borderless"
-                    :selected.sync="selected"
-                    selectable
-                >borderless</veui-tag>
             </div>
         </section>
-
         <section>
             <h2>禁用标签</h2>
+            <p>设置 disabled 来使标签处于禁用状态</p>
             <div>
                 <veui-tag
-                    v-for="type in types"
-                    :key="type"
-                    :type="type"
-                    :selected.sync="selected"
+                    v-for="(item, index) in sizes"
+                    :key="index"
+                    :ui="item"
                     disabled
-                    selectable
                 >
-                    {{ type }}
-                </veui-tag>
-                <veui-tag
-                    ui="borderless"
-                    :selected.sync="selected"
-                    disabled
-                    selectable
-                >borderless</veui-tag>
-            </div>
-            <div>
-                <veui-tag
-                    v-for="type in types"
-                    :key="type"
-                    :type="type"
-                    disabled
-                    closable
-                >
-                    {{ type }}
+                    标签
                 </veui-tag>
             </div>
         </section>
@@ -164,9 +133,9 @@ export default {
     },
     data() {
         return {
-            tags: ['标签', '标签', '标签', '标签'],
             types: ['default', 'info', 'success', 'warning', 'error'],
             sizes: ['xs', 's', 'm', 'l'],
+            shape: ['rect', 'ellipse', 'circle'],
             selected: false
         };
     },
@@ -182,26 +151,13 @@ export default {
 .veui-tag {
   margin-right: 15px;
 }
-section > div {
-    margin-bottom: 15px;
-}
-.tag-circle {
-    display: flex;
+section {
     > div {
-        text-align: center;
-        width: 76px;
+        margin-bottom: 15px;
     }
-    .default {
-        width: 76px;
-    }
-    .info {
-        width: 60px;
-    }
-    .success {
-        width: 90px;
-    }
-    .error {
-        width: 68px;
+    > p {
+        margin-bottom: 10px;
+        color: #999999;
     }
 }
 </style>
