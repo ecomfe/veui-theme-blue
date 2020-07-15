@@ -1,7 +1,24 @@
 <template>
     <article>
         <h1><code>&lt;veui-checkbox-group&gt;</code></h1>
-        <p>
+        <h2>尺寸</h2>
+        <div class="options-memo">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
+        <h2>示例</h2>
+        <section>
+            <span class="title-memo">大样式</span>
+            <veui-checkbox-group
+                v-model="picked1"
+                :items="data1"
+                ui="l"
+            >
+                <template slot-scope="props">
+                    {{ props.label }}
+                </template>
+            </veui-checkbox-group>
+        </section>
+        <p>value: {{ picked1 }}</p>
+        <section>
+            <span class="title-memo">中样式</span>
             <veui-checkbox-group
                 v-model="picked1"
                 :items="data1"
@@ -10,9 +27,10 @@
                     {{ props.label }}
                 </template>
             </veui-checkbox-group>
-        </p>
+        </section>
         <p>value: {{ picked1 }}</p>
-        <p>
+        <section>
+            <span class="title-memo">小样式</span>
             <veui-checkbox-group
                 v-model="picked2"
                 :items="data2"
@@ -22,7 +40,7 @@
                     {{ props.label }}
                 </template>
             </veui-checkbox-group>
-        </p>
+        </section>
         <p>value: {{ picked2 }}</p>
     </article>
 </template>
@@ -71,3 +89,17 @@ export default {
     }
 };
 </script>
+<style lang="less" scoped>
+    section {
+        display: flex;
+        margin-top: 1em;
+    }
+    .title-memo {
+        margin-right: 20px;
+        display: inline-flex;
+        width: 80px;
+    }
+     p {
+        margin-left: 100px;
+     }
+</style>
