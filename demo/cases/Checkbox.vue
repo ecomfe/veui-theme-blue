@@ -3,7 +3,7 @@
         <h1><code>&lt;veui-checkbox&gt;</code></h1>
         <h2>普通复选</h2>
         <h2>尺寸</h2>
-        <div class="options-memo">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
         <section>
             <veui-checkbox
                 v-model="checked2"

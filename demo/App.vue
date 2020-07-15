@@ -252,7 +252,7 @@ main {
     height: ~'calc(100vh - @{console-height} - @{title-height})';
   }
 
-  .options-memo {
+  .options-desc {
     margin-bottom: 1em;
     .bg-gray-show {
         background-color: rgba(0, 0, 0, .03);
