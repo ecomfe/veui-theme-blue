@@ -1,6 +1,54 @@
 <template>
     <article>
         <h1><code>&lt;veui-button&gt;</code></h1>
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">normal / translucent / primary / strong</span></div>
+        <section>
+            <veui-button ui="normal">
+                风格
+            </veui-button>
+            <veui-button ui="translucent">
+                风格
+            </veui-button>
+            <veui-button ui="primary">
+                风格
+            </veui-button>
+            <veui-button ui="strong">
+                风格
+            </veui-button>
+        </section>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m / l / xl</span></div>
+        <section>
+            <veui-button ui="xs">
+                尺寸
+            </veui-button>
+            <veui-button ui="s">
+                尺寸
+            </veui-button>
+            <veui-button>
+                尺寸
+            </veui-button>
+            <veui-button ui="l">
+                尺寸
+            </veui-button>
+            <veui-button ui="xl">
+                尺寸
+            </veui-button>
+        </section>
+        <h2>形状</h2>
+        <div class="options-desc">可选的形状 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">text / icon / square</span> 后两者建议搭配图标使用。</div>
+        <section>
+            <veui-button ui="text">
+                形状
+            </veui-button>
+            <veui-button ui="icon">
+                <veui-icon name="search"/>
+            </veui-button>
+            <veui-button ui="square">
+                <veui-icon name="search"/>
+            </veui-button>
+        </section>  
         <h2>普通按钮</h2>
         <section>
             <span class="title-memo">普通按钮</span>

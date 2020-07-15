@@ -1,18 +1,26 @@
 <template>
     <article>
         <h1><code>&lt;veui-checkbox&gt;</code></h1>
+        <h2>普通复选</h2>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
         <section>
-            <veui-checkbox>未绑定数据</veui-checkbox>
-      
-            <veui-checkbox :checked="false">
-                受控checked：永远为false
+            <veui-checkbox
+                v-model="checked2"
+                ui="l"
+            >
+                正常状态
             </veui-checkbox>
-      
-            <veui-checkbox :checked="true">
-                受控checked：永远为true
+            <veui-checkbox v-model="checked1">
+                正常状态
+            </veui-checkbox>
+            <veui-checkbox
+                v-model="checked2"
+                ui="s"
+            >
+                正常状态
             </veui-checkbox>
         </section>
-        <h2>普通复选</h2>
         <section>
             <veui-checkbox
                 v-model="current"
@@ -161,6 +169,17 @@
         </section>
 
         <section>
+            <veui-checkbox>未绑定数据</veui-checkbox>
+      
+            <veui-checkbox :checked="false">
+                受控checked：永远为false
+            </veui-checkbox>
+      
+            <veui-checkbox :checked="true">
+                受控checked：永远为true
+            </veui-checkbox>
+        </section>
+        <section>
             <veui-checkbox
                 :checked="checked13"
                 @change="checked13 = $event"
@@ -254,20 +273,20 @@ export default {
 </script>
 
 <style lang="less" scoped>
-section {
-  margin-bottom: 1em;
-  display: flex;
-   .title-memo {
-        margin-right: 20px;
-        display: inline-flex;
-        width: 120px;
+    section {
+    margin-bottom: 1em;
+    display: flex;
+    .title-memo {
+            margin-right: 20px;
+            display: inline-flex;
+            width: 120px;
+        }
+        .show-value {
+            align-items: center;
+        }
     }
-    .show-value {
-        align-items: center;
+    .veui-checkbox + .veui-button,
+    .veui-checkbox + .veui-checkbox {
+    margin-left: 20px;
     }
-}
-.veui-checkbox + .veui-button,
-.veui-checkbox + .veui-checkbox {
-  margin-left: 20px;
-}
 </style>

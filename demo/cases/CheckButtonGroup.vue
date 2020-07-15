@@ -1,12 +1,13 @@
 <template>
     <article>
         <h1><code>&lt;veui-check-button-group&gt;</code></h1>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
         <section>
             <veui-checkbox v-model="disabled">
                 禁用
             </veui-checkbox>
         </section>
-        <h2>加强样式</h2>
         <section>
             <span class="title-memo">大样式</span>
             <veui-check-button-group
@@ -144,5 +145,6 @@ export default {
     }
     p {
         margin-left: 100px;
+        margin-bottom: 1em;
     }
 </style>

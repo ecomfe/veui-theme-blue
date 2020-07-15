@@ -251,6 +251,15 @@ main {
   .console-expanded & {
     height: ~'calc(100vh - @{console-height} - @{title-height})';
   }
+
+  .options-desc {
+    margin-bottom: 1em;
+    .bg-gray-show {
+        background-color: rgba(0, 0, 0, .03);
+        border-radius: 4px;
+        padding: 0 5px;
+    }
+  }
 }
 
 #console {
