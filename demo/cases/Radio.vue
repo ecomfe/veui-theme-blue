@@ -88,6 +88,7 @@
         <section>
             <h3>单选组</h3>
             <p>
+                s:
                 <veui-radio
                     v-model="group"
                     ui="s"
@@ -96,6 +97,7 @@
                 >
                     A
                 </veui-radio>
+                m:
                 <veui-radio
                     v-model="group"
                     ui="m"
@@ -104,6 +106,7 @@
                 >
                     B
                 </veui-radio>
+                l:
                 <veui-radio
                     v-model="group"
                     ui="l"

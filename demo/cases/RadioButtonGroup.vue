@@ -8,10 +8,12 @@
         </section>
         <section>
             <p>
+                s:<br/>
                 <veui-radio-button-group
                     v-model="picked1"
                     :items="data1"
                     name="111"
+                    ui="s"
                     :disabled="disabled"
                 >
                     <template slot-scope="props">
@@ -23,11 +25,43 @@
         </section>
         <section>
             <p>
+                m:<br/>
                 <veui-radio-button-group
                     v-model="picked2"
                     :items="data2"
-                    ui="small alt"
-                    :disabled="disabled"
+                    ui="m"
+                    :disabled="disabled2"
+                >
+                    <template slot-scope="props">
+                        {{ props.label }}
+                    </template>
+                </veui-radio-button-group>
+            </p>
+            <p>已选：{{ picked2 }}</p>
+        </section>
+        <section>
+            <p>
+                l:<br/>
+                <veui-radio-button-group
+                    v-model="picked2"
+                    :items="data2"
+                    ui="l"
+                    :disabled="disabled2"
+                >
+                    <template slot-scope="props">
+                        {{ props.label }}
+                    </template>
+                </veui-radio-button-group>
+            </p>
+            <p>已选：{{ picked2 }}</p>
+        </section>
+        <section>
+            <p>
+                默认:<br/>
+                <veui-radio-button-group
+                    v-model="picked2"
+                    :items="data2"
+                    :disabled="disabled2"
                 >
                     <template slot-scope="props">
                         {{ props.label }}
@@ -53,6 +87,7 @@ export default {
             picked1: 'euro',
             picked2: 'qq',
             disabled: false,
+            disabled2: true,
             data1: [
                 {
                     value: 'pound',

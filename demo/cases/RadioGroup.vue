@@ -2,10 +2,12 @@
     <article>
         <h1><code>&lt;veui-radio-group&gt;</code></h1>
         <p>
+            s:
             <veui-radio-group
                 v-model="picked1"
                 :items="data1"
                 name="111"
+                ui="s"
             >
                 <template slot-scope="props">
                     {{ props.label }}
@@ -14,10 +16,24 @@
         </p>
         <p>value: {{ picked1 }}</p>
         <p>
+            m:
             <veui-radio-group
                 v-model="picked2"
                 :items="data2"
-                ui="s"
+                ui="m"
+            >
+                <template slot-scope="props">
+                    {{ props.label }}
+                </template>
+            </veui-radio-group>
+        </p>
+        <p>value: {{ picked2 }}</p>
+        <p>
+            l:
+            <veui-radio-group
+                v-model="picked2"
+                :items="data2"
+                ui="l"
             >
                 <template slot-scope="props">
                     {{ props.label }}
