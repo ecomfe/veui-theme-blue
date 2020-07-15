@@ -18,16 +18,33 @@
 
   .make-metrics(@size) {
     @height: ~"veui-tag-height-@{size}";
-    @radius: ~"veui-tag-border-radius-@{size}";
     @font-size: ~"veui-tag-font-size-@{size}";
 
     height: @@height;
-    border-radius: @@radius;
+    border-radius: @veui-border-radius-l;
     font-size: @@font-size;
+    &[ui~="ellipse"] {
+        border-radius: @@height;
+    }
+    &[ui~="circle"] {
+        width: @@height;
+        border-radius: 50%;
+        overflow: hidden;
+        justify-content: center;
+        padding: 0;
+    }
   }
-
+  &[ui~="xs"] {
+    .make-metrics(xs);
+  }
   &[ui~="s"] {
     .make-metrics(s);
+  }
+  &[ui~="m"] {
+    .make-metrics(m);
+  }
+  &[ui~="l"] {
+    .make-metrics(l);
   }
 
   &[ui~="borderless"]:not(.focus-visible) {
@@ -53,11 +70,8 @@
 
   &-selectable {
     cursor: pointer;
-
-    &:hover:not(.@{veui-prefix}-disabled) {
-      opacity: @veui-tag-opacity-hover;
-    }
   }
+  
 
   &.@{veui-prefix}-disabled {
     color: @veui-tag-font-color-disabled;
@@ -66,11 +80,6 @@
     .@{veui-prefix}-tag-close {
       cursor: not-allowed;
     }
-  }
-
-  &-default.@{veui-prefix}-disabled {
-    border-color: @veui-tag-border-color-disabled;
-    background-color: @veui-tag-background-color-disabled;
   }
 
   &.@{veui-prefix}-tag-selected {
@@ -88,6 +97,24 @@
     &.@{veui-prefix}-disabled {
       border-color: @veui-tag-border-color-selected-disabled;
       background-color: @veui-tag-background-color-selected-disabled;
+    }
+  }
+  &-default {
+    &.@{veui-prefix}-disabled {
+        border-color: @veui-tag-border-color-disabled;
+        background-color: @veui-tag-background-color-disabled;
+    }
+    &.@{veui-prefix}-tag-selectable {
+      &:hover:not(.@{veui-prefix}-disabled) {
+        color: @veui-tag-font-color-hover;
+        background-color: @veui-tag-background-color-hover;
+      }
+      &.@{veui-prefix}-tag-selected {
+        &:hover:not(.@{veui-prefix}-disabled) {
+            color: @veui-tag-font-color-selected;
+            background-color: @veui-tag-background-color-selected;
+        }
+      }
     }
   }
 
