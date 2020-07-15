@@ -2,168 +2,132 @@
     <article>
         <h1><code>&lt;veui-loading&gt;</code></h1>
         <div class="veui-loading-demo">
+            <h2>不同尺寸</h2>
+            <div class="options-desc">可选的尺寸 <b>ui</b> 属性值： <b>s / m / l（默认 m）</b></div>
             <section>
-                <h3>基础加载</h3>
-                <p>
-                    大尺寸：
-                    <veui-loading
-                        loading
-                        ui="l"
-                    />
-                </p>
-                <p>
-                    中等尺寸：
-                    <veui-loading
-                        loading
-                        ui="m"
-                    />
-                </p>
-                <p>
-                    小尺寸：
+                <div class="size-box">
                     <veui-loading
                         loading
                         ui="s"
                     />
-                </p>
-                <p>
-                    普通效果：
-                    <veui-loading
-                        loading
-                        ui="normal"
-                    />
-                </p>
-                <p>
-                    加强效果：
-                    <veui-loading
-                        loading
-                        ui="strong"
-                    />
-                </p>
-                <p>
-                    反白效果：
-                    <veui-loading
-                        loading
-                        ui="reverse"
-                        class="reverse"
-                    />
-                </p>
-            </section>
-            <section>
-                <h3>含辅助文案加载</h3>
-                <p>
-                    大尺寸：
-                    <veui-loading
-                        loading
-                        ui="l"
-                    >
-                        加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    中等尺寸：
                     <veui-loading
                         loading
                         ui="m"
-                    >
-                        加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    小尺寸：
+                    />
                     <veui-loading
                         loading
-                        ui="s"
-                    >
-                        加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    普通效果：
-                    <veui-loading
-                        loading
-                        ui="normal"
-                    >
-                        加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    加强效果：
-                    <veui-loading
-                        loading
-                        ui="strong"
-                    >
-                        加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    反白效果：
-                    <veui-loading
-                        loading
-                        ui="reverse"
-                        class="reverse"
-                    >
-                        加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    文字垂直显示：
-                    <veui-loading
-                        loading
-                        class="reverse"
-                        ui="reverse vertical"
-                    >
-                        加载中...
-                    </veui-loading>
-                </p>
+                        ui="l"
+                    />
+                </div>
             </section>
-            <section>
-                <h3>自定义加载图标</h3>
-                <p>
-                    自定义图标-星星：
-                    <veui-loading
-                        loading
-                        ui="strong"
-                    >
-                        <template slot="spinner">
-                            <veui-icon
-                                spin
-                                name="star"
-                            />
-                        </template>
-                        拼命加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    自定义图标-太阳：
-                    <veui-loading loading>
-                        <template slot="spinner">
-                            <veui-icon
-                                spin
-                                name="sun"
-                            />
-                        </template>
-                        拼命加载中...
-                    </veui-loading>
-                </p>
-                <p>
-                    自定义图标-雨伞：
-                    <veui-loading
-                        loading
-                        ui="reverse"
-                        class="reverse"
-                    >
-                        <template slot="spinner">
-                            <veui-icon
-                                spin
-                                name="umbrella"
-                            />
-                        </template>
-                        拼命加载中...
-                    </veui-loading>
-                </p>
+            <h2>基础加载</h2>
+            <div class="options-desc">可选的加载 <b>ui</b> 属性值： <b>normal / strong / reverse（默认 normal）</b></div>
+            <section class="wrap">
+                <div>
+                    普通加载
+                    <p>
+                        <veui-loading
+                            loading
+                            ui="normal"
+                        />
+                    </p>
+                </div>
+                <div>
+                    加强加载
+                    <p>
+                        <veui-loading
+                            loading
+                            ui="strong"
+                        />
+                    </p>
+                </div>
+                <div>
+                    反白加载
+                    <p>
+                        <veui-loading
+                            loading
+                            ui="reverse"
+                            class="reverse"
+                        />
+                    </p>
+                </div>
             </section>
+            <h2>含辅助文案加载</h2>
+            <div class="options-desc">可选的方向 <b>ui</b> 属性值： <b>vertical</b></div>
+            <section class="wrap">
+                <div>
+                    <veui-loading
+                        loading
+                    >
+                        正在加载中...
+                    </veui-loading>
+                </div>
+                <div>
+                    文字垂直显示
+                    <p style="padding: 10px;">
+                        <veui-loading
+                            loading
+                            ui="vertical"
+                        >
+                            正在加载中...
+                        </veui-loading>
+                    </p>
+                </div>
+            </section>
+            <h2>自定义加载图标</h2>
+            <section class="wrap">
+                <div>
+                    自定义图标-星星
+                    <p>
+                        <veui-loading
+                            loading
+                            ui="strong"
+                        >
+                            <template slot="spinner">
+                                <veui-icon
+                                    spin
+                                    name="star"
+                                />
+                            </template>
+                            拼命加载中...
+                        </veui-loading>
+                    </p>
+                </div>
+                <div>
+                    自定义图标-太阳
+                    <p>
+                        <veui-loading loading>
+                            <template slot="spinner">
+                                <veui-icon
+                                    spin
+                                    name="sun"
+                                />
+                            </template>
+                            拼命加载中...
+                        </veui-loading>
+                    </p>
+                </div>
+                <div>
+                    自定义图标-雨伞
+                    <p>
+                        <veui-loading
+                            loading
+                            ui="reverse"
+                            class="reverse"
+                        >
+                            <template slot="spinner">
+                                <veui-icon
+                                    spin
+                                    name="umbrella"
+                                />
+                            </template>
+                            拼命加载中...
+                        </veui-loading>
+                    </p>
+                </div>
+            </section>
+            <h2>简单示例</h2>
             <section>
-                <h3>简单示例</h3>
                 <p>
                     MVP选票数：
                     <veui-loading :loading="loading">实时MVP选票数加载中...</veui-loading>
@@ -212,16 +176,32 @@ export default {
 </script>
 <style lang="less">
 .veui-loading-demo {
-  .reverse {
-    background: #ccc;
-    padding: 8px;
-  }
-  p {
-    display: flex;
-    line-height: 32px;
-  }
-  .veui-span {
-    margin-right: 15px;
-  }
+    .reverse {
+        background: rgba(0, 0, 0, .6);
+        padding: 8px;
+    }
+    p {
+        display: flex;
+        line-height: 32px;
+    }
+    .veui-span {
+        margin-right: 15px;
+    }
+    .size-box .veui-loading {
+        margin-right: 100px;
+    }
+    .wrap {
+        display: flex;
+        > div {
+            margin-right: 40px;
+            text-align: center;
+            p {
+                justify-content: center;
+            }
+            .veui-loading {
+                padding: 8px;
+            }
+        }
+    }
 }
 </style>

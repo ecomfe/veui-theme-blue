@@ -254,10 +254,15 @@ main {
 
   .options-desc {
     margin-bottom: 1em;
+    color: #999999;
+    b,
     .bg-gray-show {
         background-color: rgba(0, 0, 0, .03);
         border-radius: 4px;
         padding: 0 5px;
+    }
+    b {
+        font-weight: normal;
     }
   }
 }
