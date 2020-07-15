@@ -21,7 +21,6 @@
                 正常状态
             </veui-checkbox>
         </section>
-        <h2>示例</h2>
         <section>
             <veui-checkbox
                 v-model="current"

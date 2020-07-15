@@ -1,10 +1,8 @@
 <template>
     <article>
         <h1><code>&lt;veui-check-button-group&gt;</code></h1>
-        <h2>加强样式</h2>
         <h2>尺寸</h2>
         <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
-        <h2>示例</h2>
         <section>
             <veui-checkbox v-model="disabled">
                 禁用

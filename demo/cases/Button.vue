@@ -49,7 +49,6 @@
                 <veui-icon name="search"/>
             </veui-button>
         </section>  
-        <h2>示例</h2>
         <h2>普通按钮</h2>
         <section>
             <span class="title-memo">普通按钮</span>
