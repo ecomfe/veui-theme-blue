@@ -78,6 +78,7 @@
             </veui-switch>
         </section>
         <section>
+            xs:
             <veui-switch
                 v-model="value2"
                 :loading="loading"
@@ -92,6 +93,7 @@
                     {{on ? "开开开" : "开开关"}}
                 </template>
             </veui-switch>
+            s:
             <veui-switch
                 v-model="value2"
                 :loading="loading"
@@ -106,6 +108,7 @@
                     {{on ? "开" : "关"}}
                 </template>
             </veui-switch>
+            m:
             <veui-switch
                 v-model="value2"
                 :loading="loading"
