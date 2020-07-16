@@ -1,4 +1,4 @@
-# veui-theme-blue2
+# veui-theme-blue
 
 ## Project setup
 ```
