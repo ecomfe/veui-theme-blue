@@ -131,10 +131,6 @@
         padding: 0;
       }
 
-      &-input {
-        text-align: center;
-      }
-
       &-before,
       &-after {
         position: absolute;
@@ -157,6 +153,9 @@
       .@{veui-prefix}-input {
         &-main {
           border-radius: @veui-input-border-radius-xs;
+          .veui-input-input {
+            padding-left: veui-sum(@veui-number-input-height-xs, 12px);
+          }
         }
 
         &-before,
@@ -172,6 +171,9 @@
       .@{veui-prefix}-input {
         &-main {
           border-radius: @veui-input-border-radius-s;
+          .veui-input-input {
+            padding-left: veui-sum(@veui-number-input-height-s, 12px);
+          }
         }
 
         &-before,
@@ -187,6 +189,9 @@
       .@{veui-prefix}-input {
         &-main {
           border-radius: @veui-input-border-radius-m;
+          .veui-input-input {
+            padding-left: veui-sum(@veui-number-input-height-m, 12px);
+          }
         }
 
         &-before,

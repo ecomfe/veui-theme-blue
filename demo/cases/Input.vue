@@ -2,8 +2,56 @@
     <article>
         <h1><code>&lt;veui-input&gt;</code></h1>
         <veui-form>
+            <h2>尺寸</h2>
+            <div class="options-desc">
+                可选的尺寸 <span class="bg-gray-show">ui</span> 
+                属性值： <span class="bg-gray-show">xs / s / m / l</span>
+            </div>
+            <section class="five-sizes">
+                <veui-field
+                    ui="micro"
+                    label="超小号（xs）"
+                >
+                    <veui-input
+                        v-model="value"
+                        ui="xs"
+                        placeholder="xs"
+                        autofocus
+                    />
+                </veui-field>
+                <veui-field
+                    ui="tiny"
+                    label="小号（s）"
+                >
+                    <veui-input
+                        v-model="value"
+                        ui="s"
+                        placeholder="s"
+                    />
+                </veui-field>
+                <veui-field
+                    ui="small"
+                    label="中号（m）"
+                >
+                    <veui-input
+                        v-model="value"
+                        ui="m"
+                        placeholder="m"
+                    />
+                </veui-field>
+                <veui-field
+                    ui="large"
+                    label="大号（l）"
+                >
+                    <veui-input
+                        v-model="value"
+                        ui="l"
+                        placeholder="l"
+                    />
+                </veui-field>
+            </section>
             <section>
-                <h3>各种状态展示</h3>
+                <h2>各种状态展示</h2>
                 <veui-field label="默认状态">
                     <veui-input
                         v-model="value"
@@ -38,7 +86,7 @@
             </section>
 
             <section>
-                <h3>带有清空按钮的输入框</h3>
+                <h2>带有清空按钮的输入框</h2>
                 <section>
                     <veui-input
                         v-model="value"
@@ -49,7 +97,7 @@
             </section>
 
             <section>
-                <h3>密码输入框</h3>
+                <h2>密码输入框</h2>
                 <section>
                     <veui-input
                         v-model="value"
@@ -60,7 +108,7 @@
             </section>
 
             <section>
-                <h3>带有前缀/后缀的输入框</h3>
+                <h2>带有前缀/后缀的输入框</h2>
                 <section>
                     <veui-input>
                         <template slot="prepend"><veui-icon name="user-circle"/></template>
@@ -75,7 +123,7 @@
             </section>
 
             <section>
-                <h3>字数限制显示（不展示输入字符，需要手动隐藏）</h3>
+                <h2>字数限制显示（不展示输入字符，需要手动隐藏）</h2>
                 <section>
                     <veui-input
                         class="input-no-append"
@@ -84,51 +132,6 @@
                         strict
                     />
                 </section>
-            </section>
-
-            <section class="five-sizes">
-                <h3>4 种大小（XS、S、M、L）</h3>
-                <veui-field
-                    ui="micro"
-                    label="超小号（XS）"
-                >
-                    <veui-input
-                        v-model="value"
-                        ui="xs"
-                        :placeholder="placeholder"
-                        autofocus
-                    />
-                </veui-field>
-                <veui-field
-                    ui="tiny"
-                    label="小号（S）"
-                >
-                    <veui-input
-                        v-model="value"
-                        ui="s"
-                        :placeholder="placeholder"
-                    />
-                </veui-field>
-                <veui-field
-                    ui="small"
-                    label="中号（M）"
-                >
-                    <veui-input
-                        v-model="value"
-                        ui="m"
-                        :placeholder="placeholder"
-                    />
-                </veui-field>
-                <veui-field
-                    ui="large"
-                    label="大号（L）"
-                >
-                    <veui-input
-                        v-model="value"
-                        ui="l"
-                        :placeholder="placeholder"
-                    />
-                </veui-field>
             </section>
         </veui-form>
     </article>
@@ -244,7 +247,6 @@ section {
 .five-sizes {
   & /deep/ .veui-form-label {
     width: 60px;
-    color: #999;
   }
 }
 

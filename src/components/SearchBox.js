@@ -12,7 +12,7 @@ config.defaults(
         },
         ui: {
             style: {
-                values: ['normal', 'inline', 'strong'],
+                values: ['normal', 'strong'],
                 inherit: true
             },
             size: {
