@@ -17,10 +17,11 @@ config.defaults(
         ui: {
             size: {
                 values: ['xs', 's', 'm'],
-                inherit: true
+                inherit: true,
+                default: 'm'
             },
             style: {
-                values: ['basic']
+                values: ['normal']
             }
         }
     },

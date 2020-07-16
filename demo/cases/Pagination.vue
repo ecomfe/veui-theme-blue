@@ -1,37 +1,43 @@
 <template>
     <article>
         <h1><code>&lt;veui-pagination&gt;</code></h1>
-        todo: 等待其他同学完成button、select、input相关组件样式
+        <h3>UI可选值：</h3>
+        <div class="ui-desc">
+            size：xs(超小号)、s(小号)、m(默认，中号)
+        </div>
+        <div class="ui-desc">
+            style：normal(普通样式)
+        </div>
         <section>
-            <h2>基础分页[ui=basic]</h2>
+            <h2>基础分页[ui=normal]</h2>
             <section>
-                <span class="pagination-type">超小号（ui=xs）</span>
+                <span class="pagination-type">超小号[ui=xs]</span>
                 <veui-pagination
                     :page="page"
                     :total="total"
                     :page-sizes="pageSizes"
                     :to="to"
-                    ui="xs basic"
+                    ui="xs normal"
                     :page-size.sync="pageSize"
                 />
             </section>
 
             <section>
-                <span class="pagination-type">小号（ui=s）</span>
+                <span class="pagination-type">小号[ui=s]</span>
                 <veui-pagination
                     :page="page"
                     :total="total"
                     :to="to"
-                    ui="s basic"
+                    ui="s normal"
                 />
             </section>
 
             <section>
-                <span class="pagination-type">中号（ui=m）</span>
+                <span class="pagination-type">中号[ui=m]</span>
                 <veui-pagination
                     :page="page"
                     :total="total"
-                    ui="basic"
+                    ui="normal"
                     :to="to"
                 />
             </section>
@@ -40,7 +46,7 @@
         <section>
             <h2>含跳转分页</h2>
             <section>
-                <span class="pagination-type">超小号（ui=xs）</span>
+                <span class="pagination-type">超小号[ui=xs]</span>
                 <veui-pagination
                     :page="page"
                     :total="total"
@@ -53,7 +59,7 @@
             </section>
 
             <section>
-                <span class="pagination-type">小号（ui=s）</span>
+                <span class="pagination-type">小号[ui=s]</span>
                 <veui-pagination
                     :page="page"
                     :total="total"
@@ -64,7 +70,7 @@
             </section>
 
             <section>
-                <span class="pagination-type">中号（ui=m）</span>
+                <span class="pagination-type">中号[ui=m]</span>
                 <veui-pagination
                     :page="page"
                     :total="total"

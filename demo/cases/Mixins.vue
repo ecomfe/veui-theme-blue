@@ -2,7 +2,13 @@
     <section>
         <h1>Mixins混合函数</h1>
         <div class="var-module" v-for="(item, index) in settings" :key="`module_${index}`">
-            <div class="var-module-con" v-for="(childItem, childIndex) in item" :key="`son_module_${childIndex}`">
+            <div
+                class="var-module-con"
+                v-for="(childItem, childIndex) in item"
+                :key="`son_module_${childIndex}`"
+                v-clipboard:copy="childItem.desc"
+                v-clipboard:success="onCopy"
+                v-clipboard:error="onError">
                 <p class="var-module-con-text" :class="childItem.class">{{childItem.label}}</p>
                 <p class="var-module-con-desc">{{childItem.desc}}</p>
             </div>
@@ -103,6 +109,14 @@ export default {
         return {
             settings: Object.freeze(Settings)
         };
+    },
+    methods: {
+        onCopy: function (e) {
+            this.$toast.success(`已拷贝“${e.trigger.children[0].innerText}”到剪切板：${e.text}`);
+        },
+        onError: function (e) {
+            this.$toast.error('拷贝失败！');
+        }
     }
 };
 </script>

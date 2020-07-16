@@ -53,6 +53,7 @@ import Menu from './Menu';
 import Color from './Color';
 import Base from './Base';
 import Mixins from './Mixins';
+import UI from './UI';
 
 export default [
     {
@@ -69,6 +70,11 @@ export default [
         path: '/mixins',
         name: 'Mixins(var)',
         component: Mixins
+    },
+    {
+        path: '/ui',
+        name: 'UI(var)',
+        component: UI
     },
     {
         path: '/alert',
