@@ -1,103 +1,130 @@
 <template>
-    <article>
+    <article class="auto-complete-demo">
         <h1>
             <code>&lt;veui-autocomplete&gt;</code>
         </h1>
-        <section>
-            <h2>普通</h2>
-            <veui-autocomplete
-                v-model="inputValue"
-                :datasource="suggestions"
-            />
-        </section>
-        <section>
-            <h2>可清除</h2>
-            <veui-autocomplete
-                v-model="inputValue"
-                ui="s"
-                clearable
-                :datasource="suggestions"
-            />
-        </section>
-        <section>
-            <h2>禁用</h2>
-            <veui-autocomplete
-                v-model="inputValue"
-                ui="l"
-                :datasource="suggestions"
-                :suggest-trigger="['focus', 'input']"
-                disabled
-            />
-        </section>
-        <section>
-            <h2>只读</h2>
-            <veui-autocomplete
-                v-model="inputValue"
-                ui="xs"
-                :datasource="suggestions"
-                :suggest-trigger="['focus', 'input']"
-                readonly
-            />
-        </section>
-        <section>
-            <h2>错误</h2>
-            <veui-autocomplete
-                v-model="inputValue"
-                invalid
-                :datasource="suggestions"
-                :suggest-trigger="['focus', 'input']"
-            />
-        </section>
-        <section>
-            <h2>列表型数据，input 时下拉</h2>
-            <veui-autocomplete
-                v-model="value"
-                :datasource="suggestions"
-                placeholder="请输入"
-            />
-        </section>
-        <section>
-            <h2>树型数据，focus 时下拉</h2>
-            <veui-autocomplete
-                v-model="treeValue"
-                :datasource="treeSuggestions"
-                placeholder="请输入"
-                suggest-trigger="focus"
-            />
-        </section>
-        <section>
-            <h2>strict: 下拉关闭时，强制清除不匹配值</h2>
-            <veui-autocomplete
-                v-model="treeValue"
-                :datasource="treeSuggestions"
-                placeholder="请输入"
-                suggest-trigger="focus"
-                strict
-            />
-        </section>
-        <section>
-            <h2>当成非受控组件使用</h2>
-            <veui-autocomplete
-                :datasource="suggestions"
-                placeholder="请输入"
-                suggest-trigger="focus"
-                strict
-            />
-        </section>
-        <veui-button @click="value = 'male'">设置list->male</veui-button>
-        <veui-button @click="treeValue = 'male'">设置tree->male</veui-button>
-        <veui-button @click="switchDatasource">切换数据源</veui-button>
+        <veui-form>
+            <div class="options-desc">
+                可选的尺寸 <span class="bg-gray-show">ui</span> 
+                属性值： <span class="bg-gray-show">xs / s / m / l</span>
+            </div>
+            <section>
+                <veui-field
+                    ui="micro"
+                    label="超小号（xs）"
+                >
+                    <veui-autocomplete
+                        ui="xs"
+                        v-model="inputValue"
+                        :datasource="suggestions"
+                    />
+                </veui-field>
+                <veui-field
+                    ui="micro"
+                    label="小号（s）"
+                >
+                    <veui-autocomplete
+                        ui="s"
+                        v-model="inputValue"
+                        :datasource="suggestions"
+                    />
+                </veui-field>
+                <veui-field
+                    ui="micro"
+                    label="中号（m）"
+                >
+                    <veui-autocomplete
+                        ui="m"
+                        v-model="inputValue"
+                        :datasource="suggestions"
+                    />
+                </veui-field>
+                <veui-field
+                    ui="micro"
+                    label="大号（l）"
+                >
+                    <veui-autocomplete
+                        ui="l"
+                        v-model="inputValue"
+                        :datasource="suggestions"
+                    />
+                </veui-field>
+            </section>
+            <section>
+                <h2>可清除</h2>
+                <veui-autocomplete
+                    v-model="inputValue"
+                    clearable
+                    :datasource="suggestions"
+                />
+            </section>
+            <section>
+                <h2>禁用</h2>
+                <veui-autocomplete
+                    v-model="inputValue"
+                    :datasource="suggestions"
+                    :suggest-trigger="['focus', 'input']"
+                    disabled
+                />
+            </section>
+            <section>
+                <h2>只读</h2>
+                <veui-autocomplete
+                    v-model="inputValue"
+                    :datasource="suggestions"
+                    :suggest-trigger="['focus', 'input']"
+                    readonly
+                />
+            </section>
+            <section>
+                <h2>错误</h2>
+                <veui-autocomplete
+                    v-model="inputValue"
+                    invalid
+                    :datasource="suggestions"
+                    :suggest-trigger="['focus', 'input']"
+                />
+            </section>
+            <section>
+                <h2>列表型数据，input 时下拉</h2>
+                <veui-autocomplete
+                    v-model="value"
+                    :datasource="suggestions"
+                    placeholder="请输入"
+                />
+            </section>
+            <section>
+                <h2>树型数据，focus 时下拉</h2>
+                <veui-autocomplete
+                    v-model="treeValue"
+                    :datasource="treeSuggestions"
+                    placeholder="请输入"
+                    suggest-trigger="focus"
+                />
+            </section>
+            <section>
+                <h2>strict: 下拉关闭时，强制清除不匹配值</h2>
+                <veui-autocomplete
+                    v-model="treeValue"
+                    :datasource="treeSuggestions"
+                    placeholder="请输入"
+                    suggest-trigger="focus"
+                    strict
+                />
+            </section>
+        </veui-form>
     </article>
 </template>
 
 <script>
-import {Autocomplete, Button} from 'veui';
+import {Autocomplete, Form, Field} from 'veui';
 
 export default {
     name: 'autocomplete-demo',
     components: {
         'veui-autocomplete': Autocomplete,
-        'veui-button': Button
+        'veui-form': Form,
+        'veui-field': Field
     },
     data() {
         return {
@@ -147,3 +174,11 @@ export default {
     }
 };
 </script>
+<style lang="less">
+.auto-complete-demo {
+    .veui-field {
+        display: flex;
+        align-items: center;
+    }
+}
+</style>
