@@ -3,7 +3,7 @@
         <h1><code>&lt;veui-loading&gt;</code></h1>
         <div class="veui-loading-demo">
             <h2>不同尺寸</h2>
-            <div class="options-desc">可选的尺寸 <b>ui</b> 属性值： <b>s / m / l（默认 m）</b></div>
+            <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m / l（默认 m）</span></div>
             <section>
                 <div class="size-box">
                     <veui-loading
@@ -21,7 +21,7 @@
                 </div>
             </section>
             <h2>基础加载</h2>
-            <div class="options-desc">可选的加载 <b>ui</b> 属性值： <b>normal / strong / reverse（默认 normal）</b></div>
+            <div class="options-desc">可选的加载 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">normal / strong / reverse（默认 normal）</span></div>
             <section class="wrap">
                 <div>
                     普通加载
@@ -53,7 +53,7 @@
                 </div>
             </section>
             <h2>含辅助文案加载</h2>
-            <div class="options-desc">可选的方向 <b>ui</b> 属性值： <b>vertical</b></div>
+            <div class="options-desc">可选的方向 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">vertical</span></div>
             <section class="wrap">
                 <div>
                     <veui-loading
