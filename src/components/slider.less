@@ -30,16 +30,6 @@
         background-color: @veui-slider-track-color;
         cursor: pointer;
         .veui-transition(background-color);
-
-        &:hover {
-          background-color: @veui-slider-track-color-hover;
-
-          &
-            ~ .@{veui-prefix}-slider-track-default-marks
-            .@{veui-prefix}-slider-track-default-mark-out-progress {
-            background-color: @veui-slider-track-color-hover;
-          }
-        }
       }
 
       &-sp,
@@ -49,7 +39,7 @@
       }
 
       &-sp {
-        background-color: @veui-color-brand-8;
+        display: none;
       }
 
       &-fg {
@@ -225,7 +215,7 @@
     .slider-size(
       veui-line-height(@veui-line-height-m, @veui-slider-font-size-s),
       @veui-slider-track-width-s,
-      @veui-slider-track-border-radius-s,
+      @veui-slider-track-border-radius,
       @veui-slider-thumb-size-s,
       @veui-slider-mark-size-s,
       @veui-slider-thumb-dot-size-s
@@ -236,7 +226,7 @@
     .slider-size(
       veui-line-height(@veui-line-height-m, @veui-slider-font-size-m),
       @veui-slider-track-width-m,
-      @veui-slider-track-border-radius-m,
+      @veui-slider-track-border-radius,
       @veui-slider-thumb-size-m,
       @veui-slider-mark-size-m,
       @veui-slider-thumb-dot-size-m
@@ -244,6 +234,8 @@
   }
 
   &.@{veui-prefix}-readonly {
+    color: @veui-slider-font-color-read-only;
+
     .@{veui-prefix}-slider-track {
       &-default {
         &-bg,
