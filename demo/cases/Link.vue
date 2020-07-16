@@ -1,53 +1,80 @@
 <template>
     <article>
         <h1><code>&lt;veui-link&gt;</code></h1>
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格
+            <span class="bg-gray-show">ui</span> 属性值： 
+            <span class="bg-gray-show">normal / strong</span>
+        </div>
         <section>
-            <veui-link to="button">Button</veui-link>
-            &larr; default
             <veui-link
-                ui="s"
+                ui="normal"
                 to="button"
-            >Button</veui-link>
-            &larr; small
-            <veui-link
-                ui="m"
-                to="button"
-            >Button</veui-link>
-            &larr; middle
-        </section>
-        <section>
+            >normal to Button</veui-link>
             <veui-link
                 ui="strong"
                 to="button"
-            >Button</veui-link>
-            &larr; strong
+            >strong to Button</veui-link>
         </section>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 
+            <span class="bg-gray-show">ui</span> 属性值： 
+            <span class="bg-gray-show">s / m</span>
+        </div>
         <section>
             <veui-link
-                to="#/dialog"
-                native
-            >Dialog</veui-link>
-            &larr; <code>native</code>
-        </section>
-        <section>
+                ui="s"
+                to="button"
+            >尺寸 s</veui-link>
             <veui-link
+                ui="m"
+                to="button"
+            >尺寸 m</veui-link>
+        </section>
+        <h2>组合(s / m /m + disabled)</h2>
+        <section>
+            <span class="title-desc">普通样式</span>
+            <veui-link
+                ui="s normal"
                 to="https://www.baidu.com/"
                 native
                 target="_blank"
-                rel="next"
-            >Baidu.com</veui-link>
-            &larr; <code>native</code> &amp; <code>target="_blank"</code>
-        </section>
-        <section>
+            >www.baidu.com</veui-link>
             <veui-link
-                to="icon"
+                ui="m normal"
+                to="https://www.baidu.com/"
+                native
+                target="_blank"
+            >www.baidu.com</veui-link>
+            <veui-link
+                ui="m normal"
+                to="https://www.baidu.com/"
+                native
+                target="_blank"
                 disabled
-            >Icon</veui-link>
-            &larr; <code>disabled</code>
+            >www.baidu.com</veui-link>
         </section>
         <section>
-            <veui-link>Nowhere</veui-link> &larr; fallback to
-            <code>&lt;span&gt;</code>
+            <span class="title-desc">加强样式</span>
+            <veui-link
+                ui="s strong"
+                to="https://www.baidu.com/"
+                native
+                target="_blank"
+            >www.baidu.com</veui-link>
+            <veui-link
+                ui="m strong"
+                to="https://www.baidu.com/"
+                native
+                target="_blank"
+            >www.baidu.com</veui-link>
+            <veui-link
+                ui="m strong"
+                to="https://www.baidu.com/"
+                native
+                target="_blank"
+                disabled
+            >www.baidu.com</veui-link>
         </section>
     </article>
 </template>
@@ -66,5 +93,8 @@ export default {
 <style lang="less" scoped>
 section {
   margin-bottom: 10px;
+  .veui-link {
+    margin-right: 70px;
+  }
 }
 </style>
