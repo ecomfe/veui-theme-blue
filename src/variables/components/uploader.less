@@ -6,25 +6,40 @@
 /* Font size */
 @veui-uploader-font-size-s: @veui-font-size-s;
 @veui-uploader-font-size-m: @veui-font-size-m;
+@veui-uploader-font-size-l: @veui-font-size-l;
 
 // file button spacing with helper text
-@veui-uploader-helper-text-spacing-file: @veui-padding-unit * 2;
+@veui-uploader-helper-text-spacing-file-xs: @veui-padding-unit * 1;
+@veui-uploader-helper-text-spacing-file-s: @veui-padding-unit * 1;
+@veui-uploader-helper-text-spacing-file-m: @veui-padding-unit * 2;
+@veui-uploader-helper-text-spacing-file-l: @veui-padding-unit * 3;
+
 @veui-uploader-helper-text-spacing-image: @veui-padding-unit * 3;
 @veui-uploader-helper-text-font-color: @veui-font-color-weak;
 @veui-uploader-helper-text-max-width-image: 10em;
 
 //file button margin with list
-@veui-uploader-file-item-spacing-y: @veui-padding-unit * 3;
+@veui-uploader-file-item-spacing-y-xs: @veui-padding-unit * 1;
+@veui-uploader-file-item-spacing-y-s: @veui-padding-unit * 1;
+@veui-uploader-file-item-spacing-y-m: @veui-padding-unit * 2;
+@veui-uploader-file-item-spacing-y-l: @veui-padding-unit * 3;
 
 // file list item styles
 @veui-uploader-file-item-padding-x: @veui-padding-unit * 1;
 @veui-uploader-file-item-label-spacing-before: @veui-padding-unit * 1;
-@veui-uploader-file-item-label-spacing-after: @veui-padding-unit * 2;
+@veui-uploader-file-item-label-spacing-after: @veui-padding-unit * 3;
 @veui-uploader-file-item-width: @veui-height-unit * 64;
 @veui-uploader-file-item-height: @veui-height-unit * 5;
 @veui-uploader-file-item-background-color: transparent;
 @veui-uploader-file-item-background-color-hover: @veui-background-color-normal-hover;
 @veui-uploader-file-item-font-color: @veui-font-color-normal;
+@veui-uploader-file-item-disabled-icon: @veui-color-gray-4;
+@veui-uploader-file-item-list-icon: #D7DBE2;
+
+@veui-uploader-file-padding-x-xs: @veui-padding-unit * 3 - 1;
+@veui-uploader-file-padding-x-s: @veui-padding-unit * 4 - 1;
+@veui-uploader-file-padding-x-m: @veui-padding-unit * 4 - 1;
+@veui-uploader-file-padding-x-l: @veui-padding-unit * 4 - 1;
 
 // feedback
 @veui-uploader-error-color: @veui-color-error-6;
@@ -33,9 +48,11 @@
 // upload image
 @veui-uploader-image-height: @veui-height-unit * 30;
 @veui-uploader-image-width: @veui-uploader-image-height;
-@veui-uploader-image-icon-size: @veui-uploader-image-height / 3;
+@veui-uploader-image-icon-size: @veui-uploader-image-height / 3 - 1;
+@veui-uploader-image-icon-color: @veui-icon-color-aux-disabled;
 @veui-uploader-image-padding-x: @veui-padding-unit * 3;
-@veui-uploader-image-content-spacing: @veui-padding-unit * 2;
+@veui-uploader-image-content-spacing: @veui-padding-unit * 3;
+@veui-uploader-image-uploading-border-radius: @veui-border-radius-l;
 
 // See button for upload image button styles
 
@@ -44,7 +61,7 @@
 @veui-uploader-mask-icon-spacing: @veui-padding-unit * 3;
 @veui-uploader-mask-padding-y: @veui-padding-unit * 1;
 @veui-uploader-mask-padding-x: @veui-padding-unit * 3;
-@veui-uploader-mask-opacity: 0.6;
+@veui-uploader-mask-opacity: 0.4;
 
 // See whole view styles in dialog styles
 

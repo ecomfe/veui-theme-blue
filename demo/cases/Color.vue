@@ -7,13 +7,19 @@
                 <p class="title-type">{{item.type}}</p>    
             </div>
             <div class="color-module-con">
-                <div
-                    v-for="(childItem, childIndex) in item.data"
-                    :key="`color_${childIndex}`"
-                    :class="{'no-color-item': !item.label, 'color-item': item.label}"
-                    :style="{background: childItem}"
-                >
-                    {{childItem}}
+                <div class="color-container" v-for="(childItem, childIndex) in item.data" :key="`color_${childIndex}`">
+                    <div
+                        :class="{'no-color-item': !item.label, 'color-item': item.label}"
+                        :style="{background: childItem.color}"
+                        v-clipboard:copy="`veui-color-${childItem.desc}`"
+                        v-clipboard:success="onCopy"
+                        v-clipboard:error="onError"
+                    >
+                        <p>{{childItem.color}}</p>
+                    </div>
+                    <div class="desc-container">
+                        {{childItem.desc}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,32 +35,278 @@ const COLORS_DATA = [
     {
         label: '品牌色',
         type: 'brand',
-        data: ['#F2F5FF', '#DBE4FF', '#B8CBFF', '#94B2FF', '#709BFF', '#4C84FF', '#366CD9', '#2456B3', '#15418C', '#0A2D66']
+        data: [
+            {
+                color: '#F2F5FF',
+                desc: 'brand-1'
+            },
+            {
+                color: '#DBE4FF',
+                desc: 'brand-2'
+            },
+            {
+                color: '#B8CBFF',
+                desc: 'brand-3'
+            },
+            {
+                color: '#94B2FF',
+                desc: 'brand-4'
+            },
+            {
+                color: '#709BFF',
+                desc: 'brand-5'
+            },
+            {
+                color: '#4C84FF',
+                desc: 'brand-6'
+            },
+            {
+                color: '#366CD9',
+                desc: 'brand-7'
+            },
+            {
+                color: '#2456B3',
+                desc: 'brand-8'
+            },
+            {
+                color: '#15418C',
+                desc: 'brand-9'
+            },
+            {
+                color: '#0A2D66',
+                desc: 'brand-10'
+            }
+        ]
     },
     {
         label: '通知色',
         type: 'info',
-        data: ['#F2F5FF', '#DBE4FF', '#B8CBFF', '#94B2FF', '#709BFF', '#4C84FF', '#366CD9', '#2456B3', '#15418C', '#0A2D66']
+        data: [
+            {
+                color: '#F2F5FF',
+                desc: 'info-1'
+            },
+            {
+                color: '#DBE4FF',
+                desc: 'info-2'
+            },
+            {
+                color: '#B8CBFF',
+                desc: 'info-3'
+            },
+            {
+                color: '#94B2FF',
+                desc: 'info-4'
+            },
+            {
+                color: '#709BFF',
+                desc: 'info-5'
+            },
+            {
+                color: '#4C84FF',
+                desc: 'info-6'
+            },
+            {
+                color: '#366CD9',
+                desc: 'info-7'
+            },
+            {
+                color: '#2456B3',
+                desc: 'info-8'
+            },
+            {
+                color: '#15418C',
+                desc: 'info-9'
+            },
+            {
+                color: '#0A2D66',
+                desc: 'info-10'
+            }
+        ]
     },
     {
         label: '通过色',
         type: 'success',
-        data: ['#F2FFF4', '#D0F2D5', '#A5E6AE', '#7ED988', '#5ACC65', '#39BF45', '#26992E', '#17731C', '#0B4D0E', '#042604']
+        data: [
+            {
+                color: '#F2FFF4',
+                desc: 'success-1'
+            },
+            {
+                color: '#D0F2D5',
+                desc: 'success-2'
+            },
+            {
+                color: '#A5E6AE',
+                desc: 'success-3'
+            },
+            {
+                color: '#7ED988',
+                desc: 'success-4'
+            },
+            {
+                color: '#5ACC65',
+                desc: 'success-5'
+            },
+            {
+                color: '#39BF45',
+                desc: 'success-6'
+            },
+            {
+                color: '#26992E',
+                desc: 'success-7'
+            },
+            {
+                color: '#17731C',
+                desc: 'success-8'
+            },
+            {
+                color: '#0B4D0E',
+                desc: 'success-9'
+            },
+            {
+                color: '#042604',
+                desc: 'success-10'
+            }
+        ]
     },
     {
         label: '警示色',
         type: 'warning',
-        data: ['#FFF7F2', '#FFE8DB', '#FFD1B8', '#FFB894', '#FF9D70', '#F27C49', '#CC5E33', '#A64721', '#802E13', '#591C09']
+        data: [
+            {
+                color: '#FFF7F2',
+                desc: 'warning-1'
+            },
+            {
+                color: '#FFE8DB',
+                desc: 'warning-2'
+            },
+            {
+                color: '#FFD1B8',
+                desc: 'warning-3'
+            },
+            {
+                color: '#FFB894',
+                desc: 'warning-4'
+            },
+            {
+                color: '#FF9D70',
+                desc: 'warning-5'
+            },
+            {
+                color: '#F27C49',
+                desc: 'warning-6'
+            },
+            {
+                color: '#CC5E33',
+                desc: 'warning-7'
+            },
+            {
+                color: '#A64721',
+                desc: 'warning-8'
+            },
+            {
+                color: '#802E13',
+                desc: 'warning-9'
+            },
+            {
+                color: '#591C09',
+                desc: 'warning-10'
+            }
+        ]
     },
     {
         label: '错误色',
         type: 'error',
-        data: ['#FFF2F2', '#FFDBDC', '#FFB8BA', '#FF9499', '#F26B74', '#E64552', '#BF303E', '#991F2D', '#73111E', '#4D0812']
+        data: [
+            {
+                color: '#FFF2F2',
+                desc: 'error-1'
+            },
+            {
+                color: '#FFDBDC',
+                desc: 'error-2'
+            },
+            {
+                color: '#FFB8BA',
+                desc: 'error-3'
+            },
+            {
+                color: '#FF9499',
+                desc: 'error-4'
+            },
+            {
+                color: '#F26B74',
+                desc: 'error-5'
+            },
+            {
+                color: '#E64552',
+                desc: 'error-6'
+            },
+            {
+                color: '#BF303E',
+                desc: 'error-7'
+            },
+            {
+                color: '#991F2D',
+                desc: 'error-8'
+            },
+            {
+                color: '#73111E',
+                desc: 'error-9'
+            },
+            {
+                color: '#4D0812',
+                desc: 'error-10'
+            }
+        ]
     },
     {
         label: '中性色',
         type: 'gray',
-        data: ['#FFFFFF', '#FAFAFA', '#F5F5F5', '#EEEEEE', '#E0E0E0', '#CCCCCC', '#999999', '#666666', '#333333', '#000000']
+        data: [
+            {
+                color: '#FFFFFF',
+                desc: 'gray-1'
+            },
+            {
+                color: '#FAFAFA',
+                desc: 'gray-2'
+            },
+            {
+                color: '#F5F5F5',
+                desc: 'gray-3'
+            },
+            {
+                color: '#EEEEEE',
+                desc: 'gray-4'
+            },
+            {
+                color: '#E0E0E0',
+                desc: 'gray-5'
+            },
+            {
+                color: '#CCCCCC',
+                desc: 'gray-6'
+            },
+            {
+                color: '#999999',
+                desc: 'gray-7'
+            },
+            {
+                color: '#666666',
+                desc: 'gray-8'
+            },
+            {
+                color: '#333333',
+                desc: 'gray-9'
+            },
+            {
+                color: '#000000',
+                desc: 'gray-10'
+            }
+        ]
     }
 ];
 export default {
@@ -63,6 +315,16 @@ export default {
         return {
             colors: Object.freeze(COLORS_DATA)
         };
+    },
+    methods: {
+        onCopy: function (e) {
+            console.log(e, 'dddd');
+            let title = e.trigger.parentNode.parentNode.children[0].innerText;
+            this.$toast.success(`已拷贝“${e.trigger.textContent}”到剪切板：${e.text}`);
+        },
+        onError: function (e) {
+            this.$toast.error('拷贝失败！');
+        }
     }
 };
 </script>
@@ -92,6 +354,22 @@ export default {
             text-align: center;
             color: @veui-color-gray-9;
         }
+        .desc-container {
+            display: flex;
+            font-size: @veui-font-size-s;
+        }
+        .color-container {
+            &:nth-child(-n + 5) {
+                .color-item {
+                    color: @veui-color-gray-9;
+                }
+            }
+            &:nth-child(n + 6) {
+                .color-item {
+                    color: @veui-color-gray-1;
+                }
+            }
+        }
         .color-item {
             display: flex;
             justify-content: center;
@@ -102,12 +380,6 @@ export default {
             height: 80px;
             font-size: @veui-font-size-s;
             cursor: pointer;
-            &:nth-child(-n + 5) {
-                color: @veui-color-gray-9;
-            }
-            &:nth-child(n + 6) {
-                color: @veui-color-gray-1;
-            }
             &:hover {
                 transition: all .3s ease;
                 transform: scale(1.1);

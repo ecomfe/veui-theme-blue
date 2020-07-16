@@ -1,0 +1,187 @@
+/*
+* @file common.less
+* @desc 公共样式文件
+*/
+@import 'veui-theme-blue/common.less';
+.var-module {
+    display: flex;
+    margin-bottom: 16px;
+    &-con {
+        margin-right: 20px;
+        color: @veui-font-color-normal;
+        flex-shrink: 0;
+        cursor: pointer;
+        &:first-child {
+            min-width: 90px;
+            flex-shrink: 0;
+        }
+        border: 1px solid transparent;
+        padding: 4px;
+        &:not(:first-child) {
+            min-width: 160px;
+            &:hover {
+                border-radius: @veui-border-radius-s;
+                .veui-focus-ring();
+                .veui-transition(border-color);
+            }
+        }
+        &-text {
+            height: 24px;
+            line-height: 24px;
+            font-size: @veui-font-size-m;
+            &.var-module-con-title {
+                font-size: @veui-font-size-l;
+                font-weight: @veui-font-weight-2;
+            }
+        }
+        &-desc {
+            color: @veui-font-color-aux;
+            font-size: @veui-font-size-s;
+        }
+    }
+    .font-size-small {
+        font-size: @veui-font-size-s;
+    }
+    .font-size-normal {
+        font-size: @veui-font-size-m;
+    }
+    .font-size-large {
+        font-size: @veui-font-size-l;
+    }
+    .font-weight-normal {
+        font-weight: @veui-font-weight-1;
+    }
+    .font-weight-bold {
+        font-weight: @veui-font-weight-2;
+    }
+    .font-weight-extra-bold {
+        font-weight: @veui-font-weight-3;
+    }
+    .font-color-title {
+        color: @veui-font-color-strong;
+    }
+    .font-color-main {
+        color: @veui-font-color-normal;
+    }
+    .font-color-aux {
+        color: @veui-font-color-aux;
+    }
+    .font-color-guide {
+        color: @veui-font-color-weak;
+    }
+    .font-color-disabled {
+        color: @veui-font-color-disabled;
+    }
+    .font-color-error {
+        color: @veui-font-color-error;
+    }
+    .font-color-highlighted {
+        color: @veui-font-color-highlighted;
+    }
+    .border-color-normal {
+        border: 1px solid @veui-border-color-normal;
+    }
+    .border-color-normal-hover {
+        border: 1px solid @veui-border-color-normal-hover;
+    }
+    .border-color-strong {
+        border: 1px solid @veui-border-color-strong;
+    }
+    .border-color-strong-hover {
+        border: 1px solid @veui-border-color-strong-hover;
+    }
+    .border-color-focus {
+        border: 1px solid @veui-border-color-focus;
+    }
+    .border-color-error {
+        border: 1px solid @veui-border-color-error;
+    }
+    .border-color-disabled {
+        border: 1px solid @veui-border-color-disabled;
+    }
+    .disabled-fill-color {
+        background: @veui-disabled-fill-color;
+    }
+    .tag-fill-color {
+        background: @veui-tag-fill-color;
+    }
+    .line-height-normal {
+        height: auto;
+        line-height: @veui-line-height-m;
+        background: @veui-tag-fill-color;
+    }
+    .line-height-large {
+        height: auto;
+        line-height: @veui-line-height-l;
+        background: @veui-tag-fill-color;
+    }
+    .height-xs {
+        height: @veui-height-xs;
+    }
+    .height-s {
+        height: @veui-height-s;
+    }
+    .height-m {
+        height: @veui-height-m;
+    }
+    .height-l {
+        height: @veui-height-l;
+    }
+    .height-xl {
+        height: @veui-height-xl;
+    }
+    .shadow {
+        box-shadow: @veui-shadow;
+    }
+    .shadow-focus {
+        .veui-focus-ring();
+    }
+    .shadow-error-focus {
+        .veui-focus-ring(@veui-border-color-error, @veui-shadow-error-focus);
+    }
+    .shadow-anchored-top {
+        box-shadow: @veui-shadow-anchored-top;
+    }
+    .shadow-anchored-bottom {
+        box-shadow: @veui-shadow-anchored-bottom;
+    }
+    .shadow-anchored-left {
+        box-shadow: @veui-shadow-anchored-left;
+    }
+    .shadow-anchored-right {
+        box-shadow: @veui-shadow-anchored-right;
+    }
+    .shadow-overflow-top {
+        box-shadow: @veui-shadow-overflow-top;
+    }
+    .shadow-overflow-bottom {
+        box-shadow: @veui-shadow-overflow-bottom;
+    }
+    .shadow-overflow-left {
+        box-shadow: @veui-shadow-overflow-left;
+    }
+    .shadow-overflow-right {
+        box-shadow: @veui-shadow-overflow-right;
+    }
+    .border-radius-s {
+        border-radius: @veui-border-radius-s;
+    }
+    .border-radius-m {
+        border-radius: @veui-border-radius-m;
+    }
+    .border-radius-l {
+        border-radius: @veui-border-radius-l;
+    }
+    .background-color {
+        background: @veui-background-color-normal;
+    }
+    .background-color-hover {
+        background: @veui-background-color-normal-hover;
+    }
+    .background-color-focus {
+        background: @veui-background-color-normal-focus;
+    }
+    .background-color-disabled {
+        background: @veui-background-color-disabled;
+    }
+}

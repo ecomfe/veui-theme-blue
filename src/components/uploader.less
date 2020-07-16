@@ -3,256 +3,291 @@
 @import "../variables/components/button.less";
 
 .@{veui-prefix}-uploader {
-  display: flex;
-  outline: none;
-  font-size: @veui-uploader-font-size-m;
-
-  .@{veui-prefix}-icon {
-    color: @veui-uploader-file-item-font-color;
-  }
-
-  .@{veui-prefix}-disabled .@{veui-prefix}-icon {
-    color: currentColor;
-  }
-
-  &-file {
-    flex-direction: column;
-  }
-
-  &-button-container {
     display: flex;
-    position: relative;
-    overflow: hidden;
-    align-items: center;
-  }
+    outline: none;
+    font-size: @veui-uploader-font-size-m;
 
-  &-input-label-image {
-    display: flex;
-    .absolute(-1px);
-    border-style: none;
-    line-height: inherit;
-    border-radius: inherit;
     .@{veui-prefix}-icon {
-      .veui-icon-size(@veui-uploader-image-icon-size);
-      margin: 0;
-    }
-  }
-
-  &-list-image-container-upload > &-input-label-image {
-    border-style: solid;
-  }
-
-  &-list,
-  &-list-image {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    &-item {
-      position: relative;
-      .veui-transition(transform, opacity);
+        color: @veui-uploader-file-item-font-color;
     }
 
-    .@{veui-prefix}-uploader-success-icon {
-      color: @veui-uploader-success-color;
-    }
-    .@{veui-prefix}-uploader-failure-icon {
-      color: @veui-uploader-error-color;
+    .@{veui-prefix}-disabled .@{veui-prefix}-icon {
+        color: @veui-uploader-file-item-disabled-icon;
     }
 
-    &-enter,
-    &-leave-to {
-      opacity: 0;
-    }
-    &-leave-active {
-      position: absolute;
-    }
-  }
-
-  &-list {
-    &-item {
-      margin: @veui-uploader-file-item-spacing-y 0;
-      width: @veui-uploader-file-item-width;
-    }
-
-    &-container {
-      display: flex;
-      align-items: center;
-      position: relative;
-      background-color: @veui-uploader-file-item-background-color;
-      .veui-transition(background-color);
-      padding: 0 @veui-uploader-file-item-padding-x;
-    }
-
-    .@{veui-prefix}-uploader-success-icon,
-    .@{veui-prefix}-uploader-failure-icon {
-      margin-left: auto;
-    }
-
-    &-container:hover {
-      background-color: @veui-uploader-file-item-background-color-hover;
-
-      .@{veui-prefix}-uploader-list-remove {
-        display: inline-flex;
-      }
-
-      .@{veui-prefix}-uploader-success-icon,
-      .@{veui-prefix}-uploader-failure-icon {
-        display: none;
-      }
-    }
-
-    &-name {
-      .ellipsis();
-      margin: 0 @veui-uploader-file-item-label-spacing-after 0
-        @veui-uploader-file-item-label-spacing-before;
-    }
-    &-name-failure {
-      color: @veui-uploader-error-color;
-    }
-    .@{veui-prefix}-icon&-file-icon-failure {
-      color: @veui-uploader-error-color;
-    }
-
-    .@{veui-prefix}-button&-remove {
-      margin-left: auto;
-      display: none;
-    }
-
-    .@{veui-prefix}-progress {
-      .absolute(
-        _,
-        @veui-uploader-file-item-padding-x,
-        -@veui-uploader-file-item-spacing-y / 2,
-        @veui-uploader-file-item-padding-x
-      );
-      transform: translateY(50%);
-    }
-    .@{veui-prefix}-progress .@{veui-prefix}-progress-rail {
-      width: 100%;
-    }
-  }
-  &-list-image {
-    margin: -@veui-uploader-image-spacing-y 0 0 -@veui-uploader-image-spacing-x;
-    &-item {
-      display: inline-block;
-      vertical-align: top;
-      margin: @veui-uploader-image-spacing-y 0 0 @veui-uploader-image-spacing-x;
-
-      &-hidden {
-        opacity: 0;
-        position: absolute;
-        z-index: -1;
-      }
-    }
-    &-container {
-      display: flex;
-      .size(@veui-uploader-image-width, @veui-uploader-image-height);
-      position: relative;
-      border-radius: @veui-button-border-radius-m;
-      border: 1px solid @veui-button-border-color-normal;
-      &-image {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        .veui-position-center();
-      }
-    }
-    &-container:not(&-container-upload) {
-      overflow: hidden;
-    }
-    &-container:hover &-mask {
-      opacity: 1;
-    }
-    &-container-uploading {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0 @veui-uploader-image-padding-x;
-      &-text {
-        margin: 0;
-      }
-      .@{veui-prefix}-progress {
-        width: 100%;
-        height: auto;
-        margin-top: @veui-uploader-image-content-spacing;
-      }
-    }
-    &-container-failure {
-      flex-direction: column;
-      border-color: @veui-uploader-error-color;
-
-      .@{veui-prefix}-uploader-input-label-image {
+    &-file {
         flex-direction: column;
-        justify-content: center;
-        bottom: veui-sum(
-          @veui-uploader-mask-padding-y * 2,
-          @veui-icon-size-minor,
-          -1px
-        );
-      }
-      .@{veui-prefix}-uploader-list-image-file-name {
-        color: @veui-uploader-error-color;
-        max-width: ~"calc(100% - 2 * @{veui-uploader-image-padding-x})";
-        .ellipsis();
-        margin-top: @veui-uploader-image-error-spacing;
-      }
     }
-    &-mask {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      opacity: 0;
-      .veui-transition(opacity);
-      .absolute(_, 0, 0, 0);
-      background-color: fade(#000, @veui-uploader-mask-opacity * 100);
-      padding: @veui-uploader-mask-padding-y @veui-uploader-mask-padding-x;
-      .@{veui-prefix}-icon {
-        color: @veui-uploader-mask-icon-color;
-      }
-      .@{veui-prefix}-button + .@{veui-prefix}-button {
-        margin-left: @veui-uploader-mask-icon-spacing;
-      }
+
+    &-button-container {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+        .@{veui-prefix}-uploader-input-label {
+            padding: 0 @veui-uploader-file-padding-x-m;
+        }
     }
-    &-picker-before {
-      display: flex;
-      flex-wrap: wrap;
 
-      &-item-upload {
-        order: 0;
-      }
+    &-input-label-image {
+        display: flex;
+        .absolute(-1px);
+        border-style: none;
+        line-height: inherit;
+        border-radius: inherit;
+        .@{veui-prefix}-icon {
+            .veui-icon-size(@veui-uploader-image-icon-size);
+            color: @veui-uploader-image-icon-color;
+            margin: 0;
+        }
     }
-  }
 
-  &-preview-dialog {
-    &-image {
-      min-width: @veui-uploader-image-preview-min-width;
-      max-width: @veui-uploader-image-preview-max-width;
+    &-list-image-container-upload > &-input-label-image {
+        border-style: solid;
     }
-  }
 
-  &-desc {
-    color: @veui-uploader-helper-text-font-color;
-    margin-left: @veui-uploader-helper-text-spacing-file;
-  }
+    &-list,
+    &-list-image {
+        padding: 0;
+        margin: 0;
+        list-style: none;
 
-  &-image &-desc {
-    display: inline-flex;
-    align-items: center;
-    height: @veui-uploader-image-height;
-    margin-left: @veui-uploader-helper-text-spacing-image;
-    max-width: @veui-uploader-helper-text-max-width-image;
-  }
+        &-item {
+            position: relative;
+            .veui-transition(transform, opacity);
+        }
 
-  &[ui~="s"] {
-    font-size: @veui-uploader-font-size-s;
-    .@{veui-prefix}-uploader-list-image-container {
-      border-radius: @veui-button-border-radius-s;
+        .@{veui-prefix}-uploader-success-icon {
+            display: none;
+            // color: @veui-uploader-success-color;
+        }
+        .@{veui-prefix}-uploader-failure-icon {
+            display: none;
+            // color: @veui-uploader-error-color;
+        }
+
+        &-enter,
+        &-leave-to {
+            opacity: 0;
+        }
+        &-leave-active {
+            position: absolute;
+        }
     }
-  }
 
-  &-hide {
-    display: none;
-  }
+    &-list {
+        &-item {
+            margin: @veui-uploader-file-item-spacing-y-m 0;
+            width: @veui-uploader-file-item-width;
+        }
+
+        &-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            background-color: @veui-uploader-file-item-background-color;
+            .veui-transition(background-color);
+            padding: 0 @veui-uploader-file-item-padding-x;
+            .@{veui-prefix}-uploader-list-file-icon {
+                color: @veui-uploader-file-item-list-icon;
+            }
+        }
+
+        .@{veui-prefix}-uploader-success-icon,
+        .@{veui-prefix}-uploader-failure-icon {
+            margin-left: auto;
+        }
+
+        &-container:hover {
+            background-color: @veui-uploader-file-item-background-color-hover;
+
+            .@{veui-prefix}-uploader-list-remove {
+                display: inline-flex;
+            }
+
+            .@{veui-prefix}-uploader-success-icon,
+            .@{veui-prefix}-uploader-failure-icon {
+                display: none;
+            }
+        }
+
+        &-name {
+            .ellipsis();
+            margin: 0 @veui-uploader-file-item-label-spacing-after 0
+            @veui-uploader-file-item-label-spacing-before;
+        }
+        &-name-failure {
+            color: @veui-uploader-error-color;
+        }
+        .@{veui-prefix}-icon&-file-icon-failure {
+            color: @veui-uploader-error-color;
+        }
+
+        .@{veui-prefix}-button&-remove {
+            margin-left: auto;
+            display: none;
+        }
+
+        .@{veui-prefix}-progress {
+            display: none;
+        }
+    }
+    &-list-image {
+        margin: -@veui-uploader-image-spacing-y 0 0 -@veui-uploader-image-spacing-x;
+        &-item {
+            display: inline-block;
+            vertical-align: top;
+            margin: @veui-uploader-image-spacing-y 0 0 @veui-uploader-image-spacing-x;
+
+            &-hidden {
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+        }
+        &-container {
+            display: flex;
+            .size(@veui-uploader-image-width, @veui-uploader-image-height);
+            position: relative;
+            border-radius: @veui-button-border-radius-l;
+            border: 1px solid @veui-button-border-color-normal;
+            &-image {
+                width: auto;
+                height: auto;
+                max-width: 100%;
+                max-height: 100%;
+                .veui-position-center();
+            }
+        }
+        &-container:not(&-container-upload) {
+            overflow: hidden;
+        }
+        &-container:hover &-mask {
+            opacity: 1;
+        }
+        &-container-uploading {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 @veui-uploader-image-padding-x;
+            &-text {
+                margin: 0;
+            }
+            .@{veui-prefix}-progress {
+                width: 100%;
+                height: auto;
+                margin-top: @veui-uploader-image-content-spacing;
+                .@{veui-prefix}-progress-rail,
+                .@{veui-prefix}-progress-meter {
+                    border-radius: @veui-uploader-image-uploading-border-radius;
+                }
+            }
+        }
+        &-container-failure {
+            flex-direction: column;
+            border-color: @veui-uploader-error-color;
+
+            .@{veui-prefix}-uploader-input-label-image {
+                flex-direction: column;
+                justify-content: center;
+            }
+            .@{veui-prefix}-uploader-list-image-file-name {
+                display: none;
+            }
+        }
+        &-mask {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            opacity: 0;
+            .veui-transition(opacity);
+            .absolute(_, 0, 0, 0);
+            background-color: fade(#000, @veui-uploader-mask-opacity * 100);
+            padding: @veui-uploader-mask-padding-y @veui-uploader-mask-padding-x;
+            .@{veui-prefix}-icon {
+                color: @veui-uploader-mask-icon-color;
+            }
+            .@{veui-prefix}-button + .@{veui-prefix}-button {
+                margin-left: @veui-uploader-mask-icon-spacing;
+            }
+        }
+        &-picker-before {
+            display: flex;
+            flex-wrap: wrap;
+
+            &-item-upload {
+                order: 0;
+            }
+        }
+    }
+
+    &-preview-dialog {
+        &-image {
+            min-width: @veui-uploader-image-preview-min-width;
+            max-width: @veui-uploader-image-preview-max-width;
+        }
+    }
+
+    &-desc {
+        color: @veui-uploader-helper-text-font-color;
+        margin-top: @veui-uploader-helper-text-spacing-file-m;
+    }
+
+    &-image &-desc {
+        display: inline-flex;
+        align-items: center;
+        height: @veui-uploader-image-height;
+        margin-left: @veui-uploader-helper-text-spacing-image;
+        margin-top: 0;
+        max-width: @veui-uploader-helper-text-max-width-image;
+    }
+    &[ui~="xs"] {
+        font-size: @veui-uploader-font-size-s;
+        .@{veui-prefix}-uploader-button-container {
+            .@{veui-prefix}-uploader-input-label {
+                padding: 0 @veui-uploader-file-padding-x-xs;
+            }
+            .@{veui-prefix}-uploader-desc {
+                margin-top: @veui-uploader-helper-text-spacing-file-xs;
+            }
+        }
+        .@{veui-prefix}-uploader-list-item {
+            margin: @veui-uploader-file-item-spacing-y-xs 0;
+        }
+    }
+
+    &[ui~="s"] {
+        font-size: @veui-uploader-font-size-s;
+        .@{veui-prefix}-uploader-button-container {
+            .@{veui-prefix}-uploader-input-label {
+                padding: 0 @veui-uploader-file-padding-x-s;
+            }
+            .@{veui-prefix}-uploader-desc {
+                margin-top: @veui-uploader-helper-text-spacing-file-s;
+            }
+        }
+        .@{veui-prefix}-uploader-list-item {
+            margin: @veui-uploader-file-item-spacing-y-s 0;
+        }
+    }
+
+    &[ui~="l"] {
+        font-size: @veui-uploader-font-size-l;
+        .@{veui-prefix}-uploader-button-container {
+            .@{veui-prefix}-uploader-input-label {
+                padding: 0 @veui-uploader-file-padding-x-l;
+            }
+            .@{veui-prefix}-uploader-desc {
+                margin-top: @veui-uploader-helper-text-spacing-file-l;
+            }
+        }
+        .@{veui-prefix}-uploader-list-item {
+            margin: @veui-uploader-file-item-spacing-y-l 0;
+        }
+    }
+
+    &-hide {
+        display: none;
+    }
 }

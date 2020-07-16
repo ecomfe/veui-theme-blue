@@ -26,9 +26,12 @@ config.defaults(
         },
         ui: {
             size: {
-                values: ['m', 's'],
+                values: ['xs', 's', 'm', 'l'],
                 inherit: true,
                 default: 'm'
+            },
+            style: {
+                values: ['vertical', 'horizon']
             }
         },
         parts: {
