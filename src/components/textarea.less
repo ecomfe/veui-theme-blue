@@ -34,6 +34,10 @@
     &:hover {
       border-color: @veui-input-border-color-read-only-hover;
     }
+
+    & .@{veui-prefix}-textarea-input {
+      background-color: @veui-input-background-color-disabled;
+    }
   }
 
   &.@{veui-prefix}-disabled {
@@ -81,7 +85,7 @@
     position: relative;
     float: right;
     width: 100%;
-    padding: @veui-textarea-padding-y @veui-textarea-padding-x;
+    padding: 5px @veui-textarea-padding-x;
 
     // 和外部容器的高度保持一致
     height: inherit;
@@ -94,8 +98,7 @@
     resize: none;
   }
 
-  &-input,
-  &-measurer {
+  &-input {
     font: inherit;
   }
 
@@ -107,10 +110,6 @@
     height: auto;
   }
 
-  &-measurer + &-input {
-    max-width: ~"calc(100% - @{veui-height-m})";
-  }
-
   &-measurer {
     .absolute(0);
     overflow: hidden;
@@ -119,29 +118,6 @@
     color: @veui-font-color-weak;
 
     &-line {
-      &:first-child {
-        margin-top: @veui-textarea-padding-y;
-      }
-
-      &:last-child {
-        margin-bottom: @veui-textarea-padding-y;
-      }
-
-      &-number {
-        float: left;
-        position: relative;
-        min-width: @line-number-default-width;
-        text-align: center;
-
-        &::before {
-          content: "";
-          .absolute(-@veui-textarea-padding-y, 0, _, _);
-          .size(1px, 9999px);
-          background-color: @veui-separator-color-normal;
-          z-index: 2;
-        }
-      }
-
       &-content {
         .padding(_, @veui-textarea-padding-x);
         overflow: hidden;
@@ -167,44 +143,11 @@
     border-radius: @veui-textarea-count-border-radius;
     font-variant-numeric: tabular-nums;
     .veui-transition(background-color, color);
-
-    &-overflow {
-      background-color: @veui-textarea-count-background-color-error;
-      color: @veui-textarea-count-font-color-error;
-    }
   }
 
   &[ui~="s"] {
     font-size: @veui-textarea-font-size-s;
     min-height: @veui-textarea-height-s;
     border-radius: @veui-input-border-radius-s;
-  }
-
-  &-count-overlap &-input {
-    padding-bottom: veui-sum(
-      @veui-textarea-padding-y,
-      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-m)
-    );
-  }
-
-  &-count-overlap &-measurer-line:last-child {
-    margin-bottom: veui-sum(
-      @veui-textarea-padding-y,
-      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-m)
-    );
-  }
-
-  &-count-overlap[ui~="s"] &-input {
-    padding-bottom: veui-sum(
-      @veui-textarea-padding-y,
-      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-s)
-    );
-  }
-
-  &-count-overlap[ui~="s"] &-measurer-line:last-child {
-    margin-bottom: veui-sum(
-      @veui-textarea-padding-y,
-      veui-line-height(@veui-textarea-line-height, @veui-textarea-font-size-s)
-    );
   }
 }

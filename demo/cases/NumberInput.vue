@@ -1,11 +1,46 @@
 <template>
-    <article>
+    <article class="number-input-demo">
         <h1><code>&lt;veui-number-input&gt;</code></h1>
-        <section>
-            <veui-form>
+        <veui-form>
+            <h2>风格</h2>
+            <div class="options-desc">
+                可选的风格 <span class="bg-gray-show">ui</span> 
+                属性值： <span class="bg-gray-show">normal / strong</span>
+            </div>
+            <section>
                 <veui-field
-                    label="xs:"
-                    ui="xs"
+                    label="normal"
+                >
+                    <veui-number-input
+                        v-model="number"
+                        ui="normal"
+                    >
+                        <template slot="before">
+                            Value
+                        </template>
+                    </veui-number-input>
+                </veui-field>
+                <veui-field
+                    label="strong"
+                >
+                    <veui-number-input
+                        v-model="number"
+                        ui="strong"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
+                </veui-field>
+            </section>
+            <h2>尺寸</h2>
+            <div class="options-desc">
+                可选的尺寸 <span class="bg-gray-show">ui</span> 
+                属性值： <span class="bg-gray-show">xs / s / m</span>
+            </div>
+            <section>
+                <veui-field
+                    label="xs"
                 >
                     <veui-number-input
                         v-model="number"
@@ -15,126 +50,94 @@
                             Value:
                         </template>
                     </veui-number-input>
+                    <veui-number-input
+                        v-model="number"
+                        ui="xs strong"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
                 </veui-field>
                 <veui-field
-                    label="s:"
-                    ui="s"
-                    tip="精确到小数点后 1 位"
+                    label="s"
                 >
                     <veui-number-input
-                        v-model="number1"
+                        v-model="number"
                         ui="s"
-                        autofocus
-                        select-on-focus
-                        :decimal-place="1"
-                    />
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
+                    <veui-number-input
+                        v-model="number"
+                        ui="s strong"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
                 </veui-field>
                 <veui-field
-                    label="m:"
-                    tip="精确到小数点后 2 位"
+                    label="m"
+                    ui="m"
                 >
                     <veui-number-input
-                        v-model="number2"
-                        :decimal-place="2"
-                    />
-                </veui-field>
-                <veui-field
-                    label="Step 0.1:"
-                    tip="基准值每次加 0.1"
-                >
+                        v-model="number"
+                        ui="m"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
                     <veui-number-input
-                        v-model="number3"
-                        :step="0.1"
-                        :decimal-place="1"
-                    />
+                        v-model="number"
+                        ui="m strong"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
                 </veui-field>
-                <veui-field
-                    label="Step 10:"
-                    tip="基准值每次加 10"
-                >
-                    <veui-number-input
-                        v-model="number4"
-                        :step="10"
-                    />
-                </veui-field>
-                <veui-field
-                    label="DecimalPlace = -1:"
-                    tip="不处理精度问题"
-                >
-                    <veui-number-input
-                        v-model="number5"
-                        :decimal-place="-1"
-                    />
-                </veui-field>
-                <veui-field
-                    label="Max &amp;&amp; Min:"
-                    :rules="[{ name: 'min', value: -1 }]"
-                    tip="最大值不大于 10，最小值不小于 -1"
-                >
-                    <veui-number-input
-                        v-model="number6"
-                        :max="10"
-                        :min="-1"
-                    />
-                </veui-field>
-                <veui-field label="Readonly:">
-                    <veui-number-input
-                        v-model="number7"
-                        readonly
-                    />
-                </veui-field>
-                <veui-field
-                    label="Disabled:"
-                    disabled
-                >
-                    <veui-number-input v-model="number7"/>
-                </veui-field>
-                <veui-field label="Invalid:">
-                    <veui-number-input
-                        v-model="number7"
-                        invalid
-                    />
-                </veui-field>
-                <veui-field label="Strong:">
-                    <veui-number-input
-                        v-model="number8"
-                        ui="strong"
-                    />
-                </veui-field>
-                <veui-field label="Strong s:">
-                    <veui-number-input
-                        v-model="number8"
-                        ui="strong s"
-                    />
-                </veui-field>
-                <veui-field label="Strong xs:">
-                    <veui-number-input
-                        v-model="number8"
-                        ui="strong xs"
-                    />
-                </veui-field>
-                <veui-field label="Strong invalid:">
-                    <veui-number-input
-                        v-model="number8"
-                        ui="strong"
-                        invalid
-                    />
-                </veui-field>
-            </veui-form>
-        </section>
-
-        <section class="sdf">
-            <h3>单向数据流</h3>
-            <veui-form>
-                <veui-field label="Price：">
-                    <veui-number-input
-                        :value="number7"
-                        :min="0"
-                        @change="handlePriceChange"
-                    />
-                </veui-field>
-            </veui-form>
-        </section>
+            </section>
+            <section>
+                <h2>状态</h2>
+                <veui-form>
+                    <veui-field label="Readonly">
+                        <veui-number-input
+                            v-model="number7"
+                            readonly
+                        />
+                        <veui-number-input
+                            v-model="number8"
+                            ui="strong"
+                            readonly
+                        />
+                    </veui-field>
+                    <veui-field
+                        label="Disabled"
+                        disabled
+                    >
+                        <veui-number-input v-model="number7"/>
+                        <veui-number-input
+                            ui="strong"
+                            v-model="number7"/>
+                    </veui-field>
+                    <veui-field label="Invalid">
+                        <veui-number-input
+                            v-model="number7"
+                            invalid
+                        />
+                        <veui-number-input
+                            v-model="number8"
+                            ui="strong"
+                            invalid
+                        />
+                    </veui-field>
+                </veui-form>
+            </section>
+        </veui-form>
     </article>
 </template>
 
@@ -169,14 +172,22 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-.veui-form {
-  & /deep/ .veui-form-label {
-    width: 130px;
-    color: #999;
-  }
+<style lang="less">
+.number-input-demo {
+    .veui-form {
+        .veui-field {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .veui-form-label {
+            width: 130px;
+            color: #999;
+        }
+    }
+    .sdf {
+        margin-top: 60px;
+    }
 }
-.sdf {
-  margin-top: 60px;
-}
+
 </style>
