@@ -254,6 +254,7 @@ main {
 
   .options-desc {
     margin-bottom: 1em;
+    color: #999999;
     .bg-gray-show {
         background-color: rgba(0, 0, 0, .03);
         border-radius: 4px;
