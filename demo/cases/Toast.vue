@@ -4,7 +4,7 @@
             <code>&lt;veui-toast&gt;</code>
         </h1>
         <section>
-            <h3>全局提示</h3>
+            <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m (默认m)</span></div>
             <veui-button
                 ui="aux"
                 @click="showToast('all')"
