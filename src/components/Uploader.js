@@ -28,10 +28,11 @@ config.defaults(
             size: {
                 values: ['xs', 's', 'm', 'l'],
                 inherit: true,
-                default: 'm'
+                default: 's'
             },
             style: {
-                values: ['vertical', 'horizon']
+                values: ['vertical', 'horizon'],
+                default: 'vertical'
             }
         },
         parts: {

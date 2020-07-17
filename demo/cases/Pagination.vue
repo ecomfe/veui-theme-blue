@@ -1,15 +1,20 @@
 <template>
     <article>
         <h1><code>&lt;veui-pagination&gt;</code></h1>
-        <h3>UI可选值：</h3>
-        <div class="ui-desc">
-            size：xs(超小号)、s(小号)、m(默认，中号)
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">xs / s（默认，可不传） / m</span>
         </div>
-        <div class="ui-desc">
-            style：normal(普通样式)
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">normal / 不传则默认含跳转分页</span>
         </div>
         <section>
-            <h2>基础分页[ui=normal]</h2>
+            <h3>基础分页[ui=normal]</h3>
             <section>
                 <span class="pagination-type">超小号[ui=xs]</span>
                 <veui-pagination
@@ -44,7 +49,7 @@
         </section>
 
         <section>
-            <h2>含跳转分页</h2>
+            <h3>含跳转分页</h3>
             <section>
                 <span class="pagination-type">超小号[ui=xs]</span>
                 <veui-pagination
@@ -81,7 +86,7 @@
         </section>
 
         <section>
-            <h2>目标位置模板</h2>
+            <h3>目标位置模板</h3>
             <section>
                 <small>格式和 &lt;router-link&gt; 的 to prop 一样</small>
             </section>
@@ -95,7 +100,7 @@
         </section>
 
         <section>
-            <h2>原生跳转</h2>
+            <h3>原生跳转</h3>
             <section>
                 <veui-pagination
                     :page="page"
@@ -107,7 +112,7 @@
         </section>
 
         <section>
-            <h2>阻止跳转</h2>
+            <h3>阻止跳转</h3>
             <section>
                 <small>仅原生跳转可阻止已配置 <code>to</code> 的跳转</small>
             </section>
@@ -126,7 +131,7 @@
         </section>
 
         <section>
-            <h2>自定义事件处理</h2>
+            <h3>自定义事件处理</h3>
             <section>
                 <veui-pagination
                     :page="p"
@@ -137,7 +142,7 @@
         </section>
 
         <section>
-            <h2>没有数据时</h2>
+            <h3>没有数据时</h3>
             <section>
                 <veui-pagination
                     :page="1"
