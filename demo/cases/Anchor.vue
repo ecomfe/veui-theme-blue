@@ -1,6 +1,13 @@
 <template>
     <article class="anchor-demo">
         <h1><code>&lt;veui-anchor&gt;</code></h1>
+
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span> 属性值：
+            <span class="bg-gray-show">s / m</span>
+        </div>
+
         <div class="content-wrapper">
             <div class="line"/>
             <div
