@@ -51,7 +51,7 @@
         </section>  
         <h2>普通按钮</h2>
         <section>
-            <span class="title-memo">普通按钮</span>
+            <span class="title-desc">普通按钮</span>
             <veui-button ui="xs">
                 保存
             </veui-button>
@@ -75,7 +75,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">加强按钮</span>
+            <span class="title-desc">加强按钮</span>
             <veui-button ui="strong xs">
                 保存
             </veui-button>
@@ -105,7 +105,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">重要按钮</span>
+            <span class="title-desc">重要按钮</span>
             <veui-button ui="primary xs">
                 提交
             </veui-button>
@@ -135,7 +135,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">半透明按钮</span>
+            <span class="title-desc">半透明按钮</span>
             <veui-button ui="translucent xs">
                 取消
             </veui-button>
@@ -166,7 +166,7 @@
         </section>
         <h2>纯文字按钮</h2>
         <section>
-            <span class="title-memo">普通样式</span>
+            <span class="title-desc">普通样式</span>
             <veui-button ui="text xs">
                 编辑
             </veui-button>
@@ -196,7 +196,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">加强样式</span>
+            <span class="title-desc">加强样式</span>
             <veui-button ui="text strong xs">
                 编辑
             </veui-button>
@@ -228,7 +228,7 @@
       
         <h2>图标按钮</h2>
         <section>
-            <span class="title-memo">纯图标样式</span>
+            <span class="title-desc">纯图标样式</span>
             <veui-button ui="icon xs">
                 <veui-icon name="search"/>
             </veui-button>
@@ -256,7 +256,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">普通样式</span>
+            <span class="title-desc">普通样式</span>
             <veui-button ui="normal square xs">
                 <veui-icon name="search"/>
             </veui-button>
@@ -284,7 +284,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">加强样式</span>
+            <span class="title-desc">加强样式</span>
             <veui-button ui="strong square xs">
                 <veui-icon name="search"/>
             </veui-button>
@@ -312,7 +312,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">重要样式</span>
+            <span class="title-desc">重要样式</span>
             <veui-button ui="primary square xs">
                 <veui-icon name="search"/>
             </veui-button>
@@ -340,7 +340,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-memo">半透明样式</span>
+            <span class="title-desc">半透明样式</span>
             <veui-button ui="translucent square xs">
                 <veui-icon name="search"/>
             </veui-button>
@@ -369,7 +369,7 @@
         </section>
         <h2>图文按钮</h2>
         <section>
-            <span class="title-memo">普通样式</span>
+            <span class="title-desc">普通样式</span>
             <veui-button ui="xs"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="s"><veui-icon name="times"/>取消</veui-button>
             <veui-button><veui-icon name="times"/>取消</veui-button>
@@ -379,7 +379,7 @@
             <veui-button loading><veui-icon name="times"/>取消</veui-button>
         </section>
         <section>
-            <span class="title-memo">加强样式</span>
+            <span class="title-desc">加强样式</span>
             <veui-button ui="strong xs"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="strong s"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="strong"><veui-icon name="times"/>取消</veui-button>
@@ -389,7 +389,7 @@
             <veui-button loading><veui-icon name="times"/>取消</veui-button>
         </section>
         <section>
-            <span class="title-memo">重要样式</span>
+            <span class="title-desc">重要样式</span>
             <veui-button ui="primary xs"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="primary s"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="primary"><veui-icon name="times"/>取消</veui-button>
@@ -399,7 +399,7 @@
             <veui-button loading><veui-icon name="times"/>取消</veui-button>
         </section>
         <section>
-            <span class="title-memo">半透明样式</span>
+            <span class="title-desc">半透明样式</span>
             <veui-button ui="translucent xs"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="translucent s"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="translucent"><veui-icon name="times"/>取消</veui-button>
@@ -456,11 +456,6 @@ section {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-    .title-memo {
-        margin-right: 20px;
-        display: inline-flex;
-        width: 80px;
-    }
 }
 
 .dynamic {
