@@ -1,8 +1,14 @@
 <template>
     <article>
         <h1><code>&lt;veui-alert&gt;</code></h1>
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">normal / 不传则默认是含图标类警示</span>
+        </div>
         <section>
-            <h4>含图标、关闭、操作的警示（不传ui）</h4>
+            <h3>含图标、关闭、操作的警示[不传ui]</h3>
             <veui-alert
                 class="limit-width"
                 type="success"
@@ -109,7 +115,7 @@
             </veui-alert>
         </section>
         <section>
-            <h4>不带图标，不带关闭（ui="normal"）</h4>
+            <h3>不带图标，不带关闭[ui=normal]</h3>
             <veui-alert
                 type="success"
                 ui="normal"
@@ -216,7 +222,7 @@ export default {
 
 <style scoped>
 section {
-  margin: 30px;
+  margin: 30px 0;
 }
 
 .veui-alert {

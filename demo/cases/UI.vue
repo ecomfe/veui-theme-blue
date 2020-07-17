@@ -106,6 +106,16 @@ const Settings = [
             label: '椭圆',
             desc: 'ellipse',
             class: 'font-size-normal'
+        },
+        {
+            label: '图标',
+            desc: 'icon',
+            class: 'font-size-normal'
+        },
+        {
+            label: '文本',
+            desc: 'text',
+            class: 'font-size-normal'
         }
     ],
     [

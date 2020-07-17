@@ -249,7 +249,7 @@ main {
   .title-desc {
       margin-right: 20px;
       display: inline-flex;
-      width: 80px;
+      min-width: 80px;
   }
 }
 

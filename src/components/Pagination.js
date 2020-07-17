@@ -18,7 +18,7 @@ config.defaults(
             size: {
                 values: ['xs', 's', 'm'],
                 inherit: true,
-                default: 'm'
+                default: 's'
             },
             style: {
                 values: ['normal']
