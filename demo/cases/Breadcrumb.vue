@@ -1,55 +1,50 @@
 <template>
     <article>
         <h1><code>&lt;veui-breadcrumb&gt;</code></h1>
+        <h2>不同尺寸</h2>
+        <div class="options-desc">可选的尺寸 
+            <span class="bg-gray-show">ui</span> 属性值： 
+            <span class="bg-gray-show">s / m（默认 m）</span>
+        </div>
         <section>
-            <veui-button ui="m" @click="next">
-                Switch separator
-            </veui-button>
-        </section>
-        <section>
-            <h4>自定义加粗</h4>
             <veui-breadcrumb
-                :routes="items"
-                @redirect="handleRedirect"
-            >
-                <template
-                    slot="item"
-                    slot-scope="route"
-                >
-                    <em>{{ route.label }}</em>
-                </template>
-                <template slot="separator">
-                    {{ sep }}
-                </template>
-            </veui-breadcrumb>
-        </section>
-        <section>
-            <h4>加强型</h4>
-            <veui-breadcrumb
-                :routes="items"
-                ui="strong"
-                @redirect="handleRedirect"
-            />
-        </section>
-        <section>
-            <h4><code>ui="s"</code></h4>
-            <veui-breadcrumb
-                :routes="items"
                 ui="s"
+                :routes="items"
+                @redirect="handleRedirect"
+            />
+            <veui-breadcrumb
+                ui="m"
+                :routes="items"
                 @redirect="handleRedirect"
             />
         </section>
+        <h2>不同样式</h2>
+        <div class="options-desc">可选的样式
+            <span class="bg-gray-show">ui</span> 属性值： 
+            <span class="bg-gray-show">normal / strong（默认 normal）</span>
+        </div>
         <section>
-            <h4>内联模式</h4>
+            <veui-breadcrumb
+                :routes="items"
+                @redirect="handleRedirect"
+            />
+            <veui-breadcrumb
+                ui="strong"
+                :routes="items"
+                @redirect="handleRedirect"
+            />
+        </section>
+        <h2>内联模式</h2>
+        <section>
             <veui-breadcrumb>
                 <veui-breadcrumb-item to="/">
                     首页
                 </veui-breadcrumb-item>
                 <veui-breadcrumb-item :to="{ name: 'Breadcrumb' }">
-                    面包屑
+                    一级页面
                 </veui-breadcrumb-item>
                 <veui-breadcrumb-item type="text">
-                    我在这里
+                    末级页面
                 </veui-breadcrumb-item>
             </veui-breadcrumb>
         </section>
@@ -57,52 +52,26 @@
 </template>
 
 <script>
-import {Button, Breadcrumb, BreadcrumbItem} from 'veui';
+import {Breadcrumb, BreadcrumbItem} from 'veui';
 
 export default {
     name: 'breadcrumb-demo',
     components: {
-        'veui-button': Button,
         'veui-breadcrumb': Breadcrumb,
         'veui-breadcrumb-item': BreadcrumbItem
     },
     data() {
         return {
-            index: 0,
-            seps: ['/', '👉', '➡️', '➜', '➞', '☞'],
             items: [
-                {to: 'http://www.baidu.com', label: 'baidu', native: true},
-                {to: '/steps', label: '步骤条组件'},
-                {label: '监听跳转事件', native: true},
-                {to: 'http://www.baidu.com', label: '阻止跳转事件', native: true},
-                {
-                    to: 'http://www.baidu.com',
-                    label: 'replace',
-                    replace: true,
-                    native: true
-                },
-                {to: '/dialog', label: 'Dialog'},
-                {to: 'http://jn.baidu.com', label: 'jn'}
+                {to: '/', label: '首页', native: true},
+                {to: {name: 'Breadcrumb'}, label: '一级页面'},
+                {to: '', label: '末级页面'}
             ]
         };
     },
     computed: {
-        sep() {
-            return this.seps[this.index];
-        }
     },
     methods: {
-        next() {
-            this.index = (this.index + 1) % this.seps.length;
-        },
-        handleRedirect(event, router, index) {
-            if (index === 2) {
-                alert('redirect event');
-            } else if (index === 3) {
-                event.preventDefault();
-                alert('prevent redirect event');
-            }
-        }
     }
 };
 </script>
@@ -110,5 +79,8 @@ export default {
 <style lang="less" scoped>
 section {
   margin-bottom: 20px;
+  .veui-breadcrumb:first-child {
+      margin-bottom: 15px;
+  }
 }
 </style>
