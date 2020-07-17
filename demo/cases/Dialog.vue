@@ -1,6 +1,247 @@
 <template>
     <article class="demo-dialog">
         <h1><code>&lt;veui-dialog&gt;</code></h1>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m / l / xl</span></div>
+        <section>
+            <span class="title-desc">超小样式</span>
+            <veui-button
+                ui="primary"
+                @click="xsDialogVisible = !xsDialogVisible"
+            >
+                超小样式 dialog box
+            </veui-button>
+            <veui-dialog
+                modal
+                :open.sync="xsDialogVisible"
+                ui="xs"
+                title="First">
+                超小样式
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary"
+                        @click="close('ok')"
+                    >
+                        OK
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        @click="close"
+                    >
+                        CANCEL
+                    </veui-button>
+                </template>
+            </veui-dialog>
+        </section>
+        <section>
+            <span class="title-desc">小样式</span>
+            <veui-button
+                ui="primary"
+                @click="sDialogVisible = !sDialogVisible"
+            >
+                小样式 dialog box
+            </veui-button>
+            <veui-dialog
+                modal
+                :open.sync="sDialogVisible"
+                ui="s"
+                title="First">
+                小样式
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary"
+                        @click="close('ok')"
+                    >
+                        OK
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        @click="close"
+                    >
+                        CANCEL
+                    </veui-button>
+                </template>
+            </veui-dialog>
+        </section>
+
+        <section>
+            <span class="title-desc">中样式</span>
+            <veui-button
+                ui="primary"
+                @click="mDialogVisible = !mDialogVisible"
+            >
+                中样式 dialog box
+            </veui-button>
+            <veui-dialog
+                modal
+                :open.sync="mDialogVisible"
+                ui="m"
+                title="First">
+                样式
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary"
+                        @click="close('ok')"
+                    >
+                        OK
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        @click="close"
+                    >
+                        CANCEL
+                    </veui-button>
+                </template>
+            </veui-dialog>
+        </section>
+
+        <section>
+            <span class="title-desc">大样式</span>
+            <veui-button
+                ui="primary"
+                @click="lDialogVisible = !lDialogVisible"
+            >
+                大样式 dialog box
+            </veui-button>
+            <veui-dialog
+                modal
+                :open.sync="lDialogVisible"
+                ui="l"
+                title="First">
+                样式
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary"
+                        @click="close('ok')"
+                    >
+                        OK
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        @click="close"
+                    >
+                        CANCEL
+                    </veui-button>
+                </template>
+            </veui-dialog>
+        </section>
+
+        <section>
+            <span class="title-desc">超大样式</span>
+            <veui-button
+                ui="primary"
+                @click="lDialogVisible = !lDialogVisible"
+            >
+                超大样式 dialog box
+            </veui-button>
+            <veui-dialog
+                modal
+                :open.sync="lDialogVisible"
+                ui="xl"
+                title="First">
+                样式
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary"
+                        @click="close('ok')"
+                    >
+                        OK
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        @click="close"
+                    >
+                        CANCEL
+                    </veui-button>
+                </template>
+            </veui-dialog>
+        </section>
+        <section>
+            <span class="title-desc">全屏样式</span>
+            <veui-button
+                ui="primary"
+                @click="fullscreenDialogVisible = !fullscreenDialogVisible"
+            >
+                全屏样式 dialog box
+            </veui-button>
+            <veui-dialog
+                overlay-class="test demo-dialog-standard-dialog"
+                :open.sync="fullscreenDialogVisible"
+                title="Dialog Title"
+                modal
+                ui="fullscreen"
+            >
+                <p>content area</p>
+            </veui-dialog>
+        </section>
+        <section>
+            <span class="title-desc">无标题展示</span>
+            <veui-button
+                ui="primary"
+                @click="autoDialogVisible = !autoDialogVisible"
+            >
+                无标题展示
+            </veui-button>
+            <veui-dialog
+                overlay-class="test demo-dialog-standard-dialog auto-dialog-standard-dialog"
+                :open.sync="autoDialogVisible"
+                modal
+                outside-closable
+                ui="titleless"
+            >
+                测试
+            </veui-dialog>
+        </section>
+        <section>
+            <span class="title-desc">可拖拽展示</span>
+            <veui-button
+                ui="primary"
+                @click="draggableDialog1Visible = !draggableDialog1Visible"
+            >
+                可拖拽样式
+            </veui-button>
+            <veui-dialog
+                :modal="false"
+                :open.sync="draggableDialog1Visible"
+                ui="narrow s"
+                title="First"
+                draggable
+            >
+                You can drag the dialog box in the viewport.
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary"
+                        @click="close('ok')"
+                    >
+                        OK
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        @click="close"
+                    >
+                        CANCEL
+                    </veui-button>
+                </template>
+            </veui-dialog>
+        </section>
         <section>
             <veui-dialog
                 overlay-class="test demo-dialog-standard-dialog"
@@ -17,32 +258,7 @@
                 Open a modal dialog box
             </veui-button>
 
-            <veui-dialog
-                overlay-class="test demo-dialog-standard-dialog"
-                :open.sync="fullscreenDialogVisible"
-                title="Dialog Title"
-                modal
-                ui="fullscreen"
-            >
-                <p>content area</p>
-            </veui-dialog>
-            <veui-button
-                ui="primary"
-                @click="fullscreenDialogVisible = !fullscreenDialogVisible"
-            >
-                Open a fullscreen dialog box
-            </veui-button>
-
-            <veui-dialog
-                overlay-class="test demo-dialog-standard-dialog auto-dialog-standard-dialog"
-                :open.sync="autoDialogVisible"
-                modal
-                outside-closable
-                ui="auto"
-                footless
-            >
-                <textarea class="resizable"/>
-            </veui-dialog>
+            
             <veui-button
                 ui="primary"
                 @click="autoDialogVisible = !autoDialogVisible"
@@ -63,7 +279,6 @@
             >
                 Open a titleless dialog box
             </veui-button>
-
             <veui-dialog
                 :modal="false"
                 :open.sync="nonModalDialogVisible"
@@ -99,38 +314,6 @@
             </veui-button>
         </section>
         <section>
-            <veui-dialog
-                :modal="false"
-                :open.sync="draggableDialog1Visible"
-                ui="narrow s"
-                title="First"
-                draggable
-            >
-                You can drag the dialog box in the viewport.
-                <template
-                    slot="foot"
-                    slot-scope="{ close }"
-                >
-                    <veui-button
-                        ui="primary"
-                        @click="close('ok')"
-                    >
-                        OK
-                    </veui-button>
-                    <veui-button
-                        autofocus
-                        @click="close"
-                    >
-                        CANCEL
-                    </veui-button>
-                </template>
-            </veui-dialog>
-            <veui-button
-                ui="primary"
-                @click="draggableDialog1Visible = !draggableDialog1Visible"
-            >
-                Open the first draggable dialog box
-            </veui-button>
 
             <veui-dialog
                 :modal="false"
@@ -435,6 +618,11 @@ export default {
             test: '123',
             adaptiveDialogTimer: null,
             loading: false,
+            xsDialogVisible: false,
+            sDialogVisible: false,
+            mDialogVisible: false,
+            lDialogVisible: false,
+            xlDialogVisible: false,
             beforeClose: type => {
                 if (type === 'cancel') {
                     return;
