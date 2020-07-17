@@ -4,7 +4,7 @@
         <h2>尺寸</h2>
         <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
         <section>
-            <span class="title-memo">大样式</span>
+            <span class="title-desc">大样式</span>
             <veui-checkbox-group
                 v-model="picked1"
                 :items="data1"
@@ -17,7 +17,7 @@
         </section>
         <p>value: {{ picked1 }}</p>
         <section>
-            <span class="title-memo">中样式</span>
+            <span class="title-desc">中样式</span>
             <veui-checkbox-group
                 v-model="picked1"
                 :items="data1"
@@ -29,7 +29,7 @@
         </section>
         <p>value: {{ picked1 }}</p>
         <section>
-            <span class="title-memo">小样式</span>
+            <span class="title-desc">小样式</span>
             <veui-checkbox-group
                 v-model="picked2"
                 :items="data2"
@@ -92,11 +92,6 @@ export default {
     section {
         display: flex;
         margin-top: 1em;
-    }
-    .title-memo {
-        margin-right: 20px;
-        display: inline-flex;
-        width: 80px;
     }
      p {
         margin-left: 100px;

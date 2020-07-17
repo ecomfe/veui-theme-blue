@@ -9,13 +9,8 @@ config.defaults(
         },
         ui: {
             size: {
-                values: ['s', 'm'],
-                default: 'm',
-                inherit: true
-            },
-            dimension: {
-                values: ['narrow', 'medium', 'wide', 'fullscreen', 'auto'],
-                default: 'medium'
+                values: ['xs', 's', 'm', 'l', 'xl', 'fullscreen', 'auto'],
+                default: 'm'
             }
         },
         parts: {

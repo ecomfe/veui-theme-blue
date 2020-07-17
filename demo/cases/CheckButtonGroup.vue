@@ -9,7 +9,7 @@
             </veui-checkbox>
         </section>
         <section>
-            <span class="title-memo">大样式</span>
+            <span class="title-desc">大样式</span>
             <veui-check-button-group
                 v-model="picked2"
                 :items="data2"
@@ -23,7 +23,7 @@
             <p>value: {{ picked2 }}</p>
         </section>
         <section>
-            <span class="title-memo">中样式</span>
+            <span class="title-desc">中样式</span>
             <veui-check-button-group
                 v-model="picked1"
                 :items="data1"
@@ -36,7 +36,7 @@
             <p>value: {{ picked1 }}</p>
         </section>
         <section>
-            <span class="title-memo">小样式</span>
+            <span class="title-desc">小样式</span>
             <veui-check-button-group
                 v-model="picked2"
                 :items="data2"
@@ -138,11 +138,6 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-    .title-memo {
-        margin-right: 20px;
-        display: inline-flex;
-        width: 80px;
-    }
     p {
         margin-left: 100px;
         margin-bottom: 1em;

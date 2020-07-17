@@ -9,7 +9,6 @@
   &-box {
     .fixed(0);
     display: flex;
-
     &:not(&-mask) {
       pointer-events: none;
     }
@@ -30,27 +29,33 @@
     background: @veui-dialog-background-color;
     padding-bottom: @veui-dialog-padding-y;
     .veui-position-center();
-    max-height: @veui-dialog-max-height;
+    max-height: @veui-dialog-max-height;// todo
     overflow-y: auto;
     outline: none;
     pointer-events: auto;
     .veui-transition(transform);
     transform-origin: 50% 50%;
-    box-shadow: @veui-dialog-shadow;
     border-radius: @veui-dialog-border-radius;
+    min-height: @veui-dialog-min-height;
+    max-height: @veui-dialog-max-height;
+    [ui~="xs"] & {
+        width: @veui-dialog-width-xs;
+    }
 
-    [ui~="narrow"] & {
+    [ui~="s"] & {
       width: @veui-dialog-width-narrow;
     }
 
-    [ui~="medium"] & {
+    [ui~="m"] & {
       width: @veui-dialog-width-medium;
     }
 
-    [ui~="wide"] & {
+    [ui~="l"] & {
       width: @veui-dialog-width-wide;
     }
-
+    [ui~="xl"] & {
+        width: @veui-dialog-width-xl;
+    }
     [ui~="fullscreen"] & {
       .fixed(0);
       width: auto;
@@ -72,8 +77,7 @@
       display: flex;
       align-items: flex-start;
       justify-content: flex-end;
-      padding: @veui-dialog-padding-y @veui-dialog-padding-x
-        @veui-dialog-title-spacing-after;
+      padding: @veui-dialog-padding-head-y @veui-dialog-padding-x;
 
       &:empty {
         padding-bottom: 0;
@@ -85,16 +89,9 @@
         margin: 0;
         flex-grow: 1;
         line-height: @veui-dialog-title-line-height;
-        font-weight: @veui-font-weight-1;
+        font-weight: @veui-font-weight-2;
         color: @veui-dialog-title-font-color;
-
-        [ui~="s"] & {
-          font-size: @veui-dialog-title-font-size-s;
-        }
-
-        [ui~="m"] & {
-          font-size: @veui-dialog-title-font-size-m;
-        }
+        font-size: inherit;
       }
 
       &-close {
@@ -121,21 +118,20 @@
       flex-grow: 1;
       .margin(-@veui-shadow-spread-focus, _);
       padding: @veui-shadow-spread-focus @veui-dialog-padding-x;
-      font-size: @veui-dialog-body-font-size-m;
-      line-height: @veui-dialog-body-line-height;
+      line-height: @veui-dialog-title-line-height;
       color: @veui-dialog-body-font-color;
       overflow: auto;
-
-      [ui~="s"] & {
-        font-size: @veui-dialog-body-font-size-s;
-      }
+      font-size: inherit;
     }
 
     &-foot {
-      padding: @veui-dialog-action-spacing-before @veui-dialog-padding-x 0;
+      padding: @veui-dialog-padding-x @veui-dialog-padding-x 0;
 
-      .@{veui-prefix}-button + .@{veui-prefix}-button {
-        margin-left: @veui-dialog-action-content-spacing;
+      .@{veui-prefix}-button  {
+          height: @veui-dialog-foot-button-height;
+          & + .@{veui-prefix}-button {
+            margin-left: @veui-dialog-action-content-spacing;
+          }
       }
     }
   }

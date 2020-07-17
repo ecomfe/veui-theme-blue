@@ -32,7 +32,7 @@
             <span class="show-value">{{ current }}</span>
         </section>
         <section>
-            <span class="title-memo">正常样式</span>
+            <span class="title-desc">正常样式</span>
             <veui-checkbox
                 v-model="checked2"
                 ui="l"
@@ -51,7 +51,7 @@
         </section>
       
         <section>
-            <span class="title-memo">选中样式</span>
+            <span class="title-desc">选中样式</span>
             <veui-checkbox
                 v-model="checked4"
                 ui="l"
@@ -69,7 +69,7 @@
             </veui-checkbox>
         </section>
         <section>
-            <span class="title-memo">部分选中样式</span>
+            <span class="title-desc">部分选中样式</span>
             <veui-checkbox
                 v-model="checked6"
                 ui="l"
@@ -95,7 +95,7 @@
             </veui-checkbox>
         </section>
         <section>
-            <span class="title-memo">未选禁用样式</span>
+            <span class="title-desc">未选禁用样式</span>
             <veui-checkbox
                 v-model="checked10"
                 ui="l"
@@ -118,7 +118,7 @@
             </veui-checkbox>
         </section>
         <section>
-            <span class="title-memo">选中禁用样式</span>
+            <span class="title-desc">选中禁用样式</span>
             <veui-checkbox
                 v-model="checked8"
                 ui="l"
@@ -142,7 +142,7 @@
         </section>
      
         <section>
-            <span class="title-memo">部分选中禁用样式</span>
+            <span class="title-desc">部分选中禁用样式</span>
             <veui-checkbox
                 v-model="checked12"
                 ui="l"
@@ -276,11 +276,6 @@ export default {
     section {
     margin-bottom: 1em;
     display: flex;
-    .title-memo {
-            margin-right: 20px;
-            display: inline-flex;
-            width: 120px;
-        }
         .show-value {
             align-items: center;
         }
