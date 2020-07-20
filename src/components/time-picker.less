@@ -25,8 +25,9 @@
     flex-grow: 1;
     max-height: @veui-option-dropdown-max-height-m;
     overflow: auto;
-    & + & {
-      border-left: 1px solid @veui-option-group-separator-color;
+    border-right: 1px solid @veui-option-group-separator-color;
+    &:last-child {
+      border-right: none;
     }
 
     .@{veui-prefix}-option {
@@ -35,6 +36,22 @@
       justify-content: center;
       text-align: center;
 
+      &:hover {
+        background: @veui-time-picker-background-color-normal-hover;
+      }
+    
+      &.focus-visible {
+        background: @veui-time-picker-background-color-normal-focus;
+      }
+    
+      &:active {
+        background: @veui-time-picker-background-color-normal-active;
+      }
+
+      &.@{veui-prefix}-option-disabled {
+        background: @veui-time-picker-background-color-normal-disabled;
+      }
+
       &::before {
         content: "00";
         display: block;
@@ -42,6 +59,10 @@
         font-weight: @veui-option-font-weight-selected;
         opacity: 0;
       }
+    }
+    .@{veui-prefix}-option-selected {
+      font-weight: 500;
+      color: @veui-time-picker-font-color-selected;
     }
   }
 
@@ -84,6 +105,26 @@
     .@{veui-prefix}-focus &,
     &.focus-visible {
       opacity: 1;
+    }
+  }
+
+  &-overlay-minute {
+    .@{veui-prefix}-time-picker-option-group-wrapper {
+      width: @veui-time-picker-minute-width;
+    }
+  }
+  &-overlay[ui~="s"] {
+    .@{veui-prefix}-time-picker-overlay-second {
+      .@{veui-prefix}-time-picker-option-group-wrapper {
+        width: @veui-time-picker-second-s-width;
+      }
+    }
+  }
+  &-overlay[ui~="m"] {
+    .@{veui-prefix}-time-picker-overlay-second {
+      .@{veui-prefix}-time-picker-option-group-wrapper {
+        width: @veui-time-picker-second-m-width;
+      }
     }
   }
 }
