@@ -200,24 +200,24 @@
   }
 
   .make-metrics (@size) {
-    @height: 30px;
+    @height: ~"veui-select-tag-height-@{size}";
 
     &.@{veui-prefix}-select {
       &-multiple:not(.@{veui-prefix}-select-empty) {
         .@{veui-prefix}-select-placeholder {
-          line-height: @height;
+          line-height: @@height;
         }
 
         .@{veui-prefix}-input-append {
-          height: @height;
+          height: @@height;
         }
 
         .@{veui-prefix}-tag {
-          height: @height;
+          height: @@height;
         }
 
         .@{veui-prefix}-input-input {
-          height: @height;
+          height: @@height;
         }
       }
     }
