@@ -4,132 +4,214 @@
             <code>&lt;veui-dropdown&gt;</code>
         </h1>
         <section>
-            <h3>基础下拉菜单</h3>
+            <h2>尺寸</h2>
+            <div class="options-desc">可选的尺寸
+                <span class="bg-gray-show">ui</span>
+                属性值：
+                <span class="bg-gray-show">xs / s（默认，可不传） / m / l</span>
+            </div>
+            <veui-dropdown
+                ui="xs"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                ui="s"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                ui="m"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                ui="l"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                label="操作"
+                split
+                disabled
+                :options="options"
+            />
+        </section>
+        <section>
+            <h2>风格</h2>
+            <div class="options-desc">可选的风格
+                <span class="bg-gray-show">ui</span>
+                属性值：
+                <span class="bg-gray-show">primary</span>
+            </div>
+            <veui-dropdown
+                ui="primary xs"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                ui="primary s"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                ui="primary"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                ui="primary l"
+                label="操作"
+                split
+                :options="options"
+            />
+            <veui-dropdown
+                ui="primary"
+                label="操作"
+                split
+                disabled
+                :options="options"
+            />
+        </section>
+        <section>
+            <h2>形状</h2>
+            <div class="options-desc">可选的形状
+                <span class="bg-gray-show">ui</span>
+                属性值：
+                <span class="bg-gray-show">text</span>
+            </div>
+            <veui-dropdown
+                ui="text xs"
+                label="操作"
+            >
+                <veui-option-group
+                    label="提交"
+                    ui="xs"
+                >
+                    <veui-option @click="log('save')">💾保存</veui-option>
+                    <veui-option value="publish">✅发布</veui-option>
+                </veui-option-group>
+                <veui-option-group
+                    label="操作"
+                    ui="xs"
+                >
+                    <veui-option value="undo">⬅️撤消</veui-option>
+                    <veui-option value="redo">➡️重复</veui-option>
+                </veui-option-group>
+            </veui-dropdown>
+            <veui-dropdown
+                ui="text s"
+                label="操作"
+            >
+                <veui-option-group
+                    label="提交"
+                    ui="s"
+                >
+                    <veui-option @click="log('save')">💾保存</veui-option>
+                    <veui-option value="publish">✅发布</veui-option>
+                </veui-option-group>
+                <veui-option-group
+                    label="操作"
+                    ui="s"
+                >
+                    <veui-option value="undo">⬅️撤消</veui-option>
+                    <veui-option value="redo">➡️重复</veui-option>
+                </veui-option-group>
+            </veui-dropdown>
+            <veui-dropdown
+                ui="text m"
+                label="操作"
+            >
+                <veui-option-group
+                    label="提交"
+                    ui="m"
+                >
+                    <veui-option @click="log('save')">💾保存</veui-option>
+                    <veui-option value="publish">✅发布</veui-option>
+                </veui-option-group>
+                <veui-option-group
+                    label="操作"
+                    ui="m"
+                >
+                    <veui-option value="undo">⬅️撤消</veui-option>
+                    <veui-option value="redo">➡️重复</veui-option>
+                </veui-option-group>
+            </veui-dropdown>
+            <veui-dropdown
+                ui="text l"
+                label="操作"
+            >
+                <veui-option-group
+                    label="提交"
+                    ui="l"
+                >
+                    <veui-option @click="log('save')">💾保存</veui-option>
+                    <veui-option value="publish">✅发布</veui-option>
+                </veui-option-group>
+                <veui-option-group
+                    label="操作"
+                    ui="l"
+                >
+                    <veui-option value="undo">⬅️撤消</veui-option>
+                    <veui-option value="redo">➡️重复</veui-option>
+                </veui-option-group>
+            </veui-dropdown>
+            <veui-dropdown
+                ui="text"
+                label="操作"
+                disabled
+                :options="options"
+            />
+        </section>
+        <section>
+            <h4>禁用</h4>
             <div>
-                <h4>primary</h4>
                 <veui-dropdown
-                    ui="primary xs"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="primary s"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="primary"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="primary l"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="primary"
-                    label="操作"
-                    split
+                    ui="s"
+                    label="操作操作操作操作操作操作"
                     disabled
                     :options="options"
                 />
-            </div>
-            <div>
-                <h4>normal</h4>
                 <veui-dropdown
-                    ui="xs"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="s"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="m"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="l"
-                    label="操作"
-                    split
-                    :options="options"
-                />
-                <veui-dropdown
-                    label="操作"
                     split
                     disabled
+                    ui="s"
+                    label="操作操作操作操作操作操作"
+                    trigger="hover"
                     :options="options"
                 />
             </div>
+            <h4>triggers触发</h4>
             <div>
-                <h4>disabled</h4>
-                <div>
-                    <veui-dropdown
-                        ui="s"
-                        label="操作操作操作操作操作操作"
-                        trigger="hover"
-                        :options="options"
-                    />
-                    <veui-dropdown
-                        ui="s"
-                        label="操作操作操作操作操作操作"
-                        disabled
-                        :options="options"
-                    />
-                    <veui-dropdown
-                        split
-                        ui="s"
-                        label="操作操作操作操作操作操作"
-                        trigger="hover"
-                        :options="options"
-                    />
-                    <veui-dropdown
-                        split
-                        disabled
-                        ui="s"
-                        label="操作操作操作操作操作操作"
-                        trigger="hover"
-                        :options="options"
-                    />
-                </div>
-            </div>
-            <div>
-                <h4>triggers</h4>
-                <div>
-                    <veui-dropdown
-                        ui="xs"
-                        label="操作"
-                        split
-                        :options="options"
-                    />
-                    <veui-dropdown
-                        ui="xs"
-                        split
-                        label="操作操作操作操作操作操作"
-                        trigger="hover"
-                        :options="options"
-                    >
-                        <template
-                            slot="option-label"
-                            slot-scope="{ label }"
-                        >👉 {{ label }}</template>
-                    </veui-dropdown>
-                </div>
+                <veui-dropdown
+                    ui="xs"
+                    label="操作"
+                    split
+                    :options="options"
+                />
+                <veui-dropdown
+                    ui="xs"
+                    split
+                    label="操作操作操作操作操作操作"
+                    trigger="hover"
+                    :options="options"
+                >
+                    <template
+                        slot="option-label"
+                        slot-scope="{ label }"
+                    >👉 {{ label }}</template>
+                </veui-dropdown>
             </div>
         </section>
         <section>
-            <h3>分组下拉框菜单</h3>
+            <h4>分组下拉框菜单</h4>
             <div>
                 <veui-dropdown
                     ui="xs"
@@ -156,36 +238,34 @@
                     :options="multiLevelOptions"
                 />
             </div>
-            <div>
-                <h4>unlabeled group</h4>
-                <veui-dropdown
-                    ui="xs"
-                    split
-                    label="汽车类型"
-                    :options="multiLevelUnlabeledOptions"
-                />
-                <veui-dropdown
-                    ui="s"
-                    split
-                    label="汽车类型"
-                    :options="multiLevelUnlabeledOptions"
-                />
-                <veui-dropdown
-                    ui="m"
-                    split
-                    label="汽车类型"
-                    :options="multiLevelUnlabeledOptions"
-                />
-                <veui-dropdown
-                    ui="l"
-                    split
-                    label="汽车类型"
-                    :options="multiLevelUnlabeledOptions"
-                />
-            </div>
+            <h4>unlabeled group</h4>
+            <veui-dropdown
+                ui="xs"
+                split
+                label="汽车类型"
+                :options="multiLevelUnlabeledOptions"
+            />
+            <veui-dropdown
+                ui="s"
+                split
+                label="汽车类型"
+                :options="multiLevelUnlabeledOptions"
+            />
+            <veui-dropdown
+                ui="m"
+                split
+                label="汽车类型"
+                :options="multiLevelUnlabeledOptions"
+            />
+            <veui-dropdown
+                ui="l"
+                split
+                label="汽车类型"
+                :options="multiLevelUnlabeledOptions"
+            />
         </section>
         <section>
-            <h3>多层级下拉框菜单</h3>
+            <h4>多层级下拉框菜单</h4>
             <div>
                 <veui-dropdown
                     ui="s"
@@ -204,39 +284,9 @@
             </div>
         </section>
         <section>
-            <h3>文字链下拉框菜单</h3>
-            <div>
-                <veui-dropdown
-                    ui="text"
-                    label="操作"
-                    disabled
-                    :options="options"
-                />
-                <veui-dropdown
-                    ui="text xs"
-                    label="操作"
-                >
-                    <veui-option-group
-                        label="提交"
-                        ui="xs"
-                    >
-                        <veui-option @click="log('save')">💾保存</veui-option>
-                        <veui-option value="publish">✅发布</veui-option>
-                    </veui-option-group>
-                    <veui-option-group
-                        label="操作"
-                        ui="xs"
-                    >
-                        <veui-option value="undo">⬅️撤消</veui-option>
-                        <veui-option value="redo">➡️重复</veui-option>
-                    </veui-option-group>
-                </veui-dropdown>
-            </div>
-        </section>
-        <section>
             <h3>含搜索的下拉框菜单</h3>
             <veui-dropdown
-                ui="text"
+                ui="text s"
                 label="操作"
                 placeholder="请搜索"
                 searchable
