@@ -6,24 +6,20 @@
         <h2>尺寸</h2>
         <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m</span></div>
         <section>
-            <veui-date-picker
-                clearable
-                ui="s"
-            />
-            <veui-date-picker
-                range
-                clearable
-                ui="s"
-            />
-            <veui-date-picker
-                clearable
-                ui="m"
-            />
-            <veui-date-picker
-                range
-                clearable
-                ui="m"
-            />
+            <veui-form>
+                <veui-field
+                    v-for="(ui, index) in sizes"
+                    :key="index"
+                    ui="micro"
+                >
+                    <template v-slot:label>{{ui.label}}[ui={{ui.value}}]</template>
+                    <veui-date-picker
+                        :range="ui.label === '日期范围选择'"
+                        clearable
+                        :ui="ui.value"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
         <h2>各种状态展示</h2>
         <section>
@@ -132,15 +128,35 @@
 </template>
 
 <script>
-import {DatePicker} from 'veui';
+import {DatePicker, Field, Form} from 'veui';
 
 export default {
     name: 'date-picker-demo',
     components: {
-        'veui-date-picker': DatePicker
+        'veui-date-picker': DatePicker,
+        'veui-field': Field,
+        'veui-form': Form
     },
     data() {
         return {
+            sizes: [
+                {
+                    label: '日期选择',
+                    value: 's'
+                },
+                {
+                    label: '日期范围选择',
+                    value: 's'
+                },
+                {
+                    label: '日期选择',
+                    value: 'm'
+                },
+                {
+                    label: '日期范围选择',
+                    value: 'm'
+                }
+            ],
             selectedDate: null,
             selectedMonth: null,
             selectedDateRange: null,
@@ -174,7 +190,11 @@ export default {
                         startOf: 'week',
                         days: 0
                     },
-                    to: 0
+                    to: {
+                        startOf: 'week',
+                        weeks: 1,
+                        days: -1
+                    }
                 },
                 {
                     label: '最近7天',
@@ -199,5 +219,11 @@ export default {
 <style lang="less" scoped>
 section {
   margin-bottom: 20px;
+}
+.veui-field-label {
+    width: 120px;
+}
+.veui-date-picker+.veui-date-picker {
+    margin-left: 10px;
 }
 </style>

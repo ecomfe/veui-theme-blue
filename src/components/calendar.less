@@ -88,13 +88,17 @@
       flex-grow: 1;
     }
 
-    &::after {
+    &::before {
       content: "";
       .make-header-height(@veui-date-picker-font-size-m);
       .absolute(veui-sum(@header-height, -1px), 0, _, 0);
       height: 0;
       border-bottom: 1px solid @veui-date-picker-panel-separator-color;
     }
+  }
+
+  &-type-year &-panel::before {
+    display: none;
   }
 
   &-panel + &-expanded &-body,
@@ -108,11 +112,6 @@
       .absolute(0, _, 0, -@veui-date-picker-range-panel-spacing / 2);
       border-left: 1px solid @veui-date-picker-panel-separator-color;
     }
-  }
-  &-type-year &-panel::before {
-    content: "";
-    .make-header-height(@veui-date-picker-font-size-m);
-    height: @header-height;
   }
   &-type-month &-panel,
   &-type-year &-panel {
@@ -593,14 +592,10 @@
         padding-left: 0;
         width: @date-panel-width;
       }
-      &::after {
+      &::before {
         .make-header-height(@veui-date-picker-font-size-s);
         .absolute(veui-sum(@header-height, -1px), 0, _, 0);
       }
-    }
-    &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel::before {
-      .make-header-height(@veui-date-picker-font-size-s);
-      height: @header-height;
     }
     &.@{veui-prefix}-calendar-type-month .@{veui-prefix}-calendar-panel,
     &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,
