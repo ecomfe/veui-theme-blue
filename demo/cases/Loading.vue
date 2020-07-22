@@ -140,6 +140,31 @@
                     </template>
                 </p>
             </section>
+            <section>
+                <h3>遮罩层展现</h3>
+                <section class="cards">
+                    <div class="card">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+                        similique nam, iure maiores consequatur quia suscipit temporibus
+                        corporis ipsa molestias magnam repudiandae. Nam nihil eveniet eius
+                        dolores ducimus cumque facere.
+                        <veui-loading
+                            loading
+                            ui="strong l overlay"
+                        />
+                    </div>
+                    <div class="card">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+                        similique nam, iure maiores consequatur quia suscipit temporibus
+                        corporis ipsa molestias magnam repudiandae. Nam nihil eveniet eius
+                        dolores ducimus cumque facere.
+                        <veui-loading
+                            loading
+                            ui="reverse l overlay"
+                        />
+                    </div>
+                </section>
+            </section>
         </div>
     </article>
 </template>
@@ -187,6 +212,20 @@ export default {
     .veui-span {
         margin-right: 15px;
     }
+    .cards {
+    display: flex;
+  }
+  .card {
+    position: relative;
+    width: 320px;
+    height: 180px;
+    margin-right: 20px;
+    padding: 1em 1.5em;
+    line-height: 1.6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
     .size-box .veui-loading {
         margin-right: 100px;
     }

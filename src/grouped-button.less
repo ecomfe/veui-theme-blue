@@ -1,12 +1,48 @@
 @import "./lib.less";
+@import "./variables/components/checkbox.less";
 
 ._veui-grouped-button {
+    .@{veui-prefix}-button-selected + .@{veui-prefix}-button-selected {
+        // &::before {
+        //     content: '';
+        //     .absolute(-1px, _, -1px, -1px);
+        //     width: 1px;
+        //     background-color: @veui-color-brand-3;
+        // }
+        color: red !important;
+    }
     &.@{veui-prefix}-button-selected {
         z-index: 3;
 
         &:hover,
         &[data-focus-visible-added] {
             z-index: 4;
+        }
+
+        border-color: @veui-checkbox-border-color-strong-checked;
+        background-color: @veui-checkbox-background-color-strong-checked;
+        color: @veui-checkbox-font-color-strong-checked;
+
+        &:hover {
+            background-color: @veui-checkbox-background-color-strong-checked-hover;
+        }
+
+        &.focus-visible {
+            border-color: @veui-button-border-color-focus;
+        }
+
+        &:active {
+            background-color: @veui-checkbox-background-color-strong-checked-active;
+        }
+
+        &.@{veui-prefix}-disabled {
+            border-color: @veui-checkbox-border-color-strong-checked-disabled;
+            background-color: @veui-checkbox-background-color-strong-checked-disabled;
+            color: @veui-checkbox-font-color-strong-checked-disabled;
+
+            &:hover {
+                background-color: @veui-checkbox-background-color-strong-checked-disabled;
+            }
         }
     }
 }

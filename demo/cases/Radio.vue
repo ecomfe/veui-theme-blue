@@ -146,6 +146,6 @@ export default {
 }
 
 section {
-  margin-bottom: 60px;
+  margin-bottom: 16px;
 }
 </style>

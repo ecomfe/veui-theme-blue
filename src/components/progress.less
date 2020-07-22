@@ -15,6 +15,9 @@
     align-items: center;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
+    &::before {
+      content: "​";
+    }
   }
 
   &-bar {
@@ -31,6 +34,14 @@
       overflow: hidden;
       order: 0;
       background-color: @veui-progress-track-color;
+    }
+
+    &[ui~="fluid"] {
+      width: 100%;
+
+      .@{veui-prefix}-progress-rail {
+        flex-grow: 1;
+      }
     }
 
     &[ui~="s"] {

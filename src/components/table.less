@@ -111,6 +111,7 @@
         & + .@{veui-prefix}-button,
         & + .@{veui-prefix}-link {
             margin-left: @veui-table-action-spacing;
+            vertical-align: middle;
         }
     }
 
@@ -254,11 +255,13 @@
         box-shadow: none;
     }
 
-    &-sub-row {
+    & &-sub-row {
         td {
             background-color: @veui-table-sub-row-background-color;
+        }
 
-            &:hover {
+        &:hover {
+            td {
                 background-color: @veui-table-sub-row-background-color-hover;
             }
         }

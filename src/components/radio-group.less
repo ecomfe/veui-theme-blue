@@ -2,6 +2,13 @@
 @import "../variables/components/radio.less";
 
 .@{veui-prefix}-radio-group {
+  display: flex;
+  align-items: center;
+
+  .@{veui-prefix}-radio {
+    flex: none;
+  }
+
   .@{veui-prefix}-radio + .@{veui-prefix}-radio {
     margin-left: @veui-radio-group-spacing;
   }

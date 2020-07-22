@@ -1,6 +1,8 @@
 <template>
     <article class="veui-form-demo">
-        <h1><code>&lt;veui-form&gt;</code></h1>
+        <h1>
+            <code>&lt;veui-form&gt;</code>
+        </h1>
         <section>
             <h2>通过指定data、field及v-model来创建一个form</h2>
             <veui-form
@@ -8,14 +10,21 @@
                 :data="storeData1"
             >
                 <veui-field
-                    label="昵称："
+                    label="昵称"
                     field="nickName"
                 >
                     <veui-input v-model="storeData1.nickName"/>
                 </veui-field>
 
+                <veui-field>
+                    <veui-input
+                        readonly
+                        value="Labeless field"
+                    />
+                </veui-field>
+
                 <veui-field
-                    label="性别："
+                    label="性别"
                     field="sex"
                 >
                     <veui-select
@@ -26,7 +35,7 @@
 
                 <veui-field
                     ui="small"
-                    label="婚姻："
+                    label="婚姻"
                     field="married"
                 >
                     <veui-radiogroup
@@ -37,7 +46,7 @@
                 </veui-field>
 
                 <veui-field
-                    label="爱好："
+                    label="爱好"
                     field="hobby"
                 >
                     <veui-checkboxgroup
@@ -48,14 +57,14 @@
                 </veui-field>
 
                 <veui-field
-                    label="生日："
+                    label="生日"
                     field="birthday"
                 >
                     <veui-datepicker v-model="storeData1.birthday"/>
                 </veui-field>
 
                 <veui-field
-                    label="地区："
+                    label="地区"
                     field="regions"
                 >
                     <veui-region-picker
@@ -65,7 +74,7 @@
                 </veui-field>
 
                 <veui-field
-                    label="头像："
+                    label="头像"
                     field="avatar"
                 >
                     <veui-uploader
@@ -77,14 +86,12 @@
                         :disabled="false"
                         :max-count="1"
                         max-size="10mb"
-                        accept=".jpg,.jpeg,.png"
+                        accept=".jpg, .jpeg, .png"
                     />
                 </veui-field>
 
                 <div class="operation">
-                    <veui-button type="reset">
-                        重置
-                    </veui-button>
+                    <veui-button type="reset">重置</veui-button>
                 </div>
             </veui-form>
         </section>
@@ -94,7 +101,7 @@
                 <veui-fieldset
                     ui="large"
                     class="two-name"
-                    label="姓名："
+                    label="姓名"
                 >
                     <veui-field>
                         <veui-input
@@ -104,7 +111,7 @@
                         />
                     </veui-field>
 
-                    <veui-field>
+                    <veui-field style="margin-left: 4px;">
                         <veui-input
                             v-model="storeData2.firstName"
                             ui="large"
@@ -113,7 +120,7 @@
                     </veui-field>
                 </veui-fieldset>
 
-                <veui-fieldset label="电话：">
+                <veui-fieldset label="电话">
                     <veui-field>
                         <veui-select
                             v-model="storeData2.phoneType"
@@ -121,7 +128,7 @@
                         />
                     </veui-field>
 
-                    <veui-field>
+                    <veui-field style="margin-left: 4px;">
                         <veui-input
                             v-model="storeData2.phone"
                             placeholder="名"
@@ -131,101 +138,100 @@
 
                 <veui-fieldset class="salary">
                     <template slot="label">
-                        <veui-label>预期收入：</veui-label>
-                        <veui-icon name="money-bill-alt"/>
+                        <veui-label>预期收入</veui-label>
                     </template>
                     <veui-field>
                         <veui-input v-model="storeData2.start"/>
                     </veui-field>
-                    <veui-span>-</veui-span>
+                    <veui-span style="margin: 0 4px;">-</veui-span>
                     <veui-field>
                         <veui-input v-model="storeData2.end"/>
                     </veui-field>
                     <veui-span>万</veui-span>
                     <template slot="tip">
-                        <veui-icon name="indent"/> 使用 &lt;veui-span&gt;
+                        <veui-icon name="indent"/>使用 &lt;veui-span&gt;
                         来插入中间非组件内容
                     </template>
                 </veui-fieldset>
 
-                <veui-fieldset label="预期收入：">
-                    <veui-field
-                        field="salary"
-                        name="salary"
-                    >
-                        <veui-slider
-                            v-model="storeData2.salary"
-                            :min="1"
-                            :max="10"
-                            :step="0.5"
-                        />
-                    </veui-field>
-                    <veui-span>
+                <veui-field
+                    label="预期收入"
+                    field="salary"
+                    name="salary"
+                >
+                    <veui-slider
+                        v-model="storeData2.salary"
+                        :min="1"
+                        :max="10"
+                        :step="0.5"
+                        style="width: 300px;"
+                    />
+                    <veui-span style="margin-left: 8px;">
                         {{ storeData2.salary[0].toFixed(1) }}~{{
                             storeData2.salary[1].toFixed(1)
                         }}万
                     </veui-span>
-                </veui-fieldset>
+                </veui-field>
             </veui-form>
         </section>
-        <section>
-            <h2>行内表单</h2>
-            <veui-form ui="inline">
-                <veui-fieldset class="left">
-                    <veui-field label="状态：">
-                        <veui-select
-                            v-model="storeData3.statusSelected"
-                            :options="storeData3.statusOptions"
-                        />
-                    </veui-field>
+        <!-- <section>
+    <h2>行内表单</h2>
+    <veui-form ui="inline">
+      <veui-fieldset class="left">
+        <veui-field label="状态">
+          <veui-select
+            v-model="storeData3.statusSelected"
+            :options="storeData3.statusOptions"
+          />
+        </veui-field>
 
-                    <veui-field label="时间：">
-                        <veui-datepicker
-                            v-model="storeData3.range"
-                            range
-                        />
-                    </veui-field>
-                </veui-fieldset>
+        <veui-field label="时间">
+          <veui-datepicker
+            v-model="storeData3.range"
+            range
+          />
+        </veui-field>
+      </veui-fieldset>
 
-                <veui-fieldset class="right">
-                    <veui-field>
-                        <veui-search-box placeholder="请输入搜索内容"/>
-                    </veui-field>
-                </veui-fieldset>
-            </veui-form>
+      <veui-fieldset class="right">
+        <veui-field>
+          <veui-search-box placeholder="请输入搜索内容"/>
+        </veui-field>
+      </veui-fieldset>
+    </veui-form>
 
-            <veui-form ui="inline">
-                <veui-fieldset
-                    class="left"
-                    ui="alt"
-                >
-                    <veui-field label="状态：">
-                        <veui-select
-                            v-model="storeData3.statusSelected"
-                            ui="alt"
-                            :options="storeData3.statusOptions"
-                        />
-                    </veui-field>
+    <veui-form ui="inline">
+      <veui-fieldset
+        class="left"
+        ui="alt"
+      >
+        <veui-field label="状态">
+          <veui-select
+            v-model="storeData3.statusSelected"
+            ui="alt"
+            :options="storeData3.statusOptions"
+          />
+        </veui-field>
 
-                    <veui-field label="时间：">
-                        <veui-datepicker
-                            v-model="storeData3.range"
-                            range
-                            ui="alt"
-                        />
-                    </veui-field>
-                </veui-fieldset>
+        <veui-field label="时间">
+          <veui-datepicker
+            v-model="storeData3.range"
+            range
+            ui="alt"
+          />
+        </veui-field>
+      </veui-fieldset>
 
-                <veui-fieldset class="right">
-                    <veui-field>
-                        <veui-search-box
-                            ui="alt"
-                            placeholder="请输入搜索内容"
-                        />
-                    </veui-field>
-                </veui-fieldset>
-            </veui-form>
-        </section>
+      <veui-fieldset class="right">
+        <veui-field>
+          <veui-search-box
+            ui="alt"
+            placeholder="请输入搜索内容"
+          />
+        </veui-field>
+      </veui-fieldset>
+    </veui-form>
+    </section>-->
         <section>
             <h2>表单的禁用或只读</h2>
             <veui-form
@@ -233,14 +239,14 @@
                 :data="storeData1"
             >
                 <veui-field
-                    label="昵称："
+                    label="昵称"
                     field="nickName"
                 >
                     <veui-input v-model="storeData1.nickName"/>
                 </veui-field>
 
                 <veui-field
-                    label="性别："
+                    label="性别"
                     field="sex"
                 >
                     <veui-select
@@ -250,7 +256,7 @@
                 </veui-field>
 
                 <veui-field
-                    label="婚姻："
+                    label="婚姻"
                     field="married"
                 >
                     <veui-radiogroup
@@ -261,7 +267,7 @@
 
                 <veui-field
                     ui="small"
-                    label="爱好："
+                    label="爱好"
                     field="hobby"
                 >
                     <veui-checkboxgroup
@@ -273,14 +279,14 @@
                 </veui-field>
 
                 <veui-field
-                    label="生日："
+                    label="生日"
                     field="birthday"
                 >
                     <veui-datepicker v-model="storeData1.birthday"/>
                 </veui-field>
 
                 <veui-field
-                    label="头像："
+                    label="头像"
                     field="avatar"
                 >
                     <veui-uploader
@@ -292,82 +298,82 @@
                         :disabled="false"
                         :max-count="1"
                         max-size="10mb"
-                        accept=".jpg,.jpeg,.png"
+                        accept=".jpg, .jpeg, .png"
                     />
                 </veui-field>
             </veui-form>
-            <h2>行内禁用或只读</h2>
-            <veui-form>
-                <veui-fieldset
-                    disabled
-                    class="two-name"
-                    label="姓名："
-                >
-                    <veui-field>
-                        <veui-input
-                            v-model="storeData2.lastName"
-                            placeholder="姓"
-                        />
-                    </veui-field>
+            <!-- <h2>行内禁用或只读</h2>
+    <veui-form>
+      <veui-fieldset
+        disabled
+        class="two-name"
+        label="姓名"
+      >
+        <veui-field>
+          <veui-input
+            v-model="storeData2.lastName"
+            placeholder="姓"
+          />
+        </veui-field>
 
-                    <veui-field>
-                        <veui-input
-                            v-model="storeData2.firstName"
-                            placeholder="名"
-                        />
-                    </veui-field>
-                </veui-fieldset>
+        <veui-field>
+          <veui-input
+            v-model="storeData2.firstName"
+            placeholder="名"
+          />
+        </veui-field>
+      </veui-fieldset>
 
-                <veui-fieldset label="电话：">
-                    <veui-field>
-                        <veui-select
-                            v-model="storeData2.phoneType"
-                            :options="storeData2.phoneTypeOptions"
-                        />
-                    </veui-field>
+      <veui-fieldset label="电话">
+        <veui-field>
+          <veui-select
+            v-model="storeData2.phoneType"
+            :options="storeData2.phoneTypeOptions"
+          />
+        </veui-field>
 
-                    <veui-field readonly>
-                        <veui-input
-                            v-model="storeData2.phone"
-                            placeholder="名"
-                        />
-                    </veui-field>
-                </veui-fieldset>
+        <veui-field readonly>
+          <veui-input
+            v-model="storeData2.phone"
+            placeholder="名"
+          />
+        </veui-field>
+      </veui-fieldset>
 
-                <veui-fieldset
-                    class="salary"
-                    tip="使用 <veui-span> 来插入中间非组件内容"
-                >
-                    <template slot="label">
-                        <veui-label>预期收入：</veui-label>💰
-                    </template>
-                    <veui-field>
-                        <veui-input v-model="storeData2.start"/>
-                    </veui-field>
-                    <veui-span>-</veui-span>
-                    <veui-field>
-                        <veui-input
-                            v-model="storeData2.end"
-                            disabled
-                        />
-                    </veui-field>
-                    <veui-span>万</veui-span>
-                </veui-fieldset>
+      <veui-fieldset
+        class="salary"
+        tip="使用 <veui-span> 来插入中间非组件内容"
+      >
+        <template slot="label">
+          <veui-label>预期收入</veui-label>💰
+        </template>
+        <veui-field>
+          <veui-input v-model="storeData2.start"/>
+        </veui-field>
+        <veui-span>-</veui-span>
+        <veui-field>
+          <veui-input
+            v-model="storeData2.end"
+            disabled
+          />
+        </veui-field>
+        <veui-span>万</veui-span>
+      </veui-fieldset>
 
-                <veui-field
-                    ui="small"
-                    field="protocol"
-                    name="protocol"
-                    label="协议："
-                >
-                    <veui-radio
-                        ui="small"
-                        :checked="false"
-                    >
-                        我已阅读并同意工作协议
-                    </veui-radio>
-                </veui-field>
-            </veui-form>
+      <veui-field
+        ui="small"
+        field="protocol"
+        name="protocol"
+        label="协议"
+      >
+        <veui-radio
+          ui="small"
+          :checked="false"
+        >
+          我已阅读并同意工作协议
+        </veui-radio>
+      </veui-field>
+      </veui-form>-->
         </section>
         <section>
             <h2>使用 field 来支持表单验证，使用 name 来定位验证提示</h2>
@@ -385,7 +391,7 @@
                     disabled
                     field="name"
                     name="name1"
-                    label="姓名："
+                    label="姓名"
                     tip="disabled 值提交时会过滤"
                 >
                     <veui-input v-model="storeData4.name"/>
@@ -394,7 +400,7 @@
                 <veui-field
                     field="name1"
                     name="name2"
-                    label="姓名1："
+                    label="姓名1"
                     tip="在 field 上边 disabled，提交时才会过滤掉，该项在 input 上 disalbed"
                 >
                     <veui-input
@@ -408,7 +414,7 @@
                     field="age"
                     name="age1"
                     :rules="ageRule"
-                    label="年龄："
+                    label="年龄"
                 >
                     <veui-input
                         v-model="storeData4.age"
@@ -420,7 +426,7 @@
                     field="desc"
                     name="desc"
                     rules="required"
-                    label="介绍："
+                    label="介绍"
                 >
                     <veui-textarea
                         v-model="storeData4.desc"
@@ -430,7 +436,7 @@
 
                 <veui-fieldset
                     name="phoneSet"
-                    label="电话："
+                    label="电话"
                     :required="true"
                 >
                     <veui-field
@@ -444,6 +450,7 @@
                     </veui-field>
 
                     <veui-field
+                        style="margin-left: 4px;"
                         field="phone"
                         name="phone"
                         :rules="numRequiredRule"
@@ -456,7 +463,7 @@
                     field="hobby"
                     name="hobby"
                     :rules="hobbyRule"
-                    label="爱好："
+                    label="爱好"
                     tip="选择则至少选三个"
                 >
                     <veui-checkboxgroup
@@ -467,7 +474,7 @@
                 </veui-field>
 
                 <veui-fieldset
-                    label="预期收入："
+                    label="预期收入"
                     class="salary"
                     tip="联合校验，下限必须小于上限"
                     :required="true"
@@ -480,7 +487,7 @@
                     >
                         <veui-input v-model="storeData4.start"/>
                     </veui-field>
-                    <veui-span>-</veui-span>
+                    <veui-span style="margin: 0 4px;">-</veui-span>
                     <veui-field
                         field="end"
                         name="end"
@@ -492,7 +499,7 @@
                 </veui-fieldset>
 
                 <veui-field
-                    label="收入下限："
+                    label="收入下限"
                     field="floor"
                     name="floor"
                     :rules="[
@@ -507,31 +514,25 @@
                     field="protocol"
                     name="protocol"
                     :rules="protocolRequiredRule"
-                    label="协议："
+                    label="协议"
                 >
                     <veui-checkbox
                         v-model="storeData4.protocol"
-                        false-value=""
-                    >
-                        我已阅读并同意工作协议
-                    </veui-checkbox>
+                        false-value
+                    >我已阅读并同意工作协议</veui-checkbox>
                 </veui-field>
 
-                <div class="operation">
+                <template slot="actions">
                     <veui-button
                         ui="primary"
                         :loading="isValidating"
                         type="submit"
-                    >
-                        提交
-                    </veui-button>
+                    >提交</veui-button>
                     <veui-button
-                        :loading="isValidating"
+                        :disabled="isValidating"
                         @click="() => this.$refs.form2.reset()"
-                    >
-                        重置
-                    </veui-button>
-                </div>
+                    >重置</veui-button>
+                </template>
             </veui-form>
         </section>
         <section>
@@ -546,7 +547,7 @@
             >
                 <veui-field
                     field="qindian"
-                    label="负责人："
+                    label="负责人"
                     name="qindian"
                 >
                     <veui-input v-model="storeData5.qindian"/>
@@ -556,7 +557,7 @@
                     v-for="(item, index) in storeData5.scheduleInfo"
                     :key="index"
                     :required="true"
-                    :label="`项目排期-${index + 1}：`"
+                    :label="`项目排期-${index + 1}`"
                 >
                     <veui-field
                         :field="`scheduleInfo[${index}].project`"
@@ -569,6 +570,7 @@
                         />
                     </veui-field>
                     <veui-field
+                        style="margin-left: 4px;"
                         :field="`scheduleInfo[${index}].range`"
                         :name="`schedule${index + 1}`"
                         :rules="requiredRule"
@@ -578,23 +580,20 @@
                             range
                         />
                     </veui-field>
-                    <veui-button @click="dynamicDelete(index)">
-                        删除
-                    </veui-button>
+                    <veui-button
+                        style="margin-left: 4px;"
+                        @click="dynamicDelete(index)"
+                    >删除</veui-button>
                 </veui-fieldset>
 
-                <div class="operation">
+                <template #actions>
                     <veui-button
                         ui="primary"
                         :loading="isValidating"
                         type="submit"
-                    >
-                        提交
-                    </veui-button>
-                    <veui-button @click="dynamicAdd">
-                        新增项目及排期
-                    </veui-button>
-                </div>
+                    >提交</veui-button>
+                    <veui-button @click="dynamicAdd">新增项目及排期</veui-button>
+                </template>
             </veui-form>
         </section>
     </article>
@@ -616,16 +615,15 @@ import {
     Checkbox,
     CheckboxGroup,
     RadioGroup,
-    SearchBox,
+    // SearchBox,
     RegionPicker,
-    Radio,
+    // Radio,
     Icon,
     Slider,
     NumberInput
 } from 'veui';
 import moment from 'moment';
 import bus from '../bus';
-import 'vue-awesome/icons/money-bill-alt';
 import 'vue-awesome/icons/indent';
 
 const REGIONS_BRAND = [
@@ -2724,9 +2722,9 @@ export default {
         'veui-select': Select,
         'veui-checkbox': Checkbox,
         'veui-checkboxgroup': CheckboxGroup,
-        'veui-radio': Radio,
+        // 'veui-radio': Radio,
         'veui-radiogroup': RadioGroup,
-        'veui-search-box': SearchBox,
+        // 'veui-search-box': SearchBox,
         'veui-region-picker': RegionPicker,
         'veui-icon': Icon,
         'veui-slider': Slider,
@@ -3018,8 +3016,6 @@ export default {
 </script>
 
 <style lang="less">
-@import "~veui-theme-blue/lib.less";
-
 .veui-form-demo {
   h2 {
     margin-bottom: 40px;
@@ -3070,10 +3066,6 @@ export default {
     .veui-input {
       width: 67px;
     }
-  }
-
-  .veui-uploader-list-image li {
-    margin: 0;
   }
 
   .start-field {

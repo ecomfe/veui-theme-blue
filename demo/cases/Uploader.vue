@@ -334,7 +334,7 @@ export default {
         },
         convertResponse(data) {
             return {
-                status: data.code ? 'failure' : 'success',
+                success: !data.code,
                 ...data.result
             };
         },

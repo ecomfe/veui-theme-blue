@@ -1,4 +1,3 @@
-import '../icons/check';
 import config from 'veui/managers/config';
 
 config.defaults(
@@ -11,10 +10,7 @@ config.defaults(
             }
         },
         parts: {
-            checked: 'primary'
-        },
-        icons: {
-            check: 'check'
+            button: 'normal'
         }
     },
     'checkbuttongroup'

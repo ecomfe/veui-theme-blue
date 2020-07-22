@@ -23,8 +23,8 @@
     color: @veui-input-font-color-read-only;
   }
 
-  &.focus-visible .@{veui-prefix}-input-main,
-  &[data-focus-visible-added] .@{veui-prefix}-input-main {
+  &.focus-visible .@{veui-prefix}-input,
+  &[data-focus-visible-added] .@{veui-prefix}-input {
     .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
   }
 
@@ -44,22 +44,20 @@
   }
 
   &-trigger {
-    .@{veui-prefix}-input-prepend {
+    max-width: 100%;
+    cursor: pointer;
+    .padding(_, @veui-select-padding-x);
+
+    .@{veui-prefix}-input-before {
       flex-grow: 0;
       flex-shrink: 0;
       padding-right: 0;
       .ellipsis();
     }
 
-    .@{veui-prefix}-input-append {
+    .@{veui-prefix}-input-after {
       padding-left: @veui-select-content-spacing;
       color: @veui-font-color-weak;
-    }
-
-    .@{veui-prefix}-input-main {
-      max-width: 100%;
-      cursor: pointer;
-      .padding(_, @veui-select-padding-x);
     }
 
     .@{veui-prefix}-input-input {
@@ -81,16 +79,14 @@
   }
 
   &-multiple:not(.@{veui-prefix}-select-empty) {
-    .@{veui-prefix}-input-main {
-      min-width: 100%;
-      display: block;
-      overflow: hidden;
-    }
 
     .@{veui-prefix}-input {
+      display: block;
+      min-width: 100%;
       height: auto;
+      overflow: hidden;
 
-      &-prepend {
+      &-before {
         display: block;
         overflow: visible;
 
@@ -116,7 +112,7 @@
         margin-top: @adjusted-select-padding-y;
       }
 
-      &-append {
+      &-after {
         float: right;
         margin: @adjusted-select-padding-y 0;
       }
@@ -208,7 +204,7 @@
           line-height: @@height;
         }
 
-        .@{veui-prefix}-input-append {
+        .@{veui-prefix}-input-after {
           height: @@height;
         }
 

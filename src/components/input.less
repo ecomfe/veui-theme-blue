@@ -2,14 +2,23 @@
 @import "../variables/components/input.less";
 
 .@{veui-prefix}-input {
+  @left-padding: @veui-input-padding;
 
+  position: relative;
   display: inline-flex;
   align-items: stretch;
+  .size(@veui-input-width, @veui-input-height-m);
   vertical-align: middle;
-  height: @veui-input-height-m;
   font-size: @veui-input-font-size-m;
-  width: @veui-input-width;
   border-radius: @veui-input-border-radius-m;
+  padding: 0 @veui-input-padding;
+  border: 1px solid @veui-input-border-color;
+  background-color: @veui-input-background-color;
+  color: @veui-input-font-color;
+  border-radius: @veui-input-border-radius-m;
+  line-height: normal;
+  cursor: text;
+  .veui-transition(border-color, color, box-shadow);
 
   &-autofill {
     background-color: @veui-tag-fill-color;
@@ -21,24 +30,7 @@
 
   &-main {
     display: flex;
-    flex: 1 1 auto;
     align-items: stretch;
-    position: relative;
-    padding: 0 @veui-input-padding;
-    border: 1px solid @veui-input-border-color;
-    border-radius: inherit;
-    background-color: @veui-input-background-color;
-    color: @veui-input-font-color;
-    cursor: text;
-    .veui-transition(border-color, color, box-shadow);
-  }
-
-  &-has-before &-main {
-    .border-left-radius(0);
-  }
-
-  &-has-after &-main {
-    .border-right-radius(0);
   }
 
   &-before,
@@ -134,27 +126,27 @@
     position: relative;
   }
 
-  &.@{veui-prefix}-focus &-main {
+  &.@{veui-prefix}-focus {
     .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
   }
 
-  &.@{veui-prefix}-invalid &-main {
+  &.@{veui-prefix}-invalid {
     border-color: @veui-input-border-color-error;
     color: @veui-input-font-color-error;
   }
 
-  &.@{veui-prefix}-invalid &-main:hover {
+  &.@{veui-prefix}-invalid:hover {
     border-color: @veui-input-border-color-error-hover;
   }
 
-  &.@{veui-prefix}-invalid.@{veui-prefix}-focus &-main {
+  &.@{veui-prefix}-invalid.@{veui-prefix}-focus {
     .veui-focus-ring(
       @veui-input-border-color-error-focus,
       @veui-input-shadow-error-focus
     );
   }
 
-  &.@{veui-prefix}-focus.@{veui-prefix}-readonly &-main {
+  &.@{veui-prefix}-focus.@{veui-prefix}-readonly {
     border-color: @veui-input-border-color-read-only-focus;
   }
 
