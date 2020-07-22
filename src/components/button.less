@@ -28,22 +28,52 @@
 
   &[ui~="xs"] {
     .make-metrics(xs);
+    &[ui="normal xs"],
+    &[ui="primary xs"],
+    &[ui="normal strong xs"],
+    &[ui="translucent xs"] {
+        min-width: @veui-button-min-width-xs
+    }
   }
 
   &[ui~="s"] {
     .make-metrics(s);
+    &[ui="normal s"],
+    &[ui="primary s"],
+    &[ui="normal strong s"],
+    &[ui="translucent s"] {
+        min-width: @veui-button-min-width-s
+    }
   }
 
   &[ui~="m"] {
     .make-metrics(m);
+    &[ui="normal m"],
+    &[ui="primary m"],
+    &[ui="normal strong m"],
+    &[ui="translucent m"] {
+        min-width: @veui-button-min-width-m
+    }
   }
 
   &[ui~="l"] {
     .make-metrics(l);
+    &[ui="normal l"],
+    &[ui="primary l"],
+    &[ui="normal strong l"],
+    &[ui="translucent l"] {
+        min-width: @veui-button-min-width-l
+    }
   }
 
   &[ui~="xl"] {
     .make-metrics(xl);
+    &[ui="normal xl"],
+    &[ui="primary xl"],
+    &[ui="normal strong xl"],
+    &[ui="translucent xl"] {
+        min-width: @veui-button-min-width-xl
+    }
   }
 
   .@{veui-prefix}-icon {
@@ -64,6 +94,7 @@
     border: 1px solid @veui-button-border-color-hover;
   }
 
+  &.focus-visible,
   &[data-focus-visible-added] {
     background-color: @veui-button-background-color-normal-focus;
     .veui-focus-ring(@veui-button-border-color-focus, @veui-button-shadow-focus);
@@ -99,6 +130,7 @@
       background-color: @veui-button-background-color-strong-hover;
     }
 
+    &.focus-visible,
     &[data-focus-visible-added] {
       background-color: @veui-button-background-color-strong-focus;
       .veui-focus-ring(@veui-button-border-color-focus, @veui-button-shadow-focus);
@@ -129,6 +161,7 @@
       background-color: @veui-button-background-color-primary-hover;
     }
 
+    &.focus-visible,
     &[data-focus-visible-added] {
       background-color: @veui-button-background-color-primary-focus;
       .veui-focus-ring(@veui-button-border-color-focus, @veui-button-shadow-focus);
@@ -159,6 +192,7 @@
       background-color: @veui-button-background-color-translucent-hover;
     }
 
+    &.focus-visible,
     &[data-focus-visible-added] {
       background-color: @veui-button-background-color-translucent-focus;
       .veui-focus-ring(@veui-button-border-color-focus, @veui-button-shadow-focus);
@@ -194,6 +228,7 @@
       .veui-button-transition();
     }
 
+    &.focus-visible,
     &[data-focus-visible-added] {
       box-shadow: none;
 
@@ -216,6 +251,7 @@
       color: @veui-button-font-color-text-hover;
     }
 
+    &.focus-visible,
     &[data-focus-visible-added] {
       background-color: @veui-button-background-color-text-focus;
       color: @veui-button-font-color-text-focus;
@@ -248,6 +284,7 @@
       color: @veui-button-font-color-text-strong-hover;
     }
 
+    &.focus-visible,
     &[data-focus-visible-added] {
       background-color: @veui-button-background-color-text-focus;
       color: @veui-button-font-color-text-strong-focus;
@@ -280,6 +317,7 @@
       color: @veui-button-font-color-icon-hover;
     }
 
+    &.focus-visible,
     &[data-focus-visible-added] {
       background-color: @veui-button-background-color-icon-focus;
       color: @veui-button-font-color-icon-focus;
@@ -302,6 +340,7 @@
     }
   }
 
+  &.focus-visible,
   &[data-focus-visible-added] {
       .veui-focus-ring(@veui-button-border-color-focus, @veui-button-shadow-focus);
   }
