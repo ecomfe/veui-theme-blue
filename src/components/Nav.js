@@ -1,5 +1,5 @@
 import 'veui-theme-blue-icons/chevron-right';
-import 'veui-theme-dls-icons/ellipsis';
+import 'veui-theme-blue-icons/ellipsis';
 import config from 'veui/managers/config';
 
 config.defaults(
