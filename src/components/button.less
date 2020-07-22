@@ -20,62 +20,43 @@
     @height: ~"veui-button-height-@{size}";
     @padding: ~"veui-button-padding-@{size}";
     @font-size: ~"veui-button-font-size-@{size}";
+    @min-width: ~"veui-button-min-width-@{size}";
     height: @@height;
     .padding(0, @@padding);
     border-radius:  @veui-button-border-radius-l;
     font-size: @@font-size;
+    &[ui~="normal"],
+    &[ui~="primary"],
+    &[ui~="translucent"] {
+        min-width: @@min-width;
+    }
+    &[ui~="text"],
+    &[ui~="icon"],
+    &[ui~="square"]{
+        min-width: auto;
+    }
   }
 
   &[ui~="xs"] {
     .make-metrics(xs);
-    &[ui="normal xs"],
-    &[ui="primary xs"],
-    &[ui="normal strong xs"],
-    &[ui="translucent xs"] {
-        min-width: @veui-button-min-width-xs
-    }
   }
 
   &[ui~="s"] {
     .make-metrics(s);
-    &[ui="normal s"],
-    &[ui="primary s"],
-    &[ui="normal strong s"],
-    &[ui="translucent s"] {
-        min-width: @veui-button-min-width-s
-    }
   }
 
   &[ui~="m"] {
     .make-metrics(m);
-    &[ui="normal m"],
-    &[ui="primary m"],
-    &[ui="normal strong m"],
-    &[ui="translucent m"] {
-        min-width: @veui-button-min-width-m
-    }
   }
 
   &[ui~="l"] {
     .make-metrics(l);
-    &[ui="normal l"],
-    &[ui="primary l"],
-    &[ui="normal strong l"],
-    &[ui="translucent l"] {
-        min-width: @veui-button-min-width-l
-    }
   }
 
   &[ui~="xl"] {
     .make-metrics(xl);
-    &[ui="normal xl"],
-    &[ui="primary xl"],
-    &[ui="normal strong xl"],
-    &[ui="translucent xl"] {
-        min-width: @veui-button-min-width-xl
-    }
   }
-
+ 
   .@{veui-prefix}-icon {
     .veui-icon-size(1em);
     margin-right: @veui-button-content-spacing;
