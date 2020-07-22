@@ -66,8 +66,18 @@ const Settings = [
             class: 'font-size-normal'
         },
         {
-            label: '加强样式',
-            desc: 'strong',
+            label: '重要样式',
+            desc: 'primary',
+            class: 'font-size-normal'
+        },
+        {
+            label: '图标',
+            desc: 'icon',
+            class: 'font-size-normal'
+        },
+        {
+            label: '文本',
+            desc: 'text',
             class: 'font-size-normal'
         },
         {
@@ -84,7 +94,7 @@ const Settings = [
     [
         {
             label: '形状：',
-            desc: 'shade',
+            desc: 'shape',
             class: 'var-module-con-title'
         },
         {
@@ -106,16 +116,6 @@ const Settings = [
             label: '椭圆',
             desc: 'ellipse',
             class: 'font-size-normal'
-        },
-        {
-            label: '图标',
-            desc: 'icon',
-            class: 'font-size-normal'
-        },
-        {
-            label: '文本',
-            desc: 'text',
-            class: 'font-size-normal'
         }
     ],
     [
@@ -134,6 +134,18 @@ const Settings = [
             desc: 'horizon',
             class: 'font-size-normal'
         }
+    ],
+    [
+        {
+            label: '加强：',
+            desc: 'strong',
+            class: 'var-module-con-title'
+        },
+        {
+            label: '加强样式',
+            desc: 'strong',
+            class: 'font-size-normal'
+        },
     ]
 ];
 export default {
