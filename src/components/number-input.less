@@ -16,6 +16,7 @@
   input {
     ime-mode: disabled;
     text-overflow: ellipsis;
+    font-variant-numeric: tabular-nums;
   }
 
   &[ui~="normal"] .@{veui-prefix}-input-main {
@@ -23,7 +24,7 @@
   }
 
   &[ui~="normal"] {
-    .@{veui-prefix}-input-append {
+    .@{veui-prefix}-input-after {
       right: 0;
       position: absolute;
       min-width: veui-sum(@veui-number-input-spin-button-min-width-normal, -1px);
@@ -31,30 +32,26 @@
       margin-left: @veui-input-padding;
     }
 
-    .@{veui-prefix}-input-append,
+    .@{veui-prefix}-input-after,
     .@{veui-prefix}-number-input-controls {
       .border-right-radius(inherit);
     }
 
-    &[ui~="xs"] .@{veui-prefix}-input-append {
+    &[ui~="xs"] .@{veui-prefix}-input-after {
       .size(veui-sum(@veui-number-input-spin-button-width-normal-xs, -1px), 100%);
     }
 
-    &[ui~="s"] .@{veui-prefix}-input-append {
+    &[ui~="s"] .@{veui-prefix}-input-after {
       .size(veui-sum(@veui-number-input-spin-button-width-normal-s, -1px), 100%);
     }
 
-    &[ui~="m"] .@{veui-prefix}-input-append {
+    &[ui~="m"] .@{veui-prefix}-input-after {
       .size(veui-sum(@veui-number-input-spin-button-width-normal-m, -1px), 100%);
     }
   }
 
   &-controls-focus[ui~="normal"] {
     overflow: visible;
-
-    .@{veui-prefix}-input-main {
-      overflow: visible;
-    }
   }
 
   &[ui~="normal"] &-controls {
@@ -126,11 +123,12 @@
   }
 
   &[ui~="strong"] {
-    .@{veui-prefix}-input {
-      &-main {
-        padding: 0;
-      }
+    padding: 0;
 
+    .@{veui-prefix}-input {
+      &-input {
+        text-align: center;
+      }
       &-before,
       &-after {
         position: absolute;
@@ -151,11 +149,8 @@
       width: @veui-number-input-width-strong-xs;
 
       .@{veui-prefix}-input {
-        &-main {
-          border-radius: @veui-input-border-radius-xs;
-          .veui-input-input {
-            padding-left: veui-sum(@veui-number-input-height-xs, 12px);
-          }
+        .@{veui-prefix}-input-input {
+          padding-left: veui-sum(@veui-number-input-height-xs, 12px);
         }
 
         &-before,
@@ -169,11 +164,8 @@
       width: @veui-number-input-width-strong-s;
 
       .@{veui-prefix}-input {
-        &-main {
-          border-radius: @veui-input-border-radius-s;
-          .veui-input-input {
-            padding-left: veui-sum(@veui-number-input-height-s, 12px);
-          }
+        .veui-input-input {
+          padding-left: veui-sum(@veui-number-input-height-s, 12px);
         }
 
         &-before,
@@ -187,11 +179,8 @@
       width: @veui-number-input-width-strong-m;
 
       .@{veui-prefix}-input {
-        &-main {
-          border-radius: @veui-input-border-radius-m;
-          .veui-input-input {
-            padding-left: veui-sum(@veui-number-input-height-m, 12px);
-          }
+        .veui-input-input {
+          padding-left: veui-sum(@veui-number-input-height-m, 12px);
         }
 
         &-before,

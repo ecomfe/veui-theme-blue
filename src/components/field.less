@@ -1,113 +1,88 @@
 @import "../lib.less";
 @import "../variables/components/field.less";
+@import "../variables/components/form.less";
+
+// will be removed
+@veui-form-field-spacing-after-horizontal: @veui-padding-unit * 2;
 
 .@{veui-prefix}-field {
-  vertical-align: top;
-  clear: both;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  font-size: @veui-font-size-s;
+  min-height: @veui-height-m;
 
-  &-required > .@{veui-prefix}-form-label::after {
-    .veui-field-require();
-  }
-
-  &-no-label::before {
-    content: "";
-    display: inline-block;
+  &-label {
+    position: relative;
+    flex: none;
     width: @veui-form-label-width;
+    margin-right: @veui-form-label-spacing-after-horizontal;
+    color: @veui-form-label-font-color;
+    text-align: right;
+
+    .@{veui-prefix}-label {
+      line-height: @veui-height-m;
+    }
   }
 
-  & > * {
-    display: inline-flex;
-    vertical-align: top;
+  &-required > &-label::before {
+    content: "*";
+    margin-right: @veui-form-label-content-spacing;
+    color: @veui-form-label-required-color;
   }
 
-  & > *:not([class*="veui-form-label"]) + * {
-    margin-left: 10px;
+  .@{veui-prefix}-field-tip {
+    .absolute(@veui-height-m / 2, _, _, veui-sum(100%, @veui-form-label-content-spacing));
+    color: @veui-form-label-icon-color;
+    transform: translateY(-50%);
+
+    .@{veui-prefix}-icon {
+      display: block;
+    }
   }
 
-  .@{veui-prefix}-form-label {
-    height: @veui-height-l;
-    width: @veui-form-label-width;
-    line-height: @veui-height-l;
+  &-no-label {
+    margin-left: veui-sum(@veui-form-label-width, @veui-form-label-spacing-after-horizontal);
   }
 
-  .@{veui-prefix}-span {
-    line-height: @veui-height-l;
+  .@{veui-prefix}-field-content {
+    display: flex;
+    align-items: center;
+    flex: 1 0 auto;
+    position: relative;
   }
 
   &-error {
-    position: static;
-    height: @veui-height-l;
-    line-height: @veui-height-l;
-    margin: 0 0 0 10px;
-    vertical-align: top;
-    color: @veui-color-error-6;
-
-    .@{veui-prefix}-icon {
-      margin-right: 7px;
-    }
+    position: absolute;
+    left: 0;
+    top: veui-sum(100%, @veui-form-field-error-spacing-before-vertical);
+    color: @veui-form-field-error-font-color;
   }
 
-  .@{veui-prefix}-form-tip {
-    height: @veui-height-l;
-    line-height: @veui-height-l;
-    margin-left: 10px;
-    color: @veui-font-color-weak;
-  }
-
-  .@{veui-prefix}-form-tip + .@{veui-prefix}-field-error {
-    .veui-field-gap-error();
-  }
-
-  .@{veui-prefix}-form-label
-    ~ .@{veui-prefix}-form-tip
-    + .@{veui-prefix}-field-error {
-    margin-left: @veui-form-label-width;
-  }
-
-  .@{veui-prefix}-form-label,
-  .@{veui-prefix}-field-error,
-  .@{veui-prefix}-form-tip,
-  .@{veui-prefix}-span {
-    .@{veui-prefix}-icon {
-      vertical-align: top;
-      margin-top: ~"calc(@{veui-height-l} / 2 - 0.5em)";
-    }
-  }
-
-  .make-ui(@font-size, @box-size) {
+  .make-ui(@font-size, @min-height) {
     font-size: @font-size;
+    min-height: @min-height;
 
-    .@{veui-prefix}-form-label,
-    .@{veui-prefix}-field-error,
-    .@{veui-prefix}-form-tip,
-    .@{veui-prefix}-span {
-      line-height: @box-size;
-
-      .@{veui-prefix}-icon {
-        margin-top: ~"calc(@{box-size} / 2 - 0.5em)";
-      }
+    .@{veui-prefix}-form-label {
+      line-height: @min-height;
     }
-
-    .@{veui-prefix}-form-label,
-    .@{veui-prefix}-field-error,
     .@{veui-prefix}-form-tip {
-      height: @box-size;
+      top: ~"calc(@{min-height} / 2)";
     }
   }
-
-  &[ui~="large"] {
-    .make-ui(@veui-font-size-l, @veui-height-xl);
+  &[ui~="l"] {
+    .make-ui(@veui-font-size-l, @veui-height-l);
   }
 
-  &[ui~="small"] {
-    .make-ui(@veui-font-size-s, @veui-height-m);
+  &[ui~="m"] {
+    .make-ui(@veui-font-size-m, @veui-height-m);
   }
 
-  &[ui~="tiny"] {
+  &[ui~="s"] {
     .make-ui(@veui-font-size-s, @veui-height-s);
   }
 
-  &[ui~="micro"] {
+  &[ui~="xs"] {
     .make-ui(@veui-font-size-s, @veui-height-xs);
   }
 }

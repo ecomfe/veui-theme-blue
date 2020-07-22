@@ -1,16 +1,20 @@
-import '../icons/exclamation-circle';
+import '../icons/question-circle';
 import config from 'veui/managers/config';
 
 config.defaults(
     {
         icons: {
-            alert: 'exclamation-circle'
+            tip: 'question-circle'
         },
         ui: {
             size: {
-                values: ['large', 'small', 'tiny', 'micro'],
+                values: ['xs', 's', 'm', 'l'],
+                default: 's',
                 inherit: true
             }
+        },
+        parts: {
+            tip: 'alt'
         }
     },
     'field'

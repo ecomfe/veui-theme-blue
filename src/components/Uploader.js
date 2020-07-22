@@ -39,7 +39,8 @@ config.defaults(
             remove: 'icon',
             progress: 's',
             control: 'icon s',
-            preview: 'auto'
+            preview: 'auto',
+            image: 'basic'
         }
     },
     'uploader'

@@ -10,7 +10,7 @@ config.defaults(
             }
         },
         parts: {
-            checked: 'primary'
+            button: 'basic'
         }
     },
     'radiobuttongroup'

@@ -23,9 +23,11 @@
     outline: none;
     background-color: @veui-input-background-color;
 
-    .@{veui-prefix}-input-main {
+    .@{veui-prefix}-input {
       border: 0;
       padding-right: 0;
+      background-color: transparent;
+      .margin(-1px, _);
     }
 
     .@{veui-prefix}-invalid & {

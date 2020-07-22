@@ -16,6 +16,18 @@
     font-size: @veui-loading-font-size-l;
   }
 
+  &[ui~="overlay"] {
+    display: flex;
+    .absolute(0);
+    justify-content: center;
+    background-color: @veui-loading-background-color;
+    border-radius: inherit;
+
+    &[ui~="reverse"] {
+      background-color: @veui-loading-background-color-reverse;
+    }
+  }
+
   &-text {
     color: @veui-loading-font-color-normal;
     margin-left: @veui-loading-content-spacing;

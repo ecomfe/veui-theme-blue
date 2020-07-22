@@ -44,6 +44,7 @@
                 :selected.sync="selected"
                 checkable
                 selectable
+                include-indeterminate
             />
         </section>
         <section>
@@ -69,7 +70,7 @@ export default {
         return {
             expanded: ['infused', 'brewed'],
             expanded2: [],
-            checked: ['filtered', 'cold-brew'],
+            checked: [],
             selected: null,
             coffees: [
                 {
@@ -79,6 +80,7 @@ export default {
                         {
                             label: 'Brewed',
                             value: 'brewed',
+                            disabled: true,
                             children: [
                                 {
                                     label: 'Drip brewed',

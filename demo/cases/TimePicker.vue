@@ -86,7 +86,8 @@
                 v-model="range1"
                 :max="range2"
                 clearable
-            />~
+            />
+            ~
             <veui-time-picker
                 v-model="range2"
                 :min="range1"
@@ -144,7 +145,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.veui-time-picker {
-  margin-right: 10px;
+.veui-time-picker + .veui-input {
+  margin-left: 10px;
 }
 </style>

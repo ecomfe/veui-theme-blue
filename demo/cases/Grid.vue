@@ -96,10 +96,9 @@
         </section>
 
         <section>
-            <h3>12 Columns + 15px Gutter Embedded Grid + Flex <small>(equal height columns)</small></h3>
-            <figure class="flex">
+            <h3>12 Columns + 15px Gutter Embedded Grid</h3>
+            <figure>
                 <veui-grid-container
-                    flex
                     :columns="12"
                     :gutter="15"
                 >
@@ -229,10 +228,6 @@ figure {
   border: 1px solid #eee;
   border-radius: 2px;
   padding: 20px 0;
-
-  &.flex {
-    padding: 10px 0;
-  }
 }
 
 .content {
@@ -251,10 +246,6 @@ figure {
 
   & + & {
     margin-top: 30px;
-
-    .flex & {
-      margin-top: 10px;
-    }
   }
 }
 

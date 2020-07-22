@@ -103,6 +103,15 @@
             </section>
         </section>
         <section>
+            <h2>禁用特定日期</h2>
+            <section>
+                <veui-date-picker
+                    v-model="selectedDate"
+                    :disabled-date="disabledDate"
+                />
+            </section>
+        </section>
+        <section>
             <h2>invalid</h2>
             <section>
                 <veui-date-picker
@@ -228,6 +237,11 @@ export default {
                 }
             ]
         };
+    },
+    methods: {
+        disabledDate(date) {
+            return date > new Date();
+        }
     }
 };
 </script>

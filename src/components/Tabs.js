@@ -27,7 +27,7 @@ config.defaults(
                 inherit: true
             },
             style: {
-                values: ['block']
+                values: ['simple', 'strong']
             }
         },
         parts: {

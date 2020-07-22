@@ -29,6 +29,9 @@ config.defaults(
                     }
                 },
                 inherit: true
+            },
+            fluid: {
+                boolean: true
             }
         }
     },

@@ -1,42 +1,23 @@
 @import "../lib.less";
 @import "../variables/components/field.less";
+@import "../variables/components/form.less";
 
 .@{veui-prefix}-form {
-  .@{veui-prefix}-fieldset,
   .@{veui-prefix}-field {
-    margin-bottom: @veui-field-gap;
+    margin-bottom: @veui-form-field-spacing-vertical;
   }
 
-  .@{veui-prefix}-fieldset:last-child,
-  .@{veui-prefix}-field:last-child {
+  .@{veui-prefix}-field .@{veui-prefix}-field-no-label {
     margin-bottom: 0;
+    margin-left: 0;
   }
 
-  .@{veui-prefix}-fieldset > .@{veui-prefix}-field {
-    margin-bottom: 0;
-  }
+  &-actions {
+    margin-top: @veui-form-actions-spacing-before;
+    padding-left: veui-sum(@veui-form-label-width, @veui-form-label-spacing-after-horizontal);
 
-  &[ui~="inline"] {
-    .clearfix();
-
-    & > * + * {
-      margin-left: 10px;
-    }
-
-    .@{veui-prefix}-fieldset,
-    .@{veui-prefix}-field {
-      display: inline-block;
-      margin-bottom: 0;
-      clear: none;
-
-      & > .@{veui-prefix}-form-label,
-      &.@{veui-prefix}-field-no-label::before {
-        width: auto;
-      }
-
-      & + .@{veui-prefix}-fieldset {
-        margin-left: 30px;
-      }
+    .@{veui-prefix}-button + .@{veui-prefix}-button {
+      margin-left: @veui-form-actions-content-spacing;
     }
   }
 }

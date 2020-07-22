@@ -7,7 +7,7 @@
   position: relative;
   color: @veui-radio-font-color;
   font-size: @veui-radio-font-size-m;
-  line-height: @veui-line-height-m;
+  line-height: @veui-radio-font-size-m * @veui-line-height-m + 1;
   cursor: pointer;
 
   input {
@@ -118,6 +118,7 @@
 
   &[ui~="s"] {
     font-size: @veui-radio-font-size-s;
+    line-height: @veui-radio-font-size-s * @veui-line-height-m;
   }
 
   &[ui~="s"] &-box {
@@ -129,6 +130,7 @@
   }
   &[ui~="l"] {
     font-size: @veui-radio-font-size-l;
+    line-height: @veui-radio-font-size-l * @veui-line-height-m - 2;
   }
 
   &[ui~="l"] &-box {
