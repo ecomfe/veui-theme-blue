@@ -13,6 +13,12 @@
     width: @veui-date-picker-width-range;
   }
 
+  &-inputs .@{veui-prefix}-input.@{veui-prefix}-focus,
+  .@{veui-prefix}-input.@{veui-prefix}-focus {
+    border: none;
+    box-shadow: none;
+  }
+  &-inputs,
   &-trigger {
     .veui-button-transition();
     display: flex;
@@ -22,8 +28,10 @@
     border-radius: @veui-border-radius-m;
     outline: none;
     background-color: @veui-input-background-color;
+    overflow: hidden;
 
     .@{veui-prefix}-input {
+      height: @veui-date-picker-input-height;
       border: 0;
       padding-right: 0;
       background-color: transparent;
@@ -32,13 +40,14 @@
 
     .@{veui-prefix}-invalid & {
       border-color: @veui-input-border-color-error;
-      .@{veui-prefix}-input-main {
+      .@{veui-prefix}-input {
         color: @veui-input-font-color-error;
       }
 
       &:hover {
         border-color: @veui-input-border-color-error-hover;
       }
+      &:active,
       &.focus-visible {
         .veui-focus-ring(
           @veui-input-border-color-error-focus,
@@ -46,12 +55,17 @@
         );
       }
     }
+    .@{veui-prefix}-disabled .@{veui-prefix}-input-placeholder {
+      color: @veui-input-font-color-disabled;
+    }
   }
 
+  &-inputs,
   &:not(.@{veui-prefix}-disabled):not(.@{veui-prefix}-invalid) &-trigger {
     &:hover {
       border-color: @veui-input-border-color-hover;
     }
+    &:active,
     &.focus-visible {
       .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
     }
@@ -106,30 +120,43 @@
     &[ui] {
       max-height: none;
     }
+    overflow: visible;
+    position: relative;
     box-shadow: @veui-date-picker-dropdown-shadow;
     .border-radius(@veui-date-picker-dropdown-border-radius-m);
-    margin-top: -1px;
+    margin-top: @veui-date-picker-overlay-inputs-offset-x;
     display: flex;
     align-items: stretch;
 
   }
   &-overlay-content .@{veui-prefix}-calendar-type-year,
-  &-overlay-content .@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,
-  &-overlay-content &-inputs {
+  &-overlay-content .@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel {
     min-width: 100%;
+  }
+  &-overlay-content &-inputs {
+    position: absolute;
+    left: 0;
+    top: -@veui-date-picker-overlay-inputs-offset-x;
+    width: @veui-date-picker-width;
+  }
+  &-overlay-content .@{veui-prefix}-calendar-range &-inputs {
+    width: @veui-date-picker-width-range;
   }
 
   &-inputs {
     border-bottom: 1px solid @veui-input-border-color;
     display: flex;
     align-items: center;
+    padding-right: veui-sum(@veui-date-picker-font-size-s, @veui-input-content-spacing, @veui-input-padding);
+    background-color: transparent;
     .@{veui-prefix}-input {
       flex: 1 1 auto;
       width: auto; // 覆盖 width
-      &-main {
-        margin-bottom: -1px;
-      }
+      background-color: @veui-input-background-color;
     }
+  }
+  &-inputs &-tilde {
+    color: transparent;
   }
 
   &-range &-label {
@@ -137,8 +164,6 @@
   }
 
   &-tilde {
-    overflow: hidden;
-    padding: 0 @veui-date-picker-range-connector-padding-x;
     color: @veui-font-color-aux;
 
     .@{veui-prefix}-disabled & {
@@ -194,17 +219,34 @@
     transform: none;
   }
 
-  &.@{veui-prefix}-readonly,
-  &.@{veui-prefix}-disabled {
+  &.@{veui-prefix}-readonly &-trigger,
+  &.@{veui-prefix}-disabled &-trigger {
     background-color: @veui-input-background-color-disabled;
   }
 
+  &-range[ui~="s"] {
+    width: @veui-date-picker-width-range-s;
+  }
+  &-overlay-content[ui~="s"] &-inputs,
+  &[ui~="s"] &-trigger {
+    .@{veui-prefix}-input {
+      height: @veui-date-picker-input-height-s;
+    }
+  }
   &-overlay-content[ui~="s"],
   &[ui~="s"] {
     font-size: @veui-date-picker-font-size-s;
   }
   &-overlay-content[ui~="s"] {
     .border-radius(@veui-date-picker-dropdown-border-radius-s);
+    margin-top: @veui-date-picker-overlay-inputs-offset-x;
+  }
+  &-overlay-content[ui~="s"] &-inputs {
+    top: -@veui-date-picker-overlay-inputs-offset-x;
+    padding-right: veui-sum(@veui-date-picker-font-size-s, @veui-input-content-spacing, @veui-input-padding);
+  }
+  &-overlay-content[ui~="s"] .@{veui-prefix}-calendar-range &-inputs {
+    width: @veui-date-picker-width-range-s;
   }
   &-overlay-content[ui~="s"] &-shortcut {
     .centered-line(@veui-date-picker-list-item-height-s);

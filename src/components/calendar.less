@@ -88,7 +88,7 @@
       flex-grow: 1;
     }
 
-    &::before {
+    &::after {
       content: "";
       .make-header-height(@veui-date-picker-font-size-m);
       .absolute(veui-sum(@header-height, -1px), 0, _, 0);
@@ -109,7 +109,11 @@
       border-left: 1px solid @veui-date-picker-panel-separator-color;
     }
   }
-
+  &-type-year &-panel::before {
+    content: "";
+    .make-header-height(@veui-date-picker-font-size-m);
+    height: @header-height;
+  }
   &-type-month &-panel,
   &-type-year &-panel {
     width: veui-sum(@date-panel-width, -@veui-date-picker-year-scroller-width);
@@ -479,7 +483,7 @@
 
   &-date-table {
     td::before {
-      width: @veui-date-picker-day-cell-spacing-x;
+      width: @veui-date-picker-day-cell-spacing-x + 1px;
       right: -@veui-date-picker-day-cell-spacing-x;
       .veui-button-transition();
     }
@@ -589,10 +593,14 @@
         padding-left: 0;
         width: @date-panel-width;
       }
-      &::before {
+      &::after {
         .make-header-height(@veui-date-picker-font-size-s);
         .absolute(veui-sum(@header-height, -1px), 0, _, 0);
       }
+    }
+    &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel::before {
+      .make-header-height(@veui-date-picker-font-size-s);
+      height: @header-height;
     }
     &.@{veui-prefix}-calendar-type-month .@{veui-prefix}-calendar-panel,
     &.@{veui-prefix}-calendar-type-year .@{veui-prefix}-calendar-panel,

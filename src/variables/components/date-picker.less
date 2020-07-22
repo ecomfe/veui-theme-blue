@@ -3,7 +3,11 @@
 // Width
 // FIXME: choose a more appropriate defalt value
 @veui-date-picker-width: @veui-height-unit * 40;
-@veui-date-picker-width-range: @veui-height-unit * 62;
+@veui-date-picker-width-range: @veui-height-unit * 66;
+@veui-date-picker-width-range-s: @veui-height-unit * 63;
+
+@veui-date-picker-input-height: @veui-height-unit * 8;
+@veui-date-picker-input-height-s: @veui-height-unit * 7;
 
 // See Input for other input styles
 
@@ -35,8 +39,14 @@
 @veui-date-picker-icon-color-disabled: @veui-input-icon-color-disabled;
 
 /* Spacing */
-@veui-date-picker-range-connector-padding-x: @veui-spacing-unit * 3; // The "~" connector for ranges
 @veui-date-picker-range-panel-spacing: @veui-spacing-unit * 2;
+
+/**
+ * DatePicker overlay
+ */
+
+@veui-date-picker-overlay-inputs-offset-x: @veui-date-picker-input-height + @veui-spacing-unit;
+@veui-date-picker-overlay-inputs-offset-x-s: @veui-date-picker-input-height-s + @veui-spacing-unit;
 
 /**
  * DatePicker panel
