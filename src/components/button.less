@@ -20,10 +20,21 @@
     @height: ~"veui-button-height-@{size}";
     @padding: ~"veui-button-padding-@{size}";
     @font-size: ~"veui-button-font-size-@{size}";
+    @min-width: ~"veui-button-min-width-@{size}";
     height: @@height;
     .padding(0, @@padding);
     border-radius:  @veui-button-border-radius-l;
     font-size: @@font-size;
+    &[ui~="normal"],
+    &[ui~="primary"],
+    &[ui~="translucent"] {
+        min-width: @@min-width;
+    }
+    &[ui~="text"],
+    &[ui~="icon"],
+    &[ui~="square"]{
+        min-width: auto;
+    }
   }
 
   &[ui~="xs"] {
@@ -45,7 +56,7 @@
   &[ui~="xl"] {
     .make-metrics(xl);
   }
-
+ 
   .@{veui-prefix}-icon {
     .veui-icon-size(1em);
     margin-right: @veui-button-content-spacing;
