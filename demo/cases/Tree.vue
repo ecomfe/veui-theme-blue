@@ -1,19 +1,40 @@
 <template>
     <article>
         <h1><code>&lt;veui-tree&gt;</code></h1>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">s / m</span>
+        </div>
         <section>
-            <h4>Expanded items</h4>
-            {{ expanded }}
+            <h3>常规树</h3>
+            <div class="title-desc">已展开集合: {{ expanded }}</div>
+            <veui-form>
+                <veui-field
+                    ui="micro"
+                    label="小号[ui=s]"
+                >
+                    <veui-tree
+                        ui="s"
+                        :datasource="coffees"
+                        :expanded.sync="expanded"
+                    />
+                </veui-field>
+                <veui-field
+                    ui="micro"
+                    label="中号[ui=m]"
+                >
+                    <veui-tree
+                        ui="m"
+                        :datasource="coffees"
+                        :expanded.sync="expanded"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
         <section>
-            <h4>item-label slot was override</h4>
-            <veui-tree
-                :datasource="coffees"
-                :expanded.sync="expanded"
-            />
-        </section>
-        <section>
-            <h4>item slot was override</h4>
+            <div class="title-desc">自定义slot：</div>
             <veui-tree
                 :datasource="coffees"
                 :expanded.sync="expanded"
@@ -22,12 +43,12 @@
                     slot="item"
                     slot-scope="item"
                 >
-                    {{ item.label }}
+                    <span><veui-icon name="file"/>{{ item.label }}</span>
                 </template>
             </veui-tree>
         </section>
         <section>
-            <h4>Checkable item</h4>
+            <h3>含复选框的树：</h3>
             <veui-tree
                 v-model="checked"
                 :datasource="coffees"
@@ -36,7 +57,7 @@
             />
         </section>
         <section>
-            <h4>Checkable & Selectable item</h4>
+            <h3>含复选框和可单选的树：</h3>
             <veui-tree
                 v-model="checked"
                 :datasource="coffees"
@@ -46,25 +67,22 @@
                 selectable
                 include-indeterminate
             />
-        </section>
-        <section>
-            <h4>Checked items</h4>
-            {{ checked }}
-        </section>
-        <section>
-            <h4>Selected items</h4>
-            {{ selected }}
+            <div class="title-desc">复选集合：{{ checked }}</div>
+            <div class="title-desc">单选集合：{{ selected }}</div>
         </section>
     </article>
 </template>
 
 <script>
-import {Tree} from 'veui';
+import {Tree, Form, Field, Icon} from 'veui';
 
 export default {
     name: 'tree',
     components: {
-        'veui-tree': Tree
+        'veui-tree': Tree,
+        'veui-form': Form,
+        'veui-field': Field,
+        'veui-icon': Icon
     },
     data() {
         return {
