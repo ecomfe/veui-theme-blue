@@ -5,7 +5,7 @@
         <div class="options-desc">可选的位置 <span class="bg-gray-show">placement</span> 属性值： <span class="bg-gray-show">top / right / bottom / left</span></div>
         <h2>尺寸</h2>
         <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m / l</span></div>
-        <div class="options-desc">注意 <span class="bg-gray-show">placement为top/bottom时，ui不能选m，上下抽屉只有小/大两种选项</span></div>
+        <div class="options-desc">注意 <span class="bg-gray-show">placement为top/bottom时，ui不能选l，上下抽屉只有中/大两种选项</span></div>
         <section>
             <veui-checkbox v-model="modal">Modal</veui-checkbox>
             <veui-checkbox v-model="outsideClosable">outside Closable</veui-checkbox>
@@ -14,8 +14,8 @@
             <veui-button @click="handleTopOpen('s')">
                 Top Small
             </veui-button>
-            <veui-button @click="handleTopOpen('l')">
-                Top Large
+            <veui-button @click="handleTopOpen('m')">
+                Top Middle
             </veui-button>
         </section>
         <section>
@@ -33,8 +33,8 @@
             <veui-button @click="handleBottomOpen('s')">
                 Bottom Small
             </veui-button>
-            <veui-button @click="handleBottomOpen('l')">
-                Bottom Large
+            <veui-button @click="handleBottomOpen('m')">
+                Bottom Middle
             </veui-button>
         </section>
         <section>
