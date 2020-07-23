@@ -147,15 +147,15 @@
                 >
                     <veui-grid-row>
                         <veui-grid-column
-                            class="uncertain"
+                            class="microResponse"
                         >
                             <div class="content">
-                                250px +- 50px
+                                200px +- 8px
                             </div>
                         </veui-grid-column>
-                        <veui-grid-column class="correspond">
-                            <div class="content accord">
-                                8/24
+                        <veui-grid-column class="response">
+                            <div class="content">
+                                1
                             </div>
                         </veui-grid-column>
                     </veui-grid-row>
@@ -249,12 +249,13 @@ figure {
   }
 }
 
-.uncertain {
+.microResponse {
     flex: 1 1 auto;
     max-width: 208px;
     min-width: 192px;
+    box-sizing: content-box;
 }
-.correspond {
-    flex: 1 1 auto;
+.response {
+    flex: 0 1 auto;
 }
 </style>

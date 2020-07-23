@@ -86,7 +86,8 @@
             </veui-radio>
         </section>
         <section>
-            <h3>单选组</h3>
+            <h2>不同尺寸</h2>
+            <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m / l（默认 m）</span></div>
             <p>
                 s:
                 <veui-radio
