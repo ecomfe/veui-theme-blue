@@ -19,11 +19,9 @@
     font-variant-numeric: tabular-nums;
   }
 
-  &[ui~="normal"] .@{veui-prefix}-input-main {
-    overflow: hidden;
-  }
-
   &[ui~="normal"] {
+    overflow: hidden;
+
     .@{veui-prefix}-input-after {
       right: 0;
       position: absolute;
@@ -78,6 +76,7 @@
     justify-content: center;
     background-clip: padding-box;
     border-radius: inherit;
+    color: @veui-number-input-spin-icon-color;
   }
 
   &[ui~="normal"] &-step:not(.focus-visible) {
@@ -133,15 +132,19 @@
       &-after {
         position: absolute;
         z-index: 1;
-        top: 0;
+        margin-top: -1px;
+        padding: 0;
+        border-radius: inherit;
       }
 
       &-before {
-        left: 0;
+        margin-right: @veui-input-padding;
+        margin-left: -1px;
       }
 
       &-after {
-        right: 0;
+        margin-right: -1px;
+        margin-left: @veui-input-padding;
       }
     }
 
@@ -149,10 +152,6 @@
       width: @veui-number-input-width-strong-xs;
 
       .@{veui-prefix}-input {
-        .@{veui-prefix}-input-input {
-          padding-left: veui-sum(@veui-number-input-height-xs, 12px);
-        }
-
         &-before,
         &-after {
           .size(@veui-number-input-height-xs);
@@ -164,10 +163,6 @@
       width: @veui-number-input-width-strong-s;
 
       .@{veui-prefix}-input {
-        .veui-input-input {
-          padding-left: veui-sum(@veui-number-input-height-s, 12px);
-        }
-
         &-before,
         &-after {
           .size(@veui-number-input-height-s);
@@ -179,10 +174,6 @@
       width: @veui-number-input-width-strong-m;
 
       .@{veui-prefix}-input {
-        .veui-input-input {
-          padding-left: veui-sum(@veui-number-input-height-m, 12px);
-        }
-
         &-before,
         &-after {
           .size(@veui-number-input-height-m);

@@ -34,45 +34,18 @@
   }
 
   &-before,
-  &-after,
-  &-prepend,
-  &-append {
+  &-after {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
   }
 
-  &-before,
+  &-before {
+    padding-right: @veui-input-padding;
+  }
+
   &-after {
-    border-radius: inherit;
-  }
-
-  &-before-label,
-  &-after-label {
-    display: flex;
-    align-items: center;
-    .size(100%);
-    border: 1px solid @veui-input-border-color;
-    border-radius: inherit;
-    padding: 0 @veui-input-padding;
-  }
-
-  &-before-label {
-    .border-right-radius(0);
-    border-right: none;
-  }
-
-  &-after-label {
-    .border-left-radius(0);
-    border-left: none;
-  }
-
-  &-prepend {
-    padding-right: @veui-input-content-spacing;
-  }
-
-  &-append {
-    padding-left: @veui-input-content-spacing;
+    padding-left: @veui-input-padding;
   }
 
   &-content {
@@ -96,8 +69,18 @@
   }
 
   &-clear {
-    &-has-append {
-      margin-right: @veui-input-content-spacing;
+    margin: veui-sum(@veui-input-padding-text * -1, -2px);
+
+    &[ui] {
+      color: @veui-input-icon-color;
+    }
+
+    &-has-after {
+      margin-right: veui-sum(
+        @veui-input-padding-text * -1,
+        -2px,
+        @veui-input-content-spacing
+      );
     }
   }
 
@@ -105,16 +88,16 @@
     margin-left: @veui-input-content-spacing;
   }
 
-  &-main:hover {
+  &:hover {
     border-color: @veui-input-border-color-hover;
   }
 
-  &.@{veui-prefix}-readonly &-main {
+  &.@{veui-prefix}-readonly {
     border-color: @veui-input-border-color-read-only;
     background-color: @veui-input-background-color-read-only;
   }
 
-  &.@{veui-prefix}-readonly &-main:hover {
+  &.@{veui-prefix}-readonly:hover {
     border-color: @veui-input-border-color-read-only-hover;
   }
 
@@ -150,23 +133,15 @@
     border-color: @veui-input-border-color-read-only-focus;
   }
 
-  &.@{veui-prefix}-disabled &-main,
-  &.@{veui-prefix}-readonly &-before-label,
-  &.@{veui-prefix}-readonly &-after-label,
-  &.@{veui-prefix}-disabled &-before-label,
-  &.@{veui-prefix}-disabled &-after-label {
-    background-color: @veui-input-background-color-disabled;
+  &.@{veui-prefix}-disabled {
+    background-color: @veui-input-background-color-disabled;;
     border-color: @veui-input-border-color-disabled;
     cursor: not-allowed;
   }
 
   &.@{veui-prefix}-disabled &-input,
-  &.@{veui-prefix}-readonly &-before-label,
-  &.@{veui-prefix}-readonly &-after-label,
-  &.@{veui-prefix}-disabled &-before-label,
-  &.@{veui-prefix}-disabled &-after-label,
-  &.@{veui-prefix}-disabled &-prepend,
-  &.@{veui-prefix}-disabled &-append {
+  &.@{veui-prefix}-disabled &-before,
+  &.@{veui-prefix}-disabled &-after {
     color: @veui-input-font-color-disabled;
     pointer-events: none;
   }
@@ -178,6 +153,10 @@
     pointer-events: none;
     cursor: text;
     .ellipsis();
+  }
+
+  &.@{veui-prefix}-disabled &-placeholder {
+    color: @veui-input-font-color-disabled;
   }
 
   &-count {
