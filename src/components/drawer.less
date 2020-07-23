@@ -11,9 +11,14 @@
       transform: translate(0, 0);
       border-radius: 0;
       overflow: auto;
+      padding: 0 @veui-drawer-blank @veui-drawer-blank;
       .veui-transition(transform);
 
       &-head {
+        height: @veui-drawer-head-height;
+        color: #000;
+        padding-left: 0;
+        padding-right: 0;
         [ui~="s"]& {
           font-size: @veui-drawer-title-font-size-s;
         }
@@ -34,6 +39,15 @@
 
       &-body {
         flex-grow: 1;
+        background-color: @veui-drawer-content-bg;
+      }
+      &-foot {
+        text-align: center;
+        margin-top: @veui-drawer-blank;
+        height: @veui-drawer-foot-height;
+        padding: 0;
+        height: @veui-drawer-foot-height;
+        line-height: @veui-drawer-foot-height;
       }
     }
   }
@@ -43,27 +57,60 @@
       .absolute(0, 0, auto, 0);
       width: auto !important;
       box-shadow: @veui-drawer-shadow-top;
+      height: @veui-drawer-height-s;
+
+    }
+    [ui~="m"]& .@{veui-prefix}-dialog-content{
+        height: @veui-drawer-height-m;
+      }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
+        height: @veui-drawer-height-s;
     }
   }
   &-right {
     .@{veui-prefix}-dialog-content {
       .absolute(0, 0, 0, auto);
-      width: @veui-drawer-width;
+      width: @veui-drawer-width-l;
       box-shadow: @veui-drawer-shadow-right;
+    }
+    [ui~="l"]& .@{veui-prefix}-dialog-content{
+        width: @veui-drawer-width-l;
+    }
+    [ui~="m"]& .@{veui-prefix}-dialog-content{
+        width: @veui-drawer-width-m;
+    }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
+        width: @veui-drawer-width-s;
     }
   }
   &-bottom {
     .@{veui-prefix}-dialog-content {
       .absolute(auto, 0, 0, 0);
       width: auto !important;
+      height: @veui-drawer-height-s;
       box-shadow: @veui-drawer-shadow-bottom;
+    }
+    [ui~="m"]& .@{veui-prefix}-dialog-content{
+        height: @veui-drawer-height-m;
+      }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
+        height: @veui-drawer-height-s;
     }
   }
   &-left {
     .@{veui-prefix}-dialog-content {
       .absolute(0, auto, 0, 0);
-      width: @veui-drawer-width;
+      width: @veui-drawer-width-l;
       box-shadow: @veui-drawer-shadow-left;
+    }
+    [ui~="l"]& .@{veui-prefix}-dialog-content{
+        width: @veui-drawer-width-l;
+    }
+    [ui~="m"]& .@{veui-prefix}-dialog-content{
+        width: @veui-drawer-width-m;
+    }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
+        width: @veui-drawer-width-s;
     }
   }
 
