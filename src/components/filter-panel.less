@@ -3,83 +3,92 @@
 @import "../variables/components/checkbox.less";
 
 .@{veui-prefix}-filter-panel {
-  overflow: hidden;
-  border: 1px solid @veui-transfer-border-color;
-  border-radius: @veui-transfer-border-radius-m;
-  width: @veui-transfer-panel-width-m;
+    overflow: hidden;
+    border: 1px solid @veui-transfer-border-color;
+    border-radius: @veui-transfer-border-radius;
+    width: @veui-transfer-panel-width-m;
 
-  &-title {
-    display: flex;
-    align-items: center;
-    background: @veui-transfer-header-background-color;
-    padding: 0 @veui-transfer-padding-x;
-    color: @veui-transfer-header-font-color;
-    font-weight: @veui-transfer-header-font-weight;
-    font-size: @veui-transfer-font-size-m;
-    margin: 0;
-    height: @veui-transfer-header-height-m;
+    &-title {
+        display: flex;
+        align-items: center;
+        background: @veui-transfer-header-background-color;
+        .padding(_, @veui-transfer-padding-x-right, _, @veui-transfer-padding-x-left);
+        color: @veui-transfer-header-font-color;
+        font-weight: @veui-transfer-header-font-weight;
+        font-size: @veui-transfer-font-size-m;
+        margin: 0;
+        height: @veui-transfer-header-height-m;
 
-    .@{veui-prefix}-button {
-      font-weight: @veui-transfer-header-button-font-weight;
+        .@{veui-prefix}-button {
+        font-weight: @veui-transfer-header-button-font-weight;
+        }
     }
-  }
 
-  .@{veui-prefix}-search-box {
-    margin: 0;
-    width: 100%;
-    flex: none;
+    .@{veui-prefix}-search-box {
+        margin: 0;
+        width: 100%;
+        flex: none;
 
-    .@{veui-prefix}-input {
-      .padding(_, @veui-transfer-padding-x);
+        .@{veui-prefix}-input {
+            .padding(_, @veui-transfer-padding-x-right, _, @veui-transfer-padding-x-left);
+            .border-style(none, none, solid, none);
+            .border-color(_, _, @veui-transfer-border-color, _);
+            &.@{veui-prefix}-focus {
+                box-shadow: none;
+                .border-color(_, _, @veui-transfer-border-color-focus, _);
+            }
+        }
     }
-  }
 
-  &-no-data {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: @veui-font-color-weak;
-    height: @veui-transfer-item-height-m;
-    padding-top: @veui-transfer-content-padding-y;
-  }
-
-  &-single-level {
-    .@{veui-prefix}-tree.@{veui-prefix}-tree .@{veui-prefix}-tree-item-label {
-      margin-left: 0;
+    &-no-data {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: @veui-font-color-weak;
+        height: @veui-transfer-item-height-m;
+        padding-top: @veui-transfer-content-padding-y;
     }
-  }
 
-  &-content {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid @veui-transfer-border-color;
-    height: @veui-transfer-content-min-height-m;
-
-    &-main {
-      overflow-y: auto;
-      position: relative;
-      padding: @veui-transfer-content-padding-y 0;
+    &-single-level {
+        .@{veui-prefix}-tree.@{veui-prefix}-tree .@{veui-prefix}-tree-item-label {
+            margin-left: 0;
+        }
     }
-  }
 
-  &[ui~="s"] {
-    font-size: @veui-transfer-font-size-s;
-    border-radius: @veui-transfer-border-radius-s;
-    width: @veui-transfer-panel-width-s;
+    &-content {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid @veui-transfer-border-color;
+        height: @veui-transfer-content-min-height-m;
 
-    .@{veui-prefix}-filter-panel {
-      &-title {
-        height: @veui-transfer-header-height-s;
+        &-main {
+            overflow-y: auto;
+            position: relative;
+            padding: @veui-transfer-content-padding-y 0;
+
+            .@{veui-prefix}-tree {
+                .padding(_, @veui-transfer-padding-x-right, _, @veui-transfer-padding-x-left);
+            }
+        }
+    }
+
+    &[ui~="s"] {
         font-size: @veui-transfer-font-size-s;
-      }
+        width: @veui-transfer-panel-width-s;
 
-      &-no-data {
-        height: @veui-transfer-item-height-s;
-      }
+        .@{veui-prefix}-filter-panel {
+            &-title {
+                height: @veui-transfer-header-height-s;
+                font-size: @veui-transfer-font-size-s;
+            }
 
-      &-content {
-        height: @veui-transfer-content-min-height-s;
-      }
+            &-no-data {
+                height: @veui-transfer-item-height-s;
+            }
+
+            &-content {
+                height: @veui-transfer-content-min-height-s;
+            }
+        }
     }
-  }
 }

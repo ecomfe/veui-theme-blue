@@ -4,10 +4,10 @@
 @veui-transfer-font-size-s: @veui-font-size-s;
 @veui-transfer-font-size-m: @veui-font-size-m;
 
-@veui-transfer-border-radius-s: @veui-border-radius-s;
-@veui-transfer-border-radius-m: @veui-border-radius-m;
+@veui-transfer-border-radius: @veui-border-radius-l;
 
-@veui-transfer-padding-x: @veui-padding-unit * 4;
+@veui-transfer-padding-x-left: @veui-padding-unit * 3;
+@veui-transfer-padding-x-right: @veui-padding-unit * 4;
 @veui-transfer-header-content-spacing-1: @veui-padding-unit * 1;
 @veui-transfer-header-content-spacing-2: @veui-padding-unit * 2;
 @veui-transfer-content-padding-y: @veui-padding-unit * 1;
@@ -28,14 +28,16 @@
 
 @veui-transfer-panel-width-s: veui-sum(
   @veui-font-size-s * 15,
-  @veui-transfer-padding-x * 2,
+  @veui-transfer-padding-x-left,
+  @veui-transfer-padding-x-right,
   2px,
   @veui-checkbox-size-s,
   @veui-transfer-item-content-spacing
 );
 @veui-transfer-panel-width-m: veui-sum(
   @veui-font-size-m * 15,
-  @veui-transfer-padding-x * 2,
+  @veui-transfer-padding-x-left,
+  @veui-transfer-padding-x-right,
   2px,
   @veui-checkbox-size-m,
   @veui-transfer-item-content-spacing
@@ -47,13 +49,14 @@
 @veui-transfer-header-height-s: @veui-height-unit * 8;
 @veui-transfer-header-height-m: @veui-height-unit * 9;
 
-@veui-transfer-header-background-color: @veui-background-color-normal;
+@veui-transfer-header-background-color: @veui-color-gray-2;
 @veui-transfer-header-font-color: @veui-font-color-aux;
 @veui-transfer-header-font-weight: @veui-font-weight-2;
 @veui-transfer-header-button-font-weight: @veui-font-weight-3;
 
 /* Colors */
 @veui-transfer-border-color: @veui-border-color-normal;
+@veui-transfer-border-color-focus: @veui-border-color-focus;
 
 @veui-transfer-item-background-color: @veui-background-color-normal;
 @veui-transfer-item-background-color-hover: @veui-background-color-normal-hover;

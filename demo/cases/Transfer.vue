@@ -1,71 +1,40 @@
 <template>
     <article class="veui-transfer-demo">
-        <h1><code>&lt;veui-tree&gt;</code></h1>
-
-        <h2>点击左侧图标展开收起</h2>
-        <p>当前展开：{{ expanded1 }}</p>
-        <veui-tree
-            :datasource="treeDatasource1"
-            :expanded.sync="expanded1"
-        />
-
-        <h2>点击整行展开收起</h2>
-        <veui-tree
-            :datasource="treeDatasource2"
-            item-click="toggle"
-        />
-
-        <h1><code>&lt;veui-filter-panel&gt;</code></h1>
-
-        <veui-filter-panel
-            :datasource="treeDatasource1"
-            class="veui-select-panel-demo1"
-        >
-            <template slot="head">
-                列表
-            </template>
-            <template slot-scope="{ items }">
-                <veui-tree :datasource="items">
-                    <template
-                        slot="item-label"
-                        slot-scope="props"
-                    >
-                        <slot
-                            name="tree-item-label"
-                            v-bind="props"
-                        >
-                            {{ props.item.label }}
-                        </slot>
-                    </template>
-                </veui-tree>
-            </template>
-        </veui-filter-panel>
-
         <h1><code>&lt;veui-transfer&gt;</code></h1>
-
-        <h2>自定义项目内容</h2>
-        <veui-transfer
-            :datasource="datasource1"
-            selected-show-mode="flat"
-        >
-            <template
-                slot="candidate-item-label"
-                slot-scope="{ label }"
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">s / m</span>
+        </div>
+        <section>
+            <h2>自定义项目内容</h2>
+            <veui-transfer
+                ui="s"
+                :datasource="datasource1"
+                selected-show-mode="flat"
+                candidatePlaceholder="搜索关键词"
             >
-                <em>{{ label }}</em>
-            </template>
-            <template
-                slot="selected-item-label"
-                slot-scope="{ label }"
-            >
-                <small>{{ label }}</small>
-            </template>
-        </veui-transfer>
-
+                <template
+                    slot="candidate-item-label"
+                    slot-scope="{ label }"
+                >
+                    <span>{{ label }}</span>
+                </template>
+                <template
+                    slot="selected-item-label"
+                    slot-scope="{ label }"
+                >
+                    <small>{{ label }}</small>
+                </template>
+            </veui-transfer>
+        </section>
         <h2>多级树形结构</h2>
         <veui-transfer
+            ui="m"
             v-model="selected1"
             :datasource="datasource1"
+            candidatePlaceholder="搜索关键词"
         >
             <template slot="candidate-title">
                 备选列表（{{ datasource1LeafCount }}）
@@ -80,6 +49,7 @@
             <veui-transfer
                 v-model="selected2"
                 :datasource="datasource2"
+                candidatePlaceholder="搜索关键词"
             />
         </p>
 
@@ -171,7 +141,7 @@
 </template>
 
 <script>
-import {Transfer, Form, Field, Button, Tree, FilterPanel} from 'veui';
+import {Transfer, Form, Field, Button} from 'veui';
 import {cloneDeep} from 'lodash';
 
 export default {
@@ -180,9 +150,7 @@ export default {
         'veui-transfer': Transfer,
         'veui-form': Form,
         'veui-field': Field,
-        'veui-button': Button,
-        'veui-tree': Tree,
-        'veui-filter-panel': FilterPanel
+        'veui-button': Button
     },
     data() {
         let coffees = [
