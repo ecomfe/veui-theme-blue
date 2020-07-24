@@ -7,13 +7,6 @@ config.defaults(
             expand: 'chevron-right',
             collapse: 'chevron-right'
         },
-        ui: {
-            size: {
-                values: ['s', 'm', 'l'],
-                inherit: true,
-                default: 'm'
-            }
-        },
         parts: {
             toggle: 'icon'
         }
