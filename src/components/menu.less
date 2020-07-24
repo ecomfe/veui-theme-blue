@@ -3,379 +3,380 @@
 @import "../variables/components/menu.less";
 
 .@{veui-prefix}-menu {
-  border-right: 1px solid @veui-menu-border-color;
-  display: flex;
-  flex-direction: column;
-  width: @veui-menu-width;
-  will-change: width;
-  .veui-transition(width);
-
-  &-collapsed {
-    width: @veui-menu-width-collapsed;
-  }
-
-  .@{veui-prefix}-abstract-tree {
-    &,
-    &-item-group {
-      .reset-list-style();
-      .margin(0, _);
-      // item expand transition
-      will-change: height;
-      .veui-transition(height);
+    border-right: 1px solid @veui-menu-border-color;
+    display: flex;
+    flex-direction: column;
+    width: @veui-menu-width;
+    will-change: width;
+    .veui-transition(width);
+  
+    &-collapsed {
+      width: @veui-menu-width-collapsed;
+    }
+  
+    .@{veui-prefix}-abstract-tree {
+      &,
+      &-item-group {
+        .reset-list-style();
+        .margin(0, _);
+        // item expand transition
+        will-change: height;
+        .veui-transition(height);
+        overflow: hidden;
+      }
+      &-item-group {
+        padding-left: @veui-menu-level-indent;
+      }
+    }
+  
+    & &-link,
+    &-overlay &-link {
+      text-decoration: none;
+    }
+  
+    // footer
+    &-footer {
+      flex: none;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-top: 1px solid @veui-menu-separator-color;
+      height: @veui-menu-footer-height-m;
+      padding-right: @veui-menu-padding-x;
+    }
+  
+    &-link {
+      flex: auto;
+      display: flex;
       overflow: hidden;
+      align-items: center;
+      height: inherit;
+  
+      // link 充满整个 item
+      &::before {
+        content: "";
+        .absolute(_, 0);
+        height: inherit;
+  
+        .@{veui-prefix}-menu-tree-item & {
+        //   border-right: 1px solid @veui-menu-border-color;
+        }
+      }
     }
-    &-item-group {
-      padding-left: @veui-menu-level-indent;
+  
+    // item
+    &-item {
+      cursor: pointer;
+      display: flex;
+      flex: auto;
+      align-items: center;
+      outline: none;
+      max-width: 100%;
+      font-size: @veui-menu-font-size-m;
+      height: inherit;
+  
+      &:not(.@{veui-prefix}-disabled) {
+        // hover toggle 也让有 hover link 的效果（toggle 不在 link 里面）
+        &.@{veui-prefix}-menu-link:hover,
+        &:hover .@{veui-prefix}-menu-link {
+          color: @veui-menu-item-font-color-hover;
+          &::before {// todo
+            background-color: @veui-menu-item-background-color-hover;
+          }
+        }
+  
+        &.@{veui-prefix}-menu-link,
+        .@{veui-prefix}-menu-link {
+          &[data-focus-visible-added] {
+            color: @veui-menu-item-font-color-focus;
+            &::before {
+              background-color: @veui-menu-item-background-color-focus;
+            }
+          }
+          &:active {
+            color: @veui-menu-item-font-color-active;
+            font-weight: @veui-menu-item-font-weight-current;
+            &::before {
+              background-color: @veui-menu-item-background-color-active;
+            }
+          }
+        }
+      }
     }
-  }
-
-  & &-link,
-  &-overlay &-link {
-    text-decoration: none;
-  }
-
-  // footer
-  &-footer {
-    flex: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-top: 1px solid @veui-menu-separator-color;
-    height: @veui-menu-footer-height-m;
-    padding-right: @veui-menu-padding-x;
-  }
-
-  &-link {
-    flex: auto;
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    height: inherit;
-
-    // link 充满整个 item
-    &::before {
+  
+    // 盖住：向上收起时，active 的样式应该被后面的 item 覆盖
+    &-tree-item::before {
       content: "";
       .absolute(_, 0);
       height: inherit;
-
-      .@{veui-prefix}-menu-tree-item & {
-        border-right: 1px solid @veui-menu-border-color;
-      }
-    }
-  }
-
-  // item
-  &-item {
-    cursor: pointer;
-    display: flex;
-    flex: auto;
-    align-items: center;
-    outline: none;
-    max-width: 100%;
-    font-size: @veui-menu-font-size-m;
-    height: inherit;
-
-    &:not(.@{veui-prefix}-disabled) {
-      // hover toggle 也让有 hover link 的效果（toggle 不在 link 里面）
-      &.@{veui-prefix}-menu-link:hover,
-      &:hover .@{veui-prefix}-menu-link {
-        color: @veui-menu-item-font-color-hover;
-        &::before {
-          background-color: @veui-menu-item-background-color-hover;
-        }
-      }
-
-      &.@{veui-prefix}-menu-link,
-      .@{veui-prefix}-menu-link {
-        &[data-focus-visible-added] {
-          color: @veui-menu-item-font-color-focus;
-          &::before {
-            background-color: @veui-menu-item-background-color-focus;
-          }
-        }
-        &:active {
-          color: @veui-menu-item-font-color-active;
-          &::before {
-            background-color: @veui-menu-item-background-color-active;
-          }
-        }
-      }
-    }
-  }
-
-  // 盖住：向上收起时，active 的样式应该被后面的 item 覆盖
-  &-tree-item::before {
-    content: "";
-    .absolute(_, 0);
-    height: inherit;
-    background-color: @veui-menu-item-background-color;
-    border-right: 1px solid @veui-menu-border-color;
-  }
-
-  // tree
-  &-tree-wrapper {
-    overflow: auto;
-    flex: auto;
-    padding-right: 1px;
-    margin-right: -1px;
-
-    // 盖住：当 tree 收起时可能会看到 active 样式溢出到 tree 外面
-    &::after {
-      content: "";
-      display: block;
-      flex: auto;
-      background: @veui-menu-item-background-color;
-      position: relative;
-      border-right: 1px solid @veui-menu-border-color;
-      margin-right: -1px;
-    }
-  }
-
-  &-tree {
-    position: relative;
-    margin-right: -1px;
-    padding: @veui-menu-padding-y @veui-menu-padding-x;
-    // 盖住：tree 顶部的 padding 间隙
-    &::before {
-      content: "";
-      .absolute(0, 0, _, 0);
-      height: @veui-menu-item-spacing;
       background-color: @veui-menu-item-background-color;
       border-right: 1px solid @veui-menu-border-color;
-      display: block;
     }
-
-    &-item {
-      margin-top: @veui-menu-item-spacing;
-      height: @veui-menu-item-height-m;
-      // 盖住：active 样式在 expand 过渡时从 margin-top 露出来的部分
+  
+    // tree
+    &-tree-wrapper {
+      overflow: auto;
+      flex: auto;
+      padding-right: 1px;
+      margin-right: -1px;
+  
+      // 盖住：当 tree 收起时可能会看到 active 样式溢出到 tree 外面
       &::after {
         content: "";
-        .absolute(_, 0);
+        display: block;
+        flex: auto;
+        background: @veui-menu-item-background-color;
+        position: relative;
+        border-right: 1px solid @veui-menu-border-color;
+        margin-right: -1px;
+      }
+    }
+  
+    &-tree {
+      position: relative;
+      margin-right: -1px;
+      padding: @veui-menu-padding-y @veui-menu-padding-x;
+      // 盖住：tree 顶部的 padding 间隙
+      &::before {
+        content: "";
+        .absolute(0, 0, _, 0);
         height: @veui-menu-item-spacing;
         background-color: @veui-menu-item-background-color;
         border-right: 1px solid @veui-menu-border-color;
-        transform: translateY(100%);
-        align-self: flex-end;
-        width: auto;
         display: block;
-        pointer-events: none;
       }
-    }
-    & > li:first-child > &-item {
-      margin-top: 0;
-    }
-
-    // 第二级缩进
-    &-has-icon > li > ul.@{veui-prefix}-abstract-tree-item-group {
-      padding-left: veui-sum(
-        @veui-menu-item-icon-size,
-        @veui-menu-item-content-spacing
-      );
-    }
-  }
-
-  &-overlay .@{veui-prefix}-option-group-expandable,
-  &-item-label,
-  &-item-icon {
-    position: relative;
-    z-index: 1;
-  }
-
-  &-item-icon {
-    margin-right: @veui-menu-item-content-spacing;
-    display: flex;
-    align-items: center;
-    .veui-icon-size(@veui-menu-item-icon-size, true);
-  }
-
-  &-item-label {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .@{veui-prefix}-button &-toggle-icon {
-    .size(@veui-menu-item-icon-size-aux);
-  }
-
-  &-item-active:not(.@{veui-prefix}-disabled),
-  &-item-exact-active:not(.@{veui-prefix}-disabled) {
-    &.@{veui-prefix}-menu-link:hover,
-    &:hover .@{veui-prefix}-menu-link {
-      &,
-      & + .@{veui-prefix}-option-group-expandable {
-        color: @veui-menu-item-font-color-current-hover;
-      }
-    }
-
-    &.@{veui-prefix}-menu-link,
-    .@{veui-prefix}-menu-link {
-      &,
-      & + .@{veui-prefix}-option-group-expandable {
-        color: @veui-menu-item-font-color-current;
-        font-weight: @veui-menu-item-font-weight-current;
-        .veui-transition(color);
-      }
-      &[data-focus-visible-added] {
-        &,
-        & + .@{veui-prefix}-option-group-expandable {
-          color: @veui-menu-item-font-color-current-focus;
+  
+      &-item {
+        margin-top: @veui-menu-item-spacing;
+        height: @veui-menu-item-height-m;
+        // 盖住：active 样式在 expand 过渡时从 margin-top 露出来的部分
+        &::after {
+          content: "";
+          .absolute(_, 0);
+          height: @veui-menu-item-spacing;
+          background-color: @veui-menu-item-background-color;
+          border-right: 1px solid @veui-menu-border-color;
+          transform: translateY(100%);
+          align-self: flex-end;
+          width: auto;
+          display: block;
+          pointer-events: none;
         }
       }
-      &:active {
+      & > li:first-child > &-item {
+        margin-top: 0;
+      }
+  
+      // 第二级缩进
+      &-has-icon > li > ul.@{veui-prefix}-abstract-tree-item-group {
+        padding-left: veui-sum(
+          @veui-menu-item-icon-size,
+          @veui-menu-item-content-spacing
+        );
+      }
+    }
+  
+    &-overlay .@{veui-prefix}-option-group-expandable,
+    &-item-label,
+    &-item-icon {
+      position: relative;
+      z-index: 1;
+    }
+  
+    &-item-icon {
+      margin-right: @veui-menu-item-content-spacing;
+      display: flex;
+      align-items: center;
+      .veui-icon-size(@veui-menu-item-icon-size, true);
+    }
+  
+    &-item-label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    .@{veui-prefix}-button &-toggle-icon {
+      .size(@veui-menu-item-icon-size-aux);
+    }
+  
+    &-item-active:not(.@{veui-prefix}-disabled),
+    &-item-exact-active:not(.@{veui-prefix}-disabled) {
+      &.@{veui-prefix}-menu-link:hover,
+      &:hover .@{veui-prefix}-menu-link {
         &,
         & + .@{veui-prefix}-option-group-expandable {
-          color: @veui-menu-item-font-color-current-active;
+          color: @veui-menu-item-font-color-current-hover;
+        }
+      }
+  
+      &.@{veui-prefix}-menu-link,
+      .@{veui-prefix}-menu-link {
+        &,
+        & + .@{veui-prefix}-option-group-expandable {
+          color: @veui-menu-item-font-color-current;
+          font-weight: @veui-menu-item-font-weight-current;
+          .veui-transition(color);
+        }
+        &[data-focus-visible-added] {
+          &,
+          & + .@{veui-prefix}-option-group-expandable {
+            color: @veui-menu-item-font-color-current-focus;
+          }
+        }
+        &:active {
+          &,
+          & + .@{veui-prefix}-option-group-expandable {
+            color: @veui-menu-item-font-color-current-active;
+          }
         }
       }
     }
-  }
-
-  &-collapsed &-item-active:not(.@{veui-prefix}-disabled),
-  &-collapsed &-item-exact-active:not(.@{veui-prefix}-disabled),
-  &-tree &-item-exact-active:not(.@{veui-prefix}-disabled) {
-    &:hover .@{veui-prefix}-menu-link {
-      &::before {
-        background-color: @veui-menu-item-background-color-current-hover;
+  
+    &-collapsed &-item-active:not(.@{veui-prefix}-disabled),
+    &-collapsed &-item-exact-active:not(.@{veui-prefix}-disabled),
+    &-tree &-item-exact-active:not(.@{veui-prefix}-disabled) {
+      &:hover .@{veui-prefix}-menu-link {
+        &::before {
+          background-color: @veui-menu-item-background-color-current-hover;
+        }
+        &::after {
+          background-color: @veui-menu-indicator-color-hover;
+        }
       }
-      &::after {
-        background-color: @veui-menu-indicator-color-hover;
-      }
-    }
-
-    .@{veui-prefix}-menu-link {
-      &::before {
-        background-color: @veui-menu-item-background-color-current;
-        .veui-transition(background-color);
-      }
-      &[data-focus-visible-added]::before {
-        background-color: @veui-menu-item-background-color-current-focus;
-      }
-      &:active::before {
-        background-color: @veui-menu-item-background-color-current-active;
-      }
-
-      &::after {
-        content: "";
-        .absolute(_, 0, _, _);
-        .size(@veui-menu-indicator-width, inherit);
-        background: @veui-menu-indicator-color;
-      }
-
-      &[data-focus-visible-added]::after {
-        background-color: @veui-menu-indicator-color-focus;
-      }
-      &:active::after {
-        background-color: @veui-menu-indicator-color-active;
-      }
-    }
-  }
-
-  &-item.@{veui-prefix}-disabled &-item-icon,
-  &-item.@{veui-prefix}-disabled &-link {
-    color: @veui-menu-item-font-color-disabled;
-  }
-
-  &-item-toggle,
-  &-toggle {
-    display: flex;
-    background: none;
-    border: none;
-    padding: 0;
-    outline: none;
-    cursor: pointer;
-    color: @veui-icon-color-aux;
-    .veui-transition(transform);
-  }
-
-  &-item-toggle {
-    position: relative;
-    margin-left: @veui-menu-item-content-spacing;
-    transform: rotateZ(90deg);
-  }
-  &-item-expanded &-item-toggle {
-    transform: rotateZ(-90deg);
-  }
-
-  &-toggle {
-    transform: rotateZ(180deg);
-  }
-
-  // collapsed
-  &-collapsed &-toggle {
-    transform: rotateZ(0);
-  }
-
-  &-collapsed &-tree {
-    padding: @veui-menu-padding-y 0;
-  }
-
-  &-collapsed &-tree &-link {
-    justify-content: center;
-  }
-
-  &-collapsed &-item-icon {
-    margin: 0;
-  }
-
-  &-overlay {
-    & > .@{veui-prefix}-menu-popout,
-    & > .@{veui-prefix}-option-group-options,
-    & > .@{veui-prefix}-option-group {
-      &:extend(._veui-dropdown-overlay all);
-      margin: 0 @veui-option-dropdown-target-spacing;
-      transform-origin: 0 0;
-    }
-
-    .@{veui-prefix}-option {
-      &,
-      &-group-label {
-        position: relative;
+  
+      .@{veui-prefix}-menu-link {
+        &::before {
+          background-color: @veui-menu-item-background-color-current;
+          .veui-transition(background-color);
+        }
+        &[data-focus-visible-added]::before {
+          background-color: @veui-menu-item-background-color-current-focus;
+        }
+        &:active::before {
+          background-color: @veui-menu-item-background-color-current-active;
+        }
+  
+        &::after {
+          content: "";
+          .absolute(_, _, _, 0);
+          .size(@veui-menu-indicator-width, inherit);
+          background: @veui-menu-indicator-color;
+        }
+  
+        &[data-focus-visible-added]::after {
+          background-color: @veui-menu-indicator-color-focus;
+        }
+        &:active::after {
+          background-color: @veui-menu-indicator-color-active;
+        }
       }
     }
-  }
-
-  &-popout &-group-title {
-    .padding(@veui-option-group-label-padding-y + @veui-option-group-label-padding-y, @veui-option-padding-m, @veui-option-group-label-padding-y);
-    color: @veui-menu-item-group-label-font-color;
-    font-weight: @veui-menu-item-group-label-font-weight;
-  }
-
-  &-overlay.@{veui-prefix}-overlay-enter,
-  &-overlay.@{veui-prefix}-overlay-leave-to {
-    & > .@{veui-prefix}-menu-popout,
-    & > .@{veui-prefix}-option-group-options,
-    & > .@{veui-prefix}-option-group {
-      transform: scaleX(0);
+  
+    &-item.@{veui-prefix}-disabled &-item-icon,
+    &-item.@{veui-prefix}-disabled &-link {
+      color: @veui-menu-item-font-color-disabled;
     }
-  }
-
-  &[ui~="s"],
-  &[ui~="s"] &-tree,
-  &-overlay[ui~="s"] {
-    font-size: @veui-menu-font-size-s;
-  }
-
-  &[ui~="s"] &-tree &-item {
-    height: @veui-menu-item-height-s;
-  }
-
-  &[ui~="s"] &-footer {
-    height: @veui-menu-footer-height-s;
-  }
-
-  &[ui~="l"],
-  &[ui~="l"] &-tree,
-  &-overlay[ui~="l"] {
-    font-size: @veui-menu-font-size-l;
-  }
-
-  &[ui~="l"] &-tree &-item {
-    height: @veui-menu-item-height-l;
-  }
-
-  &[ui~="l"] &-footer {
-    height: @veui-menu-footer-height-l;
-  }
+  
+    &-item-toggle,
+    &-toggle {
+      display: flex;
+      background: none;
+      border: none;
+      padding: 0;
+      outline: none;
+      cursor: pointer;
+      color: @veui-icon-color-aux;
+      .veui-transition(transform);
+    }
+  
+    &-item-toggle {
+      position: relative;
+      margin-left: @veui-menu-item-content-spacing;
+      transform: rotateZ(90deg);
+    }
+    &-item-expanded &-item-toggle {
+      transform: rotateZ(-90deg);
+    }
+  
+    &-toggle {
+      transform: rotateZ(180deg);
+    }
+  
+    // collapsed
+    &-collapsed &-toggle {
+      transform: rotateZ(0);
+    }
+  
+    &-collapsed &-tree {
+      padding: @veui-menu-padding-y 0;
+    }
+  
+    &-collapsed &-tree &-link {
+      justify-content: center;
+    }
+  
+    &-collapsed &-item-icon {
+      margin: 0;
+    }
+  
+    &-overlay {
+      & > .@{veui-prefix}-menu-popout,
+      & > .@{veui-prefix}-option-group-options,
+      & > .@{veui-prefix}-option-group {
+        &:extend(._veui-dropdown-overlay all);
+        margin: 0 @veui-option-dropdown-target-spacing;
+        transform-origin: 0 0;
+      }
+  
+      .@{veui-prefix}-option {
+        &,
+        &-group-label {
+          position: relative;
+        }
+      }
+    }
+  
+    &-popout &-group-title {
+      .padding(@veui-option-group-label-padding-y + @veui-option-group-label-padding-y, @veui-option-padding-m, @veui-option-group-label-padding-y);
+      color: @veui-menu-item-group-label-font-color;
+      font-weight: @veui-menu-item-group-label-font-weight;
+    }
+  
+    &-overlay.@{veui-prefix}-overlay-enter,
+    &-overlay.@{veui-prefix}-overlay-leave-to {
+      & > .@{veui-prefix}-menu-popout,
+      & > .@{veui-prefix}-option-group-options,
+      & > .@{veui-prefix}-option-group {
+        transform: scaleX(0);
+      }
+    }
+  
+    &[ui~="s"],
+    &[ui~="s"] &-tree,
+    &-overlay[ui~="s"] {
+      font-size: @veui-menu-font-size-s;
+    }
+  
+    &[ui~="s"] &-tree &-item {
+      height: @veui-menu-item-height-s;
+    }
+  
+    &[ui~="s"] &-footer {
+      height: @veui-menu-footer-height-s;
+    }
+  
+    &[ui~="l"],
+    &[ui~="l"] &-tree,
+    &-overlay[ui~="l"] {
+      font-size: @veui-menu-font-size-l;
+    }
+  
+    &[ui~="l"] &-tree &-item {
+      height: @veui-menu-item-height-l;
+    }
+  
+    &[ui~="l"] &-footer {
+      height: @veui-menu-footer-height-l;
+    }
 }

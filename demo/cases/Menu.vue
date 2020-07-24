@@ -1,22 +1,14 @@
 <template>
     <article class="veui-menu-demo">
         <h1><code>&lt;veui-menu&gt;</code></h1>
-        <div>expanded: {{ expanded }}</div>
-        <div>active: {{ active1 }}</div>
-        <button @click="$router.push('/menu/input')">input</button>
-        <button @click="$router.push('/menu/button')">button</button>
+        <div class="options-desc">竖向菜单不区分型号</div>
+        <div>expanded: {{ expanded }} <br>active: {{ active1 }}</div>
+        <div>
+            外部控制
+            <button @click="$router.push('/menu/input')">input</button>
+            <button @click="$router.push('/menu/button')">button</button>
+        </div>
         <section>
-            <h3>small collapsible menu</h3>
-            <veui-menu
-                class="small-menu"
-                ui="s"
-                :items="items"
-                :expanded.sync="expanded"
-                collapsible
-            />
-        </section>
-        <section>
-            <h3>medium collapsible menu</h3>
             <veui-menu
                 :items="items"
                 :active.sync="active1"
@@ -25,14 +17,7 @@
                 :collapsed.sync="collapsed"
             />
         </section>
-        <section>
-            <h3>large menu</h3>
-            <veui-menu
-                ui="l"
-                :items="items2"
-                :active.sync="active2"
-            />
-        </section>
+        <br>
         <section>
             <h3>自定义 icon slot</h3>
             <veui-menu
@@ -46,7 +31,6 @@
                 />
             </veui-menu>
         </section>
-        <section><router-view/></section>
     </article>
 </template>
 
