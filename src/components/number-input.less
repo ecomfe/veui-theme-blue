@@ -87,7 +87,8 @@
     position: relative;
 
     &.@{veui-prefix}-button {
-      .size(100%, calc(50% + 1px));
+      min-width: veui-sum(@veui-number-input-spin-button-min-width-normal, -1px);
+      height: calc(50% + 1px);
       padding: 0;
       .border-left-radius(0);
     }
@@ -125,16 +126,19 @@
     padding: 0;
 
     .@{veui-prefix}-input {
-      &-input {
-        text-align: center;
-      }
       &-before,
       &-after {
-        position: absolute;
+        position: relative;
         z-index: 1;
         margin-top: -1px;
         padding: 0;
         border-radius: inherit;
+        .@{veui-prefix}-number-input {
+          &-step {
+            min-width: calc(100% - 1px);
+            .size(calc(100% - 1px), calc(100% - 2px));
+          }
+        }
       }
 
       &-before {
@@ -185,7 +189,6 @@
       &-step {
         padding: 0;
         border-style: none;
-        .size(calc(100% - 1px), calc(100% - 2px));
 
         &-down {
           border-right-style: solid;

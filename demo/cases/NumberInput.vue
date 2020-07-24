@@ -81,7 +81,6 @@
                 </veui-field>
                 <veui-field
                     label="m"
-                    ui="m"
                 >
                     <veui-number-input
                         v-model="number"
@@ -179,6 +178,9 @@ export default {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+            .veui-number-input {
+                margin-right: 20px;
+            }
         }
         .veui-form-label {
             width: 130px;
