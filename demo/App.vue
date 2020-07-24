@@ -250,6 +250,7 @@ main {
       margin-right: 20px;
       display: inline-flex;
       min-width: 80px;
+      font-weight: 500;
   }
 }
 
