@@ -93,7 +93,7 @@ export default {
                 label: 'Button',
                 name: 'Button',
                 to: '/menu/button',
-                // icon: 'apple-f',
+                icon: 'apple-f',
                 children: [
                     {
                         label: 'Disabled',
