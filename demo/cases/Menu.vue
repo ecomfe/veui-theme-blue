@@ -1,22 +1,14 @@
 <template>
     <article class="veui-menu-demo">
         <h1><code>&lt;veui-menu&gt;</code></h1>
-        <div>expanded: {{ expanded }}</div>
-        <div>active: {{ active1 }}</div>
-        <button @click="$router.push('/menu/input')">input</button>
-        <button @click="$router.push('/menu/button')">button</button>
+        <div class="options-desc">竖向菜单不区分型号</div>
+        <div>expanded: {{ expanded }} <br>active: {{ active1 }}</div>
+        <div>
+            外部控制
+            <button @click="$router.push('/menu/input')">input</button>
+            <button @click="$router.push('/menu/button')">button</button>
+        </div>
         <section>
-            <h3>small collapsible menu</h3>
-            <veui-menu
-                class="small-menu"
-                ui="s"
-                :items="items"
-                :expanded.sync="expanded"
-                collapsible
-            />
-        </section>
-        <section>
-            <h3>medium collapsible menu</h3>
             <veui-menu
                 :items="items"
                 :active.sync="active1"
@@ -25,12 +17,16 @@
                 :collapsed.sync="collapsed"
             />
         </section>
+        <br>
+        <h3><b>尺寸以下不在ui设计范围内</b></h3>
         <section>
-            <h3>large menu</h3>
+            <h3>small collapsible menu</h3>
             <veui-menu
-                ui="l"
-                :items="items2"
-                :active.sync="active2"
+                class="small-menu"
+                ui="s"
+                :items="items"
+                :expanded.sync="expanded"
+                collapsible
             />
         </section>
         <section>
@@ -46,7 +42,6 @@
                 />
             </veui-menu>
         </section>
-        <section><router-view/></section>
     </article>
 </template>
 
@@ -98,7 +93,7 @@ export default {
                 label: 'Button',
                 name: 'Button',
                 to: '/menu/button',
-                icon: 'apple-f',
+                // icon: 'apple-f',
                 children: [
                     {
                         label: 'Disabled',
