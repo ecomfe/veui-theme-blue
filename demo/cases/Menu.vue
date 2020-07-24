@@ -18,17 +18,6 @@
             />
         </section>
         <br>
-        <h3><b>尺寸以下不在ui设计范围内</b></h3>
-        <section>
-            <h3>small collapsible menu</h3>
-            <veui-menu
-                class="small-menu"
-                ui="s"
-                :items="items"
-                :expanded.sync="expanded"
-                collapsible
-            />
-        </section>
         <section>
             <h3>自定义 icon slot</h3>
             <veui-menu
