@@ -10,11 +10,16 @@ config.defaults(
         },
         ui: {
             direction: {
-                values: ['vertical', 'label-vertical']
+                values: ['vertical', 'horizon'],
+                defaule: 'horizon'
             },
             size: {
                 values: ['s', 'm'],
                 inherit: true
+            },
+            style: {
+                values: ['simple', 'normal', 'line', 'icon'],
+                defaule: 'normal'
             }
         }
     },

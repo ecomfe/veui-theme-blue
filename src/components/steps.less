@@ -8,7 +8,7 @@
   @desc-font-size: 12px;
   @marker-font-size: 16px;
   @separator-gap-x: 12px;
-  @separator-gap-y: 8px;
+  @separator-gap-y: 12px;
   @separator-width: 1px;
   @border-width: 1px;
   @min-step-connector-width: 16px;
@@ -24,6 +24,7 @@
     pointer-events: none;
     padding: @reserved-space 0 0 @reserved-space;
     margin: -@reserved-space @separator-gap-x 0 -@reserved-space;
+    background-color: @veui-steps-normal-marker-foreground-color;
 
     &-index-container {
       pointer-events: all;
@@ -33,7 +34,6 @@
       flex-grow: 0;
       flex-shrink: 0;
       .size(@step-height);
-      .make-index(completed);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -107,6 +107,11 @@
     }
 
     &-completed {
+      .@{veui-prefix}-steps-step-index {
+        border: @border-width solid @veui-steps-marker-border-color-completed;
+        background-color: @veui-steps-marker-background-color-completed;
+        color: @veui-steps-connector-color-completed;
+      }
       &::before {
         background-color: @veui-steps-connector-color-completed;
       }
@@ -115,9 +120,6 @@
         .@{veui-prefix}-steps-step-index {
           background-color: @veui-steps-marker-background-color-completed-focus;
           box-shadow: @veui-steps-marker-shadow-completed-focus;
-        }
-        .@{veui-prefix}-steps-step-label {
-          color: @veui-steps-title-font-color-focus;
         }
       }
     }
@@ -128,13 +130,15 @@
       }
 
       .@{veui-prefix}-steps-step-index {
-        .make-index(current);
+        border: @border-width solid @veui-steps-marker-border-color-current;
+        border-color: @veui-steps-marker-background-color-current;
+        background: @veui-steps-marker-border-color-current;
+        color: @veui-steps-marker-color-current;
       }
 
       &.focus-visible {
         .@{veui-prefix}-steps-step-index {
           background-color: @veui-steps-marker-background-color-current-focus;
-          border-color: @veui-steps-marker-border-color-current-focus;
           box-shadow: @veui-steps-marker-shadow-current-focus;
         }
       }
@@ -146,7 +150,9 @@
       }
       .@{veui-prefix}-steps-step {
         &-index {
-          .make-index(incomplete);
+          border: @border-width solid @veui-steps-marker-border-color-incomplete;
+          background-color: @veui-steps-marker-background-color-incomplete;
+          color: @veui-steps-marker-color-incomplete;
         }
         &-label {
           color: @veui-steps-title-font-color-incomplete;
@@ -162,7 +168,9 @@
         background-color: @veui-steps-connector-color-error;
       }
       .@{veui-prefix}-steps-step-index {
-        .make-index(error);
+        border: @border-width solid @veui-steps-marker-border-color-error;
+        background: @veui-steps-marker-background-color-error;
+        color: @veui-steps-marker-color-error;
       }
 
       &.focus-visible {
@@ -178,7 +186,9 @@
         background-color: @veui-steps-connector-color-error-current;
       }
       .@{veui-prefix}-steps-step-index {
-        .make-index(error-current);
+        border: @border-width solid @veui-steps-marker-border-color-error-current;
+        background: @veui-steps-marker-background-color-error-current;
+        color: @veui-steps-marker-color-error-current;
       }
 
       &.focus-visible {
@@ -230,95 +240,86 @@
       }
     }
   }
-
-  a.@{veui-prefix}-steps {
-    &-step {
-      &:hover {
-        .@{veui-prefix}-steps-step-label {
-          color: @veui-steps-title-font-color-hover;
-        }
-      }
-
-      &:active {
-        .@{veui-prefix}-steps-step-label {
-          color: @veui-steps-title-font-color-active;
-        }
-      }
-
-      &-completed {
-        &:hover {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-completed-hover;
+  &[ui~='normal'],
+  &[ui~='icon'] {
+    a.@{veui-prefix}-steps {
+      &-step {
+        &-completed {
+          &:hover {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-completed-hover;
+            }
+          }
+  
+          &:active {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-completed-active;
+            }
           }
         }
-
-        &:active {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-completed-active;
+  
+        &-current {
+          &:hover {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-current-hover;
+            }
+          }
+  
+          &:active {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-current-active;
+              border-color: @veui-steps-marker-border-color-current-active;
+            }
           }
         }
-      }
-
-      &-current {
-        &:hover {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-current-hover;
+  
+        &-incomplete {
+          &:hover {
+            .@{veui-prefix}-steps-step-label {
+              color: @veui-steps-title-font-color-incomplete;
+            }
+          }
+  
+          &:active {
+            .@{veui-prefix}-steps-step-label {
+              color: @veui-steps-desc-font-color-incomplete;
+            }
           }
         }
-
-        &:active {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-current-active;
+  
+        &-error {
+          &:hover {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-error-hover;
+            }
+          }
+  
+          &:active {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-error-active;
+            }
           }
         }
-      }
-
-      &-incomplete {
-        &:hover {
-          .@{veui-prefix}-steps-step-label {
-            color: @veui-steps-title-font-color-incomplete;
+  
+        &-error-current {
+          &:hover {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-error-current-hover;
+              border-color: @veui-steps-marker-border-color-error-current-hover;
+            }
           }
-        }
-
-        &:active {
-          .@{veui-prefix}-steps-step-label {
-            color: @veui-steps-desc-font-color-incomplete;
-          }
-        }
-      }
-
-      &-error {
-        &:hover {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-error-hover;
-          }
-        }
-
-        &:active {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-error-active;
-          }
-        }
-      }
-
-      &-error-current {
-        &:hover {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-error-current-hover;
-          }
-          .@{veui-prefix}-steps-step-label {
-            color: #666;
-          }
-        }
-
-        &:active {
-          .@{veui-prefix}-steps-step-index {
-            background-color: @veui-steps-marker-background-color-error-current-active;
+  
+          &:active {
+            .@{veui-prefix}-steps-step-index {
+              background-color: @veui-steps-marker-background-color-error-current-active;
+              border-color: @veui-steps-marker-border-color-error-current-active;
+            }
           }
         }
       }
     }
   }
+  
 
   .@{veui-prefix}-steps a,
   .@{veui-prefix}-link {
@@ -348,17 +349,7 @@
     pointer-events: none;
   }
 
-  .make-index(@status) {
-    @border-color: #333;
-    @color: #333;
-    @background-color: #fff;
-
-    border: @border-width solid @border-color;
-    color: @color;
-    background-color: @background-color;
-  }
-
-  &[ui~="label-vertical"] {
+  &[ui~="horizon"] {
     .@{veui-prefix}-steps-step {
       flex-direction: column;
       position: relative;
@@ -403,6 +394,77 @@
       &:first-child::before,
       &:last-child::after {
         display: none;
+      }
+    }
+    &[ui~='line'] {
+      .@{veui-prefix}-steps-step {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: @veui-steps-line-step-height-m;
+        background-color: @veui-steps-line-step-background-color;
+        padding: 0;
+        margin: 0;
+        &-label {
+          margin-top: 0;
+          margin-left: @veui-spacing-unit * 2;
+        }
+        &-connector,
+        &-desc,
+        &-current .@{veui-prefix}-steps-step-index,
+        &-incomplete .@{veui-prefix}-steps-step-index {
+          display: none;
+        }
+        &-index {
+          width: @veui-steps-line-marker-size-m;
+          height: @veui-steps-line-marker-size-m;
+          background-color: transparent;
+        }
+        &-completed .@{veui-prefix}-steps-step-index {
+          border-color: @veui-steps-line-marker-border-color-completed;
+          color: @veui-steps-line-marker-border-color-completed;
+        }
+        &-error .@{veui-prefix}-steps-step-index {
+          border-color: @veui-steps-line-marker-border-color-error;
+          color: @veui-steps-line-marker-border-color-error;
+        }
+        &-error .@{veui-prefix}-steps-step-label {
+          color: @veui-steps-line-marker-border-color-error;
+        }
+        &-current .@{veui-prefix}-steps-step-index {
+          border-color: @veui-steps-line-marker-border-color-current;
+          color: @veui-steps-line-marker-border-color-current;
+        }
+        &-current .@{veui-prefix}-steps-step-label {
+          color: @veui-steps-line-marker-border-color-current;
+        }
+        &-error-current .@{veui-prefix}-steps-step-index {
+          border-color: @veui-steps-line-marker-border-color-eror-current;
+          color: @veui-steps-line-marker-border-color-eror-current;
+        }
+        &-error-current .@{veui-prefix}-steps-step-label {
+          color: @veui-steps-line-marker-border-color-eror-current;
+        }
+        &::before {
+          width: 0;
+          height: 0;
+          top: 0;
+          left: 0;
+          right: auto;
+          border-top: @veui-steps-line-step-height-m / 2 solid @veui-steps-line-step-background-color;
+          border-bottom: @veui-steps-line-step-height-m / 2 solid @veui-steps-line-step-background-color;
+          border-left: @veui-spacing-unit solid @veui-steps-line-background-color;
+        }
+        &::after {
+          width: 0;
+          height: 0;
+          top: 0;
+          left: auto;
+          right: 0;
+          border-top: @veui-steps-line-step-height-m / 2 solid @veui-steps-line-background-color;
+          border-bottom: @veui-steps-line-step-height-m / 2 solid @veui-steps-line-background-color;
+          border-left: @veui-spacing-unit solid @veui-steps-line-step-background-color;
+        }
       }
     }
   }
@@ -458,6 +520,125 @@
         margin-top: 0;
       }
     }
+
+    &[ui~='simple'] {
+      .@{veui-prefix}-steps-step {
+        &-label {
+          margin-top: 0;
+        }
+        &-connector {
+          margin-top: 0;
+          margin-left: @veui-steps-simple-marker-size-current-m / 2;
+        }
+        &-completed,
+        &-error,
+        &-incomplete {
+          .@{veui-prefix}-steps-step-content{
+            @title-offsetY: veui-sum(@veui-steps-simple-marker-size-m, -@title-font-size * @veui-line-height-m) / 2;
+            transform: translateY(@title-offsetY);
+          }
+          .@{veui-prefix}-steps-step-index-container {
+            margin-left: @veui-spacing-unit / 2;
+          }
+          .@{veui-prefix}-steps-step-connector-placeholder {
+            margin-left: @veui-steps-simple-marker-size-m / 2;
+          }
+        }
+        &-current,
+        &-error-current {
+          .@{veui-prefix}-steps-step-content{
+            @title-offsetY: veui-sum(@veui-steps-simple-marker-size-current-m, -@title-font-size * @veui-line-height-m) / 2;
+            transform: translateY(@title-offsetY);
+          }
+          .@{veui-prefix}-steps-step-connector-placeholder {
+            margin-left: @veui-steps-simple-marker-size-current-m / 2;
+          }
+        }
+      }
+    }
+  }
+
+  &[ui~='simple'] {
+    .@{veui-prefix}-steps-step {
+      .@{veui-prefix}-steps-step-index {
+        position: relative;
+        border: 0;
+        overflow: hidden;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &-completed,
+      &-error,
+      &-incomplete {
+        .@{veui-prefix}-steps-step-index {
+          width: @veui-steps-simple-marker-size-m;
+          height: @veui-steps-simple-marker-size-m;
+        }
+        &::after {
+          top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
+          left: veui-sum(50%, @veui-steps-simple-marker-size-m / 2, @separator-gap-x);
+        }
+  
+        &::before {
+          top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
+          right: veui-sum(50%, @veui-steps-simple-marker-size-m / 2, @separator-gap-x);
+        }
+      }
+      &-current,
+      &-error-current {
+        .@{veui-prefix}-steps-step-index {
+          width: @veui-steps-simple-marker-size-current-m;
+          height: @veui-steps-simple-marker-size-current-m;
+          margin-top: (@veui-steps-simple-marker-size-m - @veui-steps-simple-marker-size-current-m) / 2;
+        }
+        &::after {
+          top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
+          left: veui-sum(50%, @veui-steps-simple-marker-size-current-m / 2, @separator-gap-x);
+        }
+  
+        &::before {
+          top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
+          right: veui-sum(50%, @veui-steps-simple-marker-size-current-m / 2, @separator-gap-x);
+        }
+      }
+      &-completed,
+      &-current {
+        .@{veui-prefix}-steps-step-index::before {
+          background-color: @veui-steps-marker-border-color-completed;
+        }
+      }
+      &-error,
+      &-error-current {
+        .@{veui-prefix}-steps-step-index::before {
+          background-color: @veui-steps-marker-border-color-error;
+        }
+      }
+      &-incomplete {
+        .@{veui-prefix}-steps-step-index::before {
+          background-color: @veui-steps-marker-border-color-incomplete;
+        }
+      }
+      &-label {
+        margin-top: @veui-steps-simple-title-margin-top;
+      }
+      &-connector {
+        margin-top: veui-sum(@veui-steps-simple-marker-size-m / 2, -@separator-width / 2);
+      }
+    }
+  }
+
+  &[ui~='icon'] {
+    .@{veui-prefix}-steps-step {
+      &-content {
+        display: none;
+      }
+    }
   }
 
   &[ui~="s"] {
@@ -476,7 +657,6 @@
         }
 
         &-label {
-          margin-top: veui-sum(@step-height / 2, -@title-height / 2);
           font-size: @title-font-size;
 
           &::after {
@@ -490,7 +670,7 @@
       }
     }
 
-    &[ui~="label-vertical"] {
+    &[ui~="horizon"] {
       .@{veui-prefix}-steps-step {
         &-connector {
           margin-top: veui-sum(@step-height / 2, -@separator-width / 2);
@@ -513,6 +693,31 @@
           right: veui-sum(50%, @step-height / 2, @separator-gap-x);
         }
       }
+      &[ui~='line'] {
+        .@{veui-prefix}-steps-step {
+          height: @veui-steps-line-step-height-s;
+          &-index {
+            width: @veui-steps-line-marker-size-s;
+            height: @veui-steps-line-marker-size-s;
+          }
+          &::before {
+            top: 0;
+            left: 0;
+            right: auto;
+            border-top: @veui-steps-line-step-height-s / 2 solid @veui-steps-line-step-background-color;
+            border-bottom: @veui-steps-line-step-height-s / 2 solid @veui-steps-line-step-background-color;
+            border-left: @veui-spacing-unit solid @veui-steps-line-background-color;
+          }
+          &::after {
+            top: 0;
+            left: auto;
+            right: 0;
+            border-top: @veui-steps-line-step-height-s / 2 solid @veui-steps-line-background-color;
+            border-bottom: @veui-steps-line-step-height-s / 2 solid @veui-steps-line-background-color;
+            border-left: @veui-spacing-unit solid @veui-steps-line-step-background-color;
+          }
+        }
+      }
     }
     &[ui~="vertical"] {
       .@{veui-prefix}-steps-step {
@@ -526,6 +731,76 @@
         &-connector {
           margin-left: veui-sum(@step-height / 2, -@separator-width / 2);
         }
+      }
+      &[ui~='simple'] {
+        .@{veui-prefix}-steps-step {
+          &-connector {
+            margin-top: 0;
+            margin-left: @veui-steps-simple-marker-size-current-s / 2;
+          }
+          &-completed,
+          &-error,
+          &-incomplete {
+            .@{veui-prefix}-steps-step-content{
+              @title-offsetY: veui-sum(@veui-steps-simple-marker-size-s, -@title-font-size * @veui-line-height-m) / 2;
+              transform: translateY(@title-offsetY);
+            }
+            .@{veui-prefix}-steps-step-connector-placeholder {
+              margin-left: @veui-steps-simple-marker-size-s / 2;
+            }
+          }
+          &-current,
+          &-error-current {
+            .@{veui-prefix}-steps-step-content{
+              @title-offsetY: veui-sum(@veui-steps-simple-marker-size-current-s, -@title-font-size * @veui-line-height-m) / 2;
+              transform: translateY(@title-offsetY);
+            }
+            .@{veui-prefix}-steps-step-connector-placeholder {
+              margin-left: @veui-steps-simple-marker-size-current-s / 2;
+            }
+          }
+        }
+      }
+    }
+    &[ui~='simple'] {
+      .@{veui-prefix}-steps-step {
+        &-completed,
+        &-error,
+        &-incomplete {
+          .@{veui-prefix}-steps-step-index {
+            width: @veui-steps-simple-marker-size-s;
+            height: @veui-steps-simple-marker-size-s;
+          }
+          &::after {
+            top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
+            left: veui-sum(50%, @veui-steps-simple-marker-size-s / 2, @separator-gap-x);
+          }
+  
+          &::before {
+            top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
+            right: veui-sum(50%, @veui-steps-simple-marker-size-s / 2, @separator-gap-x);
+          }
+        }
+        &-current,
+        &-error-current {
+          .@{veui-prefix}-steps-step-index {
+            width: @veui-steps-simple-marker-size-current-s;
+            height: @veui-steps-simple-marker-size-current-s;
+          }
+          &::after {
+            top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
+            left: veui-sum(50%, @veui-steps-simple-marker-size-current-s / 2, @separator-gap-x);
+          }
+  
+          &::before {
+            top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
+            right: veui-sum(50%, @veui-steps-simple-marker-size-current-s / 2, @separator-gap-x);
+          }
+        }
+        &-connector {
+          margin-top: veui-sum(@veui-steps-simple-marker-size-s / 2, -@separator-width / 2);
+        }
+        
       }
     }
   }
