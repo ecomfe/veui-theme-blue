@@ -52,6 +52,7 @@
 @veui-pagination-button-spacing: @veui-padding-unit * 1;
 @veui-pagination-spacing-1: @veui-padding-unit * 2;
 @veui-pagination-spacing-2: @veui-padding-unit * 3;
+@veui-pagination-goto-label-spacing: @veui-padding-unit * 1;
 
 // pagesize
 @veui-pagination-pagesizes-text-font-color: @veui-font-color-strong;
@@ -60,13 +61,13 @@
 // goto left
 @veui-pagination-page-items-margin-after: @veui-padding-unit * 5;
 @veui-pagination-goto-input-padding-x: @veui-padding-unit * 2;
-@veui-pagination-goto-input-digits: 3;
-// 3 digits + padding-x + border-width
-@veui-pagination-goto-input-width: veui-sum(
-  1ch * @veui-pagination-goto-input-digits,
-  @veui-pagination-goto-input-padding-x * 2,
-  2px
-);
+@veui-pagination-goto-input-width-xs: 52px;
+@veui-pagination-goto-input-width-s: 52px;
+@veui-pagination-goto-input-width-m: 60px;
+
+@veui-pagination-goto-button-width-xs: 40px;
+@veui-pagination-goto-button-width-s: 48px;
+@veui-pagination-goto-button-width-m: 60px;
 
 // info total spacing
 @veui-pagination-total-spacing-xs: @veui-padding-unit * 2;

@@ -17,7 +17,7 @@
             <veui-button @click="toggle">切换数据</veui-button>
         </section>
         <section>
-            <h3>12字号超小表格[ui=xs]</h3>
+            <div class="title-desc">12字号超小表格[ui=xs]</div>
             <veui-table
                 ui="xs"
                 :data="data"
@@ -70,7 +70,7 @@
             </veui-table>
         </section>
         <section>
-            <h3>12字号小表格[ui=s]</h3>
+            <div class="title-desc">12字号小表格[ui=s]</div>
             <veui-table
                 ui="s"
                 :data="data"
@@ -123,7 +123,7 @@
             </veui-table>
         </section>
         <section>
-            <h3>14字号小表格[ui=m]</h3>
+            <div class="title-desc">14字号小表格[ui=m]</div>
             <veui-table
                 ui="m"
                 :data="data"
@@ -176,7 +176,7 @@
             </veui-table>
         </section>
         <section>
-            <h3>14字号大表格[ui=l]</h3>
+            <div class="title-desc">14字号大表格[ui=l]</div>
             <veui-table
                 ui="l"
                 :data="data"

@@ -5,24 +5,23 @@
         <div class="options-desc">可选的尺寸
             <span class="bg-gray-show">ui</span>
             属性值：
-            <span class="bg-gray-show">s / m</span>
+            <span class="bg-gray-show">s(默认，可不传) / m</span>
         </div>
         <section>
             <h3>常规树</h3>
             <div class="title-desc">已展开集合: {{ expanded }}</div>
             <veui-form>
                 <veui-field
-                    ui="micro"
+                    
                     label="小号[ui=s]"
                 >
                     <veui-tree
-                        ui="s"
                         :datasource="coffees"
                         :expanded.sync="expanded"
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="中号[ui=m]"
                 >
                     <veui-tree

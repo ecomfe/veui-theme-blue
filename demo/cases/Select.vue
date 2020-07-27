@@ -16,7 +16,7 @@
                 <veui-field
                     v-for="(ui, index) in sizes"
                     :key="index"
-                    ui="micro"
+                    
                     :label="ui.label"
                 >
                     <veui-select
@@ -36,7 +36,7 @@
             <div ui="title-desc">多选样式</div>
             <veui-form>
                 <veui-field
-                    ui="micro"
+                    
                     label="超小号[ui=xs]"
                 >
                     <veui-select
@@ -50,7 +50,7 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="小号[ui=s]"
                 >
                     <veui-select
@@ -64,12 +64,12 @@
                             slot="tag"
                             slot-scope="{ label }"
                         >
-                            <i>{{ label }}</i>
+                            <span>{{ label }}</span>
                         </template>
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="中号[ui=m]"
                 >
                     <veui-select
@@ -82,7 +82,7 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="大号[ui=l]"
                 >
                     <veui-select
@@ -95,7 +95,7 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="禁用"
                 >
                     <veui-select
@@ -114,7 +114,7 @@
             <div class="title-desc">可搜索Select：</div>
             <veui-form>
                 <veui-field
-                    ui="micro"
+                    
                     label="可搜索"
                 >
                     <veui-select
@@ -125,7 +125,7 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="可多选"
                 >
                     <veui-select
@@ -137,7 +137,7 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="有限制"
                 >
                     <veui-select
@@ -155,7 +155,7 @@
             <div class="title-desc">Slot样式：</div>
             <veui-form>
                 <veui-field
-                    ui="micro"
+                    
                     label="name=option-label："
                 >
                     <veui-select
@@ -171,7 +171,7 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="name=option："
                 >
                     <veui-select
@@ -188,7 +188,7 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="name=option："
                 >
                     <veui-select
@@ -209,7 +209,7 @@
             <div class="title-desc">内联样式：</div>
             <veui-form>
                 <veui-field
-                    ui="micro"
+                    
                     label="内联样式1："
                 >
                     <veui-select
@@ -290,7 +290,7 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="内联样式2：">
                     <veui-select v-model="phone">
                         <veui-option-group label="国产">
@@ -358,7 +358,7 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="动态内联样式：">
                     <veui-select
                         searchable
@@ -380,7 +380,7 @@
             <div class="title-desc">复杂自定义样式：</div>
             <veui-form>
                 <veui-field
-                    ui="micro"
+                    
                     label="自定义1：">
                     <veui-select
                         v-model="complex"
@@ -436,7 +436,7 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="自定义2：">
                     <veui-select
                         v-model="complex"
@@ -462,7 +462,7 @@
             <div class="title-desc">分组样式</div>
             <veui-form>
                 <veui-field
-                    ui="micro"
+                    
                     label="可搜索：">
                     <veui-select
                         v-model="defaultValue5"
@@ -472,7 +472,7 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="Slot分组样式1：">
                     <veui-select
                         v-model="defaultValue7"
@@ -487,7 +487,7 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="Slot分组样式2：">
                     <veui-select
                         v-model="defaultValue8"
@@ -505,7 +505,7 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="分隔线样式：">
                     <veui-select
                         v-model="defaultValue9"
@@ -514,7 +514,7 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="内联样式：">
                     <veui-select
                         v-model="defaultValue10"

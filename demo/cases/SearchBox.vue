@@ -42,7 +42,7 @@
                 </div>
                 <section>
                     <veui-field
-                        ui="micro"
+                        
                         label="超小号（xs）"
                     >
                         <veui-search-box
@@ -63,7 +63,7 @@
                         />
                     </veui-field>
                     <veui-field
-                        ui="micro"
+                        
                         label="小号（s）"
                     >
                         <veui-search-box
@@ -84,7 +84,7 @@
                         />
                     </veui-field>
                     <veui-field
-                        ui="micro"
+                        
                         label="中号（m）"
                     >
                         <veui-search-box
@@ -105,7 +105,7 @@
                         />
                     </veui-field>
                     <veui-field
-                        ui="micro"
+                        
                         label="大号（l）"
                     >
                         <veui-search-box

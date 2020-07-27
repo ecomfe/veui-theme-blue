@@ -9,7 +9,7 @@
             </div>
             <section class="five-sizes">
                 <veui-field
-                    ui="micro"
+                    
                     label="超小号（xs）"
                 >
                     <veui-input

@@ -33,7 +33,7 @@
                     :page="page"
                     :total="total"
                     :to="to"
-                    ui="s normal"
+                    ui="normal"
                 />
             </section>
 
@@ -42,7 +42,7 @@
                 <veui-pagination
                     :page="page"
                     :total="total"
-                    ui="normal"
+                    ui="m normal"
                     :to="to"
                 />
             </section>
@@ -70,13 +70,13 @@
                     :total="total"
                     :to="to"
                     goto
-                    ui="s"
                 />
             </section>
 
             <section>
                 <span class="pagination-type">中号[ui=m]</span>
                 <veui-pagination
+                    ui="m"
                     :page="page"
                     :total="total"
                     :to="to"

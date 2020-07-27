@@ -3,98 +3,98 @@
 @import "../variables/components/checkbox.less";
 
 .@{veui-prefix}-transfer {
-  .clearfix();
-  display: flex;
-  font-size: @veui-transfer-font-size-m;
-
-  &-selected-panel {
-    margin-left: @veui-transfer-panel-spacing;
-  }
-
-  .@{veui-prefix}-tree {
-    & &-item-check {
-      padding-left: @veui-transfer-item-content-spacing;
-    }
-
-    & &-item {
-      color: @veui-transfer-item-font-color;
-
-      &::before {
-        background-color: @veui-transfer-item-background-color;
-      }
-
-      &:hover {
-        color: @veui-transfer-item-font-color-hover;
-
-        &::before {
-          background-color: @veui-transfer-item-background-color-hover;
-        }
-      }
-
-      &.focus-visible,
-      &[data-focus-visible-added] {
-        color: @veui-transfer-item-font-color-focus;
-
-        &::before {
-          background-color: @veui-transfer-item-background-color-focus;
-        }
-      }
-
-      &:active {
-        color: @veui-transfer-item-font-color-active;
-
-        &::before {
-          background-color: @veui-transfer-item-background-color-active;
-        }
-      }
-    }
-  }
-
-  &-select-all,
-  &-remove-all {
-    margin-left: auto;
-  }
-
-  &-selected-flat {
-    .@{veui-prefix}-tree-item-label {
-      .ellipsis();
-      padding-right: @veui-transfer-item-content-spacing;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-
-    &-option-label {
-      white-space: nowrap;
-    }
-
-    &-separator {
-      margin-top: 2px;
-      flex-shrink: 0;
-      .veui-icon-size(@veui-icon-size-aux);
-      color: @veui-icon-color-aux;
-    }
-    &-separator,
-    &-option-label {
-      vertical-align: middle;
-    }
-  }
-
-  // disabled 之后的样式
-  &-disabled .@{veui-prefix}-tree-item {
-    color: @veui-transfer-item-font-color-disabled;
-  }
-
-  &-disabled &-selected-flat-item {
-    cursor: not-allowed;
-  }
-
-  &-disabled &-selected-flat-separator {
-    color: @veui-icon-color-aux-disabled;
-  }
-
-  &[ui~="s"] {
+    .clearfix();
+    display: flex;
     font-size: @veui-transfer-font-size-s;
-  }
+
+    &-selected-panel {
+        margin-left: @veui-transfer-panel-spacing;
+    }
+
+    .@{veui-prefix}-tree {
+        & &-item-check {
+            padding-left: @veui-transfer-item-content-spacing;
+        }
+
+        & &-item {
+            color: @veui-transfer-item-font-color;
+
+            &::before {
+                background-color: @veui-transfer-item-background-color;
+            }
+
+            &:hover {
+                color: @veui-transfer-item-font-color-hover;
+
+                &::before {
+                    background-color: @veui-transfer-item-background-color-hover;
+                }
+            }
+
+            &.focus-visible,
+            &[data-focus-visible-added] {
+                color: @veui-transfer-item-font-color-focus;
+
+                &::before {
+                    background-color: @veui-transfer-item-background-color-focus;
+                }
+            }
+
+            &:active {
+                color: @veui-transfer-item-font-color-active;
+
+                &::before {
+                    background-color: @veui-transfer-item-background-color-active;
+                }
+            }
+        }
+    }
+
+    &-select-all,
+    &-remove-all {
+        margin-left: auto;
+    }
+
+    &-selected-flat {
+        .@{veui-prefix}-tree-item-label {
+            .ellipsis();
+            padding-right: @veui-transfer-item-content-spacing;
+
+            &:first-child {
+            margin-left: 0;
+            }
+        }
+
+        &-option-label {
+            white-space: nowrap;
+        }
+
+        &-separator {
+            margin-top: 2px;
+            flex-shrink: 0;
+            .veui-icon-size(@veui-icon-size-aux);
+            color: @veui-icon-color-aux;
+        }
+        &-separator,
+        &-option-label {
+            vertical-align: middle;
+        }
+    }
+
+    // disabled 之后的样式
+    &-disabled .@{veui-prefix}-tree-item {
+        color: @veui-transfer-item-font-color-disabled;
+    }
+
+    &-disabled &-selected-flat-item {
+        cursor: not-allowed;
+    }
+
+    &-disabled &-selected-flat-separator {
+        color: @veui-icon-color-aux-disabled;
+    }
+
+    &[ui~="m"] {
+        font-size: @veui-transfer-font-size-m;
+    }
 }
