@@ -24,7 +24,7 @@ config.defaults(
             }
         },
         parts: {
-            search: 'inline'
+            search: 'icon'
         }
     },
     'dropdown'
