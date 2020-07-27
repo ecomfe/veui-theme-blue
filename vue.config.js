@@ -7,6 +7,7 @@ function resolve (dir) {
 }
 
 module.exports = {
+    outputDir: 'components',
     css: {
         loaderOptions: {
             less: {
