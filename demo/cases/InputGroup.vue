@@ -199,9 +199,15 @@ export default {
             align-items: center;
             margin-bottom: 10px;
         }
+        .veui-input-group {
+            .veui-label {
+                display: flex;
+                line-height: 1;
+            }
+        }
     }
     section {
-    margin-bottom: 40px;
+        margin-bottom: 40px;
     }
 }
 
