@@ -237,6 +237,8 @@ section {
 .veui-form {
   & /deep/ .veui-field {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 
     & > .veui-form-label {
       width: 100px;
