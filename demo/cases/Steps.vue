@@ -19,7 +19,7 @@
             <veui-form>
                 <veui-field
                     label="默认步骤条[ui=normal]"
-                    ui="micro"
+                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -29,7 +29,7 @@
                 </veui-field>
                 <veui-field
                     label="简洁步骤条[ui=simple]"
-                    ui="micro"
+                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -39,7 +39,7 @@
                 </veui-field>
                 <veui-field
                     label="带状步骤条[ui=line](不支持与纵向搭配)"
-                    ui="micro"
+                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -49,7 +49,7 @@
                 </veui-field>
                 <veui-field
                     label="无文字步骤条[ui=icon]"
-                    ui="micro"
+                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -81,7 +81,7 @@
             <veui-form>
                 <veui-field
                     label="纵向步骤条"
-                    ui="micro"
+                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -91,7 +91,7 @@
                 </veui-field>
                 <veui-field
                     label="横向步骤条"
-                    ui="micro"
+                    
                 >
                     <veui-steps
                         :steps="steps"

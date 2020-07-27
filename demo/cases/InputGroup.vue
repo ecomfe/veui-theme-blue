@@ -9,7 +9,7 @@
             </div>
             <section>
                 <veui-field
-                    ui="micro"
+                    
                     label="超小号（xs）"
                 >
                     <veui-input-group ui="xs">
@@ -23,7 +23,7 @@
                     </veui-input-group>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="小号（s）"
                 >
                     <veui-input-group ui="s">
@@ -37,7 +37,7 @@
                     </veui-input-group>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="中号（m）"
                 >
                     <veui-input-group ui="m">
@@ -51,7 +51,7 @@
                     </veui-input-group>
                 </veui-field>
                 <veui-field
-                    ui="micro"
+                    
                     label="大号（l）"
                 >
                     <veui-input-group ui="l">

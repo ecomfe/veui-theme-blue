@@ -4,7 +4,7 @@
 .@{veui-prefix}-pagination {
     display: inline-flex;
     vertical-align: middle;
-    font-size: @veui-pagination-font-size-m;
+    font-size: @veui-pagination-font-size-s;
 
     &,
     &-info,
@@ -34,17 +34,25 @@
     }
 
     &-total {
-        margin-right: @veui-pagination-total-spacing-m;
+        margin-right: @veui-pagination-total-spacing-s;
     }
 
-    &-goto {
+    & &-goto {
         display: flex;
         align-items: center;
         margin-left: @veui-pagination-page-items-margin-after;
 
         .@{veui-prefix}-input {
-            width: @veui-pagination-goto-input-width;
+            width: @veui-pagination-goto-input-width-s;
             .padding(_, @veui-pagination-goto-input-padding-x);
+            &-input {
+                text-align: right;
+            }
+        }
+
+        .@{veui-prefix}-button {
+            width: @veui-pagination-goto-button-width-s;
+            min-width: auto;
         }
 
         &-label-before,
@@ -55,11 +63,11 @@
         }
 
         &-label-before {
-            margin-right: @veui-pagination-spacing-1;
+            margin-right: @veui-pagination-goto-label-spacing;
         }
 
         &-label-after {
-            margin-left: @veui-pagination-spacing-1;
+            margin-left: @veui-pagination-goto-label-spacing;
         }
 
         .@{veui-prefix}-button {
@@ -88,7 +96,7 @@
 
     .@{veui-prefix}-link {
         .padding(_, @veui-pagination-button-padding-x);
-        .make-metrics(m);
+        .make-metrics(s);
         align-items: center;
         justify-content: center;
         text-decoration: none;
@@ -180,17 +188,36 @@
         .@{veui-prefix}-pagination-total {
             margin-right: @veui-pagination-total-spacing-xs;
         }
+        .@{veui-prefix}-pagination-goto {
+            .@{veui-prefix}-input {
+                width: @veui-pagination-goto-input-width-xs;
+            }
+            .@{veui-prefix}-button {
+                width: @veui-pagination-goto-button-width-xs;
+                min-width: auto;
+            }
+        }
     }
 
-    &[ui~="s"] {
-        font-size: @veui-pagination-font-size-s;
+    &[ui~="m"] {
+        font-size: @veui-pagination-font-size-m;
 
         .@{veui-prefix}-link {
-            .make-metrics(s);
+            .make-metrics(m);
         }
 
         .@{veui-prefix}-pagination-total {
-            margin-right: @veui-pagination-total-spacing-s;
+            margin-right: @veui-pagination-total-spacing-m;
+        }
+
+        .@{veui-prefix}-pagination-goto {
+            .@{veui-prefix}-input {
+                width: @veui-pagination-goto-input-width-m;
+            }
+            .@{veui-prefix}-button {
+                width: @veui-pagination-goto-button-width-m;
+                min-width: auto;
+            }
         }
     }
 

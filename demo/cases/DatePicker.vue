@@ -10,7 +10,7 @@
                 <veui-field
                     v-for="(ui, index) in sizes"
                     :key="index"
-                    ui="micro"
+                    
                 >
                     <template v-slot:label>{{ui.label}}[ui={{ui.value}}]</template>
                     <veui-date-picker

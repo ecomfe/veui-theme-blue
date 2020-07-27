@@ -5,29 +5,58 @@
         <div class="options-desc">可选的尺寸
             <span class="bg-gray-show">ui</span>
             属性值：
-            <span class="bg-gray-show">s / m</span>
+            <span class="bg-gray-show">s(默认，可不传) / m</span>
         </div>
         <section>
             <h2>自定义项目内容</h2>
-            <veui-transfer
-                ui="s"
-                :datasource="datasource1"
-                selected-show-mode="flat"
-                candidatePlaceholder="搜索关键词"
-            >
-                <template
-                    slot="candidate-item-label"
-                    slot-scope="{ label }"
+            <veui-form>
+                <veui-field
+                    
+                    label="小号[ui=s]"
                 >
-                    <span>{{ label }}</span>
-                </template>
-                <template
-                    slot="selected-item-label"
-                    slot-scope="{ label }"
+                    <veui-transfer
+                        :datasource="datasource1"
+                        selected-show-mode="flat"
+                        candidatePlaceholder="搜索关键词"
+                    >
+                        <template
+                            slot="candidate-item-label"
+                            slot-scope="{ label }"
+                        >
+                            <span>{{ label }}</span>
+                        </template>
+                        <template
+                            slot="selected-item-label"
+                            slot-scope="{ label }"
+                        >
+                            <small>{{ label }}</small>
+                        </template>
+                    </veui-transfer>
+                </veui-field>
+                <veui-field
+                    
+                    label="中号[ui=m]"
                 >
-                    <small>{{ label }}</small>
-                </template>
-            </veui-transfer>
+                    <veui-transfer
+                        :datasource="datasource1"
+                        selected-show-mode="flat"
+                        candidatePlaceholder="搜索关键词"
+                    >
+                        <template
+                            slot="candidate-item-label"
+                            slot-scope="{ label }"
+                        >
+                            <span>{{ label }}</span>
+                        </template>
+                        <template
+                            slot="selected-item-label"
+                            slot-scope="{ label }"
+                        >
+                            <small>{{ label }}</small>
+                        </template>
+                    </veui-transfer>
+                </veui-field>
+            </veui-form>
         </section>
         <h2>多级树形结构</h2>
         <veui-transfer
@@ -59,7 +88,6 @@
                 v-model="selected3"
                 :datasource="datasource3"
                 selected-show-mode="flat"
-                ui="s"
             >
                 <template slot="candidate-title">
                     备选列表（{{ datasource1LeafCount }}）

@@ -4,7 +4,7 @@
 .@{veui-prefix}-tree {
     position: relative;
     padding: 0 @veui-tree-padding-x;
-    font-size: @veui-tree-font-size-m;
+    font-size: @veui-tree-font-size-s;
 
     &,
     .@{veui-prefix}-abstract-tree-item-group {
@@ -22,7 +22,7 @@
     &-item {
         display: flex;
         align-items: center;
-        height: @veui-tree-node-height-m;
+        height: @veui-tree-node-height-s;
 
         .clearfix();
         outline: none;
@@ -192,12 +192,12 @@
         }
     }
 
-    &[ui~="s"] {
-        font-size: @veui-tree-font-size-s;
+    &[ui~="m"] {
+        font-size: @veui-tree-font-size-m;
 
         .@{veui-prefix}-tree {
             &-item {
-                height: @veui-tree-node-height-s;
+                height: @veui-tree-node-height-m;
             }
         }
     }

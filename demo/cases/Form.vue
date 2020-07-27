@@ -21,7 +21,7 @@
         <h2>Field风格</h2>
         <div class="options-desc">
             可选的尺寸 <span class="bg-gray-show">ui</span> 
-            属性值： <span class="bg-gray-show">long(默认，可不传) / few / special</span>
+            属性值： <span class="bg-gray-show">long / few(默认，可不传) / special</span>
         </div>
         <h2>Field对齐方向</h2>
         <div class="options-desc">
