@@ -3,7 +3,7 @@ import config from 'veui/managers/config';
 config.defaults(
     {
         parts: {
-            search: 'inline'
+            search: 'icon'
         },
         ui: {
             size: {
