@@ -16,7 +16,7 @@ config.defaults(
             },
             size: {
                 values: ['xs', 's', 'm', 'l', 'xl'],
-                default: 'm'
+                default: 's'
             },
             shape: {
                 values: ['square']
