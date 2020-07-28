@@ -8,6 +8,9 @@
     .@{veui-prefix}-field {
         margin-bottom: @veui-form-field-spacing-vertical-normal;
         min-height: @veui-height-s;
+        &:last-child {
+            margin-bottom: 0;
+        }
         .@{veui-prefix}-label {
             display: inline-block;
             line-height: @veui-line-height-m;
@@ -15,9 +18,11 @@
         }
     }
 
-    .@{veui-prefix}-field .@{veui-prefix}-field-no-label {
-        margin-bottom: 0;
-        margin-left: 0;
+    .@{veui-prefix}-field,
+    .@{veui-prefix}-fieldset {
+        .@{veui-prefix}-field-no-label {
+            margin-left: 0;
+        }
     }
 
     &-actions {
@@ -42,6 +47,9 @@
     &[ui~="loose"] {
         .@{veui-prefix}-field {
             margin-bottom: @veui-form-field-spacing-vertical-loose;
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -49,6 +57,9 @@
         .@{veui-prefix}-field {
             flex-direction: column;
             margin-bottom: @veui-form-field-spacing-vertical-normal;
+            &:last-child {
+                margin-bottom: 0;
+            }
             &-label {
                 margin-right: 0;
                 text-align: left;

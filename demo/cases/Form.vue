@@ -140,7 +140,7 @@
                     <veui-field label="标签1" ui="left long">
                         <veui-input v-model="storeData1.nickName"/>
                     </veui-field>
-                    <veui-field label="标签2" ui="left few">
+                    <veui-field label="标签2" ui="left long">
                         <veui-input v-model="storeData1.nickName"/>
                     </veui-field>
                 </veui-fieldset>
