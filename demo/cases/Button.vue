@@ -21,15 +21,15 @@
             </veui-button>
         </section>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m / l / xl</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s（默认，可不传） / m / l / xl</span></div>
         <section>
             <veui-button ui="xs">
                 尺寸
             </veui-button>
-            <veui-button ui="s">
+            <veui-button >
                 尺寸
             </veui-button>
-            <veui-button>
+            <veui-button ui="m">
                 尺寸
             </veui-button>
             <veui-button ui="l">
@@ -58,10 +58,10 @@
             <veui-button ui="xs">
                 保存
             </veui-button>
-            <veui-button ui="s">
+            <veui-button>
                 保存
             </veui-button>
-            <veui-button>
+            <veui-button ui="m">
                 保存
             </veui-button>
             <veui-button ui="l">
@@ -82,10 +82,10 @@
             <veui-button ui="strong xs">
                 保存
             </veui-button>
-            <veui-button ui="strong s">
+            <veui-button ui="strong">
                 保存
             </veui-button>
-            <veui-button ui="strong">
+            <veui-button ui="strong m">
                 保存
             </veui-button>
             <veui-button ui="strong l">
@@ -112,10 +112,10 @@
             <veui-button ui="primary xs">
                 提交
             </veui-button>
-            <veui-button ui="primary s">
+            <veui-button ui="primary">
                 提交
             </veui-button>
-            <veui-button ui="primary">
+            <veui-button ui="primary m">
                 提交
             </veui-button>
             <veui-button ui="primary l">
@@ -142,10 +142,10 @@
             <veui-button ui="translucent xs">
                 取消
             </veui-button>
-            <veui-button ui="translucent s">
+            <veui-button ui="translucent">
                 取消
             </veui-button>
-            <veui-button ui="translucent">
+            <veui-button ui="translucent m">
                 取消
             </veui-button>
             <veui-button ui="translucent l">
@@ -173,10 +173,10 @@
             <veui-button ui="text xs">
                 编辑
             </veui-button>
-            <veui-button ui="text s">
+            <veui-button ui="text">
                 编辑
             </veui-button>
-            <veui-button ui="text">
+            <veui-button ui="text m">
                 编辑
             </veui-button>
             <veui-button ui="text l">
@@ -203,10 +203,10 @@
             <veui-button ui="text strong xs">
                 编辑
             </veui-button>
-            <veui-button ui="text strong s">
+            <veui-button ui="text strong">
                 编辑
             </veui-button>
-            <veui-button ui="text strong">
+            <veui-button ui="text strong m">
                 编辑
             </veui-button>
             <veui-button ui="text strong l">
@@ -235,10 +235,10 @@
             <veui-button ui="icon xs">
                 <veui-icon name="search"/>
             </veui-button>
-            <veui-button ui="icon s">
+            <veui-button ui="icon">
                 <veui-icon name="search"/>
             </veui-button>
-            <veui-button ui="icon">
+            <veui-button ui="icon m">
                 <veui-icon name="search"/>
             </veui-button>
             <veui-button ui="icon l">
@@ -374,8 +374,8 @@
         <section>
             <span class="title-desc">普通样式</span>
             <veui-button ui="xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="s"><veui-icon name="times"/>取消</veui-button>
             <veui-button><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="m"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="l"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="xl"><veui-icon name="times"/>取消</veui-button>
             <veui-button disabled><veui-icon name="times"/>取消</veui-button>
@@ -384,8 +384,8 @@
         <section>
             <span class="title-desc">加强样式</span>
             <veui-button ui="strong xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="strong s"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="strong"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="strong m"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="strong l"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="strong xl"><veui-icon name="times"/>取消</veui-button>
             <veui-button disabled><veui-icon name="times"/>取消</veui-button>
@@ -394,8 +394,8 @@
         <section>
             <span class="title-desc">重要样式</span>
             <veui-button ui="primary xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="primary s"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="primary"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="primary m"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="primary l"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="primary xl"><veui-icon name="times"/>取消</veui-button>
             <veui-button disabled><veui-icon name="times"/>取消</veui-button>
@@ -404,8 +404,8 @@
         <section>
             <span class="title-desc">半透明样式</span>
             <veui-button ui="translucent xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="translucent s"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="translucent"><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="translucent m"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="translucent l"><veui-icon name="times"/>取消</veui-button>
             <veui-button ui="translucent xl"><veui-icon name="times"/>取消</veui-button>
             <veui-button disabled><veui-icon name="times"/>取消</veui-button>
