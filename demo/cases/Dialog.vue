@@ -2,7 +2,7 @@
     <article class="demo-dialog">
         <h1><code>&lt;veui-dialog&gt;</code></h1>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m / l / xl</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m（默认，可不传） / l / xl</span></div>
         <section>
             <span class="title-desc">超小样式</span>
             <veui-button

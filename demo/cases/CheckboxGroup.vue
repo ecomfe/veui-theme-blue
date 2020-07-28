@@ -2,7 +2,7 @@
     <article>
         <h1><code>&lt;veui-checkbox-group&gt;</code></h1>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s（默认，可不传）/ m / l</span></div>
         <section>
             <span class="title-desc">大样式</span>
             <veui-checkbox-group
@@ -21,6 +21,7 @@
             <veui-checkbox-group
                 v-model="picked1"
                 :items="data1"
+                ui="m"
             >
                 <template slot-scope="props">
                     {{ props.label }}
@@ -33,7 +34,6 @@
             <veui-checkbox-group
                 v-model="picked2"
                 :items="data2"
-                ui="s"
             >
                 <template slot-scope="props">
                     {{ props.label }}

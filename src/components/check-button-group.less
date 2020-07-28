@@ -5,7 +5,15 @@
 
 .@{veui-prefix}-check-button-group {
   position: relative;
-
+  button {
+    &[ui~="s"],
+    &[ui~="m"],
+    &[ui~="l"] {
+        &[ui~="normal"] {
+            min-width: auto;
+        }
+    }
+  }
   .@{veui-prefix}-button {
     &:extend(._veui-grouped-button all);
   }

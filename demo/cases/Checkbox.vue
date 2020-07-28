@@ -3,7 +3,7 @@
         <h1><code>&lt;veui-checkbox&gt;</code></h1>
         <h2>普通复选</h2>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s（默认，可不传）/ m / l</span></div>
         <section>
             <veui-checkbox
                 v-model="checked2"
@@ -11,13 +11,13 @@
             >
                 正常状态
             </veui-checkbox>
-            <veui-checkbox v-model="checked1">
+            <veui-checkbox 
+                v-model="checked1"
+                ui="m">
                 正常状态
             </veui-checkbox>
             <veui-checkbox
-                v-model="checked2"
-                ui="s"
-            >
+                v-model="checked2">
                 正常状态
             </veui-checkbox>
         </section>
@@ -39,13 +39,11 @@
             >
                 正常状态
             </veui-checkbox>
-            <veui-checkbox v-model="checked1">
+            <veui-checkbox v-model="checked1" ui="m">
                 正常状态
             </veui-checkbox>
             <veui-checkbox
-                v-model="checked2"
-                ui="s"
-            >
+                v-model="checked2">
                 正常状态
             </veui-checkbox>
         </section>
@@ -58,13 +56,11 @@
             >
                 选中状态
             </veui-checkbox>
-            <veui-checkbox v-model="checked3">
+            <veui-checkbox v-model="checked3" ui="m">
                 选中状态
             </veui-checkbox>
             <veui-checkbox
-                v-model="checked4"
-                ui="s"
-            >
+                v-model="checked4">
                 选中状态
             </veui-checkbox>
         </section>
@@ -80,6 +76,7 @@
             </veui-checkbox>
             <veui-checkbox
                 v-model="checked5"
+                ui="m"
                 :indeterminate="indeterminate5"
                 @change="indeterminate5 = false"
             >
@@ -87,7 +84,6 @@
             </veui-checkbox>
             <veui-checkbox
                 v-model="checked6"
-                ui="s"
                 :indeterminate="indeterminate6"
                 @change="indeterminate6 = false"
             >
@@ -105,13 +101,13 @@
             </veui-checkbox>
             <veui-checkbox
                 v-model="checked9"
+                ui="m"
                 disabled
             >
                 未选无效状态
             </veui-checkbox>
             <veui-checkbox
                 v-model="checked10"
-                ui="s"
                 disabled
             >
                 未选无效状态
@@ -128,6 +124,7 @@
             </veui-checkbox>
             <veui-checkbox
                 v-model="checked7"
+                ui="m"
                 disabled
             >
                 选中无效状态
@@ -153,6 +150,7 @@
             </veui-checkbox>
             <veui-checkbox
                 v-model="checked11"
+                ui="m"
                 disabled
                 indeterminate
             >
@@ -160,7 +158,6 @@
             </veui-checkbox>
             <veui-checkbox
                 v-model="checked12"
-                ui="s"
                 disabled
                 indeterminate
             >
