@@ -60,6 +60,39 @@
                     <veui-input v-model="storeData1.nickName"/>
                 </veui-field>
             </veui-form>
+            <div class="title-desc">多列展示(右对齐、文字不长few)</div>
+            <veui-form>
+                <veui-fieldset>
+                    <veui-field label="标签1">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签2">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签3">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                </veui-fieldset>
+                <veui-fieldset>
+                    <veui-field label="标签1标签1标签1">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签2标签2">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签3">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                </veui-fieldset>
+                <veui-fieldset>
+                    <veui-field label="标签1">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签2">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                </veui-fieldset>
+            </veui-form>
         </section>
         <section>
             <h3>Form尺寸：m ➕ Form风格：loose</h3>
@@ -78,6 +111,39 @@
                     :ui="item.ui">
                     <veui-input v-model="storeData1.nickName"/>
                 </veui-field>
+            </veui-form>
+            <div class="title-desc">多列展示(左对齐、文字很长long)</div>
+            <veui-form ui="m loose">
+                <veui-fieldset>
+                    <veui-field label="标签1" ui="left long">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签2" ui="left long">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签3" ui="left long">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                </veui-fieldset>
+                <veui-fieldset>
+                    <veui-field label="标签1标签1标签1" ui="left long">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签2标签2" ui="left long">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签3" ui="left long">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                </veui-fieldset>
+                <veui-fieldset>
+                    <veui-field label="标签1" ui="left long">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签2" ui="left few">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                </veui-fieldset>
             </veui-form>
         </section>
         <section>
@@ -802,5 +868,9 @@ export default {
       margin-left: 0;
     }
   }
+
+    .veui-input {
+        width: 180px;
+    }
 }
 </style>

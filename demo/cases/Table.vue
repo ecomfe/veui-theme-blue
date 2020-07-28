@@ -24,8 +24,7 @@
                 :column-filter="columns"
                 :key-field="selectSpanRow ? 'group' : 'id'"
                 selectable
-                select-mode="single"
-                :selected.sync="selected2"
+                :selected.sync="selected1"
             >
                 <veui-table-column title="元数据">
                     <veui-table-column
@@ -130,8 +129,7 @@
                 :column-filter="columns"
                 :key-field="selectSpanRow ? 'group' : 'id'"
                 selectable
-                select-mode="single"
-                :selected.sync="selected2"
+                :selected.sync="selected1"
             >
                 <veui-table-column title="元数据">
                     <veui-table-column
