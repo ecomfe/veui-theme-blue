@@ -28,7 +28,6 @@
             </veui-uploader>
             <span class="title-desc">小号[ui=s]</span>
             <veui-uploader
-                ui="s"
                 v-model="files2"
                 name="file"
                 :action="action"
@@ -46,6 +45,7 @@
             </veui-uploader>
             <span class="title-desc">中号[ui=m]</span>
             <veui-uploader
+                ui="m"
                 v-model="files2"
                 name="file"
                 :action="action"
