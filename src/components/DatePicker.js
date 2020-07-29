@@ -19,7 +19,7 @@ config.defaults(
             }
         },
         parts: {
-            clear: 'icon',
+            clear: 'icon aux',
             input: 'inline'
         }
     },

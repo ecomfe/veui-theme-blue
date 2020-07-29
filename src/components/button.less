@@ -60,10 +60,9 @@
   .@{veui-prefix}-icon {
     .veui-icon-size(1em);
     margin-right: @veui-button-content-spacing;
-  }
-
-  &-icon-only .@{veui-prefix}-icon {
-    margin-right: 0;
+    &:only-child {
+      margin-right: 0;
+    }
   }
 
   &:focus {

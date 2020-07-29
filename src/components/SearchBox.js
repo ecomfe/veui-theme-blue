@@ -9,7 +9,7 @@ config.defaults(
         },
         parts: {
             button: 'primary',
-            search: 'icon'
+            search: 'icon aux'
         },
         ui: {
             style: {

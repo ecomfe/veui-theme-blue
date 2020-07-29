@@ -8,7 +8,7 @@ config.defaults(
             collapse: 'chevron-right'
         },
         parts: {
-            toggle: 'icon'
+            toggle: 'icon aux'
         }
     },
     'menu'
