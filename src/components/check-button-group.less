@@ -33,8 +33,15 @@
     .veui-icon-size(@veui-checkbox-strong-check-icon-size);
     margin: 0;
     color: @veui-checkbox-strong-check-icon-color;
-    & + .@{veui-prefix}-icon:last-child {
-      margin-right: 0;
+    .@{veui-prefix}-icon:only-child {
+        width: @veui-checkbox-strong-check-icon-width;
+        height: @veui-checkbox-strong-check-icon-height;
+        display: inherit;
+    }
+    & + .@{veui-prefix}-icon {
+        &:last-child {
+            margin-right: 0;
+        }
     }
   }
 
