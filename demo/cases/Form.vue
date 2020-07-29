@@ -30,9 +30,7 @@
         </div>
         <section>
             <h3>Form尺寸：s ➕ Form风格：normal</h3>
-            <div class="title-desc">Field对齐方式：right</div>
-            <br/>
-            <div class="title-desc">Field不同风格</div>
+            <div class="title-desc">Field对齐方式：right; Field不同风格</div>
             <veui-form
                 ref="form1"
                 :data="storeData1"
@@ -45,9 +43,7 @@
                     <veui-input v-model="storeData1.nickName"/>
                 </veui-field>
             </veui-form>
-            <div class="title-desc">Field对齐方式：left</div>
-            <br/>
-            <div class="title-desc">Field不同风格</div>
+            <div class="title-desc">Field对齐方式：left; Field不同风格</div>
             <veui-form
                 ref="form1"
                 :data="storeData1"
@@ -96,9 +92,7 @@
         </section>
         <section>
             <h3>Form尺寸：m ➕ Form风格：loose</h3>
-            <div class="title-desc">Field对齐方式：right</div>
-            <br/>
-            <div class="title-desc">Field不同风格</div>
+            <div class="title-desc">Field对齐方式：right; Field不同风格</div>
             <veui-form
                 ui="m loose"
                 ref="form1"
@@ -353,7 +347,7 @@
                     >
                         <veui-input v-model="storeData4.end"/>
                     </veui-field>
-                    <veui-span>万</veui-span>
+                    <veui-span style="margin-left: 8px;">万</veui-span>
                 </veui-fieldset>
 
                 <veui-field
@@ -380,7 +374,7 @@
                     >我已阅读并同意工作协议</veui-checkbox>
                 </veui-field>
 
-                <template slot="actions">
+                <template #actions>
                     <veui-button
                         ui="primary"
                         :loading="isValidating"
@@ -799,75 +793,37 @@ export default {
 
 <style lang="less">
 .veui-form-demo {
-
-  section + section {
-    margin-top: 50px;
-  }
-
-  margin-bottom: 50px;
-
-  .veui-form[ui~="inline"] + .veui-form[ui~="inline"] {
-    margin-top: 30px;
-  }
-
-  .left {
-    float: left;
-  }
-
-  .right {
-    float: right;
-  }
-
-  .output {
-    position: absolute;
-    display: inline-block;
-    left: 560px;
-    line-height: 36px;
-    margin: 0 0 0 50px;
-
-    &::before {
-      position: absolute;
-      left: -80px;
-      content: "⇒";
-      line-height: 32px;
-      font-size: 30px;
-      color: #999;
+    .veui-form {
+        margin-bottom: 32px;
     }
-  }
-
-  .two-name {
-    .veui-input {
-      width: 75px;
-    }
-  }
-
-  .salary {
-    .veui-input {
-      width: 67px;
-    }
-  }
-
-  .start-field {
-    .veui-field-error:first-of-type {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 80px;
-      white-space: nowrap;
-    }
-  }
-
-  .operation {
-    margin-top: 60px;
-    margin-left: 120px;
-
-    [class*="veui"] {
-      margin-left: 10px;
+    .title-desc {
+        margin-bottom: 16px;
     }
 
-    [class*="veui"]:first-child {
-      margin-left: 0;
+    section + section {
+        margin-top: 32px;
     }
-  }
+
+    margin-bottom: 50px;
+
+    .veui-form-actions {
+        padding-left: 126px;
+    }
+
+    .salary {
+        .veui-input {
+            width: 67px;
+        }
+    }
+
+    .start-field {
+        .veui-field-error:first-of-type {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 80px;
+            white-space: nowrap;
+        }
+    }
 
     .veui-input {
         width: 180px;
