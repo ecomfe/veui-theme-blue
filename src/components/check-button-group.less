@@ -33,6 +33,9 @@
     .veui-icon-size(@veui-checkbox-strong-check-icon-size);
     margin: 0;
     color: @veui-checkbox-strong-check-icon-color;
+    & + .@{veui-prefix}-icon:last-child {
+      margin-right: 0;
+    }
   }
 
   .@{veui-prefix}-button-selected &-checkmark {

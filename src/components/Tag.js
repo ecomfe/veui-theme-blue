@@ -23,7 +23,7 @@ config.defaults(
             }
         },
         parts: {
-            close: 'icon'
+            close: 'icon aux'
         }
     },
     'tag'

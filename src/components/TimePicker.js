@@ -16,7 +16,7 @@ config.defaults(
             }
         },
         parts: {
-            clear: 'icon'
+            clear: 'icon aux'
         }
     },
     'timepicker'

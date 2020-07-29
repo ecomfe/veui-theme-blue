@@ -31,9 +31,9 @@ config.defaults(
             }
         },
         parts: {
-            remove: 'icon',
+            remove: 'icon aux',
             add: 'text',
-            nav: 'icon'
+            nav: 'icon aux'
         }
     },
     'tabs'
