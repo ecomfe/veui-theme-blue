@@ -15,15 +15,15 @@ config.defaults(
         ui: {
             size: {
                 values: ['s', 'm'],
-                default: 'm',
+                default: 's',
                 data: {
                     m: {
-                        radius: 54,
+                        radius: 50,
                         strokeWidth: 8,
                         strokeLinecap: 'round'
                     },
                     s: {
-                        radius: 54,
+                        radius: 48,
                         strokeWidth: 4,
                         strokeLinecap: 'round'
                     }
