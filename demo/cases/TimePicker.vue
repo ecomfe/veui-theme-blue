@@ -24,6 +24,15 @@
                 @change="value0 = $event"
             />
 
+            <h2>尺寸s + 小时 分钟</h2>
+            <veui-time-picker
+                v-model="value1"
+                mode="minute"
+                ui="s"
+                clearable
+            >
+            </veui-time-picker>
+
             <h2>尺寸s + 小时 分钟 + 定制 minute option slot</h2>
             <veui-time-picker
                 v-model="value1"
@@ -53,6 +62,7 @@
             />
             <veui-input
                 :value="value2"
+                ui="m"
                 placeholder="请输入时间，change触发"
                 @change="value2 = $event"
             />
