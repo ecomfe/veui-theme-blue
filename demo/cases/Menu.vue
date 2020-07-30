@@ -2,13 +2,13 @@
     <article class="veui-menu-demo">
         <h1><code>&lt;veui-menu&gt;</code></h1>
         <div class="options-desc">竖向菜单不区分型号</div>
-        <div>expanded: {{ expanded }} <br>active: {{ active1 }}</div>
-        <div>
+        <div>expanded: {{ expanded }}  active: {{ active1 }}
             外部控制
             <button @click="$router.push('/menu/input')">input</button>
             <button @click="$router.push('/menu/button')">button</button>
         </div>
         <section>
+            <h2>正常样式</h2>
             <veui-menu
                 :items="items"
                 :active.sync="active1"
@@ -19,7 +19,19 @@
         </section>
         <br>
         <section>
-            <h3>自定义 icon slot</h3>
+            <h2>自定义 icon slot</h2>
+            <veui-menu
+                collapsible
+                :items="items"
+            >
+                <veui-icon
+                    slot="icon"
+                    name="baidu"
+                />
+            </veui-menu>
+        </section>
+        <section>
+            <h2>自定义 s型号 icon slot</h2>
             <veui-menu
                 ui="s"
                 collapsible

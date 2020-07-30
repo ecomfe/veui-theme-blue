@@ -22,12 +22,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -55,12 +56,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -89,12 +91,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -123,12 +126,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -157,13 +161,14 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
                         autofocus
+                        ui="m"
                         @click="close"
                     >
                         CANCEL
@@ -228,12 +233,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
