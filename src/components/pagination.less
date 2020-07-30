@@ -6,6 +6,12 @@
     vertical-align: middle;
     font-size: @veui-pagination-font-size-s;
 
+    &-simple {
+        .next-page {
+            margin-left: @veui-pagination-simple-button-spacing;
+        }
+    }
+
     &,
     &-info,
     &-pages,
@@ -100,11 +106,11 @@
     .@{veui-prefix}-link {
         .padding(_, @veui-pagination-button-padding-x);
         .make-metrics(s);
+        font-size: @veui-pagination-font-size-s - 2;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         line-height: 1;
-        font-size: inherit;
         font-variant-numeric: tabular-nums;
         cursor: pointer;
 
@@ -187,6 +193,7 @@
 
         .@{veui-prefix}-link {
             .make-metrics(xs);
+            font-size: @veui-pagination-font-size-xs - 2;
         }
         .@{veui-prefix}-pagination-total {
             margin-right: @veui-pagination-total-spacing-xs;
@@ -207,6 +214,7 @@
 
         .@{veui-prefix}-link {
             .make-metrics(m);
+            font-size: @veui-pagination-font-size-m - 2;
         }
 
         .@{veui-prefix}-pagination-total {

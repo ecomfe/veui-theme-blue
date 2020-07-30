@@ -12,7 +12,7 @@
             <div class="title-desc">已展开集合: {{ expanded }}</div>
             <veui-form>
                 <veui-field
-                    
+                    ui="multi"
                     label="小号[ui=s]"
                 >
                     <veui-tree
@@ -34,15 +34,20 @@
         </section>
         <section>
             <div class="title-desc">自定义slot：</div>
+            <br/>
             <veui-tree
                 :datasource="coffees"
                 :expanded.sync="expanded"
             >
                 <template
-                    slot="item"
-                    slot-scope="item"
+                    slot="item-before"
                 >
-                    <span><veui-icon name="file"/>{{ item.label }}</span>
+                    <veui-icon name="file" style="margin-right: 8px;"/>
+                </template>
+                <template
+                    slot="item-after"
+                >
+                    <veui-icon name="file" style="margin-right: 8px;"/>
                 </template>
             </veui-tree>
         </section>
