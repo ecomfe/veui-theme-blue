@@ -16,7 +16,9 @@
         flex: none;
         margin-right: @veui-form-label-spacing-after-horizontal;
         color: @veui-form-label-font-color;
-        text-align: right;
+        display: inline-flex;
+        justify-content: flex-end;
+        align-items: center;
     }
 
     &-required > &-label::before {
@@ -58,7 +60,7 @@
 
     &[ui~="left"] {
         .@{veui-prefix}-field-label {
-            text-align: left;
+            justify-content: flex-start;
         }
     }
 
@@ -102,6 +104,13 @@
             .@{veui-prefix}-field-label {
                 .padding(_, _, _, @veui-field-label-left-long-padding-x);
             }
+        }
+    }
+
+    &[ui~="multi"] {
+        .@{veui-prefix}-field-label {
+            align-items: flex-start;
+            .padding(@veui-field-label-multi-top, _, _, _);
         }
     }
 }

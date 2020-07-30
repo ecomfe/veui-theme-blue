@@ -28,6 +28,11 @@
             可选的尺寸 <span class="bg-gray-show">ui</span> 
             属性值： <span class="bg-gray-show">left / right(默认，可不传) </span>
         </div>
+        <h2>Field类型</h2>
+        <div class="options-desc">
+            可选的尺寸 <span class="bg-gray-show">ui</span> 
+            属性值： <span class="bg-gray-show">single(默认，可不传) / multi </span>
+        </div>
         <section>
             <h3>Form尺寸：s ➕ Form风格：normal</h3>
             <div class="title-desc">Field对齐方式：right; Field不同风格</div>
@@ -54,6 +59,18 @@
                     :label="item.label"
                     :ui="`${item.ui} left`">
                     <veui-input v-model="storeData1.nickName"/>
+                </veui-field>
+            </veui-form>
+            <div class="title-desc">Field对齐方式：right; Field风格：few; Field不同类型</div>
+            <veui-form>
+                <veui-field ui="single" label="姓名" rules="required" tip="请填写姓名">
+                    <veui-input v-model="storeData1.nickName"/>
+                </veui-field>
+                <veui-field ui="multi" label="说明" rules="required" tip="请填写说明">
+                    <veui-textarea
+                        v-model="storeData4.desc"
+                        rows="3"
+                    />
                 </veui-field>
             </veui-form>
             <div class="title-desc">多列展示(右对齐、文字不长few)</div>
@@ -209,6 +226,7 @@
                 </veui-field>
 
                 <veui-field
+                    ui="multi"
                     label="头像"
                     field="avatar"
                 >
@@ -275,10 +293,12 @@
                 </veui-field>
 
                 <veui-field
+                    ui="multi"
                     field="desc"
                     name="desc"
                     rules="required"
                     label="介绍"
+                    tip="请填写介绍"
                 >
                     <veui-textarea
                         v-model="storeData4.desc"

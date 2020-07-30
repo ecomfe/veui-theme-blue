@@ -7,14 +7,13 @@
 
     .@{veui-prefix}-field {
         margin-bottom: @veui-form-field-spacing-vertical-normal;
-        min-height: @veui-height-s;
+        min-height: @veui-form-font-size-s * @veui-line-height-m;
         &:last-child {
             margin-bottom: 0;
         }
         .@{veui-prefix}-label {
             display: inline-block;
             line-height: @veui-line-height-m;
-            .padding((@veui-height-s - @veui-form-font-size-s * @veui-line-height-m) / 2, _);
         }
     }
 
@@ -62,7 +61,7 @@
             }
             &-label {
                 margin-right: 0;
-                text-align: left;
+                justify-content: flex-start;
                 .padding(0);
                 .@{veui-prefix}-label {
                     .padding(0, 0, @veui-form-top-field-label-padding-bottom, 0);
