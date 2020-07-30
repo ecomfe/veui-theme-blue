@@ -112,9 +112,6 @@
         background-color: @veui-steps-marker-background-color-completed;
         color: @veui-steps-connector-color-completed;
       }
-      &::before {
-        background-color: @veui-steps-connector-color-completed;
-      }
 
       &.focus-visible {
         .@{veui-prefix}-steps-step-index {
@@ -125,10 +122,6 @@
     }
 
     &-current {
-      &::before {
-        background-color: @veui-steps-connector-color-current;
-      }
-
       .@{veui-prefix}-steps-step-index {
         border: @border-width solid @veui-steps-marker-border-color-current;
         border-color: @veui-steps-marker-background-color-current;
@@ -145,9 +138,6 @@
     }
 
     &-incomplete {
-      &::before {
-        background-color: @veui-steps-connector-color-incomplete;
-      }
       .@{veui-prefix}-steps-step {
         &-index {
           border: @border-width solid @veui-steps-marker-border-color-incomplete;
@@ -164,9 +154,6 @@
     }
 
     &-error {
-      &::before {
-        background-color: @veui-steps-connector-color-error;
-      }
       .@{veui-prefix}-steps-step-index {
         border: @border-width solid @veui-steps-marker-border-color-error;
         background: @veui-steps-marker-background-color-error;
@@ -182,9 +169,6 @@
     }
 
     &-error-current {
-      &::before {
-        background-color: @veui-steps-connector-color-error-current;
-      }
       .@{veui-prefix}-steps-step-index {
         border: @border-width solid @veui-steps-marker-border-color-error-current;
         background: @veui-steps-marker-background-color-error-current;
@@ -344,7 +328,7 @@
   }
 
   .make-fixed-length-connector() {
-    .size(@min-step-connector-width, @separator-width);
+    .size(@separator-gap-x, @separator-width);
     content: "";
     pointer-events: none;
   }
@@ -359,6 +343,7 @@
 
       &-content {
         padding-left: 0;
+        text-align: left;
       }
 
       &-label {
@@ -370,19 +355,20 @@
       }
       &-index,
       &-desc {
-        .margin(_, auto);
+        .margin(_, 0);
       }
 
       &-connector {
         flex-grow: 0;
         .make-fixed-length-connector();
+        background-color: @veui-background-color-normal;
         margin-top: veui-sum(@step-height / 2, -@separator-width / 2);
       }
 
       &::after {
         .make-connector();
         top: veui-sum(@step-height / 2, @reserved-space, -@separator-width / 2);
-        left: veui-sum(50%, @step-height / 2, @separator-gap-x);
+        left: veui-sum(@step-height, @separator-gap-x);
       }
 
       &::before {
@@ -418,6 +404,7 @@
         &-index {
           width: @veui-steps-line-marker-size-m;
           height: @veui-steps-line-marker-size-m;
+          font-size: @veui-steps-line-marker-size-m - @veui-height-unit;
           background-color: transparent;
         }
         &-completed .@{veui-prefix}-steps-step-index {
@@ -446,6 +433,7 @@
           color: @veui-steps-line-marker-border-color-eror-current;
         }
         &::before {
+          content: "";
           width: 0;
           height: 0;
           top: 0;
@@ -582,12 +570,7 @@
         }
         &::after {
           top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
-          left: veui-sum(50%, @veui-steps-simple-marker-size-m / 2, @separator-gap-x);
-        }
-  
-        &::before {
-          top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
-          right: veui-sum(50%, @veui-steps-simple-marker-size-m / 2, @separator-gap-x);
+          left: veui-sum(@veui-steps-simple-marker-size-m, @separator-gap-x);
         }
       }
       &-current,
@@ -599,12 +582,7 @@
         }
         &::after {
           top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
-          left: veui-sum(50%, @veui-steps-simple-marker-size-current-m / 2, @separator-gap-x);
-        }
-  
-        &::before {
-          top: veui-sum(@veui-steps-simple-marker-size-m / 2, @reserved-space, -@separator-width / 2);
-          right: veui-sum(50%, @veui-steps-simple-marker-size-current-m / 2, @separator-gap-x);
+          left: veui-sum(@veui-steps-simple-marker-size-current-m, @separator-gap-x);
         }
       }
       &-completed,
@@ -681,16 +659,7 @@
             @reserved-space,
             -@separator-width / 2
           );
-          left: veui-sum(50%, @step-height / 2, @separator-gap-x);
-        }
-
-        &::before {
-          top: veui-sum(
-            @step-height / 2,
-            @reserved-space,
-            -@separator-width / 2
-          );
-          right: veui-sum(50%, @step-height / 2, @separator-gap-x);
+          left: veui-sum(@step-height, @separator-gap-x);
         }
       }
       &[ui~='line'] {
@@ -699,6 +668,7 @@
           &-index {
             width: @veui-steps-line-marker-size-s;
             height: @veui-steps-line-marker-size-s;
+            font-size: @veui-steps-line-marker-size-s - @veui-height-unit;
           }
           &::before {
             top: 0;
@@ -773,12 +743,7 @@
           }
           &::after {
             top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
-            left: veui-sum(50%, @veui-steps-simple-marker-size-s / 2, @separator-gap-x);
-          }
-  
-          &::before {
-            top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
-            right: veui-sum(50%, @veui-steps-simple-marker-size-s / 2, @separator-gap-x);
+            left: veui-sum(@veui-steps-simple-marker-size-s, @separator-gap-x);
           }
         }
         &-current,
@@ -789,12 +754,7 @@
           }
           &::after {
             top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
-            left: veui-sum(50%, @veui-steps-simple-marker-size-current-s / 2, @separator-gap-x);
-          }
-  
-          &::before {
-            top: veui-sum(@veui-steps-simple-marker-size-s / 2, @reserved-space, -@separator-width / 2);
-            right: veui-sum(50%, @veui-steps-simple-marker-size-current-s / 2, @separator-gap-x);
+            left: veui-sum(@veui-steps-simple-marker-size-current-s, @separator-gap-x);
           }
         }
         &-connector {

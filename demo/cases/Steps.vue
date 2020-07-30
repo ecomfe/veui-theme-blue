@@ -19,7 +19,6 @@
             <veui-form>
                 <veui-field
                     label="默认步骤条[ui=normal]"
-                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -29,7 +28,6 @@
                 </veui-field>
                 <veui-field
                     label="简洁步骤条[ui=simple]"
-                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -39,7 +37,6 @@
                 </veui-field>
                 <veui-field
                     label="带状步骤条[ui=line](不支持与纵向搭配)"
-                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -49,7 +46,6 @@
                 </veui-field>
                 <veui-field
                     label="无文字步骤条[ui=icon]"
-                    
                 >
                     <veui-steps
                         :steps="steps"
@@ -81,21 +77,44 @@
             <veui-form>
                 <veui-field
                     label="纵向步骤条"
-                    
+                    class="horizon-flex"
                 >
                     <veui-steps
                         :steps="steps"
                         ui="vertical normal m"
                         :current="current - 1"
                     />
+                    <veui-steps
+                        :steps="steps"
+                        ui="vertical normal s"
+                        :current="current - 1"
+                    />
+                    <veui-steps
+                        :steps="steps"
+                        ui="vertical simple m"
+                        :current="current - 1"
+                    />
+                    <veui-steps
+                        :steps="steps"
+                        ui="vertical simple s"
+                        :current="current - 1"
+                    />
                 </veui-field>
                 <veui-field
-                    label="横向步骤条"
-                    
+                    label="横向步骤条[ui=normal]"
                 >
                     <veui-steps
                         :steps="steps"
                         ui="horizon normal m"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field
+                    label="横向步骤条[ui=simple]"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="horizon simple s"
                         :current="current - 1"
                     />
                 </veui-field>
@@ -161,5 +180,8 @@ input[type="number"] {
 }
 .star {
   vertical-align: text-top;
+}
+.horizon-flex :last-child {
+    justify-content: space-around;
 }
 </style>
