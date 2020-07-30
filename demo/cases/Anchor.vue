@@ -29,7 +29,7 @@
             <span
                 slot="item-label"
                 slot-scope="{ label }"
-            >{{ label }}🤘</span>
+            >{{ label }}: ok</span>
         </veui-anchor>
         <h2 class="header-four">sticky anchor (100px)</h2>
         <veui-anchor
@@ -48,8 +48,17 @@
             class="anchor-two"
             :items="coffees"
         />
+        <h2 class="static-header-five">static middle anchor</h2>
+        <veui-anchor
+            :sticky="false"
+            ui="m"
+            :target-offset="0.1"
+            :container="container"
+            class="anchor-five"
+            :items="coffees"
+        />
 
-        <h2>clipped anchor</h2>
+        <h2>clipped anchor 卡片样式</h2>
         <div class="anchor-three-wrapper anchor-three-scroll">
             <div
                 ref="container"
@@ -106,7 +115,7 @@ export default {
                 value: '#espresso',
                 children: [
                     {
-                        label: '外部导航：Breadcrumb',
+                        label: 'to out: Breadcrumb',
                         value: '/breadcrumb'
                     }
                 ]
@@ -322,6 +331,18 @@ main#content {
     left: 700px;
     top: 100px;
   }
+  .static-header-five {
+    position: absolute;
+    left: 1000px;
+    top: 100px;
+  }
+  .anchor-five {
+    position: absolute;
+    left: 1000px;
+    top: 200px;
+  }
+
+
   .anchor-three {
     position: absolute;
     top: 70px;
