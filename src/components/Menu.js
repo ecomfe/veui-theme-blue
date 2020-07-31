@@ -7,6 +7,11 @@ config.defaults(
             expand: 'chevron-right',
             collapse: 'chevron-right'
         },
+        ui: {
+            size: {
+                inherit: true
+            }
+        },
         parts: {
             toggle: 'icon aux'
         }
