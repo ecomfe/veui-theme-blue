@@ -9,6 +9,7 @@ config.defaults(
         },
         ui: {
             size: {
+                default: 'm',
                 inherit: true
             }
         },
