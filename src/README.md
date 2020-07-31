@@ -4,6 +4,10 @@ Theme Blue for VEUI.
 
 ## Installation
 
+```
+npm install veui-theme-blue --save
+```
+
 ### Load base styles for VEUI
 
 There are two ways to load the base stylesheet:

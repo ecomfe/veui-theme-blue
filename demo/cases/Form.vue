@@ -322,7 +322,7 @@
                     </veui-field>
 
                     <veui-field
-                        style="margin-left: 4px;"
+                        style="margin-left: 4px !important;"
                         field="phone"
                         name="phone"
                         :rules="numRequiredRule"
@@ -445,7 +445,7 @@
                         />
                     </veui-field>
                     <veui-field
-                        style="margin-left: 4px;"
+                        style="margin-left: 4px !important;"
                         :field="`scheduleInfo[${index}].range`"
                         :name="`schedule${index + 1}`"
                         :rules="requiredRule"
