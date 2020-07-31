@@ -97,8 +97,14 @@
     }
   }
 
+  &-type-year &-panel::before {
+    display: none;
+  }
+
   &-panel + &-expanded &-body,
-  &-expanded + &-panel &-body {
+  &-panel + &-expanded &-head,
+  &-expanded + &-panel &-body,
+  &-expanded + &-panel &-head {
     position: relative;
     &::after {
       content: "";
@@ -107,7 +113,6 @@
       border-left: 1px solid @veui-date-picker-panel-separator-color;
     }
   }
-
   &-type-month &-panel,
   &-type-year &-panel {
     width: veui-sum(@date-panel-width, -@veui-date-picker-year-scroller-width);
@@ -125,7 +130,7 @@
     display: flex;
     align-items: center;
 
-    .@{veui-prefix}-button[ui~="icon"] {
+    .@{veui-prefix}-icon {
       line-height: @veui-line-height-m;
     }
 
@@ -245,7 +250,7 @@
 
     button {
       border: 1px solid @veui-date-picker-cell-border-color;
-      border-radius: @veui-date-picker-cell-border-radius-m;
+      border-radius: @veui-date-picker-cell-border-radius;
       padding: 0;
       background-color: @veui-date-picker-cell-background-color;
       color: @veui-date-picker-cell-font-color;
@@ -257,12 +262,10 @@
 
       &:hover {
         background-color: @veui-date-picker-cell-background-color-hover;
-        color: @veui-font-color-strong;
       }
 
       &.focus-visible {
         background-color: @veui-date-picker-cell-background-color-focus;
-        color: @veui-font-color-strong;
         .veui-focus-ring(
           @veui-date-picker-cell-border-focus-color,
           @veui-date-picker-cell-shadow-focus
@@ -307,7 +310,8 @@
       transition-duration: 0s;
     }
   }
-
+  &-year-table &-current,
+  &-month-table &-current,
   &-table &-selected {
     button {
       background-color: @veui-date-picker-cell-background-color-selected;
@@ -367,11 +371,45 @@
     }
   }
 
-  &-month-table &-current button,
-  &-year-scroller &-current button,
-  &-today button {
-    color: @veui-date-picker-cell-font-color-current;
-    font-weight: @veui-font-weight-3;
+  &-year-scroller &-current button {
+    background-color: @veui-date-picker-list-background-color-selected;
+    color: @veui-date-picker-list-font-color-selected;
+  }
+  &-today {
+    button {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: @veui-height-unit;
+        height: @veui-height-unit;
+        border-radius: 50%;
+        background-color: @veui-date-picker-cell-current-point-color;
+        margin: auto;
+        left: 0;
+        right: 0;
+        bottom: @veui-date-picker-cell-current-point-bottom;
+      }
+      &:hover::after {
+        background-color: @veui-date-picker-cell-current-point-color-hover;
+      }
+      &.focus-visible::after {
+        background-color: @veui-date-picker-cell-current-point-color-focus;
+      }
+      &:active::after {
+        background-color: @veui-date-picker-cell-current-point-color-active;
+      }
+      &:disabled::after {
+        background-color: @veui-date-picker-cell-current-point-color-disabled;
+      }
+    }
+    &.@{veui-prefix}-calendar-selected button::after,
+    &.@{veui-prefix}-calendar-in-range button::after {
+      background-color: @veui-date-picker-cell-current-point-color-selected;
+    }
+    &.@{veui-prefix}-calendar-aux button::after {
+      background-color: @veui-date-picker-cell-current-point-color-aux;
+    }
   }
 
   // in-range
@@ -386,30 +424,38 @@
   &-in-range&-range-start {
     background-color: transparent;
     button {
-      .border-left-radius(@veui-date-picker-cell-border-radius-m);
+      .border-left-radius(@veui-date-picker-cell-border-radius);
     }
   }
 
   &-in-range&-range-end {
     background-color: transparent;
     button {
-      .border-right-radius(@veui-date-picker-cell-border-radius-m);
+      .border-right-radius(@veui-date-picker-cell-border-radius);
     }
   }
 
-  &-in-range&-action-end button {
+  &-in-range&-action-end button,
+  &-in-range:not(&-selected) button {
+    background-color: @veui-date-picker-cell-background-color-active;
+    color: @veui-date-picker-cell-font-color;
     &:hover {
-      background-color: @veui-date-picker-cell-background-color-range-end-hover;
-      border-color: @veui-date-picker-cell-border-color-range-end-hover;
-      color: @veui-date-picker-cell-font-color;
+      background-color: @veui-date-picker-cell-background-color-active;
+      color: @veui-date-picker-cell-font-color-range-active;
     }
     &.focus-visible {
-      background-color: @veui-date-picker-cell-background-color-range-end-focus;
+      background-color: @veui-date-picker-cell-background-color-active;
+      color: @veui-date-picker-cell-font-color-range-active;
+      border-color: @veui-date-picker-cell-border-focus-color;
+      border-radius: @veui-date-picker-cell-border-radius;
+      .veui-focus-ring(
+        @veui-date-picker-cell-border-focus-color,
+        @veui-date-picker-cell-shadow-focus
+      );
     }
     &:active {
-      border-color: @veui-date-picker-cell-border-color-range-end-active;
-      color: @veui-date-picker-cell-font-color;
-      background-color: @veui-date-picker-cell-background-color-active;
+      color: @veui-date-picker-cell-font-color-range-active;
+      background-color: @veui-date-picker-cell-background-color-range-active;
     }
   }
 
@@ -436,7 +482,7 @@
 
   &-date-table {
     td::before {
-      width: @veui-date-picker-day-cell-spacing-x;
+      width: @veui-date-picker-day-cell-spacing-x + 1px;
       right: -@veui-date-picker-day-cell-spacing-x;
       .veui-button-transition();
     }
@@ -543,7 +589,8 @@
     .@{veui-prefix}-calendar-panel {
       .size(@date-panel-width, auto);
       & + .@{veui-prefix}-calendar-panel {
-        width: veui-sum(@date-panel-width, @veui-date-picker-range-panel-spacing);
+        padding-left: 0;
+        width: @date-panel-width;
       }
       &::before {
         .make-header-height(@veui-date-picker-font-size-s);
@@ -570,23 +617,11 @@
 
   &[ui~="s"] &-table button {
     .size(auto, @veui-date-picker-cell-height-s);
-    border-radius: @veui-date-picker-cell-border-radius-s;
   }
   &[ui~="s"] &-date-table button {
     .size(@veui-date-picker-cell-width-s, @veui-date-picker-cell-height-s);
   }
 
-  &[ui~="s"] &-in-range button {
-    border-radius: 0;
-  }
-
-  &[ui~="s"] &-in-range&-range-start button {
-    .border-left-radius(@veui-date-picker-cell-border-radius-s);
-  }
-
-  &[ui~="s"] &-in-range&-range-end button {
-    .border-right-radius(@veui-date-picker-cell-border-radius-s);
-  }
 
   &[ui~="s"] &-year-scroller {
     button {

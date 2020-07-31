@@ -2,15 +2,17 @@
     <article>
         <h1><code>&lt;veui-progress&gt;</code></h1>
         <section>
-            <p>
-                Progress
-                <input
+            <p style="margin-bottom: 16px;">
+                Progress:
+                <veui-number-input
                     v-model="progress"
-                    type="number"
-                    step="0.01"
-                    min="0"
+                    ui="xs"
                     :max="1"
+                    :min="0"
+                    :step="0.1"
+                    :decimalPlace="2"
                 >
+                </veui-number-input>
             </p>
             <p>
                 <veui-button @click="status = 'error'">
@@ -23,57 +25,93 @@
         </section>
         <section>
             <h2>线性进度条</h2>
-            <veui-progress
-                :value="Number(progress)"
-                desc
-                :autosucceed="200"
-                :status.sync="status"
-                :decimal-place="1"
-            />
-        </section>
-        <section>
-            <h2>线性进度条（小尺寸）</h2>
-            <veui-progress
-                :value="Number(progress)"
-                ui="s"
-                desc
-                :autosucceed="200"
-                :status.sync="status"
-                :decimal-place="1"
-            />
+            <h2>尺寸</h2>
+            <div class="options-desc">
+                可选的尺寸 <span class="bg-gray-show">ui</span> 
+                属性值： <span class="bg-gray-show">s(默认，可不传) / m</span>
+            </div>
+            <veui-form>
+                <veui-field label="小号[ui=s]">
+                    <veui-progress
+                        :value="Number(progress)"
+                        desc
+                        :autosucceed="200"
+                        :status.sync="status"
+                        :decimal-place="1"
+                    />
+                </veui-field>
+                <veui-field label="中号[ui=m]">
+                    <veui-progress
+                        ui="m"
+                        :value="Number(progress)"
+                        desc
+                        :autosucceed="200"
+                        :status.sync="status"
+                        :decimal-place="1"
+                    />
+                </veui-field>
+            </veui-form>
+            <h2>风格</h2>
+            <div class="options-desc">
+                可选的风格 <span class="bg-gray-show">ui</span> 
+                属性值： <span class="bg-gray-show">fluid</span>
+            </div>
+            <veui-form>
+                <veui-field label="自适应[ui=fluid]">
+                    <veui-progress
+                        :value="Number(progress)"
+                        desc
+                        :autosucceed="200"
+                        :status.sync="status"
+                        :decimal-place="1"
+                        ui="fluid"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
         <section>
             <h2>环形进度条</h2>
-            <veui-progress
-                type="circular"
-                :value="Number(progress)"
-                desc
-                :autosucceed="200"
-                :status.sync="status"
-            />
-        </section>
-        <section>
-            <h2>环形进度条（小尺寸）</h2>
-            <veui-progress
-                ui="s"
-                type="circular"
-                :value="Number(progress)"
-                desc
-                :autosucceed="200"
-                :status.sync="status"
-            />
+            <h2>尺寸</h2>
+            <div class="options-desc">
+                可选的尺寸 <span class="bg-gray-show">ui</span> 
+                属性值： <span class="bg-gray-show">s(默认，可不传) / m</span>
+            </div>
+            <veui-form>
+                <veui-field label="小号[ui=s]">
+                    <veui-progress
+                        type="circular"
+                        :value="Number(progress)"
+                        desc
+                        :autosucceed="200"
+                        :status.sync="status"
+                    />
+                </veui-field>
+                <veui-field label="中号[ui=m]">
+                    <veui-progress
+                        ui="m"
+                        type="circular"
+                        :value="Number(progress)"
+                        desc
+                        :autosucceed="200"
+                        :status.sync="status"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
     </article>
 </template>
 
 <script>
-import {Button, Progress} from 'veui';
+import {Button, Progress, NumberInput, Form, Field} from 'veui';
 
 export default {
     name: 'progress-demo',
     components: {
         'veui-button': Button,
-        'veui-progress': Progress
+        'veui-progress': Progress,
+        'veui-number-input': NumberInput,
+        'veui-form': Form,
+        'veui-field': Field
     },
     data() {
         return {

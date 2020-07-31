@@ -15,13 +15,14 @@ config.defaults(
         },
         parts: {
             tree: 'checkbox-after',
-            remove: 'icon',
-            selectAll: 'text',
-            removeAll: 'text'
+            remove: 'icon aux',
+            selectAll: 'strong text',
+            removeAll: 'strong text'
         },
         ui: {
             size: {
                 values: ['s', 'm'],
+                default: 's',
                 inherit: true
             }
         }

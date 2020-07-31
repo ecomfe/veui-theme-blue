@@ -10,11 +10,12 @@ config.defaults(
         ui: {
             size: {
                 values: ['xs', 's', 'm', 'l'],
-                inherit: true
+                inherit: true,
+                default: 's'
             }
         },
         parts: {
-            clear: 'icon'
+            clear: 'icon aux'
         }
     },
     'input'

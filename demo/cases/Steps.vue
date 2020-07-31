@@ -12,51 +12,119 @@
                     :max="steps.length"
                 >
             </p>
-            <p>
-                <label>
-                    <veui-checkbox v-model="vertical">
-                        纵向样式
-                    </veui-checkbox>
-                </label>
-            </p>
         </section>
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">normal / simple / line / icon</span></div>
         <section>
-            <h2>默认样式：</h2>
+            <veui-form>
+                <veui-field
+                    label="默认步骤条[ui=normal]"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="normal horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field
+                    label="简洁步骤条[ui=simple]"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="simple horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field
+                    label="带状步骤条[ui=line](不支持与纵向搭配)"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="line horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field
+                    label="无文字步骤条[ui=icon]"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="icon horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m</span></div>
+        <section>
             <veui-steps
                 :steps="steps"
+                ui="simple horizon s"
                 :current="current - 1"
-                :ui="`${vertical ? 'vertical' : ''}`"
             />
         </section>
         <section>
-            <h2>小型样式：</h2>
             <veui-steps
                 :steps="steps"
-                :current="current - 1"
-                :ui="`s${vertical ? ' vertical' : ''}`"
-            />
-        </section>
-        <section>
-            <h2>文案纵向样式：</h2>
-            <veui-steps
-                :steps="steps"
-                ui="label-vertical"
+                ui="simple horizon m"
                 :current="current - 1"
             />
         </section>
+        <h2>方向</h2>
+        <div class="options-desc">可选的方向 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">vertical / horizon</span></div>
         <section>
-            <h2>小型文案纵向样式：</h2>
-            <veui-steps
-                :steps="steps"
-                ui="s label-vertical"
-                :current="current - 1"
-            />
+            <veui-form>
+                <veui-field
+                    label="纵向步骤条"
+                    class="horizon-flex"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="vertical normal m"
+                        :current="current - 1"
+                    />
+                    <veui-steps
+                        :steps="steps"
+                        ui="vertical normal s"
+                        :current="current - 1"
+                    />
+                    <veui-steps
+                        :steps="steps"
+                        ui="vertical simple m"
+                        :current="current - 1"
+                    />
+                    <veui-steps
+                        :steps="steps"
+                        ui="vertical simple s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field
+                    label="横向步骤条[ui=normal]"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="horizon normal m"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field
+                    label="横向步骤条[ui=simple]"
+                >
+                    <veui-steps
+                        :steps="steps"
+                        ui="horizon simple s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
+        <h2>自定义模板：</h2>
         <section>
-            <h2>自定义模板：</h2>
             <veui-steps
                 :steps="steps"
-                :ui="`${vertical ? ' vertical' : ''}`"
+                ui="horizon normal"
                 :current="current - 1"
             >
                 <template
@@ -74,33 +142,36 @@
 </template>
 
 <script>
-import {Checkbox, Steps, Icon} from 'veui';
+import {Form, Field, Steps, Icon} from 'veui';
 import 'vue-awesome/icons/star';
 
 export default {
     name: 'steps-demo',
     components: {
         'veui-steps': Steps,
-        'veui-checkbox': Checkbox,
-        'veui-icon': Icon
+        'veui-icon': Icon,
+        'veui-field': Field,
+        'veui-form': Form
     },
     data() {
         return {
-            current: 4,
+            current: 3,
             steps: [
-                {label: 'Step 1', desc: '填写信息', to: '/Tabs'},
-                {label: 'Step 2', desc: '验证身份'},
-                {label: 'Step 3', desc: '填写地址', status: 'error', to: '/Button'},
-                {label: 'Step 4', desc: '填写资料', status: 'error'},
-                {label: 'Step 5', desc: ''}
-            ],
-            vertical: false
+                {label: '已完成步骤', desc: '这是一段描述文字', to: '/button'},
+                {label: '出错步骤', desc: '这是一段描述文字', status: 'error', to: '/button'},
+                {label: '当前步骤', desc: '这是一段描述文字', to: '/button'},
+                {label: '未完成步骤', desc: '这是一段描述文字', to: '/button'},
+                {label: '未完成步骤', desc: '这是一段描述文字', to: '/button'}
+            ]
         };
     }
 };
 </script>
 
 <style lang="less" scoped>
+.veui-steps[ui~='horizon'] {
+    width: 100%;
+}
 input[type="number"] {
   width: 60px;
   height: 30px;
@@ -109,5 +180,8 @@ input[type="number"] {
 }
 .star {
   vertical-align: text-top;
+}
+.horizon-flex :last-child {
+    justify-content: space-around;
 }
 </style>

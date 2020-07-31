@@ -2,204 +2,204 @@
 @import "../variables/components/tree.less";
 
 .@{veui-prefix}-tree {
-  position: relative;
-  padding: 0 @veui-tree-padding-x;
+    position: relative;
+    padding: 0 @veui-tree-padding-x;
+    font-size: @veui-tree-font-size-s;
+    display: block;
 
-  &,
-  &-item-group {
-    .reset-list-style();
-    margin: 0;
-    will-change: height;
-    .veui-transition(height);
-    overflow: hidden;
-  }
-
-  ul {
-    padding-left: veui-sum(@veui-tree-icon-size-aux, @veui-tree-node-content-spacing);
-  }
-
-  &-item {
-    display: flex;
-    align-items: center;
-    height: @veui-tree-node-height-m;
-
-    .clearfix();
-    outline: none;
-
-    & > .@{veui-prefix}-icon {
-      .veui-icon-size(@veui-tree-icon-size);
+    &,
+    .@{veui-prefix}-abstract-tree-item-group {
+        .reset-list-style();
+        margin: 0;
+        will-change: height;
+        .veui-transition(height);
+        overflow: hidden;
     }
 
-    &-expand-switcher,
-    &-label {
-      float: left;
+    ul {
+        padding-left: veui-sum(@veui-tree-icon-size-aux, @veui-tree-node-content-spacing);
     }
 
-    &-expand-switcher {
-      display: inline-block;
-      background: none;
-      border: none;
-      padding: 0;
-      margin-right: @veui-tree-node-content-spacing;
-      cursor: pointer;
-      outline: none;
-      color: @veui-tree-icon-color-aux;
-      .veui-transition(box-shadow, transform);
+    &-item {
+        display: flex;
+        align-items: center;
+        height: @veui-tree-node-height-s;
 
-      .@{veui-prefix}-icon {
-        .veui-icon-size(@veui-tree-icon-size-aux);
-      }
-    }
+        .clearfix();
+        outline: none;
 
-    &-expanded &-expand-switcher {
-      transform: rotateZ(90deg);
-    }
-
-    &-expanded + &-group {
-      display: block;
-    }
-
-    // 如果前面没有图标，就把图标位置让出来。
-    &-check:first-child,
-    &-label:first-child {
-      margin-left: veui-sum(
-        @veui-tree-icon-size-aux,
-        @veui-tree-node-content-spacing
-      );
-    }
-
-    &-clickable {
-      cursor: pointer;
-    }
-
-    &-remove {
-      cursor: pointer;
-      margin-left: auto;
-
-      .@{veui-prefix}-icon {
-        .veui-icon-size(@veui-tree-icon-size-aux);
-      }
-    }
-
-    &-hidden {
-      display: none;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      height: inherit;
-      width: 100%;
-      z-index: -1;
-      .veui-transition(background-color);
-    }
-
-    &:hover::before {
-      background-color: @veui-tree-node-background-color-hover;
-    }
-
-    &.focus-visible::before,
-    &[data-focus-visible-added]::before {
-      background-color: @veui-tree-node-background-color-focus;
-    }
-
-    &:active::before {
-      background-color: @veui-tree-node-background-color-active;
-    }
-
-    &-selected {
-      font-weight: @veui-tree-node-font-weight-selected;
-      color: @veui-tree-node-font-color-selected;
-      &::before {
-        background-color: @veui-tree-node-background-color-selected;
-      }
-
-      &:hover {
-        color: @veui-tree-node-font-color-selected-hover;
-        &::before {
-          background-color: @veui-tree-node-background-color-selected-hover;
+        & > .@{veui-prefix}-icon {
+            .veui-icon-size(@veui-tree-icon-size);
         }
-      }
 
-      &.focus-visible,
-      &[data-focus-visible-added] {
-        color: @veui-tree-node-font-color-selected-focus;
-        &::before {
-          background-color: @veui-tree-node-background-color-selected-focus;
-        }
-      }
-
-      &:active {
-        color: @veui-tree-node-font-color-selected-active;
-        &::before {
-          background-color: @veui-tree-node-background-color-selected-active;
-        }
-      }
-    }
-
-    &-disabled.@{veui-prefix}-tree-item-selected::before,
-    &-disabled:active::before,
-    &-disabled:hover::before,
-    &-disabled.focus-visible::before,
-    &-disabled[data-focus-visible-added]::before {
-      background-color: transparent;
-    }
-  }
-
-  &-item-disabled,
-  &-disabled &-item {
-    color: @veui-tree-node-font-color-disabled;
-    cursor: not-allowed;
-  }
-
-  &-disabled &-item-expand-switcher,
-  &-item-disabled &-item-expand-switcher {
-    color: @veui-tree-icon-color-aux-disabled;
-    cursor: not-allowed;
-  }
-
-  &[ui~="checkbox-after"] {
-    .@{veui-prefix}-tree {
-      &-item {
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-
+        &-expand-switcher,
         &-label {
-          margin-left: veui-sum(
-            @veui-tree-icon-size-aux,
-            @veui-tree-node-content-spacing
-          );
+            float: left;
         }
 
         &-expand-switcher {
-          order: 1;
+            display: flex;
+            background: none;
+            border: none;
+            padding: 0;
+            margin-right: @veui-tree-node-content-spacing;
+            cursor: pointer;
+            outline: none;
+            color: @veui-tree-icon-color-aux;
+            .veui-transition(box-shadow, transform);
 
-          & ~ .@{veui-prefix}-tree-item-label {
-            margin-left: 0;
-          }
+            .@{veui-prefix}-icon {
+                .veui-icon-size(@veui-tree-icon-size-aux);
+            }
         }
-      }
 
-      &-item-check {
-        margin-left: auto;
-        padding-left: @veui-tree-node-content-spacing;
-        cursor: pointer;
-
-        .@{veui-prefix}-checkbox-box {
-          margin-right: 0;
+        &-expanded &-expand-switcher {
+            transform: rotateZ(90deg);
         }
-      }
-    }
-  }
 
-  &[ui~="s"] {
-    font-size: @veui-tree-font-size-s;
+        &-expanded + &-group {
+            display: block;
+        }
 
-    .@{veui-prefix}-tree {
-      &-item {
-        height: @veui-tree-node-height-s;
-      }
+        // 如果前面没有图标，就把图标位置让出来。
+        &-check:first-child,
+        &-label:first-child {
+            margin-left: veui-sum(
+                @veui-tree-icon-size-aux,
+                @veui-tree-node-content-spacing
+            );
+        }
+
+        &-clickable {
+            cursor: pointer;
+        }
+
+        &-remove {
+            cursor: pointer;
+            margin-left: auto;
+
+            .@{veui-prefix}-icon {
+                .veui-icon-size(@veui-tree-icon-size-aux);
+            }
+        }
+
+        &-hidden {
+            display: none;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            height: inherit;
+            width: 100%;
+            z-index: -1;
+            .veui-transition(background-color);
+        }
+
+        &:hover {
+            &::before {
+                background-color: @veui-tree-node-background-color-hover;
+            }
+            color: @veui-tree-node-font-color-focus;
+        }
+
+        &.focus-visible,
+        &[data-focus-visible-added] {
+            &::before {
+                background-color: @veui-tree-node-background-color-focus;
+            }
+            color: @veui-tree-node-font-color-focus;
+        }
+
+        &:active {
+            &::before {
+                background-color: @veui-tree-node-background-color-active;
+            }
+            color: @veui-tree-node-font-color-focus;
+        }
+
+        &-selected {
+            &,
+            &:hover,
+            &.focus-visible,
+            &[data-focus-visible-added] {
+                font-weight: @veui-tree-node-font-weight-selected;
+                color: @veui-tree-node-font-color-selected;
+                &::before {
+                    background-color: @veui-tree-node-background-color-selected;
+                }
+            }
+
+            &:active {
+                color: @veui-tree-node-font-color-selected-active;
+                &::before {
+                    background-color: @veui-tree-node-background-color-selected-active;
+                }
+            }
+        }
+
+        &.@{veui-prefix}-disabled.@{veui-prefix}-tree-item-selected::before,
+        &.@{veui-prefix}-disabled:active::before,
+        &.@{veui-prefix}-disabled:hover::before,
+        &.@{veui-prefix}-disabled.focus-visible::before,
+        &.@{veui-prefix}-disabled[data-focus-visible-added]::before {
+            background-color: transparent;
+        }
+
+        &.@{veui-prefix}-disabled,
+        &.@{veui-prefix}-disabled &-item {
+            color: @veui-tree-node-font-color-disabled;
+        }
+
+        .@{veui-prefix}-disabled &-item-expand-switcher,
+        .@{veui-prefix}-disabled &-item-expand-switcher {
+            color: @veui-tree-icon-color-aux-disabled;
+            cursor: not-allowed;
+        }
+
+        &[ui~="checkbox-after"] {
+            .@{veui-prefix}-tree {
+                &-item {
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+
+                    &-label {
+                        margin-left: veui-sum(
+                        @veui-tree-icon-size-aux,
+                        @veui-tree-node-content-spacing
+                        );
+                    }
+
+                    &-expand-switcher {
+                        order: 1;
+
+                        & ~ .@{veui-prefix}-tree-item-label {
+                            margin-left: 0;
+                        }
+                    }
+                }
+
+                &-item-check {
+                    margin-left: auto;
+                    padding-left: @veui-tree-node-content-spacing;
+                    cursor: pointer;
+
+                    .@{veui-prefix}-checkbox-box {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
     }
-  }
+
+    &[ui~="m"] {
+        font-size: @veui-tree-font-size-m;
+
+        .@{veui-prefix}-tree {
+            &-item {
+                height: @veui-tree-node-height-m;
+            }
+        }
+    }
 }

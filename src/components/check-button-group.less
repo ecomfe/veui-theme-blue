@@ -1,13 +1,30 @@
 @import "../lib.less";
 @import "./button-group.less";
-@import (reference) "../grouped-button.less";
 @import "../variables/components/checkbox.less";
+@import (reference) "../grouped-button.less";
 
 .@{veui-prefix}-check-button-group {
   position: relative;
-
+  button {
+    &[ui~="s"],
+    &[ui~="m"],
+    &[ui~="l"] {
+        &[ui~="normal"] {
+            min-width: auto;
+        }
+    }
+  }
   .@{veui-prefix}-button {
     &:extend(._veui-grouped-button all);
+  }
+
+  .@{veui-prefix}-button-selected + .@{veui-prefix}-button-selected {
+    &::before {
+        content: '';
+        .absolute(-1px, _, -1px, -1px);
+        width: 1px;
+        background-color: @veui-color-brand-3;
+    }
   }
 
   .@{veui-prefix}-button &-checkmark {
@@ -16,6 +33,16 @@
     .veui-icon-size(@veui-checkbox-strong-check-icon-size);
     margin: 0;
     color: @veui-checkbox-strong-check-icon-color;
+    .@{veui-prefix}-icon:only-child {
+        width: @veui-checkbox-strong-check-icon-width;
+        height: @veui-checkbox-strong-check-icon-height;
+        display: inherit;
+    }
+    & + .@{veui-prefix}-icon {
+        &:last-child {
+            margin-right: 0;
+        }
+    }
   }
 
   .@{veui-prefix}-button-selected &-checkmark {

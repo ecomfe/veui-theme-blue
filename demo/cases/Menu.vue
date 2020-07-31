@@ -1,20 +1,14 @@
 <template>
     <article class="veui-menu-demo">
         <h1><code>&lt;veui-menu&gt;</code></h1>
-        <div>expanded: {{ expanded }}</div>
-        <div>active: {{ active1 }}</div>
+        <div class="options-desc">竖向菜单不区分型号</div>
+        <div>expanded: {{ expanded }}  active: {{ active1 }}
+            外部控制
+            <button @click="$router.push('/menu/input')">input</button>
+            <button @click="$router.push('/menu/button')">button</button>
+        </div>
         <section>
-            <h3>small collapsible menu</h3>
-            <veui-menu
-                class="small-menu"
-                ui="s"
-                :items="items"
-                :expanded.sync="expanded"
-                collapsible
-            />
-        </section>
-        <section>
-            <h3>medium collapsible menu</h3>
+            <h2>正常样式</h2>
             <veui-menu
                 :items="items"
                 :active.sync="active1"
@@ -23,16 +17,21 @@
                 :collapsed.sync="collapsed"
             />
         </section>
+        <br>
         <section>
-            <h3>large menu</h3>
+            <h2>自定义 icon slot</h2>
             <veui-menu
-                ui="l"
-                :items="items2"
-                :active.sync="active2"
-            />
+                collapsible
+                :items="items"
+            >
+                <veui-icon
+                    slot="icon"
+                    name="baidu"
+                />
+            </veui-menu>
         </section>
         <section>
-            <h3>自定义 icon slot</h3>
+            <h2>自定义 s型号 icon slot</h2>
             <veui-menu
                 ui="s"
                 collapsible
@@ -44,7 +43,6 @@
                 />
             </veui-menu>
         </section>
-        <section><router-view/></section>
     </article>
 </template>
 

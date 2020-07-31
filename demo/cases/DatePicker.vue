@@ -3,139 +3,112 @@
         <h1>
             <code>&lt;veui-date-picker&gt;</code>
         </h1>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m</span></div>
         <section>
-            <h2>非受控组件</h2>
-            <veui-date-picker
-                range
-                clearable
-            />
+            <veui-form>
+                <veui-field
+                    v-for="(ui, index) in sizes"
+                    :key="index"
+                    
+                >
+                    <template v-slot:label>{{ui.label}}[ui={{ui.value}}]</template>
+                    <veui-date-picker
+                        :range="ui.label === '日期范围选择'"
+                        clearable
+                        :ui="ui.value"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
+        <h2>各种状态展示</h2>
         <section>
-            <h2>日期选择</h2>
+            <span class="title-desc">默认状态</span>
             <veui-date-picker
                 v-model="selectedDate"
                 clearable
+                ui="s"
             />
-        </section>
-        <section>
-            <h2>日期范围选择</h2>
             <veui-date-picker
                 v-model="selectedDateRange"
-                clearable
                 range
-                format="MM/dd/yyyy"
+                clearable
+                ui="m"
             />
         </section>
         <section>
-            <h2>日期范围选择（快捷）</h2>
+            <span class="title-desc">禁用状态</span>
+            <veui-date-picker
+                v-model="selectedDate"
+                clearable
+                disabled
+                ui="s"
+            />
+            <veui-date-picker
+                v-model="selectedDateRange"
+                range
+                clearable
+                disabled
+                ui="m"
+            />
+        </section>
+        <section>
+            <span class="title-desc">只读状态</span>
+            <veui-date-picker
+                v-model="selectedDate"
+                clearable
+                readonly
+                ui="s"
+            />
+            <veui-date-picker
+                v-model="selectedDateRange"
+                range
+                clearable
+                readonly
+                ui="m"
+            />
+        </section>
+        <section>
+            <span class="title-desc">报错状态</span>
+            <veui-date-picker
+                class="veui-invalid"
+                v-model="selectedDate"
+                clearable
+                ui="s"
+            />
+            <veui-date-picker
+                class="veui-invalid"
+                v-model="selectedDateRange"
+                range
+                clearable
+                ui="m"
+            />
+        </section>
+        <section>
+            <h2>日期快捷选择</h2>
             <veui-date-picker
                 v-model="selectedDateRange"
                 range
                 :shortcuts="shortcuts"
             />
         </section>
+        <h2>单月选择</h2>
         <section>
-            <h2>月份选择</h2>
             <veui-date-picker
                 v-model="selectedMonth"
                 type="month"
             />
         </section>
+        <h2>月份范围选择</h2>
         <section>
-            <h2>月份范围选择</h2>
             <veui-date-picker
                 v-model="selectedMonthRange"
                 type="month"
                 range
             />
         </section>
+        <h2>作用域插槽</h2>
         <section>
-            <h2>年份选择</h2>
-            <veui-date-picker
-                v-model="selectedYear"
-                type="year"
-            />
-        </section>
-        <section>
-            <h2>年份范围选择</h2>
-            <veui-date-picker
-                v-model="selectedYearRange"
-                type="year"
-                range
-            />
-        </section>
-        <section>
-            <h2>小尺寸日期范围</h2>
-            <veui-date-picker
-                v-model="selectedDateRange"
-                clearable
-                range
-                ui="s"
-            />
-        </section>
-        <section>
-            <h2>小尺寸月份范围</h2>
-            <veui-date-picker
-                v-model="selectedDateRange"
-                clearable
-                range
-                type="month"
-                ui="s"
-            />
-        </section>
-        <section>
-            <h2>小尺寸年份范围</h2>
-            <veui-date-picker
-                v-model="selectedDateRange"
-                clearable
-                range
-                type="year"
-                ui="s"
-            />
-        </section>
-        <section>
-            <h2>禁用</h2>
-            <section>
-                <veui-date-picker
-                    v-model="selectedDate"
-                    disabled
-                />
-            </section>
-        </section>
-        <section>
-            <h2>invalid</h2>
-            <section>
-                <veui-date-picker
-                    v-model="selectedDate"
-                    class="veui-invalid"
-                />
-            </section>
-        </section>
-        <section>
-            <h2>范围禁用</h2>
-            <section>
-                <veui-date-picker
-                    v-model="selectedDateRange"
-                    range
-                    disabled
-                />
-            </section>
-        </section>
-        <section>
-            <h2>范围readonly</h2>
-            <section>
-                <veui-date-picker
-                    v-model="selectedDateRange"
-                    range
-                    readonly
-                />
-            </section>
-        </section>
-        <section>
-            <h2>
-                作用域插槽
-                <code>date</code>
-            </h2>
             <section>
                 <veui-date-picker
                     v-model="selectedDateRange"
@@ -151,45 +124,43 @@
             </section>
         </section>
         <section style="height: 500px;"/>
-
-        <section>
-            <h2>可清除选择</h2>
-            <section>
-                <veui-date-picker
-                    v-model="selectedDate"
-                    clearable
-                />
-            </section>
-        </section>
-        <section>
-            <h2>可清除范围选择</h2>
-            <section>
-                <veui-date-picker
-                    v-model="selectedDateRange"
-                    range
-                    clearable
-                />
-            </section>
-        </section>
     </article>
 </template>
 
 <script>
-import {DatePicker} from 'veui';
+import {DatePicker, Field, Form} from 'veui';
 
 export default {
     name: 'date-picker-demo',
     components: {
-        'veui-date-picker': DatePicker
+        'veui-date-picker': DatePicker,
+        'veui-field': Field,
+        'veui-form': Form
     },
     data() {
         return {
+            sizes: [
+                {
+                    label: '日期选择',
+                    value: 's'
+                },
+                {
+                    label: '日期范围选择',
+                    value: 's'
+                },
+                {
+                    label: '日期选择',
+                    value: 'm'
+                },
+                {
+                    label: '日期范围选择',
+                    value: 'm'
+                }
+            ],
             selectedDate: null,
             selectedMonth: null,
-            selectedYear: null,
-            selectedDateRange: [new Date(2019, 9, 10), new Date(2019, 11, 10)],
+            selectedDateRange: null,
             selectedMonthRange: null,
-            selectedYearRange: null,
             shortcuts: [
                 {
                     label: '上个月',
@@ -207,7 +178,11 @@ export default {
                     from: {
                         startOf: 'month'
                     },
-                    to: 0
+                    to: {
+                        startOf: 'month',
+                        months: 1,
+                        days: -1
+                    }
                 },
                 {
                     label: '本周',
@@ -215,7 +190,11 @@ export default {
                         startOf: 'week',
                         days: 0
                     },
-                    to: 0
+                    to: {
+                        startOf: 'week',
+                        weeks: 1,
+                        days: -1
+                    }
                 },
                 {
                     label: '最近7天',
@@ -228,6 +207,11 @@ export default {
                 }
             ]
         };
+    },
+    methods: {
+        disabledDate(date) {
+            return date > new Date();
+        }
     }
 };
 </script>
@@ -235,5 +219,11 @@ export default {
 <style lang="less" scoped>
 section {
   margin-bottom: 20px;
+}
+.veui-field-label {
+    width: 120px;
+}
+.veui-date-picker+.veui-date-picker {
+    margin-left: 10px;
 }
 </style>

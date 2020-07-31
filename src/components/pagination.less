@@ -4,7 +4,13 @@
 .@{veui-prefix}-pagination {
     display: inline-flex;
     vertical-align: middle;
-    font-size: @veui-pagination-font-size-m;
+    font-size: @veui-pagination-font-size-s;
+
+    &-simple {
+        .next-page {
+            margin-left: @veui-pagination-simple-button-spacing;
+        }
+    }
 
     &,
     &-info,
@@ -21,6 +27,8 @@
     }
 
     &-size {
+        display: inline-flex;
+        align-items: center;
         span {
             display: inline-block;
             color: @veui-pagination-pagesizes-text-font-color;
@@ -34,20 +42,26 @@
     }
 
     &-total {
-        margin-right: @veui-pagination-total-spacing-m;
+        color: @veui-pagination-pagesizes-text-font-color;
+        margin-right: @veui-pagination-total-spacing-s;
     }
 
-    &-goto {
+    & &-goto {
         display: flex;
         align-items: center;
         margin-left: @veui-pagination-page-items-margin-after;
 
         .@{veui-prefix}-input {
-            width: @veui-pagination-goto-input-width;
-
-            &-main {
-                .padding(_, @veui-pagination-goto-input-padding-x);
+            width: @veui-pagination-goto-input-width-s;
+            .padding(_, @veui-pagination-goto-input-padding-x);
+            &-input {
+                text-align: right;
             }
+        }
+
+        .@{veui-prefix}-button {
+            width: @veui-pagination-goto-button-width-s;
+            min-width: auto;
         }
 
         &-label-before,
@@ -58,11 +72,11 @@
         }
 
         &-label-before {
-            margin-right: @veui-pagination-spacing-1;
+            margin-right: @veui-pagination-goto-label-spacing;
         }
 
         &-label-after {
-            margin-left: @veui-pagination-spacing-1;
+            margin-left: @veui-pagination-goto-label-spacing;
         }
 
         .@{veui-prefix}-button {
@@ -91,12 +105,12 @@
 
     .@{veui-prefix}-link {
         .padding(_, @veui-pagination-button-padding-x);
-        .make-metrics(m);
+        .make-metrics(s);
+        font-size: @veui-pagination-font-size-s - 2;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         line-height: 1;
-        font-size: inherit;
         font-variant-numeric: tabular-nums;
         cursor: pointer;
 
@@ -179,21 +193,42 @@
 
         .@{veui-prefix}-link {
             .make-metrics(xs);
+            font-size: @veui-pagination-font-size-xs - 2;
         }
         .@{veui-prefix}-pagination-total {
             margin-right: @veui-pagination-total-spacing-xs;
         }
+        .@{veui-prefix}-pagination-goto {
+            .@{veui-prefix}-input {
+                width: @veui-pagination-goto-input-width-xs;
+            }
+            .@{veui-prefix}-button {
+                width: @veui-pagination-goto-button-width-xs;
+                min-width: auto;
+            }
+        }
     }
 
-    &[ui~="s"] {
-        font-size: @veui-pagination-font-size-s;
+    &[ui~="m"] {
+        font-size: @veui-pagination-font-size-m;
 
         .@{veui-prefix}-link {
-            .make-metrics(s);
+            .make-metrics(m);
+            font-size: @veui-pagination-font-size-m - 2;
         }
 
         .@{veui-prefix}-pagination-total {
-            margin-right: @veui-pagination-total-spacing-s;
+            margin-right: @veui-pagination-total-spacing-m;
+        }
+
+        .@{veui-prefix}-pagination-goto {
+            .@{veui-prefix}-input {
+                width: @veui-pagination-goto-input-width-m;
+            }
+            .@{veui-prefix}-button {
+                width: @veui-pagination-goto-button-width-m;
+                min-width: auto;
+            }
         }
     }
 

@@ -2,7 +2,7 @@
     <article>
         <h1><code>&lt;veui-check-button-group&gt;</code></h1>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">l / m /s</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s（默认，可不传）/ m / l</span></div>
         <section>
             <veui-checkbox v-model="disabled">
                 禁用
@@ -27,6 +27,7 @@
             <veui-check-button-group
                 v-model="picked1"
                 :items="data1"
+                ui="m"
                 :disabled="disabled"
             >
                 <template slot-scope="props">
@@ -40,7 +41,6 @@
             <veui-check-button-group
                 v-model="picked2"
                 :items="data2"
-                ui="s"
                 :disabled="disabled"
             >
                 <template slot-scope="props">
@@ -57,7 +57,7 @@
                     ui="s"
                     :disabled="disabled"
                 >
-                    <template slot-scope="props">
+                    <template slot-scope="props" slot="item">
                         <veui-icon :name="props.icon"/>
                     </template>
                 </veui-check-button-group>
@@ -122,7 +122,7 @@ export default {
                 },
                 {
                     value: 'times',
-                    icon: 'times'
+                    icon: 'search'
                 },
                 {
                     value: 'sync',

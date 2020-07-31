@@ -1,17 +1,22 @@
+import '../icons/times';
+
 import config from 'veui/managers/config';
 
 config.defaults(
     {
+        icons: {
+            close: 'times'
+        },
         ui: {
             size: {
                 values: ['s', 'm', 'l'],
-                default: 'm',
-                inherit: true
+                default: 'm'
             }
         },
         parts: {
-            button: 'basic'
+            ok: 'primary',
+            close: 'icon'
         }
     },
-    'radiobuttongroup'
+    'drawer'
 );

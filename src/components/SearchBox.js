@@ -1,6 +1,7 @@
 import '../icons/search';
 import config from 'veui/managers/config';
 
+
 config.defaults(
     {
         icons: {
@@ -8,7 +9,7 @@ config.defaults(
         },
         parts: {
             button: 'primary',
-            search: 'icon'
+            search: 'icon aux'
         },
         ui: {
             style: {
@@ -17,7 +18,8 @@ config.defaults(
             },
             size: {
                 values: ['xs', 's', 'm', 'l'],
-                inherit: true
+                inherit: true,
+                default: 's'
             }
         }
     },

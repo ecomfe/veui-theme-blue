@@ -1,20 +1,24 @@
-import '../icons/chevron-right';
+import 'veui-theme-blue-icons/chevron-right';
+import 'veui-theme-blue-icons/ellipsis';
 import config from 'veui/managers/config';
 
 config.defaults(
     {
         icons: {
             expand: 'chevron-right',
-            collapse: 'chevron-right'
+            more: 'ellipsis'
         },
         ui: {
             size: {
-                inherit: true
+                values: ['s', 'm', 'l'],
+                inherit: true,
+                default: 'm'
             }
         },
         parts: {
             toggle: 'icon aux'
         }
     },
-    'menu'
+    'nav'
 );
+

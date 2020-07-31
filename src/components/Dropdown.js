@@ -11,19 +11,20 @@ config.defaults(
             size: {
                 values: ['xs', 's', 'm', 'l'],
                 inherit: true,
-                default: 'm'
+                default: 's'
             },
             style: {
-                values: ['primary'],
+                values: ['primary', 'basic', 'normal'],
+                default: 'basic',
                 inherit: true
             },
-            role: {
+            shade: {
                 values: ['text'],
                 inherit: true
             }
         },
         parts: {
-            search: 'inline'
+            search: 'icon'
         }
     },
     'dropdown'

@@ -91,7 +91,7 @@
         line-height: @veui-dialog-title-line-height;
         font-weight: @veui-font-weight-2;
         color: @veui-dialog-title-font-color;
-        font-size: inherit;
+        font-size: @veui-dialog-title-font-size-s;
       }
 
       &-close {
@@ -128,7 +128,6 @@
       padding: @veui-dialog-padding-x @veui-dialog-padding-x 0;
 
       .@{veui-prefix}-button  {
-          height: @veui-dialog-foot-button-height;
           & + .@{veui-prefix}-button {
             margin-left: @veui-dialog-action-content-spacing;
           }

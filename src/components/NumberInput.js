@@ -20,7 +20,7 @@ config.defaults(
         ui: {
             size: {
                 values: ['xs', 's', 'm'],
-                default: 'm',
+                default: 's',
                 inherit: true
             },
             style: {
@@ -29,7 +29,7 @@ config.defaults(
             }
         },
         parts: {
-            spinner: ''
+            spinner: 'normal'
         },
         icons: {
             increase: ({style}) => ICON_MAP[style].increase,

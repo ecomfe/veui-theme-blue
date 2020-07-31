@@ -1,6 +1,7 @@
 @import "../lib.less";
 @import "../variables/components/table.less";
 @import "../variables/components/checkbox.less";
+@import "../variables/components/radio.less";
 
 .@{veui-prefix}-table {
     position: relative;
@@ -111,6 +112,7 @@
         & + .@{veui-prefix}-button,
         & + .@{veui-prefix}-link {
             margin-left: @veui-table-action-spacing;
+            vertical-align: middle;
         }
     }
 
@@ -254,11 +256,13 @@
         box-shadow: none;
     }
 
-    &-sub-row {
+    & &-sub-row {
         td {
             background-color: @veui-table-sub-row-background-color;
+        }
 
-            &:hover {
+        &:hover {
+            td {
                 background-color: @veui-table-sub-row-background-color-hover;
             }
         }
@@ -303,6 +307,28 @@
                     @veui-table-cell-padding-x * 2,
                     1px
                 );
+            }
+
+            &-cell {
+                .@{veui-prefix}-radio {
+                    font-size: @veui-radio-font-size-s;
+                    line-height: @veui-radio-font-size-s * @veui-line-height-m;
+                    &-box {
+                        .size(@veui-radio-size-s);
+                        &::before {
+                            .size(@veui-radio-dot-size-s);
+                        }
+                    }
+                }
+
+                .@{veui-prefix}-checkbox {
+                    font-size: @veui-checkbox-font-size-s;
+                    line-height: @veui-checkbox-font-size-s * @veui-line-height-m;
+                
+                    &-box {
+                      .size(@veui-checkbox-size-s);
+                    }
+                }
             }
         }
     }

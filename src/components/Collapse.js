@@ -6,7 +6,8 @@ config.defaults(
         ui: {
             size: {
                 values: ['s', 'm'],
-                inherit: true
+                inherit: true,
+                default: 's'
             }
         },
         icons: {

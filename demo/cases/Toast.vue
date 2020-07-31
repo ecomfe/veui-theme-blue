@@ -4,7 +4,7 @@
             <code>&lt;veui-toast&gt;</code>
         </h1>
         <section>
-            <h3>全局提示</h3>
+            <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m (默认m)</span></div>
             <veui-button
                 ui="aux"
                 @click="showToast('all')"
@@ -30,6 +30,21 @@
                 @click="showSlottedToast"
             >错误（包括组件）</veui-button>
         </section>
+        <section>
+            <h4>关闭</h4>
+
+            <veui-button
+                ui="aux"
+                @click="showCloseToast"
+            >打开</veui-button>
+            <veui-button
+                :disabled="!closeToast"
+                ui="aux"
+                @click="closeCloseToast"
+            >关闭</veui-button>
+        </section>
+
+        <h4>样式</h4>
         <section class="col">
             <section>
                 <veui-toast open>Test</veui-toast>
@@ -172,7 +187,8 @@ export default {
     },
     data() {
         return {
-            messages: messages
+            messages: messages,
+            closeToast: null
         };
     },
     computed: {
@@ -214,6 +230,20 @@ export default {
                 ],
                 duration: 100000
             });
+        },
+        showCloseToast() {
+            if (this.closeToast) {
+                return;
+            }
+            this.closeToast = toast.info({
+                message: '点击“关闭”按钮关闭本条提示',
+                duration: -1,
+                closable: false
+            });
+        },
+        closeCloseToast() {
+            this.closeToast();
+            this.closeToast = null;
         }
     }
 };
@@ -236,6 +266,10 @@ section {
 
 h3 {
   margin-bottom: 30px;
+}
+
+h4 {
+  margin-top: 2em;
 }
 
 .veui-button {

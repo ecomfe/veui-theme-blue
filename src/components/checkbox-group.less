@@ -2,6 +2,12 @@
 @import "../variables/components/checkbox.less";
 
 .@{veui-prefix}-checkbox-group {
+  display: flex;
+  align-items: center;
+
+  .@{veui-prefix}-checkbox {
+    flex: none;
+  }
   .@{veui-prefix}-checkbox + .@{veui-prefix}-checkbox {
     margin-left: @veui-checkbox-group-spacing;
   }

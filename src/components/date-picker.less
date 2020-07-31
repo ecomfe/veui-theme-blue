@@ -13,6 +13,11 @@
     width: @veui-date-picker-width-range;
   }
 
+  &-inputs .@{veui-prefix}-input,
+  .@{veui-prefix}-input {
+    border: 0;
+    box-shadow: none;
+  }
   &-trigger {
     .veui-button-transition();
     display: flex;
@@ -23,20 +28,24 @@
     outline: none;
     background-color: @veui-input-background-color;
 
-    .@{veui-prefix}-input-main {
+    .@{veui-prefix}-input {
+      height: @veui-date-picker-input-height;
       border: 0;
       padding-right: 0;
+      background-color: transparent;
+      .margin(-1px, _);
     }
 
     .@{veui-prefix}-invalid & {
       border-color: @veui-input-border-color-error;
-      .@{veui-prefix}-input-main {
+      .@{veui-prefix}-input {
         color: @veui-input-font-color-error;
       }
 
       &:hover {
         border-color: @veui-input-border-color-error-hover;
       }
+      &:active,
       &.focus-visible {
         .veui-focus-ring(
           @veui-input-border-color-error-focus,
@@ -44,12 +53,16 @@
         );
       }
     }
+    .@{veui-prefix}-disabled .@{veui-prefix}-input-placeholder {
+      color: @veui-input-font-color-disabled;
+    }
   }
 
   &:not(.@{veui-prefix}-disabled):not(.@{veui-prefix}-invalid) &-trigger {
     &:hover {
       border-color: @veui-input-border-color-hover;
     }
+    &:active,
     &.focus-visible {
       .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
     }
@@ -124,19 +137,27 @@
     .@{veui-prefix}-input {
       flex: 1 1 auto;
       width: auto; // 覆盖 width
-      &-main {
-        margin-bottom: -1px;
+      border-bottom: 1px solid @veui-input-border-color;
+      margin-bottom: -1px;
+      background-color: transparent;
+      border-radius: 0;
+      z-index: 1;
+      &:hover {
+        border-color: @veui-border-color-strong-hover;
+      }
+      &.@{veui-prefix}-focus {
+        box-shadow: @veui-date-picker-overlay-input-shadow-focus;
+        border-color: @veui-input-border-color-focus;
       }
     }
   }
 
   &-range &-label {
     width: auto;
+    flex: 1 1 auto;
   }
 
   &-tilde {
-    overflow: hidden;
-    padding: 0 @veui-date-picker-range-connector-padding-x;
     color: @veui-font-color-aux;
 
     .@{veui-prefix}-disabled & {
@@ -192,11 +213,19 @@
     transform: none;
   }
 
-  &.@{veui-prefix}-readonly,
-  &.@{veui-prefix}-disabled {
+  &.@{veui-prefix}-readonly &-trigger,
+  &.@{veui-prefix}-disabled &-trigger {
     background-color: @veui-input-background-color-disabled;
   }
 
+  &-range[ui~="s"] {
+    width: @veui-date-picker-width-range-s;
+  }
+  &[ui~="s"] &-trigger {
+    .@{veui-prefix}-input {
+      height: @veui-date-picker-input-height-s;
+    }
+  }
   &-overlay-content[ui~="s"],
   &[ui~="s"] {
     font-size: @veui-date-picker-font-size-s;

@@ -32,6 +32,9 @@
       width: @veui-anchor-track-width;
       .absolute(0, _, 0, 0);
     }
+    ul {
+      padding-left: @veui-anchor-level-indent;
+    }
   }
 
   &-wrapper {
@@ -90,6 +93,15 @@
 
     &:active::before {
       background-color: @veui-anchor-indicator-color-active;
+    }
+  }
+
+  &-item {
+    &:hover {
+      color: @veui-anchor-indicator-color-hover;
+    }
+    &:active {
+      color: @veui-anchor-indicator-color-active;
     }
   }
 }

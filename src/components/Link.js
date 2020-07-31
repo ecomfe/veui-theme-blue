@@ -9,7 +9,7 @@ config.defaults(
             size: {
                 values: ['s', 'm'],
                 inherit: true,
-                default: 'm'
+                default: 's'
             }
         }
     },

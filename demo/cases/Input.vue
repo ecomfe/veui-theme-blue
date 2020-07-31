@@ -9,7 +9,7 @@
             </div>
             <section class="five-sizes">
                 <veui-field
-                    ui="micro"
+                    
                     label="超小号（xs）"
                 >
                     <veui-input
@@ -110,14 +110,15 @@
             <section>
                 <h2>带有前缀/后缀的输入框</h2>
                 <section>
-                    <veui-input>
-                        <template slot="prepend"><veui-icon name="user-circle"/></template>
+                    <veui-input placeholder="请输入内容">
+                        <template slot="before"><veui-icon name="user-circle"/></template>
                     </veui-input>
-                    <veui-input clearable>
-                        <template slot="before-label">前缀内容</template>
+                    <veui-input clearable placeholder="请输入内容">
+                        <template slot="after">后缀内容</template>
                     </veui-input>
-                    <veui-input clearable>
-                        <template slot="after-label">后缀内容</template>
+                    <veui-input placeholder="请输入内容">
+                        <template slot="before"><veui-icon name="user-circle"/></template>
+                        <template slot="after">后缀内容</template>
                     </veui-input>
                 </section>
             </section>
@@ -150,7 +151,6 @@ export default {
         'veui-field': Field,
         'veui-form': Form,
         'veui-icon': Icon
-        // 'veui-select': VeuiSelect
     },
     directives: {
         nudge
@@ -237,6 +237,8 @@ section {
 .veui-form {
   & /deep/ .veui-field {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 
     & > .veui-form-label {
       width: 100px;

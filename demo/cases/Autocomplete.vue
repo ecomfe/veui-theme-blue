@@ -4,13 +4,13 @@
             <code>&lt;veui-autocomplete&gt;</code>
         </h1>
         <veui-form>
+            <h2>尺寸</h2>
             <div class="options-desc">
                 可选的尺寸 <span class="bg-gray-show">ui</span> 
                 属性值： <span class="bg-gray-show">xs / s / m / l</span>
             </div>
             <section>
                 <veui-field
-                    ui="micro"
                     label="超小号（xs）"
                 >
                     <veui-autocomplete
@@ -20,7 +20,6 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
                     label="小号（s）"
                 >
                     <veui-autocomplete
@@ -30,7 +29,6 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
                     label="中号（m）"
                 >
                     <veui-autocomplete
@@ -40,7 +38,6 @@
                     />
                 </veui-field>
                 <veui-field
-                    ui="micro"
                     label="大号（l）"
                 >
                     <veui-autocomplete

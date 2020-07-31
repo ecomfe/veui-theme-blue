@@ -3,20 +3,21 @@
 
 .@{veui-prefix}-collapse {
     border: 1px solid @veui-collapse-border-color;
-    border-radius: @veui-collapse-border-radius-m;
+    border-radius: @veui-collapse-border-radius-s;
 
     &-header {
         position: relative;
         display: flex;
         align-items: center;
         margin: -1px;
-        padding: @veui-collapse-header-padding-y @veui-collapse-header-padding-x;
+        font-size: @veui-collapse-font-size-s;
+        line-height: @veui-collapse-header-line-height-s;
+        padding: @veui-collapse-header-padding-y-s @veui-collapse-header-padding-x-s;
         border: 1px solid @veui-collapse-border-color;
         background-color: @veui-collapse-header-background-color;
-        font-size: @veui-collapse-font-size-m;
         color: @veui-collapse-header-font-color;
         .border-top-radius(inherit);
-        line-height: @veui-collapse-header-line-height;
+        
         .veui-transition(color, background-color, border-color, border-radius);
         outline: none;
         cursor: pointer;
@@ -73,27 +74,27 @@
         .veui-transition(height);
         .border-bottom-radius(inherit);
         color: @veui-collapse-body-font-color;
-        font-size: @veui-collapse-font-size-m;
+        font-size: @veui-collapse-font-size-s;
     }
 
     &-content {
-        padding: @veui-collapse-body-padding-y @veui-collapse-body-padding-right @veui-collapse-body-padding-y @veui-collapse-body-padding-left;
+        padding: @veui-collapse-body-padding-y-s @veui-collapse-body-padding-right-s @veui-collapse-body-padding-y-s @veui-collapse-body-padding-left-s;
     }
 
-    &[ui~="s"] {
-        border-radius: @veui-collapse-border-radius-s;
+    &[ui~="m"] {
+        border-radius: @veui-collapse-border-radius-m;
 
         .@{veui-prefix}-collapse {
             &-header {
-                font-size: @veui-collapse-font-size-s;
-                line-height: @veui-collapse-header-line-height-s;
-                padding: @veui-collapse-header-padding-y-s @veui-collapse-header-padding-x-s;
+                font-size: @veui-collapse-font-size-m;
+                line-height: @veui-collapse-header-line-height;
+                padding: @veui-collapse-header-padding-y @veui-collapse-header-padding-x;
             }
             &-body {
-                font-size: @veui-collapse-font-size-s;
+                font-size: @veui-collapse-font-size-m;
             }
             &-content {
-                padding: @veui-collapse-body-padding-y-s @veui-collapse-body-padding-right-s @veui-collapse-body-padding-y-s @veui-collapse-body-padding-left-s;
+                padding: @veui-collapse-body-padding-y @veui-collapse-body-padding-right @veui-collapse-body-padding-y @veui-collapse-body-padding-left;
             }
         }
     }

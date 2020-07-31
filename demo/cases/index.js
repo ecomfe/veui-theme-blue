@@ -54,6 +54,7 @@ import Color from './Color';
 import Base from './Base';
 import Mixins from './Mixins';
 import UI from './UI';
+import Nav from './Nav';
 
 export default [
     {
@@ -175,8 +176,7 @@ export default [
     {
         path: '/form',
         name: 'Form',
-        component: Form,
-        disabled: true
+        component: Form
     },
     {
         path: '/grid',
@@ -236,6 +236,61 @@ export default [
             {
                 path: 'button',
                 component: Button
+            },
+            {
+                path: 'number-input',
+                component: NumberInput
+            },
+            {
+                path: 'radio',
+                component: Radio
+            },
+            {
+                path: 'schedule',
+                component: Schedule
+            }
+        ]
+    },
+    {
+        path: '/nav',
+        name: 'Nav',
+        component: Nav,
+        children: [
+            {
+                path: 'input',
+                component: Input
+            },
+            {
+                path: 'progress',
+                component: Progress
+            },
+            {
+                path: 'switch',
+                component: Switch
+            },
+            {
+                path: 'link',
+                component: Link
+            },
+            {
+                path: 'loading',
+                component: Loading
+            },
+            {
+                path: 'button',
+                component: Button
+            },
+            {
+                path: 'number-input',
+                component: NumberInput
+            },
+            {
+                path: 'radio',
+                component: Radio
+            },
+            {
+                path: 'schedule',
+                component: Schedule
             }
         ]
     },

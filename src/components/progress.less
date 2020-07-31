@@ -15,12 +15,14 @@
     align-items: center;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
+    &::before {
+      content: "​";
+    }
   }
 
   &-bar {
     .@{veui-prefix}-progress-desc {
       margin-left: @veui-progress-track-spacing-bar;
-      padding-right: @veui-progress-icon-spacing-bar;
 
       .@{veui-prefix}-progress-status-icon {
         .veui-icon-size(@veui-progress-icon-size-bar);
@@ -33,6 +35,14 @@
       background-color: @veui-progress-track-color;
     }
 
+    &[ui~="fluid"] {
+      width: 100%;
+
+      .@{veui-prefix}-progress-rail {
+        flex-grow: 1;
+      }
+    }
+
     &[ui~="s"] {
       font-size: @veui-progress-font-size-s;
 
@@ -42,7 +52,7 @@
 
       .@{veui-prefix}-progress-rail,
       .@{veui-prefix}-progress-meter {
-        border-radius: @veui-progress-border-radius-s;
+        border-radius: @veui-progress-border-radius-m;
       }
     }
 

@@ -7,15 +7,19 @@ config.defaults(
             loading: 'loading'
         },
         ui: {
-            shape: {
-                values: ['text', 'icon', 'square']
-            },
             style: {
-                values: ['normal', 'translucent', 'primary', 'strong']
+                values: ['normal', 'translucent', 'primary', 'text', 'icon'],
+                default: 'normal'
+            },
+            strength: {
+                values: ['strong', 'aux']
             },
             size: {
                 values: ['xs', 's', 'm', 'l', 'xl'],
-                default: 'm'
+                default: 's'
+            },
+            shape: {
+                values: ['square']
             }
         }
     },

@@ -1,15 +1,22 @@
 <template>
     <article class="anchor-demo">
         <h1><code>&lt;veui-anchor&gt;</code></h1>
+
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span> 属性值：
+            <span class="bg-gray-show">s / m</span>
+        </div>
+
         <div class="content-wrapper">
             <div class="line"/>
             <div
-                v-for="i in coffees0"
-                :id="i.value.indexOf('#') >= 0 ? i.value.slice(1) : i.value"
-                :key="i.value"
+                v-for="i in ids"
+                :id="i"
+                :key="i"
                 class="block"
             >
-                {{ i.label }}
+                {{ i }}
             </div>
         </div>
         <h2 class="sticky-header">sticky anchor</h2>
@@ -22,7 +29,7 @@
             <span
                 slot="item-label"
                 slot-scope="{ label }"
-            >{{ label }}🤘</span>
+            >{{ label }}: ok</span>
         </veui-anchor>
         <h2 class="header-four">sticky anchor (100px)</h2>
         <veui-anchor
@@ -41,8 +48,17 @@
             class="anchor-two"
             :items="coffees"
         />
+        <h2 class="static-header-five">static middle anchor</h2>
+        <veui-anchor
+            :sticky="false"
+            ui="m"
+            :target-offset="0.1"
+            :container="container"
+            class="anchor-five"
+            :items="coffees"
+        />
 
-        <h2>clipped anchor</h2>
+        <h2>clipped anchor 卡片样式</h2>
         <div class="anchor-three-wrapper anchor-three-scroll">
             <div
                 ref="container"
@@ -69,37 +85,57 @@ export default {
         'veui-anchor': Anchor
     },
     data() {
+        let coffees0 = [
+            {
+                label: 'Infused',
+                value: '#infused',
+                children: [
+                    {
+                        label: 'Filtered',
+                        value: '#filtered'
+                    },
+                    {
+                        label: 'Pour-over',
+                        value: '#pour-over'
+                    }
+                ]
+            },
+            {
+                label: 'Boiled',
+                value: '#boiled',
+                children: [
+                    {
+                        label: 'Moka',
+                        value: '#moka'
+                    }
+                ]
+            },
+            {
+                label: 'Espresso',
+                value: '#espresso',
+                children: [
+                    {
+                        label: 'to out: Breadcrumb',
+                        value: '/breadcrumb'
+                    }
+                ]
+            },
+            {
+                label: 'Milk coffee',
+                value: '#milk-coffee'
+            }
+        ];
         return {
             container: null,
-            coffees0: [
-                {
-                    label: 'Infused',
-                    value: '#infused',
-                    children: [
-                        {
-                            label: 'Breadcrumb',
-                            value: '/breadcrumb'
-                        }
-                    ]
-                },
-                {
-                    label: 'Boiled',
-                    value: '#boiled',
-                    children: [
-                        {
-                            label: 'Button',
-                            value: '/button'
-                        }
-                    ]
-                },
-                {
-                    label: 'Espresso',
-                    value: '#espresso'
-                },
-                {
-                    label: 'Milk coffee',
-                    value: '#milk-coffee'
-                }
+            coffees0,
+            ids: [
+                'infused',
+                'filtered',
+                'pour-over',
+                'boiled',
+                'moka',
+                'espresso',
+                'milk-coffee'
             ],
             coffees: [
                 {
@@ -116,11 +152,11 @@ export default {
                                 },
                                 {
                                     label: 'Filtered',
-                                    value: 'filtered'
+                                    value: '#filtered'
                                 },
                                 {
                                     label: 'Pour-over',
-                                    value: 'pour-over'
+                                    value: '#pour-over'
                                 },
                                 {
                                     label: 'Immersion brewed',
@@ -144,7 +180,7 @@ export default {
                     children: [
                         {
                             label: 'Percolated',
-                            value: '#percolated'
+                            value: 'percolated'
                         },
                         {
                             label: 'Turkish',
@@ -152,7 +188,7 @@ export default {
                         },
                         {
                             label: 'Moka',
-                            value: 'moka'
+                            value: '#moka'
                         }
                     ]
                 },
@@ -248,7 +284,7 @@ main#content {
     position: relative;
     &::after {
       display: table;
-      content: "";
+      content: '';
       clear: both;
     }
     .block {
@@ -295,6 +331,18 @@ main#content {
     left: 700px;
     top: 100px;
   }
+  .static-header-five {
+    position: absolute;
+    left: 1000px;
+    top: 100px;
+  }
+  .anchor-five {
+    position: absolute;
+    left: 1000px;
+    top: 200px;
+  }
+
+
   .anchor-three {
     position: absolute;
     top: 70px;
@@ -319,11 +367,11 @@ main#content {
   }
   .line {
     position: fixed;
-    top: ~"calc((100vh - 30px) * 0.1)";
+    top: ~'calc((100vh - 30px) * 0.1)';
     width: 180px;
     border-top: 1px solid #ccc;
     &::after {
-      content: "10%";
+      content: '10%';
       position: absolute;
       right: 0;
       bottom: 0;

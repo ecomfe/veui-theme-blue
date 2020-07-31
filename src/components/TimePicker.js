@@ -5,17 +5,18 @@ import config from 'veui/managers/config';
 config.defaults(
     {
         icons: {
-            clock: 'clock',
-            clear: 'times-circle'
+            clock: 'clock', // check
+            clear: 'times-circle', // TODO new icon
         },
         ui: {
             size: {
                 values: ['s', 'm'],
+                default: 's',
                 inherit: true
             }
         },
         parts: {
-            clear: 'icon'
+            clear: 'icon aux'
         }
     },
     'timepicker'

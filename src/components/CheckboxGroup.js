@@ -5,7 +5,7 @@ config.defaults(
         ui: {
             size: {
                 values: ['s', 'm', 'l'],
-                default: 'm',
+                default: 's',
                 inherit: true
             }
         }

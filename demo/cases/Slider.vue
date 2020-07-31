@@ -1,56 +1,129 @@
 <template>
     <article>
         <h1><code>&lt;veui-slider&gt;</code></h1>
-
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m</span></div>
         <section>
-            <veui-slider v-model="value1"/>
             <veui-slider
                 v-model="value1"
+                ui="s"
+            />
+            <veui-slider v-model="value1"/>
+            <div class="desc">Range: 0~1, Value: {{ value1 }}</div>
+        </section>
+        <h2>连续滑动条</h2>
+        <section>
+            <veui-slider
+                v-model="value2"
+                ui="s"
+            />
+            <veui-slider v-model="value2"/>
+            <veui-slider
+                v-model="value2"
                 readonly
             />
             <veui-slider
-                v-model="value1"
-                disabled
-                ui="s"
-            >
-                <span slot="tip-label">
-                    {{ value1.toFixed(2) }}
-                </span>
-            </veui-slider>
-            <div class="desc">Range: 0~1, Value: {{ value1 }}</div>
-        </section>
-
-        <section>
-            <veui-slider
-                v-model="value2"
-                ui="s"
-                :min="10"
-                :max="100"
-                :step="7"
-                mark
-            >
-                <span slot="tip-label"> {{ value2 }}% </span>
-            </veui-slider>
-            <veui-slider
                 v-model="value2"
                 disabled
-                :min="10"
-                :max="100"
-                :step="7"
-                mark
             />
-            <div class="desc">Range: 10~100, Step: 7, Value: {{ value2 }}</div>
+            <div class="desc">Range: 0~1, Value: {{ value2 }}</div>
         </section>
-
+        <h2>分段滑动条</h2>
+        <div class="options-desc">未支持搭配 <span class="bg-gray-show">readonly</span> 和 <span class="bg-gray-show">disabled</span></div>
         <section>
             <veui-slider
                 v-model="value4"
+                ui="s"
+                :min="10"
+                :max="100"
+                :step="7"
+                mark
+            />
+            <veui-slider
+                v-model="value4"
+                :min="10"
+                :max="100"
+                :step="7"
+                mark
+            />
+            <div class="desc">Range: 10~100, Step: 7, Value: {{ value4 }}</div>
+        </section>
+        <h2>双向滑动条</h2>
+        <section>
+            <veui-slider
+                v-model="value5"
+                ui="s"
                 :min="0"
                 :max="100"
             />
-            <div class="desc">Range: 0~100, Value: {{ value4 }}</div>
+            <veui-slider
+                v-model="value5"
+                :min="0"
+                :max="100"
+            />
+            <veui-slider
+                v-model="value5"
+                :min="0"
+                :max="100"
+                readonly
+            />
+            <veui-slider
+                v-model="value5"
+                :min="0"
+                :max="100"
+                disabled
+            />
+            <div class="desc">Range: 0~100, Value: {{ value5 }}</div>
         </section>
-
+        <h2>输入滑动条</h2>
+        <section class="input-slider-group">
+            <veui-slider
+                v-model="value6"
+                :min="0"
+                :max="100"
+                ui="s"
+            />
+            <veui-input
+                :value="value6"
+                @blur="inputBlur"
+                ui="s"
+            />
+            <br>
+            <veui-slider
+                v-model="value6"
+                :min="0"
+                :max="100"
+            />
+            <veui-input
+                :value="value6"
+                @blur="inputBlur"
+            />
+            <br>
+            <veui-slider
+                v-model="value6"
+                :min="0"
+                :max="100"
+                readonly
+            />
+            <veui-input
+                :value="value6"
+                @blur="inputBlur"
+            />
+            <br>
+            <veui-slider
+                v-model="value6"
+                :min="0"
+                :max="100"
+                disabled
+            />
+            <veui-input
+                :value="value6"
+                @blur="inputBlur"
+            />
+            <br>
+            <div class="desc">Range: 0~100, Value: {{ value6 }}</div>
+        </section>
+        <h2>定制滑动条</h2>
         <section>
             <veui-slider
                 v-model="value3"
@@ -114,32 +187,12 @@
                 ]
             </div>
         </section>
-
-        <section class="video">
-            <div class="play-button">
-                ▶️
-            </div>
-            <veui-slider
-                v-model="videoPlayProgress"
-                :secondary-progress="videoBufferProgress"
-                ui="micro"
-            >
-                <span slot="tip-label">
-                    {{ Math.round(videoPlayProgress * 100) }}%
-                </span>
-            </veui-slider>
-            <div class="duration">
-                <span>{{ formatDuration(videoDuration * videoPlayProgress) }}</span> /
-                <span>{{ formatDuration(videoDuration * videoBufferProgress) }}</span> /
-                <span>{{ formatDuration(videoDuration) }}</span>
-            </div>
-        </section>
     </article>
 </template>
 
 <script>
-import {Slider} from 'veui';
-import {fill, padStart} from 'lodash';
+import {Slider, Input} from 'veui';
+import {fill} from 'lodash';
 
 function makeArray(length) {
     return fill(new Array(length), true);
@@ -148,18 +201,17 @@ function makeArray(length) {
 export default {
     name: 'slider-demo',
     components: {
-        'veui-slider': Slider
+        'veui-slider': Slider,
+        'veui-input': Input
     },
     data() {
         return {
             value1: 0.2,
-            value2: 333,
+            value2: 0.4,
             value3: makeArray(5).map((_, i) => `hsl(${(i + 1) * 60}, 100%, 50%)`),
-            value4: [22, 66],
-
-            videoPlayProgress: 0.11,
-            videoBufferProgress: 0.57,
-            videoDuration: 200
+            value4: 333,
+            value5: [22, 66],
+            value6: 22
         };
     },
     computed: {
@@ -177,13 +229,9 @@ export default {
         formatColorHue(val) {
             return `hsl(${val}, 100%, 50%)`;
         },
-        formatDuration(sec) {
-            sec = Math.round(sec);
-            return `${padStart(Math.floor(sec / 60).toString(), 2, '0')}:${padStart(
-                (sec % 60).toString(),
-                2,
-                '0'
-            )}`;
+        inputBlur({target}) {
+            let newVal = Number(target.value);
+            this.value6 = isNaN(newVal) ? 0 : newVal;
         }
     }
 };
@@ -223,15 +271,22 @@ section {
   font-size: 12px;
 }
 
-.video {
-  display: flex;
-  align-items: center;
-  .play-button {
-    margin-right: 1em;
-  }
-  .duration {
-    flex: 1 0 150px;
-    text-align: right;
-  }
+.input-slider-group {
+    .veui-slider {
+        width: 200px;
+        display: inline-block;
+    }
+    .veui-input {
+        margin: 8px 0 8px 10px;
+        width: 64px;
+        align-items: center;
+        &[ui~="s"] {
+            height: 22px;
+        }
+        &,
+        &[ui~="m"] {
+            height: 25px;
+        }
+    }
 }
 </style>

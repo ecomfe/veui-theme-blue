@@ -3,7 +3,12 @@
 // Width
 // FIXME: choose a more appropriate defalt value
 @veui-date-picker-width: @veui-height-unit * 40;
-@veui-date-picker-width-range: @veui-height-unit * 62;
+@veui-date-picker-width-range: @veui-height-unit * 66;
+@veui-date-picker-width-range-s: @veui-height-unit * 63;
+
+@veui-date-picker-input-height: @veui-height-unit * 8;
+@veui-date-picker-input-height-s: @veui-height-unit * 7;
+@veui-date-picker-overlay-input-shadow-focus: 0 1px 0 @veui-shadow-color-focus;
 
 // See Input for other input styles
 
@@ -35,15 +40,15 @@
 @veui-date-picker-icon-color-disabled: @veui-input-icon-color-disabled;
 
 /* Spacing */
-@veui-date-picker-range-connector-padding-x: @veui-spacing-unit * 3; // The "~" connector for ranges
 @veui-date-picker-range-panel-spacing: @veui-spacing-unit * 2;
+
 
 /**
  * DatePicker panel
  */
 
 @veui-date-picker-panel-separator-color: @veui-separator-color-normal;
-@veui-date-picker-panel-padding-x: @veui-padding-unit * 4;
+@veui-date-picker-panel-padding-x: @veui-padding-unit * 2;
 
 /**
  * DatePicker header
@@ -63,8 +68,8 @@
  * DatePicker body,
  * including weekdays, day/month/year body
  */
-@veui-date-picker-day-body-padding-top: @veui-padding-unit * 2;
-@veui-date-picker-day-body-padding-bottom: @veui-padding-unit * 4;
+@veui-date-picker-day-body-padding-top: @veui-padding-unit;
+@veui-date-picker-day-body-padding-bottom: @veui-padding-unit * 3;
 @veui-date-picker-weekdays-spacing-after: @veui-padding-unit * 3;
 @veui-date-picker-month-body-padding-top: @veui-padding-unit * 6;
 @veui-date-picker-year-body-padding-top: @veui-padding-unit * 6;
@@ -81,8 +86,7 @@
 @veui-date-picker-cell-width-m: @veui-date-picker-cell-height-m;
 
 /* Border radii */
-@veui-date-picker-cell-border-radius-s: @veui-border-radius-s;
-@veui-date-picker-cell-border-radius-m: @veui-border-radius-m;
+@veui-date-picker-cell-border-radius: @veui-border-radius-l;
 
 /* Focus rings */
 @veui-date-picker-cell-shadow-focus: @veui-shadow-focus;
@@ -93,6 +97,7 @@
 @veui-date-picker-cell-font-color-aux: @veui-font-color-weak;
 @veui-date-picker-cell-font-color-disabled: @veui-font-color-disabled;
 @veui-date-picker-cell-font-color-selected: @veui-color-gray-1;
+@veui-date-picker-cell-font-color-range-active: @veui-color-brand-6;
 
 /* Font weights */
 @veui-date-picker-cell-font-weight: @veui-font-weight-1;
@@ -114,10 +119,21 @@
 /* Background */
 // default & in-range
 @veui-date-picker-cell-background-color: @veui-background-color-normal;
-@veui-date-picker-cell-background-color-focus: @veui-background-color-normal-focus;
-@veui-date-picker-cell-background-color-disabled: @veui-date-picker-cell-background-color;
+@veui-date-picker-cell-background-color-focus: @veui-color-brand-1;
+@veui-date-picker-cell-background-color-disabled: @veui-background-color-disabled;
 @veui-date-picker-cell-background-color-hover: @veui-color-brand-1;
 @veui-date-picker-cell-background-color-active: @veui-color-brand-2;
+@veui-date-picker-cell-background-color-range-active: @veui-color-brand-3;
+
+// current-point
+@veui-date-picker-cell-current-point-bottom: @veui-spacing-unit - 1px;
+@veui-date-picker-cell-current-point-color: @veui-color-brand-6;
+@veui-date-picker-cell-current-point-color-hover: @veui-color-brand-6;
+@veui-date-picker-cell-current-point-color-focus: @veui-color-brand-6;
+@veui-date-picker-cell-current-point-color-active: @veui-background-color-normal;
+@veui-date-picker-cell-current-point-color-selected: @veui-background-color-normal;
+@veui-date-picker-cell-current-point-color-disabled: @veui-color-gray-6;
+@veui-date-picker-cell-current-point-color-aux: @veui-color-gray-7;
 
 // selected
 @veui-date-picker-cell-background-color-selected: @veui-color-brand-6;

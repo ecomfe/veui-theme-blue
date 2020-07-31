@@ -96,10 +96,9 @@
         </section>
 
         <section>
-            <h3>12 Columns + 15px Gutter Embedded Grid + Flex <small>(equal height columns)</small></h3>
-            <figure class="flex">
+            <h3>12 Columns + 15px Gutter Embedded Grid</h3>
+            <figure>
                 <veui-grid-container
-                    flex
                     :columns="12"
                     :gutter="15"
                 >
@@ -148,15 +147,15 @@
                 >
                     <veui-grid-row>
                         <veui-grid-column
-                            class="uncertain"
+                            class="microResponse"
                         >
                             <div class="content">
-                                250px +- 50px
+                                200px +- 8px
                             </div>
                         </veui-grid-column>
-                        <veui-grid-column class="correspond">
-                            <div class="content accord">
-                                8/24
+                        <veui-grid-column class="response">
+                            <div class="content">
+                                1
                             </div>
                         </veui-grid-column>
                     </veui-grid-row>
@@ -229,10 +228,6 @@ figure {
   border: 1px solid #eee;
   border-radius: 2px;
   padding: 20px 0;
-
-  &.flex {
-    padding: 10px 0;
-  }
 }
 
 .content {
@@ -251,19 +246,16 @@ figure {
 
   & + & {
     margin-top: 30px;
-
-    .flex & {
-      margin-top: 10px;
-    }
   }
 }
 
-.uncertain {
+.microResponse {
     flex: 1 1 auto;
     max-width: 208px;
     min-width: 192px;
+    box-sizing: content-box;
 }
-.correspond {
-    flex: 1 1 auto;
+.response {
+    flex: 0 1 auto;
 }
 </style>

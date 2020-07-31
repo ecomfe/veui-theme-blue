@@ -32,13 +32,6 @@
 
     &-nav,
     &-close {
-        button[ui~="icon"] {
-            background-color: transparent;
-            color: @veui-alert-icon-color-aux;
-            &.veui-disabled {
-                color: @veui-alert-icon-color-aux-disabled;
-            }
-        }
         .@{veui-prefix}-icon {
             .veui-icon-size(@veui-alert-icon-size-aux);
         }
@@ -79,6 +72,7 @@
 
         &-extra {
             float: right;
+            display: flex;
             margin-left: @veui-alert-content-spacing-after;
             .veui-button[ui~="text"] {
                 background: transparent;

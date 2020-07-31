@@ -77,6 +77,8 @@
                 </template>
             </veui-switch>
         </section>
+        <h2>不同尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m（默认 m）</span></div>
         <section>
             xs:
             <veui-switch

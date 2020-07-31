@@ -6,12 +6,12 @@ config.defaults(
         ui: {
             size: {
                 values: ['s', 'm', 'l'],
-                default: 'm',
+                default: 's',
                 inherit: true
             }
         },
         parts: {
-            checked: 'primary'
+            button: 'normal'
         },
         icons: {
             check: 'check'

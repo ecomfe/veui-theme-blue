@@ -6,6 +6,7 @@ config.defaults(
         ui: {
             size: {
                 values: ['m', 's'],
+                default: 's',
                 inherit: true
             },
             'checkbox-after': {

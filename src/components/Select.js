@@ -27,11 +27,11 @@ config.defaults(
             size: {
                 values: ['xs', 's', 'm', 'l'],
                 inherit: true,
-                default: 'm'
+                default: 's'
             }
         },
         parts: {
-            clear: 'icon',
+            clear: 'icon aux',
             checkbox: ({size}) => CHECKBOX_SIZE_MAP[size] || size,
             tag: ({size}) => TAG_SIZE_MAP[size] || size
         }

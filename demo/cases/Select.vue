@@ -4,533 +4,559 @@
         <h1>
             <code>&lt;veui-select&gt;</code>
         </h1>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">xs / s（默认，可不传） / m / l</span>
+        </div>
         <section>
-            <h2>4 种大小：</h2>
+            <div ui="title-desc">默认样式</div>
             <veui-form>
                 <veui-field
-                    v-for="ui in sizes"
-                    :key="ui"
-                    :ui="ui"
-                    :label="ui"
+                    v-for="(ui, index) in sizes"
+                    :key="index"
+                    
+                    :label="ui.label"
                 >
                     <veui-select
                         v-model="defaultValue1"
-                        :ui="ui"
+                        :ui="ui.value"
                         v-bind="attrs"
                         placeholder="全部"
                         clearable
                         :filter="filter"
+                        :readonly="ui.label === '只读'"
+                        :disabled="ui.label === '禁用'"
                     />
                 </veui-field>
             </veui-form>
         </section>
         <section>
-            <h2>默认样式：</h2>
-            <veui-select
-                v-model="defaultValue"
-                v-bind="attrs"
-                placeholder="全部"
-                clearable
-            />
-        </section>
-        <section>
-            <h2>多选样式：xs (定制 max)</h2>
-            <veui-select
-                v-model="defaultMultiValue"
-                ui="xs"
-                v-bind="attrs"
-                placeholder="全部"
-                :max="3"
-                clearable
-                multiple
-            />
-        </section>
-        <section>
-            <h2>多选样式：s (自定义 tag slot)</h2>
-            <veui-select
-                v-model="defaultMultiValue"
-                ui="s"
-                v-bind="attrs"
-                placeholder="全部"
-                clearable
-                multiple
-            >
-                <template
-                    slot="tag"
-                    slot-scope="{ label }"
+            <div ui="title-desc">多选样式</div>
+            <veui-form>
+                <veui-field
+                    
+                    label="超小号[ui=xs]"
                 >
-                    <i>{{ label }}</i>
-                </template>
-            </veui-select>
-        </section>
-        <section>
-            <h2>多选样式：m (默认)</h2>
-            <veui-select
-                v-model="defaultMultiValue"
-                v-bind="attrs"
-                placeholder="全部"
-                clearable
-                multiple
-            />
-        </section>
-        <section>
-            <h2>多选样式：l</h2>
-            <veui-select
-                v-model="defaultMultiValue"
-                ui="l"
-                v-bind="attrs"
-                placeholder="全部"
-                clearable
-                multiple
-            />
-        </section>
-        <section>
-            <h2>多选样式：有限制</h2>
-            <veui-select
-                v-model="defaultMultiValue"
-                placeholder="全部"
-                v-bind="attrs"
-                :max="4"
-                clearable
-                multiple
-            />
-        </section>
-        <section>
-            <h2>多选样式：禁用</h2>
-            <veui-select
-                v-model="defaultMultiValue"
-                v-bind="attrs"
-                placeholder="全部"
-                clearable
-                multiple
-                disabled
-            />
-        </section>
-        <section>
-            <h2>可搜索Select：</h2>
-            <veui-select
-                v-model="defaultValue2"
-                v-bind="attrs"
-                ui="checkmark"
-                searchable
-            />
-        </section>
-        <section>
-            <h2>可搜索多选Select：</h2>
-            <veui-select
-                v-model="defaultSearchMultiValue"
-                v-bind="attrs"
-                searchable
-                multiple
-            />
-        </section>
-        <section>
-            <h2>可搜索多选Select：有限制</h2>
-            <veui-select
-                v-model="defaultSearchMultiValue"
-                v-bind="attrs"
-                :max="4"
-                searchable
-                multiple
-            />
-        </section>
-        <section>
-            <h2>只读样式：</h2>
-            <veui-select
-                v-model="defaultValue1"
-                v-bind="attrs"
-                readonly
-            />
-        </section>
-        <section>
-            <h2>禁用样式：</h2>
-            <veui-select
-                v-model="defaultValue1"
-                v-bind="attrs"
-                disabled
-            />
-        </section>
-        <section>
-            <h2>Slot[name=option-label] 样式：</h2>
-            <veui-select
-                v-model="defaultValue3"
-                v-bind="attrs"
-                ui="alt"
-            >
-                <template
-                    slot="option-label"
-                    slot-scope="props"
-                >
-                    <span class="veui-option-custom-label">{{ props.label }}</span>
-                </template>
-            </veui-select>
-        </section>
-        <section>
-            <h2>Slot 样式 2：</h2>
-            <veui-select
-                v-model="defaultValue4"
-                v-bind="attrs"
-            >
-                <template
-                    slot="option"
-                    slot-scope="props"
-                >
-                    <span class="veui-option-label-text">{{ props.label }}</span>
-                    <veui-icon name="flag"/>
-                </template>
-            </veui-select>
-        </section>
-        <section>
-            <h2>Slot 样式 3：</h2>
-            <veui-select
-                v-model="defaultValue1"
-                v-bind="attrs"
-            >
-                <template
-                    slot="option"
-                    slot-scope="props"
-                >
-                    <veui-radio :checked="props.selected">{{ props.label }}</veui-radio>
-                </template>
-            </veui-select>
-        </section>
-        <section>
-            <h2>内联样式：</h2>
-            <veui-select
-                v-model="hero"
-                multiple
-            >
-                <veui-option-group
-                    position="popup"
-                    trigger="hover"
-                >
-                    <template slot="label">中国 🇨🇳</template>
-                    <veui-option-group
-                        label="互联网"
-                        position="popup"
-                    >
-                        <veui-option
-                            value="baidu"
-                            label="百度"
-                        />
-                        <veui-option
-                            value="alibaba"
-                            label="阿里巴巴"
-                        />
-                        <veui-option
-                            value="tencent"
-                            label="腾讯"
-                        />
-                    </veui-option-group>
-                    <veui-option-group
-                        label="通信"
-                        position="popup"
-                    >
-                        <veui-option
-                            value="telecom"
-                            label="中国电信"
-                        />
-                        <veui-option
-                            value="mobile"
-                            label="中国移动"
-                        />
-                    </veui-option-group>
-                </veui-option-group>
-                <veui-option-group
-                    label="美国"
-                    position="popup"
-                >
-                    <veui-option-group
-                        label="互联网"
-                        position="popup"
-                    >
-                        <veui-option
-                            value="google"
-                            label="Google"
-                        />
-                        <veui-option
-                            value="facebook"
-                            label="Facebook"
-                        />
-                        <veui-option
-                            value="twitter"
-                            label="Twitter"
-                        />
-                    </veui-option-group>
-                    <veui-option-group
-                        label="通信"
-                        position="popup"
-                    >
-                        <veui-option
-                            value="atnt"
-                            label="AT&T"
-                        />
-                        <veui-option
-                            value="verizon"
-                            label="Verizon"
-                        />
-                    </veui-option-group>
-                </veui-option-group>
-            </veui-select>
-        </section>
-        <section>
-            <h2>内联样式 2：</h2>
-            <veui-select v-model="phone">
-                <veui-option-group label="国产">
-                    <veui-option
-                        value="xiaomi"
-                        label="小米"
+                    <veui-select
+                        v-model="defaultMultiValue"
+                        ui="xs"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        :max="3"
+                        clearable
+                        multiple
                     />
-                    <veui-option
-                        value="oppo"
-                        label="OPPO"
-                    />
-                    <veui-option
-                        value="vivo"
-                        label="vivo"
-                    />
-                    <veui-option
-                        value="smartisan"
-                        label="坚果"
-                    />
-                </veui-option-group>
-                <veui-option-group
-                    label="非国产"
-                    position="popup"
+                </veui-field>
+                <veui-field
+                    
+                    label="小号[ui=s]"
                 >
-                    <veui-option-group
-                        label="美国"
-                        position="popup"
+                    <veui-select
+                        v-model="defaultMultiValue"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        clearable
+                        multiple
                     >
-                        <veui-option
-                            value="apple"
-                            label="Apple"
-                        />
-                        <veui-option
-                            value="google"
-                            label="Google"
-                        />
-                    </veui-option-group>
-                    <veui-option-group
-                        label="日本"
-                        position="popup"
-                    >
-                        <veui-option
-                            value="sharp"
-                            label="夏普"
-                        />
-                        <veui-option
-                            value="sony"
-                            label="索尼"
-                        />
-                    </veui-option-group>
-                    <veui-option-group
-                        label="韩国"
-                        position="popup"
-                    >
-                        <veui-option
-                            value="samsung"
-                            label="三星"
-                        />
-                        <veui-option
-                            value="lg"
-                            label="LG"
-                        />
-                    </veui-option-group>
-                </veui-option-group>
-            </veui-select>
-        </section>
-        <section>
-            <h2>动态内联样式：</h2>
-            <section>
-                <veui-select
-                    searchable
-                    @input="keyword = $event"
-                >
-                    <template v-if="keyword">
-                        <veui-option
-                            v-for="option in result"
-                            :key="option.value"
-                            :value="option.value"
-                            :label="option.label"
-                        />
-                    </template>
-                </veui-select>
-            </section>
-        </section>
-        <section>
-            <h2>复杂自定义样式：</h2>
-            <section>
-                <veui-select
-                    v-model="complex"
-                    multiple
-                    clearable
-                    searchable
-                    :options="complexResult"
-                    @input="handleSearch"
-                >
-                    <template v-if="complexResult">
-                        <veui-option
-                            v-for="o in complexResult"
-                            :key="o.value"
-                            :label="o.label"
-                            :value="o.value"
-                        />
-                    </template>
-                    <template v-else>
-                        <veui-option-group
-                            v-for="(group, i) in complexData"
-                            :key="i"
-                            :label="group.label"
-                            position="popup"
+                        <template
+                            slot="tag"
+                            slot-scope="{ label }"
                         >
-                            <template v-for="(g, j) in group.options">
-                                <veui-option-group
-                                    v-if="g.options"
-                                    :key="j"
-                                    position="popup"
-                                    :label="g.label"
-                                    :options="g.options"
+                            <span>{{ label }}</span>
+                        </template>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="中号[ui=m]"
+                >
+                    <veui-select
+                        v-model="defaultMultiValue"
+                        ui="m"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        clearable
+                        multiple
+                    />
+                </veui-field>
+                <veui-field
+                    
+                    label="大号[ui=l]"
+                >
+                    <veui-select
+                        v-model="defaultMultiValue"
+                        ui="l"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        clearable
+                        multiple
+                    />
+                </veui-field>
+                <veui-field
+                    
+                    label="禁用"
+                >
+                    <veui-select
+                        v-model="defaultMultiValue"
+                        ui="s"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        clearable
+                        multiple
+                        disabled
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
+        <section>
+            <div class="title-desc">可搜索Select：</div>
+            <veui-form>
+                <veui-field
+                    
+                    label="可搜索"
+                >
+                    <veui-select
+                        v-model="defaultValue2"
+                        ui="s"
+                        v-bind="attrs"
+                        searchable
+                    />
+                </veui-field>
+                <veui-field
+                    
+                    label="可多选"
+                >
+                    <veui-select
+                        v-model="defaultSearchMultiValue"
+                        v-bind="attrs"
+                        ui="s"
+                        searchable
+                        multiple
+                    />
+                </veui-field>
+                <veui-field
+                    
+                    label="有限制"
+                >
+                    <veui-select
+                        v-model="defaultSearchMultiValue"
+                        v-bind="attrs"
+                        ui="s"
+                        :max="4"
+                        searchable
+                        multiple
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
+        <section>
+            <div class="title-desc">Slot样式：</div>
+            <veui-form>
+                <veui-field
+                    
+                    label="name=option-label："
+                >
+                    <veui-select
+                        v-model="defaultValue3"
+                        v-bind="attrs"
+                    >
+                        <template
+                            slot="option-label"
+                            slot-scope="props"
+                        >
+                            <span class="veui-option-custom-label">{{ props.label }}</span>
+                        </template>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="name=option："
+                >
+                    <veui-select
+                        v-model="defaultValue4"
+                        v-bind="attrs"
+                    >
+                        <template
+                            slot="option"
+                            slot-scope="props"
+                        >
+                            <span class="veui-option-label-text">{{ props.label }}</span>
+                            <veui-icon name="flag"/>
+                        </template>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="name=option："
+                >
+                    <veui-select
+                        v-model="defaultValue1"
+                        v-bind="attrs"
+                    >
+                        <template
+                            slot="option"
+                            slot-scope="props"
+                        >
+                            <veui-radio :checked="props.selected">{{ props.label }}</veui-radio>
+                        </template>
+                    </veui-select>
+                </veui-field>
+            </veui-form>
+        </section>
+        <section>
+            <div class="title-desc">内联样式：</div>
+            <veui-form>
+                <veui-field
+                    
+                    label="内联样式1："
+                >
+                    <veui-select
+                        v-model="hero"
+                        multiple
+                    >
+                        <veui-option-group
+                            position="popup"
+                            trigger="hover"
+                        >
+                            <template slot="label">中国 🇨🇳</template>
+                            <veui-option-group
+                                label="互联网"
+                                position="popup"
+                            >
+                                <veui-option
+                                    value="baidu"
+                                    label="百度"
                                 />
                                 <veui-option
-                                    v-else
-                                    :key="j"
-                                    :label="g.label"
-                                    :value="g.value"
+                                    value="alibaba"
+                                    label="阿里巴巴"
                                 />
-                            </template>
-                            <template
-                                v-if="group.label === '业务点'"
-                                #before
+                                <veui-option
+                                    value="tencent"
+                                    label="腾讯"
+                                />
+                            </veui-option-group>
+                            <veui-option-group
+                                label="通信"
+                                position="popup"
                             >
-                                <div class="note">
-                                    <veui-icon name="info-circle"/>
-                                    <div class="text">
-                                        此处仅显示业务点 Top n，您可通过搜索添加其它业务点标签。
-                                    </div>
-                                </div>
-                            </template>
+                                <veui-option
+                                    value="telecom"
+                                    label="中国电信"
+                                />
+                                <veui-option
+                                    value="mobile"
+                                    label="中国移动"
+                                />
+                            </veui-option-group>
                         </veui-option-group>
-                    </template>
-                </veui-select>
-            </section>
-            <section>
-                <veui-select
-                    v-model="complex"
-                    multiple
-                >
-                    <template v-if="loaded">
                         <veui-option-group
-                            label="Foo"
+                            label="美国"
                             position="popup"
                         >
-                            <template #before>NOTE Foo</template>
+                            <veui-option-group
+                                label="互联网"
+                                position="popup"
+                            >
+                                <veui-option
+                                    value="google"
+                                    label="Google"
+                                />
+                                <veui-option
+                                    value="facebook"
+                                    label="Facebook"
+                                />
+                                <veui-option
+                                    value="twitter"
+                                    label="Twitter"
+                                />
+                            </veui-option-group>
+                            <veui-option-group
+                                label="通信"
+                                position="popup"
+                            >
+                                <veui-option
+                                    value="atnt"
+                                    label="AT&T"
+                                />
+                                <veui-option
+                                    value="verizon"
+                                    label="Verizon"
+                                />
+                            </veui-option-group>
+                        </veui-option-group>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="内联样式2：">
+                    <veui-select v-model="phone">
+                        <veui-option-group label="国产">
                             <veui-option
-                                label="Foo1"
-                                value="foo1"
+                                value="xiaomi"
+                                label="小米"
+                            />
+                            <veui-option
+                                value="oppo"
+                                label="OPPO"
+                            />
+                            <veui-option
+                                value="vivo"
+                                label="vivo"
+                            />
+                            <veui-option
+                                value="smartisan"
+                                label="坚果"
                             />
                         </veui-option-group>
-                    </template>
-                </veui-select>
-            </section>
-        </section>
-        <section style="margin-top:500px;">
-            <h2>可搜索分组样式：</h2>
-            <veui-select
-                v-model="defaultValue5"
-                v-bind="optGroupAttrs"
-                searchable
-                :overlay-options="{ local: true }"
-            />
+                        <veui-option-group
+                            label="非国产"
+                            position="popup"
+                        >
+                            <veui-option-group
+                                label="美国"
+                                position="popup"
+                            >
+                                <veui-option
+                                    value="apple"
+                                    label="Apple"
+                                />
+                                <veui-option
+                                    value="google"
+                                    label="Google"
+                                />
+                            </veui-option-group>
+                            <veui-option-group
+                                label="日本"
+                                position="popup"
+                            >
+                                <veui-option
+                                    value="sharp"
+                                    label="夏普"
+                                />
+                                <veui-option
+                                    value="sony"
+                                    label="索尼"
+                                />
+                            </veui-option-group>
+                            <veui-option-group
+                                label="韩国"
+                                position="popup"
+                            >
+                                <veui-option
+                                    value="samsung"
+                                    label="三星"
+                                />
+                                <veui-option
+                                    value="lg"
+                                    label="LG"
+                                />
+                            </veui-option-group>
+                        </veui-option-group>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="动态内联样式：">
+                    <veui-select
+                        searchable
+                        @input="keyword = $event"
+                    >
+                        <template v-if="keyword">
+                            <veui-option
+                                v-for="option in result"
+                                :key="option.value"
+                                :value="option.value"
+                                :label="option.label"
+                            />
+                        </template>
+                    </veui-select>
+                </veui-field>
+            </veui-form>
         </section>
         <section>
-            <h2>显示已选图标分组样式：</h2>
-            <veui-select
-                v-model="defaultValue6"
-                v-bind="optGroupAttrs"
-                ui="checkmark"
-            />
+            <div class="title-desc">复杂自定义样式：</div>
+            <veui-form>
+                <veui-field
+                    
+                    label="自定义1：">
+                    <veui-select
+                        v-model="complex"
+                        multiple
+                        clearable
+                        searchable
+                        :options="complexResult"
+                        @input="handleSearch"
+                    >
+                        <template v-if="complexResult">
+                            <veui-option
+                                v-for="o in complexResult"
+                                :key="o.value"
+                                :label="o.label"
+                                :value="o.value"
+                            />
+                        </template>
+                        <template v-else>
+                            <veui-option-group
+                                v-for="(group, i) in complexData"
+                                :key="i"
+                                :label="group.label"
+                                position="popup"
+                            >
+                                <template v-for="(g, j) in group.options">
+                                    <veui-option-group
+                                        v-if="g.options"
+                                        :key="j"
+                                        position="popup"
+                                        :label="g.label"
+                                        :options="g.options"
+                                    />
+                                    <veui-option
+                                        v-else
+                                        :key="j"
+                                        :label="g.label"
+                                        :value="g.value"
+                                    />
+                                </template>
+                                <template
+                                    v-if="group.label === '业务点'"
+                                    #before
+                                >
+                                    <div class="note">
+                                        <veui-icon name="info-circle"/>
+                                        <div class="text">
+                                            此处仅显示业务点 Top n，您可通过搜索添加其它业务点标签。
+                                        </div>
+                                    </div>
+                                </template>
+                            </veui-option-group>
+                        </template>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="自定义2：">
+                    <veui-select
+                        v-model="complex"
+                        multiple
+                    >
+                        <template v-if="loaded">
+                            <veui-option-group
+                                label="Foo"
+                                position="popup"
+                            >
+                                <template #before>NOTE Foo</template>
+                                <veui-option
+                                    label="Foo1"
+                                    value="foo1"
+                                />
+                            </veui-option-group>
+                        </template>
+                    </veui-select>
+                </veui-field>
+            </veui-form>
         </section>
         <section>
-            <h2>Slot 分组样式 1：</h2>
-            <veui-select
-                v-model="defaultValue7"
-                v-bind="optGroupAttrs"
-            >
-                <template
-                    slot="option"
-                    slot-scope="props"
-                >
-                    <div class="veui-option-custom">{{ props.label }}</div>
-                </template>
-            </veui-select>
-        </section>
-        <section>
-            <h2>Slot[name=option] 分组样式 2：</h2>
-            <veui-select
-                v-model="defaultValue8"
-                v-bind="optGroupAttrs"
-            >
-                <template
-                    slot="option"
-                    slot-scope="props"
-                >
-                    <span class="veui-option-label-text veui-option-custom-label">
-                        {{ props.label }}
-                    </span>
-                    <veui-icon name="gift"/>
-                </template>
-            </veui-select>
-        </section>
-        <section>
-            <h2>分隔线样式：</h2>
-            <veui-select
-                v-model="defaultValue9"
-                v-bind="optGroupAttrs"
-                :options="groupedOpts"
-            />
-        </section>
-        <section>
-            <h2>内联样式 3：</h2>
-            <veui-select
-                v-model="defaultValue10"
-                clearable
-            >
-                <template
-                    slot="group-label"
-                    slot-scope="{ label }"
-                >
-                    <b>{{ label }}</b>
-                </template>
-                <veui-option-group label="字母">
-                    <veui-option
-                        value="A"
-                        label="选项 A"
+            <div class="title-desc">分组样式</div>
+            <veui-form>
+                <veui-field
+                    
+                    label="可搜索：">
+                    <veui-select
+                        v-model="defaultValue5"
+                        v-bind="optGroupAttrs"
+                        ui="s"
+                        searchable
                     />
-                    <veui-option
-                        value="B"
-                        label="选项 B"
+                </veui-field>
+                <veui-field
+                    
+                    label="Slot分组样式1：">
+                    <veui-select
+                        v-model="defaultValue7"
+                        v-bind="optGroupAttrs"
+                    >
+                        <template
+                            slot="option"
+                            slot-scope="props"
+                        >
+                            <div class="veui-option-custom">{{ props.label }}</div>
+                        </template>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="Slot分组样式2：">
+                    <veui-select
+                        v-model="defaultValue8"
+                        v-bind="optGroupAttrs"
+                    >
+                        <template
+                            slot="option"
+                            slot-scope="props"
+                        >
+                            <span class="veui-option-label-text veui-option-custom-label">
+                                {{ props.label }}
+                            </span>
+                            <veui-icon name="gift"/>
+                        </template>
+                    </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="分隔线样式：">
+                    <veui-select
+                        v-model="defaultValue9"
+                        v-bind="optGroupAttrs"
+                        :options="groupedOpts"
                     />
-                    <veui-option
-                        value="C"
-                        label="选项 C"
-                    />
-                </veui-option-group>
-                <veui-option-group label="数字">
-                    <veui-option
-                        value="1"
-                        label="选项 1"
-                    />
-                    <veui-option
-                        value="2"
-                        label="选项 2"
-                    />
-                    <veui-option
-                        value="3"
-                        label="选项 3"
-                    />
-                </veui-option-group>
-            </veui-select>
+                </veui-field>
+                <veui-field
+                    
+                    label="内联样式：">
+                    <veui-select
+                        v-model="defaultValue10"
+                        clearable
+                    >
+                        <template
+                            slot="group-label"
+                            slot-scope="{ label }"
+                        >
+                            <b>{{ label }}</b>
+                        </template>
+                        <veui-option-group label="字母">
+                            <veui-option
+                                value="A"
+                                label="选项 A"
+                            />
+                            <veui-option
+                                value="B"
+                                label="选项 B"
+                            />
+                            <veui-option
+                                value="C"
+                                label="选项 C"
+                            />
+                        </veui-option-group>
+                        <veui-option-group label="数字">
+                            <veui-option
+                                value="1"
+                                label="选项 1"
+                            />
+                            <veui-option
+                                value="2"
+                                label="选项 2"
+                            />
+                            <veui-option
+                                value="3"
+                                label="选项 3"
+                            />
+                        </veui-option-group>
+                    </veui-select>
+                </veui-field>
+            </veui-form>
         </section>
     </article>
 </template>
@@ -579,7 +605,32 @@ export default {
             defaultValue8: '1-1',
             defaultValue9: null,
             defaultValue10: null,
-            sizes: ['xs', 's', 'm', 'l'],
+            sizes: [
+                {
+                    label: '超小号[ui=xs]',
+                    value: 'xs'
+                },
+                {
+                    label: '小号[ui=s]',
+                    value: 's'
+                },
+                {
+                    label: '中号[ui=m]',
+                    value: 'm'
+                },
+                {
+                    label: '大号[ui=l]',
+                    value: 'l'
+                },
+                {
+                    label: '禁用',
+                    value: 's'
+                },
+                {
+                    label: '只读',
+                    value: 's'
+                }
+            ],
             attrs: {
                 name: 'age',
                 readonly: false,
@@ -812,6 +863,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+section {
+    margin-bottom: 20px;
+}
 .veui-option-label {
   &-text,
   .veui-icon {

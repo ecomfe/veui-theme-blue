@@ -1,93 +1,100 @@
 <template>
     <article>
         <h1><code>&lt;veui-pagination&gt;</code></h1>
-        <h3>UI可选值：</h3>
-        <div class="ui-desc">
-            size：xs(超小号)、s(小号)、m(默认，中号)
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">xs / s（默认，可不传） / m</span>
         </div>
-        <div class="ui-desc">
-            style：normal(普通样式)
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">normal / 不传则默认含跳转分页</span>
         </div>
         <section>
-            <h2>基础分页[ui=normal]</h2>
-            <section>
-                <span class="pagination-type">超小号[ui=xs]</span>
-                <veui-pagination
-                    :page="page"
-                    :total="total"
-                    :page-sizes="pageSizes"
-                    :to="to"
-                    ui="xs normal"
-                    :page-size.sync="pageSize"
-                />
-            </section>
-
-            <section>
-                <span class="pagination-type">小号[ui=s]</span>
-                <veui-pagination
-                    :page="page"
-                    :total="total"
-                    :to="to"
-                    ui="s normal"
-                />
-            </section>
-
-            <section>
-                <span class="pagination-type">中号[ui=m]</span>
-                <veui-pagination
-                    :page="page"
-                    :total="total"
-                    ui="normal"
-                    :to="to"
-                />
-            </section>
+            <h3>基础分页[ui=normal]</h3>
+            <veui-form>
+                <veui-field label="超小号[ui=xs]">
+                    <veui-pagination
+                        :page="page"
+                        :total="total"
+                        :page-sizes="pageSizes"
+                        :to="to"
+                        ui="xs normal"
+                        :page-size.sync="pageSize"
+                    />
+                </veui-field>
+                <veui-field label="小号[ui=s]">
+                    <veui-pagination
+                        :page="page"
+                        :total="total"
+                        :to="to"
+                        ui="normal"
+                    />
+                </veui-field>
+                <veui-field label="中号[ui=m]">
+                    <veui-pagination
+                        :page="page"
+                        :total="total"
+                        ui="m normal"
+                        :to="to"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
 
         <section>
-            <h2>含跳转分页</h2>
-            <section>
-                <span class="pagination-type">超小号[ui=xs]</span>
-                <veui-pagination
-                    :page="page"
-                    :total="total"
-                    :page-sizes="pageSizes"
-                    :to="to"
-                    goto
-                    ui="xs"
-                    :page-size.sync="pageSize"
-                />
-            </section>
-
-            <section>
-                <span class="pagination-type">小号[ui=s]</span>
-                <veui-pagination
-                    :page="page"
-                    :total="total"
-                    :to="to"
-                    goto
-                    ui="s"
-                />
-            </section>
-
-            <section>
-                <span class="pagination-type">中号[ui=m]</span>
-                <veui-pagination
-                    :page="page"
-                    :total="total"
-                    :to="to"
-                    goto
-                />
-            </section>
+            <h3>含跳转分页</h3>
+            <veui-form>
+                <veui-field label="超小号[ui=xs]">
+                    <veui-pagination
+                        :page="page"
+                        :total="total"
+                        :page-sizes="pageSizes"
+                        :to="to"
+                        goto
+                        ui="xs"
+                        :page-size.sync="pageSize"
+                    />
+                </veui-field>
+                <veui-field label="小号[ui=s]">
+                    <veui-pagination
+                        :page="page"
+                        :total="total"
+                        :to="to"
+                        goto
+                    />
+                </veui-field>
+                <veui-field label="中号[ui=m]">
+                    <veui-pagination
+                        ui="m"
+                        :page="page"
+                        :total="total"
+                        :to="to"
+                        goto
+                    />
+                </veui-field>
+            </veui-form>
         </section>
 
         <section>
-            <h2>目标位置模板</h2>
-            <section>
-                <small>格式和 &lt;router-link&gt; 的 to prop 一样</small>
-            </section>
+            <h3>简单分页</h3>
+            <small>翻页数小于6个时，使用简单分页</small>
+            <div class="veui-pagination-simple">
+                <veui-button>上一页</veui-button>
+                <veui-button class="next-page">下一页</veui-button>
+            </div>
+        </section>
+
+        <section>
+            <h3>目标位置模板</h3>
+            <small>格式和 &lt;router-link&gt; 的 to prop 一样</small>
             <section>
                 <veui-pagination
                     :page="page"
+                    goto
                     :total="total"
                     :to="{ name: 'Pagination', params: { page: ':page' } }"
                 />
@@ -95,28 +102,28 @@
         </section>
 
         <section>
-            <h2>原生跳转</h2>
+            <h3>原生跳转</h3>
             <section>
                 <veui-pagination
                     :page="page"
                     :total="total"
-                    :to="'#' + to"
+                    :to="to"
+                    goto
                     native
                 />
             </section>
         </section>
 
         <section>
-            <h2>阻止跳转</h2>
-            <section>
-                <small>仅原生跳转可阻止已配置 <code>to</code> 的跳转</small>
-            </section>
+            <h3>阻止跳转</h3>
+            <small>仅原生跳转可阻止已配置 <code>to</code> 的跳转</small>
             <section>
                 <veui-pagination
                     :page="page"
                     :total="total"
                     :to="to"
                     native
+                    goto
                     @redirect="handlePageRedirect"
                 />
             </section>
@@ -126,7 +133,7 @@
         </section>
 
         <section>
-            <h2>自定义事件处理</h2>
+            <h3>自定义事件处理</h3>
             <section>
                 <veui-pagination
                     :page="p"
@@ -137,12 +144,12 @@
         </section>
 
         <section>
-            <h2>没有数据时</h2>
+            <h3>没有数据时</h3>
             <section>
                 <veui-pagination
                     :page="1"
                     :total="0"
-                    :to="'#' + to"
+                    :to="to"
                     native
                 />
             </section>
@@ -152,17 +159,20 @@
 
 <script>
 import bus from '../bus';
-import {Pagination} from 'veui';
+import {Pagination, Form, Field, Button} from 'veui';
 
 export default {
     name: 'pagination-demo',
     components: {
-        'veui-pagination': Pagination
+        'veui-pagination': Pagination,
+        'veui-form': Form,
+        'veui-field': Field,
+        'veui-button': Button
     },
     data() {
         return {
             page: parseInt(this.$route.params.page, 10) || 1,
-            total: 10101,
+            total: 500,
             to: '/pagination/:page',
             pageSize: 30,
             pageSizes: [30, 60, 100, 200],
@@ -197,19 +207,23 @@ export default {
 <style lang="less" scoped>
 @import (reference) url('~@/variables/index.less');
 section {
-    margin-bottom: 3em;
-
+    margin-bottom: 32px;
+    small {
+        display: block;
+        margin-bottom: 16px;
+    }
     section {
-        margin-bottom: 2em;
         display: flex;
-        .veui-pagination {
-            flex: 1;
-        }
-        .pagination-type {
-            color: @veui-font-color-weak;
-            font-size: @veui-font-size-s;
-            margin-right: 23px;
-        }
+        margin-bottom: 0;
+    }
+    .veui-pagination {
+        flex: 1;
+    }
+    .message {
+        margin-top: 16px;
+        font-size: 12px;
+        color: #666;
+        text-align: right;
     }
 }
 </style>

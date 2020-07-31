@@ -2,7 +2,7 @@
     <article class="demo-dialog">
         <h1><code>&lt;veui-dialog&gt;</code></h1>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m / l / xl</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m（默认，可不传） / l / xl</span></div>
         <section>
             <span class="title-desc">超小样式</span>
             <veui-button
@@ -22,12 +22,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -55,12 +56,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -89,12 +91,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -123,12 +126,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >
@@ -142,13 +146,13 @@
             <span class="title-desc">超大样式</span>
             <veui-button
                 ui="primary"
-                @click="lDialogVisible = !lDialogVisible"
+                @click="xlDialogVisible = !xlDialogVisible"
             >
                 超大样式 dialog box
             </veui-button>
             <veui-dialog
                 modal
-                :open.sync="lDialogVisible"
+                :open.sync="xlDialogVisible"
                 ui="xl"
                 title="First">
                 样式
@@ -157,13 +161,14 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
                         autofocus
+                        ui="m"
                         @click="close"
                     >
                         CANCEL
@@ -228,12 +233,13 @@
                     slot-scope="{ close }"
                 >
                     <veui-button
-                        ui="primary"
+                        ui="primary m"
                         @click="close('ok')"
                     >
                         OK
                     </veui-button>
                     <veui-button
+                        ui="m"
                         autofocus
                         @click="close"
                     >

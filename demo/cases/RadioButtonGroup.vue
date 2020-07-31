@@ -6,6 +6,8 @@
                 禁用
             </veui-checkbox>
         </section>
+        <h2>不同尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m / l（默认 m）</span></div>
         <section>
             <p>
                 s:<br/>
