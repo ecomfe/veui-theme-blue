@@ -13,13 +13,17 @@
                     label="超小号（xs）"
                 >
                     <veui-input-group ui="xs">
-                        <veui-label for="bid">USD</veui-label>
-                        <veui-input
-                            ref="bid"
-                            v-model="bid"
-                            style="width: 120px"
+                        <veui-select
+                            :options="protocals"
+                            style="width: 100px"
+                            v-model="value"
                         />
-                        <veui-button>Submit</veui-button>
+                        <veui-input/>
+                        <veui-select
+                            :options="domain"
+                            style="width: 100px"
+                            v-model="value1"
+                        />               
                     </veui-input-group>
                 </veui-field>
                 <veui-field
@@ -27,13 +31,17 @@
                     label="小号（s）"
                 >
                     <veui-input-group ui="s">
-                        <veui-label for="bid">USD</veui-label>
-                        <veui-input
-                            ref="bid"
-                            v-model="bid"
-                            style="width: 120px"
+                        <veui-select
+                            :options="protocals"
+                            style="width: 100px"
+                            v-model="value"
                         />
-                        <veui-button>Submit</veui-button>
+                        <veui-input/>
+                        <veui-select
+                            :options="domain"
+                            style="width: 100px"
+                            v-model="value1"
+                        />               
                     </veui-input-group>
                 </veui-field>
                 <veui-field
@@ -41,13 +49,17 @@
                     label="中号（m）"
                 >
                     <veui-input-group ui="m">
-                        <veui-label for="bid">USD</veui-label>
-                        <veui-input
-                            ref="bid"
-                            v-model="bid"
-                            style="width: 120px"
+                        <veui-select
+                            :options="protocals"
+                            style="width: 100px"
+                            v-model="value"
                         />
-                        <veui-button>Submit</veui-button>
+                        <veui-input/>
+                        <veui-select
+                            :options="domain"
+                            style="width: 100px"
+                            v-model="value1"
+                        />               
                     </veui-input-group>
                 </veui-field>
                 <veui-field
@@ -55,13 +67,17 @@
                     label="大号（l）"
                 >
                     <veui-input-group ui="l">
-                        <veui-label for="bid">USD</veui-label>
-                        <veui-input
-                            ref="bid"
-                            v-model="bid"
-                            style="width: 120px"
+                        <veui-select
+                            :options="protocals"
+                            style="width: 100px"
+                            v-model="value"
                         />
-                        <veui-button>Submit</veui-button>
+                        <veui-input/>
+                        <veui-select
+                            :options="domain"
+                            style="width: 100px"
+                            v-model="value1"
+                        />               
                     </veui-input-group>
                 </veui-field>
             </section>
@@ -71,34 +87,21 @@
                     <veui-select
                         :options="protocals"
                         style="width: 100px"
+                        v-model="value"
                     />
                     <veui-input/>
                     <veui-button ui="primary">Submit</veui-button>
                 </veui-input-group>
             </section>
             <section>
-                <h4>Select + Input + Select</h4>
+                <h4>Input + Select</h4>
                 <veui-input-group>
-                    <veui-select
-                        :options="protocals"
-                        style="width: 100px"
-                    />
                     <veui-input/>
                     <veui-select
-                        :options="domain"
+                        :options="money"
                         style="width: 100px"
-                    />               
-                </veui-input-group>
-            </section>
-            <section>
-                <h4>Select + Input + Span</h4>
-                <veui-input-group>
-                    <veui-select
-                        :options="protocals"
-                        style="width: 100px"
-                    />
-                    <veui-input/>
-                    <veui-label>RMB</veui-label>
+                        v-model="value2"
+                    />   
                 </veui-input-group>
             </section>
             <section>
@@ -109,17 +112,6 @@
                         :items="ops"
                         ui="primary"
                     />
-                </veui-input-group>
-            </section>
-            <section>
-                <h4>Select + SearchBox</h4>
-                <veui-input-group>
-                    <veui-select
-                        :options="types"
-                        :value="type"
-                        style="width: 120px"
-                    />
-                    <veui-search-box/>
                 </veui-input-group>
             </section>
         </veui-form>
@@ -134,8 +126,6 @@ import {
     Input,
     Button,
     Autocomplete,
-    SearchBox,
-    Label,
     Span,
     Form,
     Field
@@ -150,8 +140,6 @@ export default {
         'veui-select': Select,
         'veui-button': Button,
         'veui-autocomplete': Autocomplete,
-        'veui-search-box': SearchBox,
-        'veui-label': Label,
         'veui-field': Field,
         'veui-form': Form
     },
@@ -164,6 +152,10 @@ export default {
             domain: [
                 {label: '.com', value: 'com'},
                 {label: '.cn', value: 'cn'}
+            ],
+            money: [
+                {label: 'RMB', value: 'RMB'},
+                {label: 'JPY', value: 'JPY'}
             ],
             bid: 1024,
             width: 1024,
@@ -185,7 +177,10 @@ export default {
                 {value: 'Stephen Strange'},
                 {value: 'Natasha Romanov'},
                 {value: 'Loki'}
-            ]
+            ],
+            value: '',
+            value1: '',
+            value2: ''
         };
     }
 };

@@ -128,7 +128,7 @@
                 <section>
                     <veui-input
                         class="input-no-append"
-                        placeholder="最多输入5个字符"
+                        placeholder="1~5个字符"
                         maxlength="5"
                         strict
                     />
@@ -253,7 +253,7 @@ section {
 }
 
 .input-no-append {
-    /deep/ .veui-input-append {
+    /deep/ .veui-input-after {
         display: none;
     }
 }
