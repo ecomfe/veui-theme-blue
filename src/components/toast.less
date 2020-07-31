@@ -2,160 +2,103 @@
 @import "../variables/components/toast.less";
 
 .@{veui-prefix}-toast {
-  display: flex;
-  align-items: flex-start;
-  line-height: @veui-toast-line-height;
-  padding: @veui-toast-padding-y @veui-toast-padding-x;
-  position: absolute;
-  max-width: @veui-toast-max-width;
-  background-color: @veui-toast-background-color;
-  color: @veui-toast-font-color;
-  box-shadow: @veui-toast-shadow;
-
-  &-multiline {
-    .padding(@veui-toast-padding-y-multiline, _);
-  }
-
-  &-state,
-  &-close {
     display: flex;
-    align-items: center;
-  }
+    align-items: flex-start;
+    .padding(@veui-toast-padding-y - 1, @veui-toast-padding-x);
+    position: absolute;
+    max-width: @veui-toast-max-width;
+    background-color: @veui-toast-background-color;
+    color: @veui-toast-font-color;
+    box-shadow: @veui-toast-shadow;
+    font-size: @veui-toast-font-size;
+    border-radius: @veui-toast-border-radius;
+    line-height: @veui-toast-line-height;
 
-  &-state {
-    margin-right: @veui-toast-content-spacing-before;
-  }
-
-  &-icon {
-    .veui-icon-size(@veui-toast-icon-size);
-  }
-
-  &-close {
-    .@{veui-prefix}-icon {
-      .veui-icon-size(@veui-toast-icon-size-aux);
+    &-multiline {
+        .padding(@veui-toast-padding-y-multiline, _);
     }
 
-    .@{veui-prefix}-button {
-      font-size: inherit;
-    }
-  }
-
-  .veui-toast-style(@type) {
-    @color-name: ~"veui-toast-icon-color-@{type}";
-    @color: @@color-name;
-
-    .@{veui-prefix}-toast-icon {
-      color: @color;
-    }
-  }
-
-  &-content {
-    flex-grow: 1;
-    margin-right: @veui-toast-content-spacing-after;
-
-    &-title {
-      font-weight: @veui-toast-title-font-weight;
-      line-height: @veui-toast-title-line-height;
-      padding-bottom: @veui-toast-title-spacing-after;
-      color: @veui-toast-title-font-color;
+    &-state,
+    &-close {
+        display: flex;
+        align-items: center;
+        font-size: @veui-toast-font-size;
+        height: @veui-toast-line-height;
     }
 
-    &-message {
-      display: inline;
-      box-shadow: transparent 0 0;
-    }
-  }
-
-  &-success {
-    .veui-toast-style(success);
-  }
-
-  &-warning {
-    .veui-toast-style(warning);
-  }
-
-  &-info {
-    .veui-toast-style(info);
-  }
-
-  &-error {
-    .veui-toast-style(error);
-  }
-
-  /* 有title样式 */
-  &&-titled {
-    padding: @veui-toast-padding-y-titled @veui-toast-padding-x;
-
-    .@{veui-prefix}-toast-icon {
-      .veui-icon-size(@veui-toast-icon-size-titled);
+    &-close {
+        margin-left: @veui-toast-padding-x;
     }
 
-    .@{veui-prefix}-toast-close {
-      align-items: start;
+    &-state {
+        margin-right: @veui-toast-content-spacing-before;
     }
-  }
 
-  &[ui~="m"] {
-    font-size: @veui-toast-font-size-m;
-    border-radius: @veui-toast-border-radius-m;
+    &-icon {
+        .veui-icon-size(@veui-toast-icon-size);
+    }
 
-    .@{veui-prefix}-toast {
-      &-state,
-      &-close {
-        font-size: @veui-toast-font-size-m;
-        height: veui-line-height(@veui-toast-line-height, @veui-toast-font-size-m);
-      }
-
-      &-content {
-        &-title {
-          font-size: @veui-toast-title-font-size-m;
+    &-close {
+        .@{veui-prefix}-icon {
+            .veui-icon-size(@veui-toast-icon-size-aux);
         }
-      }
-    }
-  }
 
-  &-titled[ui~="m"] {
-    .@{veui-prefix}-toast {
-      &-state,
-      &-close {
-        font-size: @veui-toast-title-font-size-m;
-        height: veui-line-height(
-          @veui-toast-title-line-height,
-          @veui-toast-title-font-size-m
-        );
-      }
-    }
-  }
-
-  &[ui~="s"] {
-    font-size: @veui-toast-font-size-s;
-    border-radius: @veui-toast-border-radius-s;
-
-    .@{veui-prefix}-toast {
-      &-state,
-      &-close {
-        font-size: @veui-toast-font-size-s;
-        height: veui-line-height(@veui-toast-line-height, @veui-toast-font-size-s);
-      }
-
-      &-content {
-        &-title {
-          font-size: @veui-toast-title-font-size-s;
+        .@{veui-prefix}-button {
+            font-size: inherit;
         }
-      }
     }
-  }
 
-  &-titled[ui~="s"] {
-    .@{veui-prefix}-toast {
-      &-state,
-      &-close {
-        font-size: @veui-toast-title-font-size-s;
-        height: veui-line-height(
-          @veui-toast-title-line-height,
-          @veui-toast-title-font-size-s
-        );
-      }
+    .veui-toast-style(@type) {
+        @color-name: ~"veui-toast-icon-color-@{type}";
+        @color: @@color-name;
+
+        .@{veui-prefix}-toast-icon {
+            color: @color;
+        }
     }
-  }
+
+    &-content {
+        flex-grow: 1;
+
+        &-title {
+            font-weight: @veui-toast-title-font-weight;
+            padding-bottom: @veui-toast-title-spacing-after;
+        }
+    }
+
+    &-success {
+        .veui-toast-style(success);
+    }
+
+    &-warning {
+        .veui-toast-style(warning);
+    }
+
+    &-info {
+        .veui-toast-style(info);
+    }
+
+    &-error {
+        .veui-toast-style(error);
+    }
+
+    /* 有title样式 */
+    &&-titled {
+        padding: @veui-toast-padding-y-titled @veui-toast-padding-x;
+
+        .@{veui-prefix}-toast-icon {
+            .veui-icon-size(@veui-toast-icon-size-titled);
+        }
+        .@{veui-prefix}-toast {
+            &-state,
+            &-close {
+                font-size: @veui-toast-font-size;
+                height: @veui-toast-line-height;
+            }
+        }
+
+        .@{veui-prefix}-toast-close {
+            align-items: start;
+        }
+    }
 }

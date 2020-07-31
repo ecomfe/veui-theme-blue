@@ -1,8 +1,6 @@
 <template>
     <article class="demo-drawer">
         <h1><code>&lt;veui-drawer&gt;</code></h1>
-        <h2>位置</h2>
-        <div class="options-desc">可选的位置 <span class="bg-gray-show">placement</span> 属性值： <span class="bg-gray-show">top / right / bottom / left</span></div>
         <h2>尺寸</h2>
         <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m / l</span></div>
         <div class="options-desc">注意 <span class="bg-gray-show">placement为top/bottom时，ui不能选l，上下抽屉只有中/大两种选项</span></div>
@@ -12,40 +10,40 @@
         </section>
         <section>
             <veui-button @click="handleTopOpen('s')">
-                Top Small
+                上抽屉小号
             </veui-button>
             <veui-button @click="handleTopOpen('m')">
-                Top Middle
-            </veui-button>
-        </section>
-        <section>
-            <veui-button @click="handleRightOpen('s')">
-                Right Small
-            </veui-button>
-            <veui-button @click="handleRightOpen('m')">
-                Right Middle
-            </veui-button>
-            <veui-button @click="handleRightOpen('l')">
-                Right Large
+                上抽屉中号
             </veui-button>
         </section>
         <section>
             <veui-button @click="handleBottomOpen('s')">
-                Bottom Small
+                下抽屉小号
             </veui-button>
             <veui-button @click="handleBottomOpen('m')">
-                Bottom Middle
+                下抽屉中号
+            </veui-button>
+        </section>
+        <section>
+            <veui-button @click="handleRightOpen('s')">
+                右抽屉小号
+            </veui-button>
+            <veui-button @click="handleRightOpen('m')">
+                右抽屉中号
+            </veui-button>
+            <veui-button @click="handleRightOpen('l')">
+                右抽屉大号
             </veui-button>
         </section>
         <section>
             <veui-button @click="handleLeftOpen('s')">
-                Left Small
+                左抽屉小号
             </veui-button>
             <veui-button @click="handleLeftOpen('m')">
-                Left Middle
+                左抽屉中号
             </veui-button>
             <veui-button @click="handleLeftOpen('l')">
-                Left Large
+                左抽屉大号
             </veui-button>
         </section>
 
