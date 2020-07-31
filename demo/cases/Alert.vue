@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="alert-demo">
         <h1><code>&lt;veui-alert&gt;</code></h1>
         <h2>风格</h2>
         <div class="options-desc">可选的风格
@@ -7,14 +7,80 @@
             属性值：
             <span class="bg-gray-show">normal / 不传则默认是含图标类警示</span>
         </div>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">s(默认，可不传) / m</span>
+        </div>
+        <section>
+            <veui-form>
+                <veui-field label="小号[ui=s]">
+                    <veui-alert
+                        type="success"
+                        closable
+                        message="恭喜你，你的请求已成功处理"
+                    >
+                        <template slot="extra">
+                            <veui-button ui="text s">
+                                查看详情
+                            </veui-button>
+                        </template>
+                    </veui-alert>
+                </veui-field>
+                <veui-field>
+                    <veui-alert
+                        type="success"
+                        message="恭喜你，你的请求已成功处理"
+                        closable
+                    >
+                        <template slot="title">
+                            恭喜你
+                        </template>
+                        <template slot="extra">
+                            <veui-button ui="text s">
+                                查看详情
+                            </veui-button>
+                        </template>
+                        恭喜你，你的请求已成功处理
+                    </veui-alert>
+                </veui-field>
+                <veui-field label="中号[ui=m]">
+                    <veui-alert
+                        ui="m"
+                        type="success"
+                        closable
+                        message="恭喜你，你的请求已成功处理"
+                    >
+                        <template slot="extra">
+                            <veui-button ui="text m">
+                                查看详情
+                            </veui-button>
+                        </template>
+                    </veui-alert>
+                </veui-field>
+                <veui-field>
+                    <veui-alert
+                        ui="m"
+                        type="success"
+                        message="恭喜你，你的请求已成功处理"
+                        closable
+                    >
+                        <template slot="title">
+                            恭喜你
+                        </template>
+                        <template slot="extra">
+                            <veui-button ui="text m">
+                                查看详情
+                            </veui-button>
+                        </template>
+                        恭喜你，你的请求已成功处理
+                    </veui-alert>
+                </veui-field>
+            </veui-form>
+        </section>
         <section>
             <h3>含图标、关闭、操作的警示[不传ui]</h3>
-            <veui-alert
-                class="limit-width"
-                type="success"
-                message="恭喜你，你的请求已成功处理"
-            >
-            </veui-alert>
             <veui-alert
                 type="success"
                 message="恭喜你，你的请求已成功处理"
@@ -30,47 +96,32 @@
                     恭喜你
                 </template>
                 <template slot="extra">
-                    <veui-button ui="text">
+                    <veui-button ui="text m">
                         查看详情
                     </veui-button>
                 </template>
                 恭喜你，你的请求已成功处理
             </veui-alert>
             <veui-alert
-                class="limit-width"
-                type="success"
-                message="恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理 恭喜你，你的请求已成功处理"
-                closable
-            />
-            <veui-alert
                 type="warning"
                 message="警告，进行检查，有风险信息存在"
-            />
-            <veui-alert
-                class="limit-width"
-                type="warning"
-                :message="messages"
                 closable
             />
             <veui-alert
-                class="limit-width"
                 type="warning"
-                :message="messages"
                 closable
             >
-                <template
-                    slot="extra"
-                    slot-scope="{ message }"
-                >
-                    <veui-button ui="text"> 查看详情 {{ message }} </veui-button>
+                <template slot="title">
+                    警告
                 </template>
+                <template slot="extra">
+                    <veui-button ui="text m">
+                        查看详情
+                    </veui-button>
+                </template>
+                有风险信息存在
             </veui-alert>
             <veui-alert
-                type="info"
-                message="提醒，这个消息需要注意"
-            />
-            <veui-alert
-                class="limit-width"
                 type="info"
                 message="提醒，这个消息需要注意"
                 closable
@@ -83,18 +134,13 @@
                     提醒
                 </template>
                 <template slot="extra">
-                    <veui-button ui="text">
+                    <veui-button ui="text m">
                         查看详情
                     </veui-button>
                 </template>
                 这个消息需要注意
             </veui-alert>
             <veui-alert
-                type="error"
-                message="错误，请检查并修改后再进行操作"
-            />
-            <veui-alert
-                class="limit-width"
                 type="error"
                 message="错误，请检查并修改后再进行操作"
                 closable
@@ -107,7 +153,7 @@
                     错误
                 </template>
                 <template slot="extra">
-                    <veui-button ui="text">
+                    <veui-button ui="text m">
                         查看详情
                     </veui-button>
                 </template>
@@ -184,13 +230,15 @@
 
 <script>
 import bus from '../bus';
-import {Alert, Button} from 'veui';
+import {Alert, Button, Form, Field} from 'veui';
 
 export default {
     name: 'alert',
     components: {
         'veui-alert': Alert,
-        'veui-button': Button
+        'veui-button': Button,
+        'veui-form': Form,
+        'veui-field': Field
     },
     data() {
         return {
@@ -220,16 +268,19 @@ export default {
 };
 </script>
 
-<style scoped>
-section {
-  margin: 30px 0;
-}
-
-.veui-alert {
-  margin: 30px 0;
-}
-
-.veui-alert.limit-width {
-  width: 650px;
+<style lang="less">
+.alert-demo {
+    section {
+        margin: 30px 0;
+    }
+    .veui-form {
+        .veui-alert {
+            margin: 0;
+        }
+    }
+    .veui-alert {
+        width: 500px;
+        margin: 30px 0;
+    }
 }
 </style>

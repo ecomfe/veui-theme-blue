@@ -16,13 +16,6 @@ config.defaults(
         },
         parts: {
             close: 'icon aux'
-        },
-        ui: {
-            size: {
-                values: ['s', 'm'],
-                default: 'm',
-                inherit: true
-            }
         }
     },
     'toast'

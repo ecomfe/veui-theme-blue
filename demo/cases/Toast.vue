@@ -4,7 +4,6 @@
             <code>&lt;veui-toast&gt;</code>
         </h1>
         <section>
-            <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m (默认m)</span></div>
             <veui-button
                 ui="aux"
                 @click="showToast('all')"
@@ -47,14 +46,31 @@
         <h4>样式</h4>
         <section class="col">
             <section>
-                <veui-toast open>Test</veui-toast>
+                <veui-toast open closable>成功提示的文案</veui-toast>
+            </section>
+            <section>
+                <veui-toast
+                    open
+                    title="成功文案标题"
+                    closable
+                >
+                    提示文案描述提示文案描述
+                </veui-toast>
             </section>
             <section>
                 <veui-toast
                     open
                     closable
                     type="warning"
-                >Test</veui-toast>
+                >警告提示的文案警告提示的文案警告提示的文案</veui-toast>
+            </section>
+            <section>
+                <veui-toast
+                    open
+                    title="警示文案标题"
+                    closable
+                    type="warning"
+                >提示文案描述提示文案描述提示文案描述提示文案描述提示文案描述提示文案描述提示文案描述提示文案描述</veui-toast>
             </section>
             <section>
                 <veui-toast
@@ -62,89 +78,36 @@
                     closable
                     type="error"
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dolores,
-                    sint harum aspernatur aliquid sed maxime dolorum qui recusandae
-                    voluptatem. Saepe dolorem placeat culpa nisi eligendi ipsam illo non
-                    quam.
+                    报错提示的文案
                 </veui-toast>
             </section>
             <section>
                 <veui-toast
                     open
-                    title="Lorem Ipsum"
-                    type="info"
-                >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
-                    laboriosam, atque cumque sequi, debitis impedit fugit vitae iure,
-                    rerum accusantium odio porro. Exercitationem excepturi adipisci unde
-                    maiores est! Eos, consequatur.
-                </veui-toast>
-            </section>
-            <section>
-                <veui-toast
-                    open
-                    title="Lorem Ipsum"
                     closable
-                >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-                    minima doloremque quaerat consequatur accusamus repellat eum? Dolorem
-                    sunt est, sint inventore, id atque ut aspernatur ipsa corrupti debitis
-                    quaerat voluptatibus!
-                </veui-toast>
-            </section>
-        </section>
-        <section class="col">
-            <section>
-                <veui-toast
-                    ui="s"
-                    open
-                >Test</veui-toast>
-            </section>
-            <section>
-                <veui-toast
-                    ui="s"
-                    open
-                    closable
-                    type="warning"
-                >Test</veui-toast>
-            </section>
-            <section>
-                <veui-toast
-                    ui="s"
-                    open
-                    closable
+                    title="报错文案标题"
                     type="error"
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia dolores,
-                    sint harum aspernatur aliquid sed maxime dolorum qui recusandae
-                    voluptatem. Saepe dolorem placeat culpa nisi eligendi ipsam illo non
-                    quam.
+                    提示文案描述提示文案描述
                 </veui-toast>
             </section>
             <section>
                 <veui-toast
-                    ui="s"
                     open
-                    title="Lorem Ipsum"
+                    closable
                     type="info"
                 >
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At
-                    laboriosam, atque cumque sequi, debitis impedit fugit vitae iure,
-                    rerum accusantium odio porro. Exercitationem excepturi adipisci unde
-                    maiores est! Eos, consequatur.
+                    通知提示的文案
                 </veui-toast>
             </section>
             <section>
                 <veui-toast
-                    ui="s"
                     open
-                    title="Lorem Ipsum"
                     closable
+                    title="通知文案标题"
+                    type="info"
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-                    minima doloremque quaerat consequatur accusamus repellat eum? Dolorem
-                    sunt est, sint inventore, id atque ut aspernatur ipsa corrupti debitis
-                    quaerat voluptatibus!
+                    提示文案描述提示文案描述
                 </veui-toast>
             </section>
         </section>
@@ -160,22 +123,22 @@ let messages = [
     {
         type: 'success',
         message: '恭喜您，您的请求已成功处理',
-        duration: 2500
+        duration: 250000
     },
     {
         type: 'warn',
         message: '警告，有法律风险存在',
-        duration: 2000
+        duration: 200000
     },
     {
         type: 'info',
         message: '提醒，请注意这个消息',
-        duration: 1500
+        duration: 150000
     },
     {
         type: 'error',
         message: '错误，请检查并修改后再提交',
-        duration: 1000
+        duration: 100000
     }
 ];
 
@@ -218,7 +181,10 @@ export default {
                     });
                 });
             } else {
-                toast[type](this.messageMap[type].message);
+                toast[type]({
+                    message: this.messageMap[type].message,
+                    duration: 100000
+                });
             }
         },
         showSlottedToast() {

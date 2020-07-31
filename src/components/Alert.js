@@ -26,6 +26,11 @@ config.defaults(
         ui: {
             style: {
                 values: ['normal'],
+            },
+            size: {
+                values: ['s', 'm'],
+                inherit: true,
+                default: 'm'
             }
         }
     },
