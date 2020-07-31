@@ -72,6 +72,7 @@ export default {
     computed: {
     },
     methods: {
+        handleRedirect() {}
     }
 };
 </script>
