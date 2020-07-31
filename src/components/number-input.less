@@ -43,8 +43,15 @@
       .size(veui-sum(@veui-number-input-spin-button-width-normal-s, -1px), 100%);
     }
 
-    &[ui~="m"] .@{veui-prefix}-input-after {
-      .size(veui-sum(@veui-number-input-spin-button-width-normal-m, -1px), 100%);
+    &[ui~="m"] {
+      .@{veui-prefix}-input-after {
+        .size(veui-sum(@veui-number-input-spin-button-width-normal-m, -1px), 100%);
+      }
+      .@{veui-prefix}-input-content {
+        .@{veui-prefix}-input-input {
+          line-height: 22px;
+        }
+      }
     }
   }
 
@@ -58,6 +65,11 @@
     opacity: 0;
     overflow: hidden;
     .veui-transition(opacity, width);
+    .@{veui-prefix}-button:hover {
+      .@{veui-prefix}-icon {
+        color: @veui-font-color-aux;
+      }
+    }
   }
 
   &[ui~="normal"]:hover &-controls,
@@ -182,6 +194,11 @@
         &-after {
           .size(@veui-number-input-height-m);
         }
+        &-content {
+          .@{veui-prefix}-input-input {
+            line-height: 22px;
+          }
+        }
       }
     }
 
@@ -210,6 +227,8 @@
 
         .@{veui-prefix}-icon {
           .veui-icon-size(@veui-number-input-spin-icon-size-strong);
+          color: @veui-font-color-aux;
+
         }
       }
     }

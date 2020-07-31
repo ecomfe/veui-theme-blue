@@ -136,6 +136,19 @@
                     </veui-field>
                 </veui-form>
             </section>
+            <section>
+                <h2>有上下限(最小-1，最大10)</h2>
+                <veui-form>
+                    <veui-field >
+                        <veui-number-input
+                            v-model="number8"
+                            ui="strong"
+                            :max="10"
+                            :min="-1"
+                        />
+                    </veui-field>
+                </veui-form>
+            </section>
         </veui-form>
     </article>
 </template>

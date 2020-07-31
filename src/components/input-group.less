@@ -22,11 +22,11 @@
     margin-right: -1px;
     z-index: 1;
 
-    &:first-child {
+    &:not(:only-child):first-child {
       .border-right-radius(0);
     }
 
-    &:last-child {
+    &:not(:only-child):last-child {
       .border-left-radius(0);
     }
 
