@@ -146,13 +146,13 @@
             <span class="title-desc">超大样式</span>
             <veui-button
                 ui="primary"
-                @click="lDialogVisible = !lDialogVisible"
+                @click="xlDialogVisible = !xlDialogVisible"
             >
                 超大样式 dialog box
             </veui-button>
             <veui-dialog
                 modal
-                :open.sync="lDialogVisible"
+                :open.sync="xlDialogVisible"
                 ui="xl"
                 title="First">
                 样式
