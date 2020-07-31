@@ -141,7 +141,6 @@ export default {
     },
     methods: {
         handleClose(name) {
-            toastManagers.success(name + '赢了');
         }
     }
 };
