@@ -10,10 +10,10 @@ const CHECKBOX_SIZE_MAP = {
 };
 
 const TAG_SIZE_MAP = {
-    xs: 's',
+    xs: 'xs',
     s: 's',
-    m: 's',
-    l: 'm'
+    m: 'm',
+    l: 'l'
 };
 
 config.defaults(

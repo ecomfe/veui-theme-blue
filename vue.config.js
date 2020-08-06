@@ -5,6 +5,8 @@ const webpack = require('webpack')
 function resolve (dir) {
     return path.join(__dirname, dir)
 }
+const VEUI_PREFIX = process.env.VEUI_PREFIX || process.env.VUE_APP_VEUI_PREFIX
+const vars = {}
 
 module.exports = {
     publicPath: '',
@@ -13,27 +15,27 @@ module.exports = {
     css: {
         loaderOptions: {
             less: {
-              lessOptions: {
-                javascriptEnabled: true
-              }
+                lessOptions: {
+                    javascriptEnabled: true,
+                    modifyVars: {
+                        ...vars,
+                        ...(VEUI_PREFIX
+                            ? {
+                            'veui-prefix': VEUI_PREFIX
+                            }
+                            : {})
+                    }
+                }
             }
         }
     },
     transpileDependencies: [
-        'veui',
-        'vue-awesome',
-        'resize-detector'
+        /[/\\]node_modules[/\\]veui[/\\]/,
+        /[/\\]node_modules[/\\]vue-awesome[/\\]/,
+        /[/\\]node_modules[/\\]resize-detector[/\\]/,
+        // /[/\\]node_modules[/\\][@\\]antv[/\\]g2plot[/\\]/
     ],
     chainWebpack: config => {
-        // config.optimization.minimize(true);
-        // config.optimization.splitChunks({
-        //   chunks: 'all'
-        // })
-        // 启动展示分析报告
-        // config
-        // .plugin('webpack-bundle-analyzer')
-        // .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
-
         config
             .entry('app')
             .clear()
