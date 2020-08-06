@@ -11,12 +11,11 @@
             <span class="bg-gray-show">xs / s（默认，可不传） / m / l</span>
         </div>
         <section>
-            <div ui="title-desc">默认样式</div>
+            <div class="title-desc">默认样式</div>
             <veui-form>
                 <veui-field
                     v-for="(ui, index) in sizes"
                     :key="index"
-                    
                     :label="ui.label"
                 >
                     <veui-select
@@ -30,121 +29,83 @@
                         :disabled="ui.label === '禁用'"
                     />
                 </veui-field>
-            </veui-form>
-        </section>
-        <section>
-            <div ui="title-desc">多选样式</div>
-            <veui-form>
                 <veui-field
-                    
-                    label="超小号[ui=xs]"
+                    label="只读"
                 >
                     <veui-select
-                        v-model="defaultMultiValue"
-                        ui="xs"
-                        v-bind="attrs"
-                        placeholder="全部"
-                        :max="3"
-                        clearable
-                        multiple
-                    />
-                </veui-field>
-                <veui-field
-                    
-                    label="小号[ui=s]"
-                >
-                    <veui-select
-                        v-model="defaultMultiValue"
-                        v-bind="attrs"
-                        placeholder="全部"
-                        clearable
-                        multiple
-                    >
-                        <template
-                            slot="tag"
-                            slot-scope="{ label }"
-                        >
-                            <span>{{ label }}</span>
-                        </template>
-                    </veui-select>
-                </veui-field>
-                <veui-field
-                    
-                    label="中号[ui=m]"
-                >
-                    <veui-select
-                        v-model="defaultMultiValue"
-                        ui="m"
-                        v-bind="attrs"
-                        placeholder="全部"
-                        clearable
-                        multiple
-                    />
-                </veui-field>
-                <veui-field
-                    
-                    label="大号[ui=l]"
-                >
-                    <veui-select
-                        v-model="defaultMultiValue"
-                        ui="l"
-                        v-bind="attrs"
-                        placeholder="全部"
-                        clearable
-                        multiple
-                    />
-                </veui-field>
-                <veui-field
-                    
-                    label="禁用"
-                >
-                    <veui-select
-                        v-model="defaultMultiValue"
+                        v-model="defaultValue1"
                         ui="s"
                         v-bind="attrs"
                         placeholder="全部"
                         clearable
-                        multiple
+                        :filter="filter"
+                        readonly
+                    />
+                </veui-field>
+                <veui-field
+                    label="禁用"
+                >
+                    <veui-select
+                        v-model="defaultValue1"
+                        ui="s"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        clearable
+                        :filter="filter"
                         disabled
                     />
                 </veui-field>
             </veui-form>
         </section>
         <section>
-            <div class="title-desc">可搜索Select：</div>
+            <div class="title-desc">多选样式</div>
             <veui-form>
                 <veui-field
-                    
-                    label="可搜索"
+                    v-for="(ui, index) in sizes"
+                    :key="index"
+                    :label="ui.label"
+                >
+                    <veui-select
+                        v-model="defaultMultiValue"
+                        :ui="ui.value"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        clearable
+                        multiple
+                    >
+                    </veui-select>
+                </veui-field>
+            </veui-form>
+        </section>
+        <section>
+            <div class="title-desc">单选且搜索样式：</div>
+            <veui-form>
+                <veui-field
+                    v-for="(ui, index) in sizes"
+                    :key="index"
+                    :label="ui.label"
                 >
                     <veui-select
                         v-model="defaultValue2"
-                        ui="s"
+                        :ui="ui.value"
                         v-bind="attrs"
                         searchable
                     />
                 </veui-field>
+            </veui-form>
+        </section>
+        <section>
+            <div class="title-desc">多选且搜索样式：</div>
+            <veui-form>
                 <veui-field
-                    
-                    label="可多选"
+                    v-for="(ui, index) in sizes"
+                    :key="index"
+                    :label="ui.label"
                 >
                     <veui-select
                         v-model="defaultSearchMultiValue"
                         v-bind="attrs"
-                        ui="s"
-                        searchable
-                        multiple
-                    />
-                </veui-field>
-                <veui-field
-                    
-                    label="有限制"
-                >
-                    <veui-select
-                        v-model="defaultSearchMultiValue"
-                        v-bind="attrs"
-                        ui="s"
-                        :max="4"
+                        :ui="ui.value"
                         searchable
                         multiple
                     />
@@ -152,12 +113,23 @@
             </veui-form>
         </section>
         <section>
-            <div class="title-desc">Slot样式：</div>
+            <div class="title-desc">分隔线样式：</div>
             <veui-form>
                 <veui-field
-                    
-                    label="name=option-label："
-                >
+                    label="分隔线样式：">
+                    <veui-select
+                        v-model="defaultValue9"
+                        v-bind="optGroupAttrs"
+                        :options="groupedOpts"
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
+        <h2 style="margin-top: 50px;">以下为更多组件功能demo示例</h2>
+        <section>
+            <div class="title-desc">Slot样式：</div>
+            <veui-form>
+                <veui-field label="name=option-label：">
                     <veui-select
                         v-model="defaultValue3"
                         v-bind="attrs"
@@ -170,27 +142,7 @@
                         </template>
                     </veui-select>
                 </veui-field>
-                <veui-field
-                    
-                    label="name=option："
-                >
-                    <veui-select
-                        v-model="defaultValue4"
-                        v-bind="attrs"
-                    >
-                        <template
-                            slot="option"
-                            slot-scope="props"
-                        >
-                            <span class="veui-option-label-text">{{ props.label }}</span>
-                            <veui-icon name="flag"/>
-                        </template>
-                    </veui-select>
-                </veui-field>
-                <veui-field
-                    
-                    label="name=option："
-                >
+                <veui-field label="name=option：">
                     <veui-select
                         v-model="defaultValue1"
                         v-bind="attrs"
@@ -208,10 +160,7 @@
         <section>
             <div class="title-desc">内联样式：</div>
             <veui-form>
-                <veui-field
-                    
-                    label="内联样式1："
-                >
+                <veui-field label="内联样式1：">
                     <veui-select
                         v-model="hero"
                         multiple
@@ -290,7 +239,6 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    
                     label="内联样式2：">
                     <veui-select v-model="phone">
                         <veui-option-group label="国产">
@@ -379,9 +327,7 @@
         <section>
             <div class="title-desc">复杂自定义样式：</div>
             <veui-form>
-                <veui-field
-                    
-                    label="自定义1：">
+                <veui-field label="自定义1：">
                     <veui-select
                         v-model="complex"
                         multiple
@@ -505,16 +451,6 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    
-                    label="分隔线样式：">
-                    <veui-select
-                        v-model="defaultValue9"
-                        v-bind="optGroupAttrs"
-                        :options="groupedOpts"
-                    />
-                </veui-field>
-                <veui-field
-                    
                     label="内联样式：">
                     <veui-select
                         v-model="defaultValue10"
@@ -621,14 +557,6 @@ export default {
                 {
                     label: '大号[ui=l]',
                     value: 'l'
-                },
-                {
-                    label: '禁用',
-                    value: 's'
-                },
-                {
-                    label: '只读',
-                    value: 's'
                 }
             ],
             attrs: {

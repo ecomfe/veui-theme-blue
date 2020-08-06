@@ -230,15 +230,15 @@
 
 <script>
 import bus from '../bus';
-import {Alert, Button, Form, Field} from 'veui';
+import {VeuiAlert, VeuiButton, VeuiForm, VeuiField} from 'veui';
 
 export default {
     name: 'alert',
     components: {
-        'veui-alert': Alert,
-        'veui-button': Button,
-        'veui-form': Form,
-        'veui-field': Field
+        VeuiAlert,
+        VeuiButton,
+        VeuiForm,
+        VeuiField
     },
     data() {
         return {
