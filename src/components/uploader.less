@@ -11,6 +11,13 @@
         color: @veui-uploader-file-item-icon-color;
     }
 
+    &-input-label {
+        .@{veui-prefix}-icon:only-child {
+            color: @veui-uploader-upload-icon;
+            margin-right: @veui-uploader-upload-spacing;
+        }
+    }
+
     .@{veui-prefix}-disabled .@{veui-prefix}-icon {
         color: @veui-uploader-file-item-disabled-icon;
     }
