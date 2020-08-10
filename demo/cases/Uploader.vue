@@ -1,239 +1,158 @@
 <template>
     <article>
         <h1><code>&lt;veui-uploader&gt;</code></h1>
-        <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸
-            <span class="bg-gray-show">ui</span>
-            属性值：
-            <span class="bg-gray-show">xs / s（默认，可不传） / m / l</span>
-        </div>
         <section>
-            <span class="title-desc">超小号[ui=xs]</span>
-            <veui-uploader
-                ui="xs"
-                v-model="files2"
-                name="file"
-                :action="action"
-                :max-count="3"
-                max-size="100kb"
-                :payload="payload"
-                @success="onSuccess"
-                @failure="onFailure"
-                @change="handleChange('files2')"
-                @statuschange="handleStatusChange"
-            >
-                <template slot="desc">
-                    提示：1、单个附件大小不大于10M；2、附件个数不多于3个
-                </template>
-            </veui-uploader>
-            <span class="title-desc">小号[ui=s]</span>
-            <veui-uploader
-                v-model="files2"
-                name="file"
-                :action="action"
-                :max-count="3"
-                max-size="100kb"
-                :payload="payload"
-                @success="onSuccess"
-                @failure="onFailure"
-                @change="handleChange('files2')"
-                @statuschange="handleStatusChange"
-            >
-                <template slot="desc">
-                    提示：1、单个附件大小不大于10M；2、附件个数不多于3个
-                </template>
-            </veui-uploader>
-            <span class="title-desc">中号[ui=m]</span>
-            <veui-uploader
-                ui="m"
-                v-model="files2"
-                name="file"
-                :action="action"
-                :max-count="3"
-                max-size="100kb"
-                :payload="payload"
-                @success="onSuccess"
-                @failure="onFailure"
-                @change="handleChange('files2')"
-                @statuschange="handleStatusChange"
-            >
-                <template slot="desc">
-                    提示：1、单个附件大小不大于10M；2、附件个数不多于3个
-                </template>
-            </veui-uploader>
-            <span class="title-desc">大号[ui=l]</span>
-            <veui-uploader
-                ui="l"
-                v-model="files2"
-                name="file"
-                :action="action"
-                :max-count="3"
-                max-size="100kb"
-                :payload="payload"
-                @success="onSuccess"
-                @failure="onFailure"
-                @change="handleChange('files2')"
-                @statuschange="handleStatusChange"
-            >
-                <template slot="desc">
-                    提示：1、单个附件大小不大于10M；2、附件个数不多于3个
-                </template>
-            </veui-uploader>
-        </section>
-        <h2>风格</h2>
-        <div class="options-desc">可选的风格
-            <span class="bg-gray-show">ui</span>
-            属性值：
-            <span class="bg-gray-show">vertical（默认，可不传） / horizon</span>
-        </div>
-        <section>
-            <span class="title-desc">水平排列[ui=horizon]</span>
-            <veui-uploader
-                ui="s horizon"
-                v-model="files2"
-                name="file"
-                :action="action"
-                :max-count="20"
-                max-size="100kb"
-                :payload="payload"
-                @success="onSuccess"
-                @failure="onFailure"
-                @change="handleChange('files2')"
-                @statuschange="handleStatusChange"
-            >
-                <template slot="desc">
-                    提示：1、单个附件大小不大于10M；2、附件个数不多于20个
-                </template>
-            </veui-uploader>
-        </section>
-        <h2>文件上传模式，通过iframe上传</h2>
-        <veui-uploader
-            v-model="filesIframe"
-            name="file"
-            action="/uploadiframe"
-            request-mode="iframe"
-            :max-count="1"
-            max-size="10mb"
-            accept=".jpg,.jpeg,.gif"
-            :payload="payload"
-            :convert-response="convertResponse"
-            ui="s"
-            @success="onSuccess"
-            @failure="onFailure"
-            @change="handleChange('filesIframe')"
-            @statuschange="handleStatusChange"
-        >
-            <template slot="desc">
-                请选择jpg,jpeg,gif图片，大小在10M以内，只能上传1张图
-            </template>
-        </veui-uploader>
-        <h3>图片上传模式(不分UI尺寸)</h3>
-        <veui-uploader
-            v-model="files"
-            type="image"
-            name="file"
-            :action="action"
-            :max-count="3"
-            max-size="100kb"
-            accept=".jpg,.jpeg,.gif"
-            :payload="payload"
-            :validator="validator"
-            disabled
-            @success="onSuccess"
-            @failure="onFailure"
-            @change="handleChange('files')"
-            @statuschange="handleStatusChange"
-        >
-            <template slot="desc">
-                请选择jpg,jpeg,gif图片，大小在100kb以内，宽、高大于200像素，最多上传3张图
-            </template>
-        </veui-uploader>
-        <h3>图片上传模式，扩展操作栏</h3>
-        <veui-uploader
-            ref="multipleUploader"
-            v-model="files1"
-            type="image"
-            request-mode="custom"
-            name="file"
-            max-size="100kb"
-            accept=".jpg,.jpeg,.gif"
-            :payload="payload"
-            :upload="upload"
-            ui="s"
-            picker-position="before"
-            :controls="imageControls"
-            @moveright="handleMoveRight"
-            @success="onSuccess"
-            @failure="onFailure"
-            @change="handleChange('files1')"
-            @statuschange="handleStatusChange"
-        >
-            <template slot="desc">
-                请选择jpg,jpeg,gif图片，大小在100kb以内
-            </template>
-        </veui-uploader>
-        <veui-button
-            class="clear"
-            @click="$refs.multipleUploader.clear()"
-        >清除失败文件</veui-button>
-        <h3>图片上传模式，自定义上传slot</h3>
-        <veui-uploader
-            ref="customUploader"
-            v-model="customFiles"
-            type="image"
-            :action="action"
-            name="file"
-            max-size="10mb"
-            accept=".jpg,.jpeg,.gif"
-            :payload="payload"
-            ui="s"
-            @success="onSuccess"
-            @failure="onFailure"
-            @change="handleChange('files1')"
-            @statuschange="handleStatusChange"
-        >
-            <template slot="desc">
-                请选择jpg,jpeg,gif图片，大小在10M以内
-            </template>
-            <template slot="upload">
-                <div class="veui-uploader-list-image-container custom">
-                    <veui-button
-                        @click="$refs.customUploader.clickInput()"
-                    >上传文件</veui-button>
-                    <veui-button
-                        ref="add-image"
-                        @click="openTooltip"
-                    >图库上传</veui-button>
-                </div>
-            </template>
-        </veui-uploader>
-        <veui-popover
-            :target="tooltipTarget"
-            :open="tooltipOpen"
-            trigger="click"
-            autofocus
-        >
-            <div class="extra-url">
-                <veui-span>图片地址：</veui-span><veui-input v-model="imageSrc"/>
-                <veui-button @click="addImage">
-                    确定
-                </veui-button>
+            <h2>文件上传模式</h2>
+            <h2>尺寸</h2>
+            <div class="options-desc">可选的尺寸
+                <span class="bg-gray-show">ui</span>
+                属性值：
+                <span class="bg-gray-show">xs / s（默认，可不传） / m / l</span>
             </div>
-        </veui-popover>
+            <section>
+                <veui-form>
+                    <veui-field
+                        v-for="(ui, index) in sizes"
+                        :key="index"
+                        :label="ui.label"
+                        ui="multi"
+                    >
+                        <veui-uploader
+                            :ui="ui.value"
+                            v-model="files2"
+                            name="file"
+                            :action="action"
+                            :max-count="3"
+                            max-size="100kb"
+                            :payload="payload"
+                            @success="onSuccess"
+                            @failure="onFailure"
+                            @change="handleChange('files2')"
+                            @statuschange="handleStatusChange"
+                        >
+                            <template slot="desc">
+                                提示：1、单个附件大小不大于10M；2、附件个数不多于3个
+                            </template>
+                        </veui-uploader>
+                    </veui-field>
+                </veui-form>
+            </section>
+            <h2>风格</h2>
+            <div class="options-desc">可选的风格
+                <span class="bg-gray-show">ui</span>
+                属性值：
+                <span class="bg-gray-show">vertical（默认，可不传） / horizon</span>
+            </div>
+            <section>
+                <veui-form>
+                    <veui-field label="水平排列[ui=horizon]" ui="multi">
+                        <veui-uploader
+                            ui="s horizon"
+                            v-model="files2"
+                            name="file"
+                            :action="action"
+                            :max-count="20"
+                            max-size="100kb"
+                            :payload="payload"
+                            @success="onSuccess"
+                            @failure="onFailure"
+                            @change="handleChange('files2')"
+                            @statuschange="handleStatusChange"
+                        >
+                            <template slot="desc">
+                                提示：1、单个附件大小不大于10M；2、附件个数不多于20个
+                            </template>
+                        </veui-uploader>
+                    </veui-field>
+                </veui-form>
+            </section>
+        </section>
+        <section>
+            <h2>图片上传模式</h2>
+            <veui-form>
+                <veui-field label="图片上传" ui="multi">
+                    <veui-uploader
+                        v-model="files"
+                        type="image"
+                        name="file"
+                        :action="action"
+                        :max-count="1"
+                        max-size="10000kb"
+                        accept=".jpg,.jpeg,.gif"
+                        :payload="payload"
+                        :validator="validator"
+                        @success="onSuccess"
+                        @failure="onFailure"
+                        @change="handleChange('files')"
+                        @statuschange="handleStatusChange"
+                    >
+                        <!-- <template slot="file-after" slot-scope="props">
+                            {{props}}
+                        </template> -->
+                    </veui-uploader>
+                </veui-field>
+            </veui-form>
+        </section>
+        <h2 style="margin-top: 50px;">更多功能demo示例（UI不需还原）</h2>
+        <section>
+            <veui-form>
+                <veui-field label="图片上传，扩展操作栏" ui="multi">
+                    <veui-uploader
+                        ref="multipleUploader"
+                        v-model="files1"
+                        type="image"
+                        request-mode="custom"
+                        name="file"
+                        max-size="100kb"
+                        accept=".jpg,.jpeg,.gif"
+                        :payload="payload"
+                        :upload="upload"
+                        picker-position="before"
+                        :controls="imageControls"
+                        @moveright="handleMoveRight"
+                        @success="onSuccess"
+                        @failure="onFailure"
+                        @change="handleChange('files1')"
+                        @statuschange="handleStatusChange"
+                    >
+                    </veui-uploader>
+                </veui-field>
+                <veui-field label="文件上传，通过iframe上传" ui="multi">
+                    <veui-uploader
+                        v-model="filesIframe"
+                        name="file"
+                        action="/uploadiframe"
+                        request-mode="iframe"
+                        :max-count="1"
+                        max-size="10mb"
+                        accept=".jpg,.jpeg,.gif"
+                        :payload="payload"
+                        :convert-response="convertResponse"
+                        ui="s"
+                        @success="onSuccess"
+                        @failure="onFailure"
+                        @change="handleChange('filesIframe')"
+                        @statuschange="handleStatusChange"
+                    >
+                        <template slot="desc">
+                            请选择jpg,jpeg,gif图片，大小在10M以内，只能上传1张图
+                        </template>
+                    </veui-uploader>
+                </veui-field>
+            </veui-form>
+        </section>
     </article>
 </template>
 <script>
-import {Uploader, Button, Popover, Input, Span} from 'veui';
+import {VeuiUploader, VeuiForm, VeuiField} from 'veui';
 import 'veui-theme-blue-icons/chevron-right';
 
 export default {
     name: 'uploader-demo',
     components: {
-        'veui-uploader': Uploader,
-        'veui-button': Button,
-        'veui-popover': Popover,
-        'veui-input': Input,
-        'veui-span': Span
+        VeuiUploader,
+        VeuiForm,
+        VeuiField
     },
     data() {
         let files = [
@@ -241,12 +160,6 @@ export default {
                 name: 'demo-file111111111111111111111111111111111.jpg',
                 src: 'https://www.baidu.com/img/bd_logo1.png',
                 extraInfo: 123
-            },
-            {
-                name: 'demo-file2.gif',
-                src:
-          'https://ss3.bdstatic.com/yrwDcj7w0QhBkMak8IuT_XF5ehU5bvGh7c50/logopic/1b61ee88fdb4a4b918816ae1cfd84af1_fullsize.jpg',
-                extraInfo: 128
             }
         ];
 
@@ -261,6 +174,24 @@ export default {
                 name: 'demo-file.txt',
                 src: 'http://www.baidu.com'
             },
+            sizes: [
+                {
+                    label: '超小号[ui=xs]',
+                    value: 'xs'
+                },
+                {
+                    label: '小号[ui=s]',
+                    value: 's'
+                },
+                {
+                    label: '中号[ui=m]',
+                    value: 'm'
+                },
+                {
+                    label: '大号[ui=l]',
+                    value: 'l'
+                }
+            ],
             payload: {
                 year: '2017',
                 month: '4'
