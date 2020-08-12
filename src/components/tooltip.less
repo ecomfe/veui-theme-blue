@@ -2,8 +2,8 @@
 @import "../variables/components/tooltip.less";
 
 .@{veui-prefix}-tooltip {
-  @arrow-size: 10px;
-  @arrow-side: @arrow-size / sqrt(2);
+  @arrow-size: 10px; // 箭头对角线
+  @arrow-side: @arrow-size / sqrt(2); // 箭头边线
   @arrow-indent: 5px;
   @gap: 9px;
 
@@ -23,7 +23,7 @@
   }
 
   &-arrow {
-    .size(@arrow-size * 2);
+    .size(@arrow-size);
     position: absolute;
     overflow: hidden;
     pointer-events: none;
@@ -44,24 +44,24 @@
 
   .make-side(top) {
     .@{veui-prefix}-tooltip-arrow {
-      bottom: -@arrow-size * 2;
+      bottom: -@arrow-size;
     }
   }
   .make-side(right) {
     .@{veui-prefix}-tooltip-arrow {
-      left: -@arrow-size * 2;
+      left: -@arrow-size;
       transform: rotate(90deg);
     }
   }
   .make-side(bottom) {
     .@{veui-prefix}-tooltip-arrow {
-      top: -@arrow-size * 2;
+      top: -@arrow-size;
       transform: rotate(180deg);
     }
   }
   .make-side(left) {
     .@{veui-prefix}-tooltip-arrow {
-      right: -@arrow-size * 2;
+      right: -@arrow-size;
       transform: rotate(-90deg);
     }
   }
@@ -86,7 +86,8 @@
     .make-side(left);
   }
 
-  @arrow-offset: @arrow-indent - @arrow-size / 2;
+  // @arrow-offset: @arrow-indent - @arrow-size / 2;
+  @arrow-offset: 8px;
 
   .make-align(top) {
     &-arrow {
@@ -114,14 +115,14 @@
   [x-placement*="top"] &,
   [x-placement*="bottom"] & {
     &-arrow {
-      left: calc(50% - @arrow-size);
+      left: calc(50% - @arrow-size / 2);
     }
   }
 
   [x-placement*="right"] &,
   [x-placement*="left"] & {
     &-arrow {
-      top: calc(50% - @arrow-size);
+      top: calc(50% - @arrow-size / 2);
     }
   }
 
@@ -145,7 +146,7 @@
     .make-align(left);
   }
 
-  &[ui~="reverse"] {
+  &[ui~="white"] {
     background-color: @veui-tooltip-background-color-reverse;
     color: @veui-tooltip-font-color-reverse;
     box-shadow: @veui-tooltip-shadow-reverse;
