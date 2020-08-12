@@ -3,8 +3,9 @@ import config from 'veui/managers/config';
 config.defaults(
     {
         ui: {
-            reverse: {
-                boolean: true
+            style: {
+                values: ['black', 'white'],
+                default: 'black'
             }
         }
     },
