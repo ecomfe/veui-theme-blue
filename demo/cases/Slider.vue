@@ -28,6 +28,13 @@
             />
             <div class="desc">Range: 0~1, Value: {{ value2 }}</div>
         </section>
+        <h2>固定比例</h2>
+        <veui-slider
+            :value="50"
+            :min="1"
+            :max="100"
+            mark
+        />
         <h2>分段滑动条</h2>
         <div class="options-desc">未支持搭配 <span class="bg-gray-show">readonly</span> 和 <span class="bg-gray-show">disabled</span></div>
         <section>

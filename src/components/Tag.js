@@ -4,7 +4,7 @@ import '../icons/times';
 config.defaults(
     {
         icons: {
-            close: 'times'
+            remove: 'times'
         },
         ui: {
             borderless: {
@@ -16,14 +16,15 @@ config.defaults(
             size: {
                 values: ['xs', 's', 'm', 'l'],
                 inherit: true,
-                default: 'm'
+                default: 's'
             },
             shape: {
-                values: ['rect', 'ellipse', 'circle']
+                values: ['rect', 'ellipse', 'circle'],
+                default: 'rect'
             }
         },
         parts: {
-            close: 'icon aux'
+            remove: 'icon aux'
         }
     },
     'tag'

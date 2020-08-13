@@ -1,146 +1,198 @@
 <template>
     <article>
         <h1><code>&lt;veui-tag&gt;</code></h1>
-        <h2>不同尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m / l（默认 m）</span></div>
+        <h2>尺寸</h2>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s（默认，可不传） / m / l</span></div>
         <section>
-            <div>
-                <veui-tag
-                    v-for="size in sizes"
-                    :key="size"
-                    :ui="size"
-                >
-                    {{ size }}
-                </veui-tag>
-            </div>
+            <veui-form>
+                <veui-field v-for="size in sizes" :key="`${size.value}_01`" :label="size.label" ui="long">
+                    <veui-tag
+                        :ui="size.value"
+                    >
+                        标签
+                    </veui-tag>
+                </veui-field>
+            </veui-form>
         </section>
-        <h2>不同类型</h2>
-        <div class="options-desc">可选的类型 <span class="bg-gray-show">type</span> 属性值： <span class="bg-gray-show">default / info / success / warning / error（默认 default）</span></div>
-        <div class="options-desc">无边框 <span class="bg-gray-show">ui</span> 属性值：<span class="bg-gray-show">borderless</span></div>
+        <h2>类型</h2>
+        <div class="options-desc">可选的类型 <span class="bg-gray-show">type</span> 属性值： <span class="bg-gray-show">default（默认） / info / success / warning / error</span></div>
         <section>
-            <div>
-                <veui-tag
-                    v-for="type in types"
-                    :key="type"
-                    :type="type"
-                >
-                    {{ type }}
-                </veui-tag>
-            </div>
-            <div>
-                <veui-tag
-                    v-for="type in types"
-                    :key="type"
-                    :type="type"
-                    ui="borderless"
-                >
-                    {{ type }}
-                </veui-tag>
-            </div>
+            <veui-form>
+                <veui-field v-for="type in types" :key="`${type.value}_02`" ui="long" :label="type.label">
+                    <veui-tag :type="type.value">
+                        标签
+                    </veui-tag>
+                </veui-field>
+            </veui-form>
         </section>
-        <h2>不同形状</h2>
-        <div class="options-desc">可选的形状 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">rect / ellipse / circle（默认 rect）</span></div>
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">borderless</span></div>
         <section>
-            <div 
-                v-for="type in types"
-                :key="type">
-                <veui-tag
-                    v-for="item in shape"
-                    :key="item"
-                    :type="type"
-                    :ui="item"
-                >
-                    {{ item === 'circle' ? '签' : item }}
-                </veui-tag>
-            </div>
+            <veui-form>
+                <veui-field label="有边框[不传ui]" ui="long">
+                    <veui-tag>
+                        标签
+                    </veui-tag>
+                </veui-field>
+                <veui-field label="无边框[ui=borderless]" ui="long">
+                    <veui-tag ui="borderless">
+                        标签
+                    </veui-tag>
+                </veui-field>
+            </veui-form>
         </section>
-        <h2>可移除标签</h2>
-        <div class="options-desc">设置 <span class="bg-gray-show">closable</span> 来使标签处于可移除状态</div>
+        <h2>形状</h2>
+        <div class="options-desc">可选的形状 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">rect（默认，可不传） / ellipse / circle</span></div>
         <section>
-            <div>
-                <veui-tag
-                    v-for="(item, index) in sizes"
-                    :key="index"
-                    :ui="item"
-                    closable
-                    @close="handleClose(`${item}`)"
-                >
-                    标签
-                </veui-tag>
-            </div>
-            <div>
-                <veui-tag
-                    v-for="(item, index) in sizes"
-                    :key="index"
-                    :ui="`${item} borderless`"
-                    closable
-                    @close="handleClose(`${item}`)"
-                >
-                    标签
-                </veui-tag>
-            </div>
-            <div>
-                <veui-tag
-                    v-for="(item, index) in sizes"
-                    :key="index"
-                    :ui="`${item} borderless ellipse`"
-                    closable
-                    @close="handleClose(`${item}`)"
-                >
-                    标签
-                </veui-tag>
-            </div>
+            <veui-form>
+                <veui-field v-for="item in shape" :key="`${item.value}_03`" :label="item.label" ui="long">
+                    <veui-tag
+                        v-for="type in types"
+                        :key="type.value"
+                        :type="type.value"
+                        :ui="item.value"
+                    >
+                        {{ item.value === 'circle' ? '签' : '标签' }}
+                    </veui-tag>
+                </veui-field>
+            </veui-form>
         </section>
-        <h2>选择性标签</h2>
-        <div class="options-desc">设置 <span class="bg-gray-show">selectable</span> 来使标签处于可选择状态</div>
+        <h2>更多状态</h2>
         <section>
-            <div>
-                <veui-tag
-                    v-for="(item, index) in sizes"
-                    :key="index"
-                    :ui="item"
-                    selectable
-                >
-                    标签
-                </veui-tag>
-            </div>
-        </section>
-        <h2>禁用标签</h2>
-        <div class="options-desc">设置 <span class="bg-gray-show">disabled</span> 来使标签处于禁用状态</div>
-        <section>
-            <div>
-                <veui-tag
-                    v-for="(item, index) in sizes"
-                    :key="index"
-                    :ui="item"
-                    disabled
-                >
-                    标签
-                </veui-tag>
-            </div>
+            <veui-form>
+                <veui-field label="可移除标签" ui="long">
+                    <veui-tag
+                        removable
+                        @remove="handleRemove('1')"
+                    >
+                        标签
+                    </veui-tag>
+                    <veui-tag
+                        ui="borderless"
+                        removable
+                        @remove="handleRemove('2')"
+                    >
+                        标签
+                    </veui-tag>
+                    <veui-tag
+                        ui="borderless ellipse"
+                        removable
+                        @remove="handleRemove('3')"
+                    >
+                        标签
+                    </veui-tag>
+                </veui-field>
+                <veui-field label="选择型标签" ui="long">
+                    <veui-tag
+                        v-for="item in sizes"
+                        :key="`${item.value}_04`"
+                        selectable
+                    >
+                        标签
+                    </veui-tag>
+                </veui-field>
+                <veui-field label="禁用标签" ui="long">
+                    <veui-tag disabled>
+                        标签
+                    </veui-tag>
+                </veui-field>
+                <veui-field label="可移除标签（受控，demo展示，无须UI还原）" ui="long">
+                    <veui-tag
+                        removable
+                        :removed="controlledRemoved"
+                        @remove="handleControlledRemove"
+                    >
+                        受控可移除标签
+                    </veui-tag>
+                </veui-field>
+            </veui-form>
         </section>
     </article>
 </template>
 
 <script>
-import {Tag} from 'veui';
+import Vue from 'vue';
+import {VeuiTag, VeuiForm, VeuiField} from 'veui';
 import toastManagers from 'veui/managers/toast';
+import confirm from 'veui/plugins/confirm';
+Vue.use(confirm);
 
 export default {
     name: 'tag-demo',
     components: {
-        'veui-tag': Tag
+        VeuiTag,
+        VeuiForm,
+        VeuiField
     },
     data() {
         return {
-            types: ['default', 'info', 'success', 'warning', 'error'],
-            sizes: ['xs', 's', 'm', 'l'],
-            shape: ['rect', 'ellipse', 'circle'],
-            selected: false
+            types: [
+                {
+                    label: '基础样式[type=default]',
+                    value: 'default'
+                },
+                {
+                    label: '通知样式[type=info]',
+                    value: 'info'
+                },
+                {
+                    label: '成功样式[type=success]',
+                    value: 'success'
+                },
+                {
+                    label: '警告样式[type=warning]',
+                    value: 'warning'
+                },
+                {
+                    label: '错误样式[type=error]',
+                    value: 'error'
+                }
+            ],
+            sizes: [
+                {
+                    label: '超小号[ui=xs]',
+                    value: 'xs',
+                },
+                {
+                    label: '小号[ui=s]',
+                    value: 's'
+                },
+                {
+                    label: '中号[ui=m]',
+                    value: 'm'
+                },
+                {
+                    label: '大号[ui=l]',
+                    value: 'l'
+                }
+            ],
+            shape: [
+                {
+                    label: '方形[ui=rect]',
+                    value: 'rect'
+                },
+                {
+                    label: '椭圆形[ui=ellipse]',
+                    value: 'ellipse'
+                },
+                {
+                    label: '圆形[ui=circle]',
+                    value: 'circle'
+                }
+            ],
+            selected: false,
+            controlledRemoved: false
         };
     },
     methods: {
-        handleClose(name) {
+        handleRemove(name) {
+        },
+        handleControlledRemove() {
+            this.$confirm('要删除吗？').then(confirmed => {
+                if (confirmed) {
+                    this.controlledRemoved = true;
+                }
+            });
         }
     }
 };

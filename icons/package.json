@@ -1,6 +1,6 @@
 {
   "name": "veui-theme-blue-icons",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,9 +8,6 @@
     "prepublishOnly": "cp -r ./icons/* .",
     "publish": "rm *.js icon-names.json",
     "prepare": "npm run build"
-  },
-  "peerDependencies": {
-    "veui": "^2.0.0-beta.2"
   },
   "devDependencies": {
     "dls-icons-vue": "^0.5.0",
