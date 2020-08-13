@@ -16,7 +16,8 @@
   "dependencies": {
     "classlist-polyfill": "^1.2.0",
     "focus-visible": "^4.1.0",
-    "less-plugin-est": "^3.0.1"
+    "less-plugin-est": "^3.0.1",
+    "veui-theme-blue-icons": "^2.0.0-alpha.2"
   },
   "peerDependencies": {
     "veui": "2.0.0-beta.4"

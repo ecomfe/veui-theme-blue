@@ -69,10 +69,10 @@
 
 <script>
 import {CheckButtonGroup, Checkbox, Icon} from 'veui';
-import 'veui-theme-blue-icons/check';
-import 'veui-theme-blue-icons/times';
-import 'veui-theme-blue-icons/sync';
-import 'veui-theme-blue-icons/edit';
+import 'veui-theme-blue-icons/star-filled';
+import 'veui-theme-blue-icons/thumb-up-filled';
+import 'veui-theme-blue-icons/heart-fill';
+import 'veui-theme-blue-icons/medal';
 
 export default {
     name: 'check-button-group-demo',
@@ -117,20 +117,20 @@ export default {
             ],
             data3: [
                 {
-                    value: 'check',
-                    icon: 'check'
+                    value: 'star-filled',
+                    icon: 'star-filled'
                 },
                 {
-                    value: 'times',
-                    icon: 'search'
+                    value: 'thumb-up-filled',
+                    icon: 'thumb-up-filled'
                 },
                 {
-                    value: 'sync',
-                    icon: 'sync'
+                    value: 'heart-fill',
+                    icon: 'heart-fill'
                 },
                 {
-                    value: 'edit',
-                    icon: 'edit'
+                    value: 'medal',
+                    icon: 'medal'
                 }
             ]
         };

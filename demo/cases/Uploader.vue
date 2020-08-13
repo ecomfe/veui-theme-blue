@@ -145,7 +145,7 @@
 </template>
 <script>
 import {VeuiUploader, VeuiForm, VeuiField} from 'veui';
-import 'veui-theme-blue-icons/chevron-right';
+import 'veui-theme-blue-icons/plain-right';
 
 export default {
     name: 'uploader-demo',

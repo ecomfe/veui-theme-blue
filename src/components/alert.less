@@ -30,8 +30,7 @@
         .veui-icon-size(@veui-alert-icon-size-s);
     }
 
-    &-nav,
-    &-close {
+    &-nav {
         .@{veui-prefix}-icon {
             .veui-icon-size(@veui-alert-icon-size-aux);
         }
@@ -42,7 +41,7 @@
     }
     
     &-close {
-        .size(@veui-alert-icon-size-aux, @veui-alert-line-height * @veui-alert-font-size-s);
+        .size(@veui-alert-icon-size-s, @veui-alert-line-height * @veui-alert-font-size-s);
     }
 
     &-nav {
@@ -129,7 +128,7 @@
             height: @veui-alert-line-height * @veui-alert-font-size-m + 1;
         }
         .@{veui-prefix}-alert-close {
-            .size(@veui-alert-icon-size-aux, @veui-alert-line-height * @veui-alert-font-size-m + 1);
+            .size(@veui-alert-icon-size-m, @veui-alert-line-height * @veui-alert-font-size-m + 1);
         }
         .@{veui-prefix}-alert-icon {
             .veui-icon-size(@veui-alert-icon-size-m);

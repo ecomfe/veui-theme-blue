@@ -1,6 +1,7 @@
 ## 2.0.0-alpha.2(veui版本为2.0.0-beta.4)
 ### ⚠️ 非兼容性变更
 * [^] 新增 `veui-theme-blue-icons`
+* [-] 删除demo icons
 * [^] 更新 `Input` 组件demo
 * [^] 更新 `NumberInput` 组件demo
 * [^] 更新 `Radio` 组件demo
@@ -12,6 +13,10 @@
 * [+] 新增 `Select` 组件及样式
 * [+] 新增 `Uploader` 组件及样式
 * [+] 新增 `Tooltip` 组件及样式
+* [+] 新增 `Table` 组件及样式
+* [+] 新增 `Progress` 组件及样式
+* [+] 新增 `Embedded` 组件及样式
+* [+] 新增 `Tree` 组件及样式
 
 ## 2.0.0-alpha.1(veui版本为2.0.0-beta.2)
 

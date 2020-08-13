@@ -162,18 +162,14 @@
 </template>
 
 <script>
-import {Badge, Button, Checkbox} from 'veui';
-import 'veui-theme-blue-icons/check';
-import 'veui-theme-blue-icons/edit';
-import 'veui-theme-blue-icons/search';
-import 'veui-theme-blue-icons/times';
+import {VeuiBadge, VeuiButton, VeuiCheckbox} from 'veui';
 
 export default {
     name: 'badge-demo',
     components: {
-        'veui-badge': Badge,
-        'veui-button': Button,
-        'veui-checkbox': Checkbox
+        VeuiBadge,
+        VeuiButton,
+        VeuiCheckbox
     },
     data() {
         return {

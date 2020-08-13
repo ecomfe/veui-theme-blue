@@ -373,49 +373,49 @@
         <h2>图文按钮</h2>
         <section>
             <span class="title-desc">普通样式</span>
-            <veui-button ui="xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="m"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="l"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="xl"><veui-icon name="times"/>取消</veui-button>
-            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
-            <veui-button loading><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="xs"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="m"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="l"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="xl"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button loading><veui-icon name="mark-cross"/>取消</veui-button>
         </section>
         <section>
             <span class="title-desc">加强样式</span>
-            <veui-button ui="strong xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="strong"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="strong m"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="strong l"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="strong xl"><veui-icon name="times"/>取消</veui-button>
-            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
-            <veui-button loading><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="strong xs"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="strong"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="strong m"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="strong l"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="strong xl"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button loading><veui-icon name="mark-cross"/>取消</veui-button>
         </section>
         <section>
             <span class="title-desc">重要样式</span>
-            <veui-button ui="primary xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="primary"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="primary m"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="primary l"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="primary xl"><veui-icon name="times"/>取消</veui-button>
-            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
-            <veui-button loading><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="primary xs"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="primary"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="primary m"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="primary l"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="primary xl"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button loading><veui-icon name="mark-cross"/>取消</veui-button>
         </section>
         <section>
             <span class="title-desc">半透明样式</span>
-            <veui-button ui="translucent xs"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="translucent"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="translucent m"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="translucent l"><veui-icon name="times"/>取消</veui-button>
-            <veui-button ui="translucent xl"><veui-icon name="times"/>取消</veui-button>
-            <veui-button disabled><veui-icon name="times"/>取消</veui-button>
-            <veui-button loading><veui-icon name="times"/>取消</veui-button>
+            <veui-button ui="translucent xs"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="translucent"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="translucent m"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="translucent l"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button ui="translucent xl"><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button disabled><veui-icon name="mark-cross"/>取消</veui-button>
+            <veui-button loading><veui-icon name="mark-cross"/>取消</veui-button>
         </section>
         <section class="dynamic">
             <h4>动态内容</h4>
             <p>
                 <veui-button @click="text = !text">
-                    <veui-icon name="times"/><template
+                    <veui-icon name="mark-cross"/><template
                         v-if="text"
                     >取消</template>
                 </veui-button>
@@ -427,10 +427,8 @@
 <script>
 import bus from '../bus';
 import {Button, Icon} from 'veui';
-import 'veui-theme-blue-icons/check';
-import 'veui-theme-blue-icons/edit';
 import 'veui-theme-blue-icons/search';
-import 'veui-theme-blue-icons/times';
+import 'veui-theme-blue-icons/mark-cross';
 
 export default {
     name: 'button-demo',

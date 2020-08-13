@@ -96,7 +96,7 @@
                 </veui-field>
                 <veui-field label="带有前缀输入框" ui="long">
                     <veui-input placeholder="请输入内容">
-                        <template slot="before"><veui-icon name="user-circle"/></template>
+                        <template slot="before"><veui-icon name="user-manager"/></template>
                     </veui-input>
                 </veui-field>
                 <veui-field label="带有后缀输入框" ui="long">
@@ -106,7 +106,7 @@
                 </veui-field>
                 <veui-field label="带前后缀输入框" ui="long">
                     <veui-input placeholder="请输入内容">
-                        <template slot="before"><veui-icon name="user-circle"/></template>
+                        <template slot="before"><veui-icon name="user-manager"/></template>
                         <template slot="after">后缀内容</template>
                     </veui-input>
                 </veui-field>
@@ -165,7 +165,7 @@
 import bus from '../bus';
 import {VeuiInput, VeuiField, VeuiForm, VeuiIcon, VeuiButton} from 'veui';
 import nudge from 'veui/directives/nudge';
-import 'veui-theme-blue-icons/user-circle';
+import 'veui-theme-blue-icons/user-manager';
 
 export default {
     name: 'text-input',

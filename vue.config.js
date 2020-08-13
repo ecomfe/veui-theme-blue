@@ -55,8 +55,7 @@ module.exports = {
                 : 'vue/dist/vue.runtime.esm.js'
             )
             .set('veui-theme-blue', resolve('src'))
-            .set('veui-theme-blue-icons', resolve('demo/icons/icons'))
-            .set('veui-theme-blue-icons2', resolve('icons/icons'))
+            .set('veui-theme-blue-icons', resolve('icons/icons'))
 
         // 压缩空格：https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#options
         config.module

@@ -343,7 +343,7 @@
 <script>
 import bus from '../bus';
 import {Dropdown, Option, OptionGroup, Button, Icon, Input} from 'veui';
-import 'veui-theme-blue-icons/ellipsis';
+import 'veui-theme-blue-icons/more-ellipsis';
 
 export default {
     name: 'dropdown-demo',

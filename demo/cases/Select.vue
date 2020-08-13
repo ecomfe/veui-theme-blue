@@ -328,7 +328,7 @@
                                     #before
                                 >
                                     <div class="note">
-                                        <veui-icon name="info-circle"/>
+                                        <veui-icon name="sign-exclamation"/>
                                         <div class="text">
                                             此处仅显示业务点 Top n，您可通过搜索添加其它业务点标签。
                                         </div>
@@ -455,7 +455,7 @@ import {Icon, Select, Option, OptionGroup, Radio, Field, Form} from 'veui';
 import type from 'veui/managers/type';
 import 'vue-awesome/icons/flag';
 import 'vue-awesome/icons/gift';
-import 'veui-theme-blue-icons/info-circle';
+import 'veui-theme-blue-icons/sign-exclamation';
 export default {
     name: 'select-demo',
     components: {

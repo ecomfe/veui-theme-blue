@@ -1,12 +1,12 @@
-import 'veui-theme-blue-icons/chevron-right';
-import 'veui-theme-blue-icons/ellipsis';
+import 'veui-theme-blue-icons/plain-right';
+import 'veui-theme-blue-icons/more-ellipsis';
 import config from 'veui/managers/config';
 
 config.defaults(
     {
         icons: {
-            expand: 'chevron-right',
-            more: 'ellipsis'
+            expand: 'plain-right',
+            more: 'more-ellipsis'
         },
         ui: {
             size: {
