@@ -1,17 +1,14 @@
 <template>
     <article>
         <h1><code>&lt;veui-input&gt;</code></h1>
-        <veui-form>
-            <h2>尺寸</h2>
-            <div class="options-desc">
-                可选的尺寸 <span class="bg-gray-show">ui</span> 
-                属性值： <span class="bg-gray-show">xs / s / m / l</span>
-            </div>
-            <section class="five-sizes">
-                <veui-field
-                    
-                    label="超小号（xs）"
-                >
+        <h2>尺寸</h2>
+        <div class="options-desc">
+            可选的尺寸 <span class="bg-gray-show">ui</span> 
+            属性值： <span class="bg-gray-show">xs / s / m / l</span>
+        </div>
+        <section class="five-sizes">
+            <veui-form>
+                <veui-field label="超小号[ui=xs]">
                     <veui-input
                         v-model="value"
                         ui="xs"
@@ -19,39 +16,32 @@
                         autofocus
                     />
                 </veui-field>
-                <veui-field
-                    ui="tiny"
-                    label="小号（s）"
-                >
+                <veui-field label="小号[ui=s]">
                     <veui-input
                         v-model="value"
                         ui="s"
                         placeholder="s"
                     />
                 </veui-field>
-                <veui-field
-                    ui="small"
-                    label="中号（m）"
-                >
+                <veui-field label="中号[ui=m]">
                     <veui-input
                         v-model="value"
                         ui="m"
                         placeholder="m"
                     />
                 </veui-field>
-                <veui-field
-                    ui="large"
-                    label="大号（l）"
-                >
+                <veui-field label="大号[ui=l]">
                     <veui-input
                         v-model="value"
                         ui="l"
                         placeholder="l"
                     />
                 </veui-field>
-            </section>
-            <section>
-                <h2>各种状态展示</h2>
+            </veui-form>
+        </section>
+        <section>
+            <h2>不同状态展示</h2>
+            <veui-form>
                 <veui-field label="默认状态">
                     <veui-input
                         v-model="value"
@@ -66,7 +56,6 @@
                         placeholder="只读状态"
                     />
                 </veui-field>
-
                 <veui-field label="禁用状态">
                     <veui-input
                         v-model="value"
@@ -74,7 +63,6 @@
                         placeholder="禁用状态"
                     />
                 </veui-field>
-
                 <veui-field label="错误状态">
                     <veui-input
                         class="veui-invalid"
@@ -82,75 +70,111 @@
                         placeholder="错误状态"
                     />
                 </veui-field>
-
-            </section>
-
-            <section>
-                <h2>带有清空按钮的输入框</h2>
-                <section>
+                <veui-field label="带清空按钮">
                     <veui-input
                         v-model="value"
                         clearable
                         placeholder="带有清空按钮的输入框"
                     />
-                </section>
-            </section>
-
-            <section>
-                <h2>密码输入框</h2>
-                <section>
+                </veui-field>
+            </veui-form>
+        </section>
+        <h2 style="margin-top: 50px;">更多功能demo示例（UI不需还原）</h2>
+        <section>
+            <veui-form>
+                <veui-field label="密码输入框" ui="long">
                     <veui-input
                         v-model="value"
                         type="password"
                         placeholder="密码输入框"
                     />
-                </section>
-            </section>
-
-            <section>
-                <h2>带有前缀/后缀的输入框</h2>
-                <section>
+                </veui-field>
+                <veui-field label="placeholder自定义插槽" ui="long">
+                    <veui-input clearable>
+                        <template slot="placeholder">自定义placeholder</template>
+                    </veui-input>
+                </veui-field>
+                <veui-field label="带有前缀输入框" ui="long">
                     <veui-input placeholder="请输入内容">
                         <template slot="before"><veui-icon name="user-circle"/></template>
                     </veui-input>
+                </veui-field>
+                <veui-field label="带有后缀输入框" ui="long">
                     <veui-input clearable placeholder="请输入内容">
                         <template slot="after">后缀内容</template>
                     </veui-input>
+                </veui-field>
+                <veui-field label="带前后缀输入框" ui="long">
                     <veui-input placeholder="请输入内容">
                         <template slot="before"><veui-icon name="user-circle"/></template>
                         <template slot="after">后缀内容</template>
                     </veui-input>
-                </section>
-            </section>
-
-            <section>
-                <h2>字数限制显示（不展示输入字符，需要手动隐藏）</h2>
-                <section>
+                </veui-field>
+                <veui-field label="字数限制显示（不展示输入字符，需要手动隐藏）" ui="long">
                     <veui-input
                         class="input-no-append"
                         placeholder="1~5个字符"
                         maxlength="5"
                         strict
                     />
-                </section>
-            </section>
-        </veui-form>
+                </veui-field>
+                <veui-field label="受控（感知输入法，固定值）" ui="long">
+                    <veui-input
+                        value="固定内容"
+                        composition
+                    />
+                </veui-field>
+                <veui-field label="受控（不感知输入法，固定值）" ui="long">
+                    <veui-input
+                        value="固定内容"
+                    />
+                </veui-field>
+                <veui-field label="受控（感知输入法, 且用v-model同步）" ui="long">
+                    value: {{ controlled1 }}
+                    <veui-input
+                        v-model="controlled1"
+                        composition
+                    />
+                    <veui-button @click="delaySet">delaySet</veui-button>
+                </veui-field>
+                <veui-field label="受控（不感知输入法, 且用v-model同步）" ui="long">
+                    value: {{ controlled2 }}
+                    <veui-input
+                        v-model="controlled2"
+                    />
+                </veui-field>
+                <veui-field label="非受控（感知输入法）" ui="long">
+                    localValue：{{ uncontrolled1 }}
+                    <veui-input
+                        composition
+                        @input="uncontrolled1 = $event"
+                    />
+                </veui-field>
+                <veui-field label="非受控（不感知输入法）" ui="long">
+                    localValue：{{ uncontrolled2 }}
+                    <veui-input
+                        @input="uncontrolled2 = $event"
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
     </article>
 </template>
 
 <script>
 import bus from '../bus';
-import {Input, Field, Form, Span, Icon, VeuiSelect} from 'veui';
+import {VeuiInput, VeuiField, VeuiForm, VeuiIcon, VeuiButton} from 'veui';
 import nudge from 'veui/directives/nudge';
 import 'veui-theme-blue-icons/user-circle';
 
 export default {
     name: 'text-input',
     components: {
-        'veui-input': Input,
-        'veui-field': Field,
-        'veui-form': Form,
-        'veui-icon': Icon
+        VeuiInput,
+        VeuiField,
+        VeuiForm,
+        VeuiIcon,
+        VeuiButton
     },
     directives: {
         nudge
@@ -175,12 +199,21 @@ export default {
                     label: 'http://',
                     value: 'http://'
                 }
-            ]
+            ],
+            controlled1: '',
+            controlled2: '',
+            uncontrolled1: '',
+            uncontrolled2: ''
         };
     },
     methods: {
         log(item) {
             bus.$emit('log', item);
+        },
+        delaySet() {
+            setTimeout(() => {
+                this.controlled1 = this.controlled2 = '123';
+            }, 3000);
         },
         handleThumbNudgeUpdate(delta) {
             let val = this.price;
@@ -220,7 +253,6 @@ export default {
 
 <style lang="less" scoped>
 @import '~less-plugin-est/src/all.less';
-
 section {
   margin-bottom: 40px;
 

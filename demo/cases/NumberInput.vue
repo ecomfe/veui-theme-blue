@@ -149,6 +149,54 @@
                     </veui-field>
                 </veui-form>
             </section>
+            <section class="sdf">
+                <h3>定制 formatter 和 parser </h3>
+                <veui-form>
+                    <veui-field label="Percentage：">
+                        <veui-number-input
+                            :min="0"
+                            :parser="percentParser"
+                            :formatter="percentFormatter"
+                        />
+                    </veui-field>
+                </veui-form>
+            </section>
+            <section class="sdf">
+                <h3>prop error</h3>
+                <veui-form>
+                    <veui-field
+                        label="value precision"
+                        tip="保留1位小数, 但是 prop value 初始是 0.01"
+                    >
+                        <veui-number-input
+                            v-model="precisionValue"
+                            :min="0"
+                            :decimal-place="1"
+                        />
+                    </veui-field>
+                    <veui-field
+                        label="range error"
+                        tip="[1, 10], prop value 初始是 100"
+                    >
+                        <veui-number-input
+                            v-model="rangeValue"
+                            :min="1"
+                            :max="10"
+                            :decimal-place="1"
+                        />
+                    </veui-field>
+                    <veui-field
+                        label="type error"
+                        tip="其实可以不考虑 value 非 Number/Null 的情况，毕竟还是要符合类型声明"
+                    >
+                        <veui-number-input
+                            v-model="typeValue"
+                            :min="0"
+                            :decimal-place="1"
+                        />
+                    </veui-field>
+                </veui-form>
+            </section>
         </veui-form>
     </article>
 </template>
@@ -173,12 +221,21 @@ export default {
             number5: null,
             number6: null,
             number7: 1024,
-            number8: 2333
+            number8: 2333,
+            precisionValue: 0.01,
+            typeValue: '1km',
+            rangeValue: 100
         };
     },
     methods: {
         handlePriceChange(val) {
             this.number7 = val;
+        },
+        percentParser(val) {
+            return val.replace('%', '');
+        },
+        percentFormatter(_, val) {
+            return val + '%';
         }
     }
 };

@@ -73,6 +73,9 @@
                         clearable
                         multiple
                     >
+                        <template #label="{ selected }">
+                            {{ selected && selected.map(({ label }) => label).join(';') }}
+                        </template>
                     </veui-select>
                 </veui-field>
             </veui-form>
@@ -90,7 +93,12 @@
                         :ui="ui.value"
                         v-bind="attrs"
                         searchable
-                    />
+                    >
+                        <!--可自定义选中后的label展现-->
+                        <template #label="{ label }">
+                            {{ label }}
+                        </template>
+                    </veui-select>
                 </veui-field>
             </veui-form>
         </section>
@@ -103,12 +111,16 @@
                     :label="ui.label"
                 >
                     <veui-select
+                        :ui="ui.value"
                         v-model="defaultSearchMultiValue"
                         v-bind="attrs"
-                        :ui="ui.value"
                         searchable
                         multiple
-                    />
+                    >
+                        <template #label="{ selected }">
+                            {{ selected && selected.map(({ label }) => label).join(';') }}
+                        </template>
+                    </veui-select>
                 </veui-field>
             </veui-form>
         </section>
@@ -209,6 +221,9 @@
                                 />
                             </veui-option-group>
                         </veui-option-group>
+                        <template #label="{ selected }">
+                            {{ selected && selected.map(({ label }) => label).join(';') }}
+                        </template>
                     </veui-select>
                 </veui-field>
             </veui-form>
@@ -324,7 +339,6 @@
                     </veui-select>
                 </veui-field>
                 <veui-field
-                    
                     label="自定义2：">
                     <veui-select
                         v-model="complex"
@@ -350,7 +364,6 @@
             <div class="title-desc">分组样式</div>
             <veui-form>
                 <veui-field
-                    
                     label="可搜索：">
                     <veui-select
                         v-model="defaultValue5"
@@ -374,9 +387,7 @@
                         </template>
                     </veui-select>
                 </veui-field>
-                <veui-field
-                    
-                    label="Slot分组样式2：">
+                <veui-field label="Slot分组样式2：">
                     <veui-select
                         v-model="defaultValue8"
                         v-bind="optGroupAttrs"
@@ -392,8 +403,7 @@
                         </template>
                     </veui-select>
                 </veui-field>
-                <veui-field
-                    label="内联样式：">
+                <veui-field label="内联样式：">
                     <veui-select
                         v-model="defaultValue10"
                         clearable
