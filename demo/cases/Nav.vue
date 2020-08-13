@@ -58,10 +58,10 @@
 
 <script>
 import {Nav} from 'veui';
-import 'veui-theme-blue-icons/android';
-import 'veui-theme-blue-icons/apple-f';
-import 'veui-theme-blue-icons/baidu';
-import 'veui-theme-blue-icons/bug';
+import 'veui-theme-blue-icons/trophy';
+import 'veui-theme-blue-icons/cloud';
+import 'veui-theme-blue-icons/home';
+import 'veui-theme-blue-icons/gear';
 
 export default {
     name: 'veui-nav-demo',
@@ -73,13 +73,13 @@ export default {
             {
                 label: 'Navigation One',
                 name: 'navigation-one',
-                icon: 'android',
+                icon: 'trophy',
                 position: 'card',
                 children: [
                     {
                         label: 'Sub One',
                         name: 'sub-one',
-                        icon: 'apple-f',
+                        icon: 'cloud',
                         children: [
                             {
                                 label: 'Input',
@@ -105,7 +105,7 @@ export default {
                 label: 'Button',
                 name: 'Button',
                 to: '/nav/button',
-                icon: 'baidu',
+                icon: 'home',
                 children: [
                     {
                         label: 'Disabled',
@@ -124,13 +124,13 @@ export default {
             {
                 label: 'Navigation Three',
                 name: 'nav-three',
-                icon: 'bug',
+                icon: 'gear',
                 disabled: true
             },
             {
                 label: 'Navigation Four',
                 name: 'nav-four',
-                icon: 'bug',
+                icon: 'gear',
                 children: [
                     {
                         label: 'Four Sub One',
@@ -164,7 +164,7 @@ export default {
             {
                 label: 'Navigation Five',
                 name: 'nav-five',
-                icon: 'bug',
+                icon: 'gear',
                 children: [
                     {
                         label: 'Progress',

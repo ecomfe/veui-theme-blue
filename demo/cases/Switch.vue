@@ -73,7 +73,7 @@
                     slot="content"
                     slot-scope="{ on }"
                 >
-                    <veui-icon :name="on ? 'check' : 'times'"/>
+                    <veui-icon :name="on ? 'checkbox-mark-checked' : 'mark-cross'"/>
                 </template>
             </veui-switch>
         </section>
@@ -130,8 +130,8 @@
 
 <script>
 import {Switch, Icon} from 'veui';
-import 'veui-theme-blue-icons/check';
-import 'veui-theme-blue-icons/times';
+import 'veui-theme-blue-icons/checkbox-mark-checked';
+import 'veui-theme-blue-icons/mark-cross';
 
 export default {
     name: 'switch-demo',

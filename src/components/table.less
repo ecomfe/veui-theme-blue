@@ -6,9 +6,10 @@
 .@{veui-prefix}-table {
     position: relative;
     overflow: hidden;
-    border: 1px @veui-table-border-color;
+    border: 1px solid @veui-table-border-color;
     border-radius: @veui-table-border-radius;
-    border-style: solid none;
+    border-top-style: none;
+    border-bottom-style: none;
     font-variant-numeric: tabular-nums;
 
     table {
@@ -144,12 +145,10 @@
 
     &-overflow-shadow-right {
         right: -20px;
-        box-shadow: @veui-table-overflow-shadow-right;
     }
 
     &-overflow-shadow-left {
         left: -20px;
-        box-shadow: @veui-table-overflow-shadow-left;
     }
 
     &-bordered &-overflow-shadow-left {
@@ -309,24 +308,30 @@
                 );
             }
 
-            &-cell {
-                .@{veui-prefix}-radio {
-                    font-size: @veui-radio-font-size-s;
-                    line-height: @veui-radio-font-size-s * @veui-line-height-m;
-                    &-box {
-                        .size(@veui-radio-size-s);
-                        &::before {
-                            .size(@veui-radio-dot-size-s);
+            &-cell-select {
+                .@{veui-prefix}-table-cell {
+                    &-content {
+                        display: flex;
+                        align-items: center;
+                    }
+                    .@{veui-prefix}-radio {
+                        font-size: @veui-radio-font-size-s;
+                        line-height: @veui-radio-font-size-s * @veui-line-height-m;
+                        &-box {
+                            .size(@veui-radio-size-s);
+                            &::before {
+                                .size(@veui-radio-dot-size-s);
+                            }
                         }
                     }
-                }
-
-                .@{veui-prefix}-checkbox {
-                    font-size: @veui-checkbox-font-size-s;
-                    line-height: @veui-checkbox-font-size-s * @veui-line-height-m;
-                
-                    &-box {
-                      .size(@veui-checkbox-size-s);
+    
+                    .@{veui-prefix}-checkbox {
+                        font-size: @veui-checkbox-font-size-s;
+                        line-height: @veui-checkbox-font-size-s * @veui-line-height-m;
+                    
+                        &-box {
+                          .size(@veui-checkbox-size-s);
+                        }
                     }
                 }
             }
@@ -355,6 +360,14 @@
                     @veui-table-cell-padding-x * 2,
                     1px
                 );
+            }
+            &-cell-select {
+                .@{veui-prefix}-table-cell {
+                    &-content {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 import '../icons/chevron-double-down';
 import '../icons/chevron-down';
 import '../icons/arrow-down';
-import '../icons/sort';
+import 'veui-theme-blue-icons/sort';
 import config from 'veui/managers/config';
 
 config.defaults(
@@ -11,7 +11,7 @@ config.defaults(
             collapse: 'chevron-down',
             expandAll: 'chevron-double-down',
             collapseAll: 'chevron-double-down',
-            asc: 'arrow-down',
+            asc: 'arrow-up',
             desc: 'arrow-down',
             sort: 'sort'
         },

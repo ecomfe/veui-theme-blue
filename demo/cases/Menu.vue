@@ -26,7 +26,7 @@
             >
                 <veui-icon
                     slot="icon"
-                    name="baidu"
+                    name="home"
                 />
             </veui-menu>
         </section>
@@ -39,7 +39,7 @@
             >
                 <veui-icon
                     slot="icon"
-                    name="baidu"
+                    name="home"
                 />
             </veui-menu>
         </section>
@@ -49,10 +49,10 @@
 <script>
 import {Menu, Icon} from 'veui';
 import {omit} from 'lodash';
-import 'veui-theme-blue-icons/android';
-import 'veui-theme-blue-icons/apple-f';
-import 'veui-theme-blue-icons/baidu';
-import 'veui-theme-blue-icons/bug';
+import 'veui-theme-blue-icons/trophy';
+import 'veui-theme-blue-icons/cloud';
+import 'veui-theme-blue-icons/home';
+import 'veui-theme-blue-icons/gear';
 
 export default {
     name: 'veui-menu-demo',
@@ -65,7 +65,7 @@ export default {
             {
                 label: 'Group One',
                 name: 'group-one',
-                icon: 'android',
+                icon: 'trophy',
                 children: [
                     {
                         label: 'Sub One',
@@ -94,7 +94,7 @@ export default {
                 label: 'Button',
                 name: 'Button',
                 to: '/menu/button',
-                icon: 'apple-f',
+                icon: 'cloud',
                 children: [
                     {
                         label: 'Disabled',
@@ -113,13 +113,13 @@ export default {
             {
                 label: 'Navigation Three',
                 name: 'nav-three',
-                icon: 'baidu',
+                icon: 'home',
                 disabled: true
             },
             {
                 label: 'Navigation Four',
                 name: 'nav-four',
-                icon: 'bug',
+                icon: 'gear',
                 children: [
                     {
                         label: 'Progress',

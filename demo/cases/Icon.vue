@@ -26,8 +26,8 @@
 <script>
 import bus from '../bus';
 import {Icon} from 'veui';
-import 'veui-theme-blue-icons2';
-import icons from 'veui-theme-blue-icons2/icon-names.json';
+import 'veui-theme-blue-icons';
+import icons from 'veui-theme-blue-icons/icon-names.json';
 const Catalog = {
     direction: [],
     file: [],
