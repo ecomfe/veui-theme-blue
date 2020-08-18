@@ -18,7 +18,7 @@ config.defaults(
             },
             style: {
                 values: ['long', 'few', 'special'], // 字段较多/少量且文字不长/特殊情况
-                default: 'few'
+                default: 'long'
             },
             type: {
                 values: ['single', 'multi'], // 单行/多行
