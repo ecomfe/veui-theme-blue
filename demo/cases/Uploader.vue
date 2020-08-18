@@ -77,7 +77,7 @@
                         name="file"
                         :action="action"
                         :max-count="1"
-                        max-size="10000kb"
+                        max-size="200kb"
                         accept=".jpg,.jpeg,.gif"
                         :payload="payload"
                         :validator="validator"

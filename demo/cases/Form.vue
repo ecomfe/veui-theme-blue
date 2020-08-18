@@ -21,7 +21,7 @@
         <h2>Field风格</h2>
         <div class="options-desc">
             可选的尺寸 <span class="bg-gray-show">ui</span> 
-            属性值： <span class="bg-gray-show">long / few(默认，可不传) / special</span>
+            属性值： <span class="bg-gray-show">long(默认，可不传) / few / special</span>
         </div>
         <h2>Field对齐方向</h2>
         <div class="options-desc">
@@ -75,33 +75,33 @@
             </veui-form>
             <div class="title-desc">多列展示(右对齐、文字不长few)</div>
             <veui-form>
-                <veui-fieldset>
-                    <veui-field label="标签1">
+                <veui-fieldset ui="few">
+                    <veui-field label="标签1" ui="few">
                         <veui-input v-model="storeData1.nickName"/>
                     </veui-field>
-                    <veui-field label="标签2">
+                    <veui-field label="标签2" ui="few">
                         <veui-input v-model="storeData1.nickName"/>
                     </veui-field>
-                    <veui-field label="标签3">
-                        <veui-input v-model="storeData1.nickName"/>
-                    </veui-field>
-                </veui-fieldset>
-                <veui-fieldset>
-                    <veui-field label="标签1标签1标签1">
-                        <veui-input v-model="storeData1.nickName"/>
-                    </veui-field>
-                    <veui-field label="标签2标签2">
-                        <veui-input v-model="storeData1.nickName"/>
-                    </veui-field>
-                    <veui-field label="标签3">
+                    <veui-field label="标签3" ui="few">
                         <veui-input v-model="storeData1.nickName"/>
                     </veui-field>
                 </veui-fieldset>
-                <veui-fieldset>
-                    <veui-field label="标签1">
+                <veui-fieldset ui="few">
+                    <veui-field label="标签1标签1标签1" ui="few">
                         <veui-input v-model="storeData1.nickName"/>
                     </veui-field>
-                    <veui-field label="标签2">
+                    <veui-field label="标签2标签2" ui="few">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签3" ui="few">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                </veui-fieldset>
+                <veui-fieldset ui="few">
+                    <veui-field label="标签1" ui="few">
+                        <veui-input v-model="storeData1.nickName"/>
+                    </veui-field>
+                    <veui-field label="标签2" ui="few">
                         <veui-input v-model="storeData1.nickName"/>
                     </veui-field>
                 </veui-fieldset>
@@ -827,7 +827,7 @@ export default {
     margin-bottom: 50px;
 
     .veui-form-actions {
-        padding-left: 126px;
+        padding-left: 176px;
     }
 
     .salary {
