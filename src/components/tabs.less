@@ -6,16 +6,13 @@
   @veui-tab-menu-padding-x-strong-m: 16px;
   @remove-icon-aspect-ratio: 10 / 16;
 
-  .make-margin-left(@veui-tab-spacing-x-m);
   position: relative;
-  font-size: @veui-tab-font-size-m;
+  font-size: @veui-tab-font-size-s;
 
   &-menu {
     display: flex;
     position: relative;
-    align-items: center;
     white-space: nowrap;
-    height: @veui-tab-height-m;
 
     &::after {
       content: "";
@@ -48,11 +45,11 @@
   }
 
   .make-margin-left(@margin) {
-    &-item {
-      & + & {
-        margin-left: @margin;
-      }
-    }
+    // &-item {
+    //   & + & {
+    //     margin-left: @margin;
+    //   }
+    // }
 
     &-tip,
     &:not(&-empty) &-add {
@@ -62,11 +59,21 @@
 
   &-prev,
   &-next {
-    .margin(_, @veui-tab-nav-spacing-m);
+    // .margin(_, @veui-tab-nav-spacing-m);
+    position: absolute;
+    margin-top: 3px;
 
     .@{veui-prefix}-icon {
-      .veui-icon-size(@veui-tab-icon-size-aux);
+      .veui-icon-size(@veui-tab-icon-size);
     }
+  }
+
+  &-next {
+    right: @veui-tab-nav-spacing;
+  }
+
+  &-prev {
+    right: veui-sum(@veui-tab-nav-spacing * 2 + @veui-tab-icon-size-aux);
   }
 
   &-item {
@@ -83,7 +90,7 @@
     & > &-label {
       display: flex;
       align-items: center;
-      padding: 0 @veui-tab-padding-x-m;
+      padding: 0 @veui-tab-padding-x-s;
       text-decoration: none;
       outline: none;
       position: relative;
@@ -114,10 +121,6 @@
 
       &[data-focus-visible-added] {
         color: @veui-tab-font-color-focus;
-
-        &::before {
-          background-color: @veui-tab-background-color-focus;
-        }
       }
 
       &:active {
@@ -134,26 +137,14 @@
 
       &[data-focus-visible-added] {
         color: @veui-tab-font-color-current-focus;
-
-        &::after {
-          background-color: @veui-tab-font-color-current-focus;
-        }
       }
 
       &:hover {
         color: @veui-tab-font-color-current-hover;
-
-        &::after {
-          background-color: @veui-tab-font-color-current-hover;
-        }
       }
 
       &:active {
         color: @veui-tab-font-color-current-active;
-
-        &::after {
-          background-color: @veui-tab-font-color-current-active;
-        }
       }
     }
 
@@ -186,7 +177,7 @@
 
     &-remove {
       @offset: veui-sum(
-        @veui-tab-padding-x-m,
+        @veui-tab-padding-x-s,
         calc(@veui-tab-content-spacing * -0.5),
         calc((1.2em * @remove-icon-aspect-ratio) * -0.5)
       );
@@ -196,7 +187,7 @@
       .veui-transition(transform, opacity);
 
       .@{veui-prefix}-icon {
-        .veui-icon-size(@veui-tab-icon-size-aux);
+        .veui-icon-size(@veui-tab-icon-size-aux - 2);
       }
     }
 
@@ -246,126 +237,177 @@
     color: @veui-color-gray-9;
   }
 
-  &[ui~="l"] {
-    .make-margin-left(@veui-tab-spacing-x-l);
-    font-size: @veui-tab-font-size-l;
+  &[ui~="m"] {
+    font-size: @veui-tab-font-size-m;
   }
-
-  &[ui~="l"] & {
-    &-menu {
-      height: @veui-tab-height-l;
-    }
-
+  &[ui~="m"] & {
     &-item-label {
-      padding: 0 @veui-tab-padding-x-l;
-    }
-
-    &-prev,
-    &-next {
-      .margin(_, @veui-tab-nav-spacing-l);
+      padding: 0 @veui-tab-padding-x-m;
     }
   }
 
-  &[ui~="s"] {
-    .make-margin-left(@veui-tab-spacing-x-s);
-    font-size: @veui-tab-font-size-s;
+  &[ui~="normal"] & {
+    &-item {
+      &-label-content {
+        margin-bottom: veui-sum(@veui-tab-item-label-spacing-bottom, 1px);
+      }
+    }
+    &-list {
+      margin-right: veui-sum(@veui-tab-icon-size-aux * 2 + @veui-tab-nav-spacing * 3);
+    }
   }
 
-  &[ui~="s"] & {
+  &[ui~="bordered"] {
+    font-size: @veui-tab-font-size-m;
+  }
+
+  &[ui~="bordered"] & {
     &-menu {
-      height: @veui-tab-height-s;
-    }
-
-    &-item-label {
-      padding: 0 @veui-tab-padding-x-s;
-    }
-
-    &-prev,
-    &-next {
-      .margin(_, @veui-tab-nav-spacing-s);
-    }
-  }
-
-  &[ui~="simple"] & {
-    &-menu {
-      height: auto;
-
       &::after {
         content: none;
       }
     }
+    &-list {
+      padding: @veui-tab-menu-padding-bordered;
+      height: @veui-tab-menu-height-bordered;
+    }
 
     &-item {
+      &:first-child,
+      &:first-child .@{veui-prefix}-tabs-item-label {
+        .border-left-radius(@veui-tab-border-radius-primary);
+      }
+
+      &:last-child,
+      &:last-child .@{veui-prefix}-tabs-item-label {
+        .border-right-radius(@veui-tab-border-radius-primary);
+      }
+
+      &:not(:first-child) .@{veui-prefix}-tabs-item-label {
+        border-left-width: 0;
+      }
+
       & + .@{veui-prefix}-tabs-item {
         position: relative;
-        margin-left: 1px;
-        .centered-line(
-          veui-even(veui-line-height(@veui-line-height-m, @veui-font-size-m))
-        );
-
-        &::before {
-          content: "";
-          .absolute(50%, _, _, -1px);
-          transform: translateY(-50%);
-          .size(1px, @veui-tab-separator-height-simple);
-          background-color: @veui-tab-separator-color;
-        }
+        margin-left: 0;
       }
 
       &-label {
+        border: 1px solid @veui-tab-container-separator-color;
+        .padding(0, @veui-tab-padding-x-bordered);
+      }
+      
+      &:not(.@{veui-prefix}-disabled) &-label {
+        &:hover,
+        &[data-focus-visible-added] {
+          color: @veui-tab-font-color;
+          background-color: @veui-tab-background-color-strong-hover;
+        }
+        &[data-focus-visible-added] {
+          border-left-width: 1px !important;
+          .veui-focus-ring();
+        }
+
+        &:active {
+          color: @veui-tab-font-color;
+          background-color: @veui-tab-background-color-strong-active;
+        }
         &::after {
           content: none;
+        } 
+      }
+
+      &-active {
+        .@{veui-prefix}-tabs-item-label {
+          background-color: @veui-tab-font-color-current;
+          color: @veui-tab-current-color-bordered;
+          border-color: @veui-tab-font-color-current;
+          &:hover,
+          &[data-focus-visible-added] {
+            background-color: @veui-tab-font-color-current-hover;
+            border-color: @veui-tab-font-color-current-hover;
+          }
+          &[data-focus-visible-added] {
+            .veui-focus-ring();
+          }
+          &:active {
+            background-color: @veui-tab-font-color-current-active;
+            border-color: @veui-tab-font-color-current-active;
+          }
+          &::after {
+            content: none;
+          }
+        }
+        &.@{veui-prefix}-disabled .@{veui-prefix}-tabs-item-label {
+          background-color: @veui-tab-current-color-disabled-bordered;
+          border-color: @veui-tab-current-color-disabled-bordered;
         }
       }
     }
   }
 
-  &[ui~="strong"] & {
+  &[ui~="primary"] {
+    font-size: @veui-tab-font-size-m;
+  }
+  &[ui~="primary"] & {
     &-menu {
-      height: @veui-tab-menu-height-strong-m;
-      .padding(veui-sum(@veui-tab-menu-height-strong-m, -@veui-tab-height-m), @veui-tab-menu-padding-x-strong-m, _);
-      background-color: @veui-tab-menu-background-color-strong;
-      .border-top-radius(@veui-tab-container-border-radius-strong-m);
-      .border-top-radius(6px);
-
       &::after {
-        content: none;
+        bottom: @veui-tab-menu-padding-bordered;
+        left: @veui-tab-menu-padding-bordered;
       }
     }
 
+    &-list {
+      .padding(@veui-tab-menu-padding-bordered);
+      height: @veui-tab-menu-height-primary;
+    }
+
     &-item {
-      height: @veui-tab-height-m;
+      &:first-child,
+      &:first-child .@{veui-prefix}-tabs-item-label {
+        .border-top-left-radius(@veui-tab-border-radius-primary);
+      }
+
+      &:last-child,
+      &:last-child .@{veui-prefix}-tabs-item-label {
+        .border-top-right-radius(@veui-tab-border-radius-primary);
+      }
+
+      &:last-child {
+        border-right: 1px solid @veui-tab-container-separator-color;
+      }
 
       & + .@{veui-prefix}-tabs-item {
         margin-left: @veui-tab-spacing-x-strong-m;
       }
 
       &-label {
-        padding: 0 @veui-tab-padding-x-strong-m;
-        background-color: @veui-tab-background-color-strong;
-        color: @veui-tab-font-color-strong;
-        .border-top-radius(@veui-tab-border-radius-strong-m);
-        .border-top-radius(10px);
+        border: 1px solid @veui-tab-container-separator-color;
+        border-right: 0 none;
+
+        .padding(0 @veui-tab-padding-x-primary);
+        background-color: @veui-tab-menu-background-color-strong;
         .veui-transition(color, background-color);
 
-        &::before,
+        // &::before,
         &::after {
           content: none;
         }
 
-        &:hover {
+        &:hover,
+        &[data-focus-visible-added] {
+          color: @veui-tab-font-color;
           background-color: @veui-tab-background-color-strong-hover;
-          color: @veui-tab-font-color-strong-hover;
+          // .veui-focus-ring();
         }
 
         &[data-focus-visible-added] {
-          background-color: @veui-tab-background-color-strong-focus;
-          color: @veui-tab-font-color-strong-focus;
+          .veui-focus-ring();
         }
 
         &:active {
+          color: @veui-tab-font-color;
           background-color: @veui-tab-background-color-strong-active;
-          color: @veui-tab-font-color-strong-active;
         }
       }
 
@@ -374,49 +416,70 @@
       }
 
       &-remove {
-        @offset: veui-sum(
-          @veui-tab-padding-x-strong-m,
-          calc(@veui-tab-content-spacing * -0.5),
-          calc((1.2em * @remove-icon-aspect-ratio) * -0.5)
-        );
-        right: @offset;
+        right: @veui-tab-menu-remove-spacing-primary;
       }
     }
 
-    &-prev {
-      margin-left: veui-sum(@veui-tab-nav-spacing-m, @veui-tab-menu-padding-x-strong-m * -1);
+    &-add {
+      font-size: @veui-tab-font-size-m;
+      color: @veui-tab-add-color;
+      margin-left: @veui-tab-add-spacing-primary;
     }
 
-    &-next:last-child {
-      margin-right: veui-sum(@veui-tab-nav-spacing-m, @veui-tab-menu-padding-x-strong-m * -1);
-    }
+    // &-prev {
+    //   margin-left: veui-sum(@veui-tab-nav-spacing-m, @veui-tab-menu-padding-x-strong-m * -1);
+    // }
+
+    // &-next:last-child {
+    //   margin-right: veui-sum(@veui-tab-nav-spacing-m, @veui-tab-menu-padding-x-strong-m * -1);
+    // }
 
     &-item-active {
       .@{veui-prefix}-tabs-item-label {
+        border-bottom-color: @veui-tab-background-color-strong-current;
         background-color: @veui-tab-background-color-strong-current;
-        color: @veui-tab-font-color-strong-current;
+        // color: @veui-tab-font-color-strong-current;
 
         &:hover {
-          background-color: @veui-tab-background-color-strong-current-hover;
-          color: @veui-tab-font-color-strong-current-hover;
+          background-color: @veui-tab-background-color-strong-hover;
+          color: @veui-tab-font-color-current;
+          border-bottom-color: @veui-tab-background-color-strong-hover;
+          &::after {
+            content: '';
+            background-color: @veui-tab-background-color-strong-hover;
+          }
         }
 
         &[data-focus-visible-added] {
-          background-color: @veui-tab-background-color-strong-current-focus;
-          color: @veui-tab-font-color-strong-current-focus;
+          background-color: @veui-tab-background-color-strong-hover;
+          color: @veui-tab-font-color-current;
+          border-bottom-color: @veui-tab-font-color-current;
         }
 
         &:active {
-          background-color: @veui-tab-background-color-strong-current-active;
-          color: @veui-tab-font-color-strong-current-active;
+          background-color: @veui-tab-background-color-strong-active;
+          color: @veui-tab-font-color-current;
+          border-bottom-color: @veui-tab-background-color-strong-active;
+          &::after {
+            content: '';
+            background-color: @veui-tab-background-color-strong-active;
+          }
+        }
+
+        &::before {
+          background-color: @veui-tab-indicator-color;
+          top: -1px;
+          height: 2px;
+          z-index: 1;
         }
       }
     }
+    
 
     &-panel {
       .clearfix();
-      border: 1px solid @veui-tab-container-border-color-strong;
-      border-top-style: none;
+      margin-left: @veui-tab-menu-padding-bordered;
+      margin-right: @veui-tab-menu-padding-bordered;
     }
   }
 }

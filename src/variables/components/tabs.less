@@ -1,34 +1,30 @@
 @import "../global.less";
 
 /* Metrics */
-@veui-tab-height-s: @veui-height-unit * 10;
-@veui-tab-height-m: @veui-height-unit * 11;
-@veui-tab-height-l: @veui-height-unit * 12;
+// @veui-tab-height-m: @veui-height-unit * 11;
+// @veui-tab-height-l: @veui-height-unit * 12;
 
 @veui-tab-height-segment-m: @veui-height-unit * 9;
 @veui-tab-height-segment-s: @veui-height-unit * 8;
 
-@veui-tab-padding-x-s: @veui-padding-unit * 4;
+@veui-tab-padding-x-s: @veui-padding-unit * 3;
 @veui-tab-padding-x-m: @veui-padding-unit * 4;
-@veui-tab-padding-x-l: @veui-padding-unit * 4;
-
-@veui-tab-spacing-x-s: @veui-padding-unit * 5;
-@veui-tab-spacing-x-m: @veui-padding-unit * 6;
-@veui-tab-spacing-x-l: @veui-padding-unit * 7;
 
 @veui-tab-dropdown-spacing-x: @veui-padding-unit * 2;
 @veui-tab-dropdown-spacing-y: @veui-padding-unit * 2;
 @veui-tab-content-spacing: @veui-padding-unit * 1;
 
-@veui-tab-nav-spacing-s: @veui-padding-unit * 2;
-@veui-tab-nav-spacing-m: @veui-padding-unit * 3;
-@veui-tab-nav-spacing-l: @veui-padding-unit * 4;
+@veui-tab-nav-spacing: @veui-padding-unit * 2;
+
+@veui-tab-item-label-spacing-bottom: @veui-padding-unit * 2;
 
 /* Typography */
 // Sizes
 @veui-tab-font-size-s: @veui-font-size-s;
 @veui-tab-font-size-m: @veui-font-size-m;
 @veui-tab-font-size-l: @veui-font-size-l;
+
+@veui-tab-add-color: @veui-color-brand-6;
 
 // Colors
 @veui-tab-font-color: @veui-font-color-normal;
@@ -67,31 +63,33 @@
 
 // Icon size
 @veui-tab-icon-size: @veui-icon-size-normal;
-@veui-tab-icon-size-aux: @veui-icon-size-aux;
+@veui-tab-icon-size-aux: 12px;
 
 @veui-tab-separator-height-simple: 1em;
 @veui-tab-separator-color: @veui-color-gray-10;
 
-// Strong
-// TODO: add s/l sizes
-@veui-tab-menu-height-strong-m: @veui-padding-unit * 12;
+// primary
+@veui-tab-menu-height-primary: @veui-padding-unit * 11;
 
-@veui-tab-padding-x-strong-m: @veui-padding-unit * 6;
+@veui-tab-padding-x-primary: @veui-padding-unit * 4;
 @veui-tab-spacing-x-strong-m: 0;
 @veui-tab-menu-padding-x-strong-m: @veui-padding-unit * 4;
 
-@veui-tab-border-radius-strong-m: @veui-border-radius-l;
-@veui-tab-container-border-radius-strong-m: @veui-border-radius-l;
+@veui-tab-menu-remove-spacing-primary: @veui-padding-unit * 2;
+
+@veui-tab-border-radius-primary: @veui-border-radius-l;
+
+@veui-tab-add-spacing-primary: @veui-padding-unit * 3;
 
 @veui-tab-container-border-color-strong: @veui-color-gray-10;
 
 @veui-tab-menu-background-color-strong: @veui-color-gray-2;
 
-@veui-tab-background-color-strong: transparent;
-@veui-tab-background-color-strong-hover: @veui-color-gray-1;
+@veui-tab-background-color-strong: @veui-background-color-normal;
+@veui-tab-background-color-strong-hover: @veui-background-color-normal-hover;
 @veui-tab-background-color-strong-focus: @veui-background-color-normal-focus;
-@veui-tab-background-color-strong-active: @veui-color-gray-3;
-@veui-tab-background-color-strong-disabled: @veui-tab-background-color-strong;
+@veui-tab-background-color-strong-active: @veui-background-color-normal-active;
+@veui-tab-background-color-strong-disabled: @veui-background-color-disabled;
 
 @veui-tab-background-color-strong-current: @veui-background-color-normal;
 @veui-tab-background-color-strong-current-hover: @veui-tab-background-color-strong-current;
@@ -99,7 +97,6 @@
 @veui-tab-background-color-strong-current-active: @veui-tab-background-color-strong-current-hover;
 
 @veui-tab-font-color-strong: @veui-color-gray-10;
-@veui-tab-font-color-strong-hover: @veui-color-gray-10;
 @veui-tab-font-color-strong-focus: @veui-color-gray-10;
 @veui-tab-font-color-strong-active: @veui-color-gray-10;
 @veui-tab-font-color-strong-disabled: @veui-color-gray-10;
@@ -108,3 +105,10 @@
 @veui-tab-font-color-strong-current-hover: @veui-color-gray-10;
 @veui-tab-font-color-strong-current-focus: @veui-color-gray-10;
 @veui-tab-font-color-strong-current-active: @veui-color-gray-10;
+
+// bordered
+@veui-tab-menu-padding-bordered: 2px;
+@veui-tab-menu-height-bordered: @veui-padding-unit * 9;
+@veui-tab-padding-x-bordered: @veui-padding-unit * 4;
+@veui-tab-current-color-bordered: @veui-color-gray-1;
+@veui-tab-current-color-disabled-bordered: @veui-color-brand-2;
