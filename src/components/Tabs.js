@@ -1,13 +1,25 @@
 import '../icons/times';
 import '../icons/chevron-left';
 import '../icons/chevron-right';
-import '../icons/plus';
+import 'veui-theme-blue-icons/plus';
 import '../icons/check-circle';
 import '../icons/exclamation-circle';
 import '../icons/info-circle';
 import '../icons/times-circle';
 import config from 'veui/managers/config';
+import i18n from 'veui/managers/i18n';
 
+
+i18n.register(
+    'zh-Hans',
+    {
+        remove: '删除{label}',
+        add: ''
+    },
+    {
+        ns: 'tabs'
+    }
+);
 config.defaults(
     {
         icons: {
@@ -22,12 +34,12 @@ config.defaults(
         },
         ui: {
             size: {
-                values: ['s', 'm', 'l'],
-                default: 'm',
+                values: ['s', 'm'],
                 inherit: true
             },
             style: {
-                values: ['simple', 'strong']
+                values: ['normal', 'primary', 'bordered'],
+                default: 'normal'
             }
         },
         parts: {
