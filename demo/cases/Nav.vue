@@ -1,29 +1,31 @@
 <template>
     <article class="veui-nav-demo">
         <h1><code>&lt;veui-nav&gt;</code></h1>
-        <div>active: {{ active }}</div>
         <section>
-            <h3>small nav</h3>
-            <veui-nav
-                :items="items"
-                :active.sync="active"
-                ui="s"
-            />
+            <h2>尺寸</h2>
+            <div class="options-desc">可选的尺寸
+                <span class="bg-gray-show">ui</span>
+                属性值：
+                <span class="bg-gray-show">s（默认，可不传） / m</span>
+            </div>
+            <veui-form>
+                <veui-field label="小号[ui=s]" ui="multi">
+                    <veui-nav
+                        :items="items"
+                        :active.sync="active"
+                        ui="s"
+                    />
+                </veui-field>
+                <veui-field label="中号[ui=m]" ui="multi">
+                    <veui-nav
+                        :items="items"
+                        :active.sync="active"
+                        ui="m"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
-        <section>
-            <h3>medium nav</h3>
-            <veui-nav
-                :items="items"
-                :active.sync="active"
-            />
-        </section>
-        <section>
-            <h3>large nav</h3>
-            <veui-nav
-                :items="items"
-                ui="l"
-            />
-        </section>
+        <h2>更多功能demo示例（UI不需还原）</h2>
         <section>
             <h3>folded nav</h3>
             <veui-nav
@@ -57,7 +59,7 @@
 </template>
 
 <script>
-import {Nav} from 'veui';
+import {VeuiNav, VeuiForm, VeuiField} from 'veui';
 import 'veui-theme-blue-icons/trophy';
 import 'veui-theme-blue-icons/cloud';
 import 'veui-theme-blue-icons/home';
@@ -66,7 +68,9 @@ import 'veui-theme-blue-icons/gear';
 export default {
     name: 'veui-nav-demo',
     components: {
-        'veui-nav': Nav
+        VeuiNav,
+        VeuiForm,
+        VeuiField
     },
     data() {
         let items = [
@@ -74,6 +78,7 @@ export default {
                 label: 'Navigation One',
                 name: 'navigation-one',
                 icon: 'trophy',
+                disabled: true,
                 position: 'card',
                 children: [
                     {
@@ -106,6 +111,7 @@ export default {
                 name: 'Button',
                 to: '/nav/button',
                 icon: 'home',
+                // disabled: true,
                 children: [
                     {
                         label: 'Disabled',
@@ -217,7 +223,7 @@ export default {
             }
         ];
         return {
-            active: null,
+            active: 'Loading',
             items,
             nameItems
         };
