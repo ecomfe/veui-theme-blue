@@ -71,7 +71,6 @@ icons.forEach(item => {
         console.warn('icon failed:' + item);
     }
 });
-console.log(Catalog, 'catalog');
 export default {
     name: 'icon-demo',
     components: {

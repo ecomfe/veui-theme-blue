@@ -74,36 +74,44 @@
 /**
  * Horizontal menu-----Nav component
  */
- @veui-menu-font-size-horizontal-m: @veui-font-size-m;
+@veui-menu-font-size-horizontal-s: @veui-font-size-m;
+@veui-menu-font-size-horizontal-m: @veui-font-size-l;
 
- @veui-menu-item-height-horizontal-m: @veui-height-unit * 16;
- @veui-menu-item-padding-x-horizontal: @veui-padding-unit * 4;
+@veui-menu-item-height-horizontal-s: @veui-height-unit * 11;
+@veui-menu-item-height-horizontal-m: @veui-height-unit * 12;
+@veui-menu-item-padding-x-horizontal: @veui-padding-unit * 4;
+@veui-menu-item-padding-x-horizontal-m: @veui-padding-unit * 5;
+@veui-menu-item-spacing-horizontal: @veui-padding-unit * 6;
+@veui-menu-item-spacing-horizontal-m: @veui-padding-unit * 8;
  
- @veui-menu-border-color-horizontal: @veui-border-color-normal;
+@veui-menu-border-color-horizontal: @veui-border-color-normal;
+
+@veui-menu-item-icon-horizontal-s: 10px;
+@veui-menu-item-icon-horizontal-m: 12px;
  
  @veui-menu-item-font-color-horizontal: @veui-font-color-normal;
  @veui-menu-item-font-color-horizontal-hover: @veui-font-color-strong;
  @veui-menu-item-font-color-horizontal-focus: @veui-menu-item-font-color-horizontal-hover;
- @veui-menu-item-font-color-horizontal-active: @veui-font-color-weak;
- @veui-menu-item-font-color-horizontal-disabled: @veui-font-color-highlighted;
+ @veui-menu-item-font-color-horizontal-active: @veui-font-color-strong;
+ @veui-menu-item-font-color-horizontal-disabled: @veui-font-color-disabled;
+ @veui-menu-item-font-color-horizontal-current-disabled: @veui-color-brand-5;
  
  @veui-menu-item-background-color-horizontal: @veui-background-color-normal;
- @veui-menu-item-background-color-horizontal-hover: @veui-menu-item-background-color-horizontal;
+ @veui-menu-item-background-color-horizontal-hover: @veui-background-color-normal-focus;
  @veui-menu-item-background-color-horizontal-focus: @veui-background-color-normal-focus;
- @veui-menu-item-background-color-horizontal-active: @veui-menu-item-background-color-horizontal-hover;
+ @veui-menu-item-background-color-horizontal-active: @veui-background-color-normal-focus;
  @veui-menu-item-background-color-horizontal-disabled: @veui-background-color-disabled;
  
- @veui-menu-item-font-color-horizontal-current: @veui-color-brand-1;
- @veui-menu-item-font-color-horizontal-current-hover: @veui-color-brand-1;
+ @veui-menu-item-font-color-horizontal-current: @veui-color-brand-6;
+ @veui-menu-item-font-color-horizontal-current-hover: @veui-color-brand-6;
  @veui-menu-item-font-color-horizontal-current-focus: @veui-menu-item-font-color-horizontal-current-hover;
- @veui-menu-item-font-color-horizontal-current-active: @veui-color-brand-2;
+ @veui-menu-item-font-color-horizontal-current-active: @veui-color-brand-7;
  
  @veui-menu-item-background-color-horizontal-current: @veui-background-color-normal;
  @veui-menu-item-background-color-horizontal-current-hover: @veui-menu-item-background-color-horizontal-current;
  @veui-menu-item-background-color-horizontal-current-focus: @veui-background-color-normal-focus;
  @veui-menu-item-background-color-horizontal-current-active: @veui-menu-item-background-color-horizontal-current;
- 
- @veui-menu-item-shadow-horizontal-current: 0 1px 2px fade(@veui-menu-indicator-color, 40%);
+
  
  /* Dropdown card */
  @veui-menu-card-background-color: @veui-background-color-normal;

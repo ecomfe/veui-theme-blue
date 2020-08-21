@@ -19,7 +19,7 @@
 
   // all menu items
   &-item {
-    font-size: @veui-menu-font-size-horizontal-m;
+    font-size: @veui-menu-font-size-horizontal-s;
 
     &,
     &:hover,
@@ -38,7 +38,7 @@
   // top level normal item style
   &-body &-item {
     padding: 0 @veui-menu-item-padding-x-horizontal;
-    height: @veui-menu-item-height-horizontal-m;
+    height: @veui-menu-item-height-horizontal-s;
     flex: none;
     display: flex;
     align-items: center;
@@ -46,27 +46,23 @@
     outline: none;
     white-space: nowrap;
     cursor: pointer;
+    margin-right: @veui-menu-item-spacing-horizontal;
+
+    &::after {
+      content: "";
+      .absolute(_, 0, 1px, 0);
+      .size(auto, @veui-menu-indicator-width);
+      opacity: 0;
+      .veui-transition(background-color, box-shadow, opacity);
+      .margin(0, @veui-menu-item-padding-x-horizontal);
+    }
 
     &:not(.@{veui-prefix}-disabled) {
       color: @veui-menu-item-font-color-horizontal;
       background-color: @veui-menu-item-background-color-horizontal;
 
-      &::after {
-        content: "";
-        .absolute(_, 0, -1px, 0);
-        .size(auto, @veui-menu-indicator-width);
-        opacity: 0;
-        .veui-transition(background-color, box-shadow, opacity);
-      }
-
       &.@{veui-prefix}-nav-item-open {
-        color: @veui-menu-item-font-color-horizontal-hover;
         background-color: @veui-menu-item-background-color-horizontal-hover;
-        &::after {
-          background-color: @veui-menu-indicator-color-hover;
-          box-shadow: @veui-menu-item-shadow-horizontal-current;
-          opacity: 1;
-        }
       }
 
       &[data-focus-visible-added] {
@@ -76,12 +72,10 @@
 
       &:not(.@{veui-prefix}-nav-more):active {
         color: @veui-menu-item-font-color-horizontal-active;
-        background-color: @veui-menu-item-background-color-horizontal-active;
       }
     }
 
     &.@{veui-prefix}-disabled {
-      background-color: @veui-menu-item-background-color-horizontal-disabled;
       color: @veui-menu-item-font-color-horizontal-disabled;
     }
   }
@@ -99,13 +93,11 @@
   &-body &-item-active {
     &:not(.@{veui-prefix}-disabled) {
       color: @veui-menu-item-font-color-horizontal-current;
-      background-color: @veui-menu-item-background-color-horizontal-current;
       font-weight: @veui-menu-item-font-weight-current;
 
       // indicator
       &::after {
         background-color: @veui-menu-indicator-color;
-        box-shadow: @veui-menu-item-shadow-horizontal-current;
         opacity: 1;
       }
 
@@ -133,11 +125,18 @@
         }
       }
     }
+    &.@{veui-prefix}-disabled {
+      color: @veui-menu-item-font-color-horizontal-current-disabled;
+      &::after {
+        background-color: @veui-menu-item-font-color-horizontal-current-disabled;
+        opacity: 1;
+      }
+    }
   }
 
   // expand icon in top level items
   &-expand-icon {
-    .size(@veui-menu-item-icon-size-aux);
+    .size(@veui-menu-item-icon-horizontal-s);
     margin-left: @veui-menu-card-target-spacing;
     color: inherit;
     .veui-transition(transform, color);
@@ -145,11 +144,6 @@
 
   &-item-open &-expand-icon {
     transform: rotateZ(180deg);
-  }
-
-  // top level expandable items
-  &-body &-expandable {
-    padding: 0 @veui-menu-item-spacing 0 @veui-menu-item-padding-x-horizontal;
   }
 
   // dropdown: apply overlay shadow styles
@@ -357,7 +351,6 @@
       &.@{veui-prefix}-nav-item-exact-active {
         font-weight: @veui-menu-item-font-weight-current;
         color: @veui-menu-item-font-color-horizontal-current;
-        background-color: @veui-menu-item-background-color-horizontal-current;
 
         &:hover {
           color: @veui-menu-item-font-color-horizontal-current-hover;
@@ -377,13 +370,18 @@
     }
   }
 
-  &-overlay[ui~="s"] &-item,
-  &[ui~="s"] &-item {
-    font-size: @veui-menu-font-size-s;
+  &-overlay[ui~="m"] &-item,
+  &[ui~="m"] &-item {
+    font-size: @veui-menu-font-size-horizontal-m;
+    .padding(0, @veui-menu-item-padding-x-horizontal-m);
+    margin-right: @veui-menu-item-spacing-horizontal-m;
+    &::after {
+      .margin(0, @veui-menu-item-padding-x-horizontal-m);
+    }
   }
-
-  &-overlay[ui~="l"] &-item,
-  &[ui~="l"] &-item {
-    font-size: @veui-menu-font-size-l;
+  &[ui~="m"] & {
+    &-expand-icon {
+      .size(@veui-menu-item-icon-horizontal-m);
+    }
   }
 }

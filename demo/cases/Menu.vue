@@ -4,8 +4,8 @@
         <div class="options-desc">竖向菜单不区分型号</div>
         <div>expanded: {{ expanded }}  active: {{ active1 }}
             外部控制
-            <button @click="$router.push('/menu/input')">input</button>
-            <button @click="$router.push('/menu/button')">button</button>
+            <veui-button @click="$router.push('/menu/input')">input</veui-button>
+            <veui-button @click="$router.push('/menu/button')">button</veui-button>
         </div>
         <section>
             <h2>正常样式</h2>
