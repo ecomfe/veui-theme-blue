@@ -54,51 +54,50 @@ Promise.all(
 
                 delete attributes.class;
 
-                let ctxFill = (getContextAttr(node, 'fill') || '').toLowerCase();
-                let ctxStroke = (getContextAttr(node, 'stroke') || '').toLowerCase();
-                let attrFill = (attributes.fill || '').toLowerCase();
-                let attrStroke = (attributes.stroke || '').toLowerCase();
+                // let ctxFill = (getContextAttr(node, 'fill') || '').toLowerCase();
+                // let ctxStroke = (getContextAttr(node, 'stroke') || '').toLowerCase();
+                // let attrFill = (attributes.fill || '').toLowerCase();
+                // let attrStroke = (attributes.stroke || '').toLowerCase();
+                // if (attrFill) {
+                //     if (!ctxFill) {
+                //         if (attrFill !== 'none') {
+                //             attributes.fill = attrFill;
+                //             console.log(`  fill: ${attrFill} -> currentColor`);
+                //         }
+                //     } else {
+                //         if (attrFill === ctxFill) {
+                //             delete attributes.fill;
+                //             console.log(`  fill: ${attrFill} -> / (same as context)`);
+                //         } else if (attrFill !== 'none') {
+                //             attributes.fill = 'currentColor';
+                //             console.log(
+                //                 `  fill: ${attrFill} -> currentColor (different from context)`
+                //             );
+                //         }
+                //     }
+                // }
 
-                if (attrFill) {
-                    if (!ctxFill) {
-                        if (attrFill !== 'none') {
-                            attributes.fill = 'currentColor';
-                            console.log(`  fill: ${attrFill} -> currentColor`);
-                        }
-                    } else {
-                        if (attrFill === ctxFill) {
-                            delete attributes.fill;
-                            console.log(`  fill: ${attrFill} -> / (same as context)`);
-                        } else if (attrFill !== 'none') {
-                            attributes.fill = 'currentColor';
-                            console.log(
-                                `  fill: ${attrFill} -> currentColor (different from context)`
-                            );
-                        }
-                    }
-                }
-
-                if (attrStroke) {
-                    if (!ctxStroke) {
-                        if (attrStroke !== 'none') {
-                            attributes.stroke = 'currentColor';
-                            console.log(`  stroke: ${attrStroke} -> currentColor`);
-                        } else {
-                            delete attributes.stroke;
-                            console.log(`  stroke: ${attrStroke} -> / (same as default)`);
-                        }
-                    } else {
-                        if (attrStroke && attrStroke === ctxStroke) {
-                            delete attributes.stroke;
-                            console.log(`  stroke: ${attrStroke} -> / (same as context)`);
-                        } else if (attrStroke !== 'none') {
-                            attributes.stroke = 'currentColor';
-                            console.log(
-                                `  stroke: ${attrStroke} -> currentColor (different from context)`
-                            );
-                        }
-                    }
-                }
+                // if (attrStroke) {
+                //     if (!ctxStroke) {
+                //         if (attrStroke !== 'none') {
+                //             attributes.stroke = 'currentColor';
+                //             console.log(`  stroke: ${attrStroke} -> currentColor`);
+                //         } else {
+                //             delete attributes.stroke;
+                //             console.log(`  stroke: ${attrStroke} -> / (same as default)`);
+                //         }
+                //     } else {
+                //         if (attrStroke && attrStroke === ctxStroke) {
+                //             delete attributes.stroke;
+                //             console.log(`  stroke: ${attrStroke} -> / (same as context)`);
+                //         } else if (attrStroke !== 'none') {
+                //             attributes.stroke = 'currentColor';
+                //             console.log(
+                //                 `  stroke: ${attrStroke} -> currentColor (different from context)`
+                //             );
+                //         }
+                //     }
+                // }
             }
         });
 

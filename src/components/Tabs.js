@@ -1,7 +1,7 @@
 import '../icons/times';
 import '../icons/chevron-left';
 import '../icons/chevron-right';
-import 'veui-theme-blue-icons/plus';
+import 'veui-theme-blue-icons/mark-plus';
 import '../icons/check-circle';
 import '../icons/exclamation-circle';
 import '../icons/info-circle';
@@ -24,7 +24,7 @@ config.defaults(
     {
         icons: {
             remove: 'times',
-            add: 'plus',
+            add: 'mark-plus',
             prev: 'chevron-left',
             next: 'chevron-right',
             success: 'check-circle',

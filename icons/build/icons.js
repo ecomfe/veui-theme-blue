@@ -15,9 +15,7 @@ rimraf.sync(ICON_PATH);
 let indexModule = '';
 let names = Object.keys(icons);
 names.forEach(function (name) {
-    console.log(name, 'name_before');
     let name_value = name.split('.').length > 1 ? name.split('.')[1] : name;
-    console.log(name, 'name_after');
     let icon = {};
     icon[name_value] = icons[name];
     let filePath = path.join(ICON_PATH, `${name_value}.js`);
