@@ -169,8 +169,10 @@
                         @sort="handleSort"
                     >
                         <veui-table-column
+                            sortable
                             field="id"
                             title="数据 ID"
+                            width="120"
                             fixed
                         >
                             <template slot="head">
@@ -242,6 +244,82 @@
                         </veui-table-column>
                     </veui-table>
                 </veui-field>
+                <veui-field label="暂无数据" ui="multi">
+                    <veui-table
+                        :data="[]"
+                    >
+                        <veui-table-column
+                            field="id"
+                            title="数据 ID"
+                            width="120"
+                            fixed
+                        >
+                        </veui-table-column>
+                        <veui-table-column title="元数据">
+                            <veui-table-column
+                                field="typeId"
+                                title="类型 ID"
+                                :span="typeSpan"
+                            />
+                            <veui-table-column
+                                v-if="showGroup"
+                                field="group"
+                                title="数据分组"
+                                align="right"
+                                :span="groupSpan"
+                            />
+                        </veui-table-column>
+                        <veui-table-column
+                            field="desc"
+                            title="数据描述"
+                        />
+                        <veui-table-column
+                            field="price"
+                            width="160"
+                            align="right"
+                            fixed
+                        >
+                            <template slot="head">
+                                价格(每 1000g)
+                            </template>
+                            <template slot-scope="props">{{
+                                props.item.price | currency
+                            }}</template>
+                        </veui-table-column>
+                        <veui-table-column
+                            field="updateDate"
+                            title="更新时间"
+                            align="center"
+                        >
+                            <template slot-scope="props">
+                                <span>{{props.item.updateDate | date}}</span>
+                            </template>
+                        </veui-table-column>
+                        <veui-table-column
+                            field="operation"
+                            title="操作"
+                            fixed="right"
+                            width="160"
+                        >
+                            <template slot-scope="props">
+                                <veui-button
+                                    ui="text strong"
+                                    @click="log(props.item)"
+                                >编辑</veui-button>
+                                <veui-button
+                                    ui="text strong"
+                                    @click="del(props.index)"
+                                >删除</veui-button>
+                            </template>
+                        </veui-table-column>
+                        <template #no-data>
+                            <veui-icon name="data-file-box"/>
+                            <span>
+                                无数据
+                            </span>
+                        </template>
+                    </veui-table>
+                </veui-field>
             </veui-form>
         </section>
     </article>
@@ -256,8 +334,10 @@ import {
     Column,
     Tooltip,
     VeuiForm,
-    VeuiField
+    VeuiField,
+    VeuiIcon
 } from 'veui';
+import 'veui-theme-blue-icons/data-file-box';
 
 const tableData = [
     {
@@ -416,7 +496,8 @@ export default {
         'veui-table-column': Column,
         'veui-tooltip': Tooltip,
         VeuiForm,
-        VeuiField
+        VeuiField,
+        VeuiIcon
     },
     filters: {
         currency(value) {
