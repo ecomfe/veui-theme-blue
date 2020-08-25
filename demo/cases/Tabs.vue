@@ -76,8 +76,8 @@
                         :active.sync="active0"
                     >
                         <veui-tab :label="label1" name="answers"/>
-                        <veui-tab name="articles" :label="label2">
-                            <template #label>{{ label2 }}</template>
+                        <veui-tab name="articles" :label="label2" status="error">
+                            <template #label><span style="color: #E64552;">{{ label2 }}</span></template>
                         </veui-tab>
                         <veui-tab :label="label3" name="shares"/>
                     </veui-tabs>

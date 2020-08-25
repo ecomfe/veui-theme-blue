@@ -1,11 +1,10 @@
-import '../icons/times';
-import '../icons/chevron-left';
-import '../icons/chevron-right';
+import 'veui-theme-blue-icons/mark-x';
+import 'veui-theme-blue-icons/plain-left';
+import 'veui-theme-blue-icons/plain-right';
 import 'veui-theme-blue-icons/mark-plus';
-import '../icons/check-circle';
-import '../icons/exclamation-circle';
-import '../icons/info-circle';
-import '../icons/times-circle';
+import 'veui-theme-blue-icons/sign-tick';
+import 'veui-theme-blue-icons/sign-exclamation';
+import 'veui-theme-blue-icons/sign-info';
 import config from 'veui/managers/config';
 import i18n from 'veui/managers/i18n';
 
@@ -23,14 +22,14 @@ i18n.register(
 config.defaults(
     {
         icons: {
-            remove: 'times',
+            remove: 'mark-x',
             add: 'mark-plus',
-            prev: 'chevron-left',
-            next: 'chevron-right',
-            success: 'check-circle',
-            warning: 'exclamation-circle',
-            info: 'info-circle',
-            error: 'times-circle'
+            prev: 'plain-left',
+            next: 'plain-right',
+            success: 'sign-tick',
+            warning: 'sign-exclamation',
+            info: 'sign-info',
+            error: 'sign-exclamation'
         },
         ui: {
             size: {

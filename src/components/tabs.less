@@ -2,8 +2,6 @@
 @import "../variables/components/tabs.less";
 
 .@{veui-prefix}-tabs {
-  @veui-tab-spacing-x-strong-m: 0;
-  @veui-tab-menu-padding-x-strong-m: 16px;
   @remove-icon-aspect-ratio: 10 / 16;
 
   position: relative;
@@ -17,8 +15,7 @@
     &::after {
       content: "";
       .absolute(_, 0, 0);
-      border-bottom: @veui-tab-container-border-width solid
-        @veui-tab-container-separator-color;
+      border-bottom: @veui-tab-container-border-width solid @veui-tab-container-separator-color;
     }
   }
 
@@ -44,22 +41,8 @@
     align-items: center;
   }
 
-  .make-margin-left(@margin) {
-    // &-item {
-    //   & + & {
-    //     margin-left: @margin;
-    //   }
-    // }
-
-    &-tip,
-    &:not(&-empty) &-add {
-      margin-left: @margin;
-    }
-  }
-
   &-prev,
   &-next {
-    // .margin(_, @veui-tab-nav-spacing-m);
     position: absolute;
     margin-top: 3px;
 
@@ -242,14 +225,20 @@
   }
   &[ui~="m"] & {
     &-item-label {
+      line-height: @veui-line-height-fixed;
       padding: 0 @veui-tab-padding-x-m;
     }
   }
 
   &[ui~="normal"] & {
     &-item {
+      &-active {
+        .@{veui-prefix}-tabs-item-label {
+          font-weight: @veui-tab-item-active-font-weight-normal;
+        }
+      }
       &-label-content {
-        margin-bottom: veui-sum(@veui-tab-item-label-spacing-bottom, 1px);
+        margin-bottom: veui-sum(@veui-tab-item-label-bottom-normal, 1px);
       }
     }
     &-list {
@@ -268,7 +257,7 @@
       }
     }
     &-list {
-      padding: @veui-tab-menu-padding-bordered;
+      padding: @veui-tab-menu-boxshadow-padding;
       height: @veui-tab-menu-height-bordered;
     }
 
@@ -293,15 +282,16 @@
       }
 
       &-label {
+        line-height: @veui-line-height-fixed;
         border: 1px solid @veui-tab-container-separator-color;
-        .padding(0, @veui-tab-padding-x-bordered);
+        .padding(0, @veui-tab-padding-x-m);
       }
       
-      &:not(.@{veui-prefix}-disabled) &-label {
+      &:not(.@{veui-prefix}-disabled) .@{veui-prefix}-tabs-item-label {
         &:hover,
         &[data-focus-visible-added] {
           color: @veui-tab-font-color;
-          background-color: @veui-tab-background-color-strong-hover;
+          background-color: @veui-tab-background-color-hover-bordered;
         }
         &[data-focus-visible-added] {
           border-left-width: 1px !important;
@@ -310,35 +300,45 @@
 
         &:active {
           color: @veui-tab-font-color;
-          background-color: @veui-tab-background-color-strong-active;
+          background-color: @veui-tab-background-color-active-bordered;
         }
         &::after {
           content: none;
         } 
       }
 
+      &.@{veui-prefix}-disabled > .@{veui-prefix}-tabs-item-label {
+        background: @veui-tab-background-color-disabled-bordered;
+        border-color: @veui-tab-border-disabled-bordered;
+      }
+
       &-active {
-        .@{veui-prefix}-tabs-item-label {
-          background-color: @veui-tab-font-color-current;
-          color: @veui-tab-current-color-bordered;
-          border-color: @veui-tab-font-color-current;
-          &:hover,
-          &[data-focus-visible-added] {
-            background-color: @veui-tab-font-color-current-hover;
-            border-color: @veui-tab-font-color-current-hover;
-          }
-          &[data-focus-visible-added] {
-            .veui-focus-ring();
-          }
-          &:active {
-            background-color: @veui-tab-font-color-current-active;
-            border-color: @veui-tab-font-color-current-active;
-          }
-          &::after {
-            content: none;
+        &:not(.@{veui-prefix}-disabled) {
+          .@{veui-prefix}-tabs-item-label {
+            background-color: @veui-tab-font-color-current;
+            color: @veui-tab-current-color-bordered;
+            border-color: @veui-tab-font-color-current;
+            &:hover,
+            &[data-focus-visible-added] {
+              color: @veui-tab-current-color-bordered;
+              background-color: @veui-tab-font-color-current-hover;
+              border-color: @veui-tab-font-color-current-hover;
+            }
+            &[data-focus-visible-added] {
+              .veui-focus-ring();
+            }
+            &:active {
+              color: @veui-tab-current-color-bordered;
+              background-color: @veui-tab-font-color-current-active;
+              border-color: @veui-tab-font-color-current-active;
+            }
+            &::after {
+              content: none;
+            }
           }
         }
         &.@{veui-prefix}-disabled .@{veui-prefix}-tabs-item-label {
+          color: @veui-tab-current-color-bordered;
           background-color: @veui-tab-current-color-disabled-bordered;
           border-color: @veui-tab-current-color-disabled-bordered;
         }
@@ -352,13 +352,14 @@
   &[ui~="primary"] & {
     &-menu {
       &::after {
-        bottom: @veui-tab-menu-padding-bordered;
-        left: @veui-tab-menu-padding-bordered;
+        bottom: 0;
+        left: @veui-tab-menu-boxshadow-padding;
       }
     }
 
     &-list {
-      .padding(@veui-tab-menu-padding-bordered);
+      .margin(-@veui-tab-menu-boxshadow-padding);
+      .padding(@veui-tab-menu-boxshadow-padding);
       height: @veui-tab-menu-height-primary;
     }
 
@@ -378,15 +379,15 @@
       }
 
       & + .@{veui-prefix}-tabs-item {
-        margin-left: @veui-tab-spacing-x-strong-m;
+        margin-left: 0;
       }
 
       &-label {
+        line-height: @veui-line-height-fixed;
         border: 1px solid @veui-tab-container-separator-color;
         border-right: 0 none;
-
-        .padding(0 @veui-tab-padding-x-primary);
-        background-color: @veui-tab-menu-background-color-strong;
+        .padding(0 @veui-tab-padding-x-m);
+        background-color: @veui-tab-background-color-primary;
         .veui-transition(color, background-color);
 
         // &::before,
@@ -397,8 +398,7 @@
         &:hover,
         &[data-focus-visible-added] {
           color: @veui-tab-font-color;
-          background-color: @veui-tab-background-color-strong-hover;
-          // .veui-focus-ring();
+          background-color: @veui-tab-background-color-hover-primary;
         }
 
         &[data-focus-visible-added] {
@@ -407,12 +407,20 @@
 
         &:active {
           color: @veui-tab-font-color;
-          background-color: @veui-tab-background-color-strong-active;
+          background-color: @veui-tab-background-color-active-primary;
+        }
+
+        &-content {
+          flex-direction: row-reverse;
+          .@{veui-prefix}-tabs-item-status {
+            margin-left: 0;
+            margin-right: @veui-tab-content-spacing;
+          }
         }
       }
 
       &.@{veui-prefix}-disabled &-label {
-        background-color: @veui-tab-background-color-strong-disabled;
+        background-color: @veui-tab-background-color-disabled-primary;
       }
 
       &-remove {
@@ -422,48 +430,26 @@
 
     &-add {
       font-size: @veui-tab-font-size-m;
-      color: @veui-tab-add-color;
+      color: @veui-tab-add-color-primary;
       margin-left: @veui-tab-add-spacing-primary;
     }
 
-    // &-prev {
-    //   margin-left: veui-sum(@veui-tab-nav-spacing-m, @veui-tab-menu-padding-x-strong-m * -1);
-    // }
-
-    // &-next:last-child {
-    //   margin-right: veui-sum(@veui-tab-nav-spacing-m, @veui-tab-menu-padding-x-strong-m * -1);
-    // }
-
     &-item-active {
       .@{veui-prefix}-tabs-item-label {
-        border-bottom-color: @veui-tab-background-color-strong-current;
-        background-color: @veui-tab-background-color-strong-current;
-        // color: @veui-tab-font-color-strong-current;
+        border-bottom-color: @veui-tab-background-color-current-primary;
+        background-color: @veui-tab-background-color-current-primary;
 
         &:hover {
-          background-color: @veui-tab-background-color-strong-hover;
-          color: @veui-tab-font-color-current;
-          border-bottom-color: @veui-tab-background-color-strong-hover;
-          &::after {
-            content: '';
-            background-color: @veui-tab-background-color-strong-hover;
-          }
+          color: @veui-tab-font-color-current-hover;
         }
 
         &[data-focus-visible-added] {
-          background-color: @veui-tab-background-color-strong-hover;
           color: @veui-tab-font-color-current;
           border-bottom-color: @veui-tab-font-color-current;
         }
 
         &:active {
-          background-color: @veui-tab-background-color-strong-active;
-          color: @veui-tab-font-color-current;
-          border-bottom-color: @veui-tab-background-color-strong-active;
-          &::after {
-            content: '';
-            background-color: @veui-tab-background-color-strong-active;
-          }
+          color: @veui-tab-font-color-current-active;
         }
 
         &::before {
@@ -478,8 +464,8 @@
 
     &-panel {
       .clearfix();
-      margin-left: @veui-tab-menu-padding-bordered;
-      margin-right: @veui-tab-menu-padding-bordered;
+      margin-left: @veui-tab-menu-boxshadow-padding;
+      margin-right: @veui-tab-menu-boxshadow-padding;
     }
   }
 }
