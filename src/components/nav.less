@@ -149,6 +149,7 @@
   // dropdown: apply overlay shadow styles
   &-dropdown > .@{veui-prefix}-option-group,
   &-dropdown &-card {
+    width: 120px;
     &:extend(._veui-dropdown-overlay all);
   }
 
@@ -280,7 +281,8 @@
       &,
       & + .@{veui-prefix}-option-group-expandable {
         font-weight: @veui-menu-item-font-weight-current;
-        color: @veui-menu-item-font-color-horizontal-current;
+        // color: @veui-menu-item-font-color-horizontal-current;
+        color: red;
       }
     }
 
@@ -333,10 +335,11 @@
       display: flex;
       align-items: center;
 
-      &:hover {
-        color: @veui-menu-item-font-color-horizontal-hover;
-        background-color: @veui-menu-item-background-color-horizontal-hover;
-      }
+      // &:hover {
+      //   // color: @veui-menu-item-font-color-horizontal-hover;
+      //   color: red;
+      //   background-color: @veui-menu-item-background-color-horizontal-hover;
+      // }
 
       &[data-focus-visible-added] {
         color: @veui-menu-item-font-color-horizontal-focus;
@@ -350,7 +353,8 @@
 
       &.@{veui-prefix}-nav-item-exact-active {
         font-weight: @veui-menu-item-font-weight-current;
-        color: @veui-menu-item-font-color-horizontal-current;
+        // color: @veui-menu-item-font-color-horizontal-current;
+        color: red;
 
         &:hover {
           color: @veui-menu-item-font-color-horizontal-current-hover;
