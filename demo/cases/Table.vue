@@ -244,9 +244,40 @@
                         </veui-table-column>
                     </veui-table>
                 </veui-field>
+                <veui-field label="普通数据" ui="multi">
+                    <veui-table
+                        :data="basicData"
+                        :style="{
+                            height: '400px'
+                        }"
+                    >
+                        <veui-table-column
+                            field="id"
+                            title="数据 ID"
+                            width="120"
+                            fixed
+                        >
+                        </veui-table-column>
+                        <veui-table-column title="描述" field="desc">
+                        </veui-table-column>
+                        <veui-table-column
+                            field="date"
+                            title="更新时间"
+                        />
+                        <template #no-data>
+                            <veui-icon name="data-file-box"/>
+                            <span>
+                                无数据
+                            </span>
+                        </template>
+                    </veui-table>
+                </veui-field>
                 <veui-field label="暂无数据" ui="multi">
                     <veui-table
                         :data="[]"
+                        :style="{
+                            height: '400px'
+                        }"
                     >
                         <veui-table-column
                             field="id"
@@ -523,6 +554,23 @@ export default {
             data: tableData,
             nextId: 3162,
             nextIndex: 9,
+            basicData: [
+                {
+                    id: '1001',
+                    desc: '字段1',
+                    date: '2020-09-07'
+                },
+                {
+                    id: '1002',
+                    desc: '字段2',
+                    date: '2020-09-07'
+                },
+                {
+                    id: '1003',
+                    desc: '字段3',
+                    date: '2020-09-07'
+                }
+            ],
             columns: [
                 'typeId',
                 'id',

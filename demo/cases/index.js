@@ -78,15 +78,20 @@ export default [
         component: UI
     },
     {
+        path: '/icon',
+        name: 'Icon',
+        component: Icon
+    },
+    {
         path: '/alert',
         name: 'Alert',
         component: Alert
     },
-    // {
-    //     path: '/alertbox',
-    //     name: 'AlertBox',
-    //     component: AlertBox
-    // },
+    {
+        path: '/alertbox',
+        name: 'AlertBox',
+        component: AlertBox
+    },
     {
         path: '/anchor',
         hash: '#milk-coffee',
@@ -182,11 +187,6 @@ export default [
         path: '/grid',
         name: 'Grid',
         component: Grid
-    },
-    {
-        path: '/icon',
-        name: 'Icon',
-        component: Icon
     },
     {
         path: '/input',

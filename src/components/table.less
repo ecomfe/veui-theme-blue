@@ -21,7 +21,11 @@
     }
 
     &-main {
+        height: 100%;
         overflow: auto;
+        table {
+            height: 100%; 
+        }
     }
 
     &-cell {
@@ -59,6 +63,22 @@
         color: @veui-table-cell-font-color;
     }
 
+    td.@{veui-prefix}-table-no-data {
+        padding: 60px 0;
+    
+        &.@{veui-prefix}-table-cell-hero .@{veui-prefix}-table-cell {
+            padding: 0;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: @veui-table-body-height-no-data-color;
+            .veui-icon {
+                .size(@veui-table-body-height-no-data-icon);
+                margin-bottom: @veui-table-body-height-no-data-margin-bottom;
+            }
+        }
+    }
+
     tfoot th {
         background: @veui-table-tfoot-background-color;
         font-weight: @veui-table-header-font-weight;
@@ -83,21 +103,6 @@
             width: 1px;
             background-color: @veui-table-border-color;
             z-index: 3;
-        }
-    }
-
-    &-no-data {
-        height: @veui-table-body-height-no-data;
-    }
-
-    &-no-data&-cell-hero &-cell {
-        padding: 0;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        .veui-icon {
-            .size(@veui-table-body-height-no-data-icon);
-            margin-bottom: @veui-table-body-height-no-data-margin-bottom;
         }
     }
 
