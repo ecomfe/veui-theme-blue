@@ -9,10 +9,6 @@ config.defaults(
             clear: 'times-circle'
         },
         ui: {
-            style: {
-                values: ['alt'],
-                inherit: true
-            },
             size: {
                 values: ['s', 'm'],
                 inherit: true
