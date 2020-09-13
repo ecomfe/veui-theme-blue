@@ -4,58 +4,85 @@
         <h2>尺寸</h2>
         <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s（默认，可不传）/ m / l</span></div>
         <section>
-            <span class="title-desc">大样式</span>
-            <veui-checkbox-group
-                v-model="picked1"
-                :items="data1"
-                ui="l"
-            >
-                <template slot-scope="props">
-                    {{ props.label }}
-                </template>
-            </veui-checkbox-group>
+            <veui-form>
+                <veui-field label="小号[ui=s]" ui="multi" class="tow-line-field">
+                    <veui-checkbox-group
+                        v-model="picked2"
+                        :items="data2"
+                    >
+                        <template slot-scope="props" class="tow-line-field">
+                            {{ props.label }}
+                        </template>
+                    </veui-checkbox-group>
+                    <p>value: {{ picked2 }}</p>
+                </veui-field>
+                <veui-field label="中号[ui=m]" ui="multi" class="tow-line-field">
+                    <veui-checkbox-group
+                        v-model="picked1"
+                        :items="data1"
+                        ui="m"
+                    >
+                        <template slot-scope="props">
+                            {{ props.label }}
+                        </template>
+                    </veui-checkbox-group>
+                    <p>value: {{ picked1 }}</p>
+                </veui-field>
+                <veui-field label="大号[ui=l]" ui="multi" class="tow-line-field">
+                    <veui-checkbox-group
+                        v-model="picked1"
+                        :items="data1"
+                        ui="l"
+                    >
+                        <template slot-scope="props">
+                            {{ props.label }}
+                        </template>
+                    </veui-checkbox-group>
+                    <p>value: {{ picked1 }}</p>
+                </veui-field>
+            </veui-form>
         </section>
-        <p>value: {{ picked1 }}</p>
+        <h2 style="margin-top: 50px;">更多功能demo示例（UI不需还原）</h2>
         <section>
-            <span class="title-desc">中样式</span>
-            <veui-checkbox-group
-                v-model="picked1"
-                :items="data1"
-                ui="m"
-            >
-                <template slot-scope="props">
-                    {{ props.label }}
-                </template>
-            </veui-checkbox-group>
+            <veui-form>
+                <veui-field label="有排他性选项" ui="multi" class="tow-line-field">
+                    <veui-checkbox-group
+                        v-model="pickedWithExclusive"
+                        :items="dataWithExclusive"
+                        ui="s"
+                    />
+                    <p>value: {{ pickedWithExclusive }}</p>
+                </veui-field>
+                <veui-field label="有 empty-value 的情况（空值选中：Exclusive1）" ui="multi" class="tow-line-field">
+                    <veui-checkbox-group
+                        v-model="pickedWithEmpty"
+                        :items="dataWithExclusive"
+                        empty-value="Exclusive1"
+                        ui="s"
+                    />
+                    <p>value: {{ pickedWithEmpty }}</p>
+                </veui-field>
+            </veui-form>
         </section>
-        <p>value: {{ picked1 }}</p>
-        <section>
-            <span class="title-desc">小样式</span>
-            <veui-checkbox-group
-                v-model="picked2"
-                :items="data2"
-            >
-                <template slot-scope="props">
-                    {{ props.label }}
-                </template>
-            </veui-checkbox-group>
-        </section>
-        <p>value: {{ picked2 }}</p>
     </article>
 </template>
 
 <script>
-import {CheckboxGroup} from 'veui';
+import {VeuiCheckboxGroup, VeuiForm, VeuiField} from 'veui';
 
 export default {
     name: 'checkbox-group-demo',
     components: {
-        'veui-checkbox-group': CheckboxGroup
+        VeuiCheckboxGroup,
+        VeuiForm,
+        VeuiField
     },
     data() {
         return {
             picked1: ['Hirasawa Yui', 'Akiyama Mio'],
             picked2: [],
+            pickedWithExclusive: [],
+            pickedWithEmpty: [],
             data1: [
                 {
                     value: 'Hirasawa Yui',
@@ -83,17 +110,44 @@ export default {
                     value: 'Nakano Azusa',
                     label: 'Nakano Azusa'
                 }
+            ],
+            dataWithExclusive: [
+                {
+                    value: 'Exclusive1',
+                    label: 'Exclusive1',
+                    exclusive: true
+                },
+                {
+                    value: 'Exclusive2',
+                    label: 'Exclusive2',
+                    exclusive: true
+                },
+                {
+                    value: 'Hirasawa Yui',
+                    label: 'Hirasawa Yui'
+                },
+                {
+                    value: 'Akiyama Mio',
+                    label: 'Akiyama Mio'
+                },
+                {
+                    value: 'Nakano Azusa',
+                    label: 'Nakano Azusa'
+                }
             ]
         };
     }
 };
 </script>
-<style lang="less" scoped>
-    section {
+<style lang="less">
+.tow-line-field {
+    .veui-field-content {
         display: flex;
-        margin-top: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+        p {
+            margin-top: 8px;
+        }
     }
-     p {
-        margin-left: 100px;
-     }
+}
 </style>

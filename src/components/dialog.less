@@ -122,6 +122,8 @@
       color: @veui-dialog-body-font-color;
       overflow: auto;
       font-size: inherit;
+      /* To workaround an edge case which triggers composition problems on Firefox */
+      transform-style: preserve-3d;
     }
 
     &-foot {

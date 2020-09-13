@@ -1,5 +1,7 @@
 import 'veui-theme-blue-icons/fast-down';
 import 'veui-theme-blue-icons/plain-down';
+import 'veui-theme-blue-icons/arrow-right-down-side';
+import 'veui-theme-blue-icons/arrow-left-down-side';
 import 'veui-theme-blue-icons/sort';
 import config from 'veui/managers/config';
 
@@ -10,8 +12,8 @@ config.defaults(
             collapse: 'plain-down',
             expandAll: 'fast-down',
             collapseAll: 'fast-down',
-            asc: 'sort',
-            desc: 'sort',
+            asc: 'arrow-right-down-side',
+            desc: 'arrow-left-down-side',
             sort: 'sort'
         },
         ui: {
@@ -22,7 +24,7 @@ config.defaults(
             }
         },
         parts: {
-            icon: 'icon aux'
+            icon: 'icon'
         }
     },
     'table'

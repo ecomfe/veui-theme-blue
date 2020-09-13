@@ -118,18 +118,18 @@
                         strict
                     />
                 </veui-field>
-                <veui-field label="受控（感知输入法，固定值）" ui="long">
+                <veui-field label="受控（感知输入法，固定值）现象：中英文直接不能输入" ui="long">
                     <veui-input
                         value="固定内容"
                         composition
                     />
                 </veui-field>
-                <veui-field label="受控（不感知输入法，固定值）" ui="long">
+                <veui-field label="受控（不感知输入法，固定值）现象：英文直接不能输入，中文输入法结束时直接被重置" ui="long">
                     <veui-input
                         value="固定内容"
                     />
                 </veui-field>
-                <veui-field label="受控（感知输入法, 且用v-model同步）" ui="long">
+                <veui-field label="受控（感知输入法, 且用v-model同步）现象：value的值实时在同步" ui="long">
                     value: {{ controlled1 }}
                     <veui-input
                         v-model="controlled1"
@@ -137,7 +137,7 @@
                     />
                     <veui-button @click="delaySet">delaySet</veui-button>
                 </veui-field>
-                <veui-field label="受控（不感知输入法, 且用v-model同步）" ui="long">
+                <veui-field label="受控（不感知输入法, 且用v-model同步）现象：输入中文时，value的值只有在输入法结束后同步" ui="long">
                     value: {{ controlled2 }}
                     <veui-input
                         v-model="controlled2"

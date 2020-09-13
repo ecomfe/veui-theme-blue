@@ -103,6 +103,7 @@
         <section>
             <veui-date-picker
                 v-model="selectedMonthRange"
+                :overlay-options="{ position: 'right-start' }"
                 type="month"
                 range
             />

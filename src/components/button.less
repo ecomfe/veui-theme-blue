@@ -12,9 +12,12 @@
   color: @veui-button-font-color-normal;
   line-height: 1;
   white-space: nowrap;
-  vertical-align: middle;
   cursor: pointer;
   .veui-button-transition();
+
+  &::before {
+    content: "\200b";
+  }
 
   .make-metrics(@size) {
     @height: ~"veui-button-height-@{size}";
@@ -60,7 +63,7 @@
   .@{veui-prefix}-icon {
     .veui-icon-size(1em);
     margin-right: @veui-button-content-spacing;
-    &:only-child {
+    &:last-child {
       margin-right: 0;
     }
   }

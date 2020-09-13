@@ -244,12 +244,9 @@
                         </veui-table-column>
                     </veui-table>
                 </veui-field>
-                <veui-field label="普通数据" ui="multi">
+                <veui-field label="基础表格" ui="multi">
                     <veui-table
                         :data="basicData"
-                        :style="{
-                            height: '400px'
-                        }"
                     >
                         <veui-table-column
                             field="id"

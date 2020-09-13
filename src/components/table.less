@@ -125,7 +125,6 @@
         & + .@{veui-prefix}-button,
         & + .@{veui-prefix}-link {
             margin-left: @veui-table-action-spacing;
-            vertical-align: middle;
         }
     }
 
@@ -219,11 +218,6 @@
 
     &-header-icon {
         margin-left: @veui-table-cell-content-spacing;
-
-        &-active {
-            color: @veui-table-header-icon-color-activated !important;
-        }
-
         .@{veui-prefix}-icon {
             .veui-icon-size(@veui-table-icon-size);
         }
@@ -246,6 +240,14 @@
         .@{veui-prefix}-table-sorter-icon-desc {
           position: absolute;
           .veui-transition(color);
+        }
+
+        .@{veui-prefix}-table-sorter-icon-asc {
+            left: 6px;
+        }
+
+        .@{veui-prefix}-table-sorter-icon-desc {
+            left: 0;
         }
     
         &-asc .@{veui-prefix}-table-sorter-icon-asc,

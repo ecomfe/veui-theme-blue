@@ -150,13 +150,13 @@
                 </veui-form>
             </section>
             <section class="sdf">
-                <h3>定制 formatter 和 parser </h3>
+                <h3>定制 format 和 parse </h3>
                 <veui-form>
                     <veui-field label="Percentage：">
                         <veui-number-input
                             :min="0"
-                            :parser="percentParser"
-                            :formatter="percentFormatter"
+                            :parse="percentParser"
+                            :format="percentFormatter"
                         />
                     </veui-field>
                 </veui-form>
