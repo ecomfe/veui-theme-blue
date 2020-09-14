@@ -34,110 +34,136 @@
             </veui-form>
         </section>
         <section>
-            <h3>只读样式</h3>
-            <veui-textarea
-                placeholder="只读样式"
-                v-model="value"
-                readonly
-            />
+            <h2>不同状态</h2>
+            <veui-form>
+                <veui-field label="只读样式" ui="multi">
+                    <veui-textarea
+                        placeholder="只读样式"
+                        v-model="value"
+                        readonly
+                    />
+                </veui-field>
+                <veui-field label="禁用样式" ui="multi">
+                    <veui-textarea
+                        placeholder="禁用样式"
+                        v-model="value"
+                        disabled
+                    />
+                </veui-field>
+                <veui-field label="错误样式" ui="multi">
+                    <veui-textarea
+                        placeholder="错误样式"
+                        v-model="value"
+                        invalid
+                    />
+                </veui-field>
+                <veui-field label="可拖拽" ui="multi">
+                    <veui-textarea
+                        resizable
+                        placeholder="可拖拽"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
         <section>
-            <h3>禁用样式</h3>
-            <veui-textarea
-                placeholder="禁用样式"
-                v-model="value"
-                disabled
-            />
+            <h2>字数限制显示</h2>
+            <veui-form>
+                <veui-field label="不允许溢出" ui="multi">
+                    <veui-textarea
+                        placeholder="不允许溢出"
+                        maxlength="5"
+                        strict
+                    />
+                </veui-field>
+                <veui-field label="一个汉字长度算2" ui="multi">
+                    <veui-textarea
+                        maxlength="5"
+                        :get-length="getLength"
+                    />
+                </veui-field>
+                <veui-field label="允许溢出" ui="multi">
+                    <veui-textarea
+                        placeholder="允许溢出"
+                        maxlength="5"
+                        rows="2"
+                        value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis inventore non cumque vero eligendi? Iure ex sint aut. Facilis doloribus facere ducimus consequatur ipsa reiciendis voluptates minima molestiae deserunt nemo."
+                    />
+                </veui-field>
+            </veui-form>
         </section>
         <section>
-            <h3>错误样式</h3>
-            <veui-textarea
-                placeholder="错误样式"
-                v-model="value"
-                invalid
-            />
-        </section>
-
-        <section>
-            <h3>字数限制显示(不允许溢出)</h3>
-            <section>
-                <veui-textarea
-                    placeholder="不允许溢出"
-                    maxlength="5"
-                    strict
-                />
-            </section>
-        </section>
-
-        <section>
-            <h3>可拖拽</h3>
-            <section>
-                <veui-textarea
-                    resizable
-                    placeholder="可拖拽"
-                />
-            </section>
-        </section>
-        <section>
-            <h3>受控（感知输入法，固定值）</h3>
-            <veui-textarea
-                :value="fixed"
-                composition
-                line-number
-                autofocus
-                ui="s"
-                rows="3"
-                resizable
-            />
-            <h3>受控（不感知输入法，固定值）</h3>
-            <veui-textarea
-                :value="fixed"
-                line-number
-                autofocus
-                ui="s"
-                rows="3"
-                resizable
-            />
-            <h3>受控（感知输入法, 且用 v-model 同步），value: {{ controlled1 }}</h3>
-            <veui-textarea
-                v-model="controlled1"
-                composition
-                line-number
-                autofocus
-                ui="s"
-                rows="3"
-                resizable
-            />
-            <h3>受控（不感知输入法, 且用 v-model 同步），value: {{ controlled2 }}</h3>
-            <veui-textarea
-                v-model="controlled2"
-                line-number
-                autofocus
-                ui="s"
-                rows="3"
-                resizable
-            />
-            <h3>非受控（感知输入法），localValue：{{ uncontrolled1 }}</h3>
-            <veui-textarea
-                ref="text2"
-                composition
-                line-number
-                autofocus
-                ui="s"
-                rows="3"
-                resizable
-                @input="uncontrolled1 = $event"
-            />
-            <h3>非受控（不感知输入法），localValue：{{ uncontrolled2 }}</h3>
-            <veui-textarea
-                ref="text2"
-                line-number
-                autofocus
-                ui="s"
-                rows="3"
-                resizable
-                @input="uncontrolled2 = $event"
-            />
+            <h2>更多功能demo示例（UI不需还原）</h2>
+            <veui-form>
+                <veui-field label="受控（感知输入法，固定值）" ui="multi">
+                    <veui-textarea
+                        :value="fixed"
+                        composition
+                        line-number
+                        autofocus
+                        ui="s"
+                        rows="3"
+                        resizable
+                    />
+                </veui-field>
+                <veui-field label="受控（不感知输入法，固定值）" ui="multi">
+                    <veui-textarea
+                        :value="fixed"
+                        line-number
+                        autofocus
+                        ui="s"
+                        rows="3"
+                        resizable
+                    />
+                </veui-field>
+                <veui-field label="受控（感知输入法, 且用 v-model 同步）" ui="multi">
+                    <veui-textarea
+                        v-model="controlled1"
+                        composition
+                        line-number
+                        autofocus
+                        ui="s"
+                        rows="3"
+                        resizable
+                    />
+                    <p>value: {{ controlled1 }}</p>
+                </veui-field>
+                <veui-field label="受控（不感知输入法, 且用 v-model 同步）" ui="multi">
+                    <veui-textarea
+                        v-model="controlled2"
+                        line-number
+                        autofocus
+                        ui="s"
+                        rows="3"
+                        resizable
+                    />
+                    <p>value: {{ controlled2 }}</p>
+                </veui-field>
+                <veui-field label="非受控（感知输入法）" ui="multi">
+                    <veui-textarea
+                        ref="text2"
+                        composition
+                        line-number
+                        autofocus
+                        ui="s"
+                        rows="3"
+                        resizable
+                        @input="uncontrolled1 = $event"
+                    />
+                    <p>value: {{ uncontrolled1 }}</p>
+                </veui-field>
+                <veui-field label="非受控（不感知输入法）" ui="multi">
+                    <veui-textarea
+                        ref="text2"
+                        line-number
+                        autofocus
+                        ui="s"
+                        rows="3"
+                        resizable
+                        @input="uncontrolled2 = $event"
+                    />
+                    <p>localValue：{{ uncontrolled2 }}</p>
+                </veui-field>
+            </veui-form>
         </section>
     </article>
 </template>
@@ -169,6 +195,12 @@ export default {
                 bus.$emit('log', child.$el.getAttribute('ui'));
             });
         });
+    },
+    methods: {
+        getLength(val) {
+            // eslint-disable-next-line no-control-regex
+            return val.replace(/[^\x00-\xff]/g, 'aa').length;
+        }
     }
 };
 </script>

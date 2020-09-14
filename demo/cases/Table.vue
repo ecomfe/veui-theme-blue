@@ -247,6 +247,7 @@
                 <veui-field label="基础表格" ui="multi">
                     <veui-table
                         :data="basicData"
+                        bordered
                     >
                         <veui-table-column
                             field="id"

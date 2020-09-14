@@ -8,8 +8,8 @@
     overflow: hidden;
     border: 1px solid @veui-table-border-color;
     border-radius: @veui-table-border-radius;
-    border-top-style: none;
-    border-bottom-style: none;
+    // border-top-style: none;
+    // border-bottom-style: none;
     font-variant-numeric: tabular-nums;
 
     table {
@@ -23,6 +23,8 @@
     &-main {
         height: 100%;
         overflow: auto;
+        /* To workaround an edge case which triggers composition problems on Firefox */
+        transform-style: translate-3d;
         table {
             height: 100%; 
         }
