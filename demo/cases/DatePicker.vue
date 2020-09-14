@@ -21,115 +21,141 @@
                 </veui-field>
             </veui-form>
         </section>
-        <h2>各种状态展示</h2>
         <section>
-            <span class="title-desc">默认状态</span>
-            <veui-date-picker
-                v-model="selectedDate"
-                clearable
-                ui="s"
-            />
-            <veui-date-picker
-                v-model="selectedDateRange"
-                range
-                clearable
-                ui="m"
-            />
-        </section>
-        <section>
-            <span class="title-desc">禁用状态</span>
-            <veui-date-picker
-                v-model="selectedDate"
-                clearable
-                disabled
-                ui="s"
-            />
-            <veui-date-picker
-                v-model="selectedDateRange"
-                range
-                clearable
-                disabled
-                ui="m"
-            />
-        </section>
-        <section>
-            <span class="title-desc">只读状态</span>
-            <veui-date-picker
-                v-model="selectedDate"
-                clearable
-                readonly
-                ui="s"
-            />
-            <veui-date-picker
-                v-model="selectedDateRange"
-                range
-                clearable
-                readonly
-                ui="m"
-            />
-        </section>
-        <section>
-            <span class="title-desc">报错状态</span>
-            <veui-date-picker
-                class="veui-invalid"
-                v-model="selectedDate"
-                clearable
-                ui="s"
-            />
-            <veui-date-picker
-                class="veui-invalid"
-                v-model="selectedDateRange"
-                range
-                clearable
-                ui="m"
-            />
-        </section>
-        <section>
-            <h2>日期快捷选择</h2>
-            <veui-date-picker
-                v-model="selectedDateRange"
-                range
-                :shortcuts="shortcuts"
-            />
-        </section>
-        <h2>单月选择</h2>
-        <section>
-            <veui-date-picker
-                v-model="selectedMonth"
-                type="month"
-            />
-        </section>
-        <h2>月份范围选择</h2>
-        <section>
-            <veui-date-picker
-                v-model="selectedMonthRange"
-                :overlay-options="{ position: 'right-start' }"
-                type="month"
-                range
-            />
-        </section>
-        <h2>作用域插槽</h2>
-        <section>
-            <section>
-                <veui-date-picker
-                    v-model="selectedDateRange"
-                    range
+            <h2>不同状态展示</h2>
+            <veui-form>
+                <veui-field
+                    label="默认状态"
                 >
-                    <template
-                        slot="date"
-                        slot-scope="{ date }"
-                    >
-                        <em>{{ date }}</em>
-                    </template>
-                </veui-date-picker>
-            </section>
+                    <veui-date-picker
+                        v-model="selectedDate"
+                        clearable
+                        ui="s"
+                    />
+                    <veui-date-picker
+                        v-model="selectedDateRange"
+                        range
+                        clearable
+                        ui="s"
+                    />
+                </veui-field>
+                <veui-field
+                    label="禁用状态"
+                >
+                    <veui-date-picker
+                        v-model="selectedDate"
+                        clearable
+                        disabled
+                        ui="s"
+                    />
+                    <veui-date-picker
+                        v-model="selectedDateRange"
+                        range
+                        clearable
+                        disabled
+                        ui="s"
+                    />
+                </veui-field>
+                <veui-field
+                    label="只读状态"
+                >
+                    <veui-date-picker
+                        v-model="selectedDate"
+                        clearable
+                        readonly
+                        ui="s"
+                    />
+                    <veui-date-picker
+                        v-model="selectedDateRange"
+                        range
+                        clearable
+                        readonly
+                        ui="s"
+                    />
+                </veui-field>
+                <veui-field
+                    label="报错状态"
+                >
+                    <veui-date-picker
+                        class="veui-invalid"
+                        v-model="selectedDate"
+                        clearable
+                        ui="s"
+                    />
+                    <veui-date-picker
+                        class="veui-invalid"
+                        v-model="selectedDateRange"
+                        range
+                        clearable
+                        ui="m"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
-        <section style="height: 500px;"/>
+        <section>
+            <h2>更多功能demo示例（UI不需还原）</h2>
+            <veui-form>
+                <veui-field
+                    label="日期快捷选择"
+                >
+                    <veui-date-picker
+                        v-model="selectedDateRange"
+                        range
+                        :shortcuts="shortcuts"
+                    />
+                </veui-field>
+                <veui-field
+                    label="单月选择"
+                >
+                    <veui-date-picker
+                        v-model="selectedMonth"
+                        type="month"
+                    />
+                </veui-field>
+                <veui-field
+                    label="月份范围选择"
+                >
+                    <veui-date-picker
+                        v-model="selectedMonthRange"
+                        :overlay-options="{ position: 'right-start' }"
+                        type="month"
+                        range
+                    />
+                </veui-field>
+                <veui-field
+                    label="作用域插槽"
+                >
+                    <veui-date-picker
+                        v-model="selectedDateRange"
+                        range
+                    >
+                        <template
+                            slot="date"
+                            slot-scope="{ date }"
+                        >
+                            <em>{{ date }}</em>
+                        </template>
+                    </veui-date-picker>
+                </veui-field>
+                <veui-field
+                    label="日期范围选择（3天限制）"
+                >
+                    <veui-date-picker
+                        clearable
+                        :disabled-date="disabledRange"
+                        range
+                        format="yyyy-MM-dd"
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
     </article>
 </template>
 
 <script>
 import {DatePicker, Field, Form} from 'veui';
+import add from 'date-fns/add';
+import startOfDay from 'date-fns/startOfDay';
 
 export default {
     name: 'date-picker-demo',
@@ -212,6 +238,19 @@ export default {
     methods: {
         disabledDate(date) {
             return date > new Date();
+        },
+        disabledRange(date, selected) {
+            let today = startOfDay(new Date());
+            let maxEnd = add(today, {days: 4});
+            let middle = add(today, {days: 2});
+            if (selected == null) {
+                return date < today || date > maxEnd;
+            } else if (selected <= middle) {
+                maxEnd = add(selected, {days: 2});
+                return !(date >= today && date <= maxEnd);
+            }
+            let minStart = add(selected, {days: -2});
+            return !(date >= minStart && date <= maxEnd);
         }
     }
 };
