@@ -56,6 +56,7 @@ module.exports = {
             )
             .set('veui-theme-blue', resolve('src'))
             .set('veui-theme-blue-icons', resolve('icons/icons'))
+            .set('veui-theme-blue-imgs', resolve('icons/assets/images'))
 
         // 压缩空格：https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#options
         config.module

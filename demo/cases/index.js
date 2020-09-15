@@ -55,6 +55,7 @@ import Base from './Base';
 import Mixins from './Mixins';
 import UI from './UI';
 import Nav from './Nav';
+import Poster from './Poster';
 
 export default [
     {
@@ -79,8 +80,13 @@ export default [
     },
     {
         path: '/icon',
-        name: 'Icon',
+        name: 'Icon(img)',
         component: Icon
+    },
+    {
+        path: '/poster',
+        name: 'Poster(img)',
+        component: Poster
     },
     {
         path: '/alert',
