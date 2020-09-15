@@ -19,7 +19,10 @@
 
   // all menu items
   &-item {
-    font-size: @veui-menu-font-size-horizontal-s;
+    &,
+    &.@{veui-prefix}-link {
+      font-size: @veui-menu-font-size-horizontal-s;
+    }
 
     &,
     &:hover,
@@ -149,7 +152,7 @@
   // dropdown: apply overlay shadow styles
   &-dropdown > .@{veui-prefix}-option-group,
   &-dropdown &-card {
-    width: 120px;
+    min-width: 120px;
     &:extend(._veui-dropdown-overlay all);
   }
 
@@ -257,8 +260,7 @@
     }
 
     &[data-focus-visible-added] {
-      &,
-      & + .@{veui-prefix}-option-group-expandable {
+      & {
         color: @veui-menu-item-font-color-horizontal-focus;
       }
       &::before {
@@ -267,8 +269,7 @@
     }
 
     &:active{
-      &,
-      & + .@{veui-prefix}-option-group-expandable {
+      & {
         color: @veui-menu-item-font-color-horizontal-active;
       }
       &::before {
@@ -278,12 +279,7 @@
 
     &.@{veui-prefix}-nav-item-active,
     &.@{veui-prefix}-nav-item-exact-active {
-      &,
-      & + .@{veui-prefix}-option-group-expandable {
-        font-weight: @veui-menu-item-font-weight-current;
-        // color: @veui-menu-item-font-color-horizontal-current;
-        color: red;
-      }
+      color: @veui-menu-item-font-color-horizontal-current;
     }
 
     &.@{veui-prefix}-nav-item-exact-active {
@@ -292,8 +288,7 @@
       }
 
       &:hover {
-        &,
-        & + .@{veui-prefix}-option-group-expandable {
+        & {
           color: @veui-menu-item-font-color-horizontal-current-hover;
         }
         &::before {
@@ -302,8 +297,7 @@
       }
 
       &[data-focus-visible-added] {
-        &,
-        & + .@{veui-prefix}-option-group-expandable {
+        & {
           color: @veui-menu-item-font-color-horizontal-current-focus;
         }
         &::before {
@@ -312,8 +306,7 @@
       }
 
       &:active {
-        &,
-        & + .@{veui-prefix}-option-group-expandable {
+        & {
           color: @veui-menu-item-font-color-horizontal-current-active;
         }
         &::before {
@@ -352,9 +345,8 @@
       }
 
       &.@{veui-prefix}-nav-item-exact-active {
-        font-weight: @veui-menu-item-font-weight-current;
-        // color: @veui-menu-item-font-color-horizontal-current;
-        color: red;
+        // font-weight: @veui-menu-item-font-weight-current;
+        color: @veui-menu-item-font-color-horizontal-current;
 
         &:hover {
           color: @veui-menu-item-font-color-horizontal-current-hover;

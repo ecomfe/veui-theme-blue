@@ -27,59 +27,59 @@
         </section>
         <h2>更多功能demo示例（UI不需还原）</h2>
         <section>
-            <h3>folded nav</h3>
-            <veui-nav
-                class="rest-nav"
-                :items="items"
-            />
+            <veui-form>
+                <veui-field label="folded nav" ui="multi">
+                    <veui-nav
+                        class="rest-nav"
+                        :items="items"
+                    >
+                        <span slot="more-icon">
+                            <span class="more-text">更多</span>
+                            <veui-icon name="plain-down" class="veui-nav-expand-icon"/>
+                        </span>
+                    </veui-nav>
+                </veui-field>
+                <veui-field label="item-label scoped slot" ui="multi">
+                    <veui-nav :items="items">
+                        <template
+                            slot="item-label"
+                            slot-scope="item"
+                        >{{ item.label }}🐂</template>
+                    </veui-nav>
+                </veui-field>
+                <veui-field label="named nav（without to）" ui="multi">
+                    <veui-nav :items="nameItems"/>
+                </veui-field>
+            </veui-form>
         </section>
-        <section>
-            <h3>uncontrolled nav</h3>
-            <veui-nav :items="items"/>
-        </section>
-        <section>
-            <h3>item-label scoped slot</h3>
-            <veui-nav :items="items">
-                <template
-                    slot="item-label"
-                    slot-scope="item"
-                >{{ item.label }}🐂</template>
-            </veui-nav>
-        </section>
-        <section>
-            <h3>named nav（without to）</h3>
-            <veui-nav :items="nameItems"/>
-        </section>
-        <section>
-            <h3>nav based on params</h3>
-            <veui-nav :items="nameItems"/>
-        </section>
-        <section><router-view/></section>
+        <!-- <section><router-view/></section> -->
     </article>
 </template>
 
 <script>
-import {VeuiNav, VeuiForm, VeuiField} from 'veui';
+import {VeuiNav, VeuiForm, VeuiField, VeuiIcon} from 'veui';
 import 'veui-theme-blue-icons/trophy';
 import 'veui-theme-blue-icons/cloud';
 import 'veui-theme-blue-icons/home';
 import 'veui-theme-blue-icons/gear';
+import 'veui-theme-blue-icons/plain-down';
 
 export default {
     name: 'veui-nav-demo',
     components: {
         VeuiNav,
         VeuiForm,
-        VeuiField
+        VeuiField,
+        VeuiIcon
     },
     data() {
         let items = [
             {
-                label: 'Navigation One',
+                label: '导航内容',
                 name: 'navigation-one',
                 icon: 'trophy',
-                disabled: true,
-                position: 'card',
+                // disabled: true,
+                // position: 'card',
                 children: [
                     {
                         label: 'Sub One',
@@ -107,7 +107,7 @@ export default {
                 ]
             },
             {
-                label: 'Button',
+                label: '导航内容',
                 name: 'Button',
                 to: '/nav/button',
                 icon: 'home',
@@ -128,13 +128,13 @@ export default {
                 ]
             },
             {
-                label: 'Navigation Three',
+                label: '导航内容',
                 name: 'nav-three',
                 icon: 'gear',
                 disabled: true
             },
             {
-                label: 'Navigation Four',
+                label: '导航内容',
                 name: 'nav-four',
                 icon: 'gear',
                 children: [
@@ -168,7 +168,7 @@ export default {
                 ]
             },
             {
-                label: 'Navigation Five',
+                label: '导航内容',
                 name: 'nav-five',
                 icon: 'gear',
                 children: [
