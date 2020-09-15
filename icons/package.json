@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "node -r esm build/svg2json.js && node -r esm build/icons.js",
-    "prepublishOnly": "cp -r ./icons/* .",
-    "publish": "rm *.js icon-names.json",
+    "prepublishOnly": "cp -r ./icons/* . && cp -r ./assets/images/* .",
+    "revoke": "rm *.js icon-names.json && rm *.png",
+    "publish": "rm *.js icon-names.json && rm *.png",
     "prepare": "npm run build"
   },
   "repository": "ecomfe/veui-theme-blue",
