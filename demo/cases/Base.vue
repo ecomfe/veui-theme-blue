@@ -137,14 +137,14 @@ const Settings = [
             class: 'background-color-hover'
         },
         {
-            label: '聚焦状态(#eee)',
+            label: '聚焦状态(#f2f5ff)',
             desc: 'veui-background-color-normal-focus',
             class: 'background-color-focus'
         },
         {
             label: '点击状态(#eee)',
             desc: 'veui-background-color-normal-active',
-            class: 'background-color-focus'
+            class: 'background-color-active'
         },
         {
             label: '禁用状态(#fafafa)',
