@@ -5,6 +5,7 @@
 @import "./lib.less";
 @import "./normalize.less";
 @import (reference) "./link.less";
+@import (reference) "./drag.less";
 
 /* Overriding est variables */
 @support-ie-version: 11;
@@ -32,6 +33,8 @@
             -moz-osx-font-smoothing: grayscale;
         }
     }
+
+    ._veui-drag-sort();
 }
 ._veui-output-common(html) {
     *,
@@ -78,6 +81,10 @@
 
     .@{veui-prefix}-sr-only {
         .veui-invisible();
+    }
+
+    .@{veui-prefix}-hidden {
+        visibility: hidden;
     }
 
     a {

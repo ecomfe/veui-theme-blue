@@ -300,10 +300,10 @@
                 <veui-dropdown trigger="hover">
                     <veui-option value="undo">⬅️撤消</veui-option>
                     <veui-option value="redo">➡️重复</veui-option>
-                    <template #trigger="{ handlers, props }">
+                    <template #trigger="{ handlers, attrs }">
                         <veui-button
                             ui="icon"
-                            v-bind="props"
+                            v-bind="attrs"
                             v-on="handlers"
                         >
                             <veui-icon name="ellipsis"/>
@@ -327,10 +327,10 @@
                             >OK</veui-button>
                         </div>
                     </template>
-                    <template #trigger="{ handlers, props }">
+                    <template #trigger="{ handlers, attrs }">
                         <veui-button
                             ui="strong xs"
-                            v-bind="props"
+                            v-bind="attrs"
                             v-on="handlers"
                         >下拉</veui-button>
                     </template>

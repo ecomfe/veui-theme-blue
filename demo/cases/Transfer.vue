@@ -59,20 +59,28 @@
             </veui-form>
         </section>
         <h2>多级树形结构</h2>
+        mergeChecked：
+        <veui-radio-group
+            v-model="strategy"
+            class="check-strategy"
+            :items="strategies"
+        />
         <veui-transfer
             ui="m"
             v-model="selected1"
+            :merge-checked="
+                strategy === 'include-indeterminate' ? 'keep-all' : strategy
+            "
+            :include-indeterminate="strategy === 'include-indeterminate'"
             :datasource="datasource1"
             candidatePlaceholder="搜索关键词"
         >
-            <template slot="candidate-title">
-                备选列表（{{ datasource1LeafCount }}）
+            <template #candidate-title="{ count }">
+                备选列表（{{ count }}）
             </template>
-            <template slot="selected-title">
-                已选列表（{{ selected1.length }}）
-            </template>
+            <template #selected-title="{ count }"> 已选列表（{{ count }}） </template>
         </veui-transfer>
-
+        <div>selected: {{ selected1 }}</div>
         <h2>单级结构</h2>
         <p>
             <veui-transfer
@@ -89,11 +97,11 @@
                 :datasource="datasource3"
                 selected-show-mode="flat"
             >
-                <template slot="candidate-title">
-                    备选列表（{{ datasource1LeafCount }}）
+                <template #candidate-title="{ count }">
+                    备选列表（{{ count }}）
                 </template>
-                <template slot="selected-title">
-                    已选列表（{{ selected3.length }}）
+                <template #selected-title="{ count }">
+                    已选列表（{{ count }}）
                 </template>
             </veui-transfer>
         </p>
@@ -108,8 +116,8 @@
                 <template slot="candidate-title">
                     备选列表
                 </template>
-                <template slot="selected-title">
-                    已选列表（{{ selected4.length }}）
+                <template #selected-title="{ count }">
+                    已选列表（{{ count }}）
                 </template>
             </veui-transfer>
         </p>
@@ -122,11 +130,11 @@
                 selected-show-mode="flat"
                 disabled
             >
-                <template slot="candidate-title">
-                    备选列表（{{ datasource1LeafCount }}）
+                <template #candidate-title="{ count }">
+                    备选列表（{{ count }}）
                 </template>
-                <template slot="selected-title">
-                    已选列表（{{ selected5.length }}）
+                <template #selected-title="{ count }">
+                    已选列表（{{ count }}）
                 </template>
             </veui-transfer>
         </p>
@@ -148,11 +156,11 @@
                     candidate-placeholder="搜索备选列表"
                     selected-placeholder="搜索已选列表"
                 >
-                    <template slot="candidate-title">
-                        备选列表（{{ countLeaves(datasource1) }}）
+                    <template #candidate-title="{ count }">
+                        备选列表（{{ count }}）
                     </template>
-                    <template slot="selected-title">
-                        已选列表（{{ countLeaves(formData.selected6) }}）
+                    <template #selected-title="{ count }">
+                        已选列表（{{ count }}）
                     </template>
                 </veui-transfer>
             </veui-field>
@@ -165,11 +173,36 @@
                 </veui-button>
             </div>
         </veui-form>
+
+        <h2>自定义candidate</h2>
+        <veui-transfer
+            v-model="selected4"
+            :datasource="datasource4"
+        >
+            <template v-slot:candidate="{ datasource }">
+                <veui-table
+                    class="custom-table"
+                    :data="datasource"
+                    selectable
+                    :selected.sync="selected4"
+                    key-field="value"
+                >
+                    <veui-table-column
+                        field="value"
+                        title="ID"
+                    />
+                    <veui-table-column
+                        field="label"
+                        title="Name"
+                    />
+                </veui-table>
+            </template>
+        </veui-transfer>
     </article>
 </template>
 
 <script>
-import {Transfer, Form, Field, Button} from 'veui';
+import {Transfer, Form, Field, Button, Table, Column, RadioGroup} from 'veui';
 import {cloneDeep} from 'lodash';
 
 export default {
@@ -178,7 +211,10 @@ export default {
         'veui-transfer': Transfer,
         'veui-form': Form,
         'veui-field': Field,
-        'veui-button': Button
+        'veui-button': Button,
+        'veui-table': Table,
+        'veui-table-column': Column,
+        'veui-radio-group': RadioGroup
     },
     data() {
         let coffees = [
@@ -334,12 +370,20 @@ export default {
                 label: '王五'
             }
         ];
+
         return {
             treeDatasource1: cloneDeep(coffees),
             treeDatasource2: cloneDeep(coffees),
             expanded1: ['10000', '1000'],
+            strategy: 'keep-all',
+            strategies: [
+                {label: 'keep-all', value: 'keep-all'},
+                {label: 'downwards', value: 'downwards'},
+                {label: 'upwards', value: 'upwards'},
+                {label: 'include-indeterminate', value: 'include-indeterminate'}
+            ],
 
-            selected1: [],
+            selected1: ['filtered'],
             datasource1: cloneDeep(coffees),
 
             selected2: [],
@@ -409,6 +453,15 @@ export default {
     .veui-tree {
       padding: 0 20px;
     }
+  }
+
+  .custom-table {
+    width: 300px;
+  }
+
+  .check-strategy {
+    display: inline-flex;
+    margin-bottom: 12px;
   }
 }
 </style>

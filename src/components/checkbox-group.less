@@ -5,9 +5,17 @@
   display: flex;
   align-items: center;
 
+  &-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+  }
+
   .@{veui-prefix}-checkbox {
     flex: none;
   }
+  
   .@{veui-prefix}-radio,
   .@{veui-prefix}-checkbox {
     & + .@{veui-prefix}-radio,

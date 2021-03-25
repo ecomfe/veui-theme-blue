@@ -56,6 +56,9 @@ import Mixins from './Mixins';
 import UI from './UI';
 import Nav from './Nav';
 import Poster from './Poster';
+import Lightbox from './Lightbox';
+import VDragSort from './VDragSort';
+import Plugins from './Plugins';
 
 export default [
     {
@@ -208,6 +211,11 @@ export default [
         path: '/link',
         name: 'Link',
         component: Link
+    },
+    {
+        path: '/Lightbox',
+        name: 'Lightbox',
+        component: Lightbox
     },
     {
         path: '/loading',
@@ -445,5 +453,15 @@ export default [
         path: '/uploader',
         name: 'Uploader',
         component: Uploader
+    },
+    {
+        path: '/v-drag-sort',
+        name: 'Directive: v-drag.sort',
+        component: VDragSort
+    },
+    {
+        path: '/plugins',
+        name: 'Plugins',
+        component: Plugins
     }
 ];

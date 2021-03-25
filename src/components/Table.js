@@ -3,6 +3,7 @@ import 'veui-theme-blue-icons/plain-down';
 import 'veui-theme-blue-icons/arrow-right-down-side';
 import 'veui-theme-blue-icons/arrow-left-down-side';
 import 'veui-theme-blue-icons/sort';
+import 'veui-theme-blue-icons/filter';
 import config from 'veui/managers/config';
 
 config.defaults(
@@ -14,7 +15,8 @@ config.defaults(
             collapseAll: 'fast-down',
             asc: 'arrow-right-down-side',
             desc: 'arrow-left-down-side',
-            sort: 'sort'
+            sort: 'sort',
+            filter: 'filter'
         },
         ui: {
             size: {
@@ -24,7 +26,8 @@ config.defaults(
             }
         },
         parts: {
-            icon: 'icon'
+            icon: 'icon',
+            loading: 'm strong overlay'
         }
     },
     'table'

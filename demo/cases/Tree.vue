@@ -103,16 +103,25 @@
         </section>
         <section>
             <h3>含复选框和可单选的树：</h3>
+            checkStrategy：
+            <veui-radio-group
+                v-model="strategy"
+                class="check-strategy"
+                :items="strategies"
+            />
             <veui-form>
                 <veui-field ui="few">
                     <veui-tree
-                        v-model="checked"
+                        v-model="checked2"
                         :datasource="coffees"
                         :expanded.sync="expanded4"
                         :selected.sync="selected"
                         checkable
                         selectable
-                        include-indeterminate
+                        :merge-checked="
+                            strategy === 'include-indeterminate' ? 'keep-all' : strategy
+                        "
+                        :include-indeterminate="strategy === 'include-indeterminate'"
                     />
                 </veui-field>
                 <veui-field ui="few">
@@ -121,11 +130,34 @@
                 </veui-field>
             </veui-form>
         </section>
+        <section>
+            <h3>Checkable & Selectable item(存在父节点无value)</h3>
+            mergeChecked：
+            <veui-radio-group
+                v-model="strategy3"
+                class="check-strategy"
+                :items="strategies"
+            />
+            <veui-tree
+                v-model="checked3"
+                :datasource="coffeesWithoutGroupValue"
+                :expanded.sync="expanded3"
+                :selected.sync="selected3"
+                :merge-checked="strategy3"
+                checkable
+                selectable
+            />
+            <h4>Checked items</h4>
+            {{ checked3 }}
+            <h4>Selected items</h4>
+            {{ selected3 }}
+        </section>
     </article>
 </template>
 
 <script>
-import {VeuiTree, VeuiForm, VeuiField, VeuiIcon, VeuiButton} from 'veui';
+import {VeuiTree, VeuiForm, VeuiField, VeuiIcon, VeuiButton, VeuiRadioGroup} from 'veui';
+import {omit} from 'lodash';
 
 export default {
     name: 'tree',
@@ -134,7 +166,8 @@ export default {
         VeuiForm,
         VeuiField,
         VeuiIcon,
-        VeuiButton
+        VeuiButton,
+        VeuiRadioGroup
     },
     data() {
         let treeData = [
@@ -272,8 +305,51 @@ export default {
             expanded5: [],
             checked: [],
             selected: null,
+            checked2: null,
+            strategy: 'keep-all',
+            selected3: null,
+            checked3: null,
+            strategy3: 'keep-all',
+            strategies: [
+                {label: 'keep-all', value: 'keep-all'},
+                {label: 'downwards', value: 'downwards'},
+                {label: 'upwards', value: 'upwards'},
+                {label: 'include-indeterminate', value: 'include-indeterminate'}
+            ],
             coffees: treeData
         };
+    },
+    computed: {
+        coffeesWithoutGroupValue() {
+            return this.omitGroupValue(this.coffees);
+        }
+    },
+    methods: {
+        omitGroupValue(original) {
+            return original.map(i => {
+                if (i.children && i.children.length) {
+                    if (i.value === 'milk-coffee') {
+                        i = {
+                            ...i,
+                            label: `${i.label}(有value)`
+                        };
+                    } else if (i.value === 'cappuccino') {
+                        i = {
+                            ...omit(i, 'value'),
+                            label: `${i.label}(无value无name)`
+                        };
+                    } else {
+                        i = {
+                            ...omit(i, 'value'),
+                            label: `${i.label}(无value)`,
+                            name: i.value
+                        };
+                    }
+                    i.children = this.omitGroupValue(i.children);
+                }
+                return i;
+            });
+        }
     }
 };
 </script>
@@ -297,5 +373,8 @@ export default {
             }
         }
     }
+}
+.check-strategy {
+  display: inline-flex;
 }
 </style>

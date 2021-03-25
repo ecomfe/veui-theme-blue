@@ -4,7 +4,7 @@ import config from 'veui/managers/config';
 config.defaults(
     {
         icons: {
-            loading: 'loading'
+            loading: null
         },
         ui: {
             style: {

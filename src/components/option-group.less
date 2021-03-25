@@ -120,4 +120,12 @@
         .margin(0, 0);
         pointer-events: all;
     }
+
+    &-box[x-placement*="right"] &-options {
+        margin-left: 0;
+      }
+    
+      &-box[x-placement*="left"] &-options {
+        margin-right: 0;
+      }
 }

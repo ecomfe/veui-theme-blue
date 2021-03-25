@@ -15,9 +15,7 @@
   cursor: pointer;
   .veui-button-transition();
 
-  &::before {
-    content: "\200b";
-  }
+  .veui-stub();
 
   .make-metrics(@size) {
     @height: ~"veui-button-height-@{size}";
@@ -59,12 +57,26 @@
   &[ui~="xl"] {
     .make-metrics(xl);
   }
- 
+
   .@{veui-prefix}-icon {
     .veui-icon-size(1em);
     margin-right: @veui-button-content-spacing;
     &:last-child {
       margin-right: 0;
+    }
+  }
+
+  &-loading-icon {
+    margin-right: @veui-button-content-spacing;
+  }
+
+  .@{veui-prefix}-loading {
+    &-spinner {
+      color: inherit;
+    }
+
+    &-content {
+      .veui-icon-size(1em);
     }
   }
 
@@ -205,6 +217,7 @@
       border: 1px solid transparent;
       border-radius: inherit;
       .veui-button-transition();
+      pointer-events: none;
     }
 
     &[data-focus-visible-added] {
