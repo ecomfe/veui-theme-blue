@@ -21,6 +21,9 @@
                 <veui-button @click="status = null">
                     Clear Status
                 </veui-button>
+                <veui-button
+                    @click="indeterminate = !indeterminate"
+                >Toggle Indeterminate</veui-button>
             </p>
         </section>
         <section>
@@ -38,6 +41,7 @@
                         :autosucceed="200"
                         :status.sync="status"
                         :decimal-place="1"
+                        :indeterminate="indeterminate"
                     />
                 </veui-field>
                 <veui-field label="中号[ui=m]">
@@ -48,6 +52,7 @@
                         :autosucceed="200"
                         :status.sync="status"
                         :decimal-place="1"
+                        :indeterminate="indeterminate"
                     />
                 </veui-field>
             </veui-form>
@@ -64,6 +69,7 @@
                         :autosucceed="200"
                         :status.sync="status"
                         :decimal-place="1"
+                        :indeterminate="indeterminate"
                         ui="fluid"
                     />
                 </veui-field>
@@ -98,6 +104,17 @@
                 </veui-field>
             </veui-form>
         </section>
+        <section>
+            <h2 style="margin-top: 50px;">更多功能demo示例（UI不需还原）</h2>
+            <veui-form>
+                <veui-field label="线性进度条（不确定进度）:">
+                    <veui-progress
+                        :status.sync="status"
+                        indeterminate
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
     </article>
 </template>
 
@@ -116,7 +133,8 @@ export default {
     data() {
         return {
             progress: 0.3,
-            status: null
+            status: null,
+            indeterminate: false
         };
     }
 };

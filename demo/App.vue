@@ -1,7 +1,9 @@
 <template>
-    <div id="app">
+    <div
+        id="app"
+        :class="{ collapse: collapsedNav }">
         <nav id="main-nav">
-            <h1>
+            <h1 @contextmenu.prevent="collapsedNav = !collapsedNav">
                 <a href="https://github.com/ecomfe/veui"> VEUI components </a><veui-icon
                     name="brands/github"
                     scale="6"
@@ -74,7 +76,8 @@ export default {
             routes,
             year: new Date().getFullYear(),
             locales: LOCALES,
-            locale: i18n.locale
+            locale: i18n.locale,
+            collapsedNav: false
         };
     },
     watch: {
@@ -99,12 +102,32 @@ p {
   margin: 0;
 }
 
+body {
+  margin: 0;
+}
+
 #app {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+
+  &.collapse {
+    @collapse-width: 30px;
+    #main-nav {
+      left: @collapse-width - @nav-width;
+    }
+    #content,
+    #console {
+      left: @collapse-width;
+    }
+    #main-nav,
+    #content,
+    #console {
+      transition: left 0.5s;
+    }
+  }
 }
 
 #main-nav,

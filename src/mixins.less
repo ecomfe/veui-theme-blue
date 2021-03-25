@@ -42,6 +42,11 @@
 //   margin-right: @veui-form-label-spacing-after-vertical;
 //   color: @veui-form-label-required-color;
 // }
+.veui-stub() {
+  &::before {
+    content: "\200b";
+  }
+}
 
 .veui-field-gap-error() {
   position: absolute;

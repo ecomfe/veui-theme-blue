@@ -13,6 +13,11 @@
     align-items: center;
     width: @veui-select-width;
     outline: none;
+    .veui-stub();
+
+    &:not(*:root) {
+      vertical-align: -0.5px; // hacks to align with other inputs
+    }
 
     &:not(&-empty):not(&-expanded)
     .@{veui-prefix}-input:not(.@{veui-prefix}-focus)
@@ -24,9 +29,15 @@
         color: @veui-input-font-color-read-only;
     }
 
-    &.focus-visible .@{veui-prefix}-input,
     &[data-focus-visible-added] .@{veui-prefix}-input {
         .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
+
+        &.@{veui-prefix}-invalid {
+            .veui-focus-ring(
+                @veui-input-border-color-error-focus,
+                @veui-input-shadow-error-focus
+            );
+        }
     }
 
     .@{veui-prefix}-input {

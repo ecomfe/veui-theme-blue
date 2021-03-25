@@ -4,7 +4,7 @@ import routes from './cases';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
     // mode: 'history',
     routes: [
         {
@@ -23,3 +23,11 @@ export default new Router({
         ...routes
     ]
 });
+
+router.beforeEach((to, from, next) => {
+    let name = to.name === 'Empty' ? '' : to.name;
+    document.title = `Veui${name} - demo`;
+    next();
+});
+  
+export default router;

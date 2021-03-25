@@ -231,6 +231,16 @@
         </section>
         <h2 style="margin-top: 50px;">更多功能demo示例（UI不需还原）</h2>
         <section>
+            <div class="title-desc">报错样式：</div>
+            <veui-form>
+                <veui-field label="报错样式：">
+                    <veui-select
+                        v-model="defaultValue1"
+                        v-bind="attrs"
+                        invalid
+                    />
+                </veui-field>
+            </veui-form>
             <div class="title-desc">Slot样式：</div>
             <veui-form>
                 <veui-field label="name=option-label：">
@@ -373,8 +383,7 @@
                         searchable
                     />
                 </veui-field>
-                <veui-field
-                    
+                <veui-field    
                     label="Slot分组样式1：">
                     <veui-select
                         v-model="defaultValue7"
@@ -443,6 +452,28 @@
                                 label="选项 3"
                             />
                         </veui-option-group>
+                    </veui-select>
+                </veui-field>
+                <veui-field label="可搜索Select(自定义 selected slot)：">
+                    <veui-select
+                        v-model="defaultValue2"
+                        v-bind="attrs"
+                        ui="checkmark"
+                        searchable
+                    >
+                        <template #selected="{ label }">
+                            {{ label }}
+                            <veui-icon name="flag"/>
+                        </template>
+                    </veui-select>
+                </veui-field>
+                <veui-field label="多选Select：(自定义 selected slot)">
+                    <veui-select
+                        v-model="defaultSearchMultiValue"
+                        v-bind="attrs"
+                        multiple
+                    >
+                        <template #selected="{ selected }">{{ selected[0].label }}{{ selected.length > 1 ? `等${selected.length}个` : '' }}</template>
                     </veui-select>
                 </veui-field>
             </veui-form>

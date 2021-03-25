@@ -15,7 +15,7 @@
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
     &::before {
-      content: "​";
+      content: "​\200b";
     }
   }
 
@@ -76,6 +76,19 @@
     }
   }
 
+  &-indeterminate &-rail {
+    position: relative;
+  }
+
+  &-indeterminate&-bar &-meter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    animation: veui-progress-loading 1s 0s infinite
+      cubic-bezier(0.42, 0, 0.58, 1);
+  }
+
   &-circular {
     .@{veui-prefix}-progress-circle {
       display: block;
@@ -123,5 +136,19 @@
         color: @veui-progress-icon-color-error;
       }
     }
+  }
+}
+
+@keyframes veui-progress-loading {
+  0% {
+    width: 10%;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    width: 20%;
+    left: 100%;
+    transform: translateX(0);
   }
 }

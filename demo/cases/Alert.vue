@@ -1,6 +1,8 @@
 <template>
     <article class="alert-demo">
-        <h1><code>&lt;veui-alert&gt;</code></h1>
+        <h1>
+            <code>&lt;veui-alert&gt;</code>
+        </h1>
         <h2>风格</h2>
         <div class="options-desc">可选的风格
             <span class="bg-gray-show">ui</span>

@@ -270,6 +270,33 @@
                         </template>
                     </veui-table>
                 </veui-field>
+                <veui-field label="加载中" ui="multi">
+                    <veui-table
+                        :data="basicData"
+                        :loading="true"
+                        bordered
+                    >
+                        <veui-table-column
+                            field="id"
+                            title="数据 ID"
+                            width="120"
+                            fixed
+                        >
+                        </veui-table-column>
+                        <veui-table-column title="描述" field="desc">
+                        </veui-table-column>
+                        <veui-table-column
+                            field="date"
+                            title="更新时间"
+                        />
+                        <template #no-data>
+                            <veui-icon name="data-file-box"/>
+                            <span>
+                                无数据
+                            </span>
+                        </template>
+                    </veui-table>
+                </veui-field>
                 <veui-field label="暂无数据" ui="multi">
                     <veui-table
                         :data="[]"
@@ -347,6 +374,96 @@
                                 无数据
                             </span>
                         </template>
+                    </veui-table>
+                </veui-field>
+                <veui-field label="列筛选" ui="multi">
+                    <veui-table
+                        ui="s"
+                        :data="data"
+                        :column-filter="columns"
+                        :key-field="selectSpanRow ? 'group' : 'id'"
+                        selectable
+                        :selected.sync="selected1"
+                    >
+                        <veui-table-column title="元数据">
+                            <veui-table-column
+                                field="id"
+                                title="数据 ID"
+                            />
+                            <veui-table-column
+                                v-if="showGroup"
+                                field="group"
+                                title="数据分组"
+                                :span="groupSpan"
+                            />
+                            <veui-table-column
+                                field="desc"
+                                title="数据描述"
+                            />
+                        </veui-table-column>
+                        <veui-table-column
+                            field="price"
+                            title="价格"
+                            width="160"
+                            align="right"
+                            filter-multiple
+                            :filter-value.sync="filtered"
+                            :filter-options="[
+                                { label: '高', value: 'high' },
+                                { label: '中', value: 'mid' },
+                                { label: '低', value: 'low' }
+                            ]"
+                        >
+                            <template slot-scope="props">{{
+                                props.item.price | currency
+                            }}</template>
+                        </veui-table-column>
+                        <veui-table-column
+                            field="updateDate"
+                            title="更新时间"
+                            align="right"
+                        >
+                            <template slot-scope="props">
+                                <span>{{props.item.updateDate | date}}</span>
+                            </template>
+                        </veui-table-column>
+                    </veui-table>
+                </veui-field>
+                <veui-field label="排序" ui="multi">
+                    <div class="desc">Orders: {{ allowedOrders1 }} , Current: {{ order1 }}</div>
+                    <veui-table
+                        key-field="id"
+                        :data="items"
+                        :order="order1"
+                        :order-by="orderBy1"
+                        :allowed-orders="allowedOrders1"
+                        @sort="(orderBy, order) => { orderBy1 = orderBy; order1 = order }"
+                    >
+                        <veui-table-column
+                            field="id"
+                            title="id"
+                            sortable
+                        />
+                    </veui-table>
+                    <div class="desc">Orders: {{ allowedOrders2 }} , Current: {{ order2 }}</div>
+                    <div class="desc">
+                        <veui-button @click="switchDisabled">切换disabled</veui-button>
+                        <veui-button @click="switchAll">切换all</veui-button>
+                    </div>
+                    <veui-table
+                        key-field="id"
+                        :data="items"
+                        selectable
+                        :order="order2"
+                        order-by="id"
+                        :allowed-orders="allowedOrders2"
+                        @sort="(_, order) => order2 = order"
+                    >
+                        <veui-table-column
+                            field="id"
+                            title="id"
+                            sortable
+                        />
                     </veui-table>
                 </veui-field>
             </veui-form>
@@ -580,6 +697,7 @@ export default {
             ],
             order: false,
             orderBy: null,
+            orderBy1: 'id2',
             selected1: ['3155', '3156'],
             selected2: '3156',
             groupSpan(i) {
@@ -639,7 +757,12 @@ export default {
                     origin: 'China',
                     level: 'A'
                 }
-            ]
+            ],
+            allowedOrders1: ['asc', 'desc'],
+            allowedOrders2: [false, 'asc', 'desc'],
+            order1: 'desc',
+            order2: false,
+            filtered: null,
         };
     },
     computed: {
@@ -691,7 +814,23 @@ export default {
         handleSort(orderBy, order) {
             this.orderBy = orderBy;
             this.order = order;
-        }
+        },
+        switchDisabled() {
+            let first = this.items[0];
+            this.items = [
+                {
+                    ...first,
+                    disabled: !first.disabled
+                },
+                ...this.items.slice(1)
+            ];
+        },
+        switchAll() {
+            this.items = this.items.map(i => ({
+                ...i,
+                disabled: !i.disabled
+            }));
+        },
     }
 };
 </script>
@@ -703,6 +842,12 @@ export default {
             &-content {
                 flex: 1;
                 overflow: auto;
+                display: flex;
+                flex-direction: column;
+                .desc {
+                    width: 100%;
+                    margin-bottom: 8px;
+                }
             }
         }
     }

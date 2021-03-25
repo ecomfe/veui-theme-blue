@@ -8,6 +8,7 @@ import '../icons/exclamation-circle';
 import '../icons/loading';
 import '../icons/eye';
 import '../icons/question-circle';
+import 'veui-theme-blue-icons/live-broadcast-plus';
 import config from 'veui/managers/config';
 
 config.defaults(
@@ -19,10 +20,13 @@ config.defaults(
             failure: 'times-circle',
             file: 'file',
             addImage: 'image-add',
+            addVideo: 'live-broadcast-plus',
+            addMedia: 'live-broadcast-plus',
             alert: 'exclamation-circle',
             loading: 'loading',
-            preview: 'eye',
-            message: 'question-circle'
+            message: 'question-circle',
+            previewImage: 'eye',
+            previewVideo: 'eye'
         },
         ui: {
             size: {
@@ -40,7 +44,7 @@ config.defaults(
             progress: 's',
             control: 'icon s',
             preview: 'auto',
-            image: 'basic'
+            media: 'basic'
         }
     },
     'uploader'
