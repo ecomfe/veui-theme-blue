@@ -1,7 +1,7 @@
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 import '../icons/times';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             remove: 'times'

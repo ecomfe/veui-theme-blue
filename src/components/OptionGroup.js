@@ -1,7 +1,7 @@
 import '../icons/chevron-right';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             expandable: 'chevron-right'

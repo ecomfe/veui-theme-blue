@@ -5,9 +5,9 @@ import '../icons/times-circle';
 import '../icons/chevron-left';
 import '../icons/chevron-right';
 import '../icons/times';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             success: 'check-circle',

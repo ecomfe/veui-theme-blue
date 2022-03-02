@@ -1,7 +1,7 @@
 import '../icons/question-circle';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             tip: 'question-circle'

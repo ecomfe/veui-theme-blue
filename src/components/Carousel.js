@@ -1,8 +1,8 @@
 import '../icons/chevron-left';
 import '../icons/chevron-right';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         parts: {
             control: 'translucent'

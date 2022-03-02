@@ -9,9 +9,9 @@ import '../icons/loading';
 import '../icons/eye';
 import '../icons/question-circle';
 import 'veui-theme-blue-icons/live-broadcast-plus';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             upload: 'upload',

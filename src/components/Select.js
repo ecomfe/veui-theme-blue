@@ -1,7 +1,7 @@
 import '../icons/chevron-down';
 import '../icons/times-circle';
 import 'veui-theme-blue-icons/disc-x';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
 const CHECKBOX_SIZE_MAP = {
     xs: 's',
@@ -17,7 +17,7 @@ const TAG_SIZE_MAP = {
     l: 'l'
 };
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             expand: 'chevron-down',

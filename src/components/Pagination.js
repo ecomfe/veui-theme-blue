@@ -3,7 +3,7 @@ import '../icons/chevron-right';
 import '../icons/chevron-double-left';
 import '../icons/chevron-double-right';
 import '../icons/ellipsis';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 import i18n from 'veui/managers/i18n';
 
 i18n.register(
@@ -24,7 +24,7 @@ i18n.register(
         ns: 'pagination'
     }
 );
-config.defaults(
+ui.defaults(
     {
         icons: {
             prev: 'chevron-left',

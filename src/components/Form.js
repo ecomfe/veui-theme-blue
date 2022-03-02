@@ -1,6 +1,6 @@
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults({
+ui.defaults({
     ui: {
         size: {
             values: ['s', 'm'], // 12号字体s号/14号字体m号

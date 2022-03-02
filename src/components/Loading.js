@@ -1,7 +1,7 @@
 import '../icons/loading';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             loading: null

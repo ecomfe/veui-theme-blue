@@ -1,8 +1,8 @@
 import '../icons/times';
 
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             close: 'times'

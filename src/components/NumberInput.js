@@ -2,7 +2,7 @@ import '../icons/chevron-up';
 import '../icons/chevron-down';
 import '../icons/plus';
 import '../icons/minus';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
 const ICON_MAP = {
     normal: {
@@ -15,7 +15,7 @@ const ICON_MAP = {
     }
 };
 
-config.defaults(
+ui.defaults(
     {
         ui: {
             size: {

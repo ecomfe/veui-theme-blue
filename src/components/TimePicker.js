@@ -1,8 +1,8 @@
 import '../icons/clock';
 import '../icons/times-circle';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             clock: 'clock', // check

@@ -1,9 +1,9 @@
 import 'veui-theme-blue-icons/plain-left';
 import 'veui-theme-blue-icons/plain-right';
 import 'veui-theme-blue-icons/mark-x';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             close: 'mark-x',

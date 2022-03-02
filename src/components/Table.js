@@ -4,9 +4,9 @@ import 'veui-theme-blue-icons/arrow-right-down-side';
 import 'veui-theme-blue-icons/arrow-left-down-side';
 import 'veui-theme-blue-icons/sort';
 import 'veui-theme-blue-icons/filter';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             expand: 'plain-down',

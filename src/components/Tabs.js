@@ -5,7 +5,7 @@ import 'veui-theme-blue-icons/mark-plus';
 import 'veui-theme-blue-icons/sign-tick';
 import 'veui-theme-blue-icons/sign-exclamation';
 import 'veui-theme-blue-icons/sign-info';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 import i18n from 'veui/managers/i18n';
 
 
@@ -19,7 +19,7 @@ i18n.register(
         ns: 'tabs'
     }
 );
-config.defaults(
+ui.defaults(
     {
         icons: {
             remove: 'mark-x',

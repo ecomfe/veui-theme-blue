@@ -1,8 +1,8 @@
 import 'veui-theme-blue-icons/plain-down';
 import 'veui-theme-blue-icons/more-ellipsis';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             expand: 'plain-down',

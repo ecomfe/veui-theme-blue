@@ -3,9 +3,9 @@ import '../icons/chevron-down';
 import '../icons/chevron-right';
 import '../icons/chevron-double-left';
 import '../icons/chevron-double-right';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             prev: 'chevron-left',

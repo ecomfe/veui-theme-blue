@@ -1,8 +1,8 @@
 import '../icons/search';
-import config from 'veui/managers/config';
+import ui from 'veui/managers/ui';
 
 
-config.defaults(
+ui.defaults(
     {
         icons: {
             search: 'search'
