@@ -2,9 +2,10 @@ const path = require('path')
 const veuiLoaderOptions = require('./build/veui-loader.conf')
 const webpack = require('webpack')
 
-function resolve (dir) {
+const resolve = dir => {
     return path.join(__dirname, dir)
 }
+
 const VEUI_PREFIX = process.env.VEUI_PREFIX || process.env.VUE_APP_VEUI_PREFIX
 const vars = {}
 
@@ -77,9 +78,5 @@ module.exports = {
             .use('veui-loader')
             .loader('veui-loader')
             .tap(() => veuiLoaderOptions)
-        // 限定查找 moment/locale 上下文里符合 /^$/ 表达式的文件，因此也只会打包这几种本地化内容：https://flynacl.gitbooks.io/webpack/content/plugins/context-replacement-plugin.html
-        config
-            .plugin('context-replacement')
-            .use(webpack.ContextReplacementPlugin, [/moment[\\/]locale$/, /^$/])
     }
 }

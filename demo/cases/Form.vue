@@ -231,8 +231,9 @@
                     field="avatar"
                 >
                     <veui-uploader
-                        v-model="storeData1.avatar"
+                        v-model="storeData1.files"
                         type="image"
+                        key-field="name"
                         action="/upload"
                         request-mode="xhr"
                         ui="vertical"
@@ -491,7 +492,7 @@ import {
     RadioGroup,
     NumberInput
 } from 'veui';
-import moment from 'moment';
+import addMonths from 'date-fns/addMonths';
 import bus from '../bus';
 import 'vue-awesome/icons/indent';
 
@@ -592,7 +593,12 @@ export default {
                 hobby,
                 hobbyItems,
                 birthday: new Date(),
-                avatar: 'https://www.baidu.com/img/bd_logo1.png'
+                files: [
+                    {
+                        name: 'EXPjUWaWoAQ07Rj.jpg',
+                        src: 'https://feed-image.baidu.com/0/pic/f1cc5f2566cba57dedd3357c4aeaf0ef.jpg'
+                    }
+                ]
             },
             storeData2: {
                 lastName: '',
@@ -626,12 +632,7 @@ export default {
                         value: 4
                     }
                 ],
-                range: [
-                    moment().toDate(),
-                    moment()
-                        .add(3, 'month')
-                        .toDate()
-                ]
+                range: [new Date(), addMonths(new Date(), 3)]
             },
             storeData4: {
                 name: 'liyunteng1',
@@ -762,12 +763,7 @@ export default {
                 scheduleInfo: [
                     {
                         project: 'vuejs',
-                        range: [
-                            moment().toDate(),
-                            moment()
-                                .add(3, 'month')
-                                .toDate()
-                        ]
+                        range: [new Date(), addMonths(new Date(), 3)]
                     }
                 ]
             },

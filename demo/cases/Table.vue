@@ -472,7 +472,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+import format from 'date-fns/format';
 import bus from '../bus';
 import {
     Button,
@@ -650,10 +650,11 @@ export default {
             return '¥' + value.toFixed(2);
         },
         date(value) {
-            return moment(value).format('YYYY-MM-DD');
+            return value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
         },
         time(value) {
-            return moment(value).format('YYYY-MM-DD HH:mm:ss');
+            const date = value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
+            return format(new Date(date), 'yyyy-MM-dd HH:mm:ss');
         }
     },
     data() {
@@ -799,9 +800,10 @@ export default {
                 group: String(Math.floor(this.nextId / 2)),
                 desc: `数据描述${this.nextIndex}`,
                 price: Math.floor(Math.random() * 1280),
-                updateDate: moment(
-                    Date.now() + Math.floor(Math.random() * 1e10)
-                ).format('YYYYMMDD')
+                updateDate: format(
+                    Date.now() + Math.floor(Math.random() * 1e10),
+                    'yyyyMMdd'
+                )
             };
             this.nextId++;
             this.nextIndex++;

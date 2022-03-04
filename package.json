@@ -29,7 +29,6 @@
     "less-loader": "^6.2.0",
     "less-plugin-est": "^3.0.1",
     "lodash": "^4.17.21",
-    "moment": "^2.26.0",
     "promise-polyfill": "^8.2.1",
     "veui-loader": "^2.5.4",
     "vue-router": "^3.5.3",
