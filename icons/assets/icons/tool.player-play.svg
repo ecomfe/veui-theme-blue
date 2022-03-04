@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><style>.a{opacity:0;}</style></defs><title>播放</title><path d="M720,356.29,176,42.21a32,32,0,0,0-48,27.71V698.08a32,32,0,0,0,48,27.71L720,411.71a32,32,0,0,0,0-55.42Z"/><rect class="a" width="768" height="768"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="768px" height="768px" viewBox="0 0 768 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>播放</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="播放" fill="#000000" fill-rule="nonzero">
+            <path d="M192,736.000016 C174.326888,736.000016 159.999987,721.673112 159.999987,704 L159.999987,64 C159.9894,52.353522 166.307213,41.6208879 176.49532,35.9779242 C186.683427,30.3349605 199.132927,30.6728012 209,36.86 L721,356.86 C730.359909,362.706832 736.046522,372.963998 736.046522,384 C736.046522,395.036002 730.359909,405.293168 721,411.14 L209,731.14 C203.90112,734.321941 198.010266,736.000016 192,736.000016 Z M224,121.74 L224,646.26 L643.62,384 L224,121.74 Z" id="形状"></path>
+            <rect id="矩形" opacity="0" x="0" y="0" width="768" height="768"></rect>
+        </g>
+    </g>
+</svg>
