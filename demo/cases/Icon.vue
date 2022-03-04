@@ -152,7 +152,7 @@ export default {
             border: 1px solid transparent;
             font-size: @veui-font-size-l;
             line-height: @grid-size-height;
-            color: @veui-font-color-weak;
+            color: @veui-font-color-aux;
             &-common {
                 height: 70px;
                 line-height: 70px;
