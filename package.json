@@ -1,6 +1,6 @@
 {
   "name": "veui-theme-blue",
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
@@ -11,8 +11,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "veui": "^2.5.4",
-    "vue": "^2.6.11",
-    "vue-clipboard2": "^0.3.1"
+    "vue": "^2.6.14",
+    "vue-clipboard2": "^0.3.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -24,16 +24,16 @@
     "classlist-polyfill": "^1.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
-    "focus-visible": "^5.1.0",
+    "focus-visible": "^5.2.0",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
     "less-plugin-est": "^3.0.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.26.0",
-    "promise-polyfill": "^8.1.3",
+    "promise-polyfill": "^8.2.1",
     "veui-loader": "^2.5.4",
-    "vue-router": "^3.3.4",
-    "vue-template-compiler": "^2.6.11"
+    "vue-router": "^3.5.3",
+    "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
     "root": true,
