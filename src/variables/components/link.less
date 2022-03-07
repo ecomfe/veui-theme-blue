@@ -6,21 +6,27 @@
 
 /* Text decorations */
 @veui-link-text-decoration: none;
-@veui-link-text-decoration-hover: underline;
-@veui-link-text-decoration-focus: underline;
-@veui-link-text-decoration-active: underline;
+@veui-link-text-decoration-hover: none;
+@veui-link-text-decoration-focus: none;
+@veui-link-text-decoration-active: none;
 
 /* Stylistic variants */
 // normal
 @veui-link-font-color-normal: @veui-color-gray-9;
-@veui-link-font-color-normal-hover: @veui-color-gray-9;
-@veui-link-font-color-normal-focus: @veui-color-gray-8;
-@veui-link-font-color-normal-active: @veui-color-gray-10;
+@veui-link-font-color-normal-hover: @veui-color-info-5;
+@veui-link-font-color-normal-focus: @veui-color-info-5;
+@veui-link-font-color-normal-active: @veui-color-info-7;
 @veui-link-font-color-normal-disabled: @veui-color-gray-6;
 
 // strong
 @veui-link-font-color-strong: @veui-color-info-6;
-@veui-link-font-color-strong-hover: @veui-color-info-6;
+@veui-link-font-color-strong-hover: @veui-color-info-5;
 @veui-link-font-color-strong-focus: @veui-color-info-5;
 @veui-link-font-color-strong-active: @veui-color-info-7;
 @veui-link-font-color-strong-disabled: @veui-color-info-2;
+
+// border
+@veui-link-padding-focus: @veui-padding-unit / 2;
+@veui-link-border-color-focus: @veui-color-info-6;
+@veui-link-border-radius-focus: @veui-border-radius-l;
+@veui-link-shadow-focus: 0 0 0 @veui-shadow-spread-focus @veui-color-info-2;
