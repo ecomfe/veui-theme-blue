@@ -1,6 +1,21 @@
 <template>
     <article>
         <h1><code>&lt;veui-breadcrumb&gt;</code></h1>
+        <section>
+            <veui-button @click="next">
+                Switch separator
+            </veui-button>
+        </section>
+        <section>
+            <veui-breadcrumb
+                :routes="items"
+                @redirect="handleRedirect"
+            >
+                <template slot="separator">
+                    {{ sep }}
+                </template>
+            </veui-breadcrumb>
+        </section>
         <h2>不同尺寸</h2>
         <div class="options-desc">可选的尺寸 
             <span class="bg-gray-show">ui</span> 属性值： 
@@ -52,26 +67,35 @@
 </template>
 
 <script>
-import {Breadcrumb, BreadcrumbItem} from 'veui';
+import {Button, Breadcrumb, BreadcrumbItem} from 'veui';
 
 export default {
     name: 'breadcrumb-demo',
     components: {
+        'veui-button': Button,
         'veui-breadcrumb': Breadcrumb,
         'veui-breadcrumb-item': BreadcrumbItem
     },
     data() {
         return {
+            index: 0,
+            seps: ['/', '👉', '➡️', '➜', '➞', '☞'],
             items: [
                 {to: '/', label: '首页', native: true},
                 {to: {name: 'Breadcrumb'}, label: '一级页面'},
                 {to: '', label: '末级页面'}
-            ]
+            ],
         };
     },
     computed: {
+        sep() {
+            return this.seps[this.index];
+        }
     },
     methods: {
+        next() {
+            this.index = (this.index + 1) % this.seps.length;
+        },
         handleRedirect() {}
     }
 };
