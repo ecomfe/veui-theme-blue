@@ -94,7 +94,7 @@
 import {CheckButtonGroup, Checkbox, Icon, VeuiForm, VeuiField} from 'veui';
 import 'veui-theme-blue-icons/star-filled';
 import 'veui-theme-blue-icons/thumb-up-filled';
-import 'veui-theme-blue-icons/heart-fill';
+import 'veui-theme-blue-icons/heart-filled';
 import 'veui-theme-blue-icons/medal';
 
 export default {
@@ -176,8 +176,8 @@ export default {
                     icon: 'thumb-up-filled'
                 },
                 {
-                    value: 'heart-fill',
-                    icon: 'heart-fill'
+                    value: 'heart-filled',
+                    icon: 'heart-filled'
                 },
                 {
                     value: 'medal',
