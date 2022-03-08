@@ -13,7 +13,7 @@ ui.defaults(
                 default: 'normal'
             },
             strength: {
-                values: ['strong', 'aux']
+                values: ['strong']
             },
             size: {
                 values: ['xs', 's', 'm', 'l', 'xl'],

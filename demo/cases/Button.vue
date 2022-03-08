@@ -2,7 +2,7 @@
     <article>
         <h1><code>&lt;veui-button&gt;</code></h1>
         <h2>风格</h2>
-        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">normal / translucent / primary / text / icon</span></div>
+        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">normal（普通） / translucent（幽灵） / primary（重要） / text（文字） / icon（图标）</span></div>
         <section>
             <veui-button ui="normal">
                 风格
@@ -45,14 +45,16 @@
             <veui-button ui="square">
                 <veui-icon name="search"/>
             </veui-button>
-        </section> 
-        <h2>加强</h2> 
+        </section>
+        <h2>加强</h2>
+        <div class="options-desc">可选值 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">strong</span></div>
         <section>
             <veui-button ui="strong">
                 加强
             </veui-button>
         </section>
-        <h2>普通按钮</h2>
+        <hr/>
+        <h2>基础按钮</h2>
         <section>
             <span class="title-desc">普通按钮</span>
             <veui-button ui="xs">
@@ -138,7 +140,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-desc">半透明按钮</span>
+            <span class="title-desc">幽灵按钮</span>
             <veui-button ui="translucent xs">
                 取消
             </veui-button>
@@ -167,68 +169,67 @@
                 取消
             </veui-button>
         </section>
-        <h2>纯文字按钮</h2>
         <section>
-            <span class="title-desc">普通样式</span>
+            <span class="title-desc">文字按钮（普通）</span>
             <veui-button ui="text xs">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text m">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text l">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text xl">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button
                 ui="text"
                 disabled
             >
-                编辑
+                文字按钮
             </veui-button>
             <veui-button
                 ui="text"
                 loading
             >
-                编辑
+                文字按钮
             </veui-button>
         </section>
         <section>
-            <span class="title-desc">加强样式</span>
+            <span class="title-desc">文字按钮（加强）</span>
             <veui-button ui="text strong xs">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text strong">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text strong m">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text strong l">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button ui="text strong xl">
-                编辑
+                文字按钮
             </veui-button>
             <veui-button
                 ui="text strong"
                 disabled
             >
-                编辑
+                文字按钮
             </veui-button>
             <veui-button
                 ui="text strong"
                 loading
             >
-                编辑
+                文字按钮
             </veui-button>
         </section>
-      
+
         <h2>图标按钮</h2>
         <section>
             <span class="title-desc">纯图标样式</span>
@@ -343,7 +344,7 @@
             </veui-button>
         </section>
         <section>
-            <span class="title-desc">半透明样式</span>
+            <span class="title-desc">幽灵样式</span>
             <veui-button ui="translucent square xs">
                 <veui-icon name="search"/>
             </veui-button>
@@ -402,7 +403,7 @@
             <veui-button loading><veui-icon name="mark-x"/>取消</veui-button>
         </section>
         <section>
-            <span class="title-desc">半透明样式</span>
+            <span class="title-desc">幽灵样式</span>
             <veui-button ui="translucent xs"><veui-icon name="mark-x"/>取消</veui-button>
             <veui-button ui="translucent"><veui-icon name="mark-x"/>取消</veui-button>
             <veui-button ui="translucent m"><veui-icon name="mark-x"/>取消</veui-button>
