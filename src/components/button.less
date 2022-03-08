@@ -17,14 +17,29 @@
 
   .veui-stub();
 
+  &-native {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    white-space: nowrap;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: inherit;
+    padding: 0;
+    pointer-events: none;
+  }
+
   .make-metrics(@size) {
     @height: ~"veui-button-height-@{size}";
     @padding: ~"veui-button-padding-@{size}";
     @font-size: ~"veui-button-font-size-@{size}";
     @min-width: ~"veui-button-min-width-@{size}";
+    @border-radius: ~"veui-button-border-radius-@{size}";
     height: @@height;
     .padding(0, @@padding);
-    border-radius:  @veui-button-border-radius-l;
+    border-radius:  @@border-radius;
     font-size: @@font-size;
     &[ui~="normal"],
     &[ui~="primary"],
@@ -86,16 +101,20 @@
 
   &:hover {
     background-color: @veui-button-background-color-normal-hover;
-    border: 1px solid @veui-button-border-color-hover;
+    border: 1px solid @veui-button-border-color-normal-hover;
+    color: @veui-button-font-color-normal-hover;
   }
 
   &[data-focus-visible-added] {
     background-color: @veui-button-background-color-normal-focus;
     .veui-focus-ring(@veui-button-border-color-focus, @veui-button-shadow-focus);
+    color: @veui-button-font-color-normal-focus;
   }
 
   &:active {
+    border: 1px solid @veui-button-border-color-normal-active;
     background-color: @veui-button-background-color-normal-active;
+    color: @veui-button-font-color-normal-active;
   }
 
   &.@{veui-prefix}-disabled {
@@ -107,8 +126,9 @@
   &&-loading {
     pointer-events: none;
     cursor: default;
-    border: 1px solid @veui-button-border-color-hover;
-    background-color: @veui-button-background-color-normal-active;
+    border: 1px solid @veui-button-loading-border-color-normal;
+    background-color: @veui-button-loading-background-color-normal;
+    color: @veui-button-loading-font-color-normal;
   }
 
   &-loading .@{veui-prefix}-icon:not(&-loading-icon) {
@@ -119,17 +139,21 @@
     border-color: @veui-button-border-color-strong;
     background-color: @veui-button-background-color-strong;
     color: @veui-button-font-color-strong;
-    
+
     &:hover {
+      color: @veui-button-font-color-strong-hover;
+      border-color: @veui-button-background-color-strong-hover;;
       background-color: @veui-button-background-color-strong-hover;
     }
 
     &[data-focus-visible-added] {
+      color: @veui-button-font-color-strong-focus;
       background-color: @veui-button-background-color-strong-focus;
       .veui-focus-ring(@veui-button-border-color-focus, @veui-button-shadow-focus);
     }
 
     &:active {
+      color: @veui-button-font-color-strong-active;
       background-color: @veui-button-background-color-strong-active;
       border-color: @veui-color-brand-5;
     }
@@ -141,7 +165,9 @@
     }
 
     &.@{veui-prefix}-button-loading {
-      background-color: @veui-button-background-color-strong-active;
+      background-color: @veui-button-loading-background-color-strong;
+      border-color: @veui-button-loading-border-color-strong;
+      color: @veui-button-loading-font-color-strong;
     }
   }
 
@@ -171,7 +197,9 @@
     }
 
     &.@{veui-prefix}-button-loading {
-      background-color: @veui-button-background-color-primary-active;
+      background-color: @veui-button-loading-background-color-strong;
+      border-color: @veui-button-loading-border-color-strong;
+      color: @veui-button-loading-font-color-strong;
     }
   }
 
@@ -230,7 +258,7 @@
         );
       }
     }
-    }
+  }
   &[ui~="text"] {
     background-color: @veui-button-background-color-text;
     &::after {
@@ -259,6 +287,10 @@
     &.@{veui-prefix}-disabled {
       background-color: @veui-button-background-color-text-disabled;
       color: @veui-button-font-color-text-disabled;
+    }
+
+    &.@{veui-prefix}-button-loading {
+      color: @veui-button-loading-font-color-text;
     }
   }
   &[ui~="text"][ui~="strong"] {
@@ -291,6 +323,10 @@
     &.@{veui-prefix}-disabled {
       background-color: @veui-button-background-color-text-disabled;
       color: @veui-button-font-color-text-strong-disabled;
+    }
+
+    &.@{veui-prefix}-button-loading {
+      color: @veui-button-loading-font-color-text;
     }
   }
   &[ui~="icon"] {

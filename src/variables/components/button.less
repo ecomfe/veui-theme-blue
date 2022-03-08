@@ -31,7 +31,7 @@
 // border radius
 @veui-button-border-radius-xs: @veui-border-radius-s;
 @veui-button-border-radius-s: @veui-border-radius-s;
-@veui-button-border-radius-m: @veui-border-radius-m;
+@veui-button-border-radius-m: @veui-border-radius-l;
 @veui-button-border-radius-l: @veui-border-radius-l;
 @veui-button-border-radius-xl: @veui-border-radius-l;
 
@@ -40,30 +40,48 @@
 /* Stylistic variants */
 // normal
 @veui-button-font-color-normal: @veui-font-color-normal;
+@veui-button-font-color-normal-hover: @veui-font-color-highlighted;
+@veui-button-font-color-normal-focus: @veui-font-color-highlighted;
+@veui-button-font-color-normal-active: @veui-font-color-highlighted;
 @veui-button-font-color-normal-disabled: @veui-font-color-disabled;
 
-@veui-button-border-color-normal: @veui-border-color-normal-hover;
-@veui-button-border-color-hover: @veui-border-color-normal-hover;
+@veui-button-loading-border-color-normal: @veui-color-brand-6;
+@veui-button-loading-background-color-normal: @veui-color-brand-2;
+@veui-button-loading-font-color-normal: @veui-color-brand-6;
+
+@veui-button-border-color-normal: @veui-border-color-normal;
+@veui-button-border-color-normal-hover: @veui-border-color-focus;
 @veui-button-border-color-normal-focus: @veui-border-color-focus;
+@veui-button-border-color-normal-active: @veui-border-color-focus;
 @veui-button-border-color-normal-disabled: @veui-border-color-disabled;
 
 @veui-button-background-color-normal: @veui-background-color-normal;
-@veui-button-background-color-normal-hover: @veui-background-color-normal-hover;
-@veui-button-background-color-normal-focus: @veui-background-color-normal-focus;
-@veui-button-background-color-normal-active: @veui-background-color-normal-active;
+@veui-button-background-color-normal-hover: @veui-background-color-normal;
+@veui-button-background-color-normal-focus: @veui-background-color-normal;
+@veui-button-background-color-normal-active: @veui-color-brand-2;
 @veui-button-background-color-normal-disabled: @veui-background-color-disabled;
 
 // strong
 @veui-button-font-color-strong: @veui-font-color-highlighted;
+@veui-button-font-color-strong-hover: @veui-color-gray-1;
+@veui-button-font-color-strong-focus: @veui-color-gray-1;
+@veui-button-font-color-strong-active: @veui-color-gray-1;
 @veui-button-font-color-strong-disabled: @veui-color-brand-3;
 
+@veui-button-loading-border-color-strong: @veui-color-brand-7;
+@veui-button-loading-background-color-strong: @veui-color-brand-7;
+@veui-button-loading-font-color-strong: @veui-color-gray-1;
+
 @veui-button-border-color-strong: @veui-font-color-highlighted;
+@veui-button-border-color-strong-hover: @veui-color-brand-5;
+@veui-button-border-color-strong-focus: @veui-color-brand-6;
+@veui-button-border-color-strong-active: @veui-color-brand-7;
 @veui-button-border-color-strong-disabled: @veui-color-brand-2;
 
 @veui-button-background-color-strong: @veui-background-color-normal;
-@veui-button-background-color-strong-hover: @veui-color-brand-1;
-@veui-button-background-color-strong-focus: @veui-color-brand-1;
-@veui-button-background-color-strong-active: @veui-color-brand-2;
+@veui-button-background-color-strong-hover: @veui-color-brand-5;
+@veui-button-background-color-strong-focus: @veui-color-brand-5;
+@veui-button-background-color-strong-active: @veui-color-brand-7;
 @veui-button-background-color-strong-disabled: @veui-color-brand-1;
 
 
@@ -82,7 +100,7 @@
 
 // translucent
 @veui-button-font-color-translucent: @veui-color-gray-1;
-@veui-button-font-color-translucent-disabled: fade(@veui-color-gray-1, 50%);
+@veui-button-font-color-translucent-disabled: fade(@veui-color-gray-1, 40%);
 
 @veui-button-border-color-translucent: transparent;
 @veui-button-border-color-translucent-disabled: transparent;
@@ -95,11 +113,13 @@
 @veui-button-background-color-translucent-disabled: fade(@veui-color-gray-10, 20%);
 
 // text buttons
+@veui-button-loading-font-color-text: @veui-color-brand-7;
+
 @veui-button-font-color-text: @veui-color-gray-9;
-@veui-button-font-color-text-hover: @veui-color-gray-8;
-@veui-button-font-color-text-focus: @veui-color-gray-8;
-@veui-button-font-color-text-active: @veui-color-gray-10;
-@veui-button-font-color-text-disabled: @veui-color-gray-6;
+@veui-button-font-color-text-hover: @veui-color-brand-5;
+@veui-button-font-color-text-focus: @veui-color-brand-5;
+@veui-button-font-color-text-active: @veui-color-brand-7;
+@veui-button-font-color-text-disabled: @veui-font-color-disabled;
 
 @veui-button-font-color-text-strong: @veui-color-brand-6;
 @veui-button-font-color-text-strong-hover: @veui-color-brand-5;
@@ -116,10 +136,10 @@
 @veui-button-padding-text: @veui-padding-unit * 1;
 
 // icon buttons
-@veui-button-font-color-icon: @veui-color-gray-7;
-@veui-button-font-color-icon-hover: @veui-color-gray-8;
+@veui-button-font-color-icon: @veui-color-gray-9;
+@veui-button-font-color-icon-hover: @veui-color-brand-5;
 @veui-button-font-color-icon-focus: @veui-button-font-color-icon-hover;
-@veui-button-font-color-icon-active: @veui-color-gray-9;
+@veui-button-font-color-icon-active: @veui-color-brand-7;
 @veui-button-font-color-icon-disabled: @veui-color-gray-6;
 
 @veui-button-background-color-icon: transparent;
