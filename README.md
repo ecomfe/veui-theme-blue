@@ -1,7 +1,7 @@
 # veui-theme-blue
 > blue theme for veui, this is a vue.js project.
 
-[Demo](https://ecomfe.github.io/veui-theme-blue/components/#/)
+[veui-theme-blue](https://ecomfe.github.io/veui-theme-blue/#/)
 
 ## Usage
 
