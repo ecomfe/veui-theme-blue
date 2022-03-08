@@ -32,6 +32,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: gh-pages
-          folder: public
+          folder: dist
           commit-message: "deploy gh-pages from @ ${{ github.sha }}"
           clean: true
