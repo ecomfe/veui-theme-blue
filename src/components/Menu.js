@@ -1,11 +1,11 @@
-import '../icons/chevron-right';
+import 'veui-theme-blue-icons/plain-right';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
-            expand: 'chevron-right',
-            collapse: 'chevron-right'
+            expand: 'plain-right',
+            collapse: 'plain-right'
         },
         ui: {
             size: {
@@ -14,7 +14,7 @@ ui.defaults(
             }
         },
         parts: {
-            toggle: 'icon aux'
+            toggle: 'icon'
         }
     },
     'menu'

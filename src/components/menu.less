@@ -10,7 +10,7 @@
     will-change: width;
     position: relative;
     .veui-transition(width);
-  
+
     &-collapsed {
       width: @veui-menu-width-collapsed;
       .@{veui-prefix}-menu-footer {
@@ -20,8 +20,11 @@
           border-radius: 0 @veui-menu-footer-border-radius @veui-menu-footer-border-radius 0;
       }
     }
-  
+
     .@{veui-prefix}-abstract-tree {
+      &-item-wrapper {
+        margin-bottom: 8px;
+      }
       &,
       &-item-group {
         .reset-list-style();
@@ -35,12 +38,12 @@
         padding-left: @veui-menu-level-indent;
       }
     }
-  
+
     & &-link,
     &-overlay &-link {
       text-decoration: none;
     }
-  
+
     // footer
     &-footer {
       flex: none;
@@ -57,7 +60,7 @@
       height: @veui-menu-footer-height-m;
       width: @veui-menu-footer-width-half;
     }
-  
+
     &-link {
       flex: auto;
       display: flex;
@@ -76,7 +79,7 @@
         }
       }
     }
-  
+
     // item
     &-item {
       cursor: pointer;
@@ -87,7 +90,7 @@
       max-width: 100%;
       font-size: @veui-menu-font-size-m;
       height: inherit;
-  
+
       &:not(.@{veui-prefix}-disabled) {
         // hover toggle 也让有 hover link 的效果（toggle 不在 link 里面）
         &.@{veui-prefix}-menu-link:hover,
@@ -95,28 +98,36 @@
           color: @veui-menu-item-font-color-hover;
           &::before {// todo
             background-color: @veui-menu-item-background-color-hover;
+            border-right: 1px solid @veui-menu-border-color;
+          }
+          & + .veui-button[ui~="icon"] {
+            color: @veui-menu-item-font-color-hover;
           }
         }
-  
+
         &.@{veui-prefix}-menu-link,
         .@{veui-prefix}-menu-link {
           &[data-focus-visible-added] {
             color: @veui-menu-item-font-color-focus;
             &::before {
               background-color: @veui-menu-item-background-color-focus;
+              border-right: 1px solid @veui-menu-border-color;
             }
           }
           &:active {
             color: @veui-menu-item-font-color-active;
-            font-weight: @veui-menu-item-font-weight-current;
             &::before {
               background-color: @veui-menu-item-background-color-active;
+              border-right: 1px solid @veui-menu-border-color;
+            }
+            & + .veui-button[ui~="icon"] {
+              color: @veui-menu-item-font-color-active;
             }
           }
         }
       }
     }
-  
+
     // 盖住：向上收起时，active 的样式应该被后面的 item 覆盖
     &-tree-item::before {
       content: "";
@@ -125,14 +136,14 @@
       background-color: @veui-menu-item-background-color;
       border-right: 1px solid @veui-menu-border-color;
     }
-  
+
     // tree
     &-tree-wrapper {
       overflow: auto;
       flex: auto;
       padding-right: 1px;
       margin-right: -1px;
-  
+
       // 盖住：当 tree 收起时可能会看到 active 样式溢出到 tree 外面
       &::after {
         content: "";
@@ -144,7 +155,7 @@
         margin-right: -1px;
       }
     }
-  
+
     &-tree {
       position: relative;
       margin-right: -1px;
@@ -158,7 +169,7 @@
         border-right: 1px solid @veui-menu-border-color;
         display: block;
       }
-  
+
       &-item {
         margin-top: @veui-menu-item-spacing;
         height: @veui-menu-item-height-m;
@@ -179,7 +190,7 @@
       & > li:first-child > &-item {
         margin-top: 0;
       }
-  
+
       // 第二级缩进
       &-has-icon > li > ul.@{veui-prefix}-abstract-tree-item-group {
         padding-left: veui-sum(
@@ -188,31 +199,31 @@
         );
       }
     }
-  
+
     &-overlay .@{veui-prefix}-option-group-expandable,
     &-item-label,
     &-item-icon {
       position: relative;
       z-index: 1;
     }
-  
+
     &-item-icon {
       margin-right: @veui-menu-item-content-spacing;
       display: flex;
       align-items: center;
       .veui-icon-size(@veui-menu-item-icon-size, true);
     }
-  
+
     &-item-label {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-  
+
     .@{veui-prefix}-button &-toggle-icon {
       .size(@veui-menu-item-icon-size-aux);
     }
-  
+
     &-item-active:not(.@{veui-prefix}-disabled),
     &-item-exact-active:not(.@{veui-prefix}-disabled) {
       &.@{veui-prefix}-menu-link:hover,
@@ -222,13 +233,13 @@
           color: @veui-menu-item-font-color-current-hover;
         }
       }
-  
+
+      .@{veui-prefix}-menu-item-toggle.@{veui-prefix}-button[ui~="icon"],
       &.@{veui-prefix}-menu-link,
       .@{veui-prefix}-menu-link {
         &,
         & + .@{veui-prefix}-option-group-expandable {
           color: @veui-menu-item-font-color-current;
-          font-weight: @veui-menu-item-font-weight-current;
           .veui-transition(color);
         }
         &[data-focus-visible-added] {
@@ -245,7 +256,7 @@
         }
       }
     }
-  
+
     &-collapsed &-item-active:not(.@{veui-prefix}-disabled),
     &-collapsed &-item-exact-active:not(.@{veui-prefix}-disabled),
     &-tree &-item-exact-active:not(.@{veui-prefix}-disabled) {
@@ -261,6 +272,7 @@
       .@{veui-prefix}-menu-link {
         &::before {
           background-color: @veui-menu-item-background-color-current;
+          border-right: 1px solid @veui-menu-border-color;
           .veui-transition(background-color);
         }
         &[data-focus-visible-added]::before {
@@ -269,14 +281,14 @@
         &:active::before {
           background-color: @veui-menu-item-background-color-current-active;
         }
-  
+
         &::after {
           content: "";
           .absolute(_, _, _, 0);
           .size(@veui-menu-indicator-width, inherit);
           background: @veui-menu-indicator-color;
         }
-  
+
         &[data-focus-visible-added]::after {
           background-color: @veui-menu-indicator-color-focus;
         }
@@ -285,24 +297,27 @@
         }
       }
     }
-  
+
     &-item.@{veui-prefix}-disabled &-item-icon,
     &-item.@{veui-prefix}-disabled &-link {
       color: @veui-menu-item-font-color-disabled;
     }
-  
+
     &-item-toggle,
     &-toggle {
-      display: flex;
-      background: none;
-      border: none;
-      padding: 0;
-      outline: none;
-      cursor: pointer;
-      color: @veui-icon-color-aux;
-      .veui-transition(transform);
+      &,
+      &.@{veui-prefix}-button[ui~="icon"] {
+        display: flex;
+        background: none;
+        border: none;
+        padding: 0;
+        outline: none;
+        cursor: pointer;
+        color: @veui-icon-color-aux;
+        .veui-transition(transform);
+      }
     }
-  
+
     &-item-toggle {
       position: relative;
       margin-left: @veui-menu-item-content-spacing;
@@ -311,14 +326,14 @@
     &-item-expanded &-item-toggle {
       transform: rotateZ(-90deg);
     }
-  
+
     &-toggle {
       transform: rotateZ(180deg);
       &.veui-button[ui~="icon"] {
         padding: @veui-menu-footer-padding  @veui-menu-footer-right-padding @veui-menu-footer-padding 0;
       }
     }
-  
+
     // collapsed
     &-collapsed &-toggle {
       transform: rotateZ(0);
@@ -326,19 +341,19 @@
         padding: @veui-menu-footer-padding  @veui-menu-footer-collapsed-right-padding @veui-menu-footer-padding 0;
       }
     }
-  
+
     &-collapsed &-tree {
       padding: @veui-menu-padding-y 0;
     }
-  
+
     &-collapsed &-tree &-link {
       justify-content: center;
     }
-  
+
     &-collapsed &-item-icon {
       margin: 0;
     }
-  
+
     &-overlay {
       & > .@{veui-prefix}-menu-popout {
         border-radius: @veui-menu-overlay-border-radius-l;
@@ -350,7 +365,7 @@
         margin: 0 @veui-option-dropdown-target-spacing;
         transform-origin: 0 0;
       }
-  
+
       .@{veui-prefix}-option {
         &,
         &-group-label {
@@ -358,13 +373,13 @@
         }
       }
     }
-  
+
     &-popout &-group-title {
       .padding(@veui-option-group-label-padding-y + @veui-option-group-label-padding-y, @veui-option-padding-m, @veui-option-group-label-padding-y);
       color: @veui-menu-item-group-label-font-color;
       font-weight: @veui-menu-item-group-label-font-weight;
     }
-  
+
     &-overlay.@{veui-prefix}-overlay-enter,
     &-overlay.@{veui-prefix}-overlay-leave-to {
       & > .@{veui-prefix}-menu-popout,
@@ -373,31 +388,31 @@
         transform: scaleX(0);
       }
     }
-  
+
     &[ui~="s"],
     &[ui~="s"] &-tree,
     &-overlay[ui~="s"] {
       font-size: @veui-menu-font-size-s;
     }
-  
+
     &[ui~="s"] &-tree &-item {
       height: @veui-menu-item-height-s;
     }
-  
+
     &[ui~="s"] &-footer {
       height: @veui-menu-footer-height-s;
     }
-  
+
     &[ui~="l"],
     &[ui~="l"] &-tree,
     &-overlay[ui~="l"] {
       font-size: @veui-menu-font-size-l;
     }
-  
+
     &[ui~="l"] &-tree &-item {
       height: @veui-menu-item-height-l;
     }
-  
+
     &[ui~="l"] &-footer {
       height: @veui-menu-footer-height-l;
     }

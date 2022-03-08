@@ -5,7 +5,7 @@
     display: flex;
     align-items: flex-start;
     line-height: @veui-alert-line-height;
-    .padding(@veui-alert-padding-y, @veui-alert-padding-x - 1);
+    .padding(@veui-alert-padding-y, @veui-alert-padding-x);
     border: 1px solid transparent;
     border-radius: @veui-alert-border-radius;
     font-size: @veui-alert-font-size-s;
@@ -39,9 +39,12 @@
             font-size: inherit;
         }
     }
-    
+
     &-close {
         .size(@veui-alert-icon-size-s, @veui-alert-line-height * @veui-alert-font-size-s);
+        .@{veui-prefix}-button {
+            color: @veui-alert-close-color;
+        }
     }
 
     &-nav {
