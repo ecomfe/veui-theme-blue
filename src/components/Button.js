@@ -1,11 +1,10 @@
-import '../icons/loading';
+import 'veui-theme-blue-icons/loading';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
-            // loading: 'loading',
-            loading: null
+            loading: 'loading'
         },
         ui: {
             style: {
