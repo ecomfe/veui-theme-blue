@@ -1,6 +1,5 @@
 const path = require('path')
 const veuiLoaderOptions = require('./build/veui-loader.conf')
-const webpack = require('webpack')
 
 const resolve = dir => {
     return path.join(__dirname, dir)
@@ -11,8 +10,7 @@ const vars = {}
 
 module.exports = {
     publicPath: '',
-    outputDir: 'components',
-    assetsDir: 'static',
+    outputDir: 'dist',
     css: {
         loaderOptions: {
             less: {
