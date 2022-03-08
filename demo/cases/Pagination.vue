@@ -57,6 +57,7 @@
                         goto
                         ui="xs"
                         :page-size.sync="pageSize"
+                        :show-page-size="true"
                     />
                 </veui-field>
                 <veui-field label="小号[ui=s]">
