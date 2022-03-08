@@ -10,7 +10,7 @@ const vars = {}
 
 module.exports = {
     publicPath: '',
-    outputDir: 'dist',
+    outputDir: 'public',
     css: {
         loaderOptions: {
             less: {
