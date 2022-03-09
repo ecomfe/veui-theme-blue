@@ -5,41 +5,62 @@
         <div class="options-desc">可选的尺寸
             <span class="bg-gray-show">ui</span>
             属性值：
-            <span class="bg-gray-show">xs / s（默认，可不传） / m</span>
+            <span class="bg-gray-show">xs / s / m</span>
+            ，其中 s 为默认值
         </div>
-        <h2>风格</h2>
-        <div class="options-desc">可选的风格
-            <span class="bg-gray-show">ui</span>
-            属性值：
-            <span class="bg-gray-show">normal / 不传则默认含跳转分页</span>
-        </div>
+
         <section>
-            <h3>基础分页[ui=normal]</h3>
+            <h3>基础分页</h3>
             <veui-form>
-                <veui-field label="超小号[ui=xs]">
+                <veui-field label="超小号 [ui=xs]">
                     <veui-pagination
+                        ui="xs"
                         :page="page"
                         :total="total"
                         :page-sizes="pageSizes"
                         :to="to"
-                        ui="xs normal"
                         :page-size.sync="pageSize"
                     />
                 </veui-field>
-                <veui-field label="小号[ui=s]">
+                <veui-field label="小号 [ui=s]">
                     <veui-pagination
                         :page="page"
                         :total="total"
                         :to="to"
-                        ui="normal"
                     />
                 </veui-field>
-                <veui-field label="中号[ui=m]">
+                <veui-field label="中号 [ui=m]">
+                    <veui-pagination
+                        ui="m"
+                        :page="page"
+                        :total="total"
+                        :to="to"
+                    />
+                </veui-field>
+                <veui-field label="总页数 <= 7 [ui=s]">
+                    <veui-pagination
+                        ui="s"
+                        :page="smallPage"
+                        :total="70"
+                        :pageSize="10"
+                        :to="to"
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
+
+        <section>
+            <h3>自定义分页</h3>
+            <veui-form>
+                <veui-field label="小号 [ui=s]">
                     <veui-pagination
                         :page="page"
                         :total="total"
-                        ui="m normal"
+                        :page-sizes="customPageSizes"
                         :to="to"
+                        ui="s"
+                        :page-size.sync="customPageSize"
+                        :show-page-size="true"
                     />
                 </veui-field>
             </veui-form>
@@ -48,33 +69,38 @@
         <section>
             <h3>含跳转分页</h3>
             <veui-form>
-                <veui-field label="超小号[ui=xs]">
+                <veui-field label="超小号 [ui=xs]">
                     <veui-pagination
                         :page="page"
                         :total="total"
                         :page-sizes="pageSizes"
                         :to="to"
-                        goto
+                        :show-goto="true"
                         ui="xs"
                         :page-size.sync="pageSize"
                         :show-page-size="true"
+                        :show-total="true"
                     />
                 </veui-field>
-                <veui-field label="小号[ui=s]">
+                <veui-field label="小号 [ui=s]">
                     <veui-pagination
                         :page="page"
                         :total="total"
                         :to="to"
-                        goto
+                        :show-goto="true"
+                        :show-page-size="true"
+                        :show-total="true"
                     />
                 </veui-field>
-                <veui-field label="中号[ui=m]">
+                <veui-field label="中号 [ui=m]">
                     <veui-pagination
                         ui="m"
                         :page="page"
                         :total="total"
                         :to="to"
-                        goto
+                        :show-goto="true"
+                        :show-page-size="true"
+                        :show-total="true"
                     />
                 </veui-field>
             </veui-form>
@@ -83,10 +109,37 @@
         <section>
             <h3>简单分页</h3>
             <small>翻页数小于6个时，使用简单分页</small>
-            <div class="veui-pagination-simple">
-                <veui-button>上一页</veui-button>
-                <veui-button class="next-page">下一页</veui-button>
-            </div>
+            <veui-form>
+                <veui-field label="小号 [ui=s]" class="veui-pagination-simple" ui="s">
+                    <veui-button>上一页</veui-button>
+                    <veui-button class="next-page">下一页</veui-button>
+                </veui-field>
+                <veui-field label="中号 [ui=m]" class="veui-pagination-simple" ui="m">
+                    <veui-button ui="m">上一页</veui-button>
+                    <veui-button ui="m" class="next-page">下一页</veui-button>
+                </veui-field>
+            </veui-form>
+        </section>
+
+        <section>
+            <h3>仅显示数字的简单分页</h3>
+            <veui-form>
+                <veui-field label="小号 [ui=s]">
+                    <veui-pagination
+                        :page="page"
+                        :total="total"
+                        :to="to"
+                    />
+                </veui-field>
+                <veui-field label="中号 [ui=m]">
+                    <veui-pagination
+                        ui="m"
+                        :page="page"
+                        :total="total"
+                        :to="to"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
 
         <section>
@@ -95,7 +148,7 @@
             <section>
                 <veui-pagination
                     :page="page"
-                    goto
+                    :show-goto="true"
                     :total="total"
                     :to="{ name: 'Pagination', params: { page: ':page' } }"
                 />
@@ -109,7 +162,7 @@
                     :page="page"
                     :total="total"
                     :to="to"
-                    goto
+                    :show-goto="true"
                     native
                 />
             </section>
@@ -124,7 +177,7 @@
                     :total="total"
                     :to="to"
                     native
-                    goto
+                    :show-goto="true"
                     @redirect="handlePageRedirect"
                 />
             </section>
@@ -178,7 +231,10 @@ export default {
             pageSize: 30,
             pageSizes: [30, 60, 100, 200],
             fifthPaginationMessage: '',
-            p: 1
+            p: 1,
+            smallPage: 1,
+            customPageSizes: [20, 50, 100],
+            customPageSize: 20
         };
     },
     mounted() {
@@ -219,6 +275,7 @@ section {
     }
     .veui-pagination {
         flex: 1;
+        justify-content: flex-end;
     }
     .message {
         margin-top: 16px;

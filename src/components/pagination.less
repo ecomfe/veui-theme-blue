@@ -2,32 +2,35 @@
 @import "../variables/components/pagination.less";
 
 .@{veui-prefix}-pagination {
-    display: inline-flex;
     font-size: @veui-pagination-font-size-s;
 
-    &-simple {
+    .make-simple-left(@size) {
         .next-page {
-            margin-left: @veui-pagination-simple-button-spacing;
+            @margin-left: ~"veui-pagination-simple-button-spacing-@{size}";
+            margin-left: @@margin-left;
         }
+    }
+
+    &-simple[ui~="s"] {
+        .make-simple-left(s);
+    }
+
+    &-simple[ui~="m"] {
+        .make-simple-left(m);
     }
 
     &,
     &-info,
     &-pages,
     &-switch,
+    &-size,
     & .@{veui-prefix}-link {
         display: inline-flex;
         align-items: center;
     }
 
-    &-switch {
-        flex: 1;
-        justify-content: flex-end;
-    }
-
-    &-size {
-        display: inline-flex;
-        align-items: center;
+    &-size { // 30 条/页
+        margin-left: @veui-pagination-spacing-2;
         span {
             display: inline-block;
             color: @veui-pagination-pagesizes-text-font-color;
@@ -36,16 +39,14 @@
         .@{veui-prefix}-select {
             width: auto;
             flex-grow: 0;
-            margin-left: @veui-pagination-spacing-1;
         }
     }
 
-    &-total {
+    &-total { // 共500条
         color: @veui-pagination-pagesizes-text-font-color;
-        margin-right: @veui-pagination-total-spacing-s;
     }
 
-    & &-goto {
+    & &-goto { // 跳至 确定
         display: flex;
         align-items: center;
         margin-left: @veui-pagination-page-items-margin-after;
@@ -59,15 +60,14 @@
         }
 
         .@{veui-prefix}-button {
-            width: @veui-pagination-goto-button-width-s;
-            min-width: auto;
+            display: none;
         }
 
         &-label-before,
         &-label-after {
             display: block;
-            color: @veui-pagination-pagesizes-text-font-color;
             line-height: @veui-pagination-pagesizes-text-line-height;
+            color: @veui-pagination-pagesizes-text-font-color;
         }
 
         &-label-before {
@@ -77,13 +77,9 @@
         &-label-after {
             margin-left: @veui-pagination-goto-label-spacing;
         }
-
-        .@{veui-prefix}-button {
-            margin-left: @veui-pagination-spacing-2;
-        }
     }
 
-    &-pages {
+    &-pages { // 1, 2, 3 ……
         list-style: none;
         margin: 0 @veui-pagination-button-spacing;
         padding: 0;
@@ -113,9 +109,9 @@
         font-variant-numeric: tabular-nums;
         cursor: pointer;
 
-        border: 1px solid @veui-pagination-button-border-color-normal;
-        background-color: @veui-pagination-button-background-color-normal;
-        color: @veui-pagination-button-font-color-normal;
+        border: 1px solid @veui-pagination-button-border-color;
+        background-color: @veui-pagination-button-background-color;
+        color: @veui-pagination-button-font-color;
         .veui-button-transition();
 
         &.@{veui-prefix}-pagination-more {
@@ -137,7 +133,7 @@
             }
 
             &:hover {
-                border-color: @veui-pagination-button-border-color-normal;
+                border-color: @veui-pagination-button-border-color;
             }
 
             &:hover,
@@ -154,12 +150,13 @@
         }
 
         &:hover {
-            background-color: @veui-pagination-button-background-color-normal-hover;
+            background-color: @veui-pagination-button-background-color-hover;
+            border-color: @veui-pagination-button-border-color-hover;
         }
 
         &.focus-visible,
         &[data-focus-visible-added] {
-            background-color: @veui-pagination-button-background-color-normal-focus;
+            background-color: @veui-pagination-button-background-color-focus;
             .veui-focus-ring(@veui-pagination-button-border-color-focus, @veui-pagination-button-shadow-focus);
         }
 
@@ -170,13 +167,14 @@
         }
 
         &:active {
-            background-color: @veui-pagination-button-background-color-normal-active;
+            background-color: @veui-pagination-button-background-color-active;
+            border-color: @veui-pagination-button-border-color-active;
         }
 
         &.@{veui-prefix}-disabled {
-            border-color: @veui-pagination-button-border-color-normal-disabled;
-            background-color: @veui-pagination-button-background-color-normal-disabled;
-            color: @veui-pagination-button-font-color-normal-disabled;
+            border-color: @veui-pagination-button-border-color-disabled;
+            background-color: @veui-pagination-button-background-color-disabled;
+            color: @veui-pagination-button-font-color-disabled;
         }
 
         &.@{veui-prefix}-current {
@@ -187,23 +185,25 @@
         }
     }
 
+    &-switch {
+        margin-left: @veui-pagination-page-items-margin-after;
+
+        .veui-pagination-prev,
+        .veui-pagination-next {
+            border: 1px solid @veui-pagination-nav-button-border-color;
+        }
+    }
+
     &[ui~="xs"] {
         font-size: @veui-pagination-font-size-xs;
 
         .@{veui-prefix}-link {
             .make-metrics(xs);
-            font-size: @veui-pagination-font-size-xs - 2;
-        }
-        .@{veui-prefix}-pagination-total {
-            margin-right: @veui-pagination-total-spacing-xs;
+            font-size: @veui-pagination-font-size-xs;
         }
         .@{veui-prefix}-pagination-goto {
             .@{veui-prefix}-input {
                 width: @veui-pagination-goto-input-width-xs;
-            }
-            .@{veui-prefix}-button {
-                width: @veui-pagination-goto-button-width-xs;
-                min-width: auto;
             }
         }
     }
@@ -213,30 +213,13 @@
 
         .@{veui-prefix}-link {
             .make-metrics(m);
-            font-size: @veui-pagination-font-size-m - 2;
-        }
-
-        .@{veui-prefix}-pagination-total {
-            margin-right: @veui-pagination-total-spacing-m;
+            font-size: @veui-pagination-font-size-m;
         }
 
         .@{veui-prefix}-pagination-goto {
             .@{veui-prefix}-input {
                 width: @veui-pagination-goto-input-width-m;
             }
-            .@{veui-prefix}-button {
-                width: @veui-pagination-goto-button-width-m;
-                min-width: auto;
-            }
-        }
-    }
-
-    &[ui~="normal"] {
-        .@{veui-prefix}-pagination-info {
-            display: none;
-        }
-        .@{veui-prefix}-pagination-switch {
-            justify-content: flex-start;
         }
     }
 }
