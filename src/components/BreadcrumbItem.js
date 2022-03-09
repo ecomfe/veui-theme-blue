@@ -1,10 +1,10 @@
-import '../icons/chevron-right';
+import 'veui-theme-blue-icons/plain-right';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
-            separator: 'chevron-right'
+            separator: 'plain-right'
         },
         ui: {
             size: {
