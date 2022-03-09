@@ -13,13 +13,12 @@
     text-decoration: @veui-link-text-decoration-hover;
   }
 
-  &.focus-visible {
+  &[data-focus-visible-added] {
     color: @veui-link-font-color-normal-focus;
     text-decoration: @veui-link-text-decoration-focus;
     .padding(@veui-link-padding-focus);
-    border: 1px solid @veui-link-border-color-focus;
+    .veui-focus-ring(@veui-link-border-color-focus, @veui-link-shadow-focus);
     border-radius: @veui-link-border-radius-focus;
-    box-shadow: @veui-link-shadow-focus;
   }
 
   &:active {
@@ -50,7 +49,7 @@
       color: @veui-link-font-color-strong-hover;
     }
 
-    &.focus-visible {
+    &[data-focus-visible-added] {
       color: @veui-link-font-color-strong-focus;
     }
 
