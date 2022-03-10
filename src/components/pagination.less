@@ -152,6 +152,7 @@
         &:hover {
             background-color: @veui-pagination-button-background-color-hover;
             border-color: @veui-pagination-button-border-color-hover;
+            color: @veui-pagination-button-font-color-hover;
         }
 
         &.focus-visible,
@@ -219,6 +220,20 @@
         .@{veui-prefix}-pagination-goto {
             .@{veui-prefix}-input {
                 width: @veui-pagination-goto-input-width-m;
+            }
+        }
+    }
+
+    &[ui~="number"] {
+        .@{veui-prefix}-link {
+            background-color: transparent;
+            border: none;
+
+            &.focus-visible,
+            &[data-focus-visible-added] {
+                background-color: @veui-pagination-button-background-color-focus;
+                border: 1px solid @veui-pagination-button-border-color-hover;
+                color: @veui-pagination-button-border-color-active;
             }
         }
     }
