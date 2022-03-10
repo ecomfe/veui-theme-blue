@@ -40,7 +40,11 @@ ui.defaults(
                 values: ['xs', 's', 'm'],
                 inherit: true,
                 default: 's'
-            }
+            },
+            style: {
+                values: ['normal', 'number'],
+                default: 'normal'
+            },
         }
     },
     'pagination'

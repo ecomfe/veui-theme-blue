@@ -8,7 +8,13 @@
             <span class="bg-gray-show">xs / s / m</span>
             ，其中 s 为默认值
         </div>
-
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格
+            <span class="bg-gray-show">ui</span>
+            属性值：
+            <span class="bg-gray-show">normal / number </span>
+            ，默认normal
+        </div>
         <section>
             <h3>基础分页</h3>
             <veui-form>
@@ -122,10 +128,11 @@
         </section>
 
         <section>
-            <h3>仅显示数字的简单分页</h3>
+            <h3>仅显示数字的简单分页 [ui=number]</h3>
             <veui-form>
                 <veui-field label="小号 [ui=s]">
                     <veui-pagination
+                        ui="s number"
                         :page="page"
                         :total="total"
                         :to="to"
@@ -133,7 +140,7 @@
                 </veui-field>
                 <veui-field label="中号 [ui=m]">
                     <veui-pagination
-                        ui="m"
+                        ui="m number"
                         :page="page"
                         :total="total"
                         :to="to"
