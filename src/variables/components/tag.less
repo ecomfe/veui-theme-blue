@@ -7,7 +7,7 @@
 @veui-tag-height-l: @veui-height-unit * 8;
 
 @veui-tag-padding: @veui-padding-unit * 2;
-@veui-tag-content-spacing: @veui-padding-unit * 2;
+@veui-tag-content-spacing: @veui-padding-unit;
 @veui-tag-list-spacing: @veui-padding-unit * 1;
 
 @veui-tag-font-size-xs: @veui-font-size-s;
@@ -22,17 +22,24 @@
 /* Colors */
 @veui-tag-font-color: @veui-font-color-normal;
 @veui-tag-font-color-hover: @veui-font-color-strong;
+@veui-tag-font-color-simple-hover: @veui-font-color-highlighted;
 @veui-tag-font-color-disabled: @veui-font-color-disabled;
 @veui-tag-background-color: @veui-color-gray-3;
+@veui-tag-background-color-simple: @veui-background-color-normal;
+@veui-tag-background-color-simple-active: @veui-color-info-2;
 @veui-tag-background-color-hover: @veui-color-gray-4;
 @veui-tag-background-color-disabled: @veui-background-color-disabled;
 @veui-tag-border-color: @veui-color-gray-5;
+@veui-tag-border-color-simple-hover: @veui-border-color-focus;
 @veui-tag-border-color-focus: @veui-border-color-focus;
 @veui-tag-border-color-disabled: @veui-border-color-disabled;
 @veui-tag-shadow-focus: @veui-shadow-focus;
 
 @veui-tag-font-color-selected: @veui-color-gray-1;
 @veui-tag-background-color-selected: @veui-color-brand-6;
+@veui-tag-background-color-simple-selected: @veui-background-color-normal-focus;
+@veui-tag-background-color-selected-hover: @veui-color-info-5;
+@veui-tag-background-color-selected-active: @veui-color-info-7;
 @veui-tag-background-color-selected-disabled: @veui-color-brand-2;
 @veui-tag-border-color-selected: transparent;
 @veui-tag-border-color-selected-focus: @veui-border-color-focus;
@@ -65,6 +72,10 @@
 @veui-tag-background-color-error: @veui-color-error-1;
 @veui-tag-border-color-error: @veui-color-error-4;
 @veui-tag-border-color-error-disabled: @veui-color-error-2;
+
+@veui-tag-font-color-remove-hover: @veui-font-color-aux;
+@veui-tag-font-color-remove-focus: @veui-font-color-aux;
+@veui-tag-font-color-remove-active: @veui-font-color-normal;
 
 // Reversed tags, same as selected contextual tags
 // Fixed font color, no border (transparent)

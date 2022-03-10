@@ -7,6 +7,9 @@ ui.defaults(
             remove: 'times'
         },
         ui: {
+            simple: {
+                boolean: true
+            },
             borderless: {
                 boolean: true
             },
