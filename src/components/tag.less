@@ -20,7 +20,7 @@
     @font-size: ~"veui-tag-font-size-@{size}";
 
     height: @@height;
-    border-radius: @veui-border-radius-l;
+    border-radius: @veui-border-radius-s;
     font-size: @@font-size;
     &[ui~="ellipse"] {
         border-radius: @@height;
@@ -46,20 +46,37 @@
     .make-metrics(l);
   }
 
-  &[ui~="borderless"]:not(.focus-visible) {
+  &[ui~="borderless"]:not([data-focus-visible-added]) {
     border-color: transparent;
   }
 
-  &-remove {
+  &[ui~="simple"] {
+    background-color: @veui-tag-background-color-simple;
+  }
+
+  &-remove.@{veui-prefix}-button {
     margin-left: @veui-tag-content-spacing;
+    padding: 0 @veui-tag-content-spacing * .5;
     font-size: inherit;
+
+    &:hover {
+      color: @veui-tag-font-color-remove-hover;
+    }
+
+    &:active {
+      color: @veui-tag-font-color-remove-active;
+    }
+
+    &[data-focus-visible-added] {
+      color: @veui-tag-font-color-remove-focus;
+    }
 
     .@{veui-prefix}-icon {
       .veui-icon-size(@veui-tag-icon-size-aux);
     }
   }
 
-  &.focus-visible {
+  &[data-focus-visible-added] {
     .veui-focus-ring(@veui-tag-border-color-focus, @veui-tag-shadow-focus);
   }
 
@@ -86,7 +103,7 @@
     border-color: @veui-tag-border-color-selected;
     background-color: @veui-tag-background-color-selected;
 
-    &.focus-visible {
+    &[data-focus-visible-added] {
       .veui-focus-ring(
         @veui-tag-border-color-selected-focus,
         @veui-tag-shadow-selected-focus
@@ -104,14 +121,42 @@
         background-color: @veui-tag-background-color-disabled;
     }
     &.@{veui-prefix}-tag-selectable {
+      &[ui~="simple"] {
+        &:hover:not(.@{veui-prefix}-disabled) {
+          color: @veui-tag-font-color-simple-hover;
+          background-color: @veui-tag-background-color-simple;
+          border-color: @veui-tag-border-color-simple-hover;
+        }
+        &:active:not(.@{veui-prefix}-disabled) {
+          background: #DBE4FF;
+        }
+        &[data-focus-visible-added]:not(.@{veui-prefix}-tag-selected) {
+          color: @veui-tag-font-color-simple-hover;
+        }
+        &.@{veui-prefix}-tag-selected:not([data-focus-visible-added]) {
+          color: @veui-tag-font-color-simple-hover;
+          background-color: @veui-tag-background-color-simple-selected;
+          border-color: @veui-tag-border-color-simple-hover;
+        }
+        &[ui~="borderless"]:not([data-focus-visible-added]) {
+          border-color: transparent;
+        }
+      }
       &:hover:not(.@{veui-prefix}-disabled) {
         color: @veui-tag-font-color-hover;
         background-color: @veui-tag-background-color-hover;
       }
+      &:active:not(.@{veui-prefix}-disabled) {
+        background-color: @veui-color-gray-5;
+      }
       &.@{veui-prefix}-tag-selected {
         &:hover:not(.@{veui-prefix}-disabled) {
-            color: @veui-tag-font-color-selected;
-            background-color: @veui-tag-background-color-selected;
+          color: @veui-tag-font-color-selected;
+          background-color: @veui-tag-background-color-selected-hover;
+        }
+        &:active:not(.@{veui-prefix}-disabled) {
+          color: @veui-tag-font-color-selected;
+          background-color: @veui-tag-background-color-selected-active;
         }
       }
     }
@@ -143,7 +188,7 @@
         border-color: @veui-tag-border-color-selected;
         background-color: @@selected-bg-color-name;
 
-        &.focus-visible {
+        &[data-focus-visible-added] {
           .veui-focus-ring(
             @veui-tag-border-color-selected-focus,
             @veui-tag-shadow-selected-focus
@@ -160,8 +205,8 @@
         color: @veui-tag-font-color-reversed;
       }
 
-      &.focus-visible,
-      &.@{veui-prefix}-tag.focus-visible {
+      &[data-focus-visible-added],
+      &.@{veui-prefix}-tag[data-focus-visible-added] {
         .veui-focus-ring(@veui-tag-border-color-focus, @veui-tag-shadow-focus);
       }
     }

@@ -26,16 +26,22 @@
             </veui-form>
         </section>
         <h2>风格</h2>
-        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">borderless</span></div>
+        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">borderless / simple</span></div>
         <section>
             <veui-form>
                 <veui-field label="有边框[不传ui]" ui="long">
                     <veui-tag>
                         标签
                     </veui-tag>
+                    <veui-tag ui="simple">
+                        标签
+                    </veui-tag>
                 </veui-field>
                 <veui-field label="无边框[ui=borderless]" ui="long">
                     <veui-tag ui="borderless">
+                        标签
+                    </veui-tag>
+                    <veui-tag ui="borderless simple">
                         标签
                     </veui-tag>
                 </veui-field>
@@ -84,8 +90,9 @@
                 </veui-field>
                 <veui-field label="选择型标签" ui="long">
                     <veui-tag
-                        v-for="item in sizes"
+                        v-for="(item, index) in sizes"
                         :key="`${item.value}_04`"
+                        :ui="`${item.value} ${index % 2 ? 'simple' : ''}`"
                         selectable
                     >
                         标签
