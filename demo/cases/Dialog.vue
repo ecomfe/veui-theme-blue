@@ -2,7 +2,7 @@
     <article class="demo-dialog">
         <h1><code>&lt;veui-dialog&gt;</code></h1>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m（默认，可不传） / l / xl</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m（默认，可不传） / l / xl / fullscreen</span></div>
         <section>
             <span class="title-desc">超小样式</span>
             <veui-button
@@ -25,14 +25,14 @@
                         ui="primary m"
                         @click="close('ok')"
                     >
-                        OK
+                        确认
                     </veui-button>
                     <veui-button
                         ui="m"
                         autofocus
                         @click="close"
                     >
-                        CANCEL
+                        取消
                     </veui-button>
                 </template>
             </veui-dialog>
@@ -59,14 +59,14 @@
                         ui="primary m"
                         @click="close('ok')"
                     >
-                        OK
+                        确认
                     </veui-button>
                     <veui-button
                         ui="m"
                         autofocus
                         @click="close"
                     >
-                        CANCEL
+                        取消
                     </veui-button>
                 </template>
             </veui-dialog>
@@ -94,14 +94,14 @@
                         ui="primary m"
                         @click="close('ok')"
                     >
-                        OK
+                        确认
                     </veui-button>
                     <veui-button
                         ui="m"
                         autofocus
                         @click="close"
                     >
-                        CANCEL
+                        取消
                     </veui-button>
                 </template>
             </veui-dialog>
@@ -129,14 +129,14 @@
                         ui="primary m"
                         @click="close('ok')"
                     >
-                        OK
+                        确认
                     </veui-button>
                     <veui-button
                         ui="m"
                         autofocus
                         @click="close"
                     >
-                        CANCEL
+                        取消
                     </veui-button>
                 </template>
             </veui-dialog>
@@ -164,14 +164,14 @@
                         ui="primary m"
                         @click="close('ok')"
                     >
-                        OK
+                        确认
                     </veui-button>
                     <veui-button
                         autofocus
                         ui="m"
                         @click="close"
                     >
-                        CANCEL
+                        取消
                     </veui-button>
                 </template>
             </veui-dialog>
@@ -192,6 +192,24 @@
                 ui="fullscreen"
             >
                 <p>content area</p>
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary m"
+                        @click="close('ok')"
+                    >
+                        确认
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        ui="m"
+                        @click="close"
+                    >
+                        取消
+                    </veui-button>
+                </template>
             </veui-dialog>
         </section>
         <section>
@@ -207,27 +225,9 @@
                 :open.sync="autoDialogVisible"
                 modal
                 outside-closable
-                ui="titleless"
+                ui="titleless xs"
             >
                 测试
-            </veui-dialog>
-        </section>
-        <section>
-            <span class="title-desc">可拖拽展示</span>
-            <veui-button
-                ui="primary"
-                @click="draggableDialog1Visible = !draggableDialog1Visible"
-            >
-                可拖拽样式
-            </veui-button>
-            <veui-dialog
-                :modal="false"
-                :open.sync="draggableDialog1Visible"
-                ui="narrow s"
-                title="First"
-                draggable
-            >
-                You can drag the dialog box in the viewport.
                 <template
                     slot="foot"
                     slot-scope="{ close }"
@@ -236,18 +236,53 @@
                         ui="primary m"
                         @click="close('ok')"
                     >
-                        OK
+                        确认
+                    </veui-button>
+                    <veui-button
+                        autofocus
+                        ui="m"
+                        @click="close"
+                    >
+                        取消
+                    </veui-button>
+                </template>
+            </veui-dialog>
+        </section>
+        <section>
+            <span class="title-desc">投影效果</span>
+            <veui-button
+                ui="primary"
+                @click="draggableDialog1Visible = !draggableDialog1Visible"
+            >
+                投影效果
+            </veui-button>
+            <veui-dialog
+                :modal="false"
+                :open.sync="draggableDialog1Visible"
+                ui="narrow s"
+                title="First"
+            >
+                <template
+                    slot="foot"
+                    slot-scope="{ close }"
+                >
+                    <veui-button
+                        ui="primary m"
+                        @click="close('ok')"
+                    >
+                        确认
                     </veui-button>
                     <veui-button
                         ui="m"
                         autofocus
                         @click="close"
                     >
-                        CANCEL
+                        取消
                     </veui-button>
                 </template>
             </veui-dialog>
         </section>
+        <h3>以下不需要UI还原</h3>
         <section>
             <veui-dialog
                 overlay-class="test demo-dialog-standard-dialog"
@@ -263,8 +298,6 @@
             >
                 Open a modal dialog box
             </veui-button>
-
-            
             <veui-button
                 ui="primary"
                 @click="autoDialogVisible = !autoDialogVisible"

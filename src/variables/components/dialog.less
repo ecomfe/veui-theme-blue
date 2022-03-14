@@ -10,16 +10,16 @@
 @veui-dialog-border-radius: @veui-border-radius-l;
 
 @veui-dialog-spacing-y: 20px;
-@veui-dialog-max-height: calc(100vh - @veui-dialog-spacing-y * 2);
 
 @veui-dialog-padding-x: @veui-padding-unit * 6;
 @veui-dialog-padding-y: @veui-padding-unit * 6;
 @veui-dialog-padding-head-y: @veui-padding-unit * 4;
+@veui-dialog-padding-foot-y: @veui-padding-unit * 4;
 
 @veui-dialog-title-content-spacing: @veui-padding-unit * 4;
 @veui-dialog-title-spacing-after: @veui-padding-unit * 3;
 @veui-dialog-action-spacing-before: @veui-padding-unit * 5;
-@veui-dialog-action-content-spacing: @veui-padding-unit * 3;
+@veui-dialog-action-content-spacing: @veui-padding-unit * 4;
 
 @veui-dialog-title-spacing-after-contextual: @veui-padding-unit * 1;
 @veui-dialog-icon-spacing-contextual: @veui-padding-unit * 3;
@@ -36,9 +36,10 @@
 @veui-dialog-title-font-color: @veui-font-color-strong;
 @veui-dialog-body-font-color: @veui-font-color-normal;
 
-@veui-dialog-close-icon-size: @veui-icon-size-aux;
+@veui-dialog-close-icon-size: calc(@veui-icon-size-normal + 4px);
 @veui-dialog-close-icon-size-fullscreen: @veui-dialog-close-icon-size;
 @veui-dialog-close-icon-min-size: 10px;
+@veui-dialog-close-icon-color: @veui-font-color-weak;
 
 @veui-dialog-icon-color-info: @veui-color-info-6;
 @veui-dialog-icon-color-success: @veui-color-success-6;
@@ -47,8 +48,10 @@
 
 @veui-dialog-background-color: @veui-background-color-normal;
 @veui-dialog-backdrop-color: fade(@veui-color-gray-10, 60%);
+@veui-dialog-content-shadow: 0 4px 20px 0 fade(@veui-shadow-color, percentage(@veui-shadow-opacity));
 
 @veui-dialog-shadow: @veui-shadow;
-@veui-dialog-min-height: 240px;
+@veui-dialog-min-height: 232px;
+@veui-dialog-min-height-m: 290px;
+@veui-dialog-min-height-l: 370px;
 @veui-dialog-max-height: 680px;
-@veui-dialog-foot-button-height: @veui-height-s;
