@@ -11,6 +11,9 @@
     display: flex;
     &:not(&-mask) {
       pointer-events: none;
+      .@{veui-prefix}-dialog-content {
+        box-shadow: @veui-dialog-content-shadow;
+      }
     }
   }
 
@@ -29,7 +32,6 @@
     background: @veui-dialog-background-color;
     padding-bottom: @veui-dialog-padding-y;
     .veui-position-center();
-    max-height: @veui-dialog-max-height;// todo
     overflow-y: auto;
     outline: none;
     pointer-events: auto;
@@ -48,13 +50,16 @@
 
     [ui~="m"] & {
       width: @veui-dialog-width-medium;
+      min-height: @veui-dialog-min-height-m;
     }
 
     [ui~="l"] & {
       width: @veui-dialog-width-wide;
+      min-height: @veui-dialog-min-height-l;
     }
     [ui~="xl"] & {
         width: @veui-dialog-width-xl;
+        min-height: @veui-dialog-min-height-l;
     }
     [ui~="fullscreen"] & {
       .fixed(0);
@@ -75,7 +80,7 @@
 
     &-head {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: flex-end;
       padding: @veui-dialog-padding-head-y @veui-dialog-padding-x;
 
@@ -91,7 +96,7 @@
         line-height: @veui-dialog-title-line-height;
         font-weight: @veui-font-weight-2;
         color: @veui-dialog-title-font-color;
-        font-size: @veui-dialog-title-font-size-s;
+        font-size: @veui-dialog-title-font-size-m;
       }
 
       &-close {
@@ -103,13 +108,7 @@
             @veui-dialog-close-icon-size,
             @veui-dialog-close-icon-min-size
           );
-
-          [ui~="fullscreen"] & {
-            .veui-icon-size(
-              @veui-dialog-close-icon-size-fullscreen,
-              @veui-dialog-close-icon-min-size
-            );
-          }
+          color: @veui-dialog-close-icon-color;
         }
       }
     }
@@ -127,7 +126,8 @@
     }
 
     &-foot {
-      padding: @veui-dialog-padding-x @veui-dialog-padding-x 0;
+      padding: @veui-dialog-padding-foot-y @veui-dialog-padding-x 0;
+      text-align: right;
 
       .@{veui-prefix}-button  {
           & + .@{veui-prefix}-button {
