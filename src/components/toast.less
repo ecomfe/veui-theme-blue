@@ -40,7 +40,8 @@
 
     &-close {
         .@{veui-prefix}-icon {
-            .veui-icon-size(@veui-toast-icon-size-aux);
+            .veui-icon-size(@veui-icon-size-aux);
+            color: @veui-toast-icon-color-close;
         }
 
         .@{veui-prefix}-button {
@@ -61,8 +62,11 @@
         flex-grow: 1;
 
         &-title {
+            color: @veui-toast-title-font-color;
+            font-size: @veui-toast-font-size-title;
             font-weight: @veui-toast-title-font-weight;
             padding-bottom: @veui-toast-title-spacing-after;
+            line-height: @veui-toast-line-height-title;
         }
     }
 
@@ -84,21 +88,37 @@
 
     /* 有title样式 */
     &&-titled {
-        padding: @veui-toast-padding-y-titled @veui-toast-padding-x;
+        .padding(@veui-toast-padding-y-titled, @veui-toast-padding-x-titled);
 
         .@{veui-prefix}-toast-icon {
             .veui-icon-size(@veui-toast-icon-size-titled);
         }
         .@{veui-prefix}-toast {
-            &-state,
-            &-close {
+            &-state {
+                display: flex;
+                justify-content: center;
                 font-size: @veui-toast-font-size;
-                height: @veui-toast-line-height;
+                height: @veui-toast-line-height-title;
+                min-width: @veui-toast-line-height-title;
+            }
+
+            &-close {
+                position: absolute;
+                top: @veui-toast-padding-y-titled;
+                right: @veui-toast-padding-x;
             }
         }
 
         .@{veui-prefix}-toast-close {
             align-items: start;
+        }
+
+        .@{veui-prefix}-toast-content {
+            margin-right: @veui-toast-content-spacing;
+
+            &-message {
+                color: @veui-toast-title-message-color;
+            }
         }
     }
 }

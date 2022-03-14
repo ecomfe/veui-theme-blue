@@ -1,18 +1,18 @@
-import '../icons/check-circle';
-import '../icons/exclamation-circle';
-import '../icons/info-circle';
-import '../icons/times-circle';
-import '../icons/times';
+import 'veui-theme-blue-icons/sign-tick';
+import 'veui-theme-blue-icons/sign-exclamation';
+import 'veui-theme-blue-icons/sign-info';
+import 'veui-theme-blue-icons/sign-x';
+import 'veui-theme-blue-icons/mark-x';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
-            success: 'check-circle',
-            warning: 'exclamation-circle',
-            info: 'info-circle',
-            error: 'times-circle',
-            close: 'times'
+            success: 'sign-tick',
+            warning: 'sign-exclamation',
+            info: 'sign-info',
+            error: 'sign-x',
+            close: 'mark-x'
         },
         parts: {
             close: 'icon aux'

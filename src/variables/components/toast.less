@@ -2,15 +2,19 @@
 
 /* Metrics */
 @veui-toast-font-size: @veui-font-size-m;
+@veui-toast-font-size-title: @veui-font-size-l;
 @veui-toast-border-radius: @veui-border-radius-l;
 @veui-toast-line-height: @veui-toast-font-size * @veui-line-height-m + 1;
+@veui-toast-line-height-title: @veui-toast-font-size-title * @veui-line-height-m;
 @veui-toast-icon-size: @veui-icon-size-normal;
-@veui-toast-icon-size-titled: calc(1em + 4px);
+@veui-toast-icon-size-titled: calc(1em + 6px);
 @veui-toast-icon-size-aux: @veui-icon-size-aux;
 @veui-toast-padding-x: @veui-padding-unit * 4;
 @veui-toast-padding-y: @veui-padding-unit * 2;
 @veui-toast-padding-y-multiline: @veui-padding-unit * 2;
-@veui-toast-padding-y-titled: @veui-padding-unit * 4;
+@veui-toast-padding-x-titled: @veui-padding-unit * 6;
+@veui-toast-padding-y-titled: @veui-padding-unit * 5;
+@veui-toast-content-spacing: @veui-padding-unit * 1;
 @veui-toast-content-spacing-before: @veui-padding-unit * 2;
 @veui-toast-content-spacing-after: @veui-padding-unit * 4;
 @veui-toast-spacing: @veui-padding-unit * 2;
@@ -18,10 +22,12 @@
 
 @veui-toast-list-spacing-before: 72px;
 
-@veui-toast-title-font-weight: @veui-font-weight-2;
+@veui-toast-title-font-weight: @veui-font-weight-1;
 @veui-toast-title-spacing-after: @veui-padding-unit * 1;
 
 /* Colors */
+@veui-toast-title-font-color: @veui-font-color-strong;
+@veui-toast-title-message-color: @veui-font-color-aux;
 @veui-toast-background-color: @veui-background-color-normal;
 @veui-toast-font-color: @veui-font-color-normal;
 @veui-toast-shadow: @veui-shadow;
@@ -30,3 +36,4 @@
 @veui-toast-icon-color-success: @veui-color-success-6;
 @veui-toast-icon-color-warning: @veui-color-warning-6;
 @veui-toast-icon-color-error: @veui-color-error-6;
+@veui-toast-icon-color-close: @veui-icon-color-aux;
