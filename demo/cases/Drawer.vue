@@ -2,13 +2,16 @@
     <article class="demo-drawer">
         <h1><code>&lt;veui-drawer&gt;</code></h1>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m / l</span></div>
-        <div class="options-desc">注意 <span class="bg-gray-show">placement为top/bottom时，ui不能选l，上下抽屉只有中/大两种选项</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">xs / s / m / l / xl</span></div>
+        <div class="options-desc">注意 <span class="bg-gray-show">placement为top / bottom时，ui不能选l / xl，上下抽屉只有xs / s / m三种选项</span></div>
         <section>
             <veui-checkbox v-model="modal">Modal</veui-checkbox>
             <veui-checkbox v-model="outsideClosable">outside Closable</veui-checkbox>
         </section>
         <section>
+            <veui-button @click="handleTopOpen('xs')">
+                上抽屉超小号
+            </veui-button>
             <veui-button @click="handleTopOpen('s')">
                 上抽屉小号
             </veui-button>
@@ -17,6 +20,9 @@
             </veui-button>
         </section>
         <section>
+            <veui-button @click="handleBottomOpen('xs')">
+                下抽屉超小号
+            </veui-button>
             <veui-button @click="handleBottomOpen('s')">
                 下抽屉小号
             </veui-button>
@@ -25,6 +31,9 @@
             </veui-button>
         </section>
         <section>
+            <veui-button @click="handleRightOpen('xs')">
+                右抽屉超小号
+            </veui-button>
             <veui-button @click="handleRightOpen('s')">
                 右抽屉小号
             </veui-button>
@@ -34,8 +43,14 @@
             <veui-button @click="handleRightOpen('l')">
                 右抽屉大号
             </veui-button>
+            <veui-button @click="handleRightOpen('xl')">
+                右抽屉超大号
+            </veui-button>
         </section>
         <section>
+            <veui-button @click="handleLeftOpen('xs')">
+                左抽屉超小号
+            </veui-button>
             <veui-button @click="handleLeftOpen('s')">
                 左抽屉小号
             </veui-button>
@@ -44,6 +59,9 @@
             </veui-button>
             <veui-button @click="handleLeftOpen('l')">
                 左抽屉大号
+            </veui-button>
+            <veui-button @click="handleLeftOpen('xl')">
+                左抽屉超大号
             </veui-button>
         </section>
 

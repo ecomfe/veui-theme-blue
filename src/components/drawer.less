@@ -44,11 +44,6 @@
       }
       &-foot {
         text-align: center;
-        margin-top: @veui-drawer-blank;
-        height: @veui-drawer-foot-height;
-        padding: 0;
-        height: @veui-drawer-foot-height;
-        line-height: @veui-drawer-foot-height;
       }
     }
   }
@@ -57,61 +52,70 @@
     .@{veui-prefix}-dialog-content {
       .absolute(0, 0, auto, 0);
       width: auto !important;
-      box-shadow: @veui-drawer-shadow-top;
+    }
+    [ui~="xs"]& .@{veui-prefix}-dialog-content{
+      height: @veui-drawer-height-xs;
+    }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
       height: @veui-drawer-height-s;
-
     }
     [ui~="m"]& .@{veui-prefix}-dialog-content{
-        height: @veui-drawer-height-m;
-      }
-    [ui~="s"]& .@{veui-prefix}-dialog-content{
-        height: @veui-drawer-height-s;
+      height: @veui-drawer-height-m;
     }
   }
   &-right {
     .@{veui-prefix}-dialog-content {
       .absolute(0, 0, 0, auto);
-      width: @veui-drawer-width-l;
-      box-shadow: @veui-drawer-shadow-right;
     }
-    [ui~="l"]& .@{veui-prefix}-dialog-content{
-        width: @veui-drawer-width-l;
+    [ui~="xs"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-xs;
+    }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-s;
     }
     [ui~="m"]& .@{veui-prefix}-dialog-content{
         width: @veui-drawer-width-m;
     }
-    [ui~="s"]& .@{veui-prefix}-dialog-content{
-        width: @veui-drawer-width-s;
+    [ui~="l"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-l;
+    }
+    [ui~="xl"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-xl;
     }
   }
   &-bottom {
     .@{veui-prefix}-dialog-content {
       .absolute(auto, 0, 0, 0);
       width: auto !important;
+    }
+    [ui~="xs"]& .@{veui-prefix}-dialog-content{
+      height: @veui-drawer-height-xs;
+    }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
       height: @veui-drawer-height-s;
-      box-shadow: @veui-drawer-shadow-bottom;
     }
     [ui~="m"]& .@{veui-prefix}-dialog-content{
         height: @veui-drawer-height-m;
-      }
-    [ui~="s"]& .@{veui-prefix}-dialog-content{
-        height: @veui-drawer-height-s;
     }
   }
   &-left {
     .@{veui-prefix}-dialog-content {
       .absolute(0, auto, 0, 0);
-      width: @veui-drawer-width-l;
-      box-shadow: @veui-drawer-shadow-left;
     }
-    [ui~="l"]& .@{veui-prefix}-dialog-content{
-        width: @veui-drawer-width-l;
+    [ui~="xs"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-xs;
+    }
+    [ui~="s"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-s;
     }
     [ui~="m"]& .@{veui-prefix}-dialog-content{
         width: @veui-drawer-width-m;
     }
-    [ui~="s"]& .@{veui-prefix}-dialog-content{
-        width: @veui-drawer-width-s;
+    [ui~="l"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-l;
+    }
+    [ui~="xl"]& .@{veui-prefix}-dialog-content{
+      width: @veui-drawer-width-xl;
     }
   }
 
