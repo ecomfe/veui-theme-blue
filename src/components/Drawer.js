@@ -1,16 +1,15 @@
-import '../icons/times';
-
+import 'veui-theme-blue-icons/mark-x';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
-            close: 'times'
+            close: 'mark-x'
         },
         ui: {
             size: {
-                values: ['s', 'm', 'l'],
-                default: 'm'
+                values: ['xs', 's', 'm', 'l', 'xl'],
+                default: 'l'
             }
         },
         parts: {
