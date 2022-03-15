@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "sh build/deploy.sh"
+    "deploy": "sh build/deploy.sh",
+    "prepare": "husky-hook install"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -25,6 +26,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
     "focus-visible": "^5.2.0",
+    "husky-hook": "^1.2.0",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
     "less-plugin-est": "^3.0.1",

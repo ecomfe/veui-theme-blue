@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+
+node .husky/verify-commit-msg.js $1
+if [ -e .git/hooks/commit-msg ]; then
+    . .git/hooks/commit-msg
+else
+    # Install custom hooks, such as using Gerrit to generate change ID
+    echo '\033[31m Please check and install .git/hooks/commit-msg hooks \033[0m'
+    exit 1
+fi
