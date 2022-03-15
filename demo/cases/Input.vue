@@ -4,7 +4,7 @@
         <h2>尺寸</h2>
         <div class="options-desc">
             可选的尺寸 <span class="bg-gray-show">ui</span> 
-            属性值： <span class="bg-gray-show">xs / s / m / l</span>
+            属性值： <span class="bg-gray-show">xs / s / m / l / xl</span>
         </div>
         <section class="five-sizes">
             <veui-form>
@@ -35,6 +35,13 @@
                         v-model="value"
                         ui="l"
                         placeholder="l"
+                    />
+                </veui-field>
+                <veui-field label="特大号[ui=xl]">
+                    <veui-input
+                        v-model="value"
+                        ui="xl"
+                        placeholder="xl"
                     />
                 </veui-field>
             </veui-form>

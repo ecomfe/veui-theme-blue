@@ -1,15 +1,14 @@
-import '../icons/times-circle';
+import 'veui-theme-blue-icons/disc-x';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
-        // TODO: 需要替换新icon
         icons: {
-            clear: 'times-circle'
+            clear: 'disc-x'
         },
         ui: {
             size: {
-                values: ['xs', 's', 'm', 'l'],
+                values: ['xs', 's', 'm', 'l', 'xl'],
                 inherit: true,
                 default: 's'
             }

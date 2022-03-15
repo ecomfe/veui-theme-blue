@@ -7,7 +7,7 @@
             <h2>尺寸</h2>
             <div class="options-desc">
                 可选的尺寸 <span class="bg-gray-show">ui</span> 
-                属性值： <span class="bg-gray-show">xs / s / m / l</span>
+                属性值： <span class="bg-gray-show">xs / s / m / l / xl</span>
             </div>
             <section>
                 <veui-field
@@ -42,6 +42,15 @@
                 >
                     <veui-autocomplete
                         ui="l"
+                        v-model="inputValue"
+                        :datasource="suggestions"
+                    />
+                </veui-field>
+                <veui-field
+                    label="超大号（xl）"
+                >
+                    <veui-autocomplete
+                        ui="xl"
                         v-model="inputValue"
                         :datasource="suggestions"
                     />
