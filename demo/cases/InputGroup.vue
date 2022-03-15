@@ -5,7 +5,7 @@
             <h2>尺寸</h2>
             <div class="options-desc">
                 可选的尺寸 <span class="bg-gray-show">ui</span> 
-                属性值： <span class="bg-gray-show">xs / s / m / l</span>
+                属性值： <span class="bg-gray-show">xs / s / m / l / xl</span>
             </div>
             <section>
                 <veui-field
@@ -67,6 +67,24 @@
                     label="大号（l）"
                 >
                     <veui-input-group ui="l">
+                        <veui-select
+                            :options="protocals"
+                            style="width: 100px"
+                            v-model="value"
+                        />
+                        <veui-input/>
+                        <veui-select
+                            :options="domain"
+                            style="width: 100px"
+                            v-model="value1"
+                        />               
+                    </veui-input-group>
+                </veui-field>
+                <veui-field
+                    
+                    label="超大号（xl）"
+                >
+                    <veui-input-group ui="xl">
                         <veui-select
                             :options="protocals"
                             style="width: 100px"
