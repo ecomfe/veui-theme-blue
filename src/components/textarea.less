@@ -19,7 +19,7 @@
   @line-number-default-width: @veui-height-m;
 
   &:hover {
-    border-color: @veui-input-border-color-hover;
+    border-color: @veui-textarea-border-color-hover;
   }
 
   &-resizable &-input {
@@ -29,14 +29,15 @@
   &.@{veui-prefix}-readonly {
     border-color: @veui-input-border-color-read-only;
     background-color: @veui-input-background-color-read-only;
-    color: @veui-input-font-color-read-only;
 
     &:hover {
-      border-color: @veui-input-border-color-read-only-hover;
+      border-color: @veui-textarea-border-color-hover;
+      color: @veui-input-font-color-read-only;
     }
 
     & .@{veui-prefix}-textarea-input {
       background-color: @veui-input-background-color-disabled;
+      color: @veui-input-font-color-read-only;
     }
   }
 
@@ -86,10 +87,12 @@
     position: relative;
     float: right;
     width: 100%;
-    padding: 5px @veui-textarea-padding-x;
+    padding: @veui-textarea-padding-y @veui-textarea-padding-x;
 
     // 和外部容器的高度保持一致
     height: inherit;
+    min-height: inherit;
+    max-height: inherit;
 
     border: none;
     outline: none;
@@ -115,10 +118,13 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     color: @veui-font-color-weak;
+    .padding(@veui-textarea-padding-y, _);
 
     &-line {
+      &-number {
+        float: left;
+      }
       &-content {
-        .padding(_, @veui-textarea-padding-x);
         overflow: hidden;
         visibility: hidden;
       }
@@ -142,6 +148,9 @@
     border-radius: @veui-textarea-count-border-radius;
     font-variant-numeric: tabular-nums;
     .veui-transition(background-color, color);
+    &-overflow {
+      background-color: @veui-textarea-count-background-color-error;
+    }
   }
 
   &[ui~="s"] {
