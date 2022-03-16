@@ -202,8 +202,7 @@
             </veui-button>
         </section>
         <section>
-            <h4>复选框组</h4>
-            
+            <span class="title-desc">复选框组</span>
             <veui-checkbox
                 :checked="group.length > 0"
                 :indeterminate="group.length > 0 && group.length < 3"
@@ -229,7 +228,7 @@
             >
                 C
             </veui-checkbox>
-            {{ group }}
+            <span class="show-value">{{ group }}</span>
         </section>
         <h2>加强复选</h2>
         查看CheckButtonGroup组件
@@ -270,15 +269,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    section {
+section {
     margin-bottom: 1em;
     display: flex;
-        .show-value {
-            align-items: center;
-        }
+    .show-value {
+        margin-left: 20px;
+        align-items: center;
     }
-    .veui-checkbox + .veui-button,
-    .veui-checkbox + .veui-checkbox {
+}
+.veui-checkbox + .veui-button,
+.veui-checkbox + .veui-checkbox {
     margin-left: 20px;
-    }
+}
 </style>

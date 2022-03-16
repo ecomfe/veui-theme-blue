@@ -63,7 +63,7 @@
     color: @veui-checkbox-foreground-color-hover;
   }
 
-  & .focus-visible + &-box {
+  & [data-focus-visible-added] + &-box {
     .veui-focus-ring(
       @veui-checkbox-border-color-focus,
       @veui-checkbox-shadow-focus
@@ -76,7 +76,6 @@
     border-color: @veui-checkbox-border-color-active;
     background-color: @veui-checkbox-background-color-active;
     color: @veui-checkbox-foreground-color-active;
-    .veui-focus-shadow(@veui-color-brand-2);
   }
 
   & :disabled + &-box {
@@ -97,8 +96,8 @@
     background-color: @veui-checkbox-background-color-checked-hover;
   }
 
-  & :checked.focus-visible + &-box,
-  & :indeterminate.focus-visible + &-box {
+  & :checked[data-focus-visible-added] + &-box,
+  & :indeterminate[data-focus-visible-added] + &-box {
     border-color: @veui-checkbox-border-color-checked-focus;
     background-color: @veui-checkbox-background-color-checked-focus;
   }
@@ -121,7 +120,7 @@
 
   &[ui~="s"] {
     font-size: @veui-checkbox-font-size-s;
-    line-height: @veui-checkbox-font-size-s * @veui-line-height-m;
+    line-height: @veui-checkbox-font-size-s * @veui-line-height-m + 2;
 
     .@{veui-prefix}-checkbox-box {
       .size(@veui-checkbox-size-s);
@@ -129,7 +128,7 @@
   }
   &[ui~="l"] {
     font-size: @veui-checkbox-font-size-l;
-    line-height: @veui-checkbox-font-size-l * @veui-line-height-m - 2;
+    line-height: @veui-checkbox-font-size-l * @veui-line-height-m;
 
     .@{veui-prefix}-checkbox-box {
       .size(@veui-checkbox-size-l);

@@ -1,12 +1,12 @@
-import '../icons/minus';
-import '../icons/check';
+import 'veui-theme-blue-icons/mark-minus';
+import 'veui-theme-blue-icons/mark-tick';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
-            indeterminate: 'minus',
-            checked: 'check'
+            indeterminate: 'mark-minus',
+            checked: 'mark-tick'
         },
         ui: {
             size: {
