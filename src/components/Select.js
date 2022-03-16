@@ -1,5 +1,4 @@
-import '../icons/chevron-down';
-import '../icons/times-circle';
+import 'veui-theme-blue-icons/plain-down';
 import 'veui-theme-blue-icons/disc-x';
 import ui from 'veui/managers/ui';
 
@@ -20,8 +19,8 @@ const TAG_SIZE_MAP = {
 ui.defaults(
     {
         icons: {
-            expand: 'chevron-down',
-            collapse: 'chevron-down',
+            expand: 'plain-down',
+            collapse: 'plain-down',
             clear: 'disc-x'
         },
         ui: {

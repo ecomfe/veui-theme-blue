@@ -69,7 +69,7 @@
 
         .@{veui-prefix}-input-after {
             padding-left: @veui-select-content-spacing;
-            color: @veui-font-color-weak;
+            color: @veui-font-color-disabled;
         }
 
         .@{veui-prefix}-input-input {
@@ -172,6 +172,13 @@
         position: relative;
     }
 
+    &-expanded {
+        .@{veui-prefix}-input {
+            border-color: @veui-select-border-focus-color;
+            box-shadow: 0 0 0 2px  @veui-select-border-focus-shadow-color;
+        }
+    }
+
     &-toggle {
         .veui-icon-size(@veui-select-icon-size-aux);
         .veui-transition(transform, color, opacity);
@@ -203,6 +210,7 @@
 
         .@{veui-prefix}-icon {
             .veui-icon-size(@veui-input-icon-size);
+            color: @veui-select-icon-clear-color;
         }
 
         .@{veui-prefix}-select:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover

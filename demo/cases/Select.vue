@@ -72,11 +72,20 @@
                         placeholder="全部"
                         clearable
                         multiple
-                    >
-                        <template #label="{ selected }">
-                            {{ selected && selected.map(({ label }) => label).join(';') }}
-                        </template>
-                    </veui-select>
+                    />
+                </veui-field>
+                <veui-field
+                    label="限制数量的多选"
+                >
+                    <veui-select
+                        v-model="defaultMultiValue"
+                        ui="m"
+                        v-bind="attrs"
+                        placeholder="全部"
+                        clearable
+                        multiple
+                        :max="3"
+                    />
                 </veui-field>
             </veui-form>
         </section>
@@ -117,9 +126,9 @@
                         searchable
                         multiple
                     >
-                        <template #label="{ selected }">
+                        <!-- <template #label="{ selected }">
                             {{ selected && selected.map(({ label }) => label).join(';') }}
-                        </template>
+                        </template> -->
                     </veui-select>
                 </veui-field>
             </veui-form>
@@ -565,6 +574,26 @@ export default {
                     {
                         label: '下拉选项222',
                         value: 4
+                    },
+                    {
+                        label: '下拉选项555',
+                        value: 5
+                    },
+                    {
+                        label: '下拉选项666',
+                        value: 6
+                    },
+                    {
+                        label: '下拉选项777',
+                        value: 7
+                    },
+                    {
+                        label: '下拉选项888',
+                        value: 8
+                    },
+                    {
+                        label: '下拉选项999',
+                        value: 9
                     }
                 ]
             },
