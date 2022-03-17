@@ -1,4 +1,4 @@
-import '../icons/loading';
+import 'veui-theme-blue-icons/loading';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
@@ -8,7 +8,9 @@ ui.defaults(
         },
         ui: {
             size: {
-                values: ['xs', 's', 'm']
+                values: ['xs', 's', 'm'],
+                inherit: true,
+                default: 's'
             }
         }
     },

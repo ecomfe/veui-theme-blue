@@ -2,7 +2,7 @@
 @import "../variables/components/switch.less";
 
 .@{veui-prefix}-switch {
-  .metrics(@size, @fontSize: m) {
+  .metrics(@size, @fontSize: s) {
     @width: ~"veui-switch-width-@{size}";
     @height: ~"veui-switch-height-@{size}";
     @thumb-size: ~"veui-switch-thumb-size-@{size}";
@@ -14,19 +14,14 @@
     .@{veui-prefix}-switch {
       font-size: @@font-size;
       &-switcher {
-        // .size(@@width, @@height);
-        height: @@height;
         min-width: @@width;
-        // padding: @@padding;
+        height: @@height;
         border-radius: @@height / 2;
       }
 
       &-button {
         .size(@@thumb-size);
         left: @@padding;
-        .@{veui-prefix}-icon {
-          .veui-icon-size(veui-sum(@@thumb-size, -2px));
-        }
       }
 
       &-text {
@@ -35,7 +30,6 @@
     }
 
     &.@{veui-prefix}-switch-on .veui-switch-text {
-
       margin: 0 @offset 0 @veui-padding-unit * 2
     }
 
@@ -57,9 +51,9 @@
   position: relative;
   cursor: pointer;
   outline: none;
-  font-size: @veui-font-size-m;
+  font-size: @veui-font-size-s;
 
-  .metrics(m, m);
+  .metrics(s, s);
   input {
     position: absolute;
     opacity: 0;
@@ -78,7 +72,6 @@
 
   &-switcher {
     position: relative;
-    // font-size: @veui-switch-font-size;
     background-color: @veui-switch-track-color-off;
     user-select: none;
     .veui-transition(background-color, box-shadow);
@@ -89,10 +82,6 @@
     height: 100%;
     align-items: center;
     font-size: @veui-font-size-s;
-    // position: absolute;
-    // top: 50%;
-    // transform: translateY(-50%);
-    // transform-origin: left center;
     color: @veui-switch-font-color;
 
     .@{veui-prefix}-icon {
@@ -100,6 +89,7 @@
     }
   }
 
+  // first, set `checked = false` style, then `:checked = true`
   &:hover &-switcher {
     background-color: @veui-switch-track-color-off-hover;
 
@@ -118,20 +108,10 @@
 
   .focus-visible + &-switcher {
     background-color: @veui-switch-track-color-off-focus;
-    // box-shadow: @veui-switch-shadow-off-focus;
     box-shadow: @veui-switch-shadow-on-focus;
 
     .@{veui-prefix}-switch-button {
       background-color: @veui-switch-thumb-color-off-focus;
-    }
-  }
-
-  .focus-visible:checked + &-switcher {
-    background-color: @veui-switch-track-color-on-focus;
-    box-shadow: @veui-switch-shadow-on-focus;
-
-    .@{veui-prefix}-switch-button {
-      background-color: @veui-switch-thumb-color-on-focus;
     }
   }
 
@@ -142,12 +122,9 @@
     background-color: @veui-switch-thumb-color-off;
     border-radius: 50%;
     position: absolute;
-    // .veui-transition(transform);
     .veui-transition(left);
 
-    .@{veui-prefix}-icon {
-      position: absolute;
-      // color: @veui-switch-track-color-off;
+    .@{veui-prefix}-loading-spinner {
       color: @veui-switch-circle-off;
     }
   }
@@ -162,8 +139,7 @@
     .@{veui-prefix}-switch-button {
       background-color: @veui-switch-thumb-color-on;
 
-      .@{veui-prefix}-icon {
-        // color: @veui-switch-track-color-on;
+      .@{veui-prefix}-loading-spinner {
         color: @veui-switch-circle-on;
       }
     }
@@ -185,26 +161,21 @@
     }
   }
 
+  .focus-visible:checked + &-switcher {
+    background-color: @veui-switch-track-color-on-focus;
+    box-shadow: @veui-switch-shadow-on-focus;
+
+    .@{veui-prefix}-switch-button {
+      background-color: @veui-switch-thumb-color-on-focus;
+    }
+  }
+
   &.@{veui-prefix}-readonly {
     cursor: default;
   }
 
   &-loading {
     pointer-events: none;
-  }
-
-  &-loading &-switcher {
-    .@{veui-prefix}-icon {
-      // color: @veui-switch-track-color-off;
-      color: @veui-switch-circle-off;
-    }
-  }
-
-  &-on&-loading &-switcher {
-    .@{veui-prefix}-icon {
-      // color: @veui-switch-track-color-on;
-      color: @veui-switch-circle-on;
-    }
   }
 
   &.@{veui-prefix}-disabled {
@@ -233,25 +204,20 @@
     }
   }
 
-  
-  // &[ui~="m"] {
-  //   font-size: @veui-font-size-m;
-  //   .metrics(m);
-  // }
+  &[ui~="xs"] &-text,
+  &[ui~="s"] &-text {
+    display: none;
+  }
 
-    &[ui~="xs"] &-text,
-    &[ui~="s"] &-text {
-      display: none;
-    }
-    &[ui="xs"] {
-      font-size: @veui-font-size-s;
-      .metrics(xs, s);
-    }
+  &[ui="xs"] {
+    font-size: @veui-font-size-s;
+    .metrics(xs, s);
+  }
 
-    &[ui="s"] {
-      font-size: @veui-font-size-s;
-      .metrics(s, s);
-    }
+  &[ui="m"] {
+    font-size: @veui-font-size-m;
+    .metrics(m, m);
+  }
 }
 
 
