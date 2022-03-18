@@ -10,28 +10,28 @@
                 :hidden="hidden"
                 type="success"
             >
-                <veui-button>绿点徽标</veui-button>
+                <veui-button ui="m">绿点徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 type="info"
             >
-                <veui-button>蓝点徽标</veui-button>
+                <veui-button ui="m">蓝点徽标</veui-button>
             </veui-badge>
             <veui-badge :hidden="hidden">
-                <veui-button>红点徽标</veui-button>
+                <veui-button ui="m">红点徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 type="warning"
             >
-                <veui-button>橙点徽标</veui-button>
+                <veui-button ui="m">橙点徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 type="aux"
             >
-                <veui-button>灰点徽标</veui-button>
+                <veui-button ui="m">灰点徽标</veui-button>
             </veui-badge>
         </section>
         <section>
@@ -41,34 +41,34 @@
                 value="1"
                 type="success"
             >
-                <veui-button>数字徽标</veui-button>
+                <veui-button ui="m">数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="10"
                 type="info"
             >
-                <veui-button>数字徽标</veui-button>
+                <veui-button ui="m">数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="99+"
             >
-                <veui-button>数字徽标</veui-button>
+                <veui-button ui="m">数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="68"
                 type="warning"
             >
-                <veui-button>数字徽标</veui-button>
+                <veui-button ui="m">数字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="1000"
                 type="aux"
             >
-                <veui-button>数字徽标</veui-button>
+                <veui-button ui="m">数字徽标</veui-button>
             </veui-badge>
         </section>
         <section>
@@ -78,34 +78,34 @@
                 value="new"
                 type="success"
             >
-                <veui-button>文字徽标</veui-button>
+                <veui-button ui="m">文字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="hot"
                 type="info"
             >
-                <veui-button>文字徽标</veui-button>
+                <veui-button ui="m">文字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="new"
             >
-                <veui-button>文字徽标</veui-button>
+                <veui-button ui="m">文字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="count"
                 type="warning"
             >
-                <veui-button>文字徽标</veui-button>
+                <veui-button ui="m">文字徽标</veui-button>
             </veui-badge>
             <veui-badge
                 :hidden="hidden"
                 value="count"
                 type="aux"
             >
-                <veui-button>文字徽标</veui-button>
+                <veui-button ui="m">文字徽标</veui-button>
             </veui-badge>
         </section>
         <section>
