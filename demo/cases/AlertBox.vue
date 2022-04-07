@@ -93,3 +93,10 @@ export default {
     }
 };
 </script>
+<style lang="less">
+.alert-box-demo {
+    p {
+        margin: 16px 0;
+    }
+}
+</style>
