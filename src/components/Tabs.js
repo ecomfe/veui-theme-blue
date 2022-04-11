@@ -34,10 +34,11 @@ ui.defaults(
         ui: {
             size: {
                 values: ['s', 'm'],
-                inherit: true
+                inherit: true,
+                default: 's'
             },
             style: {
-                values: ['normal', 'primary', 'bordered'],
+                values: ['normal', 'primary', 'bordered', 'bordered-dark'],
                 default: 'normal'
             }
         },

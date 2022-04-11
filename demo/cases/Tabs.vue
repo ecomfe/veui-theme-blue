@@ -106,9 +106,21 @@
             </veui-form>
             <h3>全边框样式[ui=bordered]</h3>
             <veui-form>
-                <veui-field label="基础样式">
+                <veui-field label="基础样式[ui=bordered]">
                     <veui-tabs
                         ui="bordered"
+                        :active.sync="active0"
+                    >
+                        <veui-tab :label="label1" name="answers"/>
+                        <veui-tab name="articles" :label="label2">
+                            <template #label>{{ label2 }}</template>
+                        </veui-tab>
+                        <veui-tab :label="label3" name="shares"/>
+                    </veui-tabs>
+                </veui-field>
+                <veui-field label="深色样式[ui=bordered-dark]">
+                    <veui-tabs
+                        ui="bordered-dark"
                         :active.sync="active0"
                     >
                         <veui-tab :label="label1" name="answers"/>
