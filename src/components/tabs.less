@@ -44,6 +44,10 @@
   &-next {
     position: absolute;
     margin-top: 3px;
+    &[ui~="icon"] {
+      font-size: @veui-tab-icon-size-aux;
+      color: @veui-tab-icon-next-color;
+    }
 
     .@{veui-prefix}-icon {
       .veui-icon-size(@veui-tab-icon-size);
@@ -65,7 +69,7 @@
     flex-shrink: 0;
 
     &-label {
-      line-height: @veui-line-height-m;
+      line-height: @veui-line-height-fixed-s;
       .veui-transition(color);
     }
 
@@ -169,7 +173,7 @@
       .veui-transition(transform, opacity);
 
       .@{veui-prefix}-icon {
-        .veui-icon-size(@veui-tab-icon-size-aux - 2);
+        .veui-icon-size(@veui-tab-icon-size-aux);
       }
     }
 
@@ -245,18 +249,22 @@
     }
   }
 
-  &[ui~="bordered"] {
+  &[ui~="bordered"],
+  &[ui~="bordered-dark"] {
     font-size: @veui-tab-font-size-m;
   }
 
-  &[ui~="bordered"] & {
+  &[ui~="bordered"] &,
+  &[ui~="bordered-dark"] & {
     &-menu {
+      &::before {
+        content: none;
+      }
       &::after {
         content: none;
       }
     }
     &-list {
-      padding: @veui-tab-menu-boxshadow-padding;
       height: @veui-tab-menu-height-bordered;
     }
 
@@ -285,7 +293,7 @@
         border: 1px solid @veui-tab-container-separator-color;
         .padding(0, @veui-tab-padding-x-m);
       }
-      
+
       &:not(.@{veui-prefix}-disabled) .@{veui-prefix}-tabs-item-label {
         &:hover,
         &[data-focus-visible-added] {
@@ -330,6 +338,71 @@
               color: @veui-tab-current-color-bordered;
               background-color: @veui-tab-font-color-current-active;
               border-color: @veui-tab-font-color-current-active;
+            }
+            &::after {
+              content: none;
+            }
+          }
+        }
+        &.@{veui-prefix}-disabled .@{veui-prefix}-tabs-item-label {
+          color: @veui-tab-current-color-bordered;
+          background-color: @veui-tab-current-color-disabled-bordered;
+          border-color: @veui-tab-current-color-disabled-bordered;
+        }
+      }
+    }
+  }
+
+  &[ui~="bordered"] & {
+    &-item {
+      &:not(.@{veui-prefix}-disabled) .@{veui-prefix}-tabs-item-label {
+        &:hover,
+        &[data-focus-visible-added] {
+          border-left-width: 1px !important;
+          color: @veui-tab-active-font-color-bordered;
+          border-color: @veui-tab-active-border-color-bordered;
+          background-color: @veui-tab-active-backgroud-color-bordered;
+        }
+        &[data-focus-visible-added] {
+          border-left-width: 1px !important;
+          .veui-focus-ring();
+        }
+
+        &:active {
+          color: @veui-tab-active-font-color-active-bordered;
+          background-color: @veui-tab-active-backgroud-color-active-bordered;
+          border-color: @veui-tab-active-border-color-active-bordered;
+        }
+        &::after {
+          content: none;
+        }
+      }
+
+      &.@{veui-prefix}-disabled > .@{veui-prefix}-tabs-item-label {
+        background: @veui-tab-background-color-disabled-bordered;
+        border-color: @veui-tab-border-disabled-bordered;
+      }
+
+      &-active {
+        &:not(.@{veui-prefix}-disabled) {
+          .@{veui-prefix}-tabs-item-label {
+            border-left-width: 1px;
+            background-color: @veui-tab-active-backgroud-color-bordered;
+            color: @veui-tab-active-font-color-bordered;
+            border-color: @veui-tab-active-border-color-bordered;
+            &:hover,
+            &[data-focus-visible-added] {
+              color: @veui-tab-active-font-color-hover-bordered;
+              background-color: @veui-tab-active-backgroud-color-hover-bordered;
+              border-color: @veui-tab-active-border-color-hover-bordered;
+            }
+            &[data-focus-visible-added] {
+              .veui-focus-ring();
+            }
+            &:active {
+              color: @veui-tab-active-font-color-active-bordered;
+              background-color: @veui-tab-active-backgroud-color-active-bordered;
+              border-color: @veui-tab-active-border-color-active-bordered;
             }
             &::after {
               content: none;
@@ -424,6 +497,7 @@
 
       &-remove {
         right: @veui-tab-menu-remove-spacing-primary;
+        color: @veui-tab-icon-next-color;
       }
     }
 
@@ -459,7 +533,6 @@
         }
       }
     }
-    
 
     &-panel {
       .clearfix();
