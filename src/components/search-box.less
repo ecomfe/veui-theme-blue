@@ -2,10 +2,11 @@
 @import (reference) "../dropdown.less";
 @import "../variables/components/input.less";
 @import "../variables/components/option.less";
+@import "../variables/components/search-box.less";
 
 .@{veui-prefix}-search-box {
   display: inline-flex;
-  width: @veui-input-width;
+  width: @veui-search-box-width;
   color: @veui-input-font-color;
   background-color: @veui-input-background-color;
   border-radius: @veui-input-border-radius-m;
@@ -42,9 +43,11 @@
     &-after {
       .@{veui-prefix}-input-clear {
         margin-right: 0;
+        color: @veui-search-box-clear-icon-color;
       }
-      .@{veui-prefix}-search-box-action {
+      .@{veui-prefix}-search-box-action:not(.veui-disabled) {
         margin-left: @veui-input-content-spacing;
+        color: @veui-search-box-icon-color;
       }
     }
   }
@@ -77,6 +80,7 @@
 
   &[ui~="strong"] {
     .@{veui-prefix}-input {
+      width: @veui-search-box-width;
       .@{veui-prefix}-search-box-action {
         display: none;
       }
@@ -84,6 +88,21 @@
 
     .@{veui-prefix}-search-box-action {
       display: flex;
+      &[ui~="xs"] {
+        min-width: 40px;
+      }
+      &[ui~="s"] {
+        min-width: 48px;
+      }
+      &[ui~="m"] {
+        min-width: 60px;
+      }
+      &[ui~="l"] {
+        min-width: 72px;
+      }
+      &[ui~="xl"] {
+        min-width: 80px;
+      }
     }
   }
 }

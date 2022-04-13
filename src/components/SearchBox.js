@@ -1,4 +1,4 @@
-import '../icons/search';
+import 'veui-theme-blue-icons/search';
 import ui from 'veui/managers/ui';
 
 
@@ -9,7 +9,7 @@ ui.defaults(
         },
         parts: {
             button: 'primary',
-            search: 'icon aux'
+            search: 'icon'
         },
         ui: {
             style: {
@@ -17,7 +17,7 @@ ui.defaults(
                 inherit: true
             },
             size: {
-                values: ['xs', 's', 'm', 'l'],
+                values: ['xs', 's', 'm', 'l', 'xl'],
                 inherit: true,
                 default: 's'
             }
