@@ -13,7 +13,7 @@
                         label="normal"
                     >
                         <veui-search-box
-                            placeholder="normal"
+                            placeholder="搜索提示文案"
                             clearable
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
@@ -27,7 +27,7 @@
                         <veui-search-box
                             ui="strong"
                             clearable
-                            placeholder="strong"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -42,12 +42,11 @@
                 </div>
                 <section>
                     <veui-field
-                        
                         label="超小号（xs）"
                     >
                         <veui-search-box
                             ui="xs"
-                            placeholder="xs"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -55,7 +54,7 @@
                         />
                         <veui-search-box
                             ui="xs strong"
-                            placeholder="xs strong"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -63,12 +62,11 @@
                         />
                     </veui-field>
                     <veui-field
-                        
                         label="小号（s）"
                     >
                         <veui-search-box
                             ui="s"
-                            placeholder="s"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -76,7 +74,7 @@
                         />
                         <veui-search-box
                             ui="s strong"
-                            placeholder="s strong"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -84,12 +82,11 @@
                         />
                     </veui-field>
                     <veui-field
-                        
                         label="中号（m）"
                     >
                         <veui-search-box
                             ui="m"
-                            placeholder="m"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -97,7 +94,7 @@
                         />
                         <veui-search-box
                             ui="m strong"
-                            placeholder="m strong"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -105,12 +102,11 @@
                         />
                     </veui-field>
                     <veui-field
-                        
                         label="大号（l）"
                     >
                         <veui-search-box
                             ui="l"
-                            placeholder="l"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -118,7 +114,27 @@
                         />
                         <veui-search-box
                             ui="l strong"
-                            placeholder="l strong"
+                            placeholder="搜索提示文案"
+                            :suggestions="suggestions4"
+                            @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
+                    </veui-field>
+                    <veui-field
+                        label="超大号（xl）"
+                    >
+                        <veui-search-box
+                            ui="xl"
+                            placeholder="搜索提示文案"
+                            :suggestions="suggestions4"
+                            @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
+                        <veui-search-box
+                            ui="xl strong"
+                            placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
                             @search="log($event)"
@@ -133,14 +149,14 @@
                     <veui-search-box
                         :value="value"
                         clearable
-                        placeholder="disabled"
+                        placeholder="搜索提示文案"
                         disabled
                         @search="log($event)"
                     />
                     <veui-search-box
                         ui="strong"
                         disabled
-                        placeholder="strong disabled"
+                        placeholder="搜索提示文案"
                         :suggestions="suggestions5"
                         @input="handleSuggest('5', $event)"
                         @search="log($event)"
@@ -153,7 +169,7 @@
                     <veui-search-box
                         :value="value"
                         clearable
-                        placeholder="readonly"
+                        placeholder="搜索提示文案"
                         readonly
                         @search="log($event)"
                     />
@@ -161,7 +177,7 @@
                         :value="value"
                         clearable
                         ui="strong"
-                        placeholder="strong readonly"
+                        placeholder="搜索提示文案"
                         readonly
                         @search="log($event)"
                     />
