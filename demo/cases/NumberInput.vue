@@ -4,7 +4,7 @@
         <veui-form>
             <h2>风格</h2>
             <div class="options-desc">
-                可选的风格 <span class="bg-gray-show">ui</span> 
+                可选的风格 <span class="bg-gray-show">ui</span>
                 属性值： <span class="bg-gray-show">normal / strong</span>
             </div>
             <section>
@@ -36,11 +36,11 @@
             <h2>尺寸</h2>
             <div class="options-desc">
                 可选的尺寸 <span class="bg-gray-show">ui</span> 
-                属性值： <span class="bg-gray-show">xs / s / m</span>
+                属性值： <span class="bg-gray-show">xs / s（默认值） / m / l / xl</span>
             </div>
             <section>
                 <veui-field
-                    label="xs"
+                    label="超小号[ui=xs]"
                 >
                     <veui-number-input
                         v-model="number"
@@ -60,7 +60,7 @@
                     </veui-number-input>
                 </veui-field>
                 <veui-field
-                    label="s"
+                    label="小号[ui=s]"
                 >
                     <veui-number-input
                         v-model="number"
@@ -80,7 +80,7 @@
                     </veui-number-input>
                 </veui-field>
                 <veui-field
-                    label="m"
+                    label="中号[ui=m]"
                 >
                     <veui-number-input
                         v-model="number"
@@ -93,6 +93,46 @@
                     <veui-number-input
                         v-model="number"
                         ui="m strong"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
+                </veui-field>
+                <veui-field
+                    label="大号[ui=l]"
+                >
+                    <veui-number-input
+                        v-model="number"
+                        ui="l"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
+                    <veui-number-input
+                        v-model="number"
+                        ui="l strong"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
+                </veui-field>
+                <veui-field
+                    label="特大号[ui=xl]"
+                >
+                    <veui-number-input
+                        v-model="number"
+                        ui="xl"
+                    >
+                        <template slot="before">
+                            Value:
+                        </template>
+                    </veui-number-input>
+                    <veui-number-input
+                        v-model="number"
+                        ui="xl strong"
                     >
                         <template slot="before">
                             Value:

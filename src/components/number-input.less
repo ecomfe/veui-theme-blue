@@ -4,7 +4,7 @@
 .@{veui-prefix}-number-input {
   position: relative;
   width: @veui-number-input-width-normal-m;
-  padding-right: 1px;
+  padding-right: @veui-number-input-padding-x;
 
   &[ui~="xs"] {
     width: @veui-number-input-width-normal-xs;
@@ -12,6 +12,14 @@
 
   &[ui~="s"] {
     width: @veui-number-input-width-normal-s;
+  }
+
+  &[ui~="l"] {
+    width: @veui-number-input-width-normal-l;
+  }
+
+  &[ui~="xl"] {
+    width: @veui-number-input-width-normal-xl;
   }
 
   .@{veui-prefix}-input-input {
@@ -26,7 +34,7 @@
     .@{veui-prefix}-input-after {
       right: 0;
       position: absolute;
-      min-width: veui-sum(@veui-number-input-spin-button-min-width-normal, -1px);
+      min-width: @veui-number-input-spin-button-min-width-normal;
       padding: 0;
       margin-left: @veui-input-padding;
     }
@@ -37,16 +45,38 @@
     }
 
     &[ui~="xs"] .@{veui-prefix}-input-after {
-      .size(veui-sum(@veui-number-input-spin-button-width-normal-xs, -1px), 100%);
+      .size(@veui-number-input-spin-button-width-normal-xs, 100%);
     }
 
     &[ui~="s"] .@{veui-prefix}-input-after {
-      .size(veui-sum(@veui-number-input-spin-button-width-normal-s, -1px), 100%);
+      .size(@veui-number-input-spin-button-width-normal-s, 100%);
     }
 
     &[ui~="m"] {
       .@{veui-prefix}-input-after {
-        .size(veui-sum(@veui-number-input-spin-button-width-normal-m, -1px), 100%);
+        .size(@veui-number-input-spin-button-width-normal-m, 100%);
+      }
+      .@{veui-prefix}-input-content {
+        .@{veui-prefix}-input-input {
+          line-height: 22px;
+        }
+      }
+    }
+
+    &[ui~="l"] {
+      .@{veui-prefix}-input-after {
+        .size(@veui-number-input-spin-button-width-normal-l, 100%);
+      }
+      .@{veui-prefix}-input-content {
+        .@{veui-prefix}-input-input {
+          line-height: 22px;
+        }
+      }
+    }
+
+    &[ui~="xl"] {
+      .@{veui-prefix}-input-after {
+        .size(@veui-number-input-spin-button-width-normal-xl, 100%);
       }
       .@{veui-prefix}-input-content {
         .@{veui-prefix}-input-input {
@@ -66,11 +96,25 @@
     opacity: 0;
     overflow: hidden;
     .veui-transition(opacity, width);
-    .@{veui-prefix}-button:hover {
+    .@{veui-prefix}-button:hover,
+    .@{veui-prefix}-button:active {
+      background: @veui-background-color-normal;
       .@{veui-prefix}-icon {
-        color: @veui-font-color-aux;
+        color: @veui-number-input-spin-button-hover-color;
+      }
+      &.@{veui-prefix}-number-input-step-up {
+        border-bottom-color: @veui-number-input-spin-button-color;
+      }
+      &.@{veui-prefix}-number-input-step-down {
+        border-top-color: @veui-number-input-spin-button-color;
       }
     }
+  }
+
+  &[ui~="normal"]:hover,
+  &[ui~="normal"].@{veui-prefix}-focus,
+  &-controls-focus[ui~="normal"] {
+    padding-right: veui-sum(@veui-number-input-padding-x, @veui-number-input-spin-button-min-width-normal);
   }
 
   &[ui~="normal"]:hover &-controls,
@@ -93,7 +137,7 @@
   }
 
   &[ui~="normal"] &-step:not(.focus-visible) {
-    .border-color(transparent, transparent, transparent, _);
+    .border-color(transparent, transparent, transparent, @veui-number-input-spin-button-color);
   }
 
   &[ui~="normal"] &-step {
@@ -203,19 +247,58 @@
       }
     }
 
+    &[ui~="l"] {
+      width: @veui-number-input-width-strong-l;
+
+      .@{veui-prefix}-input {
+        &-before,
+        &-after {
+          .size(@veui-number-input-height-l);
+        }
+        &-content {
+          .@{veui-prefix}-input-input {
+            line-height: 22px;
+          }
+        }
+      }
+    }
+    &[ui~="xl"] {
+      width: @veui-number-input-width-strong-xl;
+
+      .@{veui-prefix}-input {
+        &-before,
+        &-after {
+          .size(@veui-number-input-height-xl);
+        }
+        &-content {
+          .@{veui-prefix}-input-input {
+            line-height: 22px;
+          }
+        }
+      }
+    }
+
     .@{veui-prefix}-number-input {
       &-step {
         padding: 0;
         border-style: none;
+        &:hover {
+          background-color: @veui-background-color-normal-hover;
+        }
+        &:active {
+          background-color: @veui-background-color-normal-active;
+        }
 
         &-down {
           border-right-style: solid;
+          border-right-color: @veui-number-input-spin-button-color;
           .border-right-radius(0);
           margin-left: 1px;
         }
 
         &-up {
           border-left-style: solid;
+          border-left-color: @veui-number-input-spin-button-color;
           .border-left-radius(0);
           margin-right: 1px;
         }
@@ -228,9 +311,14 @@
 
         .@{veui-prefix}-icon {
           .veui-icon-size(@veui-number-input-spin-icon-size-strong);
-          color: @veui-font-color-aux;
-
+          color: @veui-number-input-spin-icon-color-strong;
         }
+      }
+    }
+    &.@{veui-prefix}-readonly,
+    &.@{veui-prefix}-disabled {
+      .@{veui-prefix}-number-input-step .@{veui-prefix}-icon {
+        color: @veui-font-color-disabled;
       }
     }
   }
