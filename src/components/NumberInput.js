@@ -1,17 +1,17 @@
-import '../icons/chevron-up';
-import '../icons/chevron-down';
-import '../icons/plus';
-import '../icons/minus';
+import 'veui-theme-blue-icons/plain-up';
+import 'veui-theme-blue-icons/plain-down';
+import 'veui-theme-blue-icons/mark-plus';
+import 'veui-theme-blue-icons/mark-minus';
 import ui from 'veui/managers/ui';
 
 const ICON_MAP = {
     normal: {
-        increase: 'chevron-up',
-        decrease: 'chevron-down'
+        increase: 'plain-up',
+        decrease: 'plain-down'
     },
     strong: {
-        increase: 'plus',
-        decrease: 'minus'
+        increase: 'mark-plus',
+        decrease: 'mark-minus'
     }
 };
 
@@ -19,7 +19,7 @@ ui.defaults(
     {
         ui: {
             size: {
-                values: ['xs', 's', 'm'],
+                values: ['xs', 's', 'm', 'l', 'xl'],
                 default: 's',
                 inherit: true
             },
