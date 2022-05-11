@@ -389,11 +389,14 @@
         align-items: center;
         height: @veui-steps-line-step-height-m;
         background-color: @veui-steps-line-step-background-color;
-        padding: 0;
+        padding: 0 @veui-steps-line-padding-horizontal;
         margin: 0;
         &-label {
           margin-top: 0;
           margin-left: @veui-spacing-unit * 2;
+        }
+        &-content {
+          white-space: nowrap;
         }
         &-connector,
         &-desc,
