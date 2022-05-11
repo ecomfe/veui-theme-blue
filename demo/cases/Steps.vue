@@ -58,18 +58,68 @@
         <h2>尺寸</h2>
         <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m</span></div>
         <section>
-            <veui-steps
-                :steps="steps"
-                ui="simple horizon s"
-                :current="current - 1"
-            />
+            <veui-form>
+                <veui-field ui="multi" label="小号[ui=s normal horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="normal horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field ui="multi" label="小号[ui=s simple horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="simple horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field ui="multi" label="小号[ui=s line horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="line horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field ui="multi" label="小号[ui=s icon horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="icon horizon s"
+                        :current="current - 1"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
-        <section>
-            <veui-steps
-                :steps="steps"
-                ui="simple horizon m"
-                :current="current - 1"
-            />
+        <section style="margin-top: 20px;">
+            <veui-form>
+                <veui-field ui="multi" label="中号[ui=m normal horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="normal horizon m"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field ui="multi" label="中号[ui=m simple horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="simple horizon m"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field ui="multi" label="中号[ui=m line horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="line horizon m"
+                        :current="current - 1"
+                    />
+                </veui-field>
+                <veui-field ui="multi" label="中号[ui=m icon horizon]">
+                    <veui-steps
+                        :steps="steps"
+                        ui="icon horizon m"
+                        :current="current - 1"
+                    />
+                </veui-field>
+            </veui-form>
         </section>
         <h2>方向</h2>
         <div class="options-desc">可选的方向 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">vertical / horizon</span></div>
@@ -77,21 +127,12 @@
             <veui-form>
                 <veui-field
                     label="纵向步骤条"
+                    ui="multi"
                     class="horizon-flex"
                 >
                     <veui-steps
                         :steps="steps"
-                        ui="vertical normal m"
-                        :current="current - 1"
-                    />
-                    <veui-steps
-                        :steps="steps"
                         ui="vertical normal s"
-                        :current="current - 1"
-                    />
-                    <veui-steps
-                        :steps="steps"
-                        ui="vertical simple m"
                         :current="current - 1"
                     />
                     <veui-steps
@@ -169,8 +210,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+// 需要设置展示的步骤条宽度
 .veui-steps[ui~='horizon'] {
-    width: 100%;
+    width: 600px;
 }
 input[type="number"] {
   width: 60px;
