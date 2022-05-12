@@ -2,31 +2,43 @@
     <article>
         <h1><code>&lt;veui-slider&gt;</code></h1>
         <h2>尺寸</h2>
-        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m</span></div>
+        <div class="options-desc">可选的尺寸 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">s / m（默认）</span></div>
+        <div class="desc">Range: 0~1, Value: {{ value1 }}</div>
         <section>
-            <veui-slider
-                v-model="value1"
-                ui="s"
-            />
-            <veui-slider v-model="value1"/>
-            <div class="desc">Range: 0~1, Value: {{ value1 }}</div>
+            <veui-form>
+                <veui-field ui="few" label="小号[ui=s]">
+                    <veui-slider
+                        v-model="value1"
+                        ui="s"
+                    />
+                </veui-field>
+                <veui-field ui="few" label="中号[ui=m]">
+                    <veui-slider v-model="value1" ui="m"/>
+                </veui-field>
+            </veui-form>
         </section>
         <h2>连续滑动条</h2>
+        <div class="desc">Range: 0~1, Value: {{ value2 }}</div>
         <section>
-            <veui-slider
-                v-model="value2"
-                ui="s"
-            />
-            <veui-slider v-model="value2"/>
-            <veui-slider
-                v-model="value2"
-                readonly
-            />
-            <veui-slider
-                v-model="value2"
-                disabled
-            />
-            <div class="desc">Range: 0~1, Value: {{ value2 }}</div>
+            <veui-form>
+                <veui-field ui="few" label="默认状态">
+                    <veui-slider ui="m" v-model="value2"/>
+                </veui-field>
+                <veui-field ui="few" label="只读状态">
+                    <veui-slider
+                        ui="m"
+                        v-model="value2"
+                        readonly
+                    />
+                </veui-field>
+                <veui-field ui="few" label="禁用状态">
+                    <veui-slider
+                        ui="m"
+                        v-model="value2"
+                        disabled
+                    />
+                </veui-field>
+            </veui-form>
         </section>
         <h2>固定比例</h2>
         <veui-slider
@@ -35,7 +47,7 @@
             :max="100"
             mark
         />
-        <h2>分段滑动条</h2>
+        <h2>分段式滑动条</h2>
         <div class="options-desc">未支持搭配 <span class="bg-gray-show">readonly</span> 和 <span class="bg-gray-show">disabled</span></div>
         <section>
             <veui-slider
@@ -55,7 +67,7 @@
             />
             <div class="desc">Range: 10~100, Step: 7, Value: {{ value4 }}</div>
         </section>
-        <h2>双向滑动条</h2>
+        <h2>区间选择</h2>
         <section>
             <veui-slider
                 v-model="value5"
@@ -84,18 +96,6 @@
         </section>
         <h2>输入滑动条</h2>
         <section class="input-slider-group">
-            <veui-slider
-                v-model="value6"
-                :min="0"
-                :max="100"
-                ui="s"
-            />
-            <veui-input
-                :value="value6"
-                @blur="inputBlur"
-                ui="s"
-            />
-            <br>
             <veui-slider
                 v-model="value6"
                 :min="0"
@@ -198,7 +198,7 @@
 </template>
 
 <script>
-import {Slider, Input} from 'veui';
+import {Slider, Input, Form, Field} from 'veui';
 import {fill} from 'lodash';
 
 function makeArray(length) {
@@ -209,7 +209,9 @@ export default {
     name: 'slider-demo',
     components: {
         'veui-slider': Slider,
-        'veui-input': Input
+        'veui-input': Input,
+        'veui-form': Form,
+        'veui-field': Field
     },
     data() {
         return {
@@ -251,16 +253,8 @@ section {
 }
 
 .veui-slider {
+  width: 500px;
   margin: 10px 0;
-  background: repeating-linear-gradient(
-    135deg,
-    #fff 0,
-    #fff 10px,
-    #f7f7f7 11px,
-    #f7f7f7 12px,
-    #fff 13px,
-    #fff 14px
-  );
 }
 
 .desc {
