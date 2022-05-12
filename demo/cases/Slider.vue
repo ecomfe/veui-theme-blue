@@ -130,6 +130,23 @@
             <br>
             <div class="desc">Range: 0~100, Value: {{ value6 }}</div>
         </section>
+        <h2>次级条</h2>
+        <section class="video">
+            <veui-slider
+                v-model="videoPlayProgress"
+                :secondary-progress="videoBufferProgress"
+                ui="micro"
+            >
+                <template #tip-label>
+                    <span>{{ Math.round(videoPlayProgress * 100) }}%</span>
+                </template>
+            </veui-slider>
+            <div class="duration">
+                <span>{{ formatDuration(videoDuration * videoPlayProgress) }}</span> /
+                <span>{{ formatDuration(videoDuration * videoBufferProgress) }}</span> /
+                <span>{{ formatDuration(videoDuration) }}</span>
+            </div>
+        </section>
         <h2>定制滑动条</h2>
         <section>
             <veui-slider
@@ -199,7 +216,7 @@
 
 <script>
 import {Slider, Input, Form, Field} from 'veui';
-import {fill} from 'lodash';
+import {fill, padStart} from 'lodash';
 
 function makeArray(length) {
     return fill(new Array(length), true);
@@ -220,7 +237,10 @@ export default {
             value3: makeArray(5).map((_, i) => `hsl(${(i + 1) * 60}, 100%, 50%)`),
             value4: 333,
             value5: [22, 66],
-            value6: 22
+            value6: 22,
+            videoPlayProgress: 0.11,
+            videoBufferProgress: 0.57,
+            videoDuration: 200
         };
     },
     computed: {
@@ -241,6 +261,14 @@ export default {
         inputBlur({target}) {
             let newVal = Number(target.value);
             this.value6 = isNaN(newVal) ? 0 : newVal;
+        },
+        formatDuration(sec) {
+            sec = Math.round(sec);
+            return `${padStart(Math.floor(sec / 60).toString(), 2, '0')}:${padStart(
+                (sec % 60).toString(),
+                2,
+                '0'
+            )}`;
         }
     }
 };
