@@ -19,23 +19,6 @@
                 </template>
             </veui-embedded>
         </section>
-
-        <section>
-            <veui-embedded
-                ui="s"
-                :open.sync="show"
-            >
-                <p>content area</p>
-                <template
-                    slot="title"
-                    slot-scope="{ close }"
-                >
-                    <a @click="close">
-                        点我也可关闭
-                    </a>
-                </template>
-            </veui-embedded>
-        </section>
     </article>
 </template>
 
