@@ -6,18 +6,18 @@
     &-close .@{veui-prefix}-icon {
       .veui-icon-size(@veui-embedded-close-icon-size);
     }
-
-    [ui~="s"] & {
-      font-size: @veui-embedded-title-font-size-s;
-    }
-
-    [ui~="m"] & {
-      font-size: @veui-embedded-title-font-size-m;
-    }
+    font-size: @veui-embedded-title-font-size;
   }
 
-  .@{veui-prefix}-dialog-content {
-    border: 1px solid @veui-embedded-border-color;
-    box-shadow: @veui-embedded-shadow;
+  &.veui-dialog-box:not(.veui-dialog-box-mask) {
+    .@{veui-prefix}-dialog-content {
+      box-shadow: @veui-embedded-shadow;
+      &-head-title {
+        font-size: inherit;
+      }
+      &-foot {
+        text-align: center;
+      }
+    }
   }
 }
