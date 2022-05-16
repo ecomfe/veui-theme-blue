@@ -1,9 +1,44 @@
 @import "../lib.less";
 @import "./button-group.less";
+@import "../variables/components/radio-button-group.less";
 @import (reference) "../grouped-button.less";
 
-.@{veui-prefix}-radio-button-group {
+.@{veui-prefix}-radio-button-group.veui-button-group {
+  .@{veui-prefix}-radio-button-group-items {
+    border-radius: inherit;
+  }
   .@{veui-prefix}-button {
     &:extend(._veui-grouped-button all);
+
+    &:hover {
+      margin-right: 1px;
+      & + .@{veui-prefix}-button {
+        border-left-color: transparent;
+      }
+    }
+  }
+  &[ui~="strong"] {
+    .@{veui-prefix}-button {
+
+      &.@{veui-prefix}-button-selected {
+        color: @veui-radio-button-group-strong-font-color;
+        background-color: @veui-radio-button-group-strong-bg-color;
+        &:hover {
+          color: @veui-radio-button-group-strong-hover-font-color;
+          border-color: @veui-radio-button-group-strong-hover-border-color;
+          background-color: @veui-radio-button-group-strong-hover-bg-color;
+        }
+        &:active {
+          color: @veui-radio-button-group-strong-active-font-color;
+          border-color: @veui-radio-button-group-strong-active-border-color;
+          background-color: @veui-radio-button-group-strong-active-bg-color;
+        }
+        &.@{veui-prefix}-disabled {
+          color: @veui-radio-button-group-strong-disabled-font-color;
+          border-color: @veui-radio-button-group-strong-disabled-border-color;
+          background-color: @veui-radio-button-group-strong-disabled-bg-color;
+        }
+      }
+    }
   }
 }
