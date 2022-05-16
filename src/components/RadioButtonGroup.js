@@ -7,10 +7,14 @@ ui.defaults(
                 values: ['s', 'm', 'l'],
                 default: 'm',
                 inherit: true
+            },
+            style: {
+                values: ['strong', 'primary'],
+                default: 'primary'
             }
         },
         parts: {
-            button: 'basic'
+            button: 'normal'
         }
     },
     'radiobuttongroup'
