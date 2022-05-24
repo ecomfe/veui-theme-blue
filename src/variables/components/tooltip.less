@@ -3,12 +3,12 @@
 /* Metrics */
 @veui-tooltip-max-width: veui-sum(16em, @veui-tooltip-padding-x * 2);
 @veui-tooltip-font-size: @veui-font-size-s;
-@veui-tooltip-line-height: @veui-line-height-m;
-@veui-tooltip-padding-x: @veui-padding-unit * 2;
-@veui-tooltip-padding-y: @veui-padding-unit * 1;
-@veui-tooltip-target-spacing: @veui-padding-unit * 1;
-@veui-tooltip-arrow-width: @veui-height-unit * 2;
-@veui-tooltip-arrow-spacing: @veui-padding-unit * 2;
+@veui-tooltip-line-height: @veui-line-height-fixed-s;
+@veui-tooltip-padding-x: @veui-padding-unit * 3;
+@veui-tooltip-padding-y: @veui-padding-unit * 1.5;
+@veui-tooltip-arrow-size: @veui-padding-unit * 2.5; // 箭头对角线
+@veui-tooltip-arrow-width: @veui-tooltip-arrow-size / sqrt(2); // 箭头边线
+@veui-tooltip-arrow-spacing: @veui-padding-unit * 2 + 1;
 @veui-tooltip-border-radius: @veui-border-radius-l;
 
 /* Stylistic variants */
