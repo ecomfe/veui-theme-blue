@@ -350,6 +350,9 @@
         <h2 style="margin-top: 50px;">更多功能demo示例（UI不需还原）</h2>
         <section>
             <veui-form>
+                <veui-field ui="multi" label="Aim center">
+                    <veui-checkbox v-model="aimCenter"/>
+                </veui-field>
                 <veui-field ui="multi" label="click事件">
                     <div class="demo-wrap">
                         <div class="box">
@@ -513,8 +516,9 @@
                         :target="clickTarget"
                         :open.sync="clickOpen"
                         trigger="click"
+                        :aim-center="aimCenter"
                     >
-                        当前是click事件
+                        当前是click事件多行文本多行文本多行文本多行文本
                     </veui-tooltip>
                 </veui-field>
                 <veui-field label="自定义事件">
@@ -533,6 +537,7 @@
                         target="number"
                         trigger="custom"
                         :open.sync="numberOpen"
+                        :aim-center="aimCenter"
                     >
                         你focus到了
                     </veui-tooltip>
@@ -547,6 +552,7 @@
                         trigger="hover"
                         :interactive="false"
                         :hide-delay="0"
+                        :aim-center="aimCenter"
                     >
                         你focus到了
                     </veui-tooltip>
@@ -558,7 +564,7 @@
 
 <script>
 import bus from '../bus';
-import {VeuiTooltip, VeuiButton, VeuiInput, VeuiForm, VeuiField} from 'veui';
+import {VeuiTooltip, VeuiButton, VeuiInput, VeuiForm, VeuiField, VeuiCheckbox} from 'veui';
 
 export default {
     name: 'tooltip-demo',
@@ -567,7 +573,8 @@ export default {
         VeuiTooltip,
         VeuiInput,
         VeuiForm,
-        VeuiField
+        VeuiField,
+        VeuiCheckbox
     },
     data() {
         return {
@@ -584,7 +591,8 @@ export default {
             number: '12345678910987654321',
             numberOpen: false,
             overlayOptions: {},
-            overlayOptions2: {}
+            overlayOptions2: {},
+            aimCenter: false,
         };
     },
     mounted() {
