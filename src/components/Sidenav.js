@@ -9,13 +9,14 @@ ui.defaults(
         },
         ui: {
             size: {
-                default: 'm',
-                inherit: true
+                values: ['s', 'm', 'l'],
+                inherit: true,
+                default: 'm'
             }
         },
         parts: {
             toggle: 'icon'
         }
     },
-    'menu'
+    'sidenav'
 );

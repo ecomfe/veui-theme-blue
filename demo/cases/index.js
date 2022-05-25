@@ -223,8 +223,8 @@ export default [
         component: Loading
     },
     {
-        path: '/menu',
-        name: 'Menu',
+        path: '/sidenav',
+        name: 'Sidenav(Menu)',
         component: Menu,
         children: [
             {
