@@ -10,6 +10,7 @@
     "less"
   ],
   "scripts": {
+    "theme": "node -r esm build/theme.js",
     "icons": "node -r esm build/svg2json.js && node -r esm build/icons.js",
     "lint": "stylelint **/*.less --syntax=less"
   },
