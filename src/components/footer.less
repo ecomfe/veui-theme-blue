@@ -1,0 +1,15 @@
+@import "../lib.less";
+@import "../variables/components/footer.less";
+
+.@{veui-prefix}-layout-footer {
+  height: var(--dls-layout-footer-height, @veui-layout-footer-height);
+  line-height: var(--dls-layout-footer-height, @veui-layout-footer-height);
+  display: flex;
+  justify-content: center;
+
+  &-sticky {
+    position: sticky;
+    bottom: 0;
+    z-index: 9;
+  }
+}

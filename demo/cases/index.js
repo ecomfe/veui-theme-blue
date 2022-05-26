@@ -37,6 +37,7 @@ import Icon from './Icon';
 import Slider from './Slider';
 import NumberInput from './NumberInput';
 import Grid from './Grid';
+import Layout from './Layout';
 import Link from './Link';
 import Tree from './Tree';
 import Autocomplete from './Autocomplete';
@@ -206,6 +207,11 @@ export default [
         path: '/input-group',
         name: 'InputGroup',
         component: InputGroup
+    },
+    {
+        path: '/layout',
+        name: 'Layout',
+        component: Layout
     },
     {
         path: '/link',

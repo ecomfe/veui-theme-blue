@@ -1,0 +1,21 @@
+@import "../lib.less";
+@import "../variables/components/header.less";
+
+.@{veui-prefix}-layout-header {
+  height: var(--dls-layout-header-height, @veui-layout-header-height);
+  flex: none;
+  background-color: @veui-layout-header-background-color;
+  box-shadow: @veui-layout-header-shadow;
+  z-index: 9;
+
+  &-sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  .@{veui-prefix}-nav-body {
+    .@{veui-prefix}-nav-item {
+      height: var(--dls-layout-header-height, @veui-layout-header-height);
+    }
+  }
+}

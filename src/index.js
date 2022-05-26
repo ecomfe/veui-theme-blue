@@ -99,6 +99,7 @@ import './components/filter-panel.less';
 import './components/grid-column.less';
 import './components/grid-container.less';
 import './components/grid-row.less';
+import './components/layout.less';
 import './components/lightbox.less';
 import './components/sidenav.less';
 import './components/nav.less';
