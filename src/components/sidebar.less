@@ -1,0 +1,99 @@
+@import "../lib.less";
+@import "../variables/components/sidebar.less";
+
+.@{veui-prefix}-layout-sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid @veui-layout-sidebar-border-color;
+  box-shadow: @veui-layout-sidebar-shadow;
+  background-color: @veui-layout-sidebar-background-color;
+  width: @veui-layout-sidebar-width;
+  margin-left: 0;
+  .veui-transition(width, margin-left);
+
+  &-content {
+    flex: auto;
+    overflow: auto;
+  }
+
+  &-sticky {
+    position: sticky;
+    top: var(--dls-layout-header-height, 0);
+    max-height: calc(
+      100vh - var(--dls-layout-header-height, 0px) -
+        var(--dls-layout-footer-height, 0px)
+    );
+  }
+
+  &-toggle {
+    display: flex;
+    height: @veui-layout-sidebar-toggle-height;
+    border-top: 1px solid @veui-layout-sidebar-separator-color;
+    padding-right: @veui-layout-sidebar-toggle-padding-x;
+    position: sticky;
+    bottom: var(--dls-layout-footer-height, 0);
+    flex: none;
+    background: @veui-layout-sidebar-background-color;
+    z-index: 1;
+    flex-direction: row-reverse;
+
+    &-inside {
+      flex: none;
+    }
+  }
+
+  // for 优先级
+  & &-float-toggle {
+    &.veui-button[ui~="s"][ui~="normal"] {
+      min-width: auto;
+      &:hover {
+        border-color: @veui-layout-sidebar-float-toggle-border-color-hover;
+      }
+    }
+    position: fixed;
+    left: @veui-layout-sidebar-width;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    will-change: transform;
+    .veui-button-transition(transform);
+    padding: 0;
+    width: @veui-layout-sidebar-float-toggle-width;
+    .border-right-radius(@veui-layout-sidebar-float-toggle-radius);
+    .border-left-radius(0);
+    background-color: @veui-layout-sidebar-float-toggle-backgroud-color;
+    color: @veui-layout-sidebar-float-button-font-color;
+
+    &:hover {
+      background-color: @veui-layout-sidebar-float-toggle-backgroud-color-hover;
+    }
+
+    &:active {
+      background-color: @veui-layout-sidebar-float-toggle-backgroud-color-active;
+    }
+  }
+
+  &-collapsed &-float-toggle {
+    transform: translate3d(-@veui-layout-sidebar-width, -50%, 0);
+  }
+
+  &-mode-hidden&-collapsed,
+  &-mode-hidden&-collapsed &-float-toggle {
+    transition-duration: 100ms;
+  }
+
+  &-collapsed&-mode-slim {
+    width: @veui-layout-sidebar-width-slim;
+  }
+
+  &-collapsed&-mode-slim &-toggle {
+    padding-right: 0;
+
+    &-inside {
+      flex: auto;
+    }
+  }
+
+  &-collapsed&-mode-hidden {
+    margin-left: -@veui-layout-sidebar-width;
+  }
+}
