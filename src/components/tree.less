@@ -24,6 +24,7 @@
         display: flex;
         align-items: center;
         height: @veui-tree-node-height-s;
+        color: @veui-tree-node-font-color;
 
         .clearfix();
         outline: none;
@@ -101,7 +102,6 @@
             &::before {
                 background-color: @veui-tree-node-background-color-hover;
             }
-            color: @veui-tree-node-font-color-focus;
         }
 
         &.focus-visible,
@@ -109,14 +109,12 @@
             &::before {
                 background-color: @veui-tree-node-background-color-focus;
             }
-            color: @veui-tree-node-font-color-focus;
         }
 
         &:active {
             &::before {
                 background-color: @veui-tree-node-background-color-active;
             }
-            color: @veui-tree-node-font-color-focus;
         }
 
         &-selected {
