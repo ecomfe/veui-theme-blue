@@ -125,7 +125,7 @@
                     />
                 </veui-field>
                 <veui-field ui="few">
-                    <div class="title-desc">复选集合：{{ checked }}</div>
+                    <div class="title-desc">复选集合：{{ checked2 }}</div>
                     <div class="title-desc">单选集合：{{ selected }}</div>
                 </veui-field>
             </veui-form>
