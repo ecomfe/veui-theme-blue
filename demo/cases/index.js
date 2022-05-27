@@ -60,6 +60,7 @@ import Poster from './Poster';
 import Lightbox from './Lightbox';
 import VDragSort from './VDragSort';
 import Plugins from './Plugins';
+import Message from './Message';
 
 export default [
     {
@@ -227,6 +228,11 @@ export default [
         path: '/loading',
         name: 'Loading',
         component: Loading
+    },
+    {
+        path: '/message',
+        name: 'Message',
+        component: Message
     },
     {
         path: '/sidenav',
