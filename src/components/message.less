@@ -1,0 +1,76 @@
+@import "../lib.less";
+@import "../variables/components/message.less";
+
+.@{veui-prefix}-message {
+  display: flex;
+  align-items: center;
+
+  &-icon {
+    width: @veui-message-icon-size;
+    height: @veui-message-icon-size;
+    margin-right: @veui-message-content-spacing;
+  }
+
+  &-popup &-icon {
+    cursor: pointer;
+    margin-right: 0;
+  }
+
+  &-info {
+    color: @veui-message-font-color-info;
+  }
+
+  &-info &-icon {
+    color: @veui-message-icon-color-info;
+  }
+
+  &-success {
+    color: @veui-message-font-color-success;
+  }
+
+  &-success &-icon {
+    color: @veui-message-icon-color-success;
+  }
+
+  &-error {
+    color: @veui-message-font-color-error;
+  }
+
+  &-error &-icon {
+    color: @veui-message-icon-color-error;
+  }
+
+  &-warning {
+    color: @veui-message-font-color-warning;
+  }
+
+  &-warning &-icon {
+    color: @veui-message-icon-color-warning;
+  }
+
+  &-aux {
+    color: @veui-message-font-color-aux;
+  }
+
+  &-aux &-icon {
+    color: @veui-message-icon-color-aux;
+  }
+
+  &-standalone {
+    color: @veui-message-font-color-standalone;
+  }
+
+  &[ui~="m"] {
+    font-size: @veui-message-font-size-m;
+    line-height: dls-even(
+      dls-line-height(@veui-message-line-height, @veui-message-font-size-m)
+    );
+  }
+
+  &[ui~="s"] {
+    font-size: @veui-message-font-size-s;
+    line-height: dls-even(
+      dls-line-height(@veui-message-line-height, @veui-message-font-size-s)
+    );
+  }
+}
