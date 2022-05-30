@@ -50,6 +50,38 @@
                 </veui-field>
             </veui-form>
         </section>
+        <h2>风格</h2>
+        <div class="options-desc">可选的风格 <span class="bg-gray-show">ui</span> 属性值： <span class="bg-gray-show">primary（默认，可不传）/ strong</span></div>
+        <section>
+            <veui-form>
+                <veui-field label="重要样式[ui=primary]" ui="multi" class="tow-line-field">
+                    <veui-check-button-group
+                        ui="s primary"
+                        v-model="picked2"
+                        :items="data2"
+                        :disabled="disabled"
+                    >
+                        <template slot-scope="props">
+                            {{ props.label }}
+                        </template>
+                    </veui-check-button-group>
+                    <p>value: {{ picked2 }}</p>
+                </veui-field>
+                <veui-field label="加强样式[ui=strong]" ui="multi" class="tow-line-field">
+                    <veui-check-button-group
+                        ui="s strong"
+                        v-model="picked2"
+                        :items="data2"
+                        :disabled="disabled"
+                    >
+                        <template slot-scope="props">
+                            {{ props.label }}
+                        </template>
+                    </veui-check-button-group>
+                    <p>value: {{ picked2 }}</p>
+                </veui-field>
+            </veui-form>
+        </section>
         <h2 style="margin-top: 50px;">更多功能demo示例（UI不需还原）</h2>
         <section>
             <veui-form>
@@ -109,7 +141,7 @@ export default {
     data() {
         return {
             picked1: ['Hirasawa Yui', 'Akiyama Mio'],
-            picked2: [],
+            picked2: ['Hirasawa Yui'],
             picked3: [],
             pickedWithExclusive: [],
             pickedWithEmpty: [],

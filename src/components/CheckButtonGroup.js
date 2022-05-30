@@ -8,7 +8,11 @@ ui.defaults(
                 values: ['s', 'm', 'l'],
                 default: 's',
                 inherit: true
-            }
+            },
+            style: {
+                values: ['primary', 'strong'],
+                default: 'primary'
+            },
         },
         parts: {
             button: 'normal'
