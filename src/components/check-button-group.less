@@ -18,6 +18,10 @@
     &:extend(._veui-grouped-button all);
   }
 
+  &-items {
+    border-radius: inherit;
+  }
+
   .@{veui-prefix}-button-selected + .@{veui-prefix}-button-selected {
     &::before {
         content: '';
@@ -45,6 +49,12 @@
     }
   }
 
+  .@{veui-prefix}-button:hover &-checkmark,
+  .@{veui-prefix}-button:active &-checkmark,
+  .@{veui-prefix}-button[data-focus-visible-added] &-checkmark {
+    color: @veui-checkbox-strong-check-icon-color-checked;
+  }
+
   .@{veui-prefix}-button-selected &-checkmark {
     color: @veui-checkbox-strong-check-icon-color-checked;
   }
@@ -55,5 +65,14 @@
 
   .@{veui-prefix}-button-selected.@{veui-prefix}-disabled &-checkmark {
     color: @veui-checkbox-strong-check-icon-color-checked-disabled;
+  }
+
+  &[ui~="strong"] .@{veui-prefix}-button.@{veui-prefix}-button-selected {
+    background-color: @veui-checkbox-background-color;
+    color: @veui-button-font-color-normal-hover;
+    &.veui-disabled {
+      background-color: @veui-checkbox-backgroung-color-checked-disabled;
+      color: @veui-checkbox-font-color-checked-disabled;
+    }
   }
 }
