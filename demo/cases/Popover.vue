@@ -337,6 +337,10 @@
                 :target="clickTarget"
                 :open.sync="clickOpen"
                 trigger="click"
+                title="这是标题"
+                ok-label="好"
+                cancel-label="否"
+                foot
             >
                 当前是click事件
             </veui-popover>
