@@ -1,32 +1,32 @@
-import '../icons/upload';
-import '../icons/trash';
-import '../icons/check-circle';
-import '../icons/times-circle';
-import '../icons/file';
-import '../icons/image-add';
-import '../icons/exclamation-circle';
-import '../icons/loading';
-import '../icons/eye';
-import '../icons/question-circle';
+import 'veui-theme-blue-icons/transmit-upload';
+import 'veui-theme-blue-icons/trash';
+import 'veui-theme-blue-icons/sign-tick';
+import 'veui-theme-blue-icons/sign-x';
+import 'veui-theme-blue-icons/clip';
+import 'veui-theme-blue-icons/image-add';
+import 'veui-theme-blue-icons/sign-exclamation';
+import 'veui-theme-blue-icons/loading';
+import 'veui-theme-blue-icons/visible';
+import 'veui-theme-blue-icons/sign-question';
 import 'veui-theme-blue-icons/live-broadcast-plus';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
-            upload: 'upload',
+            upload: 'transmit-upload',
             clear: 'trash',
-            success: 'check-circle',
-            failure: 'times-circle',
-            file: 'file',
+            success: 'sign-tick',
+            failure: 'sign-x',
+            file: 'clip',
             addImage: 'image-add',
             addVideo: 'live-broadcast-plus',
             addMedia: 'live-broadcast-plus',
-            alert: 'exclamation-circle',
+            alert: 'sign-exclamation',
             loading: 'loading',
-            message: 'question-circle',
-            previewImage: 'eye',
-            previewVideo: 'eye'
+            message: 'sign-question',
+            previewImage: 'visible',
+            previewVideo: 'visible'
         },
         ui: {
             size: {
