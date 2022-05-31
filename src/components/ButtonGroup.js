@@ -4,12 +4,13 @@ ui.defaults(
     {
         ui: {
             style: {
-                values: ['primary', 'strong'],
+                values: ['normal', 'primary', 'strong'],
+                default: 'normal',
                 inherit: true
             },
             size: {
                 values: ['xs', 's', 'm', 'l', 'xl'],
-                default: 'm',
+                default: 's',
                 inherit: true
             }
         }
