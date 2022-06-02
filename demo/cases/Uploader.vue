@@ -37,6 +37,30 @@
                 >multiple</veui-checkbox>
             </div>
             <div>
+                Order:
+                <veui-radio-button-group
+                    v-model="order"
+                    ui="s"
+                    :items="availableOrders"
+                />
+            </div>
+            <div>
+                validityDisplay:
+                <veui-radio-button-group
+                    v-model="validityDisplay"
+                    ui="s"
+                    :items="availableDisplays"
+                />
+            </div>
+            <div>
+                helpPosition:
+                <veui-radio-button-group
+                    v-model="helpPosition"
+                    ui="s"
+                    :items="availableHelpPositions"
+                />
+            </div>
+            <div>
                 Custom:
                 <veui-check-button-group
                     v-model="enabledCustoms"
@@ -106,6 +130,9 @@
                     ref="uploader"
                     v-model="files"
                     v-bind="uploaderOptions"
+                    :validity-display="validityDisplay"
+                    :help-position="helpPosition"
+                    :order="order"
                     @success="handleUploaderEvent('success', ...arguments)"
                     @failure="handleUploaderEvent('failure', ...arguments)"
                     @invalid="handleUploaderEvent('invalid', ...arguments)"
@@ -245,6 +272,7 @@
                             :max-count="3"
                             max-size="100kb"
                             :payload="payload"
+                            help-position="bottom"
                             @success="handleUploaderEvent('success', ...arguments)"
                             @failure="handleUploaderEvent('failure', ...arguments)"
                             @invalid="handleUploaderEvent('invalid', ...arguments)"
@@ -275,6 +303,7 @@
                             :max-count="20"
                             max-size="100kb"
                             :payload="payload"
+                            help-position="bottom"
                             @success="handleUploaderEvent('success', ...arguments)"
                             @failure="handleUploaderEvent('failure', ...arguments)"
                             @invalid="handleUploaderEvent('invalid', ...arguments)"
@@ -379,6 +408,9 @@ const availableRequestModes = ['xhr', 'iframe', 'custom'].map(mapper);
 const availableRequestIframeModes = ['postmessage', 'callback'].map(mapper);
 const availablePickerPositions = ['before', 'after'].map(mapper);
 const avaliableMaxCounts = [1, 5, 10].map(mapper);
+const availableDisplays = ['popup', 'inline'].map(mapper);
+const availableHelpPositions = ['side', 'bottom'].map(mapper);
+const availableOrders = ['append', 'prepend'].map(mapper);
 
 const statusIcons = {
     [Uploader.status.PENDING]: '❔',
@@ -425,8 +457,12 @@ export default {
             availableRequestModes,
             availableRequestIframeModes,
             availablePickerPositions,
+            availableHelpPositions,
+            availableOrders,
+            helpPosition: 'side',
             removed: false,
             inDialog: false,
+            order: 'append',
 
             enabledCustoms: ['#desc'],
             tooltipOpen: false,
@@ -435,6 +471,9 @@ export default {
 
             autoupload: true,
             type: 'file',
+
+            validityDisplay: 'popup',
+            availableDisplays,
 
             accept: '.jpg,.jpeg,.png',
             maxCount: 5,
