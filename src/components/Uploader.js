@@ -40,11 +40,13 @@ ui.defaults(
             }
         },
         parts: {
-            remove: 'icon',
+            action: 'icon aux',
             progress: 's',
-            control: 'icon s',
+            control: 'icon m',
+            entry: 'text',
             preview: 'auto',
-            media: 'basic'
+            media: 'basic',
+            message: 's'
         }
     },
     'uploader'

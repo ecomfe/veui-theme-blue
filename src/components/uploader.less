@@ -24,17 +24,28 @@
   &-button-container {
     display: flex;
     position: relative;
-    overflow: hidden;
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
   }
 
   &-input-label-media {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     .absolute(-1px);
     border-style: none;
     line-height: inherit;
     border-radius: inherit;
+
+    padding: 0 @veui-uploader-media-padding-x-m;
+
+    .veui-uploader-media-button-text {
+      display: none;
+    }
+
+    &::before {
+      display: none;
+    }
 
     .@{veui-prefix}-icon {
       .veui-icon-size(@veui-uploader-media-icon-size);
@@ -89,6 +100,12 @@
     &-item {
       margin-top: @veui-uploader-helper-text-spacing-file-l;
       width: @veui-uploader-file-item-width;
+
+      &-failure {
+        .@{veui-prefix}-uploader-validities {
+          display: none;
+        }
+      }
     }
 
     &-file-icon {
@@ -96,9 +113,32 @@
       color: @veui-uploader-file-item-list-icon;
     }
 
-    &-container {
+    &-file-content {
       display: flex;
       align-items: center;
+    }
+
+    &-actions {
+      display: flex;
+      margin-left: auto;
+
+      .@{veui-prefix}-button {
+        color: @veui-uploader-file-item-icon-color;
+        &:hover {
+          color: @veui-uploader-file-item-list-icon;
+        }
+      }
+
+      .@{veui-prefix}-button + .@{veui-prefix}-button {
+        margin-left: @veui-uploader-file-item-action-spacing;
+      }
+
+      .@{veui-prefix}-icon {
+        .veui-icon-size(@veui-icon-size-normal);
+      }
+    }
+
+    &-container {
       position: relative;
       background-color: @veui-uploader-file-item-background-color;
       .veui-transition(background-color);
@@ -163,7 +203,7 @@
     margin: -@veui-uploader-media-spacing-y 0 0 -@veui-uploader-media-spacing-x;
 
     &-item {
-      display: inline-block;
+      display: inline-flex;
       vertical-align: top;
       margin: @veui-uploader-media-spacing-y 0 0 @veui-uploader-media-spacing-x;
       width: @veui-uploader-media-width;
@@ -287,16 +327,55 @@
     }
   }
 
-  &-desc {
+  & &-file-help-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .@{veui-prefix}-uploader-help {
+      margin-top: @veui-uploader-helper-text-spacing-file-m;
+      margin-left: 0;
+    }
+  }
+
+  &-help {
     color: @veui-uploader-helper-text-font-color;
+  }
+
+  &-validities {
+    margin-top: @veui-uploader-helper-text-spacing-file-s;
+    .@{veui-prefix}-message-content {
+      .ellipsis();
+    }
+  }
+
+  &-media &-help {
     margin-top: @veui-uploader-helper-text-spacing-file-m;
   }
 
-  &-media &-desc {
-    display: inline-flex;
-    align-items: center;
+  &-file &-help {
+    margin-left: @veui-uploader-helper-text-spacing-file-m;
+  }
+
+  &-list-media-help-side {
+    width: auto;
+  }
+
+  &-list-media-help-bottom {
+    flex-direction: column;
+  }
+
+  &-list-media-container-wrap {
+    width: 100%;
+  }
+
+  &-list-media-help-side &-list-media-container-wrap,
+  &-list-media-help-side &-list-media-container {
+    width: @veui-uploader-media-width;
+  }
+
+  &-list-media-help-side &-help {
+    margin-left: @veui-uploader-helper-text-spacing-file-m;
     height: @veui-uploader-media-height;
-    margin-left: @veui-uploader-helper-text-spacing-media;
     max-width: @veui-uploader-helper-text-max-width-media;
   }
 
@@ -370,6 +449,7 @@
           &-item {
               width: auto;
               max-width: 380px;
+              margin-right: @veui-uploader-helper-text-spacing-file-l;
           }
       }
   }
