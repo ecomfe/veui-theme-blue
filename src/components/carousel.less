@@ -2,169 +2,360 @@
 @import "../variables/components/carousel.less";
 
 .@{veui-prefix}-carousel {
-    // TODO: use a better default size
-    @width-normal: 480px;
-    @height-normal: 270px;
+  // TODO: use a better default size
+  @width-normal: 480px;
+  @height-normal: 270px;
+  // TODO UE要求动效统一用 ease-in-out, 直接改 veui-transition ？
+  @veui-carousel-default-timing-function: ease-in-out;
 
+  --dls-carousel-transition-duration: @veui-transition-duration;
+  --dls-carousel-slide-gutter: @veui-carousel-slide-gutter;
+  position: relative;
+  .size(@width-normal, @height-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-player {
+    display: flex;
+    flex: 1 1 auto;
+    .size(100%);
+    align-items: center;
+  }
+
+  &-vertical &-player {
+    flex-direction: column;
+  }
+
+  &-viewport-wrap,
+  &-viewport {
+    .size(100%);
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  &-viewport-wrap {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
     position: relative;
-    .clearfix();
-    .size(@width-normal, @height-normal);
+  }
 
-    &-viewport {
-        .size(@width-normal, @height-normal);
-        margin: 0 auto;
+  &-items {
+    position: relative;
+    display: flex;
+    .reset-list-style();
+    .size(100%);
+    margin: 0;
+    padding: 0;
+  }
+
+  &-item {
+    overflow: hidden;
+    outline: none;
+
+    &-media {
+      position: relative;
+      .size(100%);
+      background: no-repeat center/cover;
     }
 
-    &-items {
-        position: relative;
-        .reset-list-style();
-        .size(100%);
-        margin: 0;
-        padding: 0;
+    &-video {
+      .size(100%);
+      .absolute(0); // for vertical
+      object-fit: cover;
+    }
+  }
+
+  // fade effect
+  &-fade &-item {
+    width: 100%;
+    .veui-transition(opacity);
+    transition-duration: var(--dls-carousel-transition-duration);
+    transition-timing-function: @veui-carousel-default-timing-function;
+
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+
+    // current占下位置（aspectRatio 需要 padding 要撑开高度），其他的叠起来
+    &:not(.@{veui-prefix}-carousel-item-current) {
+      .absolute(0);
+    }
+  }
+
+  // slide effect
+  &-slide &-items {
+    height: 100%;
+    display: flex;
+
+    &-vertical {
+      flex-direction: column;
+    }
+    .veui-transition(transform);
+    transition-duration: var(--dls-carousel-transition-duration);
+    transition-timing-function: @veui-carousel-default-timing-function;
+  }
+
+  &-slide &-item {
+    .size(100%);
+    position: static;
+    flex: 1 0 auto;
+  }
+
+  &-gutter:not(&-vertical) &-item:not(:last-child) {
+    margin-right: @veui-carousel-slide-gutter;
+    margin-right: var(--dls-carousel-slide-gutter, @veui-carousel-slide-gutter);
+  }
+
+  &-gutter&-vertical &-item:not(:last-child) {
+    margin-bottom: @veui-carousel-slide-gutter;
+    margin-bottom: var(--dls-carousel-slide-gutter, @veui-carousel-slide-gutter);
+  }
+
+  // controls
+  &-control {
+    .absolute(50%, _, _);
+    transform: translateY(-50%);
+    opacity: 0;
+
+    &[ui] {
+      .size(@veui-carousel-control-size);
+      padding: 0;
+    }
+
+    &,
+    &[ui] {
+        &.@{veui-prefix}-button {
+            min-width: auto;
+        }
+      border-radius: @veui-carousel-control-border-radius;
+    }
+
+    &-prev {
+      left: @veui-carousel-control-spacing-inside;
+    }
+
+    &-next {
+      right: @veui-carousel-control-spacing-inside;
+    }
+
+    .@{veui-prefix}-icon {
+      .veui-icon-size(@veui-carousel-control-icon-size);
+    }
+
+    // 测试的时候发现css样式顺序有问题，增加下优先级吧
+    &&-vertical {
+      .absolute(auto, auto, auto, 50%);
+    }
+
+    &-vertical {
+      transform: translateX(-50%);
+      .@{veui-prefix}-icon {
+        transform: rotate(90deg);
+      }
+    }
+
+    &-vertical&-prev {
+      top: @veui-carousel-control-spacing-inside;
+    }
+
+    &-vertical&-next {
+      bottom: @veui-carousel-control-spacing-inside;
+    }
+  }
+
+  &:hover &-control,
+  &.@{veui-prefix}-focus &-control {
+    opacity: 1;
+  }
+
+  // outside controls
+  &-outside-controls &-control {
+    position: static;
+    opacity: 1;
+    flex: 0 0 auto;
+    transform: none; // 用 flex 对齐了
+    box-shadow: @veui-carousel-control-shadow;
+    border: none;
+  }
+
+  &-outside-controls &-control-prev {
+    order: 1;
+  }
+
+  &-outside-controls &-viewport-wrap {
+    order: 2;
+    margin: 0 @veui-carousel-control-spacing-outside;
+  }
+
+  &-outside-controls &-control-next {
+    order: 3;
+  }
+
+  // vertical outside controls
+  &-vertical&-outside-controls &-viewport-wrap {
+    margin: @veui-carousel-control-spacing-outside 0;
+  }
+
+  // indictor starts
+  &-indicator {
+    display: flex;
+    justify-content: center;
+
+    &-horizontal {
+      transform: translateX(-50%);
+    }
+
+    &-horizontal&-bottom {
+      .absolute(_, _, @veui-carousel-indicator-spacing-outer, 50%);
+    }
+
+    &-horizontal&-top {
+      .absolute(@veui-carousel-indicator-spacing-outer, _, _, 50%);
+    }
+
+    &-vertical&-right {
+      .absolute(
+        50%,
+        veui-sum(
+          @veui-carousel-indicator-spacing-outer,
+          @veui-carousel-indicator-height / 2
+        ),
+        _,
+        _
+      );
+      transform: translate(50%, -50%) rotate(90deg);
+    }
+
+    &-vertical&-left {
+      .absolute(
+        50%,
+        _,
+        _,
+        veui-sum(
+          @veui-carousel-indicator-spacing-outer,
+          @veui-carousel-indicator-height / 2
+        )
+      );
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    &-dots&-vertical&-right {
+      right: veui-sum(
+        @veui-carousel-indicator-spacing-outer,
+        @veui-carousel-indicator-dot-size / 2
+      );
+    }
+
+    &-dots&-vertical&-left {
+      left: veui-sum(
+        @veui-carousel-indicator-spacing-outer,
+        @veui-carousel-indicator-dot-size / 2
+      );
     }
 
     &-item {
-        .absolute(0);
-        overflow: hidden;
-        outline: none;
-        .veui-transition(opacity);
+      display: block;
+      position: relative;
+      border: none;
+      flex: 0 0 auto;
+      padding: 0;
+      margin-left: @veui-carousel-indicator-spacing-inner;
+      .size(@veui-carousel-indicator-width, @veui-carousel-indicator-height);
+      .veui-transition(width, background-color);
+      color: transparent;
+      background-color: @veui-carousel-indicator-background-color;
+      border-radius: @veui-carousel-indicator-border-radius;
+      outline: none;
+      cursor: pointer;
 
-        &-image {
-            .size(100%);
-            background: no-repeat center/cover;
-        }
+      &::before {
+        content: "";
+        .absolute(-5px, 0);
+      }
 
-        &-enter,
-        &-leave-to {
-            opacity: 0;
-        }
-    }
+      &:first-child {
+        margin-left: 0;
+      }
 
-    &-control {
-        .absolute(50%, _, _);
-        transform: translateY(-50%);
-        opacity: 0;
+      &:hover {
+        background-color: @veui-carousel-indicator-background-color-hover;
+      }
 
-        &[ui] {
-            .size(@veui-carousel-control-size);
-            padding: 0;
-        }
+      &:active {
+        background-color: @veui-carousel-indicator-background-color-active;
+      }
+
+      &-current {
+        width: @veui-carousel-indicator-width-current;
 
         &,
-        &[ui] {
-            border-radius: @veui-carousel-control-border-radius;
+        &:hover {
+          background-color: @veui-carousel-indicator-background-color-current;
         }
-
-        &-prev {
-            left: @veui-carousel-control-spacing;
-        }
-
-        &-next {
-            right: @veui-carousel-control-spacing;
-        }
-
-        .@{veui-prefix}-icon {
-            .veui-icon-size(@veui-carousel-control-icon-size);
-        }
+      }
     }
 
-    &:hover &-control,
-    &.@{veui-prefix}-focus &-control {
-        opacity: 1;
+    &-dots &-item {
+      .size(@veui-carousel-indicator-dot-size);
+      border-radius: 50%;
     }
 
-    &-indicator {
-        &-radios {
-            display: inline-flex;
-            .absolute(_, _, @veui-carousel-indicator-spacing-outer, 50%);
-            transform: translateX(-50%);
-        }
-
-        &-radios &-item {
-            display: block;
-            border: none;
-            flex: 0 0 auto;
-            padding: 0;
-            margin-left: @veui-carousel-indicator-spacing-inner;
-            .size(@veui-carousel-indicator-width, @veui-carousel-indicator-height);
-            .hide-text();
-            .veui-transition(width, background-color);
-            background-color: @veui-carousel-indicator-background-color;
-            border-radius: @veui-carousel-indicator-border-radius;
-            outline: none;
-            cursor: pointer;
-
-            &:first-child {
-                margin-left: 0;
-            }
-
-            &:hover {
-                background-color: @veui-carousel-indicator-background-color-hover;
-            }
-
-            &:active {
-                background-color: @veui-carousel-indicator-background-color-active;
-            }
-
-            &-current {
-                width: @veui-carousel-indicator-width-current;
-                background-color: @veui-carousel-indicator-background-color-current;
-            }
-        }
-
-        &-numbers {
-            .absolute(_, _, @veui-carousel-indicator-spacing-outer, 50%);
-            transform: translateX(-50%);
-            .padding(_, @veui-carousel-pages-padding-x);
-            background-color: @veui-carousel-pages-background-color;
-            color: @veui-carousel-pages-font-color;
-            font-size: @veui-carousel-pages-font-size;
-            .centered-line(@veui-carousel-pages-height);
-            font-variant-numeric: tabular-nums;
-            border-radius: @veui-carousel-pages-border-radius;
-            user-select: none;
-            cursor: default;
-
-            &-separator {
-                .margin(_, 2px);
-
-                &::after {
-                    content: "";
-                    display: inline-block;
-                    .size(1px, 8px);
-                    background-color: currentColor;
-                    transform: rotate(15deg);
-                }
-            }
-        }
-
-        &-tabs {
-            .absolute(_, 0, 0);
-            .vertical-gradient(transparent, @veui-color-gray-9);
-            text-align: right;
-            font-size: @veui-font-size-m;
-        }
-
-        &-tabs &-item {
-            .centered-line(@veui-height-unit * 12);
-            margin-right: @veui-spacing-unit * 5;
-            padding: 0;
-            border: none;
-            background: none;
-            color: fadeout(@veui-color-gray-1, 50%);
-            .veui-transition(color);
-            cursor: pointer;
-
-            &:focus {
-                outline: none;
-            }
-
-            &:hover,
-            &.focus-visible,
-            &-current,
-            &-current:hover {
-                color: @veui-color-gray-1;
-            }
-        }
+    &-numbers {
+      .padding(_, @veui-carousel-pages-padding-x);
+      background-color: @veui-carousel-pages-background-color;
+      color: @veui-carousel-pages-font-color;
+      font-size: @veui-carousel-pages-font-size;
+      .centered-line(@veui-carousel-pages-height);
+      font-variant-numeric: tabular-nums;
+      border-radius: @veui-carousel-pages-border-radius;
+      cursor: default;
     }
+
+    // 水平不需要特殊处理
+    &-numbers&-left {
+      .absolute(50%, _, _, @veui-carousel-indicator-spacing-outer);
+      transform: translateY(-50%);
+    }
+
+    &-numbers&-right {
+      .absolute(50%, @veui-carousel-indicator-spacing-outer, _, _);
+      transform: translateY(-50%);
+    }
+  }
+
+  &-outside-indicator &-indicator-bottom {
+    position: static;
+    margin-top: @veui-carousel-indicator-spacing-outer;
+    transform: none; // flex 对齐了
+  }
+
+  &-outside-indicator &-indicator-item {
+    background-color: @veui-carousel-indicator-background-color-outside;
+
+    &:hover {
+      background-color: @veui-carousel-indicator-background-color-outside-hover;
+    }
+
+    &:active {
+      background-color: @veui-carousel-indicator-background-color-outside-active;
+    }
+
+    &-current {
+      &,
+      &:hover {
+        background-color: @veui-carousel-indicator-background-color-outside-current;
+      }
+    }
+  }
+
+  &-aspect-ratio {
+    height: auto !important;
+  }
+
+  &-vertical&-slide&-aspect-ratio &-viewport {
+    .absolute(0);
+  }
 }
