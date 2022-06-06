@@ -150,8 +150,10 @@
                         dolores ducimus cumque facere.
                         <veui-loading
                             loading
-                            ui="strong l overlay"
-                        />
+                            ui="strong l overlay vertical"
+                        >
+                            正在加载中...
+                        </veui-loading>
                     </div>
                     <div class="card">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
@@ -161,7 +163,9 @@
                         <veui-loading
                             loading
                             ui="reverse l overlay"
-                        />
+                        >
+                            正在加载中...
+                        </veui-loading>
                     </div>
                 </section>
             </section>
@@ -203,7 +207,7 @@ export default {
 .veui-loading-demo {
     .reverse {
         background: rgba(0, 0, 0, .6);
-        padding: 8px;
+        padding: 6px;
     }
     p {
         display: flex;
@@ -238,7 +242,7 @@ export default {
                 justify-content: center;
             }
             .veui-loading {
-                padding: 8px;
+                padding: 6px;
             }
         }
     }
