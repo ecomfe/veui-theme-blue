@@ -5,7 +5,8 @@ import ui from 'veui/managers/ui';
 ui.defaults(
     {
         parts: {
-            control: 'translucent'
+            control: 'translucent',
+            controlOutside: 'basic'
         },
         icons: {
             prev: 'chevron-left',
