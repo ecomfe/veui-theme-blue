@@ -12,6 +12,10 @@ ui.defaults(
             size: {
                 values: ['s', 'm'],
                 default: 's'
+            },
+            style: {
+                values: ['normal', 'primary'],
+                default: 'normal'
             }
         },
         parts: {

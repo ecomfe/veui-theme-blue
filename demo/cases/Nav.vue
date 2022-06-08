@@ -25,6 +25,37 @@
                 </veui-field>
             </veui-form>
         </section>
+        <section>
+            <h2>尺寸</h2>
+            <div class="options-desc">可选的风格
+                <span class="bg-gray-show">ui</span>
+                属性值：
+                <span class="bg-gray-show">normal / primary</span>
+            </div>
+            <veui-form>
+                <veui-field label="浅色普通样式[ui=normal]" ui="multi">
+                    <veui-nav
+                        ui="s normal"
+                        :items="items"
+                        :active.sync="active"
+                    />
+                </veui-field>
+                <veui-field label="主体色样式小号[ui=primary]" ui="multi">
+                    <veui-nav
+                        :items="items"
+                        :active.sync="active"
+                        ui="s primary"
+                    />
+                </veui-field>
+                <veui-field label="主体色样式中号[ui=primary]" ui="multi">
+                    <veui-nav
+                        :items="items"
+                        :active.sync="active"
+                        ui="m primary"
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
         <h2>更多功能demo示例（UI不需还原）</h2>
         <section>
             <veui-form>

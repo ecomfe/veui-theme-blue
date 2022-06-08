@@ -53,7 +53,7 @@
 
     &::after {
       content: "";
-      .absolute(_, 0, 1px, 0);
+      .absolute(_, 0, 0, 0);
       .size(auto, @veui-menu-indicator-width);
       opacity: 0;
       .veui-transition(background-color, box-shadow, opacity);
@@ -65,6 +65,7 @@
       background-color: @veui-menu-item-background-color-horizontal;
 
       &.@{veui-prefix}-nav-item-open {
+        color: @veui-menu-item-font-color-horizontal-hover;
         background-color: @veui-menu-item-background-color-horizontal-hover;
       }
 
@@ -75,6 +76,7 @@
 
       &:not(.@{veui-prefix}-nav-more):active {
         color: @veui-menu-item-font-color-horizontal-active;
+        background-color: @veui-menu-item-background-color-horizontal-active;
       }
     }
 
@@ -96,7 +98,6 @@
   &-body &-item-active {
     &:not(.@{veui-prefix}-disabled) {
       color: @veui-menu-item-font-color-horizontal-current;
-      font-weight: @veui-menu-item-font-weight-current;
 
       // indicator
       &::after {
@@ -186,7 +187,6 @@
 
     &.@{veui-prefix}-nav-item-exact-active {
       & {
-        font-weight: @veui-menu-item-font-weight-current;
         color: @veui-menu-item-font-color-horizontal-current;
         background-color: @veui-menu-item-background-color-horizontal-current;
       }
@@ -345,7 +345,6 @@
       }
 
       &.@{veui-prefix}-nav-item-exact-active {
-        // font-weight: @veui-menu-item-font-weight-current;
         color: @veui-menu-item-font-color-horizontal-current;
 
         &:hover {
@@ -378,6 +377,28 @@
   &[ui~="m"] & {
     &-expand-icon {
       .size(@veui-menu-item-icon-horizontal-m);
+    }
+  }
+
+  &[ui~="primary"] & {
+    &-body {
+      background: @veui-menu-item-background-color-horizontal-primary;
+      .@{veui-prefix}-nav-item:not(.@{veui-prefix}-disabled) {
+        color: @veui-menu-item-font-color-horizontal-primary;
+        background: @veui-menu-item-background-color-horizontal-primary;
+        &.@{veui-prefix}-nav-item-open {
+          background: @veui-menu-item-background-color-hover-horizontal-primary;
+        }
+        &:not(.veui-nav-more):active {
+          background: @veui-menu-item-background-color-active-horizontal-primary;
+        }
+      }
+      .@{veui-prefix}-nav-item-exact-active,
+      .@{veui-prefix}-nav-item-active {
+        &:not(.@{veui-prefix}-disabled)::after {
+          background-color: @veui-menu-item-font-color-horizontal-primary;
+        }
+      }
     }
   }
 }
