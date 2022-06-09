@@ -26,7 +26,7 @@
         /* To workaround an edge case which triggers composition problems on Firefox */
         transform-style: preserve-3d;
         table {
-            height: 100%; 
+            height: 100%;
         }
     }
 
@@ -212,6 +212,7 @@
     & &-cell-expand {
         .@{veui-prefix}-button {
             flex-grow: 0;
+            color: @veui-table-expand-icon-color;
         }
     }
 
@@ -224,7 +225,7 @@
     }
 
     & &-expander {
-        .veui-icon-size(@veui-table-icon-size-aux);
+        .veui-icon-size(@veui-table-icon-size);
     }
 
     &-header-op {
@@ -250,11 +251,11 @@
         .@{veui-prefix}-icon {
           margin: 0;
         }
-    
+
         .@{veui-prefix}-table-sorter-icon-sort {
           opacity: 0;
         }
-    
+
         .@{veui-prefix}-table-sorter-icon-asc,
         .@{veui-prefix}-table-sorter-icon-desc {
           position: absolute;
@@ -355,19 +356,19 @@
     &-filter-custom ~ .@{veui-prefix}-option-group {
         display: none;
       }
-    
+
       &-filter-actions {
         border-top: 1px solid @veui-table-filter-action-border-color;
         .padding(8px, _, 16px);
-    
+
         .@{veui-prefix}-button + .@{veui-prefix}-button {
           margin-left: @veui-table-filter-action-spacing;
         }
-    
+
         [ui~="m"] & {
           .padding(_, @veui-option-padding-m);
         }
-    
+
         [ui~="s"] & {
           .padding(_, @veui-option-padding-s);
         }
