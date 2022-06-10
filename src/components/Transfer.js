@@ -15,7 +15,7 @@ ui.defaults(
         },
         parts: {
             tree: 'checkbox-after',
-            remove: 'icon aux',
+            remove: 'icon',
             selectAll: 'strong text',
             removeAll: 'strong text'
         },
