@@ -24,7 +24,7 @@
     align-items: center;
     border: 1px solid @veui-input-border-color;
     padding-right: @veui-input-padding;
-    border-radius: @veui-border-radius-m;
+    border-radius: @veui-border-radius-l;
     outline: none;
     background-color: @veui-input-background-color;
 
@@ -68,6 +68,12 @@
     }
   }
 
+  &:not(.@{veui-prefix}-disabled):not(.@{veui-prefix}-invalid):not(.@{veui-prefix}-readonly) &-trigger {
+    &:focus-within {
+      .veui-focus-ring(@veui-input-border-color-focus, @veui-input-shadow-focus);
+    }
+  }
+
   &-icon {
     display: flex;
     position: relative;
@@ -101,7 +107,7 @@
 
     .@{veui-prefix}-icon {
       .veui-icon-size(@veui-input-icon-size);
-      color: @veui-date-picker-icon-color;
+      color: @veui-date-picker-icon-color-clear;
     }
 
     .@{veui-prefix}-date-picker:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
@@ -217,10 +223,6 @@
   &.@{veui-prefix}-disabled &-trigger {
     background-color: @veui-input-background-color-disabled;
   }
-
-  &-range[ui~="s"] {
-    width: @veui-date-picker-width-range-s;
-  }
   &[ui~="s"] &-trigger {
     .@{veui-prefix}-input {
       height: @veui-date-picker-input-height-s;
@@ -236,4 +238,8 @@
   &-overlay-content[ui~="s"] &-shortcut {
     .centered-line(@veui-date-picker-list-item-height-s);
   }
+}
+
+.@{veui-prefix}-invalid .@{veui-prefix}-date-picker-trigger:focus-within {
+    .veui-focus-ring(@veui-input-border-color-error, @veui-input-shadow-error-focus);
 }
