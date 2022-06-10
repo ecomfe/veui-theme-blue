@@ -8,10 +8,9 @@
             <span class="bg-gray-show">s(默认，可不传) / m</span>
         </div>
         <section>
-            <h2>自定义项目内容</h2>
             <veui-form>
                 <veui-field
-                    
+                    ui="multi"
                     label="小号[ui=s]"
                 >
                     <veui-transfer
@@ -34,10 +33,11 @@
                     </veui-transfer>
                 </veui-field>
                 <veui-field
-                    
+                    ui="multi"
                     label="中号[ui=m]"
                 >
                     <veui-transfer
+                        ui="m"
                         :datasource="datasource1"
                         selected-show-mode="flat"
                         candidatePlaceholder="搜索关键词"

@@ -20,7 +20,10 @@
         height: @veui-transfer-header-height-m;
 
         .@{veui-prefix}-button {
-        font-weight: @veui-transfer-header-button-font-weight;
+            font-weight: @veui-transfer-header-button-font-weight;
+            &[ui~="text"][ui~="strong"].@{veui-prefix}-disabled {
+                color: @veui-transfer-item-remove-color-disabled;
+            }
         }
     }
 
@@ -33,6 +36,7 @@
             .padding(_, @veui-transfer-padding-x-right, _, @veui-transfer-padding-x-left);
             .border-style(none, none, solid, none);
             .border-color(_, _, @veui-transfer-border-color, _);
+            border-radius: 0;
             &.@{veui-prefix}-focus {
                 box-shadow: none;
                 .border-color(_, _, @veui-transfer-border-color-focus, _);
@@ -68,6 +72,10 @@
 
             .@{veui-prefix}-tree {
                 .padding(_, @veui-transfer-padding-x-right, _, @veui-transfer-padding-x-left);
+
+                &-item-remove {
+                    color: @veui-transfer-tree-item-remove-color;
+                }
             }
         }
     }
