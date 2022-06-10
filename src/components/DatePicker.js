@@ -1,12 +1,12 @@
-import '../icons/calendar';
-import '../icons/times-circle';
+import 'veui-theme-blue-icons/calendar';
+import 'veui-theme-blue-icons/disc-x';
 import ui from 'veui/managers/ui';
 
 ui.defaults(
     {
         icons: {
             calendar: 'calendar',
-            clear: 'times-circle'
+            clear: 'disc-x'
         },
         ui: {
             size: {
