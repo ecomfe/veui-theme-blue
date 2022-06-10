@@ -69,6 +69,10 @@
   &-icon {
     display: flex;
     position: relative;
+    .@{veui-prefix}-button,
+    .@{veui-prefix}-button:hover {
+      color: @veui-time-picker-icon-color-disabled;
+    } 
   }
 
   &-clock {
@@ -113,17 +117,10 @@
       width: @veui-time-picker-minute-width;
     }
   }
-  &-overlay[ui~="s"] {
+  &-overlay {
     .@{veui-prefix}-time-picker-overlay-second {
       .@{veui-prefix}-time-picker-option-group-wrapper {
-        width: @veui-time-picker-second-s-width;
-      }
-    }
-  }
-  &-overlay[ui~="m"] {
-    .@{veui-prefix}-time-picker-overlay-second {
-      .@{veui-prefix}-time-picker-option-group-wrapper {
-        width: @veui-time-picker-second-m-width;
+        width: @veui-time-picker-second-width;
       }
     }
   }

@@ -18,10 +18,9 @@
             />
             <veui-input
                 ui="s"
-                :value="value0"
+                v-model="value0"
                 clearable
                 placeholder="请输入时间，change触发"
-                @change="value0 = $event"
             />
 
             <h2>尺寸s + 小时 分钟</h2>
@@ -49,9 +48,8 @@
             </veui-time-picker>
             <veui-input
                 ui="s"
-                :value="value1"
+                v-model="value1"
                 placeholder="请输入时间，change触发"
-                @change="value1 = $event"
             />
 
             <h2>尺寸m + 小时 分钟 秒钟</h2>
@@ -61,10 +59,9 @@
                 clearable
             />
             <veui-input
-                :value="value2"
+                v-model="value2"
                 ui="m"
                 placeholder="请输入时间，change触发"
-                @change="value2 = $event"
             />
             <h2>尺寸s范围限制: {{ min3 }} ~ {{ max3 }}</h2>
             <veui-time-picker

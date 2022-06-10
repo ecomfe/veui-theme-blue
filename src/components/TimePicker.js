@@ -6,7 +6,7 @@ ui.defaults(
     {
         icons: {
             clock: 'clock', // check
-            clear: 'times-circle', // TODO new icon
+            clear: 'disc-x'
         },
         ui: {
             size: {
