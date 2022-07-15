@@ -193,4 +193,16 @@
     font-size: @veui-input-font-size-xl;
     border-radius: @veui-input-border-radius-xl;
   }
+
+  &[ui~="inline"] {
+    border-radius: 0;
+    border-style: none none solid;
+    &.@{veui-prefix}-focus {
+      box-shadow: 0 1px 0 0 @veui-input-border-color-focus;
+      &.@{veui-prefix}-invalid {
+        border-style: none none solid;
+        box-shadow: 0 1px 0 0 @veui-input-border-color-error;
+      }
+    }
+  }
 }

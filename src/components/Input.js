@@ -7,6 +7,11 @@ ui.defaults(
             clear: 'disc-x'
         },
         ui: {
+            style: {
+                values: ['normal', 'inline'],
+                inherit: true,
+                default: 'normal'
+            },
             size: {
                 values: ['xs', 's', 'm', 'l', 'xl'],
                 inherit: true,

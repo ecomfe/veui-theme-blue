@@ -1,10 +1,38 @@
 <template>
     <article>
         <h1><code>&lt;veui-input&gt;</code></h1>
+        <h2>风格</h2>
+        <div class="options-desc">
+            可选的风格 <span class="bg-gray-show">ui</span>
+            属性值： <span class="bg-gray-show">normal（默认，可不传） / inline</span>
+        </div>
+        <section>
+            <veui-form>
+                <veui-field
+                    label="normal"
+                >
+                    <veui-input
+                        v-model="value"
+                        placeholder="普通样式"
+                        autofocus
+                    />
+                </veui-field>
+                <veui-field
+                    label="inline"
+                >
+                    <veui-input
+                        ui="inline"
+                        v-model="value"
+                        placeholder="内联样式"
+                        autofocus
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
         <h2>尺寸</h2>
         <div class="options-desc">
-            可选的尺寸 <span class="bg-gray-show">ui</span> 
-            属性值： <span class="bg-gray-show">xs / s / m / l / xl</span>
+            可选的尺寸 <span class="bg-gray-show">ui</span>
+            属性值： <span class="bg-gray-show">xs / s（默认，可不传） / m / l / xl</span>
         </div>
         <section class="five-sizes">
             <veui-form>
@@ -15,12 +43,24 @@
                         placeholder="xs"
                         autofocus
                     />
+                    <veui-input
+                        v-model="value"
+                        ui="xs inline"
+                        placeholder="xs"
+                        autofocus
+                    />
                 </veui-field>
                 <veui-field label="小号[ui=s]">
                     <veui-input
                         v-model="value"
                         ui="s"
                         placeholder="s"
+                    />
+                    <veui-input
+                        v-model="value"
+                        ui="s inline"
+                        placeholder="s"
+                        autofocus
                     />
                 </veui-field>
                 <veui-field label="中号[ui=m]">
@@ -29,6 +69,12 @@
                         ui="m"
                         placeholder="m"
                     />
+                    <veui-input
+                        v-model="value"
+                        ui="m inline"
+                        placeholder="m"
+                        autofocus
+                    />
                 </veui-field>
                 <veui-field label="大号[ui=l]">
                     <veui-input
@@ -36,12 +82,46 @@
                         ui="l"
                         placeholder="l"
                     />
+                    <veui-input
+                        v-model="value"
+                        ui="l inline"
+                        placeholder="l"
+                        autofocus
+                    />
                 </veui-field>
                 <veui-field label="特大号[ui=xl]">
                     <veui-input
                         v-model="value"
                         ui="xl"
                         placeholder="xl"
+                    />
+                    <veui-input
+                        v-model="value"
+                        ui="xl inline"
+                        placeholder="xl"
+                        autofocus
+                    />
+                </veui-field>
+            </veui-form>
+        </section>
+        <section>
+            <h2>内联样式</h2>
+            <veui-form>
+                <veui-field label="内联样式[ui=inline]">
+                    <veui-input
+                        ui="inline"
+                        v-model="value"
+                        placeholder="内联样式"
+                        autofocus
+                    />
+                </veui-field>
+                <veui-field label="内联样式错误状态[ui=inline]">
+                    <veui-input
+                        ui="inline"
+                        class="veui-invalid"
+                        v-model="value"
+                        placeholder="内联样式"
+                        autofocus
                     />
                 </veui-field>
             </veui-form>

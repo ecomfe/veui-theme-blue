@@ -49,39 +49,6 @@
         transform-origin: 50% 100%;
     }
 
-    &.@{veui-prefix}-dropdown-overflow {
-        &::before,
-        &::after {
-        content: "";
-        height: 20px;
-        pointer-events: none;
-        transition: opacity 0.2s;
-        }
-        &::before {
-        .absolute(3px, 1px, 0);
-        .vertical-gradient(#fff, transparent);
-        }
-
-        &::after {
-        .absolute(_, 1px, 3px);
-        .vertical-gradient(#fff, @veui-button-font-color-primary);
-        }
-
-        &-scroll {
-        &-start {
-            &::before {
-            opacity: 0;
-            }
-        }
-
-        &-end {
-            &::after {
-            opacity: 0;
-            }
-        }
-        }
-    }
-
     .@{veui-prefix}-checkbox {
         &.@{veui-prefix}-disabled {
             color: inherit;
