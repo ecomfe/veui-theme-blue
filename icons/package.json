@@ -8,7 +8,7 @@
     "prepublishOnly": "cp -r ./icons/* . && cp -r ./assets/images/* .",
     "revoke": "rm *.js icon-names.json && rm *.png",
     "publish": "rm *.js icon-names.json && rm *.png",
-    "prepare": "npm run build"
+    "prepare": "pnpm run build"
   },
   "repository": "ecomfe/veui-theme-blue",
   "peerDependencies": {
