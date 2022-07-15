@@ -4,7 +4,7 @@ import ui from 'veui/managers/ui';
 ui.defaults(
     {
         icons: {
-            loading: 'loading'
+            loading: null
         },
         ui: {
             style: {

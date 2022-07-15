@@ -5,8 +5,8 @@
             <section class="has-margin-right">
                 <h2>风格</h2>
                 <div class="options-desc">
-                    可选的风格 <span class="bg-gray-show">ui</span> 
-                    属性值： <span class="bg-gray-show">normal / strong</span>
+                    可选的风格 <span class="bg-gray-show">ui</span>
+                    属性值： <span class="bg-gray-show">normal / strong / inline</span>
                 </div>
                 <section>
                     <veui-field
@@ -30,6 +30,18 @@
                             placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
+                    </veui-field>
+                    <veui-field
+                        label="inline"
+                    >
+                        <veui-search-box
+                            clearable
+                            ui="inline"
+                            :placeholder="placeholder"
+                            :suggest-trigger="[]"
                             @search="log($event)"
                             @select="log('select', $event)"
                         />
@@ -60,6 +72,14 @@
                             @search="log($event)"
                             @select="log('select', $event)"
                         />
+                        <veui-search-box
+                            ui="xs inline"
+                            placeholder="搜索提示文案"
+                            :suggestions="suggestions4"
+                            @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
                     </veui-field>
                     <veui-field
                         label="小号（s）"
@@ -74,6 +94,14 @@
                         />
                         <veui-search-box
                             ui="s strong"
+                            placeholder="搜索提示文案"
+                            :suggestions="suggestions4"
+                            @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
+                        <veui-search-box
+                            ui="s inline"
                             placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
@@ -100,6 +128,14 @@
                             @search="log($event)"
                             @select="log('select', $event)"
                         />
+                        <veui-search-box
+                            ui="m inline"
+                            placeholder="搜索提示文案"
+                            :suggestions="suggestions4"
+                            @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
                     </veui-field>
                     <veui-field
                         label="大号（l）"
@@ -120,6 +156,14 @@
                             @search="log($event)"
                             @select="log('select', $event)"
                         />
+                        <veui-search-box
+                            ui="l inline"
+                            placeholder="搜索提示文案"
+                            :suggestions="suggestions4"
+                            @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
                     </veui-field>
                     <veui-field
                         label="超大号（xl）"
@@ -134,6 +178,15 @@
                         />
                         <veui-search-box
                             ui="xl strong"
+                            placeholder="搜索提示文案"
+                            :suggestions="suggestions4"
+                            @input="handleSuggest('4', $event)"
+                            @search="log($event)"
+                            @select="log('select', $event)"
+                        />
+                        <br/>
+                        <veui-search-box
+                            ui="xl inline"
                             placeholder="搜索提示文案"
                             :suggestions="suggestions4"
                             @input="handleSuggest('4', $event)"
@@ -238,6 +291,19 @@
                         </template>
                     </veui-search-box>
                 </section>
+            </section>
+            <section>
+                <h2>maxlength</h2>
+                <div>
+                    <veui-search-box clearable maxlength="10" placeholder="maxlength"/>
+                    <veui-search-box
+                        ui="strong"
+                        clearable
+                        maxlength="10"
+                        strict
+                        placeholder="maxlength &amp; strict"
+                    />
+                </div>
             </section>
         </veui-form>
     </article>
@@ -379,7 +445,7 @@ export default {
 
     .has-margin-right {
         .veui-search-box {
-        margin-right: 15px;
+            margin-right: 90px;
         }
     }
     .veui-field {

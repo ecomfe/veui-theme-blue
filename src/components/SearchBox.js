@@ -13,7 +13,7 @@ ui.defaults(
         },
         ui: {
             style: {
-                values: ['normal', 'strong'],
+                values: ['normal', 'strong', 'inline'],
                 inherit: true
             },
             size: {
