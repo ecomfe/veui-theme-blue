@@ -12,7 +12,7 @@
   },
   "repository": "ecomfe/veui-theme-blue",
   "peerDependencies": {
-    "veui": "2.7.3"
+    "veui": "2.10.2"
   },
   "devDependencies": {
     "esm": "^3.0.84",
