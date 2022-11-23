@@ -12,8 +12,8 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "date-fns": "^2.28.0",
-    "veui": "^2.7.3",
-    "vue": "^2.6.14",
+    "veui": "^2.10.2",
+    "vue": "2.7.14",
     "vue-awesome": "4.5.0",
     "vue-clipboard2": "^0.3.3"
   },
@@ -23,7 +23,7 @@
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-lodash": "^3.3.4",
-    "babel-plugin-veui": "^2.7.3",
+    "babel-plugin-veui": "^2.10.2",
     "chalk": "4.1.0",
     "classlist-polyfill": "^1.2.0",
     "eslint": "^6.8.0",
@@ -35,7 +35,7 @@
     "less-plugin-est": "^3.0.1",
     "lodash": "^4.17.21",
     "promise-polyfill": "^8.2.1",
-    "veui-loader": "^2.7.3",
+    "veui-loader": "^2.10.2",
     "vue-router": "^3.5.3",
     "vue-template-compiler": "^2.6.14"
   },
