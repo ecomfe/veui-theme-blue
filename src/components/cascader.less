@@ -1,0 +1,81 @@
+@import "../lib.less";
+@import (reference) "../dropdown.less";
+@import (reference) "../trigger.less";
+
+.@{veui-prefix}-cascader {
+  display: inline-flex;
+  outline: none;
+  .veui-stub();
+
+  &[data-focus-visible-added] .@{veui-prefix}-input {
+    .veui-focus-ring(@veui-border-color-focus, @veui-shadow-focus);
+
+    &.@{veui-prefix}-invalid {
+      .veui-focus-ring(
+        @veui-border-color-error,
+        @veui-shadow-error-focus
+      );
+    }
+  }
+
+  .@{veui-prefix}-trigger {
+    &:extend(._veui-select-trigger all);
+  }
+
+  &-pane-wrap {
+    &:extend(._veui-dropdown-overlay all);
+    overflow-y: auto;
+    background-color: @veui-option-background-color;
+    outline: none;
+  }
+
+  &-overlay &-pane-wrap {
+    max-height: none; // 覆盖 overlay 对下拉的高度限制
+  }
+
+  // 特殊处理：将全选伪造成第一层
+  &-select-all
+    &-pane
+    &-pane-column:first-child
+    > &-pane-tree
+    > li
+    > &-pane-tree {
+    padding-left: 0;
+  }
+
+  &-pane-option {
+    .veui-search-result();
+  }
+
+  &-search-result {
+    .@{veui-prefix}-cascader-pane-column-wrap {
+      width: 100%;
+    }
+    .@{veui-prefix}-cascader-pane-column {
+      height: auto;
+    }
+
+    &-item-separator {
+      transform: rotate(-90deg);
+    }
+  }
+
+  // 切换到搜索干掉错误的过渡
+  &-search-result &-pane-tree {
+    transition-duration: 0s;
+  }
+
+  &-before,
+  &-after {
+    padding: 2 * @veui-padding-unit 3 * @veui-padding-unit;
+    color: @veui-font-color-aux;
+  }
+
+  &-before {
+    border-bottom: 1px solid @veui-option-group-separator-color;
+  }
+
+  &-after {
+    border-top: 1px solid @veui-option-group-separator-color;
+  }
+}
