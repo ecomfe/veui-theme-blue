@@ -92,3 +92,48 @@
 .veui-icon-size(@size, @fixed-width) when (@fixed-width = true) {
   .size(@size);
 }
+
+.veui-search-result() {
+  .@{veui-prefix}-search-result-item-matched {
+    color: @veui-option-font-color-highlighted;
+    background: transparent;
+  }
+  .@{veui-prefix}-search-result-item-separator {
+    margin: 0 2 * @veui-spacing-unit; // TODO
+  }
+}
+
+.veui-max-height(@item-height, @max-count, @fixed-height: false, @padding-y: @veui-padding-unit) {
+  & when (isnumber(@max-count)) {
+    max-height: veui-sum(@item-height * (@max-count + 0.5), @padding-y);
+    & when (@fixed-height = true) {
+      height: veui-sum(@item-height * (@max-count + 0.5), @padding-y);
+    }
+  }
+
+  & when not (isnumber(@max-count)) {
+    max-height: veui-sum(@item-height * 8.5, @padding-y); // ie 降级到 8.5
+    max-height: calc(@item-height * (@max-count + 0.5) + @padding-y);
+    & when (@fixed-height = true) {
+      height: veui-sum(@item-height * 8.5, @padding-y); // ie 降级到 8.5
+      height: calc(@item-height * (@max-count + 0.5) + @padding-y);
+    }
+  }
+}
+
+.veui-dropdown-menu-max-height(@sizes, @max-count: 8, @fixed-height: false, @padding-y: @veui-padding-unit, @option-height: "veui-option-height") {
+  .loop(@index: 1) when (@index <= length(@sizes)) {
+    @size: extract(@sizes, @index);
+    @height: "@{option-height}-@{size}";
+
+    &[ui~="@{size}"] {
+      .veui-max-height(@@height, @max-count, @fixed-height, @padding-y);
+    }
+
+    .loop(@index + 1);
+  }
+
+  .loop();
+
+  overflow-y: auto;
+}

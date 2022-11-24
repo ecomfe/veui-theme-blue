@@ -61,6 +61,7 @@ import Lightbox from './Lightbox';
 import VDragSort from './VDragSort';
 import Plugins from './Plugins';
 import Message from './Message';
+import Cascader from './Cascader';
 
 export default [
     {
@@ -143,6 +144,11 @@ export default [
         path: '/carousel',
         name: 'Carousel',
         component: Carousel
+    },
+    {
+        path: '/cascader',
+        name: 'Cascader',
+        component: Cascader
     },
     {
         path: '/checkbox',

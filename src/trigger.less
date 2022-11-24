@@ -1,0 +1,200 @@
+._veui-select-trigger {
+    @veui-select-padding-y: @veui-padding-unit;
+    @adjusted-select-padding-y: veui-sum(@veui-select-padding-y, -1px);
+    @trigger: ~"@{veui-prefix}-trigger";
+
+    @veui-select-tag-height-m: 24px;
+
+    cursor: pointer;
+
+    &-icon {
+      display: flex;
+      position: relative;
+    }
+
+    &-placeholder {
+      color: #999;
+    }
+
+    &-count {
+      margin-right: @veui-padding-unit;
+    }
+
+    &-toggle {
+      .veui-icon-size(@veui-icon-size-aux);
+      .veui-transition(transform, color, opacity);
+      color: @veui-icon-color-aux;
+    }
+
+    &.@{veui-prefix}-readonly .@{trigger}-toggle,
+    &.@{veui-prefix}-disabled .@{trigger}-toggle {
+      color: @veui-icon-color-aux-disabled;
+    }
+
+    &:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
+      .@{trigger}-clear
+      + .@{trigger}-toggle,
+    .@{veui-prefix}-focus .@{trigger}-clear + .@{trigger}-toggle,
+    &-clear[data-focus-visible-added] + .@{trigger}-toggle {
+      opacity: 0;
+    }
+
+    &-expanded .@{trigger}-toggle {
+      transform: rotateZ(180deg);
+    }
+
+    &-clear {
+      .absolute(50%, 50%, _, _);
+      transform: translate(50%, -50%);
+      opacity: 0;
+      z-index: 1;
+
+      .@{veui-prefix}-icon,
+      .veui-icon {
+        .veui-icon-size(@veui-icon-size-normal);
+      }
+    }
+
+    &:not(.@{veui-prefix}-readonly):not(.@{veui-prefix}-disabled):hover
+      .@{trigger}-clear,
+    .@{veui-prefix}-focus .@{trigger}-clear,
+    .@{trigger}-clear[data-focus-visible-added] {
+      opacity: 1;
+      font-size: @veui-font-size-m;
+      color: @veui-font-color-disabled;
+    }
+
+    .@{veui-prefix}-input-input {
+      display: none;
+    }
+
+    &-searchable {
+      cursor: text;
+      .@{veui-prefix}-input-input {
+        display: block;
+      }
+    }
+
+    &:not(.@{trigger}-empty):not(.@{trigger}-expanded):not(.@{veui-prefix}-focus)
+      .@{veui-prefix}-input-placeholder {
+      color: @veui-font-color-normal;
+    }
+
+    &.@{veui-prefix}-readonly .@{veui-prefix}-input-placeholder {
+      color: @veui-font-color-disabled;
+    }
+
+    &-label {
+      max-width: none;
+      .ellipsis();
+
+      .@{veui-prefix}-readonly .@{trigger}-label {
+        color: @veui-font-color-disabled;
+      }
+
+      .@{veui-prefix}-disabled .@{trigger}-label {
+        color: @veui-font-color-disabled;
+      }
+    }
+
+    &-custom-selected {
+      .ellipsis();
+    }
+
+    &-wrap.@{veui-prefix}-input {
+      display: block;
+      min-width: 100%;
+      height: auto;
+      overflow: hidden;
+
+      .@{veui-prefix}-input-before {
+        display: block;
+        overflow: visible;
+
+        .@{veui-prefix}-tag {
+          float: left;
+          margin-right: @veui-padding-unit;
+          margin-top: @adjusted-select-padding-y;
+          border: 0 none;
+
+          &-remove {
+            color: @veui-color-gray-7;
+          }
+        }
+
+        .@{veui-prefix}-trigger-placeholder {
+          float: left;
+          margin-top: @adjusted-select-padding-y;
+        }
+      }
+
+      .@{veui-prefix}-input-input {
+        float: left;
+        margin-top: @adjusted-select-padding-y;
+        width: 0;
+      }
+
+      .@{veui-prefix}-input-placeholder {
+        margin-top: @adjusted-select-padding-y;
+      }
+
+      .@{veui-prefix}-input-after {
+        float: right;
+        margin: @adjusted-select-padding-y 0;
+      }
+    }
+
+    .@{veui-prefix}-input-after {
+      color: @veui-font-color-aux;
+    }
+
+    .@{veui-prefix}-count-overflow {
+      color: @veui-font-color-normal;
+    }
+
+    &-custom-label {
+      flex: 0 1 auto;
+      .ellipsis();
+    }
+
+    &-searchable.@{trigger}-multiple {
+      &:not(.@{veui-prefix}-trigger-empty) .@{veui-prefix}-input-content {
+        display: block;
+      }
+
+      .@{veui-prefix}-input-input {
+        width: 0;
+        max-width: 100%;
+      }
+
+      &.@{veui-prefix}-trigger-expanded {
+        .@{veui-prefix}-input-input {
+          width: 10px;
+        }
+      }
+    }
+
+    .make-metrics (@size) {
+      @height: ~"veui-select-tag-height-@{size}";
+
+      &.@{veui-prefix}-trigger.@{trigger}-wrap {
+        .@{veui-prefix}-trigger-placeholder {
+          line-height: @@height;
+        }
+
+        .@{veui-prefix}-input-after {
+          height: @@height;
+        }
+
+        .@{veui-prefix}-tag {
+          height: @@height;
+        }
+
+        .@{veui-prefix}-input-input {
+          height: @@height;
+        }
+      }
+    }
+
+    .make-metrics(m);
+}

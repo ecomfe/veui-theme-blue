@@ -1,0 +1,258 @@
+@import "../lib.less";
+@import (reference) "../dropdown.less";
+
+.@{veui-prefix}-cascader-pane {
+  @min-panel-width: 30 * @veui-padding-unit;
+  @option-padding-x: 3 * @veui-padding-unit;
+
+  display: flex;
+
+  &-tree {
+    .reset-list-style();
+    margin: 0;
+  }
+
+  &-tree:not(.@{veui-prefix}-abstract-tree-item-group) {
+    will-change: height;
+    .veui-transition(height);
+  }
+
+  &-leave-active,
+  &-enter-active {
+    will-change: margin-left;
+    .veui-transition(margin-left);
+  }
+
+  &-leave-to,
+  &-enter {
+    margin-left: -@min-panel-width;
+  }
+
+  &-custom-width &-leave-to,
+  &-custom-width &-enter {
+    margin-left: calc(
+      -1 * var(--veui-cascader-pane-custom-width, @min-panel-width)
+    );
+  }
+
+  &-leave-active {
+    z-index: 0 !important;
+  }
+
+  &-column {
+    .padding(@veui-padding-unit, _);
+    position: relative;
+    overflow: auto;
+    // max-height 用来控制搜索时最大高度，此时高度会 reset 成 auto
+    @sizes: xs, s, m, l;
+    .veui-dropdown-menu-max-height(
+      @sizes,
+      var(--veui-dropdown-max-display-items, 8),
+      true
+    );
+  }
+
+  &-column-wrap:not(:first-child) {
+    border-left: 1px solid @veui-border-color-normal;
+  }
+
+  // 下拉第一层没有缩进，其他层缩进
+  &-column > &-tree {
+    padding-left: 0;
+    box-sizing: content-box;
+    flex: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  &-tree &-tree {
+    padding-left: 3 * @veui-padding-unit;
+  }
+
+  &-column-wrap {
+    min-width: @min-panel-width;
+    background-color: @veui-option-background-color;
+  }
+
+  // 内联平分
+  &-inline &-column-wrap {
+    flex: 1 0;
+  }
+
+  &-custom-width &-column-wrap {
+    flex: none;
+
+    &:last-child {
+      flex: 1 0;
+    }
+  }
+
+  // option
+  &-group-label,
+  &-option {
+    &:extend(._veui-dropdown-option all);
+    .padding(_, @option-padding-x);
+    // reset dropdown option background, use tree item background
+    background-color: transparent;
+
+    &:hover {
+      color: @veui-font-color-normal;
+      background-color: transparent;
+    }
+    position: relative;
+  }
+
+  &-option-label {
+    display: flex;
+    align-items: center;
+  }
+
+  // tree hover style
+  &-option-wrap {
+    height: @veui-option-height-m;
+    outline: none;
+
+    &[ui~="xs"] {
+      height: @veui-option-height-xs;
+    }
+
+    &[ui~="s"] {
+      height: @veui-option-height-s;
+    }
+
+    &[ui~="l"] {
+      height: @veui-option-height-l;
+    }
+
+    &:not(&-disabled) {
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: inherit;
+        width: 200%; // hack around Safari's bug
+        .veui-transition(background-color);
+      }
+
+      &:hover {
+        &::before {
+          background-color: @veui-background-color-normal-hover;
+        }
+      }
+
+      &[data-focus-visible-added] {
+        .@{veui-prefix}-cascader-pane-option-label {
+          color: @veui-option-font-color-focus;
+        }
+
+        &::before {
+          background-color: @veui-option-background-color-focus;
+        }
+      }
+
+      // :active applies to all elements
+      &:active {
+        .@{veui-prefix}-cascader-pane-option-label {
+          color: @veui-option-font-color-active;
+        }
+
+        &::before {
+          background-color: @veui-background-color-normal-hover;
+        }
+      }
+    }
+
+    &:not(&-disabled)&-expanded {
+      &::before {
+        font-weight: @veui-option-font-weight-selected-parent;
+        background-color: @veui-option-background-color-selected-parent;
+      }
+
+      &:active::before {
+        background-color: @veui-option-background-color-active;
+      }
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      background-color: @veui-option-background-color;
+
+      .@{veui-prefix}-cascader-pane-option {
+        cursor: not-allowed;
+        color: @veui-option-font-color-disabled;
+      }
+    }
+  }
+
+  &:not(&-multiple) &-option-wrap-selected:not(&-option-wrap-disabled) {
+    .@{veui-prefix}-cascader-pane-option-label {
+      color: @veui-option-font-color-selected;
+    }
+  }
+
+  &-group-label {
+    display: flex;
+    align-items: center;
+    max-width: @veui-option-max-width-m;
+    font-size: @veui-option-font-size-m;
+
+    .padding(@veui-option-group-label-padding-y, @option-padding-x);
+
+    .@{veui-prefix}-cascader-pane-option-label {
+      flex-grow: 1;
+    }
+
+    .@{veui-prefix}-cascader-pane-expandable {
+      color: @veui-option-icon-color-aux;
+      .veui-icon-size(@veui-option-icon-size-aux);
+      margin-left: @veui-option-label-spacing-after;
+      font-size: @veui-font-size-s;
+    }
+  }
+
+  &-column-before,
+  &-column-after {
+    padding: 2 * @veui-padding-unit 3 * @veui-padding-unit;
+    color: @veui-font-color-aux;
+  }
+
+  &-column-before {
+    margin-top: -@veui-option-padding-s;
+  }
+
+  &-column-after {
+    margin-bottom: -@veui-option-padding-s;
+    position: sticky;
+    top: 100%;
+  }
+
+  &[ui~="xs"] {
+    .@{veui-prefix}-cascader-pane-option-wrap {
+      height: @veui-option-height-xs;
+      .@{veui-prefix}-cascader-pane-option-label {
+        font-size: @veui-option-font-size-xs;
+        max-width: @veui-option-max-width-xs;
+      }
+    }
+  }
+
+  &[ui~="s"] {
+    .@{veui-prefix}-cascader-pane-option-wrap {
+      height: @veui-option-height-s;
+      .@{veui-prefix}-cascader-pane-option-label {
+        font-size: @veui-option-font-size-s;
+        max-width: @veui-option-max-width-s;
+      }
+    }
+  }
+
+  &[ui~="l"] {
+    .@{veui-prefix}-cascader-pane-option-wrap {
+      height: @veui-option-height-l;
+      .@{veui-prefix}-cascader-pane-option-label {
+        font-size: @veui-option-font-size-l;
+        max-width: @veui-option-max-width-l;
+      }
+    }
+  }
+}
