@@ -62,6 +62,7 @@ import VDragSort from './VDragSort';
 import Plugins from './Plugins';
 import Message from './Message';
 import Cascader from './Cascader';
+import Empty from './Empty';
 
 export default [
     {
@@ -194,6 +195,11 @@ export default [
         path: '/embedded',
         name: 'Embedded',
         component: Embedded
+    },
+    {
+        path: '/empty',
+        name: 'Empty',
+        component: Empty
     },
     {
         path: '/form',
