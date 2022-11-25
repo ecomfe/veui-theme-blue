@@ -24,8 +24,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install and Build
         run: |
-          npm install
-          npm run build
+          pnpm install
+          pnpm run build
           echo test, and install your project.
 
       - name: Deploy to GitHub Pages
